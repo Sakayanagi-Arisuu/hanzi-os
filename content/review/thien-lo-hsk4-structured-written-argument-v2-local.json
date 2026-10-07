@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Three HSK4 structured-written-argument integrated-study lessons; multiple bound source texts, evidence-limited task models, editable rubrics and self-paced countdown rehearsal. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check and clock do not grant mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/56-REVIEW-HSK4-INTEGRATION.md",
+  "items": [
+    {
+      "lessonId": "hsk4-structured-written-argument-lesson-01",
+      "sourceContentSha256": "sha256:11e85bea771643fbd37e6f02a1fc1a53e7f8012a33da12482cebe5762a307d17",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-structured-written-argument-lesson-02",
+      "sourceContentSha256": "sha256:5635269412bfa3e2849867d3c2a166ce38df6af70f481b5f35f2a84b603bca73",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-structured-written-argument-lesson-03",
+      "sourceContentSha256": "sha256:25bac39649fbece8dbc859cc2a9ef97d9493b2016104dbff36318f6ad7c41e0a",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

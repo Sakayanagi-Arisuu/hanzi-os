@@ -1,0 +1,3429 @@
+{
+  "humanReviewed": false,
+  "sourceFiles": [
+    {
+      "path": "content/runtime/hsk3-level-check-local.json",
+      "sha256": "0ab690900c98ddc5279ee85a94c4d75f7ac89e6886238e4aca75868abc3229e3"
+    },
+    {
+      "path": "content/runtime/hsk-mock-exam-alternate-local.json",
+      "sha256": "1be65713114416a7345691305c034c2030af9940766126cee1ce665c5071f97d"
+    },
+    {
+      "path": "scripts/content/hsk3-assessment-editorial-round94.mjs",
+      "sha256": "0453cce8c730d8728fdf6e52124ce902d8fa1d021cdb7934d4b6360259172c15"
+    }
+  ],
+  "entries": [
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:01:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Thông tin nào phải được bổ sung trước khi đưa người giao đồ ăn tới nơi?",
+        "hanzi": "周叔叔在小区的服务中心工作，每天都要接待不少客人。 今天上午，他收到一张奇怪的外卖单，名字却不在名单上。 送外卖的人说，客人住在附近，但是没有写房间号。 周叔叔没有马上决定收下，而是先照着电话号码联系客人。 客人解释说，外卖是给在草地上参加“四季摄影活动”的朋友订的。 原来活动的办公室不在楼里，而在小区花园旁边。 周叔叔请送餐员在纸上补写地点，然后带他过去。 这件事看起来很小，却说明服务工作总要先检查清楚。",
+        "options": [
+          "Địa điểm giao cụ thể",
+          "Giá từng món ăn",
+          "Ngày chuyển nhà",
+          "Tên máy ảnh"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Người nhận giải thích văn phòng ở cạnh vườn, rồi chú Châu yêu cầu ghi bổ sung địa điểm; không nêu đổi giá món.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-identity-transactions"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:02:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "两位游客站在马路边，看着地图却找不到宾馆。 他们走到一个路口，发现路边没有站牌。 一位司机停下汽车，问他们要去哪儿。 游客说，他们根据地图走了好久，还是没看见宾馆。 司机告诉他们，过了前面的红绿灯，右边就是汽车站。 从车站再走五分钟，宾馆就在第二个路口附近。 一辆公共汽车来了，司机说坐这辆车也行。 游客谢过司机，后来决定走路去，也顺便看看城市。",
+        "options": [
+          "Tài xế sửa xe ở ven đường",
+          "Du khách mua vé tàu",
+          "Khách sạn chuyển thành bến xe",
+          "Du khách hỏi và nhận chỉ đường tới khách sạn"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Du khách hỏi và nhận chỉ đường tới khách sạn”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-travel-transport"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:03:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Cách nào giúp nhóm quyết định hoạt động chung?",
+        "hanzi": "小区里的老人和孩子周末常常一起做游戏。 一位老人对养花有兴趣，孩子们却更喜欢养小动物。 大家讨论了好久，还是没有决定做什么。 后来一个邻居说，可以设计一个照顾植物的游戏。 孩子写句子介绍怎么养，老人准备大小不同的花盆。 游戏开始以后，大家几乎忘了吃午饭。 有人把土扫到一起，有人把花搬进活动室。 看来，共同的兴趣让不同年龄的人生活得更有意思。",
+        "options": [
+          "Hủy buổi gặp",
+          "Tổ chức trò chăm sóc cây",
+          "Chỉ cho trẻ chơi riêng",
+          "Chuyển tới khách sạn"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Một hàng xóm đề xuất trò chăm cây; trẻ viết hướng dẫn, người lớn chuẩn bị chậu, nên hai nhóm cùng tham gia được.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-home-family-leisure"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:04:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "小安出生在南方，今年到北方上初中，住进了学校宿舍。 最近，他常把水果放进公共冰箱，晚上却只吃方便面。 一天，他的两个姐妹来看他，还带来了两公斤水果。 他们在食堂门口见面，却发现小安只是吃方便面。 姐姐说，体育课很多，只吃这些不会有足够的力气。 宿舍老师也听到了他们的声音，请小安把情况说清楚。 老师建议他按年级的菜单吃饭，水果可以放在冰箱里。 小安受到大家的关心，答应从第二天开始认真吃晚饭。",
+        "options": [
+          "Chọn trường cấp hai",
+          "Thói quen ăn tối của học sinh ở ký túc",
+          "Cách tổ chức tiết thể dục",
+          "Mua tủ lạnh mới"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Nội dung xoay quanh “Thói quen ăn tối của học sinh ở ký túc”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:05:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nhóm phân hành lý theo thông tin nào?",
+        "hanzi": "公司要欢迎六位客人，接待组一共收到十二件行李。 同事小周说，只有两个人搬东西，时间可能不够。 另一位同事愿意帮助他们，可是她刚洗澡，还没换好工作服。 小周让她先放心换衣服，然后按房间号码分行李。 大家得看清标签，明白每件行李跟哪位客人有关系。 客人到了以后，他们会先介绍酒店，再带客人去房间。 因为分工清楚，十二件行李很快都送到了正确的地方。 接待组发现，互相帮助能让欢迎工作更轻松。",
+        "options": [
+          "Màu áo nhân viên",
+          "Chiều cao khách",
+          "Số phòng và nhãn hành lý",
+          "Ngày mua va-li"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "小周要求按房间号码分行李; mọi người còn phải đọc nhãn để biết kiện thuộc khách nào.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-colleague-workplace"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:06:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "小方春天去旅行时遇到大风，回来以后还感冒发烧了。 这次秋天再出发，他必须先看网站上的季节天气。 网站说白天有太阳，很凉快，可是晚上会刮冷风。 妈妈提醒他带外衣、雨衣和每天常用的牙刷。 她还说，如果路上看到冰，走路时一定要慢一点。 小方把这些有关安全和健康的东西都写进清单。 他发现，夏天和冬天的行李不同，每个季节都要重新准备。 注意小事以后，他对这次旅行更放心了。",
+        "options": [
+          "Điều trị bệnh dài ngày",
+          "Mua bàn chải mới",
+          "Trồng hoa trong công viên",
+          "Chuẩn bị hành lý theo mùa"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Chuẩn bị hành lý theo mùa”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-climate-seasons"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:07:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Vì sao hoạt động được chuyển vào phòng học?",
+        "hanzi": "学校原来要在东边的花园复习地理，可是早上下起了大雨。 老师马上关了花园门，把活动地点换到山下的教室。 他在桌上放了一张地图，请学生找北方和南方。 第一组复习东、东北和东南，第二组复习西、西北和西南。 一位学生问，为什么东方和西方不只是地图上的地方。 老师说明，这两个词也常用来谈文化和生活方式。 虽然不能在地上走方向路线，大家还是完成了复习。 雨停以后，老师说下次再回原来的地方做活动。",
+        "options": [
+          "Học sinh quên áo",
+          "Bản đồ bị mất",
+          "Mưa lớn xảy ra",
+          "Vườn quá xa"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Đoạn mở đầu nêu mưa lớn, rồi giáo viên đổi địa điểm; không có dữ kiện bản đồ mất hoặc vườn quá xa.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-landscape-place"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:08:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Vì sao Tiểu Mã không nên chuyển tiếp video ngay?",
+        "hanzi": "小马刚刚在网上看到一段很短的视频，就为大熊猫着急。 视频里的动物看起来像羊，旁边的男人却说它是生病的熊猫。 小马差不多要把消息发给所有朋友，幸好没有忘记先检查。 他或者查看有名动物园的网站，或者问平时研究动物的老师。 老师解释，那其实是一只羊，视频加了错误的文字。 如果大家看到短消息就马上转发，错误会很快增加。 提高保护意识不只是关心动物，也包括认真判断信息。 小马找到办法以后放心了，还跟朋友聊了检查来源的重要性。",
+        "options": [
+          "Video không có âm thanh",
+          "Mọi video động vật đều sai",
+          "Người bạn đã mua con cừu",
+          "Chữ chú thích gọi con cừu là gấu trúc bị bệnh"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Giáo viên xác nhận con vật là cừu và video có chữ sai. Cần kiểm nguồn; không suy mọi video đều sai.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-environment-protection"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:09:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "李阿姨急着进活动房，可是社区卡又卡在门口的机器里。 她为这件事给服务中心写了一封信，而且告诉了别人。 年轻工作人员请她别急，先检查卡，再看机器是不是放平了。 他发现机器跟地面不水平，入口只要有人碰就会出问题。 工作人员换了位置，卡和其他卡片就都能正常使用。 李阿姨嘴上说谢谢，还送来一块自己做的蛋糕。 服务中心把经验写给每一层工作人员，让处理方法一样。 一个小问题解决以后，公共服务又向前发展了一步。",
+        "options": [
+          "Thẻ bị kẹt do máy đặt không cân",
+          "Nhà bị mất điện",
+          "Bánh không ngon",
+          "Thư gửi sai tầng"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Thẻ bị kẹt do máy đặt không cân”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-city-development"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:10:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Hộ chiếu được tìm thấy ở đâu?",
+        "hanzi": "一位运动员前天到外地参加网球活动，带了一个大箱子。 报名员问护照号码时，他突然发现护照不在身边。 他打开箱子，只有衬衫、鞋和一般运动用品。 语言帮助员请他想想前天得到过哪些文件。 他记起酒店登记时复印过护照，就马上打电话。 酒店说护照在桌上，工作人员正努力送过来。 等的时候，教练给他冰激凌，还介绍一位可爱的小运动员。 护照送到后，他满意地报名，也更注意检查重要东西。",
+        "options": [
+          "Trên bàn ở khách sạn",
+          "Trong va-li quần áo",
+          "Trên tàu đã rời ga",
+          "Trong quán bán kem"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Khách nhớ khách sạn từng sao hộ chiếu, gọi lại và được báo hộ chiếu trên bàn; nhân viên gửi tới.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-sports-introduction"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:11:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Điều gì giúp lần nấu thứ hai có độ ngọt phù hợp?",
+        "hanzi": "美玲刚借到一本电子书，打算周末学做家乡的甜饭。 书里说，先选择合适的米，再放黄色的香蕉和少量糖。 她过去只在节日吃过这种饭，所以记得味道，却不会做。 第一次做得太甜，她急得想哭，不知道怎么办。 奶奶通过视频告诉她，米和糖的多少比拍照好看更重要。 她重新选择材料，在安静的厨房里慢慢试了一次。 饭做好以后，她拿到草地上请朋友尝，还用银行卡买了饮料。 朋友说这次甜得正好，她也记录了完整做法。",
+        "options": [
+          "Chụp ảnh đẹp hơn",
+          "Điều chỉnh lượng gạo và đường",
+          "Đổi ngân hàng thanh toán",
+          "Chỉ mang món ra bãi cỏ"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Bà giải thích lượng gạo/đường quan trọng hơn ảnh; Mỹ Linh chọn lại nguyên liệu và thử lần nữa.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-regional-cuisine"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · listening · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:12:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "各位同学，关于下周的中秋节活动，请先听三个安排。 学校放假一天，参加活动的同学可以下午回来准备。 数学小组负责算材料，外语小组负责介绍不同国家怎样过节。 老师可以和爱人一起参加，也可以讲自己的家庭习惯。 请大家准备一件小礼物，不久我们会公布交换方法。 活动在五楼，电梯旁有热情的学生帮助找教室。 晚上看见月亮以后，每组可以分享不同的看法，不一定只有一个答案。 活动结束时，请每组说说自己学到的中秋节知识。",
+        "options": [
+          "Kế hoạch cưới giáo viên",
+          "Phân công và quy trình cho hoạt động lễ hội trăng",
+          "Lịch thi toán",
+          "Cách dùng thang máy"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Nội dung xoay quanh “Phân công và quy trình cho hoạt động lễ hội trăng”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:listening:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:01:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Tiểu Lâm phải làm gì trước khi gửi đơn cho quản lý?",
+        "hanzi": "小林在一家公司办公室工作，最近他决定参加一个星期五下午的汉语活动。活动给年轻人一个练习说汉语的机会，可是时间正好是星期五下午。按照公司的要求，他得先在一张纸上写请假的原因。他不知道该怎么办，就去问办公室的王阿姨。王阿姨告诉他，最好的方法是先请组长照着名单检查工作安排。如果没有重要的客人，他就可以把申请交给经理。经理收到申请以后，很快同意了。小林觉得这次办得不难，也明白了公司为什么需要这样的手续。",
+        "options": [
+          "Tự nghỉ mà không báo",
+          "Đổi sang công ty khác",
+          "Nhờ tổ trưởng kiểm tra sắp xếp công việc",
+          "Hủy mọi cuộc gặp với khách"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Cô Vương hướng dẫn kiểm tra lịch trước; khi không có khách quan trọng mới chuyển đơn. Đoạn không cho phép tự nghỉ.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-identity-transactions"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:02:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "小安是留学生，来中国留学已经半年了。他好久没有旅行，就在笔记本上写下周末计划。根据网上的信息，他要先坐汽车到火车站，再检票上车。出发那天，一辆汽车在红绿灯前被别的车挡住了。司机说这样等下去不行，就换了一条路。小安还是迟到了，跑到车站时已经开始检票。后来工作人员让他先出示车票，再从旁边的入口进去。虽然有点儿紧张，他最后还是顺利出发了。",
+        "options": [
+          "Một tài xế học ở nước ngoài",
+          "Một nhân viên làm mất vé",
+          "Một chuyến đi bị hủy",
+          "Một du học sinh xử lý việc đến ga muộn"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Một du học sinh xử lý việc đến ga muộn”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-travel-transport"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:03:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Ai kiểm tra nước trong nhà vệ sinh?",
+        "hanzi": "一对夫妻周末搬家，搬进了一个安静的小区。新屋子大小合适，有客厅、卧室和一个卫生间。附近有宾馆、商店和公园，生活很方便。他们刚开始整理，邻居和一位老人就来帮忙。老人帮他们扫屋子，邻居检查了卫生间的水。丈夫发现一个箱子几乎打不开，有点儿生气。妻子问他为什么生气，两个人一起想出了办法。看来，有热心的邻居，搬家也能变成开心的经历。",
+        "options": [
+          "Người chồng",
+          "Khách trong nhà nghỉ",
+          "Người vợ",
+          "Người hàng xóm"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nguồn phân công người lớn tuổi quét nhà và hàng xóm kiểm tra nước; không được đổi hai việc cho nhau.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-home-family-leisure"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:04:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "最近，李校长请初中一年级的学生和家长参观新校园。小雨和她的姐妹在图书馆面前见面，然后一起进学校。校长站在黑板旁边，用清楚的声音介绍每天的安排。学生上午学习，下午有体育课，也能到图书馆看书。小雨的妹妹刚从外地来到这里，只是还不太了解校园。她听完介绍以后，清楚了每座楼的方向和使用时间。家长们也受到欢迎，还可以向老师提出自己的问题。参观结束时，姐妹俩都觉得新的学习环境让人放心。",
+        "options": [
+          "Chuyến về quê",
+          "Buổi tham quan trường cho học sinh và gia đình",
+          "Một cuộc thi thể thao",
+          "Một ngày làm việc ở thư viện"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Nội dung xoay quanh “Buổi tham quan trường cho học sinh và gia đình”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:05:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Điều kiện để được lên tàu làm việc là gì?",
+        "hanzi": "公司欢迎新同事陈海，他刚收到去港口培训的通知。培训员说，他得带课本和行李，一共要住三个晚上。只有学会安全规则，大家才可以上船工作。陈海不明白怎样爬船边的短梯子，同事就慢慢做给他看。他先看清每一步，然后自己练习，大家也愿意帮助他。培训结束后，他们回宿舍洗澡，把湿衣服放好。陈海说：“现在我明白了，你们可以放心。”这次合作让新老同事的关系从第一天就更近了。",
+        "options": [
+          "Học được quy tắc an toàn",
+          "Có áo mới",
+          "Biết giặt quần áo",
+          "Mua sách từ công ty"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "只有学会安全规则…才可以… đặt điều kiện cần; đồng nghiệp giúp Trần Hải học từng bước.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-colleague-workplace"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:06:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "这个城市四季分明，春天一到，公园里的花就开花了。夏天太阳很大，人们喜欢傍晚到河边找凉快的地方。秋天常有风，树叶变黄，走路时必须注意脚下。冬天有时刮北风，水面会有薄薄的冰。天气网站每天介绍跟温度有关的信息，也提醒大家带雨衣。换季时容易感冒，如果连续发烧，就应该去看医生。有人以为只有冬天才会生病，其实每个季节都要照顾身体。了解四季不是为了怕天气，而是为了安排好每天的生活。",
+        "options": [
+          "Cách trồng một loại hoa",
+          "Lịch khám bệnh",
+          "Cách xây trang web",
+          "Đặc điểm bốn mùa và cách thích ứng"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Đặc điểm bốn mùa và cách thích ứng”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-climate-seasons"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:07:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Ga tàu nằm ở hướng nào?",
+        "hanzi": "这座山城在北方，最有名的地点是中间的一座山。山的东边是老花园，东方的太阳升起时，地上会变得很亮。东北有火车站，东南有一条热闹的小吃街。南边的地方比较暖，很多南方来的植物都种在那里。西边是新学校，西方的建筑方法给它带来了一些特点。西北的风很大，西南却有安静的湖和散步的小路。冬天来这里要穿大衣，进山以前也要看清地图。记住方向以后，游客就能了解每个地方不同的景色。",
+        "options": [
+          "Tây nam",
+          "Đông bắc",
+          "Tây bắc",
+          "Đông nam"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "东北有火车站 nêu ga ở đông bắc. Đông nam có phố đồ ăn, không phải ga.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-landscape-place"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:08:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "一个有名的城市公园刚刚完成了新的交通调查。工作人员跟一百位男人和女人聊他们平时怎样来公园。差不多一半的人走路，三十人骑自行车，其他人坐车。如果路比较短，很多人愿意走路或者骑车。可是有人着急上班，常忘记带水，也觉得骑车不方便。公园想出的办法是加几个饮水点，并提高自行车停车安全。工作人员说，像遮阳处和清楚的路牌也会帮助大家。只要选择低污染的出行方式，每个人都能保护一点环境。",
+        "options": [
+          "Thiết kế áo mưa",
+          "Cách đi lại ít ô nhiễm tới công viên",
+          "Thức ăn cho động vật",
+          "Giờ mở cửa thư viện"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Nội dung xoay quanh “Cách đi lại ít ô nhiễm tới công viên”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-environment-protection"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:09:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "街角有一座三层旧房子，以前是寄信和办卡的地方。城市为社区发展重新设计它，而且请年轻居民一起提意见。第一层变成服务大厅，可以办卡，也能在需要时使用电脑。第二层让年轻人聊天儿，第三层给其他居民学习。开放那天，工作人员穿着一样的上衣，嘴上一直带着笑。大家还准备了蛋糕，欢迎住在附近的人来看看。有人担心水平不一样，工作人员说每层都能提供不同的帮助。旧房子又有了作用，也成了城市公共服务发展的例子。",
+        "options": [
+          "Trở thành trung tâm dịch vụ cộng đồng",
+          "Thành nhà riêng",
+          "Chỉ bán bánh",
+          "Làm kho quần áo"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Trở thành trung tâm dịch vụ cộng đồng”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-city-development"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:10:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Nhận xét nào phù hợp về người được tham gia ngày trải nghiệm?",
+        "hanzi": "前天，国际青年中心办了网球体验日，欢迎一般水平的学生。外国学生报名时要写护照号码，也可以选择需要帮助的语言。运动员先了解每个人的身高，再分给他们合适的球拍。小丁打开箱子，发现自己的衬衫和运动鞋都带来了。练习中他突然遇到一位可爱的小运动员，动作比他更快。小丁努力跟着练，最后得到教练满意的评价。休息时大家吃冰激凌，用不同语言交流运动经验。他发现，体验日不要求专业水平，只要求愿意努力。",
+        "options": [
+          "Chỉ người chơi chuyên nghiệp được vào",
+          "Chỉ người mua kem mới được chơi",
+          "Học sinh trình độ phổ thông sẵn lòng cố gắng cũng được tham gia",
+          "Không được thử dụng cụ trước"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Mở đầu chào đón trình độ thông thường, kết thúc nêu không cần trình độ chuyên nghiệp, chỉ cần sẵn lòng cố gắng.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-sports-introduction"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:11:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Vì sao Tiểu Lâm phải mượn tiền bạn?",
+        "hanzi": "过去，山村的人常在安静的草地上一起吃米饭。这种米饭是黄色的，里面有香蕉和一点儿糖，吃起来很甜。小林尝了一口，就想起了小时候吃过的味道。他打算拍照记录做法，还借了一本介绍当地菜的电子书。主人说，选择什么米很重要，不同的米会有不同的口感。小林想用银行卡付钱，可小市场只能收现金，他不知道怎么办。朋友先借给他一些钱，他才买到了米、糖和香蕉。他想起家里的味道，感动得差点儿哭，也更懂得食物和记忆的关系。",
+        "options": [
+          "Ngân hàng không cho đăng ký học",
+          "Sách điện tử đắt hơn dự kiến",
+          "Bạn muốn mua máy ảnh",
+          "Chợ chỉ nhận tiền mặt trong khi anh định dùng thẻ"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nguồn đối chiếu muốn dùng银行卡 với chợ只能收现金, rồi bạn cho mượn tiền để mua nguyên liệu.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-regional-cuisine"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · reading · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:12:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "王老师和爱人结婚十年了。今年新年假期，他们准备参加妹妹的婚礼。关于在节日办婚礼，家里人先讨论了很久，才选好日期。亲戚们很热情，有人休假回来，有人从外地带来礼物。一个聪明的孩子用数学算座位，还用外语欢迎外国客人。客人坐电梯上楼时，看见墙上写着各地过节的方法。婚礼不久就开始了，每一项活动都有说明，不让客人猜。晚上月亮出来以后，新人先感谢家人，再介绍礼物的意义。他们说传统可以一起过节，但每个家庭也能选择自己的做法。",
+        "options": [
+          "Một kỳ thi ngoại ngữ",
+          "Một đám cưới dịp năm mới có giải thích phong tục",
+          "Một tiết toán ở trường",
+          "Một chuyến đi thang máy"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Nội dung xoay quanh “Một đám cưới dịp năm mới có giải thích phong tục”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:reading:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:01:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "阿姨",
+        "options": [
+          "làm; giải quyết hoặc tổ chức một việc",
+          "cô, dì hoặc người phụ nữ cùng thế hệ với cha mẹ",
+          "văn phòng",
+          "cỏ"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “cô, dì hoặc người phụ nữ cùng thế hệ với cha mẹ”.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-identity-transactions"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:02:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "瘦",
+        "options": [
+          "gầy; chật đối với quần áo",
+          "nhất định; chắc chắn",
+          "đồ uống",
+          "máy ảnh"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “gầy; chật đối với quần áo”.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-food-shopping"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:03:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "健康",
+        "options": [
+          "luyện tập; bài tập",
+          "chai; lọ",
+          "luyện; tập",
+          "khỏe mạnh; sức khỏe"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “khỏe mạnh; sức khỏe”.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-health-care"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:04:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn chức năng của 把 trong câu.",
+        "hanzi": "他买了一把伞。",
+        "options": [
+          "Động từ mua",
+          "Giới từ trong câu 把",
+          "Lượng từ đếm chiếc ô",
+          "Từ chỉ phương hướng"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "一把伞 là một chiếc ô; 把 ở đây là lượng từ, không phải giới từ của câu xử lý tân ngữ.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:05:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "作业",
+        "options": [
+          "lượng từ cho vật có cán; giới từ 把 đưa tân ngữ lên trước động từ",
+          "bài tập; công việc được giao",
+          "lớp; tập thể học sinh trong một lớp",
+          "phía bắc; miền bắc"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “bài tập; công việc được giao”.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:06:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "晚点",
+        "options": [
+          "trễ giờ; chậm chuyến",
+          "liên tục; luôn luôn",
+          "thư; thư điện tử",
+          "cần; nhu cầu"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “trễ giờ; chậm chuyến”.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-office-tasks"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:07:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "世界",
+        "options": [
+          "máy giặt",
+          "tươi; mới mẻ",
+          "chải; quét; cọ",
+          "thế giới"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “thế giới”.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-career-experience"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:08:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "假期",
+        "options": [
+          "cân; nửa ki-lô-gam",
+          "đơn giản",
+          "kỳ nghỉ",
+          "phố; đường phố"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “kỳ nghỉ”.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-plants-animals"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:09:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "西方",
+        "options": [
+          "tây nam",
+          "phương tây; phía tây",
+          "phía bắc; miền bắc",
+          "thường thấy; phổ biến"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “phương tây; phía tây”.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-landscape-place"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:10:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "提高",
+        "options": [
+          "nâng cao; tăng",
+          "giống như; ví dụ như",
+          "cừu; dê",
+          "quên"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “nâng cao; tăng”.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-environment-protection"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:11:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa của 卡 trong câu.",
+        "hanzi": "这张卡是我的。",
+        "options": [
+          "Người trẻ tuổi",
+          "Bị kẹt",
+          "Cuộc trò chuyện",
+          "Thẻ"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "这张卡 là chiếc thẻ này; 张 là lượng từ. 卡 đọc kǎ ở nghĩa danh từ, không dùng mẫu này để dạy qiǎ trong 卡住.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-city-development"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:12:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "衬衫",
+        "options": [
+          "càng; hơn nữa",
+          "nhận được; đạt được",
+          "áo sơ mi",
+          "phát hiện"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “áo sơ mi”.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-sports-introduction"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-13",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 13",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:13:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "以下",
+        "options": [
+          "đại hội thể thao",
+          "trở xuống; dưới đây",
+          "tốt nhất; nên",
+          "thi đấu; cuộc thi; trận đấu"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “trở xuống; dưới đây”.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-competition-report"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:13",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-14",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 14",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:14:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "容易",
+        "options": [
+          "dễ",
+          "bát",
+          "hướng về",
+          "thìa"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “dễ”.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-tableware-etiquette"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:14",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-15",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · vocabulary · 15",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:15:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "或",
+        "options": [
+          "mặt",
+          "người nổi tiếng",
+          "lâu",
+          "hoặc"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “hoặc”.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-regional-differences"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:vocabulary:15",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:01:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Chọn cách gọi thân mật thông thường một người lớn tuổi họ Vương mà bạn đã quen.",
+        "hanzi": "____王昨天给我们讲了老街的历史。",
+        "options": [
+          "老",
+          "第",
+          "很",
+          "再"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "老加姓氏 là cách gọi người lớn tuổi quen biết; đây là 老王.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:02:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Mời chính người đang nghe cùng về trường.",
+        "hanzi": "时间不早了，____回学校吧。",
+        "options": [
+          "他们",
+          "你们",
+          "咱们",
+          "她们"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "咱们 bao gồm người nói và người nghe trong lời đề nghị cùng làm.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:03:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Có tổng cộng mười người, nhưng chỉ ba người mang ảnh.",
+        "hanzi": "今天____来了十个人，其中____三个人带了照片。",
+        "options": [
+          "一共……只有……",
+          "只有……一共……",
+          "一共……都……",
+          "都……一共……"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "一共 nêu tổng số; 只有 giới hạn nhóm mang ảnh ở ba người.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:04:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Giờ đến là ước lượng, chưa chắc chắn chính xác.",
+        "hanzi": "我们____下午三点到宾馆。",
+        "options": [
+          "已经",
+          "一定",
+          "大概",
+          "从不"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "大概 diễn đạt khoảng/chừng; 一定 khẳng định chắc chắn.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:05:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Bác sĩ yêu cầu bắt buộc uống thuốc đúng giờ.",
+        "hanzi": "医生说她____按时吃药。",
+        "options": [
+          "必须",
+          "可能",
+          "也许",
+          "曾经"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "必须 diễn đạt điều bắt buộc phải làm, không phải mức có thể xảy ra.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:06:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu điều kiện: nếu không nghe hiểu thì nghe lại.",
+        "hanzi": "听不懂____，可以再听一遍。",
+        "options": [
+          "以前",
+          "以后",
+          "的话",
+          "得"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "的话 đặt sau điều kiện, nghĩa là nếu/trong trường hợp.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:07:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Giới hạn nhận xét ở người mới học.",
+        "hanzi": "____，每天听新闻是一个新挑战。",
+        "options": [
+          "对初学者来说",
+          "把初学者来说",
+          "被初学者来说",
+          "从初学者以后"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "对…来说 nghĩa là đối với…; phần sau là nhận xét về nhóm đó.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:08:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu khoảng thời gian từ lúc tốt nghiệp đến hiện tại.",
+        "hanzi": "姐姐大学毕业____，现在在银行工作。",
+        "options": [
+          "两年过",
+          "两年以前",
+          "两年了",
+          "两年得"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "毕业两年了 là đã hai năm kể từ khi tốt nghiệp, không phải thời lượng học đại học.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:09:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Kết quả là mọi người đã hiểu nội dung nghe.",
+        "hanzi": "说明很清楚，大家都____了。",
+        "options": [
+          "听懂",
+          "听完",
+          "听见",
+          "听说"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "懂 là kết quả hiểu; nghe xong hoặc nghe thấy không tự chứng minh hiểu.",
+        "sourceLessonIds": [
+          "hsk3-event-complements-voice-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:10:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu vị trí đích của việc chuyển ghế.",
+        "hanzi": "请把椅子____窗户旁边。",
+        "options": [
+          "搬在",
+          "搬给",
+          "搬到",
+          "搬过"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "搬到加处所 chỉ chuyển ghế đến vị trí mới cạnh cửa sổ.",
+        "sourceLessonIds": [
+          "hsk3-event-complements-voice-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:11:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nhấn mạnh có ba người rời phòng sau giờ làm.",
+        "hanzi": "下班以后，办公室里____三个人。",
+        "options": [
+          "走了",
+          "来了",
+          "有了",
+          "坐着"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "走了 nêu người rời khỏi địa điểm; 来了 là đến, 坐着 là đang ngồi.",
+        "sourceLessonIds": [
+          "hsk3-event-complements-voice-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:12:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Diễn đạt gió càng thổi mạnh thì sóng càng cao.",
+        "hanzi": "风____，海浪____。",
+        "options": [
+          "刮越大越……变越高越……",
+          "越刮大越……越变高越……",
+          "越刮越大……越变越高……",
+          "刮越越大……变越越高……"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "越…越… biểu thị mức độ tăng dần; hai vế đặt gió và sóng trong quan hệ cùng tăng.",
+        "sourceLessonIds": [
+          "hsk3-comparison-description-evaluation-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-13",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 13",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:13:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "So sánh hai phương tiện ngang nhau về sự thuận tiện.",
+        "hanzi": "公共汽车____地铁____方便。",
+        "options": [
+          "跟……一样……",
+          "把……一样……",
+          "跟……一共……",
+          "从……一样……"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "跟…一样加形容词 diễn đạt bằng nhau ở tiêu chí so sánh.",
+        "sourceLessonIds": [
+          "hsk3-comparison-description-evaluation-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:13",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-14",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 14",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:14:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Phải xuất trình vé trước, sau đó mới vào sân.",
+        "hanzi": "我们____出示票，____进场。",
+        "options": [
+          "再……先……",
+          "已经……以前……",
+          "先……再……",
+          "虽然……可是……"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "先…再… đánh dấu thứ tự hai hành động: xuất trình vé rồi vào sân.",
+        "sourceLessonIds": [
+          "hsk3-discourse-linking-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:14",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-15",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-a · grammar · 15",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:15:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu nhượng bộ: món cay nhưng vẫn muốn thử.",
+        "hanzi": "____菜很辣，____我还是想尝一尝。",
+        "options": [
+          "虽然……可是……",
+          "因为……所以……",
+          "只有……才……",
+          "一……就……"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "虽然…可是… diễn đạt nhượng bộ; 还是 cho biết ý định vẫn giữ dù món cay.",
+        "sourceLessonIds": [
+          "hsk3-discourse-linking-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-a:grammar:15",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:01:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "从这家店开门起，张经理每天都检查菜单和盘子。 今天一位客人点了菜和饮料，还说自己已经挺饱了。 她害怕吃得太多，只想要一个小盘子。 服务员很照顾她，把一份菜分成了两小盘。 可是客人听见店里的音乐以后，觉得有点儿难听。 张经理有些担心，马上把声音调小了。 客人吃完以后不但不害怕变胖，而且说饮料很好喝。 张经理明白了，照顾客人的感受一定比只看菜单更重要。",
+        "options": [
+          "Cách quản lý và nhân viên đáp ứng nhu cầu của khách",
+          "Cách nấu một món mới",
+          "Một nhân viên làm vỡ đĩa",
+          "Một khách muốn mua thực đơn"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Cách quản lý và nhân viên đáp ứng nhu cầu của khách”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-food-shopping"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:02:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "社区里有一个健康练习班，每天早上大家一块儿锻炼。 老师先让大家练走路，再练轻轻地跳。 一位刚出院的病人说，自己还不敢跳。 老师告诉他，可以做别的练习，不必跟大家完全一样。 旁边的人给他一个装水的瓶子，还提醒他小心。 他从慢慢走开始，练了好多天，觉得方法挺有用。 直到这个周末，他才第一次跟大家一块儿跳了几下。 他很开心，也明白健康需要合适的练习，不能着急。",
+        "options": [
+          "Một giáo viên phải nhập viện",
+          "Cộng đồng tổ chức thi nhảy",
+          "Một người làm mất chai nước",
+          "Một bệnh nhân tập dần theo khả năng"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Một bệnh nhân tập dần theo khả năng”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-health-care"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:03:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Tổng thời gian của năm hoạt động thử, mỗi hoạt động 15 phút, là bao nhiêu?",
+        "hanzi": "小林发了一封邮件，想报名学校新开的语言课。 报名员接到邮件后，先查了他的姓名和一张学生证照片。 课程要试五种学习活动，每种活动都只有一刻钟。 试听费是九块九毛，报名员说声音测试也包括在里面。 小林问：“如果麦克风不行，我还能参加吗？” 报名员回答，经过开课前的检查，设备一般都没有问题。 他还会在上课前打电话，让老师接着说明使用方法。 小林听完当然放心了，并把开课时间记在本子上。",
+        "options": [
+          "75 phút",
+          "15 phút",
+          "30 phút",
+          "90 phút"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "五种活动, 每种一刻钟: 5×15=75 phút cho các hoạt động, không suy thêm thời gian nghỉ hoặc kiểm thiết bị.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:04:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Hai khó khăn nào khiến khách phải tham gia họp trực tuyến?",
+        "hanzi": "一位来自上海的客人要参加下午的会议，可是火车晚点了。 他的腿最近受过伤，不能一直站着等下一班车。 办公室需要马上决定，是推迟会议还是让他在线参加。 经理给他发邮件，请他打开邮箱里的视频地址。 客人对这个方法很感兴趣，坐在车站里就能开会。 同事先开机测试声音，又把桌边的灯调亮了一点。 会议按时开始，客人也不需要带着受伤的腿赶路。 会后，经理把会议录音发给了所有人。",
+        "options": [
+          "Khách không muốn họp",
+          "Khách chậm tàu và bị đau chân",
+          "Máy tính bị mất",
+          "Phòng họp quá tối"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Khách bị trễ tàu và chân vừa bị thương; email có địa chỉ video giúp khách họp từ ga.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-office-tasks"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:05:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nguyên nhân cuối cùng được tìm thấy ở máy giặt là gì?",
+        "hanzi": "老工程师方师傅去过世界很多地方，修过各种洗衣机。 后天，他要给年轻员工讲一个自己刚工作时的故事。 那时，他遇见一位女人，说洗衣机不但洗不干净，还会弄坏裙子。 方师傅先刷掉机器里的脏东西，又放进干净的清水试洗。 可是机器还是不动，他一边检查一边重新判断问题方向。 他工作到很晚才找到原因，原来一根小线接错了。 这次经历让他明白，只要耐心检查，就有机会解决难题。 他希望年轻人后年也能把这样的经验讲给更新的同事。",
+        "options": [
+          "Không có váy để giặt",
+          "Một dây nhỏ bị nối sai",
+          "Nước uống đã hết",
+          "Khách không muốn sửa"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Kỹ sư kiểm tra đến muộn mới tìm thấy一根小线接错了; làm sạch ban đầu chưa khắc phục được máy.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-career-experience"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:06:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "动物园最近增加了鸡、马和其他小动物的体验区。 管理员发现，假期里常有大人带孩子来喂动物。 有人以为一匹马一次能吃十斤以上的东西，就给得太多。 其实动物园常用的办法很简单：只能拿工作人员准备的食物。 新的说明一共两页，第一页画鸡，第二页画马。 蓝色部分告诉大人应该怎样帮孩子，红色部分写不能做什么。 看完以后，游客马上明白不同动物需要不同的照顾。 管理员希望孩子长大以后，还是愿意保护这些动物。",
+        "options": [
+          "Đóng khu động vật",
+          "Bán thêm thức ăn",
+          "Chuyển vườn thú",
+          "Tạo hướng dẫn hai trang về cho ăn"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Tạo hướng dẫn hai trang về cho ăn”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-plants-animals"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:07:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "机场附近的居民常听到飞机起飞的声音，有时要等半天才安静。 如果夏天关窗开空调的话，家里又会用很多电。 这成了城市环境里一个很难解决的难题。 社区先请两位工程师检查声音，也测量每座房子的窗户。 工程师说，旧窗很脏，关不紧，需要换成更好的窗。 他们还建议在楼梯放矿泉水，方便工作人员夏天休息。 修理以后，屋里更干净，窗边的风也小了。 居民说，这个办法不能取消飞机，却改善了生活环境。",
+        "options": [
+          "Cầu thang thiếu đèn",
+          "Dưa hấu bị hỏng",
+          "Tiếng máy bay và cửa sổ không kín",
+          "Nước khoáng quá đắt"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Nội dung xoay quanh “Tiếng máy bay và cửa sổ không kín”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-environment-state"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:08:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Cuộc sống Tiểu Trần thay đổi theo hướng nào?",
+        "hanzi": "以前小陈下班后只坐在沙发上戴耳机听新闻。 前年社区把旧停车地变成运动场，生活开始有了变化。 朋友邀请他打羽毛球，他开始不同意，只关注工作。 有一天他看新闻看得又累又渴，心里也有点难过。 他决定换上运动鞋，去了解新的运动场。 打了几次以后，他变得更有精神，也喜爱上这项运动。 现在他还是看报纸和新闻，但是不会整晚坐着。 最后他发现，关注社会也可以从改变自己的生活开始。",
+        "options": [
+          "Bỏ hoàn toàn tin tức",
+          "Chỉ ngồi ở nhà lâu hơn",
+          "Vẫn đọc tin nhưng dành thêm thời gian chơi cầu lông",
+          "Trở thành nhà báo chuyên nghiệp"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Đoạn nói现在他还是看报纸和新闻 nhưng不会整晚坐着. Không có dữ kiện bỏ đọc tin hoặc đổi nghề.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-modern-life"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:09:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "艺术社参加社区晚会，准备了一个特别的音乐表演。 开始以前，老师认真讲安全，请大家把照相灯分开放。 一位学生的鞋突然坏了，心里急得可难受了。 同学没有离开，而是关机停下音乐，一起帮他修鞋。 修好以后，大家虽然饿了，还是按计划完成节目。 观众很喜欢这次表演，摄影师也给每个人照相。 老师说，漂亮照片和好成绩以外，互相帮助更值得记住。 其实这场晚会最特别的地方，就是没有人把同伴丢下。",
+        "options": [
+          "Các thành viên dừng lại giúp bạn sửa giày",
+          "Chỉ có ảnh đẹp",
+          "Mọi người rời đi sớm",
+          "Không có âm nhạc"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Các thành viên dừng lại giúp bạn sửa giày”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-arts-activities"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:10:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "运动会比赛刚结束，广播说场地到处发现了东西。 有人丢了铅笔，有人把信用卡和水放在身边却忘了拿。 工作人员听说一只牛形玩具也不见了，就马上去找。 他们坚持检查座位下面和桌子后面，最后找到全部东西。 为了确认主人，广播请大家说出物品的特点。 一位观众好像很急，可工作人员说最好慢慢回答。 确认以后，信用卡、铅笔和牛形玩具都回到主人手里。 广播也提醒大家，运动场不准带酒，离开以前要检查身边。",
+        "options": [
+          "Công bố đội thắng",
+          "Bán đồ chơi",
+          "Tổ chức trận mới",
+          "Trả đồ thất lạc sau trận đấu"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Trả đồ thất lạc sau trận đấu”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-competition-report"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:11:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "安娜第一次参加中国朋友的家庭晚饭，出发前看了自己的礼貌笔记。 她大概懂得筷子怎样拿，却觉得用勺子喝汤更容易。 主人给她一个小碗，说这样吃比较方便，也不容易烫到嘴。 她把筷子向朋友那边放，朋友轻声提醒这个方向不太合适。 安娜认真听了，也马上改了动作，没有觉得不好意思。 桌上有啤酒，但主人主要请大家喝茶，她便没有自己去拿。 饭菜和她想象的有一点儿不同，却让她认识了不同的家庭习惯。 她明白，一个小动作会影响别人，观察和询问才是最好的办法。",
+        "options": [
+          "Bạn cô mua bát",
+          "Gia đình mở nhà hàng",
+          "Anna điều chỉnh cách ứng xử trong bữa tối gia đình",
+          "Anna học nấu bia"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Nội dung xoay quanh “Anna điều chỉnh cách ứng xử trong bữa tối gia đình”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-tableware-etiquette"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · listening · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:12:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Giáo viên yêu cầu ghi thêm điều gì để nguồn dễ kiểm tra?",
+        "hanzi": "刚才咱们听完小组报告，老师认为有三处应该修改。 第一，海边和内地的生活不同，但不要说一种一定比另一种安全。 第二，带回来的照片中有胖脸或瘦脸，这和地区文化没有直接关系。 第三，采访体育馆里的名人很有意思，可只相信一个人还不够。 这份报告做了很久，也快完成了，现在需要增加普通人的声音。 本学期中，每个人都要比较两种资料，并写清楚资料日期。 老师请我们明天带地图来，检查城市、乡村或海边的地点。 修改以后，咱们应该能完成一份更公平、更可信的报告。",
+        "options": [
+          "Điểm thi toán",
+          "Khuôn mặt người nổi tiếng",
+          "Giá các bức ảnh",
+          "Ngày của tư liệu được so sánh"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Mỗi người phải so sánh hai loại tư liệu và写清楚资料日期. Ghi ngày giúp nhận biết bối cảnh thời gian của nguồn.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-regional-differences"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:listening:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:01:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "王丽周末坐高铁去河边的一座城市买东西。她的相机太旧了，一条短裤也有点儿瘦，穿着不舒服。她总是担心买错，所以先比较了三家商店。店员说，相机一定要先试，衣服也要看大小。王丽用新相机拍了几张河边的照片，又试了两条短裤。第一条颜色好看，可是太瘦；第二条大小正合适。虽然价格比她想的高一点儿，她还是决定买下来。回家的高铁上，她看着照片，心里很开心。",
+        "options": [
+          "Vương Lệ so sánh và mua máy ảnh, quần đùi",
+          "Vương Lệ đi làm ở thành phố",
+          "Vương Lệ học chụp ảnh trên tàu",
+          "Vương Lệ trả lại quần áo"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Vương Lệ so sánh và mua máy ảnh, quần đùi”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-food-shopping"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:02:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Vì sao họa sĩ phải nhập viện?",
+        "hanzi": "一位画家下雨天带着伞去公园画画，不小心摔倒了。他的腿受了伤，只好住院；水瓶子也摔坏了。住院的时候，他得到好多病人和医生的照顾。他一直问什么时候能出院，还想知道有没有别的治疗方法。医生让他先休息，直到腿不疼了再慢慢练习走路。出院以后，他每天锻炼，但是每次都很小心。这些练习对恢复健康挺有用，他走得越来越稳。后来他又去公园画画，这次带了一个不容易摔坏的瓶子。",
+        "options": [
+          "Chân bị thương sau khi ngã",
+          "Chai nước bị vỡ",
+          "Muốn bán tranh",
+          "Quên mang ô"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nguồn đã tách chân bị thương và chai vỡ: nguyên nhân nhập viện là chấn thương, không phải mất chai.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-health-care"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:03:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "春季，北方一所学校的班级开始了新的阅读计划。每天放学后，男生和女生先骑车到球场，再走回教室。老师把一段短文发给大家，让他们用笔记下重要内容。每一句都要读三遍，比如先慢读，再正常读，最后不看书读。老师当然会查作业，也会检查大家是不是理解了意思。学生回答问题时可以坐着，不明白的地方也可以问老师。经过一个月，他们不但记得更快，也习惯了自己找重点。这个小计划说明，一种好方法能让普通作业变得更有用。",
+        "options": [
+          "Cách sửa xe đạp",
+          "Một chuyến đi miền bắc",
+          "Một kế hoạch đọc giúp học sinh đổi thói quen",
+          "Một trận bóng sau giờ học"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Nội dung xoay quanh “Một kế hoạch đọc giúp học sinh đổi thói quen”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:04:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Nhóm thay đổi quy trình gì sau việc thất lạc từ điển?",
+        "hanzi": "工作日早上，王经理开机后先看邮箱里的邮件。九点要开会，可是会议需要的一本词典突然不见了。他一直找桌子下面和灯旁边，还是没有找到。同事看了昨天的节目安排，发现词典可能在录音室。经理想起自己对语言节目很感兴趣，昨天确实带它去了那里。他在会议开始前把词典拿回来，还给负责资料的同事。这次小问题让大家明白，借东西以后需要马上记录。从那天起，办公室在邮箱里建立了共同借用表。",
+        "options": [
+          "Cấm đọc mọi tài liệu",
+          "Lập bảng ghi mượn dùng chung",
+          "Hủy mọi cuộc họp",
+          "Chỉ mua đèn mới"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Kết luận cần ghi lại sau khi mượn; từ đó văn phòng lập共同借用表. Không có lệnh hủy họp.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-office-tasks"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:05:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "林美是一位年轻女人，她在服装店工作，也喜欢听客人的故事。一天，她遇见老周来买裙子，老周想送给后天过生日的女儿。林美不但帮他选颜色，还请他看不同地方的服装故事。她说，世界很大，只要了解穿衣习惯，就能找到设计方向。老周让她先尝一块新鲜蛋糕，再慢慢谈自己的工作计划。林美一边听一边画，半小时才完成第一张设计图。可是她很高兴，因为这次经验让她更相信自己的能力。她决定后年学习专业设计，把帮助客人的经验变成职业。",
+        "options": [
+          "Một trải nghiệm phục vụ khách gợi hướng nghề thiết kế",
+          "Một người làm mất váy",
+          "Một chuyến đi quanh thế giới",
+          "Một buổi học làm bánh"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Một trải nghiệm phục vụ khách gợi hướng nghề thiết kế”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-career-experience"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:06:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "假期里，街上的大人和孩子一起把旧花园改成学习园。大家先搬来小树，每棵树的树干上都挂着一张蓝牌。牌子的第一页用简单的图说明树怎样长高。第二页列出十个以上常用的植物词，还留地方让孩子写。有人以为照顾植物很难，其实每天干一点儿就可以。孩子给树浇水，大人检查土地，工作马上就变得清楚了。几个月后，小树长高了，学习园也成了大家常来的地方。这个计划说明，认识自然可以从一件简单的小事开始。",
+        "options": [
+          "Xây một cửa hàng trên phố",
+          "Mở vườn thú",
+          "Tổ chức cuộc đua",
+          "Biến vườn cũ thành khu học tập"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nội dung xoay quanh “Biến vườn cũ thành khu học tập”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-plants-animals"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:07:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "这个城市的小区楼梯常有灰，居民决定用半天一起打扫。有人清理脏椅子，有人把地面扫得很干净。每个人都戴着一双手套，长头发的人还先把头发扎起来。天气热的话，楼里的空调和电灯会同时用很多电。所以休息时，他们关掉空调，只喝自己带的矿泉水。一位邻居切了西瓜，大家吃完再继续解决楼道的难题。最难的是旧东西太多，必须先分类才能搬走。中午以前，楼梯环境变好了，居民也约好以后常来检查。",
+        "options": [
+          "Trồng một vườn cây",
+          "Mua điều hòa",
+          "Làm sạch và sắp xếp cầu thang",
+          "Sửa máy bay"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Nội dung xoay quanh “Làm sạch và sắp xếp cầu thang”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-environment-state"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:08:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "前年，爷爷每天坐在沙发上看报纸，了解当天的新闻。以前他不喜爱手机，也不关注网上不断发生的变化。后来报纸换成每周一期，他只能用手机看每天的消息。孙女给他一副耳机，教他把新闻声音变得更清楚。开始时他有点难过，觉得生活变得太快了。孙女同意保留周末读报的习惯，平日再一起看手机。爷爷看久了会渴，他们就休息喝水或者打羽毛球。最后，新方法没有丢掉旧习惯，而是让家人更了解彼此。",
+        "options": [
+          "Tờ báo chuyển nhà",
+          "Một gia đình kết hợp báo giấy và tin trên điện thoại",
+          "Ông học chơi cầu lông chuyên nghiệp",
+          "Cháu mua ghế mới"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Nội dung xoay quanh “Một gia đình kết hợp báo giấy và tin trên điện thoại”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-modern-life"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:09:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "学校晚会有音乐、照相和学生自己准备的表演。小兰参加唱歌节目，她特别认真，每天练到很晚。老师讲，成绩以外，合作和心里的感受也很重要。彩排时大家把手机关机，并把鞋和衣服分开放好。小兰练得饿了，可她不愿意马上离开舞台。同学送来面包，说身体其实比多练一次更重要。正式表演成功极了，摄影组也照了很多漂亮照片。小兰明白，喜欢的艺术也需要休息和互相照顾。",
+        "options": [
+          "Nỗ lực phải đi cùng hợp tác và chăm sóc sức khỏe",
+          "Chỉ điểm số quan trọng",
+          "Cần chụp càng nhiều ảnh càng tốt",
+          "Phải luyện cả đêm"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Nội dung xoay quanh “Nỗ lực phải đi cùng hợp tác và chăm sóc sức khỏe”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-arts-activities"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:10:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Tỷ số được nêu sau khi đội đổi cách tấn công là gì?",
+        "hanzi": "昨天的乡村运动会到处都是观众，比赛从早上九点开始。听说第一队常常训练，他们身边还带着牛形的可爱标志。上半场他们好像很紧张，丢了球，得分一直在十分以下。队长为了让大家坚持，用铅笔画出新的进攻路线。以后几次进攻更有计划，比分很快变成了十二比十。比赛结束时，第一队赢了，队员最好的一点是没有放弃。会场不卖酒，买纪念品也建议不用信用卡，避免网络问题。这份报告不只写结果，还说明坚持怎样改变了比赛。",
+        "options": [
+          "10–10",
+          "10–12",
+          "12–10",
+          "14–12"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Nguồn nói比分很快变成了十二比十. Đây là mốc được nêu, không tự khẳng định đó là tỷ số chung cuộc.",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-competition-report"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:11:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn văn và chọn ý chính phù hợp nhất.",
+        "hanzi": "交换生把主要的餐桌规则写成笔记，大概分为四点。第一，这家人吃米饭用筷子，喝汤用勺子和碗比较方便。用筷子夹菜时，不要用筷子指着别人。第二，别人讲话时要认真听，没听懂时可以请对方再说一遍。第三，想喝啤酒时，最好先问主人是否方便。第四，菜的样子差一点儿或有点难看，也不该马上批评。怎样做才礼貌，要看家庭和场合，不能把一条办法用在所有地方。懂得这些规则以后，还要观察主人怎么做，再选择合适的方法。",
+        "options": [
+          "So sánh giá bia",
+          "Giới thiệu dụng cụ âm nhạc",
+          "Hướng dẫn quan sát và ứng xử lịch sự trên bàn ăn",
+          "Dạy nấu bốn món"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Nội dung xoay quanh “Hướng dẫn quan sát và ứng xử lịch sự trên bàn ăn”. Các chi tiết phải được đọc trong trình tự toàn đoạn; không suy thêm kết quả ngoài nguồn.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-tableware-etiquette"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · reading · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:12:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Vì sao báo cáo không nên chỉ dựa vào lời một người nổi tiếng?",
+        "hanzi": "这个学期，我们完成了一份比较海边和内地生活的报告。咱们带着地图到两个地方住了很久，也问了不同年龄的人。我们问的人中，住海边的比较关心风浪；住内地的更注意天气变化。刚才一位老人说，生活方式中有差别，但不能只用一个故事说明全部。有人认为海边人都爱体育馆，内地人都不运动，这种说法没有根据。报告也不该用脸胖不胖来判断地区，更不应该只相信名人的话。我们在两地中都看到城市和乡村，所以结果比想象的复杂。合理的比较应该说明资料从哪里来，也要承认每个地区内部不同。",
+        "options": [
+          "Người nổi tiếng luôn nói sai",
+          "Ảnh không có ngày",
+          "Mọi nơi đều giống nhau",
+          "Một tiếng nói không đại diện mọi nhóm và khác biệt trong vùng"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nguồn đối chiếu nhiều độ tuổi, thành thị/nông thôn và khác biệt nội vùng. Cần thêm nguồn, không kết luận người nổi tiếng luôn sai.",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-regional-differences"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:reading:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:01:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "要求",
+        "options": [
+          "theo; chiếu; soi",
+          "yêu cầu; đòi hỏi",
+          "giấy",
+          "luôn; nhìn chung; tổng"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “yêu cầu; đòi hỏi”.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-identity-transactions"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:02:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "留学生",
+        "options": [
+          "du học sinh; sinh viên quốc tế",
+          "ngã đường; giao lộ",
+          "đường phố",
+          "ven đường; lề đường"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “du học sinh; sinh viên quốc tế”.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-travel-transport"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:03:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "附近",
+        "options": [
+          "câu",
+          "xem ra; có vẻ",
+          "gần như",
+          "khu vực ở gần; lân cận"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “khu vực ở gần; lân cận”.",
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-home-family-leisure"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:04:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "脚",
+        "options": [
+          "câu; lượng từ cho câu nói",
+          "đón; nhận; nối",
+          "chân; bàn chân",
+          "đi qua; trải qua; quá trình"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “chân; bàn chân”.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:05:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "校长",
+        "options": [
+          "chỉ là; nhưng",
+          "hiệu trưởng",
+          "gần đây",
+          "tủ lạnh"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “hiệu trưởng”.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:06:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "同事",
+        "options": [
+          "đồng nghiệp",
+          "hành lý",
+          "tổng cộng",
+          "tắm"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “đồng nghiệp”.",
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-colleague-workplace"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:07:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "开花",
+        "options": [
+          "mùa thu",
+          "mặt trời; ánh nắng",
+          "mát mẻ",
+          "nở hoa"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Trong câu/mục này, nghĩa phù hợp là “nở hoa”.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-climate-seasons"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+        }
+      }
+    }
+  ],
+  "forms": [
+    {
+      "level": "hsk3",
+      "stableKey": "hsk3-assessment-reviewed-round94-g",
+      "selected": [
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:08:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:09:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:10:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:11:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:12:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:08:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:09:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:10:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:11:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:12:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:08:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:09:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:10:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:11:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:12:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:13:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:14:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:15:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:08:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:09:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:10:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:11:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:12:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:08:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:09:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:10:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:11:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:12:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:01:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:02:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:03:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:04:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:05:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:06:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:07:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:08:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:09:1",
+        "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:10:1"
+      ],
+      "timeLimitMinutes": 90,
+      "coverage": {
+        "listening": 40,
+        "reading": 30,
+        "writing": 10
+      }
+    }
+  ],
+  "evidenceDocument": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.md"
+}

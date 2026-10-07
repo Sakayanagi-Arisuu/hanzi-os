@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "HSK1 character activity targets and one contextual correction for 做/作; recognition, supported input and self-review, not handwriting mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/58-REVIEW-CHARACTER-TARGETS.md",
+  "targetPlanSha256": "sha256:079f37dc4d3a3c70c9fc5919fa34c8553fd8868ecb6fc669609378e5bb0ee472",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "characters-1",
+      "parentRevisionId": "aeb3267d-80ab-45c0-9f28-027dc499eeae",
+      "parentContentSha256": "sha256:b0fac321ded68e6e94ebdc08e1a9a1c8d6f7c0a7e53ebe958944727d1a5c0084",
+      "proposedContentSha256": "sha256:d7281f0348207597ab4458286baa5d84aca94af9bf11067aa2805585cc939349",
+      "targetCount": 25
+    },
+    {
+      "lessonId": "characters-2",
+      "parentRevisionId": "7c46d112-5e31-4e5c-8ace-fdf2db23c9aa",
+      "parentContentSha256": "sha256:405be19695ac0dc093862fcbb77bc74f851a29597df4729685bab014bad11f3d",
+      "proposedContentSha256": "sha256:3c52031e670e99dd6f4ef6bc9f33de891386507717fea245ac4b358cb30ee7c0",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-3",
+      "parentRevisionId": "aaf39116-c289-4f8d-bbc1-53755f43be38",
+      "parentContentSha256": "sha256:3fcb283cd5746a3562dc3351ce4a3996b8ef0c6302ecad615944932af79d56bc",
+      "proposedContentSha256": "sha256:53b7ad6b8bcc4fb70c2ff9da5166189473b4b75d5180e0966f2d17d8d4426406",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-4",
+      "parentRevisionId": "4f502d03-7ea1-4bed-9e4e-04f4a4421680",
+      "parentContentSha256": "sha256:b5cfc9581a4e0aa8082f22a8fdcec2fd1819970318ec2deff53972d6fd2c4985",
+      "proposedContentSha256": "sha256:4541ac531852fb255ac6b2d546ab875bbc2033d452cd5a07958b1a48786b1368",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-5",
+      "parentRevisionId": "d3908e42-ff0c-4f1e-a91a-3f2bfe2e2ee7",
+      "parentContentSha256": "sha256:bbbaa3c77e9f25f4f3193b82ecb463d5e0f1c70c82cae21a0212ada696bc0ac5",
+      "proposedContentSha256": "sha256:7ff2da1f2a0eea5ce0e9a155fb662fcadc485283a927fa289d09ada292fd4852",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-6",
+      "parentRevisionId": "6f1668b2-75ba-46a2-98b3-323c3622cc58",
+      "parentContentSha256": "sha256:3b16f40c0bb95a4a25f0b17ffadad99555f0bbc79dced00498e0621ed6de85e5",
+      "proposedContentSha256": "sha256:8c3d3965dfc49627a72e6a9612c73075d209712f3d27b1155d48a00951562c07",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-7",
+      "parentRevisionId": "89a35e43-d792-400d-aa5f-1a97eafb942c",
+      "parentContentSha256": "sha256:668b6959fabec8465230e7e15e08a21603ce088f9a8d1da059fcd14c6801b21a",
+      "proposedContentSha256": "sha256:4eac3388a7564fff9a6917340ea97a52f09a155d5efe81863af973ac3ef06fa3",
+      "targetCount": 27
+    },
+    {
+      "lessonId": "characters-8",
+      "parentRevisionId": "bebb12f5-1ad4-4bd6-94a8-025265b2eb94",
+      "parentContentSha256": "sha256:c4d2a49ec4584583cedd908a972e02202c6f7e22cefa433b24f7eff7faff358e",
+      "proposedContentSha256": "sha256:04736f3d91409ddc497636c03c6d9eb35e405fd78141a4cf9feca95f94a64ea6",
+      "targetCount": 26
+    },
+    {
+      "lessonId": "characters-9",
+      "parentRevisionId": "bc6c08eb-107d-4c11-8bb8-1cfbc1a4c474",
+      "parentContentSha256": "sha256:12c62e9bc3372bd14d4906d9e63115027bf41083cdda67b29b3004daff713b3a",
+      "proposedContentSha256": "sha256:755e797c0787952ad772dc6ebc2e4a70bc891f3423bbf21039e1954d15624403",
+      "targetCount": 26
+    },
+    {
+      "lessonId": "characters-10",
+      "parentRevisionId": "9863349c-6e45-4771-99a4-8605c1795fdc",
+      "parentContentSha256": "sha256:32dd8833243d5d19a372e5183f7ca4e2290cff3e9721fa4125f0a0aee5b35356",
+      "proposedContentSha256": "sha256:3fa4064f3a799046ff03d1cba5ca86d4dc302d2ab7c7bd65cd29730af1ff1086",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-11",
+      "parentRevisionId": "c7e51192-8bde-431c-bdfe-f6ad06206ee4",
+      "parentContentSha256": "sha256:570690700243c3569cccbda6b66cf1d40f1f79f614b5d9bfff061d2961ec3f64",
+      "proposedContentSha256": "sha256:5e458edc996879cbe2e6d16a2a4a46c0a6c7b00a38892a018520dd37c2305ae7",
+      "targetCount": 23
+    },
+    {
+      "lessonId": "characters-12",
+      "parentRevisionId": "0b6659a4-5aab-4d85-865e-51bf5970a51c",
+      "parentContentSha256": "sha256:c476031ef7719c5c3c7557dd8226a79b8c75950820bfae69ba48c5bf5aca9eaf",
+      "proposedContentSha256": "sha256:daa47a98a1b6439bc4495a5bb6aa14cf73ab5af2a0f69a0b50da7e7cead83ceb",
+      "targetCount": 22
+    },
+    {
+      "lessonId": "characters-13",
+      "parentRevisionId": "00511aa0-ac85-4d39-ba34-5a228fdc134d",
+      "parentContentSha256": "sha256:3c218d1c7ab10197ee673ed73925f6790011f8cb0196b853cf149cd8fa89d3e3",
+      "proposedContentSha256": "sha256:73f993246693ba7cc895f6b38bb533941d0d6e409744ff8306723421dc25cdf8",
+      "targetCount": 28
+    },
+    {
+      "lessonId": "characters-14",
+      "parentRevisionId": "a6c61ee2-02b4-4fa9-af74-916d60beced3",
+      "parentContentSha256": "sha256:b0460e73dc16bb8e17f71a3ba9ece11b5084e28082f02df2fcdaf422b72fdd6b",
+      "proposedContentSha256": "sha256:1073f7d747452f75173161e9072463ac069df62274b455c3330f8e6938e38148",
+      "targetCount": 21
+    },
+    {
+      "lessonId": "characters-15",
+      "parentRevisionId": "45d8b522-3ff8-43bc-9b01-54f29af400ad",
+      "parentContentSha256": "sha256:4a877427d9642f5844671b6780c146f3bec947ccaeabb22ba1f49d1ad4856fff",
+      "proposedContentSha256": "sha256:1fa156828dd7fdb9252ede57b876e4650f57e5c06e92f8a6922c166cc7f99d43",
+      "targetCount": 20
+    }
+  ]
+}

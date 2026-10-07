@@ -1,7 +1,8 @@
-import { PracticeMilestone } from "../PracticeMilestone";
+import { PracticeCoverageMeter } from "../PracticeCoverageMeter";
+import { usePracticeCoverage } from "../../learning/usePracticeCoverage";
+import "./SystemStatusRefinement.css";
 import {
   Activity,
-  AudioLines,
   BrainCircuit,
   ChevronRight,
   CircleGauge,
@@ -34,11 +35,11 @@ import { useInteractionXp } from "../../store/InteractionXpStore";
 import type { Skill } from "../../types";
 
 const SKILL_LABELS: Record<Skill, { code: string; label: string }> = {
-  pronunciation: { code: "ÂM", label: "Phát âm" },
-  listening: { code: "THÍNH", label: "Nghe" },
-  speaking: { code: "KHẨU", label: "Nói" },
-  reading: { code: "ĐỘC", label: "Đọc" },
-  writing: { code: "BÚT", label: "Viết" },
+  pronunciation: { code: "ÂM", label: "Âm / Pinyin" },
+  listening: { code: "THÍNH", label: "Hội thoại nghe" },
+  speaking: { code: "KHẨU", label: "Nhiệm vụ nói" },
+  reading: { code: "ĐỘC", label: "Hội thoại đọc" },
+  writing: { code: "BÚT", label: "Hán tự" },
   vocabulary: { code: "TỪ", label: "Từ vựng" },
   grammar: { code: "PHÁP", label: "Ngữ pháp" },
 };
@@ -53,12 +54,13 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const { state, dueWordIds, level } = useLearning();
   const interactionXp = useInteractionXp();
   const overview = useLearnerOverview(open);
+  const coverage = usePracticeCoverage(open);
   const {
     preferences,
     resolvedMotion,
     setSoundEnabled,
   } = useSystemUi();
-  const { announce, playCue, previewCue } = useAudioEngine();
+  const { playCue, previewCue, announce, cancelSpeech } = useAudioEngine();
   const dialogRef = useRef<HTMLElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -77,6 +79,28 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
     ? `${progress?.completedCount ?? "—"} bài đã hoàn tất`
     : deriveJourneyTitles(state.completedLessons).filter(item => item.completed).at(-1)?.title ?? "Hành Giả Sơ Khởi";
   const skills = Object.keys(SKILL_LABELS) as Skill[];
+
+  useEffect(() => {
+    if (!open || !preferences.soundEnabled) return;
+    let cancelled = false;
+    // Wait for a painted dialog and its finite entrance animations before speaking.
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => {
+      const entrances = dialogRef.current?.getAnimations({ subtree: true })
+        .filter(animation => animation.effect?.getComputedTiming().iterations !== Infinity) ?? [];
+      void Promise.allSettled(entrances.map(animation => animation.finished)).then(() => {
+        if (!cancelled) announce("Đồng bộ hồ sơ hoàn tất, bảng trạng thái sẵn sàng.", {
+          sourceId: "status:auto-open", clipId: "status.summary", force: true, priority: 2,
+        });
+      });
+      });
+    });
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      cancelSpeech();
+    };
+  }, [open, preferences.soundEnabled, announce, cancelSpeech]);
 
   useEffect(() => {
     if (!open) return;
@@ -156,13 +180,6 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
     }
   };
 
-  const announceStatus = () => {
-    playCue("ui.confirm");
-    announce(
-      "Đồng bộ hồ sơ hoàn tất. Bảng trạng thái đã sẵn sàng.",
-      { sourceId: "status:announcer", priority: 2, clipId: "status.summary" },
-    );
-  };
 
   return (
     <div
@@ -268,15 +285,13 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
 
           <aside className="sys-holo-wing sys-holo-wing-right" aria-label="Chỉ số học tập quan sát được">
             <span className="sys-holo-panel-code"><CircleGauge size={14} /> OBSERVED SIGNALS</span>
-            <h3>Thất Trụ · Đã luyện</h3><p className="sys-practice-note">Thanh đo mốc luyện 1.000 câu khác nhau; không phải mức thành thạo.</p>
+            <h3>Thất Trụ</h3><p className="sys-practice-note">Tiến độ luyện tập · không phải mức thành thạo.</p>
             <div className="sys-holo-skills">
-              {skills.map(skill => (
-                <div key={skill} className="sys-practice-count" aria-label={`${SKILL_LABELS[skill].label}: ${overview.activity?.skills[skill].unique ?? "chưa tải"} câu đã luyện`}>
-                  <span><b>{SKILL_LABELS[skill].code}</b><small>{SKILL_LABELS[skill].label}</small></span>
-                  <strong>{overview.activity?.skills[skill].unique ?? "—"} câu</strong>
-                  <PracticeMilestone count={overview.activity?.skills[skill].unique ?? null} label={SKILL_LABELS[skill].label} />
-                </div>
-              ))}
+              {skills.map(skill => <div key={skill} className="sys-pillar-row">
+                <span className="sys-pillar-sigil" aria-hidden="true">{SKILL_LABELS[skill].code}</span>
+                <span className="sys-pillar-label">{SKILL_LABELS[skill].label}</span>
+                <PracticeCoverageMeter value={coverage[skill]} label={SKILL_LABELS[skill].label} />
+              </div>)}
             </div>
             <div className="sys-holo-path-progress">
               <span><Map size={15} /> Thiên Lộ quan sát</span>
@@ -289,11 +304,6 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
         <footer className="sys-holo-footer">
           <div><Orbit size={15} /><span><small>SUMMON PROTOCOL</small><strong>Alt + S để triệu hồi ở mọi điện</strong></span></div>
           <nav aria-label="Lệnh nhanh từ Bảng Hệ Thống">
-            {preferences.voiceEnabled ? (
-              <button type="button" onClick={announceStatus} data-system-silent="true"><AudioLines size={16} /> Phát giọng hệ thống</button>
-            ) : (
-              <Link to="/profile" onClick={onClose}><AudioLines size={16} /> Mở giọng tổng hợp</Link>
-            )}
             <Link to="/path" onClick={onClose}><Map size={16} /> Mở Thiên Lộ</Link>
             {nextLesson && (
               <Link className="primary" to={`/lesson/${nextLesson.id}`} onClick={onClose}>

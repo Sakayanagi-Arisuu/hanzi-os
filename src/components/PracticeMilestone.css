@@ -1,9 +1,17 @@
 .practice-milestone { min-width: 0; width: 100%; color: #b8cec2; }
 .practice-milestone-caption { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; line-height: 1.5; }
 .practice-milestone-caption strong { color: #e4d8b4; font-variant-numeric: tabular-nums; white-space: nowrap; }
+[data-testid="practice-coverage"] .practice-milestone-caption { justify-content: flex-end; }
 .practice-milestone-track { height: 8px; margin-top: 6px; overflow: hidden; border: 1px solid #476252; border-radius: 4px; background: #071d16; }
 .practice-milestone-track i { display: block; height: 100%; background: linear-gradient(90deg,#508f73,#b6d8a8); }
 .practice-milestone > small { font-size: 11px; }
 .oracle-pillar-list .practice-milestone { grid-column: 1 / -1; }
 .sys-holo-skills .sys-practice-count .practice-milestone { grid-column: 1 / -1; }
 .sys-holo-skills .sys-practice-count { row-gap: 4px; }
+
+.sys-pillar-row > .practice-milestone, .pillar-signal-row > .practice-milestone { grid-column: 1 / -1; }
+.dashboard-deck .skill-bars > .pillar-signal-row:has(> .practice-milestone) { display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: auto auto; gap: 8px; }
+@media (max-width: 760px) {
+  .dashboard-deck.ngoc-deck .skill-bars { grid-template-rows: repeat(4, minmax(88px, 1fr)); overflow-y: auto; }
+  .dashboard-deck .skill-bars .practice-milestone-caption { flex-wrap: wrap; gap: 2px 6px; }
+}

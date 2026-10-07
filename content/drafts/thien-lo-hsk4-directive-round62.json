@@ -1,0 +1,1736 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/155-REVIEW-HSK4-DIRECTIVE-ROUND62.md",
+  "entries": [
+    {
+      "sourceRevisionId": "e6d69034-fb03-4379-b452-b24973b38ab6",
+      "sourceContentSha256": "sha256:1bf0e245f33f57c55d1547cfdf1abf6e1c00b3a76109f3045e3187e85919749d",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm hành động có điều kiện\nsố người tham gia và tỷ lệ lỗi\nnhiều thành phần thay đổi cùng lúc\nphản biện về chi phí của việc chờ đợi\nkết luận giới hạn theo thời gian và phép đo",
+        "conceptVi": "Sắp xếp bằng chứng theo sức nặng: Dùng định dạng tu từ, phản vấn, so sánh và nhấn mạnh để nêu thái độ mà không làm mất ranh giới giữa dữ kiện và ý kiến.",
+        "dialogue": [
+          {
+            "hanzi": "学院为准备毕业考试的学生开放晚间自习项目。第一周有一百人报名，却只有四十人连续到场。调查显示，部分学生不能接受固定三小时的安排，另一些人到了教室也不知道先做什么。仅仅延长开放时间，并没有自动带来稳定学习。",
+            "meaningVi": "Học viện mở chương trình tự học buổi tối cho sinh viên chuẩn bị thi tốt nghiệp. Tuần đầu một trăm người đăng ký nhưng chỉ bốn mươi người đến liên tục. Khảo sát cho thấy có người không phù hợp lịch cố định ba tiếng, có người tới phòng vẫn không biết bắt đầu gì. Chỉ kéo dài giờ mở chưa tự tạo học ổn định.",
+            "pinyin": "Xuéyuàn wéi zhǔnbèi bìyè kǎoshì de xuéshēng kāifàng wǎnjiān zìxí xiàngmù. Dì yī zhōu yǒuyī bǎirén bàomíng, què zhǐyǒu sìshí rén liánxù dàochǎng. Diàochá xiǎnshì, bùfèn xuéshēng bùnéng jiēshòu gùdìng sān xiǎoshí de ānpái, lìng yīxiē rén dàole jiàoshì yě bù zhīdào xiān zuò shénme. Jǐnjǐn yáncháng kāifàng shíjiān, bìng méiyǒu zìdòng dài lái wěndìng xuéxí.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "第二阶段把项目重新设计成九十分钟单元，学生进门先写当晚目标，结束时记录完成情况。导师不讲新课，只在学生卡住时帮助拆分任务。学校还允许线上登记后临时取消，避免学生因一次缺席就放弃整个项目。四周后，持续参加的人增加到七十二人。",
+            "meaningVi": "Giai đoạn hai thiết kế lại thành đơn vị chín mươi phút; vào phòng sinh viên ghi mục tiêu, cuối buổi ghi kết quả. Cố vấn không dạy bài mới, chỉ giúp chia nhiệm vụ khi bị kẹt. Trường cho phép đăng ký trực tuyến rồi hủy tạm, tránh bỏ cả chương trình vì một lần vắng. Sau bốn tuần, người tham gia đều tăng lên bảy mươi hai.",
+            "pinyin": "Dì èr jiēduàn bǎ xiàngmù chóngxīn shèjì chéng jiǔshí fēnzhōng dānyuán, xuéshēng jìnmén xiān xiě dàngwǎn mùbiāo, jiéshù shí jìlù wánchéng qíngkuàng. Dǎoshī bù jiǎng xīn kè, zhǐ zài xuéshēng kǎ zhù shí bāngzhù chāi fēn rènwù. Xuéxiào hái yǔnxǔ xiàn shàng dēngjì hòu línshí qǔxiāo, bìmiǎn xuéshēng yīn yīcì quēxí jiù fàngqì zhěnggè xiàngmù. Sìzhōu hòu, chíxù cānjiā de rén zēngjiā dào qīshí'èr rén.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "学院没有把增长全部归因于导师。时间变短、目标更具体、取消规则更灵活都可能起作用，而且考试临近也会提高学习动力。下一轮将分别比较有无目标卡的时段。现有结果说明多项条件共同支持坚持，但还不能指出哪一个条件是唯一原因。",
+            "meaningVi": "Học viện không quy toàn bộ tăng trưởng cho cố vấn. Thời gian ngắn hơn, mục tiêu cụ thể, quy tắc hủy linh hoạt đều có thể tác động; kỳ thi đến gần cũng tăng động lực. Đợt sau sẽ so ca có/không thẻ mục tiêu. Kết quả hiện tại cho thấy nhiều điều kiện cùng hỗ trợ duy trì, chưa chỉ ra một nguyên nhân duy nhất.",
+            "pinyin": "Xuéyuàn méiyǒu bǎ zēngzhǎng quánbù guī yīn yú dǎoshī. Shíjiān biàn duǎn, mùbiāo gèng jùtǐ, qǔxiāo guīzé gèng línghuó dōu kěnéng qǐ zuòyòng, érqiě kǎoshì línjìn yě huì tígāo xuéxí dònglì. Xià yī lún jiāng fēnbié bǐjiào yǒu wú mùbiāo kǎ de shíduàn. Xiàn yǒu jiéguǒ shuōmíng duō xiàng tiáojiàn gòngtóng zhīchí jiānchí, dàn hái bùnéng zhǐchū nǎ yīgè tiáojiàn shì wéiyī yuányīn.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "公司上线新的报销系统后，第一次培训只用了二十分钟。讲师操作得很熟练，却没有举例说明发票不完整或出差取消时怎么办。员工回到办公室后仍不断问问题，财务人员需要重复解释。管理层最初认为员工不够耐心，但问卷显示，培训缺少特殊情况的详细步骤。",
+            "meaningVi": "Sau khi công ty đưa hệ thống hoàn trả chi phí mới vào sử dụng, buổi đào tạo đầu chỉ kéo dài hai mươi phút. Giảng viên thao tác thành thạo nhưng không nêu ví dụ xử lý khi hóa đơn thiếu thông tin hoặc chuyến công tác bị hủy. Trở về văn phòng, nhân viên vẫn hỏi liên tục, bộ phận tài chính phải giải thích lại. Ban quản lý ban đầu nghĩ nhân viên thiếu kiên nhẫn, nhưng khảo sát cho thấy buổi đào tạo thiếu các bước chi tiết cho trường hợp đặc biệt.",
+            "pinyin": "Gōngsī shàngxiàn xīn de bàoxiāo xìtǒng hòu, dì yī cì péixùn zhǐ yòng le èrshí fēnzhōng. Jiǎngshī cāozuò de hěn shúliàn, què méiyǒu jǔ lì shuōmíng fāpiào bù wánzhěng huò chūchāi qǔxiāo shí zěnme bàn. Yuángōng huí dào bàngōngshì hòu réng búduàn wèn wèntí, cáiwù rényuán xūyào chóngfù jiěshì. Guǎnlǐcéng zuìchū rènwéi yuángōng bú gòu nàixīn, dàn wènjuàn xiǎnshì, péixùn quēshǎo tèshū qíngkuàng de xiángxì bùzhòu.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "第二次培训改成三个案例。参加者先自己完成普通报销，再处理缺文件和改行程，讲师只在关键步骤暂停说明。财务部门把常见错误做成一页检查表，并在一周内记录新问题。两周后，基本报销的错误减少了一半，特殊情况的处理时间也缩短。",
+            "meaningVi": "Buổi hai đổi sang ba tình huống. Người học tự làm thanh toán thường rồi xử lý thiếu giấy tờ và đổi lịch; giảng viên chỉ dừng ở bước then chốt. Tài chính làm bảng kiểm lỗi phổ biến và ghi câu hỏi mới một tuần. Hai tuần sau, lỗi cơ bản giảm một nửa và thời gian xử lý tình huống đặc biệt ngắn hơn.",
+            "pinyin": "Dì èr cì péixùn gǎi chéng sān gè ànlì. Cānjiā zhě xiān zìjǐ wánchéng pǔtōng bàoxiāo, zài chǔlǐ quē wénjiàn hé gǎi háng chéng, jiǎngshī zhǐ zài guānjiàn bùzhòu zàntíng shuōmíng. Cáiwù bùmén bǎ chángjiàn cuòwù zuò chéng yī yè jiǎnchá biǎo, bìng zài yīzhōu nèi jìlù xīn wèntí. Liǎng zhōu hòu, jīběn bàoxiāo de cuòwù jiǎnshǎole yībàn, tèshū qíngkuàng de chǔlǐ shíjiān yě suōduǎn.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "不过，公司没有宣布培训已经取得长期成功。新系统刚上线时问题本来会比较多，员工也可能因为重复使用而熟悉。为区分这些因素，财务部门将在三个月后再次检查错误率，并比较参加与未参加第二次培训的员工。当前证据支持案例教学有帮助，但不支持把全部改善都归给它。",
+            "meaningVi": "Tuy vậy, công ty chưa tuyên bố đào tạo thành công dài hạn. Hệ thống mới lên thường nhiều lỗi, nhân viên cũng có thể quen nhờ dùng lặp lại. Để phân biệt, tài chính sẽ kiểm tra tỷ lệ lỗi sau ba tháng và so người có/không dự buổi hai. Bằng chứng hiện hỗ trợ dạy theo tình huống có ích, không hỗ trợ quy mọi cải thiện cho nó.",
+            "pinyin": "Bùguò, gōngsī méiyǒu xuānbù péixùn yǐjīng qǔdé chángqí chénggōng. Xīn xìtǒng gāng shàngxiàn shí wèntí běnlái huì bǐjiào duō, yuángōng yě kěnéng yīn wéi chóngfù shǐyòng ér shúxī. Wèi qūfēn zhèxiē yīnsù, cáiwù bùmén jiàng zài sān gè yuè hòu zàicì jiǎnchá cuòwù lǜ, bìng bǐjiào cānjiā yǔ wèi cānjiā dì èr cì péixùn de yuángōng. Dāngqián zhèngjù zhīchí ànlì jiàoxué yǒu bāngzhù, dàn bù zhīchí bǎ quánbù gǎishàn dōu guī gěi tā.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:43404c2b7556910108cc3764b497183c133df83a1e4c682c3493dfde7a3b7303",
+          "evidenceDocument": "docs/thien-lo-redesign-review/121-REVIEW-HSK4-SHARED-TEXT-ROUND28.md",
+          "humanReviewed": false,
+          "scope": "Correct three shared source paragraphs: contextual Pinyin, reimbursement training and shared tools; retain IDs and answer keys.",
+          "sourceContentSha256": "sha256:462117d4867576c7181f322690d89a1a3552a188c888034bea96fdfe8bef6fa7",
+          "sourceRevisionId": "ac6f8fd3-8ff8-4884-a98a-c457e1b7967d"
+        },
+        "exercises": [
+          {
+            "answer": "学院为准备毕业考试的学生开放晚间自习项目。第一周有一百人报名，却只有四十人连续到场。调查显示，部分学生不能接受固定三小时的安排，另一些人到了教室也不知道先做什么。仅仅延长开放时间，并没有自动带来稳定学习。",
+            "answerMeaningVi": "Học viện mở chương trình tự học buổi tối cho sinh viên chuẩn bị thi tốt nghiệp. Tuần đầu một trăm người đăng ký nhưng chỉ bốn mươi người đến liên tục. Khảo sát cho thấy có người không phù hợp lịch cố định ba tiếng, có người tới phòng vẫn không biết bắt đầu gì. Chỉ kéo dài giờ mở chưa tự tạo học ổn định.",
+            "answerPinyin": "Xuéyuàn wéi zhǔnbèi bìyè kǎoshì de xuéshēng kāifàng wǎnjiān zìxí xiàngmù. Dì yī zhōu yǒuyī bǎirén bàomíng, què zhǐyǒu sìshí rén liánxù dàochǎng. Diàochá xiǎnshì, bùfèn xuéshēng bùnéng jiēshòu gùdìng sān xiǎoshí de ānpái, lìng yīxiē rén dàole jiàoshì yě bù zhīdào xiān zuò shénme. Jǐnjǐn yáncháng kāifàng shíjiān, bìng méiyǒu zìdòng dài lái wěndìng xuéxí.",
+            "distractors": [
+              "第二阶段把项目重新设计成九十分钟单元，学生进门先写当晚目标，结束时记录完成情况。导师不讲新课，只在学生卡住时帮助拆分任务。学校还允许线上登记后临时取消，避免学生因一次缺席就放弃整个项目。四周后，持续参加的人增加到七十二人。",
+              "学院没有把增长全部归因于导师。时间变短、目标更具体、取消规则更灵活都可能起作用，而且考试临近也会提高学习动力。下一轮将分别比较有无目标卡的时段。现有结果说明多项条件共同支持坚持，但还不能指出哪一个条件是唯一原因。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Động từ/cụm hành động + 就是了 jiù shì le đưa cách làm đủ theo tình huống: 不懂就问老师就是了. Có thể trấn an, cũng có thể nghe như đơn giản hóa vấn đề. Không dùng để khẳng định một phép so sánh tự giải mọi yếu tố nhiễu. Khác 就是 dùng xác định danh tính.",
+            "guidedPractice": {
+              "promptVi": "Trên tờ đăng ký mới chỉ cần ghi tên và số điện thoại. Viết hướng dẫn với 就是了, giữ đủ cả hai mục.",
+              "modelAnswerHanzi": "把姓名和电话号码写在这里就是了。",
+              "modelAnswerPinyin": "Bǎ xìngmíng hé diànhuà hàomǎ xiě zài zhèlǐ jiù shì le.",
+              "modelAnswerMeaningVi": "Chỉ cần viết họ tên và số điện thoại ở đây là được."
+            },
+            "modelExample": {
+              "hanzi": "不懂就问老师就是了。",
+              "pinyin": "Bù dǒng jiù wèn lǎoshī jiù shì le.",
+              "meaningVi": "Không hiểu thì cứ hỏi giáo viên là được.",
+              "speaker": "A"
+            },
+            "pattern": "X就是了"
+          },
+          {
+            "explanationVi": "还 hái có thể nói còn/thêm một việc: 他还会做饭呢, 呢 nhấn điều bổ sung. Trong phản vấn có thể bác kỳ vọng: 基本步骤都没学会，还谈什么独立操作呢？ = bước cơ bản chưa biết, nói gì tự thao tác. Không đọc mọi 还…呢 thành phản vấn; ý và giọng phụ thuộc toàn câu.",
+            "guidedPractice": {
+              "promptVi": "Bạn chưa học xong thao tác cơ bản, muốn nói chưa thể bàn tới tự xử lý ca khó. Viết phản vấn 还…呢, không phủ nhận mọi tiến bộ.",
+              "modelAnswerHanzi": "基本步骤还没学完，还谈什么独立处理难题呢？",
+              "modelAnswerPinyin": "Jīběn bùzhòu hái méi xué wán, hái tán shénme dúlì chǔlǐ nántí ne?",
+              "modelAnswerMeaningVi": "Bước cơ bản còn chưa học xong, nói gì tự xử lý bài khó?"
+            },
+            "modelExample": {
+              "hanzi": "他还会做饭呢。",
+              "pinyin": "Tā hái huì zuò fàn ne.",
+              "meaningVi": "Anh ấy còn biết nấu cơm nữa.",
+              "speaker": "A"
+            },
+            "pattern": "还X呢"
+          },
+          {
+            "explanationVi": "你 + động từ + 你的 + 吧 có thể khuyến khích người kia tiếp tục việc riêng: 你忙你的吧，我自己来. Có thể thân thiện, cũng có thể gạt đi tùy giọng/bối cảnh. Không mặc định mọi câu là thiếu tôn trọng hoặc sẽ khiến phản hồi không được nghe. Trong mẫu lặp, động từ phải cùng nghĩa ở hai vị trí.",
+            "guidedPractice": {
+              "promptVi": "Bạn học đang bận học, bạn có thể tự lấy tài liệu nên bảo bạn ấy cứ học không cần chờ. Viết câu theo mẫu và nêu giọng thân thiện.",
+              "modelAnswerHanzi": "你学你的吧，我自己去拿资料。",
+              "modelAnswerPinyin": "Nǐ xué nǐ de ba, wǒ zìjǐ qù ná zīliào.",
+              "modelAnswerMeaningVi": "Bạn cứ học đi, tôi tự đi lấy tài liệu."
+            },
+            "modelExample": {
+              "hanzi": "你忙你的吧，我自己来。",
+              "pinyin": "Nǐ máng nǐ de ba, wǒ zìjǐ lái.",
+              "meaningVi": "Bạn cứ lo việc của bạn, tôi tự làm được.",
+              "speaker": "A"
+            },
+            "pattern": "你X你的吧"
+          },
+          {
+            "explanationVi": "让/叫 + người + động từ rồi người + 就 + cùng hành động nói làm theo yêu cầu: 老师让你读，你就读. Khi hỏi 让你去你就去啊？ có thể trách người làm theo quá dễ. Không mặc định mọi sự làm theo là đã hiểu hoặc tự nguyện lâu dài. Cũng không kể mẫu yêu cầu giả định như lời nguồn đã ghi.",
+            "guidedPractice": {
+              "promptVi": "Trong luyện đọc mới, giáo viên bảo bạn đọc câu thứ hai. Viết 让你…你就… như chỉ dẫn; không khẳng định đã hiểu toàn bài.",
+              "modelAnswerHanzi": "老师让你读第二句，你就读第二句。",
+              "modelAnswerPinyin": "Lǎoshī ràng nǐ dú dì èr jù, nǐ jiù dú dì èr jù.",
+              "modelAnswerMeaningVi": "Giáo viên bảo bạn đọc câu thứ hai thì bạn đọc câu thứ hai."
+            },
+            "modelExample": {
+              "hanzi": "老师让你读，你就读。",
+              "pinyin": "Lǎoshī ràng nǐ dú, nǐ jiù dú.",
+              "meaningVi": "Giáo viên bảo bạn đọc thì bạn đọc.",
+              "speaker": "A"
+            },
+            "pattern": "让/叫你X你就X"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng sắp xếp bằng chứng theo sức nặng để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Sắp xếp bằng chứng theo sức nặng: Dùng định dạng tu từ, phản vấn, so sánh và nhấn mạnh để nêu thái độ mà không làm mất ranh giới giữa dữ kiện và ý kiến."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "学院为准备毕业考试的学生开放晚间自习项目。第一周有一百人报名，却只有四十人连续到场。调查显示，部分学生不能接受固定三小时的安排，另一些人到了教室也不知道先做什么。仅仅延长开放时间，并没有自动带来稳定学习。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-03:source-0-0",
+                        "meaningVi": "Học viện mở chương trình tự học buổi tối cho sinh viên chuẩn bị thi tốt nghiệp. Tuần đầu một trăm người đăng ký nhưng chỉ bốn mươi người đến liên tục. Khảo sát cho thấy có người không phù hợp lịch cố định ba tiếng, có người tới phòng vẫn không biết bắt đầu gì. Chỉ kéo dài giờ mở chưa tự tạo học ổn định.",
+                        "pinyin": "Xuéyuàn wéi zhǔnbèi bìyè kǎoshì de xuéshēng kāifàng wǎnjiān zìxí xiàngmù. Dì yī zhōu yǒuyī bǎirén bàomíng, què zhǐyǒu sìshí rén liánxù dàochǎng. Diàochá xiǎnshì, bùfèn xuéshēng bùnéng jiēshòu gùdìng sān xiǎoshí de ānpái, lìng yīxiē rén dàole jiàoshì yě bù zhīdào xiān zuò shénme. Jǐnjǐn yáncháng kāifàng shíjiān, bìng méiyǒu zìdòng dài lái wěndìng xuéxí."
+                      },
+                      {
+                        "hanzi": "第二阶段把项目重新设计成九十分钟单元，学生进门先写当晚目标，结束时记录完成情况。导师不讲新课，只在学生卡住时帮助拆分任务。学校还允许线上登记后临时取消，避免学生因一次缺席就放弃整个项目。四周后，持续参加的人增加到七十二人。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-03:source-0-1",
+                        "meaningVi": "Giai đoạn hai thiết kế lại thành đơn vị chín mươi phút; vào phòng sinh viên ghi mục tiêu, cuối buổi ghi kết quả. Cố vấn không dạy bài mới, chỉ giúp chia nhiệm vụ khi bị kẹt. Trường cho phép đăng ký trực tuyến rồi hủy tạm, tránh bỏ cả chương trình vì một lần vắng. Sau bốn tuần, người tham gia đều tăng lên bảy mươi hai.",
+                        "pinyin": "Dì èr jiēduàn bǎ xiàngmù chóngxīn shèjì chéng jiǔshí fēnzhōng dānyuán, xuéshēng jìnmén xiān xiě dàngwǎn mùbiāo, jiéshù shí jìlù wánchéng qíngkuàng. Dǎoshī bù jiǎng xīn kè, zhǐ zài xuéshēng kǎ zhù shí bāngzhù chāi fēn rènwù. Xuéxiào hái yǔnxǔ xiàn shàng dēngjì hòu línshí qǔxiāo, bìmiǎn xuéshēng yīn yīcì quēxí jiù fàngqì zhěnggè xiàngmù. Sìzhōu hòu, chíxù cānjiā de rén zēngjiā dào qīshí'èr rén."
+                      },
+                      {
+                        "hanzi": "学院没有把增长全部归因于导师。时间变短、目标更具体、取消规则更灵活都可能起作用，而且考试临近也会提高学习动力。下一轮将分别比较有无目标卡的时段。现有结果说明多项条件共同支持坚持，但还不能指出哪一个条件是唯一原因。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-03:source-0-2",
+                        "meaningVi": "Học viện không quy toàn bộ tăng trưởng cho cố vấn. Thời gian ngắn hơn, mục tiêu cụ thể, quy tắc hủy linh hoạt đều có thể tác động; kỳ thi đến gần cũng tăng động lực. Đợt sau sẽ so ca có/không thẻ mục tiêu. Kết quả hiện tại cho thấy nhiều điều kiện cùng hỗ trợ duy trì, chưa chỉ ra một nguyên nhân duy nhất.",
+                        "pinyin": "Xuéyuàn méiyǒu bǎ zēngzhǎng quánbù guī yīn yú dǎoshī. Shíjiān biàn duǎn, mùbiāo gèng jùtǐ, qǔxiāo guīzé gèng línghuó dōu kěnéng qǐ zuòyòng, érqiě kǎoshì línjìn yě huì tígāo xuéxí dònglì. Xià yī lún jiāng fēnbié bǐjiào yǒu wú mùbiāo kǎ de shíduàn. Xiàn yǒu jiéguǒ shuōmíng duō xiàng tiáojiàn gòngtóng zhīchí jiānchí, dàn hái bùnéng zhǐchū nǎ yīgè tiáojiàn shì wéiyī yuányīn."
+                      }
+                    ]
+                  },
+                  "title": "Vì sao hỗ trợ tự học trước tốt nghiệp có tác dụng"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Vì sao hỗ trợ tự học trước tốt nghiệp có tác dụng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "公司上线新的报销系统后，第一次培训只用了二十分钟。讲师操作得很熟练，却没有举例说明发票不完整或出差取消时怎么办。员工回到办公室后仍不断问问题，财务人员需要重复解释。管理层最初认为员工不够耐心，但问卷显示，培训缺少特殊情况的详细步骤。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-03:source-1-0",
+                        "meaningVi": "Sau khi công ty đưa hệ thống hoàn trả chi phí mới vào sử dụng, buổi đào tạo đầu chỉ kéo dài hai mươi phút. Giảng viên thao tác thành thạo nhưng không nêu ví dụ xử lý khi hóa đơn thiếu thông tin hoặc chuyến công tác bị hủy. Trở về văn phòng, nhân viên vẫn hỏi liên tục, bộ phận tài chính phải giải thích lại. Ban quản lý ban đầu nghĩ nhân viên thiếu kiên nhẫn, nhưng khảo sát cho thấy buổi đào tạo thiếu các bước chi tiết cho trường hợp đặc biệt.",
+                        "pinyin": "Gōngsī shàngxiàn xīn de bàoxiāo xìtǒng hòu, dì yī cì péixùn zhǐ yòng le èrshí fēnzhōng. Jiǎngshī cāozuò de hěn shúliàn, què méiyǒu jǔ lì shuōmíng fāpiào bù wánzhěng huò chūchāi qǔxiāo shí zěnme bàn. Yuángōng huí dào bàngōngshì hòu réng búduàn wèn wèntí, cáiwù rényuán xūyào chóngfù jiěshì. Guǎnlǐcéng zuìchū rènwéi yuángōng bú gòu nàixīn, dàn wènjuàn xiǎnshì, péixùn quēshǎo tèshū qíngkuàng de xiángxì bùzhòu."
+                      },
+                      {
+                        "hanzi": "第二次培训改成三个案例。参加者先自己完成普通报销，再处理缺文件和改行程，讲师只在关键步骤暂停说明。财务部门把常见错误做成一页检查表，并在一周内记录新问题。两周后，基本报销的错误减少了一半，特殊情况的处理时间也缩短。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-03:source-1-1",
+                        "meaningVi": "Buổi hai đổi sang ba tình huống. Người học tự làm thanh toán thường rồi xử lý thiếu giấy tờ và đổi lịch; giảng viên chỉ dừng ở bước then chốt. Tài chính làm bảng kiểm lỗi phổ biến và ghi câu hỏi mới một tuần. Hai tuần sau, lỗi cơ bản giảm một nửa và thời gian xử lý tình huống đặc biệt ngắn hơn.",
+                        "pinyin": "Dì èr cì péixùn gǎi chéng sān gè ànlì. Cānjiā zhě xiān zìjǐ wánchéng pǔtōng bàoxiāo, zài chǔlǐ quē wénjiàn hé gǎi háng chéng, jiǎngshī zhǐ zài guānjiàn bùzhòu zàntíng shuōmíng. Cáiwù bùmén bǎ chángjiàn cuòwù zuò chéng yī yè jiǎnchá biǎo, bìng zài yīzhōu nèi jìlù xīn wèntí. Liǎng zhōu hòu, jīběn bàoxiāo de cuòwù jiǎnshǎole yībàn, tèshū qíngkuàng de chǔlǐ shíjiān yě suōduǎn."
+                      },
+                      {
+                        "hanzi": "不过，公司没有宣布培训已经取得长期成功。新系统刚上线时问题本来会比较多，员工也可能因为重复使用而熟悉。为区分这些因素，财务部门将在三个月后再次检查错误率，并比较参加与未参加第二次培训的员工。当前证据支持案例教学有帮助，但不支持把全部改善都归给它。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-03:source-1-2",
+                        "meaningVi": "Tuy vậy, công ty chưa tuyên bố đào tạo thành công dài hạn. Hệ thống mới lên thường nhiều lỗi, nhân viên cũng có thể quen nhờ dùng lặp lại. Để phân biệt, tài chính sẽ kiểm tra tỷ lệ lỗi sau ba tháng và so người có/không dự buổi hai. Bằng chứng hiện hỗ trợ dạy theo tình huống có ích, không hỗ trợ quy mọi cải thiện cho nó.",
+                        "pinyin": "Bùguò, gōngsī méiyǒu xuānbù péixùn yǐjīng qǔdé chángqí chénggōng. Xīn xìtǒng gāng shàngxiàn shí wèntí běnlái huì bǐjiào duō, yuángōng yě kěnéng yīn wéi chóngfù shǐyòng ér shúxī. Wèi qūfēn zhèxiē yīnsù, cáiwù bùmén jiàng zài sān gè yuè hòu zàicì jiǎnchá cuòwù lǜ, bìng bǐjiào cānjiā yǔ wèi cānjiā dì èr cì péixùn de yuángōng. Dāngqián zhèngjù zhīchí ànlì jiàoxué yǒu bāngzhù, dàn bù zhīchí bǎ quánbù gǎishàn dōu guī gěi tā."
+                      }
+                    ]
+                  },
+                  "title": "Làm sao để đào tạo văn phòng thực sự được tiếp nhận"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Làm sao để đào tạo văn phòng thực sự được tiếp nhận"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Nguồn cung cấp hai con số và liệt kê đồng thời thời lượng ngắn hơn, thẻ mục tiêu, cố vấn, quy tắc hủy linh hoạt cùng thời điểm thi đến gần. Giới hạn: Không được chọn riêng cố vấn, thẻ mục tiêu hay bất kỳ điều kiện nào làm nguyên nhân duy nhất trước phép so sánh tiếp theo.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sau khi chương trình tự học điều chỉnh, số người tham gia đều tăng từ 40 lên 72, nhưng nhiều điều kiện thay đổi cùng lúc.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Nguồn cung cấp hai con số và liệt kê đồng thời thời lượng ngắn hơn, thẻ mục tiêu, cố vấn, quy tắc hủy linh hoạt cùng thời điểm thi đến gần.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn cung cấp hai con số và liệt kê đồng thời thời lượng ngắn hơn, thẻ mục tiêu, cố vấn, quy tắc hủy linh hoạt cùng thời điểm thi đến gần.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "自习项目调整后，持续参加者从四十人增加到七十二人，但多项条件同时变化。\nSau khi chương trình tự học điều chỉnh, số người tham gia đều tăng từ 40 lên 72, nhưng nhiều điều kiện thay đổi cùng lúc.\nĐối chiếu Nguồn A · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn xác nhận lỗi cơ bản giảm và thời gian xử lý trường hợp đặc biệt ngắn hơn, nhưng cũng nêu hiệu ứng làm quen do hệ thống mới và kế hoạch so sánh sau ba tháng. Giới hạn: Có thể nói dạy bằng tình huống có bằng chứng hỗ trợ ngắn hạn, không được quy toàn bộ cải thiện cho nó hoặc gọi kết quả là lâu dài.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sau lần đào tạo hai, lỗi cơ bản giảm một nửa, đủ chứng minh dạy bằng tình huống đã tạo ra toàn bộ cải thiện.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Có thể nói dạy bằng tình huống có bằng chứng hỗ trợ ngắn hạn, không được quy toàn bộ cải thiện cho nó hoặc gọi kết quả là lâu dài.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn xác nhận lỗi cơ bản giảm và thời gian xử lý trường hợp đặc biệt ngắn hơn, nhưng cũng nêu hiệu ứng làm quen do hệ thống mới và kế hoạch so sánh sau ba tháng.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "第二次培训后基本错误减少一半，足以证明案例教学造成了全部改善。\nSau lần đào tạo hai, lỗi cơ bản giảm một nửa, đủ chứng minh dạy bằng tình huống đã tạo ra toàn bộ cải thiện.\nĐối chiếu Nguồn B · đoạn 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n项目把固定三小时改成九十分钟单元，增加目标卡、导师拆分任务和灵活取消，四周后持续参加者由四十人增至七十二人。由于考试临近等条件也在变化，学院只说多项条件共同支持坚持，并将比较有无目标卡的时段。\nChương trình đổi ba giờ cố định thành đơn vị 90 phút, thêm thẻ mục tiêu, cố vấn chia nhiệm vụ và hủy linh hoạt; sau bốn tuần số người tham gia đều tăng từ 40 lên 72. Vì kỳ thi đến gần và các điều kiện khác cùng thay đổi, học viện chỉ nói nhiều điều kiện cùng hỗ trợ sự kiên trì, rồi sẽ so khung giờ có và không có thẻ mục tiêu.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase kết quả chương trình tự học theo thứ tự: thay đổi, kết quả, cách giải thích và phép kiểm tra tiếp.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Bốn thay đổi chính được triển khai trong giai đoạn hai.",
+                        "id": "point-0",
+                        "label": "Bốn thay đổi chính được triển khai trong giai đoạn hai."
+                      },
+                      {
+                        "guidance": "Số người tham gia liên tục tăng từ bốn mươi lên bảy mươi hai sau bốn tuần.",
+                        "id": "point-1",
+                        "label": "Số người tham gia liên tục tăng từ bốn mươi lên bảy mươi hai sau bốn tuần."
+                      },
+                      {
+                        "guidance": "Học viện chưa chỉ ra một nguyên nhân duy nhất và sẽ so thẻ mục tiêu.",
+                        "id": "point-2",
+                        "label": "Học viện chưa chỉ ra một nguyên nhân duy nhất và sẽ so thẻ mục tiêu."
+                      },
+                      {
+                        "guidance": "Không đổi số người thành tỷ lệ đỗ, không nói cố vấn là nguyên nhân duy nhất và không dự đoán kết quả phép so sánh tiếp theo.",
+                        "id": "point-3",
+                        "label": "Không đổi số người thành tỷ lệ đỗ, không nói cố vấn là nguyên nhân duy nhất và không dự đoán kết quả phép so sánh tiếp theo."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase kết quả chương trình tự học theo thứ tự: thay đổi, kết quả, cách giải thích và phép kiểm tra tiếp.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n第二次培训用普通、缺文件和改行程三个案例，配合错误检查表。两周内基本报销错误减少一半，特殊处理也变快；不过员工可能因重复使用而自然熟悉，公司还要在三个月后比较参加者和未参加者。\nLần đào tạo hai dùng ba tình huống thường, thiếu giấy tờ và đổi lịch trình, kèm bảng kiểm lỗi. Trong hai tuần, lỗi hoàn tiền cơ bản giảm một nửa và xử lý đặc biệt nhanh hơn; tuy nhiên nhân viên có thể tự quen vì dùng lặp lại, nên công ty còn phải so người tham gia với người không tham gia sau ba tháng.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại kết luận đào tạo công ty, giữ riêng kết quả hai tuần và kế hoạch kiểm tra ba tháng.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Lần đào tạo hai dùng ba trường hợp cùng bảng kiểm lỗi.",
+                        "id": "point-0",
+                        "label": "Lần đào tạo hai dùng ba trường hợp cùng bảng kiểm lỗi."
+                      },
+                      {
+                        "guidance": "Sau hai tuần, lỗi cơ bản giảm một nửa và xử lý đặc biệt nhanh hơn.",
+                        "id": "point-1",
+                        "label": "Sau hai tuần, lỗi cơ bản giảm một nửa và xử lý đặc biệt nhanh hơn."
+                      },
+                      {
+                        "guidance": "Công ty sẽ kiểm tra sau ba tháng và so hai nhóm tham gia khác nhau.",
+                        "id": "point-2",
+                        "label": "Công ty sẽ kiểm tra sau ba tháng và so hai nhóm tham gia khác nhau."
+                      },
+                      {
+                        "guidance": "Không gọi giảm lỗi là hiệu quả dài hạn, không bỏ yếu tố làm quen và không khẳng định so sánh sau sẽ xác nhận nguyên nhân.",
+                        "id": "point-3",
+                        "label": "Không gọi giảm lỗi là hiệu quả dài hạn, không bỏ yếu tố làm quen và không khẳng định so sánh sau sẽ xác nhận nguyên nhân."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại kết luận đào tạo công ty, giữ riêng kết quả hai tuần và kế hoạch kiểm tra ba tháng.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Động từ/cụm hành động + 就是了 jiù shì le đưa cách làm đủ theo tình huống: 不懂就问老师就是了. Có thể trấn an, cũng có thể nghe như đơn giản hóa vấn đề. Không dùng để khẳng định một phép so sánh tự giải mọi yếu tố nhiễu. Khác 就是 dùng xác định danh tính.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "X就是了: chỉ cần làm X"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "不懂就问老师就是了。",
+                  "pinyin": "Bù dǒng jiù wèn lǎoshī jiù shì le.",
+                  "meaningVi": "Không hiểu thì cứ hỏi giáo viên là được.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "把名字写在这里就是了。",
+                  "pinyin": "Bǎ míngzi xiě zài zhèlǐ jiù shì le.",
+                  "meaningVi": "Chỉ cần viết tên ở đây là được.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "X就是了: chỉ cần làm X"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:0:practice",
+              "title": "Khảo Luyện · X就是了: chỉ cần làm X",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "就是了 có luôn chứng minh việc làm là đủ cho mọi vấn đề không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, chỉ trong phạm vi tình huống",
+                        "feedback": "Người nói đề xuất bước đủ; vẫn phải xét tình huống thực tế."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu cuối câu",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Người nói đề xuất bước đủ; vẫn phải xét tình huống thực tế.",
+                    "learningTarget": {
+                      "objective": "X就是了: chỉ cần làm X",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Câu viết tên yêu cầu gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Viết tên ở đây",
+                        "feedback": "Cụm hành động đứng trước 就是了."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Xác nhận là giáo viên",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đã giải mọi câu hỏi",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cụm hành động đứng trước 就是了.",
+                    "learningTarget": {
+                      "objective": "X就是了: chỉ cần làm X",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:0:transfer",
+              "title": "Vận dụng · X就是了: chỉ cần làm X",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n把姓名和电话号码写在这里就是了。\nBǎ xìngmíng hé diànhuà hàomǎ xiě zài zhèlǐ jiù shì le.\nChỉ cần viết họ tên và số điện thoại ở đây là được.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "X就是了: chỉ cần làm X",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Cụm hành động trước 就是了.",
+                        "guidance": "Cụm hành động trước 就是了."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ cả tên và số điện thoại.",
+                        "guidance": "Giữ cả tên và số điện thoại."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy hoàn tất mọi thủ tục khác.",
+                        "guidance": "Không suy hoàn tất mọi thủ tục khác."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trên tờ đăng ký mới chỉ cần ghi tên và số điện thoại. Viết hướng dẫn với 就是了, giữ đủ cả hai mục.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "还 hái có thể nói còn/thêm một việc: 他还会做饭呢, 呢 nhấn điều bổ sung. Trong phản vấn có thể bác kỳ vọng: 基本步骤都没学会，还谈什么独立操作呢？ = bước cơ bản chưa biết, nói gì tự thao tác. Không đọc mọi 还…呢 thành phản vấn; ý và giọng phụ thuộc toàn câu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "还X呢: còn…nữa / nói gì đến…"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "他还会做饭呢。",
+                  "pinyin": "Tā hái huì zuò fàn ne.",
+                  "meaningVi": "Anh ấy còn biết nấu cơm nữa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "基本步骤都没学会，还谈什么独立操作呢？",
+                  "pinyin": "Jīběn bùzhòu dōu méi xué huì, hái tán shénme dúlì cāozuò ne?",
+                  "meaningVi": "Bước cơ bản còn chưa học được, nói gì thao tác độc lập?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "还X呢: còn…nữa / nói gì đến…"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:1:practice",
+              "title": "Khảo Luyện · 还X呢: còn…nữa / nói gì đến…",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "他还会做饭呢 có bác khả năng nấu ăn không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, bổ sung biết nấu",
+                        "feedback": "还…呢 ở đây bổ sung, không tự là câu mỉa mai."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chưa biết có nấu không",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "还…呢 ở đây bổ sung, không tự là câu mỉa mai.",
+                    "learningTarget": {
+                      "objective": "还X呢: còn…nữa / nói gì đến…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Mẫu bước cơ bản đang làm gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chứng minh đã làm độc lập",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Hỏi thực đơn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Phản vấn kỳ vọng quá sớm",
+                        "feedback": "Vế đầu thiếu kỹ năng nền, vế sau phản vấn tuyên bố mạnh."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Vế đầu thiếu kỹ năng nền, vế sau phản vấn tuyên bố mạnh.",
+                    "learningTarget": {
+                      "objective": "还X呢: còn…nữa / nói gì đến…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:1:transfer",
+              "title": "Vận dụng · 还X呢: còn…nữa / nói gì đến…",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n基本步骤还没学完，还谈什么独立处理难题呢？\nJīběn bùzhòu hái méi xué wán, hái tán shénme dúlì chǔlǐ nántí ne?\nBước cơ bản còn chưa học xong, nói gì tự xử lý bài khó?\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "还X呢: còn…nữa / nói gì đến…",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu giới hạn hiện tại.",
+                        "guidance": "Nêu giới hạn hiện tại."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "还谈什么…呢 đưa phản vấn.",
+                        "guidance": "还谈什么…呢 đưa phản vấn."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không nói người ấy mãi không học được.",
+                        "guidance": "Không nói người ấy mãi không học được."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn chưa học xong thao tác cơ bản, muốn nói chưa thể bàn tới tự xử lý ca khó. Viết phản vấn 还…呢, không phủ nhận mọi tiến bộ.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "你 + động từ + 你的 + 吧 có thể khuyến khích người kia tiếp tục việc riêng: 你忙你的吧，我自己来. Có thể thân thiện, cũng có thể gạt đi tùy giọng/bối cảnh. Không mặc định mọi câu là thiếu tôn trọng hoặc sẽ khiến phản hồi không được nghe. Trong mẫu lặp, động từ phải cùng nghĩa ở hai vị trí.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "你X你的吧: cứ làm phần của bạn"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "你忙你的吧，我自己来。",
+                  "pinyin": "Nǐ máng nǐ de ba, wǒ zìjǐ lái.",
+                  "meaningVi": "Bạn cứ lo việc của bạn, tôi tự làm được.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "你学你的吧，不用等我。",
+                  "pinyin": "Nǐ xué nǐ de ba, bú yòng děng wǒ.",
+                  "meaningVi": "Bạn cứ học đi, không cần chờ tôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "你X你的吧: cứ làm phần của bạn"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:2:practice",
+              "title": "Khảo Luyện · 你X你的吧: cứ làm phần của bạn",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "你忙你的吧 luôn là gạt bỏ người khác không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, cần xét giọng và tình huống",
+                        "feedback": "Trong tình huống tự làm giúp người bận, có thể là quan tâm."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có luôn luôn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chỉ khi có 你",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Trong tình huống tự làm giúp người bận, có thể là quan tâm.",
+                    "learningTarget": {
+                      "objective": "你X你的吧: cứ làm phần của bạn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Cấu trúc nào đúng mẫu lặp?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "你学习你的学习吗",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "你忙你的吧",
+                        "feedback": "你 + 忙 + 你的 + 吧."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "你的忙你是吧",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "你 + 忙 + 你的 + 吧.",
+                    "learningTarget": {
+                      "objective": "你X你的吧: cứ làm phần của bạn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:2:transfer",
+              "title": "Vận dụng · 你X你的吧: cứ làm phần của bạn",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n你学你的吧，我自己去拿资料。\nNǐ xué nǐ de ba, wǒ zìjǐ qù ná zīliào.\nBạn cứ học đi, tôi tự đi lấy tài liệu.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "你X你的吧: cứ làm phần của bạn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "学 lặp theo mẫu.",
+                        "guidance": "学 lặp theo mẫu."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Vế sau làm rõ tự lấy tài liệu.",
+                        "guidance": "Vế sau làm rõ tự lấy tài liệu."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Nhận giọng quan tâm theo bối cảnh, không tự gán xung đột.",
+                        "guidance": "Nhận giọng quan tâm theo bối cảnh, không tự gán xung đột."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn học đang bận học, bạn có thể tự lấy tài liệu nên bảo bạn ấy cứ học không cần chờ. Viết câu theo mẫu và nêu giọng thân thiện.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "让/叫 + người + động từ rồi người + 就 + cùng hành động nói làm theo yêu cầu: 老师让你读，你就读. Khi hỏi 让你去你就去啊？ có thể trách người làm theo quá dễ. Không mặc định mọi sự làm theo là đã hiểu hoặc tự nguyện lâu dài. Cũng không kể mẫu yêu cầu giả định như lời nguồn đã ghi.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "老师让你读，你就读。",
+                  "pinyin": "Lǎoshī ràng nǐ dú, nǐ jiù dú.",
+                  "meaningVi": "Giáo viên bảo bạn đọc thì bạn đọc.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "他叫你去，你就去啊？",
+                  "pinyin": "Tā jiào nǐ qù, nǐ jiù qù a?",
+                  "meaningVi": "Anh ấy bảo bạn đi là bạn đi à?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:3:practice",
+              "title": "Khảo Luyện · 让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Làm theo yêu cầu có tự chứng minh hiểu mọi tình huống không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có nếu đọc nhanh",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không",
+                        "feedback": "Hành vi làm theo khác năng lực chuyển sang tình huống mới."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Hành vi làm theo khác năng lực chuyển sang tình huống mới.",
+                    "learningTarget": {
+                      "objective": "让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Câu thứ hai có thể mang sắc thái gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Trách/hỏi lại việc làm theo quá dễ",
+                        "feedback": "Ngữ điệu và ngữ cảnh có thể làm thành phản vấn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Chắc chắn là lời cảm ơn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Luôn chỉ hỏi ngày",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Ngữ điệu và ngữ cảnh có thể làm thành phản vấn.",
+                    "learningTarget": {
+                      "objective": "让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:directive-r62:3:transfer",
+              "title": "Vận dụng · 让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n老师让你读第二句，你就读第二句。\nLǎoshī ràng nǐ dú dì èr jù, nǐ jiù dú dì èr jù.\nGiáo viên bảo bạn đọc câu thứ hai thì bạn đọc câu thứ hai.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "让/叫你X，你就X: làm theo yêu cầu; phản vấn tùy ngữ cảnh",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ cùng hành động đọc câu hai.",
+                        "guidance": "Giữ cùng hành động đọc câu hai."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "让…就… thể hiện làm theo.",
+                        "guidance": "让…就… thể hiện làm theo."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không biến việc đọc thành hiểu độc lập.",
+                        "guidance": "Không biến việc đọc thành hiểu độc lập."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trong luyện đọc mới, giáo viên bảo bạn đọc câu thứ hai. Viết 让你…你就… như chỉ dẫn; không khẳng định đã hiểu toàn bài.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n晚间自习最初有百人报名，却只有四十人持续到场；改成九十分钟、目标卡、导师拆分任务和灵活取消后，持续参加者增至七十二人。报销培训也从二十分钟演示改为三个案例与检查表，两周后基本错误减少一半，特殊处理变快。两项结果都支持新设计有帮助，但考试临近、系统重复使用等因素尚未排除。学院将比较目标卡时段，公司则在三个月后比较参训与未参训员工。\nTự học buổi tối ban đầu có 100 người đăng ký nhưng chỉ 40 người đến đều; sau khi đổi thành 90 phút, thẻ mục tiêu, cố vấn chia nhiệm vụ và hủy linh hoạt, số này tăng lên 72. Đào tạo báo phí cũng chuyển từ trình diễn 20 phút sang ba tình huống và bảng kiểm; sau hai tuần lỗi cơ bản giảm một nửa, xử lý đặc biệt nhanh hơn. Cả hai kết quả ủng hộ thiết kế mới có ích, nhưng kỳ thi đến gần và việc lặp dùng hệ thống chưa được loại trừ. Học viện sẽ so khung giờ thẻ mục tiêu, công ty sẽ so người tham gia và không tham gia sau ba tháng.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt và sắp xếp sức nặng bằng chứng của hai can thiệp: chương trình tự học và đào tạo hệ thống báo phí.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "vấn đề thiết kế ban đầu",
+                        "id": "criterion-0",
+                        "label": "vấn đề thiết kế ban đầu"
+                      },
+                      {
+                        "guidance": "các thay đổi được thực hiện",
+                        "id": "criterion-1",
+                        "label": "các thay đổi được thực hiện"
+                      },
+                      {
+                        "guidance": "kết quả ngắn hạn có số liệu",
+                        "id": "criterion-2",
+                        "label": "kết quả ngắn hạn có số liệu"
+                      },
+                      {
+                        "guidance": "nhiễu và phép so sánh còn chờ",
+                        "id": "criterion-3",
+                        "label": "nhiễu và phép so sánh còn chờ"
+                      },
+                      {
+                        "guidance": "Không gán toàn bộ thay đổi cho một thành phần, không gọi kết quả ngắn hạn là thành công lâu dài và không thêm kết quả thi hoặc năng suất.",
+                        "id": "criterion-4",
+                        "label": "Không gán toàn bộ thay đổi cho một thành phần, không gọi kết quả ngắn hạn là thành công lâu dài và không thêm kết quả thi hoặc năng suất."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt và sắp xếp sức nặng bằng chứng của hai can thiệp: chương trình tự học và đào tạo hệ thống báo phí.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n短期结果足以支持有控制地继续，却不足以把方案当成已经证明的办法。自习项目中，持续参加者从四十人增至七十二人，但时间、目标卡、导师帮助和取消规则同时改变。报销培训用三个案例和检查表以后，两周内基本错误减少一半，员工也可能因重复使用而自然熟悉系统。这些行为与数字比单纯满意度更有力，仍不能指出哪项措施造成改善。有人认为等待会让学生和员工继续遇到困难，而且现有办法风险不高。这个反对意见合理，所以项目不必停止，可以保持当前规模，同时比较有无目标卡的时段，并在三个月后比较参训与未参训员工。若在比较前全面推广，就会失去了解原因的机会。结论只支持继续试验，不预测考试成绩、工作产量或长期效果。\nKết quả ngắn hạn đủ để tiếp tục có kiểm soát, nhưng chưa đủ để mở rộng như một giải pháp đã chứng minh. Ở chương trình tự học, số người đến đều tăng từ 40 lên 72 sau khi thời lượng, thẻ mục tiêu, hỗ trợ cố vấn và quy tắc hủy cùng thay đổi. Ở đào tạo báo phí, ba tình huống và bảng kiểm đi cùng việc lỗi cơ bản giảm một nửa sau hai tuần. Những tín hiệu này mạnh hơn cảm nhận đơn lẻ vì có hành vi và con số trước–sau, song vẫn chưa tách được thành phần nào tạo tác động. Kỳ thi đến gần có thể tăng động lực; nhân viên cũng có thể tự quen hệ thống. Có ý kiến rằng chờ thêm sẽ làm người học và nhân viên tiếp tục gặp khó, còn can thiệp hiện tại ít rủi ro. Vì vậy không cần dừng: có thể duy trì quy mô hiện tại, đồng thời so khung giờ có thẻ mục tiêu và kiểm tra hai nhóm sau ba tháng. Mở rộng toàn bộ trước các phép so sánh sẽ làm mất cơ hội học nguyên nhân. Kết luận chỉ nói về việc tiếp tục thử; nó không dự báo kết quả thi, năng suất hay hiệu quả lâu dài.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận xem tổ chức nên mở rộng ngay can thiệp có kết quả ngắn hạn hay chờ phép so sánh mạnh hơn.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm hành động có điều kiện",
+                        "id": "criterion-0",
+                        "label": "luận điểm hành động có điều kiện"
+                      },
+                      {
+                        "guidance": "số người tham gia và tỷ lệ lỗi",
+                        "id": "criterion-1",
+                        "label": "số người tham gia và tỷ lệ lỗi"
+                      },
+                      {
+                        "guidance": "nhiều thành phần thay đổi cùng lúc",
+                        "id": "criterion-2",
+                        "label": "nhiều thành phần thay đổi cùng lúc"
+                      },
+                      {
+                        "guidance": "phản biện về chi phí của việc chờ đợi",
+                        "id": "criterion-3",
+                        "label": "phản biện về chi phí của việc chờ đợi"
+                      },
+                      {
+                        "guidance": "kết luận giới hạn theo thời gian và phép đo",
+                        "id": "criterion-4",
+                        "label": "kết luận giới hạn theo thời gian và phép đo"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Duy trì quy mô nhỏ và chờ thêm dữ liệu có thể làm chậm hỗ trợ, trong khi kết quả hiện tại tích cực và các thay đổi dường như ít rủi ro.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ khuyến nghị tiếp tục thử có so sánh, không tuyên bố thành phần hiệu quả nhất, tác động dài hạn hoặc khả năng áp dụng cho tổ chức khác.",
+                        "id": "criterion-6",
+                        "label": "Chỉ khuyến nghị tiếp tục thử có so sánh, không tuyên bố thành phần hiệu quả nhất, tác động dài hạn hoặc khả năng áp dụng cho tổ chức khác."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận xem tổ chức nên mở rộng ngay can thiệp có kết quả ngắn hạn hay chờ phép so sánh mạnh hơn.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n四十增至七十二、错误减少一半，都是值得继续观察的行为信号。\n每个项目同时改变多个条件，不能把结果归给单一办法。\n考试临近与重复使用分别可能影响两项结果。\n不必停止服务，可保持当前规模并加入计划中的比较。\n三个月结果出来前，只能支持继续试验，不能支持全面推广。\nTừ 40 lên 72 và lỗi giảm một nửa là tín hiệu hành vi đáng quan sát tiếp.\nMỗi chương trình đổi nhiều điều kiện cùng lúc nên không quy kết cho một biện pháp.\nKỳ thi đến gần và việc dùng lặp lần lượt có thể ảnh hưởng hai kết quả.\nKhông phải dừng hỗ trợ; giữ quy mô hiện tại và thêm phép so sánh đã lên kế hoạch.\nTrước kết quả ba tháng chỉ đủ ủng hộ thử tiếp, chưa đủ mở rộng toàn bộ.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Trong ba phút, bảo vệ quyết định tiếp tục thử nhưng chưa mở rộng toàn bộ hai can thiệp. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "xếp hạng bằng chứng hành vi trước cảm nhận",
+                        "id": "move-0",
+                        "label": "xếp hạng bằng chứng hành vi trước cảm nhận"
+                      },
+                      {
+                        "guidance": "nêu hai kết quả định lượng ngắn hạn",
+                        "id": "move-1",
+                        "label": "nêu hai kết quả định lượng ngắn hạn"
+                      },
+                      {
+                        "guidance": "chỉ ra ít nhất hai yếu tố chưa tách",
+                        "id": "move-2",
+                        "label": "chỉ ra ít nhất hai yếu tố chưa tách"
+                      },
+                      {
+                        "guidance": "trả lời phản biện rằng chờ đợi gây thiệt hại",
+                        "id": "move-3",
+                        "label": "trả lời phản biện rằng chờ đợi gây thiệt hại"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trong ba phút, bảo vệ quyết định tiếp tục thử nhưng chưa mở rộng toàn bộ hai can thiệp.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "problem",
+                        "label": "线索一",
+                        "meaningVi": "Đăng ký nhiều nhưng duy trì thấp.",
+                        "note": "Vấn đề · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "causes",
+                        "label": "线索二",
+                        "meaningVi": "Lịch dài và mục tiêu không rõ.",
+                        "note": "Nguyên nhân khả dĩ · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "bundle",
+                        "label": "线索三",
+                        "meaningVi": "Ca ngắn, thẻ mục tiêu, cố vấn và hủy linh hoạt.",
+                        "note": "Gói điều chỉnh · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "outcome",
+                        "label": "线索四",
+                        "meaningVi": "Người tham gia đều tăng từ 40 lên 72.",
+                        "note": "Kết quả · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "confound",
+                        "label": "线索五",
+                        "meaningVi": "Nhiều thay đổi và kỳ thi đến gần.",
+                        "note": "Yếu tố chưa tách · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-education-work-evaluation-cause-condition-result; revision 6f8f0687-39f4-46e8-8b05-6ea4479b9399; humanReviewed:false",
+                  "title": "Vì sao hỗ trợ tự học trước tốt nghiệp có tác dụng"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "first",
+                        "label": "线索一",
+                        "meaningVi": "Thao tác nhanh nhưng thiếu tình huống.",
+                        "note": "Buổi đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "diagnosis",
+                        "label": "线索二",
+                        "meaningVi": "Khảo sát chỉ ra thiếu bước đặc biệt.",
+                        "note": "Chẩn đoán · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "second",
+                        "label": "线索三",
+                        "meaningVi": "Ba ca, tự làm và dừng ở bước then chốt.",
+                        "note": "Buổi hai · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "short",
+                        "label": "线索四",
+                        "meaningVi": "Lỗi và thời gian xử lý giảm.",
+                        "note": "Kết quả ngắn hạn · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "alternatives",
+                        "label": "线索五",
+                        "meaningVi": "Quen hệ thống theo thời gian.",
+                        "note": "Giải thích cạnh tranh · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-education-work-evaluation-cause-condition-result; revision 6f8f0687-39f4-46e8-8b05-6ea4479b9399; humanReviewed:false",
+                  "title": "Làm sao để đào tạo văn phòng thực sự được tiếp nhận"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-03:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "61fc3513-3ca5-4533-8767-24ae955eace8",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng sắp xếp bằng chứng theo sức nặng để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-stance-comparison-rhetoric-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-044",
+          "hsk4-grammar-row-045",
+          "hsk4-grammar-row-046",
+          "hsk4-grammar-row-047"
+        ],
+        "sourceLessonIds": [
+          "hsk4-stance-comparison-rhetoric-lesson-03",
+          "hsk4-education-work-evaluation-cause-condition-result"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-15"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01018",
+          "hsk-vocab-01029",
+          "hsk-vocab-01087",
+          "hsk-vocab-01380",
+          "hsk-vocab-01982",
+          "hsk-vocab-01411",
+          "hsk-vocab-01484",
+          "hsk-vocab-01521",
+          "hsk-vocab-01596",
+          "hsk-vocab-01807"
+        ],
+        "targetLessonId": "hsk4-stance-comparison-rhetoric-lesson-03",
+        "titleZh": "HSK四级 · 45",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "83c6a4f9-b08e-4e8e-9063-7c721d04a956"
+        },
+        "vocabulary": [
+          "hsk-vocab-01018",
+          "hsk-vocab-01029",
+          "hsk-vocab-01087",
+          "hsk-vocab-01380",
+          "hsk-vocab-01982",
+          "hsk-vocab-01411",
+          "hsk-vocab-01484",
+          "hsk-vocab-01521",
+          "hsk-vocab-01596",
+          "hsk-vocab-01807"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    }
+  ]
+}

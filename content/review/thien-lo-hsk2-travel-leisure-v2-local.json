@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-20",
+  "scope": "HSK2 travel time reference, experience and shared leisure plans; supported practice and self-review.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/26-REVIEW-HSK2-TRAVEL-LEISURE.md",
+  "items": [
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "sourceContentSha256": "sha256:372670ef2c389bb1a854f5c59247a0fdf5a958855a0e8e303fccd01ebbfe5f7c",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "sourceContentSha256": "sha256:70f68391c89265c003a12b68f1fa320d665afbdf094a71a5ca121d6f2028f157",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

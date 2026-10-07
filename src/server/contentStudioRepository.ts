@@ -316,9 +316,8 @@ const revisionListFilters = (input: StudioRevisionListInput) => {
   }
   const query = input.query?.trim().slice(0, 120) ?? "";
   if (query) {
-    const escaped = query.replaceAll("\\", "\\\\").replaceAll("%", "\\%").replaceAll("_", "\\_");
-    clauses.push("(lower(r.title) LIKE lower(?) ESCAPE '\\' OR lower(i.stable_key) LIKE lower(?) ESCAPE '\\')");
-    values.push(`%${escaped}%`, `%${escaped}%`);
+    clauses.push("(instr(lower(r.title), lower(?)) > 0 OR instr(lower(i.stable_key), lower(?)) > 0)");
+    values.push(query, query);
   }
   return {
     where: clauses.length ? `WHERE ${clauses.join(" AND ")}` : "",
@@ -361,11 +360,10 @@ export class ContentStudioRepository {
     const boundedLimit = Math.max(1, Math.min(100, Math.trunc(input.limit ?? 40)));
     const boundedOffset = Math.max(0, Math.min(100_000, Math.trunc(input.offset ?? 0)));
     const query = input.query?.trim().slice(0, 120) ?? "";
-    const escaped = query.replaceAll("\\", "\\\\").replaceAll("%", "\\%").replaceAll("_", "\\_");
     const queryClause = query
-      ? "AND (lower(r.title) LIKE lower(?) ESCAPE '\\' OR lower(i.stable_key) LIKE lower(?) ESCAPE '\\')"
+      ? "AND (instr(lower(r.title), lower(?)) > 0 OR instr(lower(i.stable_key), lower(?)) > 0)"
       : "";
-    const queryValues = query ? [`%${escaped}%`, `%${escaped}%`] : [];
+    const queryValues = query ? [query, query] : [];
     const now = Date.now();
     const [result, count] = await Promise.all([
       this.database.prepare(
@@ -989,6 +987,20 @@ export class ContentStudioRepository {
         path: "examLevel",
         message: "Cấp HSK của cửa phải trùng với cấp độ phân loại nội dung.",
       });
+    }
+    if (current.itemType === 'exam_form' && validated.result.valid) {
+      const { createEditorialHskMockExamDefinition } = await import('./hskMockExamBank');
+      const { loadPublishedEditorialExamItems } = await import('./hskMockExamEditorialRepository');
+      const items = await loadPublishedEditorialExamItems(this.database);
+      const definition = createEditorialHskMockExamDefinition({
+        stableKey:current.stableKey, title:current.title, revision:current.revision,
+        revisionId:current.id, contentSha256:current.contentSha256, content:current.content,
+      },items);
+      if (!definition) {
+        validated.result.valid=false;
+        validated.result.checks.answerIntegrity=false;
+        validated.result.errors.push({path:'itemStableKeys',message:'Bộ đề chứa câu chưa phát hành, sai cấp HSK hoặc cấu trúc không hợp lệ. Hãy chọn lại từ ngân hàng câu.'});
+      }
     }
     if (current.itemType === "lesson" && current.content.contentKind !== "reader-series") {
       const targetLesson = typeof current.content.targetLessonId === "string"

@@ -1,0 +1,3910 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "status": "draft-not-published",
+  "items": [
+    {
+      "lessonId": "hsk2-dictation-lesson-01",
+      "title": "Nghe-chép cụm thông tin",
+      "level": "hsk2",
+      "lessonPages": {
+        "version": 1,
+        "art": "sound",
+        "pages": [
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:prepare",
+            "title": "Nhận nhiệm vụ nghe",
+            "layout": "scene",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:context",
+                "kind": "explanation",
+                "title": "Nghe và ghi đúng mốc giờ, số lượng, phủ định trong cụm ngắn",
+                "body": "Bạn nhận lời nhắn chuẩn bị buổi học nhóm. Ghi dữ kiện để đến đúng lúc, mang đúng đồ và không nhầm điều đã xong với điều chưa xong.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:method",
+                "kind": "explanation",
+                "title": "Cách nghe và tự kiểm",
+                "body": "Nghe trước khi mở chữ. Lượt đầu ghi giờ hoặc từ khóa; lượt sau hoàn thiện cụm. Có thể nhập Pinyin nếu chưa gõ được chữ, nhưng phải ghi nhận hỗ trợ IME/Pinyin. Âm tổng hợp chỉ là phương án luyện thay thế, không phải bản ghi người bản ngữ hay bằng chứng nghe độc lập.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ],
+            "illustration": {
+              "src": "/lessons/ngoc-dien/study-preparation-v1.webp",
+              "alt": "Chuẩn bị sách vở và đồ dùng cho buổi học nhóm",
+              "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false"
+            }
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:words:0",
+            "title": "Từ dùng trong bài · 1–6",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:0",
+                "kind": "dialogue",
+                "title": "啊 · trợ từ cuối câu biểu thị xác nhận hoặc cảm thán",
+                "body": "a · HSK2 · 助",
+                "hanzi": "好啊，我们一起去。",
+                "pinyin": "Hǎo a, wǒmen yìqǐ qù.",
+                "meaningVi": "Được thôi, chúng ta cùng đi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:1",
+                "kind": "dialogue",
+                "title": "帮 · giúp",
+                "body": "bāng · HSK2 · 动",
+                "hanzi": "请帮我。",
+                "pinyin": "Qǐng bāng wǒ.",
+                "meaningVi": "Xin hãy giúp tôi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:2",
+                "kind": "dialogue",
+                "title": "准备 · chuẩn bị",
+                "body": "zhǔnbèi · HSK2 · 动",
+                "hanzi": "准备好了。",
+                "pinyin": "Zhǔnbèi hǎo le.",
+                "meaningVi": "Đã chuẩn bị xong.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:3",
+                "kind": "dialogue",
+                "title": "比 · so với; hơn",
+                "body": "bǐ · HSK2 · 动、介",
+                "hanzi": "今天比昨天冷。",
+                "pinyin": "Jīntiān bǐ zuótiān lěng.",
+                "meaningVi": "Hôm nay lạnh hơn hôm qua.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:4",
+                "kind": "dialogue",
+                "title": "笔 · bút",
+                "body": "bǐ · HSK2 · 名、（量）",
+                "hanzi": "这支笔是我的。",
+                "pinyin": "Zhè zhī bǐ shì wǒ de.",
+                "meaningVi": "Chiếc bút này là của tôi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:5",
+                "kind": "dialogue",
+                "title": "手表 · đồng hồ đeo tay",
+                "body": "shǒubiǎo · HSK2 · 名",
+                "hanzi": "我的手表在桌子上。",
+                "pinyin": "Wǒ de shǒubiǎo zài zhuōzi shàng.",
+                "meaningVi": "Đồng hồ đeo tay của tôi ở trên bàn.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:words:6",
+            "title": "Từ dùng trong bài · 7–12",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:6",
+                "kind": "dialogue",
+                "title": "别 · đừng; chớ",
+                "body": "bié · HSK2 · 副",
+                "hanzi": "别动。",
+                "pinyin": "Bié dòng.",
+                "meaningVi": "Đừng cử động.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:7",
+                "kind": "dialogue",
+                "title": "跑步 · chạy bộ",
+                "body": "pǎobù · HSK2 · 动",
+                "hanzi": "我每天跑步。",
+                "pinyin": "Wǒ měitiān pǎobù.",
+                "meaningVi": "Tôi chạy bộ mỗi ngày.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:8",
+                "kind": "dialogue",
+                "title": "机场 · sân bay",
+                "body": "jīchǎng · HSK2 · 名",
+                "hanzi": "八点到机场。",
+                "pinyin": "Bā diǎn dào jīchǎng.",
+                "meaningVi": "Tám giờ đến sân bay.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:9",
+                "kind": "dialogue",
+                "title": "词 · từ; từ ngữ",
+                "body": "cí · HSK2 · 名",
+                "hanzi": "请读这个词。",
+                "pinyin": "Qǐng dú zhège cí.",
+                "meaningVi": "Hãy đọc từ này.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:10",
+                "kind": "dialogue",
+                "title": "次 · lần; lượt",
+                "body": "cì · HSK2 · 量、（形）",
+                "hanzi": "我去过两次。",
+                "pinyin": "Wǒ qùguo liǎng cì.",
+                "meaningVi": "Tôi đã đi hai lần.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:11",
+                "kind": "dialogue",
+                "title": "从 · từ; theo; kể từ",
+                "body": "cóng · HSK2 · 介、（副）",
+                "hanzi": "从这里走，没错。",
+                "pinyin": "Cóng zhèlǐ zǒu, méi cuò.",
+                "meaningVi": "Đi từ đây, đúng rồi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:words:12",
+            "title": "Từ dùng trong bài · 13–13",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:block:word:12",
+                "kind": "dialogue",
+                "title": "不错 · không tệ; khá tốt",
+                "body": "bùcuò · HSK2 · 形",
+                "hanzi": "这样做很不错。",
+                "pinyin": "Zhèyàng zuò hěn búcuò.",
+                "meaningVi": "Làm như thế này khá tốt.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:teaching-0",
+            "title": "Hiểu cụm thông tin trước khi nghe",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:rule-0",
+                "kind": "explanation",
+                "title": "Cách nghe và hiểu",
+                "body": "Chia lời nhắn thành cụm giờ → hành động. 半 sau giờ là nửa giờ. Chép từng cụm rồi kiểm lại, không đoán phút từ thói quen.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:model-0",
+                "kind": "dialogue",
+                "title": "Ví dụ hướng dẫn",
+                "body": "",
+                "hanzi": "十点半见。",
+                "pinyin": "Shí diǎn bàn jiàn.",
+                "meaningVi": "Hẹn gặp 10:30.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:guided-0",
+            "title": "Thử hiểu dữ kiện",
+            "layout": "workshop",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:guided-block-0",
+                "kind": "activity",
+                "title": "Điền để kiểm tra cách hiểu",
+                "body": "Mẫu 十点半见 hẹn lúc mấy giờ? Điền dạng HH:MM.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "10:30"
+                  ],
+                  "explanation": "十点 là 10 giờ, 半 thêm nửa giờ. 10:00 bỏ mất thông tin.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "reading",
+                    "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-short-text-task:hsk2-dictation-lesson-01"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:teaching-1",
+            "title": "Hiểu cụm thông tin trước khi nghe",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:rule-1",
+                "kind": "explanation",
+                "title": "Cách nghe và hiểu",
+                "body": "Số + lượng từ + vật là một cụm. Hai quyển dùng 两本; đừng chỉ ghi số mà bỏ tên đồ. 还没 đứng trước hành động để nói vẫn chưa xảy ra hoặc chưa xong.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:model-1",
+                "kind": "dialogue",
+                "title": "Ví dụ hướng dẫn",
+                "body": "",
+                "hanzi": "我还没买三本书。",
+                "pinyin": "Wǒ hái méi mǎi sān běn shū.",
+                "meaningVi": "Tôi vẫn chưa mua ba quyển sách.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:guided-1",
+            "title": "Thử hiểu dữ kiện",
+            "layout": "workshop",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:guided-block-1",
+                "kind": "activity",
+                "title": "Điền để kiểm tra cách hiểu",
+                "body": "Trong 我___买三本书, điền cụm nghĩa “vẫn chưa”.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "还没"
+                  ],
+                  "explanation": "还没 giữ trạng thái chưa mua. Có 三本书 trong câu không chứng minh đã mua sách.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "reading",
+                    "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-short-text-task:hsk2-dictation-lesson-01"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:time",
+            "title": "Lượt nghe 1",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:time:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "八点半开始。",
+                "pinyin": "Bā diǎn bàn kāishǐ.",
+                "meaningVi": "Bắt đầu lúc 8:30.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:time:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Nghe mốc giờ, không đổi 半 thành số phút khác. 八点半 = 8:30. Nếu ghi 8:00 thì đã bỏ 半; nếu ghi 8:15 thì nhầm với 八点一刻.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:quantity",
+            "title": "Lượt nghe 2",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:quantity:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "带两本书。",
+                "pinyin": "Dài liǎng běn shū.",
+                "meaningVi": "Mang hai quyển sách.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:quantity:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Giữ số 两, lượng từ 本 và vật 书. 两本书 là hai quyển sách, không phải hai cái bút. Mất lượng từ là chỗ cần sửa dù vẫn đoán được ý.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:not-yet",
+            "title": "Lượt nghe 3",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:not-yet:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "还没准备好。",
+                "pinyin": "Hái méi zhǔnbèi hǎo.",
+                "meaningVi": "Vẫn chưa chuẩn bị xong.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:not-yet:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Nghe phủ định 还没, không suy từ chữ 好 rằng đã xong. 还没 làm đổi trạng thái thành chưa. 准备好了 sẽ có nghĩa ngược với đoạn nghe.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:request",
+            "title": "Lượt nghe 4",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:request:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "请帮我拿书。",
+                "pinyin": "Qǐng bāng wǒ ná shū.",
+                "meaningVi": "Xin giúp tôi lấy sách.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:request:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Xác định người nhận trợ giúp và đồ cần lấy. 我 là người nhờ được giúp; 书 là vật. Không đổi thành tôi lấy sách giúp bạn nếu lời nghe không nói vậy.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:new-details",
+            "title": "Nghe thông tin mới",
+            "layout": "workshop",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:new-details:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "九点开始，带三本书。",
+                "pinyin": "Jiǔ diǎn kāishǐ, dài sān běn shū.",
+                "meaningVi": "Bắt đầu lúc 9 giờ, mang ba quyển sách.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:new-details:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Tự nghe lại trong dữ kiện mới, không chép 8:30/hai quyển. Dữ kiện đã đổi cả giờ lẫn số lượng: 9:00 và ba quyển. Đúng âm/từ của lượt cũ chưa đủ cho lượt này.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-01:dictation:self-check",
+            "title": "Tự kiểm sau khi nghe",
+            "layout": "focus",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:criterion:0",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 1",
+                "body": "Giữ đủ giờ, số và lượng từ.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:criterion:1",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 2",
+                "body": "Không bỏ phủ định.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:criterion:2",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 3",
+                "body": "Phân biệt người nhờ và đồ cần lấy.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-01:dictation:criterion:3",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 4",
+                "body": "Sau khi mở mẫu, sửa lỗi và thử lại về sau; không tự nhận điểm nghe độc lập.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          }
+        ]
+      },
+      "studioContent": {
+        "targetLessonId": "hsk2-dictation-lesson-01",
+        "titleZh": "HSK二级 · 31",
+        "objectiveVi": "Nghe và ghi đúng mốc giờ, số lượng, phủ định trong cụm ngắn",
+        "conceptVi": "Bạn nhận lời nhắn chuẩn bị buổi học nhóm. Ghi dữ kiện để đến đúng lúc, mang đúng đồ và không nhầm điều đã xong với điều chưa xong.",
+        "ruleVi": "Nghe trước khi mở chữ. Lượt đầu ghi giờ hoặc từ khóa; lượt sau hoàn thiện cụm. Có thể nhập Pinyin nếu chưa gõ được chữ, nhưng phải ghi nhận hỗ trợ IME/Pinyin. Âm tổng hợp chỉ là phương án luyện thay thế, không phải bản ghi người bản ngữ hay bằng chứng nghe độc lập.",
+        "pitfallVi": "八点半 = 8:30. Nếu ghi 8:00 thì đã bỏ 半; nếu ghi 8:15 thì nhầm với 八点一刻.\n两本书 là hai quyển sách, không phải hai cái bút. Mất lượng từ là chỗ cần sửa dù vẫn đoán được ý.\n还没 làm đổi trạng thái thành chưa. 准备好了 sẽ có nghĩa ngược với đoạn nghe.\n我 là người nhờ được giúp; 书 là vật. Không đổi thành tôi lấy sách giúp bạn nếu lời nghe không nói vậy.",
+        "checkpointVi": "Giữ đủ giờ, số và lượng từ.\nKhông bỏ phủ định.\nPhân biệt người nhờ và đồ cần lấy.\nSau khi mở mẫu, sửa lỗi và thử lại về sau; không tự nhận điểm nghe độc lập.",
+        "prerequisites": [
+          "hsk2-clause-linking-lesson-02"
+        ],
+        "vocabulary": [
+          "hsk-vocab-00301",
+          "hsk-vocab-00305",
+          "hsk-vocab-00493",
+          "hsk-vocab-00309",
+          "hsk-vocab-00310",
+          "hsk-vocab-00434",
+          "hsk-vocab-00311",
+          "hsk-vocab-00415",
+          "hsk-vocab-00363",
+          "hsk-vocab-00322",
+          "hsk-vocab-00323",
+          "hsk-vocab-00324",
+          "hsk-vocab-00312"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "dialogue": [
+          {
+            "speaker": "Đoạn 1",
+            "hanzi": "八点半开始。",
+            "pinyin": "Bā diǎn bàn kāishǐ.",
+            "meaningVi": "Bắt đầu lúc 8:30."
+          },
+          {
+            "speaker": "Đoạn 2",
+            "hanzi": "带两本书。",
+            "pinyin": "Dài liǎng běn shū.",
+            "meaningVi": "Mang hai quyển sách."
+          },
+          {
+            "speaker": "Đoạn 3",
+            "hanzi": "还没准备好。",
+            "pinyin": "Hái méi zhǔnbèi hǎo.",
+            "meaningVi": "Vẫn chưa chuẩn bị xong."
+          },
+          {
+            "speaker": "Đoạn 4",
+            "hanzi": "请帮我拿书。",
+            "pinyin": "Qǐng bāng wǒ ná shū.",
+            "meaningVi": "Xin giúp tôi lấy sách."
+          }
+        ],
+        "grammar": [
+          {
+            "pattern": "Theo dõi dữ kiện và quan hệ giữa các câu",
+            "explanationVi": "Nghe mốc giờ, không đổi 半 thành số phút khác. 八点半 = 8:30. Nếu ghi 8:00 thì đã bỏ 半; nếu ghi 8:15 thì nhầm với 八点一刻.\nGiữ số 两, lượng từ 本 và vật 书. 两本书 là hai quyển sách, không phải hai cái bút. Mất lượng từ là chỗ cần sửa dù vẫn đoán được ý.\nNghe phủ định 还没, không suy từ chữ 好 rằng đã xong. 还没 làm đổi trạng thái thành chưa. 准备好了 sẽ có nghĩa ngược với đoạn nghe.\nXác định người nhận trợ giúp và đồ cần lấy. 我 là người nhờ được giúp; 书 là vật. Không đổi thành tôi lấy sách giúp bạn nếu lời nghe không nói vậy.",
+            "modelExample": {
+              "speaker": "Đoạn 1",
+              "hanzi": "八点半开始。",
+              "pinyin": "Bā diǎn bàn kāishǐ.",
+              "meaningVi": "Bắt đầu lúc 8:30."
+            },
+            "guidedPractice": {
+              "promptVi": "Chép thông báo mới rồi xác nhận thông tin cuối cùng.",
+              "modelAnswerHanzi": "九点开始，带三本书。",
+              "modelAnswerPinyin": "Jiǔ diǎn kāishǐ, dài sān běn shū.",
+              "modelAnswerMeaningVi": "Bắt đầu lúc 9 giờ, mang ba quyển sách."
+            }
+          }
+        ],
+        "exercises": [
+          {
+            "promptVi": "Sau khi nghe 八点半开始，带两本书, lời ghi nào giữ đúng thông tin?",
+            "answer": "八点半，两本书。",
+            "answerPinyin": "Bā diǎn bàn, liǎng běn shū.",
+            "answerMeaningVi": "8:30, hai quyển sách.",
+            "distractors": [
+              "八点，两本书。",
+              "八点半，三本书。"
+            ],
+            "explanationVi": "半 giữ mốc 8:30; 两 giữ số hai. Mỗi lựa chọn khác làm đổi một dữ kiện."
+          }
+        ],
+        "lessonPages": {
+          "version": 1,
+          "art": "sound",
+          "pages": [
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:prepare",
+              "title": "Nhận nhiệm vụ nghe",
+              "layout": "scene",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:context",
+                  "kind": "explanation",
+                  "title": "Nghe và ghi đúng mốc giờ, số lượng, phủ định trong cụm ngắn",
+                  "body": "Bạn nhận lời nhắn chuẩn bị buổi học nhóm. Ghi dữ kiện để đến đúng lúc, mang đúng đồ và không nhầm điều đã xong với điều chưa xong.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:method",
+                  "kind": "explanation",
+                  "title": "Cách nghe và tự kiểm",
+                  "body": "Nghe trước khi mở chữ. Lượt đầu ghi giờ hoặc từ khóa; lượt sau hoàn thiện cụm. Có thể nhập Pinyin nếu chưa gõ được chữ, nhưng phải ghi nhận hỗ trợ IME/Pinyin. Âm tổng hợp chỉ là phương án luyện thay thế, không phải bản ghi người bản ngữ hay bằng chứng nghe độc lập.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "illustration": {
+                "src": "/lessons/ngoc-dien/study-preparation-v1.webp",
+                "alt": "Chuẩn bị sách vở và đồ dùng cho buổi học nhóm",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:words:0",
+              "title": "Từ dùng trong bài · 1–6",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:0",
+                  "kind": "dialogue",
+                  "title": "啊 · trợ từ cuối câu biểu thị xác nhận hoặc cảm thán",
+                  "body": "a · HSK2 · 助",
+                  "hanzi": "好啊，我们一起去。",
+                  "pinyin": "Hǎo a, wǒmen yìqǐ qù.",
+                  "meaningVi": "Được thôi, chúng ta cùng đi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:1",
+                  "kind": "dialogue",
+                  "title": "帮 · giúp",
+                  "body": "bāng · HSK2 · 动",
+                  "hanzi": "请帮我。",
+                  "pinyin": "Qǐng bāng wǒ.",
+                  "meaningVi": "Xin hãy giúp tôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:2",
+                  "kind": "dialogue",
+                  "title": "准备 · chuẩn bị",
+                  "body": "zhǔnbèi · HSK2 · 动",
+                  "hanzi": "准备好了。",
+                  "pinyin": "Zhǔnbèi hǎo le.",
+                  "meaningVi": "Đã chuẩn bị xong.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:3",
+                  "kind": "dialogue",
+                  "title": "比 · so với; hơn",
+                  "body": "bǐ · HSK2 · 动、介",
+                  "hanzi": "今天比昨天冷。",
+                  "pinyin": "Jīntiān bǐ zuótiān lěng.",
+                  "meaningVi": "Hôm nay lạnh hơn hôm qua.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:4",
+                  "kind": "dialogue",
+                  "title": "笔 · bút",
+                  "body": "bǐ · HSK2 · 名、（量）",
+                  "hanzi": "这支笔是我的。",
+                  "pinyin": "Zhè zhī bǐ shì wǒ de.",
+                  "meaningVi": "Chiếc bút này là của tôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:5",
+                  "kind": "dialogue",
+                  "title": "手表 · đồng hồ đeo tay",
+                  "body": "shǒubiǎo · HSK2 · 名",
+                  "hanzi": "我的手表在桌子上。",
+                  "pinyin": "Wǒ de shǒubiǎo zài zhuōzi shàng.",
+                  "meaningVi": "Đồng hồ đeo tay của tôi ở trên bàn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:words:6",
+              "title": "Từ dùng trong bài · 7–12",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:6",
+                  "kind": "dialogue",
+                  "title": "别 · đừng; chớ",
+                  "body": "bié · HSK2 · 副",
+                  "hanzi": "别动。",
+                  "pinyin": "Bié dòng.",
+                  "meaningVi": "Đừng cử động.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:7",
+                  "kind": "dialogue",
+                  "title": "跑步 · chạy bộ",
+                  "body": "pǎobù · HSK2 · 动",
+                  "hanzi": "我每天跑步。",
+                  "pinyin": "Wǒ měitiān pǎobù.",
+                  "meaningVi": "Tôi chạy bộ mỗi ngày.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:8",
+                  "kind": "dialogue",
+                  "title": "机场 · sân bay",
+                  "body": "jīchǎng · HSK2 · 名",
+                  "hanzi": "八点到机场。",
+                  "pinyin": "Bā diǎn dào jīchǎng.",
+                  "meaningVi": "Tám giờ đến sân bay.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:9",
+                  "kind": "dialogue",
+                  "title": "词 · từ; từ ngữ",
+                  "body": "cí · HSK2 · 名",
+                  "hanzi": "请读这个词。",
+                  "pinyin": "Qǐng dú zhège cí.",
+                  "meaningVi": "Hãy đọc từ này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:10",
+                  "kind": "dialogue",
+                  "title": "次 · lần; lượt",
+                  "body": "cì · HSK2 · 量、（形）",
+                  "hanzi": "我去过两次。",
+                  "pinyin": "Wǒ qùguo liǎng cì.",
+                  "meaningVi": "Tôi đã đi hai lần.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:11",
+                  "kind": "dialogue",
+                  "title": "从 · từ; theo; kể từ",
+                  "body": "cóng · HSK2 · 介、（副）",
+                  "hanzi": "从这里走，没错。",
+                  "pinyin": "Cóng zhèlǐ zǒu, méi cuò.",
+                  "meaningVi": "Đi từ đây, đúng rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:words:12",
+              "title": "Từ dùng trong bài · 13–13",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:block:word:12",
+                  "kind": "dialogue",
+                  "title": "不错 · không tệ; khá tốt",
+                  "body": "bùcuò · HSK2 · 形",
+                  "hanzi": "这样做很不错。",
+                  "pinyin": "Zhèyàng zuò hěn búcuò.",
+                  "meaningVi": "Làm như thế này khá tốt.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:teaching-0",
+              "title": "Hiểu cụm thông tin trước khi nghe",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:rule-0",
+                  "kind": "explanation",
+                  "title": "Cách nghe và hiểu",
+                  "body": "Chia lời nhắn thành cụm giờ → hành động. 半 sau giờ là nửa giờ. Chép từng cụm rồi kiểm lại, không đoán phút từ thói quen.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:model-0",
+                  "kind": "dialogue",
+                  "title": "Ví dụ hướng dẫn",
+                  "body": "",
+                  "hanzi": "十点半见。",
+                  "pinyin": "Shí diǎn bàn jiàn.",
+                  "meaningVi": "Hẹn gặp 10:30.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:guided-0",
+              "title": "Thử hiểu dữ kiện",
+              "layout": "workshop",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:guided-block-0",
+                  "kind": "activity",
+                  "title": "Điền để kiểm tra cách hiểu",
+                  "body": "Mẫu 十点半见 hẹn lúc mấy giờ? Điền dạng HH:MM.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "10:30"
+                    ],
+                    "explanation": "十点 là 10 giờ, 半 thêm nửa giờ. 10:00 bỏ mất thông tin.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "reading",
+                      "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-short-text-task:hsk2-dictation-lesson-01"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:teaching-1",
+              "title": "Hiểu cụm thông tin trước khi nghe",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:rule-1",
+                  "kind": "explanation",
+                  "title": "Cách nghe và hiểu",
+                  "body": "Số + lượng từ + vật là một cụm. Hai quyển dùng 两本; đừng chỉ ghi số mà bỏ tên đồ. 还没 đứng trước hành động để nói vẫn chưa xảy ra hoặc chưa xong.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:model-1",
+                  "kind": "dialogue",
+                  "title": "Ví dụ hướng dẫn",
+                  "body": "",
+                  "hanzi": "我还没买三本书。",
+                  "pinyin": "Wǒ hái méi mǎi sān běn shū.",
+                  "meaningVi": "Tôi vẫn chưa mua ba quyển sách.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:guided-1",
+              "title": "Thử hiểu dữ kiện",
+              "layout": "workshop",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:guided-block-1",
+                  "kind": "activity",
+                  "title": "Điền để kiểm tra cách hiểu",
+                  "body": "Trong 我___买三本书, điền cụm nghĩa “vẫn chưa”.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "还没"
+                    ],
+                    "explanation": "还没 giữ trạng thái chưa mua. Có 三本书 trong câu không chứng minh đã mua sách.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "reading",
+                      "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-short-text-task:hsk2-dictation-lesson-01"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:time",
+              "title": "Lượt nghe 1",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:time:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "八点半开始。",
+                  "pinyin": "Bā diǎn bàn kāishǐ.",
+                  "meaningVi": "Bắt đầu lúc 8:30.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:time:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Nghe mốc giờ, không đổi 半 thành số phút khác. 八点半 = 8:30. Nếu ghi 8:00 thì đã bỏ 半; nếu ghi 8:15 thì nhầm với 八点一刻.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:quantity",
+              "title": "Lượt nghe 2",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:quantity:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "带两本书。",
+                  "pinyin": "Dài liǎng běn shū.",
+                  "meaningVi": "Mang hai quyển sách.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:quantity:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Giữ số 两, lượng từ 本 và vật 书. 两本书 là hai quyển sách, không phải hai cái bút. Mất lượng từ là chỗ cần sửa dù vẫn đoán được ý.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:not-yet",
+              "title": "Lượt nghe 3",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:not-yet:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "还没准备好。",
+                  "pinyin": "Hái méi zhǔnbèi hǎo.",
+                  "meaningVi": "Vẫn chưa chuẩn bị xong.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:not-yet:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Nghe phủ định 还没, không suy từ chữ 好 rằng đã xong. 还没 làm đổi trạng thái thành chưa. 准备好了 sẽ có nghĩa ngược với đoạn nghe.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:request",
+              "title": "Lượt nghe 4",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:request:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "请帮我拿书。",
+                  "pinyin": "Qǐng bāng wǒ ná shū.",
+                  "meaningVi": "Xin giúp tôi lấy sách.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:request:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Xác định người nhận trợ giúp và đồ cần lấy. 我 là người nhờ được giúp; 书 là vật. Không đổi thành tôi lấy sách giúp bạn nếu lời nghe không nói vậy.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:new-details",
+              "title": "Nghe thông tin mới",
+              "layout": "workshop",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:new-details:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "九点开始，带三本书。",
+                  "pinyin": "Jiǔ diǎn kāishǐ, dài sān běn shū.",
+                  "meaningVi": "Bắt đầu lúc 9 giờ, mang ba quyển sách.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:new-details:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Tự nghe lại trong dữ kiện mới, không chép 8:30/hai quyển. Dữ kiện đã đổi cả giờ lẫn số lượng: 9:00 và ba quyển. Đúng âm/từ của lượt cũ chưa đủ cho lượt này.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-01:dictation:self-check",
+              "title": "Tự kiểm sau khi nghe",
+              "layout": "focus",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:criterion:0",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 1",
+                  "body": "Giữ đủ giờ, số và lượng từ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:criterion:1",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 2",
+                  "body": "Không bỏ phủ định.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:criterion:2",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 3",
+                  "body": "Phân biệt người nhờ và đồ cần lấy.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-01:dictation:criterion:3",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 4",
+                  "body": "Sau khi mở mẫu, sửa lỗi và thử lại về sau; không tự nhận điểm nghe độc lập.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            }
+          ]
+        },
+        "sourceVocabularyIds": [
+          "hsk-vocab-00301",
+          "hsk-vocab-00305",
+          "hsk-vocab-00493",
+          "hsk-vocab-00309",
+          "hsk-vocab-00310",
+          "hsk-vocab-00434",
+          "hsk-vocab-00311",
+          "hsk-vocab-00415",
+          "hsk-vocab-00363",
+          "hsk-vocab-00322",
+          "hsk-vocab-00323",
+          "hsk-vocab-00324",
+          "hsk-vocab-00312"
+        ],
+        "sourceLessonIds": [
+          "hsk2-dictation-lesson-01"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-dictation-lesson-01"
+        ],
+        "sourceTaskIds": [
+          "hsk2-short-text-task:hsk2-dictation-lesson-01"
+        ],
+        "sourceTopicIds": [],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "editorialStatus": "draft-needs-vocabulary-example-and-language-review"
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-02",
+      "title": "Nghe-chép câu hoàn chỉnh",
+      "level": "hsk2",
+      "lessonPages": {
+        "version": 1,
+        "art": "sound",
+        "pages": [
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:prepare",
+            "title": "Nhận nhiệm vụ nghe",
+            "layout": "scene",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:context",
+                "kind": "explanation",
+                "title": "Nghe–chép câu đầy đủ, giữ vị trí, quan hệ và mức độ",
+                "body": "Bạn đến gặp một người bạn ở gần ga. Người đó gửi các câu hướng dẫn liên tiếp; chép đúng giúp tránh đứng sai chỗ hoặc đi sai hướng.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:method",
+                "kind": "explanation",
+                "title": "Cách nghe và tự kiểm",
+                "body": "Mỗi câu xác định ai/làm gì/ở đâu. Nghe cả câu trước, sau đó mới ghi. Không nhìn transcript trong lần thử đầu nếu có thể nghe; luôn có lối mở chữ khi âm thanh không dùng được. Khi mở chữ, hoạt động chuyển sang luyện có hỗ trợ.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ],
+            "illustration": {
+              "src": "/lessons/ngoc-dien/station-meeting-v1.webp",
+              "alt": "Hai người bạn tìm gặp nhau trước cửa nhà ga",
+              "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false"
+            }
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:words:0",
+            "title": "Từ dùng trong bài · 1–6",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:0",
+                "kind": "dialogue",
+                "title": "但 · nhưng; chỉ",
+                "body": "dàn · HSK2 · 连、（副）",
+                "hanzi": "但是我今天很忙。",
+                "pinyin": "Dànshì wǒ jīntiān hěn máng.",
+                "meaningVi": "Nhưng hôm nay tôi rất bận.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:1",
+                "kind": "dialogue",
+                "title": "地 · trợ từ nối trạng ngữ với động từ",
+                "body": "de · HSK2 · 助",
+                "hanzi": "请慢慢地走。",
+                "pinyin": "Qǐng mànmàn de zǒu.",
+                "meaningVi": "Hãy đi chậm thôi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:2",
+                "kind": "dialogue",
+                "title": "等 · đợi; vân vân",
+                "body": "děng · HSK2 · 动、（介）",
+                "hanzi": "我在门口等你。",
+                "pinyin": "Wǒ zài ménkǒu děng nǐ.",
+                "meaningVi": "Tôi đợi bạn ở cửa.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:3",
+                "kind": "dialogue",
+                "title": "店 · cửa hàng",
+                "body": "diàn · danh từ",
+                "hanzi": "这家店很大。",
+                "pinyin": "Zhè jiā diàn hěn dà.",
+                "meaningVi": "Cửa hàng này rất lớn.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:4",
+                "kind": "dialogue",
+                "title": "懂 · hiểu",
+                "body": "dǒng · HSK2 · 动",
+                "hanzi": "我已经听懂了。",
+                "pinyin": "Wǒ yǐjīng tīngdǒng le.",
+                "meaningVi": "Tôi đã nghe hiểu rồi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:5",
+                "kind": "dialogue",
+                "title": "动 · động; di chuyển",
+                "body": "dòng · HSK2 · 动",
+                "hanzi": "别动。",
+                "pinyin": "Bié dòng.",
+                "meaningVi": "Đừng cử động.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:words:6",
+            "title": "Từ dùng trong bài · 7–12",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:6",
+                "kind": "dialogue",
+                "title": "咖啡 · cà phê",
+                "body": "kāfēi · HSK2 · 名",
+                "hanzi": "我想喝一杯咖啡。",
+                "pinyin": "Wǒ xiǎng hē yì bēi kāfēi.",
+                "meaningVi": "Tôi muốn uống một cốc cà phê.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:7",
+                "kind": "dialogue",
+                "title": "丈夫 · chồng",
+                "body": "zhàngfu · HSK2 · 名",
+                "hanzi": "她丈夫今天在家。",
+                "pinyin": "Tā zhàngfu jīntiān zài jiā.",
+                "meaningVi": "Chồng cô ấy hôm nay ở nhà.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:8",
+                "kind": "dialogue",
+                "title": "告诉 · nói cho biết; thông báo",
+                "body": "gàosu · HSK2 · 动",
+                "hanzi": "请告诉老师。",
+                "pinyin": "Qǐng gàosu lǎoshī.",
+                "meaningVi": "Hãy báo cho giáo viên.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:9",
+                "kind": "dialogue",
+                "title": "跟 · với; theo; cùng",
+                "body": "gēn · HSK2 · 介、连、（名、动）",
+                "hanzi": "你跟谁一起住？",
+                "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+                "meaningVi": "Bạn sống cùng ai?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:10",
+                "kind": "dialogue",
+                "title": "饭馆 · quán ăn; nhà hàng",
+                "body": "fànguǎn · HSK2 · 名",
+                "hanzi": "我们在饭馆吃饭。",
+                "pinyin": "Wǒmen zài fànguǎn chīfàn.",
+                "meaningVi": "Chúng tôi ăn ở nhà hàng.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:11",
+                "kind": "dialogue",
+                "title": "过 · qua; vượt qua",
+                "body": "guò · HSK2 · 动",
+                "hanzi": "过马路的时候要小心。",
+                "pinyin": "Guò mǎlù de shíhou yào xiǎoxīn.",
+                "meaningVi": "Khi qua đường phải cẩn thận.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:words:12",
+            "title": "Từ dùng trong bài · 13–13",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:block:word:12",
+                "kind": "dialogue",
+                "title": "黑色 · màu đen",
+                "body": "hēisè · HSK2 · 名",
+                "hanzi": "请帮我拿黑色的。",
+                "pinyin": "Qǐng bāng wǒ ná hēisè de.",
+                "meaningVi": "Hãy lấy giúp tôi chiếc màu đen.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:teaching-0",
+            "title": "Hiểu cụm thông tin trước khi nghe",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:rule-0",
+                "kind": "explanation",
+                "title": "Cách nghe và hiểu",
+                "body": "在 + nơi chốn đứng trước hành động cho biết làm ở đâu. 从 + mốc là điểm bắt đầu; 往 + hướng là hướng di chuyển. Tách ba phần để không nhầm nơi đợi với nơi đến.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:model-0",
+                "kind": "dialogue",
+                "title": "Ví dụ hướng dẫn",
+                "body": "",
+                "hanzi": "在商店门口等。从这里往前走。",
+                "pinyin": "Zài shāngdiàn ménkǒu děng. Cóng zhèlǐ wǎng qián zǒu.",
+                "meaningVi": "Đợi ở cửa hàng. Từ đây đi về phía trước.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:guided-0",
+            "title": "Thử hiểu dữ kiện",
+            "layout": "workshop",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:guided-block-0",
+                "kind": "activity",
+                "title": "Điền để kiểm tra cách hiểu",
+                "body": "Trong ___这里往前走, điền từ đánh dấu điểm xuất phát.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "从"
+                  ],
+                  "explanation": "从这里 nói từ đây; 往前 nói về trước. Hai phần có chức năng khác nhau.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "reading",
+                    "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-short-text-task:hsk2-dictation-lesson-02"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:teaching-1",
+            "title": "Hiểu cụm thông tin trước khi nghe",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:rule-1",
+                "kind": "explanation",
+                "title": "Cách nghe và hiểu",
+                "body": "Yêu cầu chậm hơn dùng 慢一点儿; 有点儿慢 nhận xét hơi chậm. 因为 mở lý do và 所以 mở kết quả; ghi đúng quan hệ ngay cả khi nghe được từng từ.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:model-1",
+                "kind": "dialogue",
+                "title": "Ví dụ hướng dẫn",
+                "body": "",
+                "hanzi": "因为很累，所以我走得很慢。",
+                "pinyin": "Yīnwèi hěn lèi, suǒyǐ wǒ zǒu de hěn màn.",
+                "meaningVi": "Vì rất mệt nên tôi đi chậm.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:guided-1",
+            "title": "Thử hiểu dữ kiện",
+            "layout": "workshop",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:guided-block-1",
+                "kind": "activity",
+                "title": "Điền để kiểm tra cách hiểu",
+                "body": "因为很累，___我走得很慢。 Điền từ mở kết quả.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "所以"
+                  ],
+                  "explanation": "Mệt là lý do, đi chậm là kết quả. Không đảo hai ý khi ghi chép.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "reading",
+                    "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-short-text-task:hsk2-dictation-lesson-02"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:wait",
+            "title": "Lượt nghe 1",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:wait:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "请在车站门口等我。",
+                "pinyin": "Qǐng zài chēzhàn ménkǒu děng wǒ.",
+                "meaningVi": "Xin đợi tôi ở cửa ga.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:wait:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Nơi đợi là cửa ga, không trong lớp hay trước nhà. 在车站门口 là một cụm vị trí. 等我 nói bạn đợi tôi; bỏ 门口 làm vị trí kém chính xác.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:walk",
+            "title": "Lượt nghe 2",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:walk:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "从门口往右走。",
+                "pinyin": "Cóng ménkǒu wǎng yòu zǒu.",
+                "meaningVi": "Từ cửa đi về phía phải.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:walk:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Giữ 从 là điểm xuất phát và 往右 là hướng. Không đổi 右 thành 左; nếu không nghe rõ hướng cần nghe lại, không suy từ hình nền.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:pace",
+            "title": "Lượt nghe 3",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:pace:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "请走慢一点儿。",
+                "pinyin": "Qǐng zǒu màn yìdiǎnr.",
+                "meaningVi": "Xin đi chậm hơn một chút.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:pace:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Nghe yêu cầu thay đổi tốc độ, không đổi thành đi nhanh. 慢一点儿 yêu cầu chậm hơn chút. 有点儿慢 là đánh giá hơi chậm, không phải cùng câu nghe.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:reason",
+            "title": "Lượt nghe 4",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:reason:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "因为下雨，所以我来晚了。",
+                "pinyin": "Yīnwèi xiàyǔ, suǒyǐ wǒ lái wǎn le.",
+                "meaningVi": "Vì trời mưa nên tôi đến muộn.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:reason:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Giữ thứ tự nguyên nhân và kết quả. Mưa là lý do, đến muộn là hệ quả. Không đảo thành vì đến muộn nên mưa.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:different-route",
+            "title": "Nghe thông tin mới",
+            "layout": "workshop",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:different-route:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "请在学校门口等我。从门口往左走。",
+                "pinyin": "Qǐng zài xuéxiào ménkǒu děng wǒ. Cóng ménkǒu wǎng zuǒ zǒu.",
+                "meaningVi": "Xin đợi tôi ở cửa trường. Từ cửa đi về phía trái.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:different-route:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Đổi ga thành trường và phải thành trái. Hai dữ kiện mới cần nghe lại: 学校 và 左. Không tự điền câu cũ từ trí nhớ.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-02:dictation:self-check",
+            "title": "Tự kiểm sau khi nghe",
+            "layout": "focus",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:criterion:0",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 1",
+                "body": "Giữ đầy đủ mốc vị trí.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:criterion:1",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 2",
+                "body": "Đúng trái/phải, không đoán từ ảnh.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:criterion:2",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 3",
+                "body": "Giữ lời yêu cầu và mức độ.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-02:dictation:criterion:3",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 4",
+                "body": "Giữ nguyên nhân trước hệ quả theo câu nghe.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          }
+        ]
+      },
+      "studioContent": {
+        "targetLessonId": "hsk2-dictation-lesson-02",
+        "titleZh": "HSK二级 · 32",
+        "objectiveVi": "Nghe–chép câu đầy đủ, giữ vị trí, quan hệ và mức độ",
+        "conceptVi": "Bạn đến gặp một người bạn ở gần ga. Người đó gửi các câu hướng dẫn liên tiếp; chép đúng giúp tránh đứng sai chỗ hoặc đi sai hướng.",
+        "ruleVi": "Mỗi câu xác định ai/làm gì/ở đâu. Nghe cả câu trước, sau đó mới ghi. Không nhìn transcript trong lần thử đầu nếu có thể nghe; luôn có lối mở chữ khi âm thanh không dùng được. Khi mở chữ, hoạt động chuyển sang luyện có hỗ trợ.",
+        "pitfallVi": "在车站门口 là một cụm vị trí. 等我 nói bạn đợi tôi; bỏ 门口 làm vị trí kém chính xác.\nKhông đổi 右 thành 左; nếu không nghe rõ hướng cần nghe lại, không suy từ hình nền.\n慢一点儿 yêu cầu chậm hơn chút. 有点儿慢 là đánh giá hơi chậm, không phải cùng câu nghe.\nMưa là lý do, đến muộn là hệ quả. Không đảo thành vì đến muộn nên mưa.",
+        "checkpointVi": "Giữ đầy đủ mốc vị trí.\nĐúng trái/phải, không đoán từ ảnh.\nGiữ lời yêu cầu và mức độ.\nGiữ nguyên nhân trước hệ quả theo câu nghe.",
+        "prerequisites": [
+          "hsk2-dictation-lesson-01"
+        ],
+        "vocabulary": [
+          "hsk-vocab-00330",
+          "hsk-vocab-00333",
+          "hsk-vocab-00334",
+          "hsk-vocab-00034",
+          "hsk-vocab-00337",
+          "hsk-vocab-00338",
+          "hsk-vocab-00377",
+          "hsk-vocab-00487",
+          "hsk-vocab-00343",
+          "hsk-vocab-00345",
+          "hsk-vocab-00339",
+          "hsk-vocab-00347",
+          "hsk-vocab-00353"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "dialogue": [
+          {
+            "speaker": "Đoạn 1",
+            "hanzi": "请在车站门口等我。",
+            "pinyin": "Qǐng zài chēzhàn ménkǒu děng wǒ.",
+            "meaningVi": "Xin đợi tôi ở cửa ga."
+          },
+          {
+            "speaker": "Đoạn 2",
+            "hanzi": "从门口往右走。",
+            "pinyin": "Cóng ménkǒu wǎng yòu zǒu.",
+            "meaningVi": "Từ cửa đi về phía phải."
+          },
+          {
+            "speaker": "Đoạn 3",
+            "hanzi": "请走慢一点儿。",
+            "pinyin": "Qǐng zǒu màn yìdiǎnr.",
+            "meaningVi": "Xin đi chậm hơn một chút."
+          },
+          {
+            "speaker": "Đoạn 4",
+            "hanzi": "因为下雨，所以我来晚了。",
+            "pinyin": "Yīnwèi xiàyǔ, suǒyǐ wǒ lái wǎn le.",
+            "meaningVi": "Vì trời mưa nên tôi đến muộn."
+          }
+        ],
+        "grammar": [
+          {
+            "pattern": "Theo dõi dữ kiện và quan hệ giữa các câu",
+            "explanationVi": "Nơi đợi là cửa ga, không trong lớp hay trước nhà. 在车站门口 là một cụm vị trí. 等我 nói bạn đợi tôi; bỏ 门口 làm vị trí kém chính xác.\nGiữ 从 là điểm xuất phát và 往右 là hướng. Không đổi 右 thành 左; nếu không nghe rõ hướng cần nghe lại, không suy từ hình nền.\nNghe yêu cầu thay đổi tốc độ, không đổi thành đi nhanh. 慢一点儿 yêu cầu chậm hơn chút. 有点儿慢 là đánh giá hơi chậm, không phải cùng câu nghe.\nGiữ thứ tự nguyên nhân và kết quả. Mưa là lý do, đến muộn là hệ quả. Không đảo thành vì đến muộn nên mưa.",
+            "modelExample": {
+              "speaker": "Đoạn 1",
+              "hanzi": "请在车站门口等我。",
+              "pinyin": "Qǐng zài chēzhàn ménkǒu děng wǒ.",
+              "meaningVi": "Xin đợi tôi ở cửa ga."
+            },
+            "guidedPractice": {
+              "promptVi": "Chép thông báo mới rồi xác nhận thông tin cuối cùng.",
+              "modelAnswerHanzi": "请在学校门口等我。从门口往左走。",
+              "modelAnswerPinyin": "Qǐng zài xuéxiào ménkǒu děng wǒ. Cóng ménkǒu wǎng zuǒ zǒu.",
+              "modelAnswerMeaningVi": "Xin đợi tôi ở cửa trường. Từ cửa đi về phía trái."
+            }
+          }
+        ],
+        "exercises": [
+          {
+            "promptVi": "Lời nhắn 请在车站门口等我。从门口往右走 chỉ nơi chờ và hướng nào?",
+            "answer": "车站门口，往右走。",
+            "answerPinyin": "Chēzhàn ménkǒu, wǎng yòu zǒu.",
+            "answerMeaningVi": "Cửa ga, đi về phía phải.",
+            "distractors": [
+              "学校门口，往右走。",
+              "车站门口，往左走。"
+            ],
+            "explanationVi": "车站 là ga, không phải trường; 右 là phải, không phải trái. Xác định mốc cửa trước khi đi."
+          }
+        ],
+        "lessonPages": {
+          "version": 1,
+          "art": "sound",
+          "pages": [
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:prepare",
+              "title": "Nhận nhiệm vụ nghe",
+              "layout": "scene",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:context",
+                  "kind": "explanation",
+                  "title": "Nghe–chép câu đầy đủ, giữ vị trí, quan hệ và mức độ",
+                  "body": "Bạn đến gặp một người bạn ở gần ga. Người đó gửi các câu hướng dẫn liên tiếp; chép đúng giúp tránh đứng sai chỗ hoặc đi sai hướng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:method",
+                  "kind": "explanation",
+                  "title": "Cách nghe và tự kiểm",
+                  "body": "Mỗi câu xác định ai/làm gì/ở đâu. Nghe cả câu trước, sau đó mới ghi. Không nhìn transcript trong lần thử đầu nếu có thể nghe; luôn có lối mở chữ khi âm thanh không dùng được. Khi mở chữ, hoạt động chuyển sang luyện có hỗ trợ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "illustration": {
+                "src": "/lessons/ngoc-dien/station-meeting-v1.webp",
+                "alt": "Hai người bạn tìm gặp nhau trước cửa nhà ga",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:words:0",
+              "title": "Từ dùng trong bài · 1–6",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:0",
+                  "kind": "dialogue",
+                  "title": "但 · nhưng; chỉ",
+                  "body": "dàn · HSK2 · 连、（副）",
+                  "hanzi": "但是我今天很忙。",
+                  "pinyin": "Dànshì wǒ jīntiān hěn máng.",
+                  "meaningVi": "Nhưng hôm nay tôi rất bận.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:1",
+                  "kind": "dialogue",
+                  "title": "地 · trợ từ nối trạng ngữ với động từ",
+                  "body": "de · HSK2 · 助",
+                  "hanzi": "请慢慢地走。",
+                  "pinyin": "Qǐng mànmàn de zǒu.",
+                  "meaningVi": "Hãy đi chậm thôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:2",
+                  "kind": "dialogue",
+                  "title": "等 · đợi; vân vân",
+                  "body": "děng · HSK2 · 动、（介）",
+                  "hanzi": "我在门口等你。",
+                  "pinyin": "Wǒ zài ménkǒu děng nǐ.",
+                  "meaningVi": "Tôi đợi bạn ở cửa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:3",
+                  "kind": "dialogue",
+                  "title": "店 · cửa hàng",
+                  "body": "diàn · danh từ",
+                  "hanzi": "这家店很大。",
+                  "pinyin": "Zhè jiā diàn hěn dà.",
+                  "meaningVi": "Cửa hàng này rất lớn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:4",
+                  "kind": "dialogue",
+                  "title": "懂 · hiểu",
+                  "body": "dǒng · HSK2 · 动",
+                  "hanzi": "我已经听懂了。",
+                  "pinyin": "Wǒ yǐjīng tīngdǒng le.",
+                  "meaningVi": "Tôi đã nghe hiểu rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:5",
+                  "kind": "dialogue",
+                  "title": "动 · động; di chuyển",
+                  "body": "dòng · HSK2 · 动",
+                  "hanzi": "别动。",
+                  "pinyin": "Bié dòng.",
+                  "meaningVi": "Đừng cử động.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:words:6",
+              "title": "Từ dùng trong bài · 7–12",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:6",
+                  "kind": "dialogue",
+                  "title": "咖啡 · cà phê",
+                  "body": "kāfēi · HSK2 · 名",
+                  "hanzi": "我想喝一杯咖啡。",
+                  "pinyin": "Wǒ xiǎng hē yì bēi kāfēi.",
+                  "meaningVi": "Tôi muốn uống một cốc cà phê.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:7",
+                  "kind": "dialogue",
+                  "title": "丈夫 · chồng",
+                  "body": "zhàngfu · HSK2 · 名",
+                  "hanzi": "她丈夫今天在家。",
+                  "pinyin": "Tā zhàngfu jīntiān zài jiā.",
+                  "meaningVi": "Chồng cô ấy hôm nay ở nhà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:8",
+                  "kind": "dialogue",
+                  "title": "告诉 · nói cho biết; thông báo",
+                  "body": "gàosu · HSK2 · 动",
+                  "hanzi": "请告诉老师。",
+                  "pinyin": "Qǐng gàosu lǎoshī.",
+                  "meaningVi": "Hãy báo cho giáo viên.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:9",
+                  "kind": "dialogue",
+                  "title": "跟 · với; theo; cùng",
+                  "body": "gēn · HSK2 · 介、连、（名、动）",
+                  "hanzi": "你跟谁一起住？",
+                  "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+                  "meaningVi": "Bạn sống cùng ai?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:10",
+                  "kind": "dialogue",
+                  "title": "饭馆 · quán ăn; nhà hàng",
+                  "body": "fànguǎn · HSK2 · 名",
+                  "hanzi": "我们在饭馆吃饭。",
+                  "pinyin": "Wǒmen zài fànguǎn chīfàn.",
+                  "meaningVi": "Chúng tôi ăn ở nhà hàng.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:11",
+                  "kind": "dialogue",
+                  "title": "过 · qua; vượt qua",
+                  "body": "guò · HSK2 · 动",
+                  "hanzi": "过马路的时候要小心。",
+                  "pinyin": "Guò mǎlù de shíhou yào xiǎoxīn.",
+                  "meaningVi": "Khi qua đường phải cẩn thận.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:words:12",
+              "title": "Từ dùng trong bài · 13–13",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:block:word:12",
+                  "kind": "dialogue",
+                  "title": "黑色 · màu đen",
+                  "body": "hēisè · HSK2 · 名",
+                  "hanzi": "请帮我拿黑色的。",
+                  "pinyin": "Qǐng bāng wǒ ná hēisè de.",
+                  "meaningVi": "Hãy lấy giúp tôi chiếc màu đen.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:teaching-0",
+              "title": "Hiểu cụm thông tin trước khi nghe",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:rule-0",
+                  "kind": "explanation",
+                  "title": "Cách nghe và hiểu",
+                  "body": "在 + nơi chốn đứng trước hành động cho biết làm ở đâu. 从 + mốc là điểm bắt đầu; 往 + hướng là hướng di chuyển. Tách ba phần để không nhầm nơi đợi với nơi đến.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:model-0",
+                  "kind": "dialogue",
+                  "title": "Ví dụ hướng dẫn",
+                  "body": "",
+                  "hanzi": "在商店门口等。从这里往前走。",
+                  "pinyin": "Zài shāngdiàn ménkǒu děng. Cóng zhèlǐ wǎng qián zǒu.",
+                  "meaningVi": "Đợi ở cửa hàng. Từ đây đi về phía trước.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:guided-0",
+              "title": "Thử hiểu dữ kiện",
+              "layout": "workshop",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:guided-block-0",
+                  "kind": "activity",
+                  "title": "Điền để kiểm tra cách hiểu",
+                  "body": "Trong ___这里往前走, điền từ đánh dấu điểm xuất phát.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "从"
+                    ],
+                    "explanation": "从这里 nói từ đây; 往前 nói về trước. Hai phần có chức năng khác nhau.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "reading",
+                      "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-short-text-task:hsk2-dictation-lesson-02"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:teaching-1",
+              "title": "Hiểu cụm thông tin trước khi nghe",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:rule-1",
+                  "kind": "explanation",
+                  "title": "Cách nghe và hiểu",
+                  "body": "Yêu cầu chậm hơn dùng 慢一点儿; 有点儿慢 nhận xét hơi chậm. 因为 mở lý do và 所以 mở kết quả; ghi đúng quan hệ ngay cả khi nghe được từng từ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:model-1",
+                  "kind": "dialogue",
+                  "title": "Ví dụ hướng dẫn",
+                  "body": "",
+                  "hanzi": "因为很累，所以我走得很慢。",
+                  "pinyin": "Yīnwèi hěn lèi, suǒyǐ wǒ zǒu de hěn màn.",
+                  "meaningVi": "Vì rất mệt nên tôi đi chậm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:guided-1",
+              "title": "Thử hiểu dữ kiện",
+              "layout": "workshop",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:guided-block-1",
+                  "kind": "activity",
+                  "title": "Điền để kiểm tra cách hiểu",
+                  "body": "因为很累，___我走得很慢。 Điền từ mở kết quả.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "所以"
+                    ],
+                    "explanation": "Mệt là lý do, đi chậm là kết quả. Không đảo hai ý khi ghi chép.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "reading",
+                      "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-short-text-task:hsk2-dictation-lesson-02"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:wait",
+              "title": "Lượt nghe 1",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:wait:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "请在车站门口等我。",
+                  "pinyin": "Qǐng zài chēzhàn ménkǒu děng wǒ.",
+                  "meaningVi": "Xin đợi tôi ở cửa ga.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:wait:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Nơi đợi là cửa ga, không trong lớp hay trước nhà. 在车站门口 là một cụm vị trí. 等我 nói bạn đợi tôi; bỏ 门口 làm vị trí kém chính xác.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:walk",
+              "title": "Lượt nghe 2",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:walk:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "从门口往右走。",
+                  "pinyin": "Cóng ménkǒu wǎng yòu zǒu.",
+                  "meaningVi": "Từ cửa đi về phía phải.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:walk:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Giữ 从 là điểm xuất phát và 往右 là hướng. Không đổi 右 thành 左; nếu không nghe rõ hướng cần nghe lại, không suy từ hình nền.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:pace",
+              "title": "Lượt nghe 3",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:pace:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "请走慢一点儿。",
+                  "pinyin": "Qǐng zǒu màn yìdiǎnr.",
+                  "meaningVi": "Xin đi chậm hơn một chút.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:pace:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Nghe yêu cầu thay đổi tốc độ, không đổi thành đi nhanh. 慢一点儿 yêu cầu chậm hơn chút. 有点儿慢 là đánh giá hơi chậm, không phải cùng câu nghe.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:reason",
+              "title": "Lượt nghe 4",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:reason:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "因为下雨，所以我来晚了。",
+                  "pinyin": "Yīnwèi xiàyǔ, suǒyǐ wǒ lái wǎn le.",
+                  "meaningVi": "Vì trời mưa nên tôi đến muộn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:reason:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Giữ thứ tự nguyên nhân và kết quả. Mưa là lý do, đến muộn là hệ quả. Không đảo thành vì đến muộn nên mưa.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:different-route",
+              "title": "Nghe thông tin mới",
+              "layout": "workshop",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:different-route:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "请在学校门口等我。从门口往左走。",
+                  "pinyin": "Qǐng zài xuéxiào ménkǒu děng wǒ. Cóng ménkǒu wǎng zuǒ zǒu.",
+                  "meaningVi": "Xin đợi tôi ở cửa trường. Từ cửa đi về phía trái.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:different-route:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Đổi ga thành trường và phải thành trái. Hai dữ kiện mới cần nghe lại: 学校 và 左. Không tự điền câu cũ từ trí nhớ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-02:dictation:self-check",
+              "title": "Tự kiểm sau khi nghe",
+              "layout": "focus",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:criterion:0",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 1",
+                  "body": "Giữ đầy đủ mốc vị trí.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:criterion:1",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 2",
+                  "body": "Đúng trái/phải, không đoán từ ảnh.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:criterion:2",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 3",
+                  "body": "Giữ lời yêu cầu và mức độ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-02:dictation:criterion:3",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 4",
+                  "body": "Giữ nguyên nhân trước hệ quả theo câu nghe.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            }
+          ]
+        },
+        "sourceVocabularyIds": [
+          "hsk-vocab-00330",
+          "hsk-vocab-00333",
+          "hsk-vocab-00334",
+          "hsk-vocab-00034",
+          "hsk-vocab-00337",
+          "hsk-vocab-00338",
+          "hsk-vocab-00377",
+          "hsk-vocab-00487",
+          "hsk-vocab-00343",
+          "hsk-vocab-00345",
+          "hsk-vocab-00339",
+          "hsk-vocab-00347",
+          "hsk-vocab-00353"
+        ],
+        "sourceLessonIds": [
+          "hsk2-dictation-lesson-02"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-dictation-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-short-text-task:hsk2-dictation-lesson-02"
+        ],
+        "sourceTopicIds": [],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "editorialStatus": "draft-needs-vocabulary-example-and-language-review"
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-03",
+      "title": "Nghe-chép chuỗi câu ngắn",
+      "level": "hsk2",
+      "lessonPages": {
+        "version": 1,
+        "art": "sound",
+        "pages": [
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:prepare",
+            "title": "Nhận nhiệm vụ nghe",
+            "layout": "scene",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:context",
+                "kind": "explanation",
+                "title": "Ghi chuỗi câu có liên kết và theo dõi điều thay đổi",
+                "body": "Bạn ghi lời nhắn về một buổi học bị đổi phòng và đổi giờ. Nghe thông báo cập nhật quan trọng hơn việc chép lại dữ kiện cũ quen tai.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:method",
+                "kind": "explanation",
+                "title": "Cách nghe và tự kiểm",
+                "body": "Lượt đầu ghi ý chính và mốc cũ/mới. Lượt tiếp theo chép cả chuỗi, chú ý 但是/所以/还没. Mẫu mở sau khi tự thử; tự đối chiếu chưa phải chấm viết hoặc nghe độc lập. Luyện bằng giọng tổng hợp phải hiển thị đúng nhãn nguồn.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ],
+            "illustration": {
+              "src": "/lessons/ngoc-dien/classroom-change-v1.webp",
+              "alt": "Giáo viên hướng dẫn học viên chuyển sang phòng học khác",
+              "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false"
+            }
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:words:0",
+            "title": "Từ dùng trong bài · 1–6",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:0",
+                "kind": "dialogue",
+                "title": "红茶 · trà đen",
+                "body": "hóngchá · HSK2 · 名",
+                "hanzi": "我想喝一杯红茶。",
+                "pinyin": "Wǒ xiǎng hē yì bēi hóngchá.",
+                "meaningVi": "Tôi muốn uống một cốc trà đen.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:1",
+                "kind": "dialogue",
+                "title": "花 · tiêu; dành tiền hoặc thời gian",
+                "body": "huā · HSK2 · 动",
+                "hanzi": "这朵花很好看。",
+                "pinyin": "Zhè duǒ huā hěn hǎokàn.",
+                "meaningVi": "Bông hoa này rất đẹp.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:2",
+                "kind": "dialogue",
+                "title": "画 · vẽ; tranh",
+                "body": "huà · HSK2 · 动、名",
+                "hanzi": "他会画画。",
+                "pinyin": "Tā huì huàhuà.",
+                "meaningVi": "Anh ấy biết vẽ.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:3",
+                "kind": "dialogue",
+                "title": "坏 · xấu; hỏng",
+                "body": "huài · HSK2 · 形",
+                "hanzi": "手表已经坏了。",
+                "pinyin": "Shǒubiǎo yǐjīng huài le.",
+                "meaningVi": "Đồng hồ đã hỏng rồi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:4",
+                "kind": "dialogue",
+                "title": "自己 · bản thân; tự mình",
+                "body": "zìjǐ · HSK2 · 代",
+                "hanzi": "这本书是我自己买的。",
+                "pinyin": "Zhè běn shū shì wǒ zìjǐ mǎi de.",
+                "meaningVi": "Quyển sách này do chính tôi mua.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:5",
+                "kind": "dialogue",
+                "title": "记得 · nhớ",
+                "body": "jìde · HSK2 · 动",
+                "hanzi": "我记得他的名字。",
+                "pinyin": "Wǒ jìde tā de míngzi.",
+                "meaningVi": "Tôi nhớ tên anh ấy.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:words:6",
+            "title": "Từ dùng trong bài · 7–12",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:6",
+                "kind": "dialogue",
+                "title": "公交车 · xe buýt",
+                "body": "gōngjiāochē · HSK2 · 名",
+                "hanzi": "地铁比公交车快。",
+                "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+                "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:7",
+                "kind": "dialogue",
+                "title": "教 · dạy",
+                "body": "jiāo · HSK2 · 动",
+                "hanzi": "老师教我们写汉字。",
+                "pinyin": "Lǎoshī jiāo wǒmen xiě Hànzì.",
+                "meaningVi": "Giáo viên dạy chúng tôi viết chữ Hán.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:8",
+                "kind": "dialogue",
+                "title": "介绍 · giới thiệu",
+                "body": "jièshào · HSK2 · 动",
+                "hanzi": "请介绍一下自己。",
+                "pinyin": "Qǐng jièshào yíxià zìjǐ.",
+                "meaningVi": "Hãy giới thiệu một chút về bản thân.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:9",
+                "kind": "dialogue",
+                "title": "进 · vào; tiến vào",
+                "body": "jìn · HSK2 · 动",
+                "hanzi": "请进。",
+                "pinyin": "Qǐng jìn.",
+                "meaningVi": "Mời vào.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:10",
+                "kind": "dialogue",
+                "title": "近 · gần",
+                "body": "jìn · HSK2 · 形",
+                "hanzi": "附近有药店吗？",
+                "pinyin": "Fùjìn yǒu yàodiàn ma?",
+                "meaningVi": "Gần đây có hiệu thuốc không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:11",
+                "kind": "dialogue",
+                "title": "经常 · thường xuyên",
+                "body": "jīngcháng · HSK2 · 副",
+                "hanzi": "我经常坐公交车去学校。",
+                "pinyin": "Wǒ jīngcháng zuò gōngjiāochē qù xuéxiào.",
+                "meaningVi": "Tôi thường đi xe buýt đến trường.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:words:12",
+            "title": "Từ dùng trong bài · 13–13",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:block:word:12",
+                "kind": "dialogue",
+                "title": "眼睛 · mắt",
+                "body": "yǎnjing · HSK2 · 名",
+                "hanzi": "她的眼睛很大。",
+                "pinyin": "Tā de yǎnjing hěn dà.",
+                "meaningVi": "Mắt cô ấy to.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:teaching-0",
+            "title": "Hiểu cụm thông tin trước khi nghe",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:rule-0",
+                "kind": "explanation",
+                "title": "Cách nghe và hiểu",
+                "body": "原来 nói kế hoạch ban đầu; 现在/改成 báo dữ kiện cập nhật. Ghi hai cột cũ–mới để tránh giữ nhầm thông tin đã thay. 改成 + mốc mới nghĩa là đổi sang mốc đó.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:model-0",
+                "kind": "dialogue",
+                "title": "Ví dụ hướng dẫn",
+                "body": "",
+                "hanzi": "原来周一见，现在改成周二。",
+                "pinyin": "Yuánlái zhōuyī jiàn, xiànzài gǎi chéng zhōuèr.",
+                "meaningVi": "Ban đầu hẹn thứ hai, nay đổi sang thứ ba.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:guided-0",
+            "title": "Thử hiểu dữ kiện",
+            "layout": "workshop",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:guided-block-0",
+                "kind": "activity",
+                "title": "Điền để kiểm tra cách hiểu",
+                "body": "Lịch cuối cùng là thứ nào? Điền bằng Hán tự theo câu mẫu.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "周二"
+                  ],
+                  "explanation": "周一 là lịch cũ. Sau 改成 là 周二, lịch mới.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "reading",
+                    "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-short-text-task:hsk2-dictation-lesson-03"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:teaching-1",
+            "title": "Hiểu cụm thông tin trước khi nghe",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:rule-1",
+                "kind": "explanation",
+                "title": "Cách nghe và hiểu",
+                "body": "Đọc cả chuỗi trước khi xác nhận. 还没准备好 nói chưa sẵn sàng; 所以 có thể nối nguyên nhân với việc đổi nơi. Một thông báo cuối có thể nhắc lại giờ/nơi để chốt.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:model-1",
+                "kind": "dialogue",
+                "title": "Ví dụ hướng dẫn",
+                "body": "",
+                "hanzi": "房间还没准备好，所以我们在大厅等。",
+                "pinyin": "Fángjiān hái méi zhǔnbèi hǎo, suǒyǐ wǒmen zài dàtīng děng.",
+                "meaningVi": "Phòng chưa sẵn sàng nên chúng tôi đợi ở sảnh.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:guided-1",
+            "title": "Thử hiểu dữ kiện",
+            "layout": "workshop",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:guided-block-1",
+                "kind": "activity",
+                "title": "Điền để kiểm tra cách hiểu",
+                "body": "Theo câu mẫu, nhóm đợi ở đâu? Điền tên nơi chốn bằng Hán tự.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "大厅"
+                  ],
+                  "explanation": "Phòng là nơi chưa sẵn sàng; sảnh mới là nơi đang đợi. 大厅 (dàtīng) nghĩa là sảnh.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "reading",
+                    "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-short-text-task:hsk2-dictation-lesson-03"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:old-plan",
+            "title": "Lượt nghe 1",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:old-plan:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "我们原来准备八点上课，在二楼的教室。",
+                "pinyin": "Wǒmen yuánlái zhǔnbèi bā diǎn shàngkè, zài èr lóu de jiàoshì.",
+                "meaningVi": "Ban đầu chúng tôi định học lúc 8 giờ, ở lớp tầng hai.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:old-plan:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "原来 giới thiệu kế hoạch cũ. 8 giờ và tầng hai là kế hoạch ban đầu. Cần nghe phần cập nhật trước khi kết luận nơi/giờ cuối cùng.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:new-time",
+            "title": "Lượt nghe 2",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:new-time:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "但是老师今天来晚了，所以改成九点开始。",
+                "pinyin": "Dànshì lǎoshī jīntiān lái wǎn le, suǒyǐ gǎi chéng jiǔ diǎn kāishǐ.",
+                "meaningVi": "Nhưng hôm nay giáo viên đến muộn nên đổi sang bắt đầu 9 giờ.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:new-time:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "改成 là thay đổi, giờ mới là 9:00. Không giữ 8 giờ làm giờ cuối cùng. 老师 là người đến muộn, không phải toàn bộ học sinh.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:new-room",
+            "title": "Lượt nghe 3",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:new-room:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "二楼的教室还没准备好，我们去三楼。",
+                "pinyin": "Èr lóu de jiàoshì hái méi zhǔnbèi hǎo, wǒmen qù sān lóu.",
+                "meaningVi": "Lớp tầng hai chưa chuẩn bị xong, chúng tôi lên tầng ba.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:new-room:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Nghe phủ định và theo dõi tầng cũ/tầng mới. 还没 nói chưa xong; 三楼 là nơi nhóm chuyển tới. Không đổi thành lớp tầng ba chưa sẵn sàng.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:confirmation",
+            "title": "Lượt nghe 4",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:confirmation:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "请带书和笔，九点在三楼见。",
+                "pinyin": "Qǐng dài shū hé bǐ, jiǔ diǎn zài sān lóu jiàn.",
+                "meaningVi": "Xin mang sách và bút, hẹn 9 giờ ở tầng ba.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:confirmation:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Lời xác nhận giữ giờ và tầng sau cập nhật. Câu cuối xác nhận 9 giờ/tầng ba. Cần giữ cả sách và bút, không chỉ một món.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:fresh-update",
+            "title": "Nghe thông tin mới",
+            "layout": "workshop",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:fresh-update:write",
+                "kind": "dictation",
+                "title": "Nghe rồi viết lại",
+                "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                "hanzi": "原来十点在四楼上课，现在改成十点半，在五楼。请带本子。",
+                "pinyin": "Yuánlái shí diǎn zài sì lóu shàngkè, xiànzài gǎi chéng shí diǎn bàn, zài wǔ lóu. Qǐng dài běnzi.",
+                "meaningVi": "Ban đầu học 10 giờ ở tầng bốn, nay đổi sang 10:30 ở tầng năm. Xin mang vở.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:fresh-update:feedback",
+                "kind": "explanation",
+                "title": "Kiểm tra dữ kiện vừa nghe",
+                "body": "Ghi giờ/tầng cuối cùng và đồ mới cần mang. Thông báo mới chốt 10:30, tầng năm, mang vở. Không áp giờ/tầng của chuỗi trước.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-dictation-lesson-03:dictation:self-check",
+            "title": "Tự kiểm sau khi nghe",
+            "layout": "focus",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:criterion:0",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 1",
+                "body": "Phân biệt kế hoạch cũ với thông báo cuối.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:criterion:1",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 2",
+                "body": "Giữ phủ định và nguyên nhân.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:criterion:2",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 3",
+                "body": "Ghi đúng giờ/tầng/đồ vật sau cập nhật.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-dictation-lesson-03:dictation:criterion:3",
+                "kind": "explanation",
+                "title": "Điểm tự kiểm 4",
+                "body": "Sau đối chiếu, tự nói lại thông tin cuối; chưa tự nhận mastery.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          }
+        ]
+      },
+      "studioContent": {
+        "targetLessonId": "hsk2-dictation-lesson-03",
+        "titleZh": "HSK二级 · 33",
+        "objectiveVi": "Ghi chuỗi câu có liên kết và theo dõi điều thay đổi",
+        "conceptVi": "Bạn ghi lời nhắn về một buổi học bị đổi phòng và đổi giờ. Nghe thông báo cập nhật quan trọng hơn việc chép lại dữ kiện cũ quen tai.",
+        "ruleVi": "Lượt đầu ghi ý chính và mốc cũ/mới. Lượt tiếp theo chép cả chuỗi, chú ý 但是/所以/还没. Mẫu mở sau khi tự thử; tự đối chiếu chưa phải chấm viết hoặc nghe độc lập. Luyện bằng giọng tổng hợp phải hiển thị đúng nhãn nguồn.",
+        "pitfallVi": "8 giờ và tầng hai là kế hoạch ban đầu. Cần nghe phần cập nhật trước khi kết luận nơi/giờ cuối cùng.\nKhông giữ 8 giờ làm giờ cuối cùng. 老师 là người đến muộn, không phải toàn bộ học sinh.\n还没 nói chưa xong; 三楼 là nơi nhóm chuyển tới. Không đổi thành lớp tầng ba chưa sẵn sàng.\nCâu cuối xác nhận 9 giờ/tầng ba. Cần giữ cả sách và bút, không chỉ một món.",
+        "checkpointVi": "Phân biệt kế hoạch cũ với thông báo cuối.\nGiữ phủ định và nguyên nhân.\nGhi đúng giờ/tầng/đồ vật sau cập nhật.\nSau đối chiếu, tự nói lại thông tin cuối; chưa tự nhận mastery.",
+        "prerequisites": [
+          "hsk2-dictation-lesson-02"
+        ],
+        "vocabulary": [
+          "hsk-vocab-00354",
+          "hsk-vocab-00357",
+          "hsk-vocab-00359",
+          "hsk-vocab-00360",
+          "hsk-vocab-00494",
+          "hsk-vocab-00365",
+          "hsk-vocab-00346",
+          "hsk-vocab-00367",
+          "hsk-vocab-00369",
+          "hsk-vocab-00370",
+          "hsk-vocab-00371",
+          "hsk-vocab-00374",
+          "hsk-vocab-00467"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "dialogue": [
+          {
+            "speaker": "Đoạn 1",
+            "hanzi": "我们原来准备八点上课，在二楼的教室。",
+            "pinyin": "Wǒmen yuánlái zhǔnbèi bā diǎn shàngkè, zài èr lóu de jiàoshì.",
+            "meaningVi": "Ban đầu chúng tôi định học lúc 8 giờ, ở lớp tầng hai."
+          },
+          {
+            "speaker": "Đoạn 2",
+            "hanzi": "但是老师今天来晚了，所以改成九点开始。",
+            "pinyin": "Dànshì lǎoshī jīntiān lái wǎn le, suǒyǐ gǎi chéng jiǔ diǎn kāishǐ.",
+            "meaningVi": "Nhưng hôm nay giáo viên đến muộn nên đổi sang bắt đầu 9 giờ."
+          },
+          {
+            "speaker": "Đoạn 3",
+            "hanzi": "二楼的教室还没准备好，我们去三楼。",
+            "pinyin": "Èr lóu de jiàoshì hái méi zhǔnbèi hǎo, wǒmen qù sān lóu.",
+            "meaningVi": "Lớp tầng hai chưa chuẩn bị xong, chúng tôi lên tầng ba."
+          },
+          {
+            "speaker": "Đoạn 4",
+            "hanzi": "请带书和笔，九点在三楼见。",
+            "pinyin": "Qǐng dài shū hé bǐ, jiǔ diǎn zài sān lóu jiàn.",
+            "meaningVi": "Xin mang sách và bút, hẹn 9 giờ ở tầng ba."
+          }
+        ],
+        "grammar": [
+          {
+            "pattern": "Theo dõi dữ kiện và quan hệ giữa các câu",
+            "explanationVi": "原来 giới thiệu kế hoạch cũ. 8 giờ và tầng hai là kế hoạch ban đầu. Cần nghe phần cập nhật trước khi kết luận nơi/giờ cuối cùng.\n改成 là thay đổi, giờ mới là 9:00. Không giữ 8 giờ làm giờ cuối cùng. 老师 là người đến muộn, không phải toàn bộ học sinh.\nNghe phủ định và theo dõi tầng cũ/tầng mới. 还没 nói chưa xong; 三楼 là nơi nhóm chuyển tới. Không đổi thành lớp tầng ba chưa sẵn sàng.\nLời xác nhận giữ giờ và tầng sau cập nhật. Câu cuối xác nhận 9 giờ/tầng ba. Cần giữ cả sách và bút, không chỉ một món.",
+            "modelExample": {
+              "speaker": "Đoạn 1",
+              "hanzi": "我们原来准备八点上课，在二楼的教室。",
+              "pinyin": "Wǒmen yuánlái zhǔnbèi bā diǎn shàngkè, zài èr lóu de jiàoshì.",
+              "meaningVi": "Ban đầu chúng tôi định học lúc 8 giờ, ở lớp tầng hai."
+            },
+            "guidedPractice": {
+              "promptVi": "Chép thông báo mới rồi xác nhận thông tin cuối cùng.",
+              "modelAnswerHanzi": "原来十点在四楼上课，现在改成十点半，在五楼。请带本子。",
+              "modelAnswerPinyin": "Yuánlái shí diǎn zài sì lóu shàngkè, xiànzài gǎi chéng shí diǎn bàn, zài wǔ lóu. Qǐng dài běnzi.",
+              "modelAnswerMeaningVi": "Ban đầu học 10 giờ ở tầng bốn, nay đổi sang 10:30 ở tầng năm. Xin mang vở."
+            }
+          }
+        ],
+        "exercises": [
+          {
+            "promptVi": "Thông báo đổi buổi học từ 8 giờ ở tầng hai sang 9 giờ ở tầng ba. Xác nhận nào đúng kế hoạch cuối?",
+            "answer": "九点在三楼见。",
+            "answerPinyin": "Jiǔ diǎn zài sān lóu jiàn.",
+            "answerMeaningVi": "Hẹn 9 giờ ở tầng ba.",
+            "distractors": [
+              "八点在二楼见。",
+              "九点在二楼见。"
+            ],
+            "explanationVi": "Phải cập nhật cả giờ và tầng. Giữ một phần kế hoạch cũ vẫn dẫn đến đi sai buổi học."
+          }
+        ],
+        "lessonPages": {
+          "version": 1,
+          "art": "sound",
+          "pages": [
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:prepare",
+              "title": "Nhận nhiệm vụ nghe",
+              "layout": "scene",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:context",
+                  "kind": "explanation",
+                  "title": "Ghi chuỗi câu có liên kết và theo dõi điều thay đổi",
+                  "body": "Bạn ghi lời nhắn về một buổi học bị đổi phòng và đổi giờ. Nghe thông báo cập nhật quan trọng hơn việc chép lại dữ kiện cũ quen tai.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:method",
+                  "kind": "explanation",
+                  "title": "Cách nghe và tự kiểm",
+                  "body": "Lượt đầu ghi ý chính và mốc cũ/mới. Lượt tiếp theo chép cả chuỗi, chú ý 但是/所以/还没. Mẫu mở sau khi tự thử; tự đối chiếu chưa phải chấm viết hoặc nghe độc lập. Luyện bằng giọng tổng hợp phải hiển thị đúng nhãn nguồn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "illustration": {
+                "src": "/lessons/ngoc-dien/classroom-change-v1.webp",
+                "alt": "Giáo viên hướng dẫn học viên chuyển sang phòng học khác",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:words:0",
+              "title": "Từ dùng trong bài · 1–6",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:0",
+                  "kind": "dialogue",
+                  "title": "红茶 · trà đen",
+                  "body": "hóngchá · HSK2 · 名",
+                  "hanzi": "我想喝一杯红茶。",
+                  "pinyin": "Wǒ xiǎng hē yì bēi hóngchá.",
+                  "meaningVi": "Tôi muốn uống một cốc trà đen.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:1",
+                  "kind": "dialogue",
+                  "title": "花 · tiêu; dành tiền hoặc thời gian",
+                  "body": "huā · HSK2 · 动",
+                  "hanzi": "这朵花很好看。",
+                  "pinyin": "Zhè duǒ huā hěn hǎokàn.",
+                  "meaningVi": "Bông hoa này rất đẹp.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:2",
+                  "kind": "dialogue",
+                  "title": "画 · vẽ; tranh",
+                  "body": "huà · HSK2 · 动、名",
+                  "hanzi": "他会画画。",
+                  "pinyin": "Tā huì huàhuà.",
+                  "meaningVi": "Anh ấy biết vẽ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:3",
+                  "kind": "dialogue",
+                  "title": "坏 · xấu; hỏng",
+                  "body": "huài · HSK2 · 形",
+                  "hanzi": "手表已经坏了。",
+                  "pinyin": "Shǒubiǎo yǐjīng huài le.",
+                  "meaningVi": "Đồng hồ đã hỏng rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:4",
+                  "kind": "dialogue",
+                  "title": "自己 · bản thân; tự mình",
+                  "body": "zìjǐ · HSK2 · 代",
+                  "hanzi": "这本书是我自己买的。",
+                  "pinyin": "Zhè běn shū shì wǒ zìjǐ mǎi de.",
+                  "meaningVi": "Quyển sách này do chính tôi mua.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:5",
+                  "kind": "dialogue",
+                  "title": "记得 · nhớ",
+                  "body": "jìde · HSK2 · 动",
+                  "hanzi": "我记得他的名字。",
+                  "pinyin": "Wǒ jìde tā de míngzi.",
+                  "meaningVi": "Tôi nhớ tên anh ấy.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:words:6",
+              "title": "Từ dùng trong bài · 7–12",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:6",
+                  "kind": "dialogue",
+                  "title": "公交车 · xe buýt",
+                  "body": "gōngjiāochē · HSK2 · 名",
+                  "hanzi": "地铁比公交车快。",
+                  "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+                  "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:7",
+                  "kind": "dialogue",
+                  "title": "教 · dạy",
+                  "body": "jiāo · HSK2 · 动",
+                  "hanzi": "老师教我们写汉字。",
+                  "pinyin": "Lǎoshī jiāo wǒmen xiě Hànzì.",
+                  "meaningVi": "Giáo viên dạy chúng tôi viết chữ Hán.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:8",
+                  "kind": "dialogue",
+                  "title": "介绍 · giới thiệu",
+                  "body": "jièshào · HSK2 · 动",
+                  "hanzi": "请介绍一下自己。",
+                  "pinyin": "Qǐng jièshào yíxià zìjǐ.",
+                  "meaningVi": "Hãy giới thiệu một chút về bản thân.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:9",
+                  "kind": "dialogue",
+                  "title": "进 · vào; tiến vào",
+                  "body": "jìn · HSK2 · 动",
+                  "hanzi": "请进。",
+                  "pinyin": "Qǐng jìn.",
+                  "meaningVi": "Mời vào.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:10",
+                  "kind": "dialogue",
+                  "title": "近 · gần",
+                  "body": "jìn · HSK2 · 形",
+                  "hanzi": "附近有药店吗？",
+                  "pinyin": "Fùjìn yǒu yàodiàn ma?",
+                  "meaningVi": "Gần đây có hiệu thuốc không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:11",
+                  "kind": "dialogue",
+                  "title": "经常 · thường xuyên",
+                  "body": "jīngcháng · HSK2 · 副",
+                  "hanzi": "我经常坐公交车去学校。",
+                  "pinyin": "Wǒ jīngcháng zuò gōngjiāochē qù xuéxiào.",
+                  "meaningVi": "Tôi thường đi xe buýt đến trường.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:words:12",
+              "title": "Từ dùng trong bài · 13–13",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:block:word:12",
+                  "kind": "dialogue",
+                  "title": "眼睛 · mắt",
+                  "body": "yǎnjing · HSK2 · 名",
+                  "hanzi": "她的眼睛很大。",
+                  "pinyin": "Tā de yǎnjing hěn dà.",
+                  "meaningVi": "Mắt cô ấy to.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:teaching-0",
+              "title": "Hiểu cụm thông tin trước khi nghe",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:rule-0",
+                  "kind": "explanation",
+                  "title": "Cách nghe và hiểu",
+                  "body": "原来 nói kế hoạch ban đầu; 现在/改成 báo dữ kiện cập nhật. Ghi hai cột cũ–mới để tránh giữ nhầm thông tin đã thay. 改成 + mốc mới nghĩa là đổi sang mốc đó.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:model-0",
+                  "kind": "dialogue",
+                  "title": "Ví dụ hướng dẫn",
+                  "body": "",
+                  "hanzi": "原来周一见，现在改成周二。",
+                  "pinyin": "Yuánlái zhōuyī jiàn, xiànzài gǎi chéng zhōuèr.",
+                  "meaningVi": "Ban đầu hẹn thứ hai, nay đổi sang thứ ba.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:guided-0",
+              "title": "Thử hiểu dữ kiện",
+              "layout": "workshop",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:guided-block-0",
+                  "kind": "activity",
+                  "title": "Điền để kiểm tra cách hiểu",
+                  "body": "Lịch cuối cùng là thứ nào? Điền bằng Hán tự theo câu mẫu.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "周二"
+                    ],
+                    "explanation": "周一 là lịch cũ. Sau 改成 là 周二, lịch mới.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "reading",
+                      "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-short-text-task:hsk2-dictation-lesson-03"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:teaching-1",
+              "title": "Hiểu cụm thông tin trước khi nghe",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:rule-1",
+                  "kind": "explanation",
+                  "title": "Cách nghe và hiểu",
+                  "body": "Đọc cả chuỗi trước khi xác nhận. 还没准备好 nói chưa sẵn sàng; 所以 có thể nối nguyên nhân với việc đổi nơi. Một thông báo cuối có thể nhắc lại giờ/nơi để chốt.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:model-1",
+                  "kind": "dialogue",
+                  "title": "Ví dụ hướng dẫn",
+                  "body": "",
+                  "hanzi": "房间还没准备好，所以我们在大厅等。",
+                  "pinyin": "Fángjiān hái méi zhǔnbèi hǎo, suǒyǐ wǒmen zài dàtīng děng.",
+                  "meaningVi": "Phòng chưa sẵn sàng nên chúng tôi đợi ở sảnh.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:guided-1",
+              "title": "Thử hiểu dữ kiện",
+              "layout": "workshop",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:guided-block-1",
+                  "kind": "activity",
+                  "title": "Điền để kiểm tra cách hiểu",
+                  "body": "Theo câu mẫu, nhóm đợi ở đâu? Điền tên nơi chốn bằng Hán tự.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "大厅"
+                    ],
+                    "explanation": "Phòng là nơi chưa sẵn sàng; sảnh mới là nơi đang đợi. 大厅 (dàtīng) nghĩa là sảnh.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "reading",
+                      "objective": "Hiểu thông tin và quan hệ trong câu viết trước khi nghe",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-short-text-task:hsk2-dictation-lesson-03"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:old-plan",
+              "title": "Lượt nghe 1",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:old-plan:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "我们原来准备八点上课，在二楼的教室。",
+                  "pinyin": "Wǒmen yuánlái zhǔnbèi bā diǎn shàngkè, zài èr lóu de jiàoshì.",
+                  "meaningVi": "Ban đầu chúng tôi định học lúc 8 giờ, ở lớp tầng hai.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:old-plan:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "原来 giới thiệu kế hoạch cũ. 8 giờ và tầng hai là kế hoạch ban đầu. Cần nghe phần cập nhật trước khi kết luận nơi/giờ cuối cùng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:new-time",
+              "title": "Lượt nghe 2",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:new-time:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "但是老师今天来晚了，所以改成九点开始。",
+                  "pinyin": "Dànshì lǎoshī jīntiān lái wǎn le, suǒyǐ gǎi chéng jiǔ diǎn kāishǐ.",
+                  "meaningVi": "Nhưng hôm nay giáo viên đến muộn nên đổi sang bắt đầu 9 giờ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:new-time:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "改成 là thay đổi, giờ mới là 9:00. Không giữ 8 giờ làm giờ cuối cùng. 老师 là người đến muộn, không phải toàn bộ học sinh.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:new-room",
+              "title": "Lượt nghe 3",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:new-room:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "二楼的教室还没准备好，我们去三楼。",
+                  "pinyin": "Èr lóu de jiàoshì hái méi zhǔnbèi hǎo, wǒmen qù sān lóu.",
+                  "meaningVi": "Lớp tầng hai chưa chuẩn bị xong, chúng tôi lên tầng ba.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:new-room:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Nghe phủ định và theo dõi tầng cũ/tầng mới. 还没 nói chưa xong; 三楼 là nơi nhóm chuyển tới. Không đổi thành lớp tầng ba chưa sẵn sàng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:confirmation",
+              "title": "Lượt nghe 4",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:confirmation:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "请带书和笔，九点在三楼见。",
+                  "pinyin": "Qǐng dài shū hé bǐ, jiǔ diǎn zài sān lóu jiàn.",
+                  "meaningVi": "Xin mang sách và bút, hẹn 9 giờ ở tầng ba.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:confirmation:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Lời xác nhận giữ giờ và tầng sau cập nhật. Câu cuối xác nhận 9 giờ/tầng ba. Cần giữ cả sách và bút, không chỉ một món.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:fresh-update",
+              "title": "Nghe thông tin mới",
+              "layout": "workshop",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:fresh-update:write",
+                  "kind": "dictation",
+                  "title": "Nghe rồi viết lại",
+                  "body": "Nghe một lượt để nắm ý, nghe lại để chép. Thử viết trước khi mở lời mẫu.",
+                  "hanzi": "原来十点在四楼上课，现在改成十点半，在五楼。请带本子。",
+                  "pinyin": "Yuánlái shí diǎn zài sì lóu shàngkè, xiànzài gǎi chéng shí diǎn bàn, zài wǔ lóu. Qǐng dài běnzi.",
+                  "meaningVi": "Ban đầu học 10 giờ ở tầng bốn, nay đổi sang 10:30 ở tầng năm. Xin mang vở.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:fresh-update:feedback",
+                  "kind": "explanation",
+                  "title": "Kiểm tra dữ kiện vừa nghe",
+                  "body": "Ghi giờ/tầng cuối cùng và đồ mới cần mang. Thông báo mới chốt 10:30, tầng năm, mang vở. Không áp giờ/tầng của chuỗi trước.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-dictation-lesson-03:dictation:self-check",
+              "title": "Tự kiểm sau khi nghe",
+              "layout": "focus",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:criterion:0",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 1",
+                  "body": "Phân biệt kế hoạch cũ với thông báo cuối.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:criterion:1",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 2",
+                  "body": "Giữ phủ định và nguyên nhân.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:criterion:2",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 3",
+                  "body": "Ghi đúng giờ/tầng/đồ vật sau cập nhật.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-dictation-lesson-03:dictation:criterion:3",
+                  "kind": "explanation",
+                  "title": "Điểm tự kiểm 4",
+                  "body": "Sau đối chiếu, tự nói lại thông tin cuối; chưa tự nhận mastery.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            }
+          ]
+        },
+        "sourceVocabularyIds": [
+          "hsk-vocab-00354",
+          "hsk-vocab-00357",
+          "hsk-vocab-00359",
+          "hsk-vocab-00360",
+          "hsk-vocab-00494",
+          "hsk-vocab-00365",
+          "hsk-vocab-00346",
+          "hsk-vocab-00367",
+          "hsk-vocab-00369",
+          "hsk-vocab-00370",
+          "hsk-vocab-00371",
+          "hsk-vocab-00374",
+          "hsk-vocab-00467"
+        ],
+        "sourceLessonIds": [
+          "hsk2-dictation-lesson-03"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-dictation-lesson-03"
+        ],
+        "sourceTaskIds": [
+          "hsk2-short-text-task:hsk2-dictation-lesson-03"
+        ],
+        "sourceTopicIds": [],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "editorialStatus": "draft-needs-vocabulary-example-and-language-review"
+    }
+  ]
+}

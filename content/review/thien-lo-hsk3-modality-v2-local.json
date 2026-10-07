@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-27",
+  "scope": "Three HSK3 modality/time/viewpoint lessons with source-linked grammar retrieval, evidence diagrams and new-context writing. Local AI-assisted self-review only.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/42-REVIEW-HSK3-MODALITY.md",
+  "items": [
+    {
+      "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-01",
+      "sourceContentSha256": "sha256:33f3c87941dce633c5d90b6964d787263499863a3b1351824dfcf1e0ae2ef1a0",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-02",
+      "sourceContentSha256": "sha256:40af5c26e1558927207d57b59e4995d4296505c4ea99c1adfb128d8710c2c287",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-03",
+      "sourceContentSha256": "sha256:c2c5fdf41632b77e2b74d63f56a9b4cb06ebc5057f1cfb5eb4ec34120d27c91a",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

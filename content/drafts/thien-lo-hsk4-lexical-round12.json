@@ -1,0 +1,1569 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/105-REVIEW-HSK4-LEXICAL-ROUND12.md",
+  "entries": [
+    {
+      "sourceRevisionId": "e0ddbc9d-53f9-4f15-b399-329972d0aefa",
+      "sourceContentSha256": "sha256:b7b5aad65e989ea9c136e9f297be8715f64087b297286718fafb53fa19ef6c89",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "我们月末以前要交报告，所以这周先整理资料。",
+            "pinyin": "Wǒmen yuèmò yǐqián yào jiāo bàogào, suǒyǐ zhè zhōu xiān zhěnglǐ zīliào.",
+            "meaningVi": "Chúng tôi phải nộp báo cáo trước cuối tháng nên tuần này sắp xếp tài liệu trước."
+          }
+        ],
+        "hanzi": "末",
+        "meaningVi": "cuối; phần cuối; ngọn (trong từ ghép)",
+        "pinyin": "mò",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01513"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "2c43a316-24b1-4412-b6d3-c71e280cc527",
+      "sourceContentSha256": "sha256:0894016469c48f3881a6b0e7293db2bc7f0d20c8072de15db98ec034ad3bdf24",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这次调查的目的是了解居民的需要，不是推销产品。",
+            "pinyin": "Zhè cì diàochá de mùdì shì liǎojiě jūmín de xūyào, bú shì tuīxiāo chǎnpǐn.",
+            "meaningVi": "Mục đích khảo sát lần này là tìm hiểu nhu cầu cư dân, không phải chào bán sản phẩm."
+          }
+        ],
+        "hanzi": "目的",
+        "meaningVi": "mục đích",
+        "pinyin": "mùdì",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-process-timeline"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01518"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "7b85b7ee-9439-4cb4-9c88-ac4aa6afa9f9",
+      "sourceContentSha256": "sha256:87150a0513d4c75dd93044567a08ebc2b2874e27a924ecbbdba4da3c67794f66",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "他已经道歉了，难道你还不愿意听他解释吗？",
+            "pinyin": "Tā yǐjīng dàoqiàn le, nándào nǐ hái bú yuànyì tīng tā jiěshì ma?",
+            "meaningVi": "Anh ấy đã xin lỗi rồi, chẳng lẽ bạn vẫn không muốn nghe anh ấy giải thích sao?"
+          }
+        ],
+        "hanzi": "难道",
+        "meaningVi": "chẳng lẽ; lẽ nào (dùng trong câu hỏi tu từ)",
+        "pinyin": "nándào",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01523"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "19d7ec96-5d70-4b11-b1dc-7328a5792f96",
+      "sourceContentSha256": "sha256:8de17233646b4235a0dcda4f11af3e70db4fdd229953b0e6612899bb68e71f9f",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "活动能否按时举行，还要看明天的天气。",
+            "pinyin": "Huódòng néngfǒu ànshí jǔxíng, hái yào kàn míngtiān de tiānqì.",
+            "meaningVi": "Hoạt động có thể diễn ra đúng giờ hay không còn phải xem thời tiết ngày mai."
+          }
+        ],
+        "hanzi": "能否",
+        "meaningVi": "có thể… hay không",
+        "pinyin": "néngfǒu",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-comparison-variation"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01531"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "cb2b73b8-9752-4bce-9ef3-7d54a58738fd",
+      "sourceContentSha256": "sha256:1ce261a51f4d5c77adbfa3f996ef0df44185f46ba6042d6995613f7100e7a7cd",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "演出结束后，观众拍着手向演员表示感谢。",
+            "pinyin": "Yǎnchū jiéshù hòu, guānzhòng pāi zhe shǒu xiàng yǎnyuán biǎoshì gǎnxiè.",
+            "meaningVi": "Sau buổi diễn, khán giả vỗ tay cảm ơn diễn viên."
+          }
+        ],
+        "hanzi": "拍",
+        "meaningVi": "vỗ; đập; chụp ảnh; quay phim",
+        "pinyin": "pāi",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-comparison-variation",
+          "hsk4-timed-sectional-rehearsal-lesson-01"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01542"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "65a119fc-130e-4f50-b9b0-9bb881004ca7",
+      "sourceContentSha256": "sha256:7fb9c5465217c154efa5318202a05721898c46248df81c53de906bd08684ec5b",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "请按顺序排队，不要站在出口前面。",
+            "pinyin": "Qǐng àn shùnxù pái duì, bú yào zhàn zài chūkǒu qiánmian.",
+            "meaningVi": "Hãy xếp hàng theo thứ tự, đừng đứng chắn trước lối ra."
+          }
+        ],
+        "hanzi": "排",
+        "meaningVi": "xếp; sắp xếp; hàng; thải ra (tùy từ ghép)",
+        "pinyin": "pái",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-comparison-variation"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01543"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "f9f44a92-9072-4299-8a55-23ef6bc30c20",
+      "sourceContentSha256": "sha256:0796e6246c1b58db627f3f1f94b9c685b2d1fd6cd6472f28dcae0b57ae923b8a",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "门口有一块牌，上面写着今天的开放时间。",
+            "pinyin": "Ménkǒu yǒu yí kuài pái, shàngmian xiě zhe jīntiān de kāifàng shíjiān.",
+            "meaningVi": "Ở cửa có một tấm biển ghi giờ mở cửa hôm nay."
+          }
+        ],
+        "hanzi": "牌",
+        "meaningVi": "biển; bảng; nhãn hiệu; quân bài",
+        "pinyin": "pái",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01544"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "6c0dc025-2fd2-4875-979f-f36fb138fb13",
+      "sourceContentSha256": "sha256:c366d98e86f2250d21a06da680def1808d866ae2c9494f4d11f45002558f818a",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "买东西时，她会比较质量，不只看牌子。",
+            "pinyin": "Mǎi dōngxi shí, tā huì bǐjiào zhìliàng, bù zhǐ kàn páizi.",
+            "meaningVi": "Khi mua đồ, cô ấy so chất lượng chứ không chỉ nhìn nhãn hiệu."
+          }
+        ],
+        "hanzi": "牌子",
+        "meaningVi": "biển; bảng; nhãn hiệu",
+        "pinyin": "páizi",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-cause-condition-result"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01547"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "7c31c3d3-2586-4ced-add7-fc84d9c3bb53",
+      "sourceContentSha256": "sha256:331537ca52f1d8bf7f9471a9fa6b6bb8b5fd64588430d000ce57bede0b67e544",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "周末我陪奶奶去公园散步。",
+            "pinyin": "Zhōumò wǒ péi nǎinai qù gōngyuán sàn bù.",
+            "meaningVi": "Cuối tuần tôi đi cùng bà nội ra công viên dạo bộ."
+          }
+        ],
+        "hanzi": "陪",
+        "meaningVi": "đi cùng; ở bên; cùng làm gì với ai",
+        "pinyin": "péi",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01549"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "8d84bc7c-5a42-4d42-beb1-f6bd4fdf55c2",
+      "sourceContentSha256": "sha256:4a59caf092317bc59838d203699837c1585c8f35c875c0048a03b5e2a65ed6c2",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "老师批评了他迟到的行为，也听了他的解释。",
+            "pinyin": "Lǎoshī pīpíng le tā chídào de xíngwéi, yě tīng le tā de jiěshì.",
+            "meaningVi": "Giáo viên phê bình việc anh ấy đi muộn và cũng nghe anh giải thích."
+          }
+        ],
+        "hanzi": "批评",
+        "meaningVi": "phê bình; góp ý phê bình",
+        "pinyin": "pīpíng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-comparison-variation"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01550"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "7b57e474-d321-4918-bd87-46c57730fc5c",
+      "sourceContentSha256": "sha256:ffdef1a7666cc06316e2b9927d636a20bf43cd3f6b79983c3ed1530afbe50634",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "我读了两篇关于城市交通的文章，准备比较它们的观点。",
+            "pinyin": "Wǒ dú le liǎng piān guānyú chéngshì jiāotōng de wénzhāng, zhǔnbèi bǐjiào tāmen de guāndiǎn.",
+            "meaningVi": "Tôi đã đọc hai bài về giao thông đô thị, chuẩn bị so sánh quan điểm của chúng."
+          }
+        ],
+        "hanzi": "篇",
+        "meaningVi": "bài (lượng từ cho bài viết, văn bản)",
+        "pinyin": "piān",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map",
+          "hsk4-information-order-cohesion-lesson-02",
+          "hsk4-structured-written-argument-lesson-02"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01554"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "6090d1a1-6297-4f51-aee8-5a9bfa1130ed",
+      "sourceContentSha256": "sha256:7c618d082023b97e602aceb50e1ac9707fd913872be223f70c544aff1287c07c",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "请把面包切成薄片，放在盘子里。",
+            "pinyin": "Qǐng bǎ miànbāo qiē chéng báo piàn, fàng zài pánzi lǐ.",
+            "meaningVi": "Hãy cắt bánh mì thành lát mỏng và đặt vào đĩa."
+          }
+        ],
+        "hanzi": "片",
+        "meaningVi": "miếng; lát; mảnh; vùng (danh từ/lượng từ)",
+        "pinyin": "piàn",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-process-timeline",
+          "hsk4-structured-written-argument-lesson-01"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01555"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "6b1d7413-936b-4593-9581-829f6b91c6ae",
+      "sourceContentSha256": "sha256:de21458483badac9afc964e75a47faefbabad2e9aaa389760befd7f383f03b6c",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这是一家普通的小店，价格不高，服务很好。",
+            "pinyin": "Zhè shì yì jiā pǔtōng de xiǎo diàn, jiàgé bù gāo, fúwù hěn hǎo.",
+            "meaningVi": "Đây là một cửa hàng nhỏ bình thường, giá không cao và phục vụ rất tốt."
+          }
+        ],
+        "hanzi": "普通",
+        "meaningVi": "bình thường; phổ thông; thông thường",
+        "pinyin": "pǔtōng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01562"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "76860a7e-6742-4864-9e6b-de133060cf8b",
+      "sourceContentSha256": "sha256:40e9331f18e17c3590319d90c9938553740111a5b14c475df4f8b6981cfa12f8",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这一期杂志介绍了几种保护环境的方法。",
+            "pinyin": "Zhè yì qī zázhì jièshào le jǐ zhǒng bǎohù huánjìng de fāngfǎ.",
+            "meaningVi": "Số tạp chí này giới thiệu vài cách bảo vệ môi trường."
+          }
+        ],
+        "hanzi": "期",
+        "meaningVi": "kỳ; thời kỳ; kỳ hạn; số (báo, tạp chí)",
+        "pinyin": "qī",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01564"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "0d176d58-996d-446c-a8b1-827b3f70d000",
+      "sourceContentSha256": "sha256:a64c245286435ab4215610be29c316d50eba20cd5042550c7ab1d068a9a9a738",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "班里有二十名学生，其中五名参加了比赛。",
+            "pinyin": "Bān lǐ yǒu èrshí míng xuésheng, qízhōng wǔ míng cānjiā le bǐsài.",
+            "meaningVi": "Lớp có hai mươi học sinh, trong đó năm em tham gia cuộc thi."
+          }
+        ],
+        "hanzi": "其中",
+        "meaningVi": "trong đó; trong số đó",
+        "pinyin": "qízhōng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-viewpoint-synthesis"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01568"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "a01a3a4f-9ce8-4391-8933-987bde29ed7c",
+      "sourceContentSha256": "sha256:2011669bed2b8eca21e18c8fbe8cead32d4e8f5b3010a9cd629f5249ae10b252",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "出门前千万别忘了关窗，下午可能下雨。",
+            "pinyin": "Chū mén qián qiānwàn bié wàng le guān chuāng, xiàwǔ kěnéng xià yǔ.",
+            "meaningVi": "Trước khi ra ngoài nhất định đừng quên đóng cửa sổ, chiều có thể mưa."
+          }
+        ],
+        "hanzi": "千万",
+        "meaningVi": "mười triệu; nhất định, tuyệt đối (nhấn mạnh lời nhắc)",
+        "pinyin": "qiānwàn",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-process-timeline"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01575"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "9cd24b3a-c275-4940-a3cf-e9d5bf800a33",
+      "sourceContentSha256": "sha256:dffaaa3ab2963e99d1c65c0aeae7979a520ccef93afd8f3fd5a00f6429ffcfd3",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这个箱子比那个轻，我自己就能搬。",
+            "pinyin": "Zhège xiāngzi bǐ nàge qīng, wǒ zìjǐ jiù néng bān.",
+            "meaningVi": "Thùng này nhẹ hơn thùng kia, tôi tự chuyển được."
+          }
+        ],
+        "hanzi": "轻",
+        "meaningVi": "nhẹ; nhẹ nhàng; mức độ nhẹ",
+        "pinyin": "qīng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01586"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "58772b84-fceb-4a7a-84c1-346427e2343d",
+      "sourceContentSha256": "sha256:f40cb1dcfb2b2f7cd6760949dfbb8d7b950a6f57ccc5b1ca67b0011ee893ef7e",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "考试结束以后，她终于感到轻松了。",
+            "pinyin": "Kǎoshì jiéshù yǐhòu, tā zhōngyú gǎndào qīngsōng le.",
+            "meaningVi": "Sau khi thi xong, cuối cùng cô ấy cũng thấy nhẹ nhõm."
+          }
+        ],
+        "hanzi": "轻松",
+        "meaningVi": "thoải mái; nhẹ nhõm; nhẹ nhàng, không vất vả",
+        "pinyin": "qīngsōng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-cause-condition-result"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01588"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "c6bf868c-af2f-44cd-a56d-d5526157d87d",
+      "sourceContentSha256": "sha256:a992179d8f358634238e94b396176335d1c1496022752a8d358376badf9624b3",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "大家一起吃晚饭，庆祝项目顺利完成。",
+            "pinyin": "Dàjiā yìqǐ chī wǎnfàn, qìngzhù xiàngmù shùnlì wánchéng.",
+            "meaningVi": "Mọi người cùng ăn tối mừng dự án hoàn thành suôn sẻ."
+          }
+        ],
+        "hanzi": "庆祝",
+        "meaningVi": "chúc mừng; ăn mừng; tổ chức kỷ niệm",
+        "pinyin": "qìngzhù",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-comparison-variation",
+          "hsk4-timed-sectional-rehearsal-lesson-02"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01590"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "69605560-0fbd-4d54-9a7c-b530d9d43da5",
+      "sourceContentSha256": "sha256:5e29aa7e8aa9ed9eff533b26db82b9f65ec40786968d74768935e4fbf79e28b9",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这个区有两个大公园，周末去的人很多。",
+            "pinyin": "Zhège qū yǒu liǎng ge dà gōngyuán, zhōumò qù de rén hěn duō.",
+            "meaningVi": "Quận này có hai công viên lớn, cuối tuần rất đông người đến."
+          }
+        ],
+        "hanzi": "区",
+        "meaningVi": "khu; khu vực; quận",
+        "pinyin": "qū",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01593"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "68c36484-543c-4761-a563-2e84c24d7e32",
+      "sourceContentSha256": "sha256:36a6b0a020e8fd55823c2b2ce40d7c33c8dbb17143df9934a911ccd13d10f6b8",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "因为天气不好，今天的户外活动取消了。",
+            "pinyin": "Yīnwèi tiānqì bù hǎo, jīntiān de hùwài huódòng qǔxiāo le.",
+            "meaningVi": "Vì thời tiết xấu, hoạt động ngoài trời hôm nay đã bị hủy."
+          }
+        ],
+        "hanzi": "取消",
+        "meaningVi": "hủy; hủy bỏ",
+        "pinyin": "qǔxiāo",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01597"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "59369ad3-9c84-457c-9d54-a67b9d13ad5c",
+      "sourceContentSha256": "sha256:fdf59559a12048a591cb5b900a82b83796c745d288c0d3614d5b797f061f2709",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "我查过原始记录，这个数字确实没有写错。",
+            "pinyin": "Wǒ chá guo yuánshǐ jìlù, zhège shùzì quèshí méiyǒu xiě cuò.",
+            "meaningVi": "Tôi đã kiểm tra bản ghi gốc, con số này quả thật không bị viết sai."
+          }
+        ],
+        "hanzi": "确实",
+        "meaningVi": "quả thật; thực sự; xác thực",
+        "pinyin": "quèshí",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-process-timeline"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01607"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "8d3170ba-b32b-495d-93fb-69dbf4699237",
+      "sourceContentSha256": "sha256:4001f19eabd2778572ae8f976bce41e1441beaac111c079d82b6fb0b973fb8a3",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这个办法节省时间，然而费用比原来的办法高。",
+            "pinyin": "Zhège bànfǎ jiéshěng shíjiān, rán’ér fèiyong bǐ yuánlái de bànfǎ gāo.",
+            "meaningVi": "Cách này tiết kiệm thời gian, tuy nhiên chi phí cao hơn cách cũ."
+          }
+        ],
+        "hanzi": "然而",
+        "meaningVi": "tuy nhiên; thế nhưng",
+        "pinyin": "ránér",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-viewpoint-synthesis"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01608"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "9f231369-fb6b-47b6-afde-da3ccfdbe42c",
+      "sourceContentSha256": "sha256:9c1fbc09569b94d5c32527904b38b705d818af3e400f8b6ceef61303c976fb88",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "入口在左边，出口在右边，请按指示行走。",
+            "pinyin": "Rùkǒu zài zuǒbian, chūkǒu zài yòubian, qǐng àn zhǐshì xíngzǒu.",
+            "meaningVi": "Lối vào ở bên trái, lối ra ở bên phải, hãy đi theo chỉ dẫn."
+          }
+        ],
+        "hanzi": "入口",
+        "meaningVi": "lối vào; cửa vào; vào miệng",
+        "pinyin": "rùkǒu",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01623"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "84f07956-a1d0-4546-b107-afd21364f4b7",
+      "sourceContentSha256": "sha256:fb6cb038e71afc2a4bc062fa9132f6d3ca9f22339caeb12360fae4f32b1083b1",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "做汤时先放少量的盐，尝过以后再决定要不要加。",
+            "pinyin": "Zuò tāng shí xiān fàng shǎoliàng de yán, cháng guo yǐhòu zài juédìng yào bu yào jiā.",
+            "meaningVi": "Khi nấu canh, cho ít muối trước, nếm xong rồi quyết định có thêm không."
+          }
+        ],
+        "hanzi": "少量",
+        "meaningVi": "một lượng nhỏ; số lượng ít",
+        "pinyin": "shǎoliàng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01636"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "3353f578-9db9-4154-9419-50ae81996dd3",
+      "sourceContentSha256": "sha256:cd8faed651b97e240814f2b701a842f48fa13bd0cec0a01333d1e0077b2ecf9c",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这条河很深，不能在这里游泳。",
+            "pinyin": "Zhè tiáo hé hěn shēn, bù néng zài zhèlǐ yóuyǒng.",
+            "meaningVi": "Sông này rất sâu, không được bơi ở đây."
+          }
+        ],
+        "hanzi": "深",
+        "meaningVi": "sâu; đậm (màu); sâu sắc",
+        "pinyin": "shēn",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01642"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "252cc40b-5974-4ac5-93b8-8d858a81ea29",
+      "sourceContentSha256": "sha256:9ef96ec4c0216c5f138becf3dbf77c302ccb78acde7b58b5e60c6a04295cf793",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "提前把路线查清楚，可以省不少时间。",
+            "pinyin": "Tíqián bǎ lùxiàn chá qīngchu, kěyǐ shěng bù shǎo shíjiān.",
+            "meaningVi": "Tra rõ đường đi trước có thể tiết kiệm khá nhiều thời gian."
+          }
+        ],
+        "hanzi": "省",
+        "meaningVi": "tỉnh; tiết kiệm; bớt, bỏ qua (shěng)",
+        "pinyin": "shěng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-comparison-variation"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01650"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "dddd3c8e-514e-45f9-aab5-65fd9891ce9d",
+      "sourceContentSha256": "sha256:dc0c726ca9a4398f075e931da14d52c4569d0ba19621b51d60a610ac16e368fd",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "修车师傅检查了车轮，又告诉我平时怎样保养。",
+            "pinyin": "Xiū chē shīfu jiǎnchá le chēlún, yòu gàosu wǒ píngshí zěnyàng bǎoyǎng.",
+            "meaningVi": "Bác thợ sửa xe kiểm tra bánh xe rồi chỉ tôi cách bảo dưỡng thường ngày."
+          }
+        ],
+        "hanzi": "师傅",
+        "meaningVi": "thợ có tay nghề; sư phụ; cách gọi kính trọng người làm nghề",
+        "pinyin": "shīfu",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01653"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "cf519bac-5e06-4a66-a8ee-aeaea38a3fb8",
+      "sourceContentSha256": "sha256:b3d35c4b1bae08c2c982d79d37aefec33b2f683a828fb5f688a78b496b8f818e",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "他因为准备不足而失去了这次机会。",
+            "pinyin": "Tā yīnwèi zhǔnbèi bù zú ér shīqù le zhè cì jīhuì.",
+            "meaningVi": "Anh ấy mất cơ hội lần này vì chuẩn bị chưa đầy đủ."
+          }
+        ],
+        "hanzi": "失去",
+        "meaningVi": "mất; mất đi",
+        "pinyin": "shīqù",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01654"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "8680a4ba-53a0-43a8-af5b-a59b90128024",
+      "sourceContentSha256": "sha256:4da3adb508de0d4453640d6431fb51351823e3a7d23ea1d6dfaf4d5b7b652234",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "购买食品时，请注意生产日期和保存条件。",
+            "pinyin": "Gòumǎi shípǐn shí, qǐng zhùyì shēngchǎn rìqī hé bǎocún tiáojiàn.",
+            "meaningVi": "Khi mua thực phẩm, hãy chú ý ngày sản xuất và điều kiện bảo quản."
+          }
+        ],
+        "hanzi": "食品",
+        "meaningVi": "thực phẩm; đồ ăn",
+        "pinyin": "shípǐn",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01661"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "314d985f-00c8-431b-af04-69682a200e0d",
+      "sourceContentSha256": "sha256:47c1e5f94d60e20890e90aae6e05bc5b2aa802218ed50915a701c1218c9ba33f",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "她录了一段视频，介绍怎样使用这个工具。",
+            "pinyin": "Tā lù le yí duàn shìpín, jièshào zěnyàng shǐyòng zhège gōngjù.",
+            "meaningVi": "Cô ấy quay một đoạn video giới thiệu cách dùng dụng cụ này."
+          }
+        ],
+        "hanzi": "视频",
+        "meaningVi": "video; hình ảnh động được ghi hoặc truyền",
+        "pinyin": "shìpín",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01673"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "751f63a0-9740-44d3-9956-c264d2d3d8f1",
+      "sourceContentSha256": "sha256:3a974748e748b7afb48ba0b0b17b454f64c92f0571730f89f4d6ed244b55f557",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "他为这次演出写了一首新歌。",
+            "pinyin": "Tā wèi zhè cì yǎnchū xiě le yì shǒu xīn gē.",
+            "meaningVi": "Anh ấy viết một bài hát mới cho buổi diễn này."
+          }
+        ],
+        "hanzi": "首",
+        "meaningVi": "đầu; đầu tiên; bài (lượng từ cho thơ, bài hát)",
+        "pinyin": "shǒu",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-cause-condition-result"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01681"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "4199eb3f-34d8-45c3-9155-e6eaa6ab307f",
+      "sourceContentSha256": "sha256:27d06092d7d024525bea1ba634b3d7dc6ce44342b8e191973881ef73120e8d74",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "饭已经熟了，大家洗手以后就可以吃。",
+            "pinyin": "Fàn yǐjīng shú le, dàjiā xǐ shǒu yǐhòu jiù kěyǐ chī.",
+            "meaningVi": "Cơm đã chín, mọi người rửa tay rồi có thể ăn."
+          }
+        ],
+        "hanzi": "熟",
+        "meaningVi": "chín; đã nấu chín; quen thuộc; thành thạo",
+        "pinyin": "shú",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-comparison-variation"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01688"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "e836d066-52c2-48ac-87c4-277e828d5f32",
+      "sourceContentSha256": "sha256:eb33f4a165c31fc34b370ba08fae66b68d93927a054acc101a4ec4cbd2f15997",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "参加活动的人数比去年多了。",
+            "pinyin": "Cānjiā huódòng de rénshù bǐ qùnián duō le.",
+            "meaningVi": "Số người tham gia hoạt động đã tăng so với năm ngoái."
+          }
+        ],
+        "hanzi": "数",
+        "meaningVi": "số; số lượng; vài, mấy (shù)",
+        "pinyin": "shù",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-cause-condition-result"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01691"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "cef12cbd-b848-41b6-a791-976c1092ef9b",
+      "sourceContentSha256": "sha256:5636f203b031aa9a459e9190c94dac54c8f4023b98ea58dad233c6b30954ac11",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "表格里的数字需要再核对一次。",
+            "pinyin": "Biǎogé lǐ de shùzì xūyào zài héduì yí cì.",
+            "meaningVi": "Các con số trong bảng cần được đối chiếu thêm một lần."
+          }
+        ],
+        "hanzi": "数字",
+        "meaningVi": "chữ số; con số",
+        "pinyin": "shùzì",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01694"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "01999b22-9755-405e-92b8-5acd2bb32d59",
+      "sourceContentSha256": "sha256:9a87c0a829a9e4479ba61b944e485dbfe133b36cb8ca1cee17524aec2e5a88d6",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "走了一整天，我的腿有点儿酸。",
+            "pinyin": "Zǒu le yì zhěng tiān, wǒ de tuǐ yǒudiǎnr suān.",
+            "meaningVi": "Đi bộ cả ngày, chân tôi hơi mỏi."
+          }
+        ],
+        "hanzi": "酸",
+        "meaningVi": "chua; mỏi, nhức (cơ thể); chua xót (nghĩa bóng)",
+        "pinyin": "suān",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-cause-condition-result"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01706"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "52227b06-b634-4fc6-9365-9677256975ad",
+      "sourceContentSha256": "sha256:80fa8173f062e36489a9ebd7762bb06370f255b8d89203bf9685acb5c836f63c",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这些书可以随便看，但是不能带走。",
+            "pinyin": "Zhèxiē shū kěyǐ suíbiàn kàn, dànshì bù néng dài zǒu.",
+            "meaningVi": "Bạn có thể đọc tùy ý những cuốn sách này nhưng không được mang đi."
+          }
+        ],
+        "hanzi": "随便",
+        "meaningVi": "tùy ý; tùy tiện; qua loa (tùy ngữ cảnh)",
+        "pinyin": "suíbiàn",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-comparison-variation"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01709"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "c528dc53-a739-4056-a0ed-d1fe89117662",
+      "sourceContentSha256": "sha256:8c42c44399ae9a80caed8820ad38661b8f655b462a4ab8acdd81dc69168d3edb",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "办公室新买了两台电脑，供大家工作时使用。",
+            "pinyin": "Bàngōngshì xīn mǎi le liǎng tái diànnǎo, gōng dàjiā gōngzuò shí shǐyòng.",
+            "meaningVi": "Văn phòng vừa mua hai máy tính để mọi người dùng khi làm việc."
+          }
+        ],
+        "hanzi": "台",
+        "meaningVi": "đài; bục; sân khấu; chiếc, máy (lượng từ cho máy móc)",
+        "pinyin": "tái",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-claim-evidence-inference"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01714"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "03a99be5-b476-4f98-b9d2-aed3f99345a6",
+      "sourceContentSha256": "sha256:391a7e7be6009147dfadf4a43e6d9fbe889d03aae028cd10eaca80c6a06ed173",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "她每天弹半个小时钢琴，周末和朋友一起练习。",
+            "pinyin": "Tā měi tiān tán bàn ge xiǎoshí gāngqín, zhōumò hé péngyou yìqǐ liànxí.",
+            "meaningVi": "Cô ấy chơi piano nửa giờ mỗi ngày, cuối tuần tập cùng bạn."
+          }
+        ],
+        "hanzi": "弹",
+        "meaningVi": "gảy; chơi đàn (tán)",
+        "pinyin": "tán",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-viewpoint-synthesis"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01718"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "4c622573-6ba8-4f92-b746-ccbd9bd8b7cc",
+      "sourceContentSha256": "sha256:0e93ed955ffdb9bc98f4ea054b1e95c8c0b0fafe28cec496121c0a21792c01f7",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "我下午去一趟银行，办完事就回来。",
+            "pinyin": "Wǒ xiàwǔ qù yí tàng yínháng, bàn wán shì jiù huí lái.",
+            "meaningVi": "Chiều tôi đi ngân hàng một chuyến, xong việc sẽ về."
+          }
+        ],
+        "hanzi": "趟",
+        "meaningVi": "chuyến; lượt đi (lượng từ)",
+        "pinyin": "tàng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-process-timeline"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01722"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "6e699356-151a-41e7-9d24-96211a5c6ff3",
+      "sourceContentSha256": "sha256:32966c03c3530c40488516e9c192a1cd64b0413583092c31ac9f0ce30e12c922",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "节目结束前，主持人回答了听众的几个问题。",
+            "pinyin": "Jiémù jiéshù qián, zhǔchírén huídá le tīngzhòng de jǐ ge wèntí.",
+            "meaningVi": "Trước khi chương trình kết thúc, người dẫn trả lời vài câu hỏi của thính giả."
+          }
+        ],
+        "hanzi": "听众",
+        "meaningVi": "thính giả; người nghe",
+        "pinyin": "tīngzhòng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-viewpoint-synthesis"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01738"
+        ]
+      }
+    }
+  ]
+}

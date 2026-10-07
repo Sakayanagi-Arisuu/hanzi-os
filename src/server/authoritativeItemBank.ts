@@ -5,6 +5,10 @@ import {
 } from "../data/curriculum";
 import { toneLabels } from "../lib/exerciseGeneration";
 import type { EvidenceMethod, Skill } from "../types";
+import {
+  EDITORIAL_WORD_BY_ID, LEXICAL_EXERCISE_SUFFIX,
+  lexicalBaseExerciseId, lexicalActivityVersion,
+} from "../content/lexicalEditorialCatalog";
 
 export type AuthoritativeAnswer = {
   answers: readonly string[];
@@ -31,11 +35,13 @@ export const getAuthoritativeLessonAnswer = (
 ): AuthoritativeAnswer | null => {
   const lesson = releasedLessonById.get(lessonId);
   if (!lesson) return null;
+  const editorial = questionId.endsWith(LEXICAL_EXERCISE_SUFFIX);
+  questionId = lexicalBaseExerciseId(questionId);
 
   const specialAnswer = lesson.id === "boot-4"
     ? specialTonePairAnswers.get(questionId)
     : undefined;
-  if (specialAnswer) {
+  if (specialAnswer && !editorial) {
     return {
       answers: [specialAnswer],
       activityVersion: `${CONTENT_VERSION}:tone-sandhi:1`,
@@ -46,9 +52,10 @@ export const getAuthoritativeLessonAnswer = (
   }
 
   for (const wordId of lesson.wordIds) {
-    const word = WORD_BY_ID.get(wordId);
+    const word = (editorial ? EDITORIAL_WORD_BY_ID : WORD_BY_ID).get(wordId);
     if (!word) continue;
-    const activityVersion = `${lesson.contentVersion}:${lesson.id}:1`;
+    const baseVersion = `${lesson.contentVersion}:${lesson.id}:1`;
+    const activityVersion = editorial ? lexicalActivityVersion(baseVersion) : baseVersion;
     if (questionId === `${wordId}-meaning`) {
       return {
         answers: [word.meaning],

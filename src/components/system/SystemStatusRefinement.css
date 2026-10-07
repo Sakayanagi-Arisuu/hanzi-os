@@ -1,0 +1,60 @@
+.sys-holo-console .sys-holo-wing-right { align-self: center; min-height: 0; }
+.sys-holo-console .sys-holo-wing-right h3 { margin-bottom: 8px; }
+.sys-holo-console .sys-practice-note { margin: 0 0 16px; color: #b0cbbb; font: 400 12px/1.5 var(--sans); }
+.sys-holo-console .sys-holo-skills { display: grid; gap: 10px; }
+.sys-holo-console .sys-holo-skills .sys-pillar-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 3px 10px; padding: 0; border: 0; background: none; }
+.sys-pillar-sigil { grid-row: 1 / 3; display: grid; place-items: center; min-height: 30px; color: #86bea6; border-right: 1px solid #629c815c; font: 700 9px var(--sans); }
+.sys-holo-skills .sys-pillar-label { display: block; color: #d8eee1; font: 600 13px/1.4 var(--sans); }
+.sys-holo-skills .sys-pillar-row > strong { width: auto; color: #e8ce90; font: 700 13px/1.4 var(--sans); }
+.sys-holo-skills .sys-pillar-track { grid-column: 2 / 4; height: 4px; border: 0; overflow: hidden; background: #294d3c; }
+.sys-pillar-track i { display: block; height: 100%; background: linear-gradient(90deg, #4de5b4, #c6e5b3); }
+.sys-holo-console .sys-pillar-row > .practice-milestone { display: contents; }
+.sys-holo-console .sys-pillar-row .practice-milestone-caption { grid-column: 3; grid-row: 1; }
+.sys-holo-console .sys-pillar-row .practice-milestone-track { grid-column: 2 / 4; grid-row: 2; height: 4px; margin: 0; border: 0; }
+.sys-holo-console .sys-pillar-row .sys-pillar-label { grid-column: 2; grid-row: 1; }
+.sys-holo-console .sys-holo-path-progress { margin-top: 18px; padding-top: 12px; }
+.sys-holo-console .sys-holo-footer a { min-height: 44px; }
+@media (max-width: 900px) {
+  .sys-holo-console .sys-holo-scene { display: flex; flex-direction: column; gap: 16px; perspective: none; }
+  .sys-holo-console .sys-holo-scene > :is(.sys-holo-wing, .sys-holo-status-card) { flex: none; transform: none; animation: none; max-height: none; }
+  .sys-holo-console .sys-holo-status-card { min-height: 445px; }
+}
+@media (min-width: 901px) and (max-height: 720px) {
+  .sys-holo-console .sys-holo-wing-right { padding: 18px; }
+  .sys-holo-console .sys-holo-skills { gap: 7px; }
+  .sys-holo-console .sys-practice-note { margin-bottom: 12px; font-size: 11px; }
+  .sys-holo-console .sys-holo-wing-right h3 { font-size: 21px; }
+}
+
+/* Fit the scene between its command bar and footer; panels never cover actions. */
+@media (min-width: 901px) and (max-height: 760px) {
+  .sys-holo-scrim .sys-holo-console { min-height: 0; grid-template-rows: 56px minmax(0, 1fr) 52px; }
+  .sys-holo-console .sys-holo-scene { padding-block: 20px; }
+  .sys-holo-console .sys-holo-status-card { min-height: 0; max-height: 100%; padding: 20px 24px; }
+  .sys-holo-console .sys-holo-avatar { width: 76px; height: 76px; }
+  .sys-holo-console .sys-holo-status-card h2 { margin-top: 8px; font-size: 28px; }
+  .sys-holo-console .sys-holo-id { margin-top: 12px; }
+  .sys-holo-console .sys-holo-title-seal { margin-top: 12px; }
+  .sys-holo-console .sys-holo-truth { margin-top: 10px; }
+  .sys-holo-console .sys-holo-skills { gap: 6px; }
+  .sys-holo-console .sys-practice-note { margin-bottom: 10px; }
+  .sys-holo-console .sys-holo-path-progress { margin-top: 10px; padding-top: 8px; }
+  .sys-holo-console .sys-holo-wing-right .sys-pillar-sigil { min-height: 29px; }
+}
+
+/* Mirrored wings share one physical frame; content cannot resize either side. */
+@media (min-width: 901px) {
+  .sys-holo-console .sys-holo-scene { perspective: 1800px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr); }
+  .sys-holo-console .sys-holo-wing {
+    box-sizing: border-box; align-self: center; width: 100%;
+    height: min(480px, calc(100dvh - 224px)); min-height: 380px; max-height: none;
+    padding: 18px; display: flex; flex-direction: column;
+  }
+  .sys-holo-console .sys-holo-wing h3 { margin: 9px 0 12px; font-size: 22px; }
+  .sys-holo-console .sys-holo-mission { flex: 1; min-height: 0; overflow-y: auto; }
+  .sys-holo-console .sys-holo-alerts { flex: none; margin-top: 14px; }
+  .sys-holo-console .sys-holo-skills { flex: 1; min-height: 0; grid-template-rows: repeat(7, minmax(0, 1fr)); gap: 5px; }
+  .sys-holo-console .sys-holo-skills .sys-pillar-row { align-content: center; }
+  .sys-holo-console .sys-practice-note { flex: none; font-size: 11px; margin-bottom: 10px; }
+  .sys-holo-console .sys-holo-path-progress { flex: none; margin-top: 12px; padding-top: 8px; }
+}

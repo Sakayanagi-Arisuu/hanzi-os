@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Six HSK4 personal/community long-form reading lessons. Two source texts per lesson, source-bound maps, ten progressively focused comprehension questions and one bounded synthesis task. AI-assisted self-review for local study; transcript/TTS is not native listening evidence, model reveal does not grant writing mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/45-REVIEW-HSK4-PERSONAL.md",
+  "items": [
+    {
+      "lessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceContentSha256": "sha256:239114a6ab2a8ee13f82426571d52afaef86cb6792cff08c794f5c9ea5aa1c45",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-process-timeline",
+      "sourceContentSha256": "sha256:22af6bbd96de43107f28ccae143d497b096088e10d6610a0e313e1b82400d5c2",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-cause-condition-result",
+      "sourceContentSha256": "sha256:29e734c9b6f8b8517a8cc425c06f0aefd2d0b59e09e7effe4cb6fb8f0c353849",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-comparison-variation",
+      "sourceContentSha256": "sha256:94fe2b1a432c67585c80bb871d78de38bc5e2777625794df181adbab96301d68",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-claim-evidence-inference",
+      "sourceContentSha256": "sha256:dc1fdac5a4005737359a22de97b724f57f08f003536f120ff98899aaf85a6629",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-viewpoint-synthesis",
+      "sourceContentSha256": "sha256:becb3bc3f633571d47efa5dd66de07134f5997300f4767e1625541c89773bcfa",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

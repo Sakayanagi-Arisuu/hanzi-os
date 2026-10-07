@@ -95,5 +95,6 @@ kiểm ở server cho mọi route và object cụ thể.
 - voice tiếp tục tắt nếu consent/provider/storage/retention/delete chưa đủ.
 
 Google/Facebook chưa có credential/domain thật chỉ được hiện là “chưa cấu hình”.
-Local gate hoặc số test không được mô tả thành production readiness. Commerce và
-payment cần threat model riêng khi người dùng chủ động mở phạm vi đó.
+Local gate hoặc số test không được mô tả thành production readiness. Người dùng
+đã mở phạm vi Premium HSK4; trust boundary của payment, refund và entitlement
+được ghi tại [`PREMIUM_COMMERCE.md`](PREMIUM_COMMERCE.md).

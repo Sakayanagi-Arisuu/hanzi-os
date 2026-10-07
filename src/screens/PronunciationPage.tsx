@@ -14,6 +14,7 @@ import {
   useState,
 } from "react";
 import { Link, useLocation } from "react-router";
+import { PublishedVocabularyReference } from "../components/PublishedVocabularyReference";
 import { useAudioEngine, type VoicePlaybackPhase } from "../audio/AudioEngineProvider";
 import {
   AcousticPronunciationClientError,
@@ -35,8 +36,8 @@ import {
 import {
   CONTENT_VERSION,
   RELEASED_LESSONS,
-  RELEASED_VOCABULARY,
 } from "../data/curriculum";
+import { EDITORIAL_RELEASED_VOCABULARY, LEXICAL_EDITORIAL_VERSION } from "../content/lexicalEditorialCatalog";
 import {
   PRONUNCIATION_QUEST_XP,
   TRANSCRIPT_CLEAR_THRESHOLD,
@@ -236,7 +237,8 @@ export function PronunciationPage() {
   );
   const mission = useMemo(
     () => selectDailyPronunciationMission({
-      vocabulary: RELEASED_VOCABULARY,
+      vocabulary: EDITORIAL_RELEASED_VOCABULARY,
+      presentationVersion: LEXICAL_EDITORIAL_VERSION,
       lessons: RELEASED_LESSONS,
       state,
       requestedLessonId,
@@ -1046,7 +1048,7 @@ export function PronunciationPage() {
 
       actions.recordPracticeEvidence({
         idempotencyKey,
-        activityVersion: `${CONTENT_VERSION}:browser-speech:2`,
+        activityVersion: `${CONTENT_VERSION}:browser-speech:2:${LEXICAL_EDITORIAL_VERSION}`,
         source: "pronunciation",
         method: "speech-transcript",
         activityId: phrase.activityId,
@@ -1314,6 +1316,7 @@ export function PronunciationPage() {
                 <p>{phrase.pinyin}</p>
                 <span>{phrase.meaning}</span>
                 <em>Âm mẫu tổng hợp, không phải bản thu người bản ngữ.</em>
+                <PublishedVocabularyReference key={phrase.focusWordId} wordId={phrase.focusWordId} />
               </div>
               <ol className="voice-mission-steps" aria-label="Bốn bước của cửa luyện đọc">
                 <li data-state={wordStepState}>

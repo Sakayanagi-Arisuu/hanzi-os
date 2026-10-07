@@ -1,8 +1,9 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RELEASED_CHARACTER_PRACTICE } from "../learning/richLessonContent";
+import { listPremiumRichLessons } from "../server/premiumRichLesson";
 import { characterEntryMatchesQuery, getCharacterScriptPresentation } from "./CharactersPage";
-import { legacyCharacterRequestToSession } from "./CharactersPage";
+import { legacyCharacterRequestToSession, UNIQUE_RELEASED_CHARACTERS } from "./CharactersPage";
 
 const source = readFileSync(
   new URL("./CharactersPage.tsx", import.meta.url),
@@ -14,8 +15,11 @@ const sessionSource = readFileSync(
 );
 
 describe("character page release boundary", () => {
-  it("uses exactly the released recognition inventory", () => {
+  it("keeps the full character inventory available through the HSK4 character endpoint", () => {
     expect(new Set(RELEASED_CHARACTER_PRACTICE.map((item) => item.hanzi)).size)
+      .toBe(655);
+    const premiumCharacters = listPremiumRichLessons().flatMap(lesson => lesson.characters);
+    expect(new Set([...RELEASED_CHARACTER_PRACTICE, ...premiumCharacters].map(item => item.hanzi)).size)
       .toBe(1_096);
     expect(RELEASED_CHARACTER_PRACTICE.every((item) =>
       item.hanzi && item.pinyin && item.meaningVi && item.lessonId
@@ -24,13 +28,15 @@ describe("character page release boundary", () => {
 
   it("opens the verified stroke inventory as practice without promoting it to mastery", () => {
     expect(source).toContain("RELEASED_CHARACTER_PRACTICE");
-    expect(source).toContain("Hiểu cấu trúc");
-    expect(source).toContain("Sang Tàng Tự Khố");
+    expect(sessionSource).toContain("<CharacterStructurePanel");
+    expect(sessionSource).toContain("Hiểu cấu trúc để viết đúng ngay từ đầu");
+    expect(source).toContain("Chỉ mở luyện viết khi có dữ liệu thứ tự nét từ nguồn đã ghim.");
     expect(sessionSource).toContain("speakMandarin(currentHanzi)");
     expect(sessionSource).toContain("speakMandarin(currentEntry.contextWord)");
     expect(source).toContain("RELEASED_VOCABULARY");
     expect(sessionSource).toContain("StrokeOrderPractice");
-    expect(source).toContain("UNIQUE_RELEASED_CHARACTERS.length.toLocaleString");
+    expect(new Set(UNIQUE_RELEASED_CHARACTERS.map(entry => entry.hanzi)))
+      .toEqual(new Set(RELEASED_CHARACTER_PRACTICE.map(entry => entry.hanzi)));
     expect(source).not.toContain("HanziWriter");
     expect(sessionSource).not.toContain("mastery");
   });

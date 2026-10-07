@@ -41,6 +41,36 @@ const renderReplay = () => renderToStaticMarkup(createElement(
 ));
 
 describe("LessonQuestResult", () => {
+  it("describes the actual next learning step instead of promising speaking practice", () => {
+    const html = renderToStaticMarkup(createElement(MemoryRouter, null,
+      createElement(LessonQuestResult, {
+        lessonId: "boot-1", lessonTitle: "Bốn thanh điệu", chineseTitle: "四声",
+        passed: true, correctCount: 9, totalCount: 10, gateScore: 90,
+        requiredPassed: true, rewardXp: 10, rewardState: "claimed",
+        onRetry: () => undefined,
+        continueDestination: "/review", continueDestinationLabel: "Tiếp tục bước Ôn",
+      }),
+    ));
+    expect(html).toContain('href="/review"');
+    expect(html).toContain("Tiếp tục bước Ôn");
+    expect(html).not.toContain("Vạn Âm Điện");
+  });
+
+  it("supports recovery through the shared mistakes module", () => {
+    const html = renderToStaticMarkup(createElement(MemoryRouter, null,
+      createElement(LessonQuestResult, {
+        lessonId: "boot-1", lessonTitle: "Bốn thanh điệu", chineseTitle: "四声",
+        passed: false, correctCount: 6, totalCount: 10, gateScore: 60,
+        requiredPassed: false, rewardXp: 10, rewardState: "unavailable",
+        onRetry: () => undefined,
+        retryDestination: "/mistakes", retryDestinationLabel: "Xem câu cần ôn",
+      }),
+    ));
+    expect(html).toContain('href="/mistakes"');
+    expect(html).toContain("Xem câu cần ôn");
+    expect(html).not.toContain("RƯƠNG ĐÃ MỞ");
+  });
+
   it("fits the Thiên Lộ reward, replay, and next application into one clear screen", () => {
     const html = renderResult(true);
     expect(html).toContain("THIÊN LỘ");

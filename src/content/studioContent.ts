@@ -481,10 +481,11 @@ export async function validateStudioContent(
       && Number(content.answerIndex) < options.length
       && nonEmpty(content.explanationVi);
     addRequired(errors, answerIntegrity, "options", "Câu thi cần ít nhất ba lựa chọn, answerIndex và giải thích hợp lệ.");
-    contextualChinese = nonEmpty(content.hanzi, 2) || nonEmpty(content.passageHanzi, 2);
+    contextualChinese = nonEmpty(content.hanzi) || nonEmpty(content.passageHanzi);
     addRequired(errors, contextualChinese, "hanzi", "Câu thi cần ngữ liệu tiếng Trung gốc.");
     addRequired(errors, linkedReleasedLessons(content.sourceLessonIds), "sourceLessonIds", "Chọn ít nhất một bài học nguồn cho gợi ý ôn sau khi làm đề.");
   } else if (itemType === "exam_form") {
+    addRequired(errors, content.accessTier === undefined || content.accessTier === 'free' || content.accessTier === 'premium', 'accessTier', 'Chọn miễn phí hoặc Premium cho đề.');
     const examLevel = isHskExamLevel(content.examLevel)
       ? content.examLevel
       : null;

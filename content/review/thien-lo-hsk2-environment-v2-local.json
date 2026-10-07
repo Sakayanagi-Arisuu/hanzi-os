@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-20",
+  "scope": "HSK2 object selection under two constraints, weather-dependent plans and explicit spatial reference points.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/29-REVIEW-HSK2-ENVIRONMENT.md",
+  "items": [
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "sourceContentSha256": "sha256:80fcc716162f96593a5b636d23c77c71371cb7216db903fef3da8ee56baed36b",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "sourceContentSha256": "sha256:b28a94eccc7ad7299c273c7c57a78a3bd3fe439a028de50b04d83b1e126276d1",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "sourceContentSha256": "sha256:f9fd2a5c369fa6265b6cce3afa75594e92fbee3bc296cb3371d71164dcd4e61a",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

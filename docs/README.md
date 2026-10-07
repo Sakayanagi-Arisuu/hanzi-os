@@ -24,6 +24,7 @@ song song trong `docs/`.
 | [`CONTENT_DELIVERY_PLAYBOOK.md`](CONTENT_DELIVERY_PLAYBOOK.md) | Soạn, kiểm và phát hành nội dung. |
 | [`MASTERY_SYSTEM.md`](MASTERY_SYSTEM.md) | Thay đổi evidence, FSRS, coverage, XP hoặc báo tiến độ học. |
 | [`THREAT_MODEL.md`](THREAT_MODEL.md) | Thay đổi auth, API, D1, import/export, sync hoặc quyền. |
+| [`PREMIUM_COMMERCE.md`](PREMIUM_COMMERCE.md) | Chốt giá/cổng/hoàn tiền và kiểm threat boundary của HSK4 Premium trước thanh toán thật. |
 | [`adr/0001-d1-closed-alpha.md`](adr/0001-d1-closed-alpha.md) | Bối cảnh quyết định D1 closed-alpha; là ADR lịch sử, không phải roadmap. |
 
 ## Quy ước tiến độ

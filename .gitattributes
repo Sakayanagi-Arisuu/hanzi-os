@@ -4,4 +4,14 @@ public/hanzi-data/ARPHICPL.TXT -text whitespace=-trailing-space
 
 # Content generators and source bindings hash LF bytes across Windows/Linux.
 content/**/*.json text eol=lf
+content/packages/**/snapshots/**/*.ts text eol=lf
 config/hsk0-4-local-study-profile.json text eol=lf
+# The curriculum graph pins this source's original CRLF bytes. Preserve that
+# representation on every platform; changing it requires a content migration.
+content/sources/hsk-syllabus-2026/inventory.json text eol=crlf
+# Existing runtime/reviewer bindings also pin these checkout representations.
+# Older authoring consumers still bind LF; reconcile those separately rather
+# than silently invalidating the currently published runtime references.
+content/curriculum/hsk1-scope.json text eol=crlf
+content/drafts/hsk1-vocabulary-2026.07.28.json text eol=crlf
+content/review/hsk1-time-place-events-reviewer-packet.json text eol=crlf

@@ -1,0 +1,3137 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/179-REVIEW-HSK2-CLAUSE-TRANSFER-ROUND85.md",
+  "entries": [
+    {
+      "sourceRevisionId": "13e25cbe-598d-4615-96cd-eaae103a23a3",
+      "sourceContentSha256": "sha256:7edade15d9ab7e773aeb3f215a73af0f97c57087731ea00d4fcfc316e8aff18a",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Đổi cảnh: vì xe hỏng nên bạn đi bộ; tuy xa nhưng vẫn muốn đi; đến nơi rồi mới gọi điện. Bạn bắt đầu học năm kia ở Thành Đô. Viết bốn câu nối đúng quan hệ và nhấn thời điểm học.",
+        "conceptVi": "Nối lời kể theo nguyên nhân, chuyển ý và chi tiết cần nhấn",
+        "dialogue": [
+          {
+            "hanzi": "你们为什么没出去？",
+            "meaningVi": "Vì sao các bạn không ra ngoài?",
+            "pinyin": "Nǐmen wèishénme méi chūqù?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "因为下雨，我们就在这里看书。",
+            "meaningVi": "Vì mưa nên chúng tôi đọc sách ở đây.",
+            "pinyin": "Yīnwèi xiàyǔ, wǒmen jiù zài zhèlǐ kàn shū.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你不累吗？什么时候回家？",
+            "meaningVi": "Bạn không mệt à? Khi nào về nhà?",
+            "pinyin": "Nǐ bú lèi ma? Shénme shíhou huí jiā?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "虽然累，但是我还想看一会儿。吃完饭再走。",
+            "meaningVi": "Tuy mệt nhưng tôi muốn đọc thêm chút. Ăn xong rồi đi.",
+            "pinyin": "Suīrán lèi, dànshì wǒ hái xiǎng kàn yíhuìr. Chīwán fàn zài zǒu.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "你是什么时候开始学汉语的？",
+            "meaningVi": "Bạn bắt đầu học tiếng Trung khi nào?",
+            "pinyin": "Nǐ shì shénme shíhou kāishǐ xué Hànyǔ de?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "我是去年在河内开始学的。",
+            "meaningVi": "Tôi bắt đầu học năm ngoái ở Hà Nội.",
+            "pinyin": "Wǒ shì qùnián zài Hénèi kāishǐ xué de.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "因为下雨，所以没出去；虽然累，但是还想看书。",
+            "answerMeaningVi": "Vì mưa nên không ra ngoài; tuy mệt vẫn muốn đọc.",
+            "answerPinyin": "Yīnwèi xiàyǔ, suǒyǐ méi chūqù; suīrán lèi, dànshì hái xiǎng kàn shū.",
+            "distractors": [
+              "因为没出去，所以下雨。",
+              "他已经吃完饭回家了。"
+            ],
+            "explanationVi": "Đúng: mưa là lý do, mệt mà vẫn đọc là nhượng bộ.",
+            "promptVi": "Câu nào giữ đúng quan hệ của lời kể?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "吃完再走: ăn xong rồi đi; 一吃完就走: vừa xong là đi ngay. 再 hướng đến hành động tiếp theo trong mẫu, không bằng 又 kể lặp đã xảy ra.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我五点下课就回家。",
+              "modelAnswerMeaningVi": "Tôi tan học lúc năm giờ rồi về nhà ngay.",
+              "modelAnswerPinyin": "Wǒ wǔ diǎn xiàkè jiù huí jiā.",
+              "promptVi": "Dùng 就 để nói: Tôi tan học lúc năm giờ rồi về nhà ngay."
+            },
+            "modelExample": {
+              "hanzi": "吃完饭我们再走。",
+              "meaningVi": "Ăn xong rồi chúng ta hãy đi.",
+              "pinyin": "Chīwán fàn wǒmen zài zǒu."
+            },
+            "pattern": "Sau đó và ngay sau"
+          },
+          {
+            "explanationVi": "因为下雨，我们没出去: mưa là nguyên nhân đã cho. Không đổi thứ tự thành “vì không ra ngoài nên mưa”, dù vẫn có hai sự việc.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "因为生病，她今天请假了。",
+              "modelAnswerMeaningVi": "Vì bị ốm nên hôm nay cô ấy xin nghỉ.",
+              "modelAnswerPinyin": "Yīnwèi shēngbìng, tā jīntiān qǐngjià le.",
+              "promptVi": "Dùng 因为 để nói: Vì bị ốm nên hôm nay cô ấy xin nghỉ."
+            },
+            "modelExample": {
+              "hanzi": "因为下雨，我们没出去。",
+              "meaningVi": "Vì trời mưa nên chúng tôi đã không ra ngoài.",
+              "pinyin": "Yīnwèi xiàyǔ, wǒmen méi chūqù."
+            },
+            "pattern": "Nêu nguyên nhân"
+          },
+          {
+            "explanationVi": "苹果跟香蕉 là hai danh từ cùng vai trò. Trong 我跟朋友去, 跟 có thể giới thiệu người đi cùng. Không dùng 跟 để nối tùy ý hai câu hoàn chỉnh.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "爸爸跟妈妈都在家。",
+              "modelAnswerMeaningVi": "Bố và mẹ đều ở nhà.",
+              "modelAnswerPinyin": "Bàba gēn māma dōu zài jiā.",
+              "promptVi": "Dùng 跟 nối hai danh từ: Bố và mẹ đều ở nhà."
+            },
+            "modelExample": {
+              "hanzi": "我买了苹果跟别的水果。",
+              "meaningVi": "Tôi đã mua táo và các loại trái cây khác.",
+              "pinyin": "Wǒ mǎi le píngguǒ gēn bié de shuǐguǒ."
+            },
+            "pattern": "Nối danh từ bằng 跟"
+          },
+          {
+            "explanationVi": "但/但是 nối ý trái kỳ vọng; 虽然 giới thiệu nhượng bộ; 因为/所以 nối lý do/kết quả. 那 trong lời đáp có thể là vậy thì. 还是 trong câu hỏi chọn là hay, trong 还是去了 là vẫn.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "因为天气冷，所以我不出去。",
+              "modelAnswerMeaningVi": "Vì trời lạnh nên tôi không ra ngoài.",
+              "modelAnswerPinyin": "Yīnwèi tiānqì lěng, suǒyǐ wǒ bù chūqù.",
+              "promptVi": "Dùng 因为…所以…: Vì trời lạnh nên tôi không ra ngoài."
+            },
+            "modelExample": {
+              "hanzi": "虽然很累，但是他还在工作。",
+              "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc.",
+              "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò."
+            },
+            "pattern": "Chọn quan hệ trước khi chọn từ"
+          },
+          {
+            "explanationVi": "我是去年开始学的: đã biết có việc bắt đầu học, nhấn năm ngoái. Có thể nhấn địa điểm/方式/người thực hiện. Không coi 是…的 là dấu quá khứ gắn mọi câu.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我们是坐火车来的。",
+              "modelAnswerMeaningVi": "Chúng tôi đến bằng tàu hỏa.",
+              "modelAnswerPinyin": "Wǒmen shì zuò huǒchē lái de.",
+              "promptVi": "Nhấn mạnh phương tiện: Chúng tôi đến bằng tàu hỏa."
+            },
+            "modelExample": {
+              "hanzi": "我是去年开始学汉语的。",
+              "meaningVi": "Chính năm ngoái tôi bắt đầu học tiếng Trung.",
+              "pinyin": "Wǒ shì qùnián kāishǐ xué Hànyǔ de."
+            },
+            "pattern": "Nhấn chi tiết của việc đã biết"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Mưa làm nhóm không ra ngoài. Tuy mệt, An vẫn đọc sách, rồi dự định ăn xong mới về. An bắt đầu học tiếng Trung năm ngoái tại Hà Nội; câu hỏi nhắm vào thời điểm đã bắt đầu, không hỏi đã từng học chưa.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "河内 Hénèi: Hà Nội · 出去 chūqù: ra ngoài · 原因 yuányīn: nguyên nhân · 先后 xiānhòu: thứ tự trước sau.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:context",
+              "illustration": {
+                "alt": "Hai bạn ở trong nhà đọc sách vì mưa, chưa ăn trước khi về",
+                "caption": "Vì mưa nên ở lại; tuy mệt vẫn đọc. Ăn xong rồi mới về là dự định tiếp theo.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-rain-reading-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nối lời kể theo nguyên nhân, chuyển ý và chi tiết cần nhấn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你们为什么没出去？",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì sao các bạn không ra ngoài?",
+                  "pinyin": "Nǐmen wèishénme méi chūqù?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "因为下雨，我们就在这里看书。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì mưa nên chúng tôi đọc sách ở đây.",
+                  "pinyin": "Yīnwèi xiàyǔ, wǒmen jiù zài zhèlǐ kàn shū.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你不累吗？什么时候回家？",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn không mệt à? Khi nào về nhà?",
+                  "pinyin": "Nǐ bú lèi ma? Shénme shíhou huí jiā?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "虽然累，但是我还想看一会儿。吃完饭再走。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tuy mệt nhưng tôi muốn đọc thêm chút. Ăn xong rồi đi.",
+                  "pinyin": "Suīrán lèi, dànshì wǒ hái xiǎng kàn yíhuìr. Chīwán fàn zài zǒu.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你是什么时候开始学汉语的？",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn bắt đầu học tiếng Trung khi nào?",
+                  "pinyin": "Nǐ shì shénme shíhou kāishǐ xué Hànyǔ de?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我是去年在河内开始学的。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi bắt đầu học năm ngoái ở Hà Nội.",
+                  "pinyin": "Wǒ shì qùnián zài Hénèi kāishǐ xué de.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:dialogue",
+              "illustration": {
+                "alt": "Hai bạn ở trong nhà đọc sách vì mưa, chưa ăn trước khi về",
+                "caption": "Vì mưa nên ở lại; tuy mệt vẫn đọc. Ăn xong rồi mới về là dự định tiếp theo.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-rain-reading-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện là căn cứ làm bài; hình nền chỉ trang trí. Điểm nhìn được nêu riêng khi chuyển động.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "因为／所以",
+                        "meaningVi": "Lý do → kết quả",
+                        "note": "Mưa → không ra ngoài.",
+                        "pinyin": "yīnwèi / suǒyǐ",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "虽然／但是",
+                        "meaningVi": "Nhượng bộ",
+                        "note": "Mệt → vẫn muốn đọc.",
+                        "pinyin": "suīrán / dànshì",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "再／是…的",
+                        "meaningVi": "Thứ tự / nhấn chi tiết",
+                        "note": "Ăn rồi về; bắt đầu học năm ngoái tại Hà Nội.",
+                        "pinyin": "zài / shì…de",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nối lời kể theo nguyên nhân, chuyển ý và chi tiết cần nhấn"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc cảnh trước khi chọn cấu trúc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "吃完再走: ăn xong rồi đi; 一吃完就走: vừa xong là đi ngay. 再 hướng đến hành động tiếp theo trong mẫu, không bằng 又 kể lặp đã xảy ra.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-019:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "吃完饭我们再走。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-019:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ăn xong rồi chúng ta hãy đi.",
+                  "pinyin": "Chīwán fàn wǒmen zài zǒu.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-019:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sau đó và ngay sau"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "再"
+                    ],
+                    "answerIds": [],
+                    "explanation": "再 chỉ việc sẽ làm sau khi điều kiện hoàn tất; 又 không giữ ý lần tiếp theo này.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Sau đó và ngay sau",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-019",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Ăn xong rồi mới đi: 吃完饭我们___走。 Chọn 再 hoặc 又.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-019:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:019:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "吃完饭再走 có bắt buộc nghĩa đi ngay lập tức không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, 再 luôn bằng 一…就…",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, nêu bước sau; 一…就… mới nhấn nối ngay",
+                        "feedback": "再 giữ trình tự sau điều kiện; không tự đặt tốc độ ngay lập tức."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, chắc là đã đi hai lần",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "再 giữ trình tự sau điều kiện; không tự đặt tốc độ ngay lập tức.",
+                    "learningTarget": {
+                      "objective": "再 là bước tiếp theo",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-019",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:019:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bạn sẽ ăn cơm xong rồi mới đi thư viện. Viết trình tự bằng 再, không kể đã đi lại bằng 又.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n吃完饭我再去图书馆。\nChīwán fàn wǒ zài qù túshūguǎn.\nĂn cơm xong rồi tôi mới đi thư viện.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Ăn xong trước khi đi thư viện.",
+                        "guidance": "Ăn xong trước khi đi thư viện."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "再 nêu bước tiếp, không tự thêm đã xảy ra.",
+                        "guidance": "再 nêu bước tiếp, không tự thêm đã xảy ra."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "再 là bước tiếp theo",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-019",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-019:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Sau đó và ngay sau"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "因为下雨，我们没出去: mưa là nguyên nhân đã cho. Không đổi thứ tự thành “vì không ra ngoài nên mưa”, dù vẫn có hai sự việc.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-027:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "因为下雨，我们没出去。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-027:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì trời mưa nên chúng tôi đã không ra ngoài.",
+                  "pinyin": "Yīnwèi xiàyǔ, wǒmen méi chūqù.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-027:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nêu nguyên nhân"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "因为"
+                    ],
+                    "answerIds": [],
+                    "explanation": "因为 giới thiệu lý do; 虽然 cần kết quả trái kỳ vọng, không đúng quan hệ đã cho.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Nêu nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-027",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Do mưa nên không đi: ___下雨，我们没出去。 Điền 因为 hoặc 虽然.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-027:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:027:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "Đề nói vì mưa nên không ra ngoài. Chọn câu giữ chiều nguyên nhân.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "因为没出去，所以没下雨。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "因为下雨，我们没出去。",
+                        "feedback": "Mưa là nguyên nhân đã cho; không tự đổi chiều hoặc thêm trời đẹp."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "因为出去，所以天气好。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Mưa là nguyên nhân đã cho; không tự đổi chiều hoặc thêm trời đẹp.",
+                    "learningTarget": {
+                      "objective": "Giữ chiều nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-027",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:027:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: người bạn không đi làm vì bị ốm. Viết câu với 因为, không biến không đi làm thành nguyên nhân bị ốm.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n因为生病，他没去上班。\nYīnwèi shēngbìng, tā méi qù shàngbān.\nVì bị ốm nên anh ấy không đi làm.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "生病 là nguyên nhân, 没去上班 là kết quả.",
+                        "guidance": "生病 là nguyên nhân, 没去上班 là kết quả."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không tự thêm chẩn đoán hoặc nguyên nhân khác.",
+                        "guidance": "Không tự thêm chẩn đoán hoặc nguyên nhân khác."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Giữ chiều nguyên nhân",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-027",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-027:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Nêu nguyên nhân"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "苹果跟香蕉 là hai danh từ cùng vai trò. Trong 我跟朋友去, 跟 có thể giới thiệu người đi cùng. Không dùng 跟 để nối tùy ý hai câu hoàn chỉnh.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-028:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我买了苹果跟别的水果。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-028:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua táo và các loại trái cây khác.",
+                  "pinyin": "Wǒ mǎi le píngguǒ gēn bié de shuǐguǒ.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-028:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nối danh từ bằng 跟"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "跟"
+                    ],
+                    "answerIds": [],
+                    "explanation": "跟 nối hai danh từ; 所以 nối quan hệ kết quả giữa các vế, không dùng ở đây.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Nối danh từ bằng 跟",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-028",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Liệt kê hai món: 我买了苹果___香蕉。 Chọn 跟 hoặc 所以.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-028:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:028:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "Câu nào dùng 跟 nối hai danh từ cùng làm chủ ngữ?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "爸爸跟妈妈都在家。",
+                        "feedback": "爸爸 và 妈妈 cùng làm chủ ngữ; không nối tùy ý hai câu hoàn chỉnh bằng 跟."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "因为跟下雨没出去。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我工作跟他很累所以。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "爸爸 và 妈妈 cùng làm chủ ngữ; không nối tùy ý hai câu hoàn chỉnh bằng 跟.",
+                    "learningTarget": {
+                      "objective": "跟 nối người cùng vai",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-028",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:028:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bố và mẹ đều ở nhà; bạn đi cửa hàng cùng chị. Viết hai câu với 跟, giữ người đi cùng rõ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n爸爸跟妈妈都在家。我跟姐姐去商店。\nBàba gēn māma dōu zài jiā. Wǒ gēn jiějie qù shāngdiàn.\nBố và mẹ đều ở nhà. Tôi cùng chị đi cửa hàng.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "爸爸跟妈妈 cùng chịu 都在家.",
+                        "guidance": "爸爸跟妈妈 cùng chịu 都在家."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "跟姐姐 nêu người đi cùng, không đổi thành mẹ.",
+                        "guidance": "跟姐姐 nêu người đi cùng, không đổi thành mẹ."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "跟 nối người cùng vai",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-028",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-028:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Nối danh từ bằng 跟"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "但/但是 nối ý trái kỳ vọng; 虽然 giới thiệu nhượng bộ; 因为/所以 nối lý do/kết quả. 那 trong lời đáp có thể là vậy thì. 还是 trong câu hỏi chọn là hay, trong 还是去了 là vẫn.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-029:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "虽然很累，但是他还在工作。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-029:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc.",
+                  "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:029:sample:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu quan hệ 1",
+                  "body": "",
+                  "hanzi": "你喝茶还是咖啡？",
+                  "pinyin": "Nǐ hē chá háishi kāfēi?",
+                  "meaningVi": "Bạn uống trà hay cà phê?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:029:sample:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu quan hệ 2",
+                  "body": "",
+                  "hanzi": "虽然下雨，他还是去了。",
+                  "pinyin": "Suīrán xià yǔ, tā háishi qù le.",
+                  "meaningVi": "Tuy trời mưa, anh ấy vẫn đi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:029:sample:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu quan hệ 3",
+                  "body": "",
+                  "hanzi": "我三点很忙。那我们四点去吧。",
+                  "pinyin": "Wǒ sān diǎn hěn máng. Nà wǒmen sì diǎn qù ba.",
+                  "meaningVi": "Ba giờ tôi bận. Vậy chúng ta đi lúc bốn giờ nhé.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-029:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Chọn quan hệ trước khi chọn từ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "但是"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Đi dù trời mưa là trái kỳ vọng trong đề; 但是 đúng quan hệ.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Chọn quan hệ trước khi chọn từ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-029",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Trời mưa nhưng vẫn đi: 虽然下雨，___我们还是去了。 Điền 但是 hoặc 所以.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-029:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:029:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "你喝茶还是咖啡？ và 虽然下雨，他还是去了。 Có cùng nghĩa 还是 không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, cả hai là hay để chọn",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, câu đầu hỏi lựa chọn; câu sau nghĩa vẫn đi",
+                        "feedback": "还是 phụ thuộc chức năng: lựa chọn hay tiếp tục bất chấp. Không áp một gloss cho cả hai."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Cả hai đều nêu nguyên nhân",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "还是 phụ thuộc chức năng: lựa chọn hay tiếp tục bất chấp. Không áp một gloss cho cả hai.",
+                    "learningTarget": {
+                      "objective": "Quan hệ quyết định từ nối",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-029",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:029:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bạn A bận nên không thể đi lúc ba giờ. Bạn B chốt bốn giờ. Viết hai lượt với 不能 và 那, không biến thành hẹn đã xảy ra.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\nA：我三点很忙，不能去。B：那我们四点去吧。\nA: Wǒ sān diǎn hěn máng, bù néng qù. B: Nà wǒmen sì diǎn qù ba.\nA: Ba giờ tôi bận, không đi được. B: Vậy chúng ta đi lúc bốn giờ nhé.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "那 đáp lại điều kiện bận để đề xuất mới.",
+                        "guidance": "那 đáp lại điều kiện bận để đề xuất mới."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ bốn giờ là đề nghị, không kể đã đi.",
+                        "guidance": "Giữ bốn giờ là đề nghị, không kể đã đi."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Quan hệ quyết định từ nối",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-029",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-029:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Chọn quan hệ trước khi chọn từ"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "我是去年开始学的: đã biết có việc bắt đầu học, nhấn năm ngoái. Có thể nhấn địa điểm/方式/người thực hiện. Không coi 是…的 là dấu quá khứ gắn mọi câu.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-062:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我是去年开始学汉语的。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-062:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chính năm ngoái tôi bắt đầu học tiếng Trung.",
+                  "pinyin": "Wǒ shì qùnián kāishǐ xué Hànyǔ de.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:062:place",
+                  "kind": "dialogue",
+                  "title": "Người nghe đã biết hai người quen nhau, hỏi ở đâu",
+                  "body": "",
+                  "hanzi": "我们是在学校认识的。",
+                  "pinyin": "Wǒmen shì zài xuéxiào rènshi de.",
+                  "meaningVi": "Chúng tôi quen nhau ở trường.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:062:means",
+                  "kind": "dialogue",
+                  "title": "Người nghe đã biết việc đến, hỏi phương tiện",
+                  "body": "",
+                  "hanzi": "我们是坐火车来的。",
+                  "pinyin": "Wǒmen shì zuò huǒchē lái de.",
+                  "meaningVi": "Chúng tôi đến bằng tàu hỏa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-062:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nhấn chi tiết của việc đã biết"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "的"
+                    ],
+                    "answerIds": [],
+                    "explanation": "的 đóng mẫu 是…的 đang nhấn mốc bắt đầu đã biết.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Nhấn chi tiết của việc đã biết",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-062",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Nhấn năm ngoái bắt đầu học: 我是去年开始学汉语___。 Điền 的 hoặc 过.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-062:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:062:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "我是坐火车来的 nhấn điều gì trong việc đến đã biết?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Phương tiện tàu hỏa",
+                        "feedback": "是…的 nhấn chi tiết phương tiện của sự việc đã biết, không phải dấu quá khứ dùng mọi nơi."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Chưa từng đến",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chắc chắn mai mới đến",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "是…的 nhấn chi tiết phương tiện của sự việc đã biết, không phải dấu quá khứ dùng mọi nơi.",
+                    "learningTarget": {
+                      "objective": "Nhấn chi tiết của sự việc đã biết",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-062",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-01:r85:062:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: người nghe đã biết bạn đến thư viện. Họ hỏi đi bằng gì. Trả lời nhấn phương tiện tàu điện ngầm với 是…的, không đổi thành chưa từng đi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我是坐地铁来的。\nWǒ shì zuò dìtiě lái de.\nTôi đến bằng tàu điện ngầm.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "坐地铁 là phương tiện được hỏi.",
+                        "guidance": "坐地铁 là phương tiện được hỏi."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "是…来的 đóng mẫu nhấn chi tiết; không thay bằng 没来过.",
+                        "guidance": "是…来的 đóng mẫu nhấn chi tiết; không thay bằng 没来过."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Nhấn chi tiết của sự việc đã biết",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-062",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:grammar:hsk2-grammar-row-062:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Nhấn chi tiết của việc đã biết"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đừng; chớ",
+                  "hanzi": "别动。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00311",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng cử động.",
+                  "pinyin": "Bié dòng.",
+                  "provenance": "",
+                  "title": "别 · bié"
+                },
+                {
+                  "alt": "",
+                  "body": "ra; xuất hiện",
+                  "hanzi": "出门以后下雨了。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00316",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau khi ra khỏi nhà thì trời mưa.",
+                  "pinyin": "Chūmén yǐhòu xiàyǔ le.",
+                  "provenance": "",
+                  "title": "出 · chū"
+                },
+                {
+                  "alt": "",
+                  "body": "đi ra ngoài",
+                  "hanzi": "因为下雨，我们没出去。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00320",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì trời mưa nên chúng tôi đã không ra ngoài.",
+                  "pinyin": "Yīnwèi xiàyǔ, wǒmen méi chūqù.",
+                  "provenance": "",
+                  "title": "出去 · chūqù"
+                },
+                {
+                  "alt": "",
+                  "body": "nhưng; chỉ",
+                  "hanzi": "我很累，但还要工作。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00330",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi mệt nhưng vẫn phải làm việc.",
+                  "pinyin": "Wǒ hěn lèi, dàn hái yào gōngzuò.",
+                  "provenance": "",
+                  "title": "但 · dàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nhưng; tuy nhiên",
+                  "hanzi": "但是我今天很忙。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00331",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhưng hôm nay tôi rất bận.",
+                  "pinyin": "Dànshì wǒ jīntiān hěn máng.",
+                  "provenance": "",
+                  "title": "但是 · dànshì"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "chấm; điểm; gọi món",
+                  "hanzi": "我想点两个菜。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00336",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn gọi hai món ăn.",
+                  "pinyin": "Wǒ xiǎng diǎn liǎng ge cài.",
+                  "provenance": "",
+                  "title": "点 · diǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "với; theo; cùng",
+                  "hanzi": "你跟谁一起住？",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00345",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống cùng ai?",
+                  "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+                  "provenance": "",
+                  "title": "跟 · gēn"
+                },
+                {
+                  "alt": "",
+                  "body": "liền; thì; chỉ",
+                  "hanzi": "前面就是学校。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00376",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Phía trước chính là trường học.",
+                  "pinyin": "Qiánmiàn jiù shì xuéxiào.",
+                  "provenance": "",
+                  "title": "就 · jiù"
+                },
+                {
+                  "alt": "",
+                  "body": "bắt đầu",
+                  "hanzi": "电影八点开始。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00378",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ phim bắt đầu lúc tám giờ.",
+                  "pinyin": "Diànyǐng bā diǎn kāishǐ.",
+                  "provenance": "",
+                  "title": "开始 · kāishǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "mệt",
+                  "hanzi": "我今天有点儿累。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00388",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay tôi hơi mệt.",
+                  "pinyin": "Wǒ jīntiān yǒudiǎnr lèi.",
+                  "provenance": "",
+                  "title": "累 · lèi"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "mặc dù",
+                  "hanzi": "虽然很累，但是他还在工作。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00438",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc.",
+                  "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò.",
+                  "provenance": "",
+                  "title": "虽然 · suīrán"
+                },
+                {
+                  "alt": "",
+                  "body": "vì vậy; cho nên",
+                  "hanzi": "因为下雨，所以我们没出去。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00439",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì trời mưa nên chúng tôi không ra ngoài.",
+                  "pinyin": "Yīnwèi xiàyǔ, suǒyǐ wǒmen méi chūqù.",
+                  "provenance": "",
+                  "title": "所以 · suǒyǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "xong; hoàn thành",
+                  "hanzi": "我写完汉字了。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00448",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã viết xong chữ Hán.",
+                  "pinyin": "Wǒ xiěwán Hànzì le.",
+                  "provenance": "",
+                  "title": "完 · wán"
+                },
+                {
+                  "alt": "",
+                  "body": "bởi vì",
+                  "hanzi": "因为我的手有点儿疼。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00476",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì tay tôi hơi đau.",
+                  "pinyin": "Yīnwèi wǒ de shǒu yǒudiǎnr téng.",
+                  "provenance": "",
+                  "title": "因为 · yīnwèi"
+                },
+                {
+                  "alt": "",
+                  "body": "đi; bước",
+                  "hanzi": "往右边走。",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:word-hsk-vocab-00495",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi về bên phải.",
+                  "pinyin": "Wǎng yòubian zǒu.",
+                  "provenance": "",
+                  "title": "走 · zǒu"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: mưa là lý do, mệt mà vẫn đọc là nhượng bộ. “Vì mệt nên vẫn đọc” đổi quan hệ nhượng bộ; “vì không ra ngoài nên mưa” đảo nguyên nhân.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nối lời kể theo nguyên nhân, chuyển ý và chi tiết cần nhấn",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-clause-linking-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: mưa là lý do, mệt mà vẫn đọc là nhượng bộ.",
+                        "id": "option-0",
+                        "text": "因为下雨，所以没出去；虽然累，但是还想看书。"
+                      },
+                      {
+                        "feedback": "Đảo chiều nguyên nhân.",
+                        "id": "option-1",
+                        "text": "因为没出去，所以下雨。"
+                      },
+                      {
+                        "feedback": "Ăn xong rồi về là dự định, chưa nói đã thực hiện.",
+                        "id": "option-2",
+                        "text": "他已经吃完饭回家了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào giữ đúng quan hệ của lời kể?",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đổi cảnh: vì xe hỏng nên bạn đi bộ; tuy xa nhưng vẫn muốn đi; đến nơi rồi mới gọi điện. Bạn bắt đầu học năm kia ở Thành Đô. Viết bốn câu nối đúng quan hệ và nhấn thời điểm học.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n因为车坏了，所以我走路去。虽然很远，但是我还是想去。到了以后再打电话。我是前年在成都开始学汉语的。\nYīnwèi chē huài le, suǒyǐ wǒ zǒulù qù. Suīrán hěn yuǎn, dànshì wǒ háishi xiǎng qù. Dào le yǐhòu zài dǎ diànhuà. Wǒ shì qiánnián zài Chéngdū kāishǐ xué Hànyǔ de.\nXe hỏng nên đi bộ; tuy xa vẫn muốn đi; tới rồi mới gọi; bắt đầu học năm kia ở Thành Đô.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nối lời kể theo nguyên nhân, chuyển ý và chi tiết cần nhấn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-clause-linking-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Không đảo lý do xe hỏng.",
+                        "id": "criterion-0",
+                        "label": "Không đảo lý do xe hỏng."
+                      },
+                      {
+                        "guidance": "Giữ quan hệ tuy xa vẫn muốn đi.",
+                        "id": "criterion-1",
+                        "label": "Giữ quan hệ tuy xa vẫn muốn đi."
+                      },
+                      {
+                        "guidance": "Gọi sau khi tới, không nói đã gọi.",
+                        "id": "criterion-2",
+                        "label": "Gọi sau khi tới, không nói đã gọi."
+                      },
+                      {
+                        "guidance": "Nhấn năm kia tại Thành Đô bằng 是…的.",
+                        "id": "criterion-3",
+                        "label": "Nhấn năm kia tại Thành Đô bằng 是…的."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Không đảo lý do xe hỏng.\nGiữ quan hệ tuy xa vẫn muốn đi.\nGọi sau khi tới, không nói đã gọi.\nNhấn năm kia tại Thành Đô bằng 是…的.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-01:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-01:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/31-REVIEW-HSK2-GRAMMAR.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-clause-linking-lesson-01",
+          "reviewedAt": "2026-09-20",
+          "scope": "Six HSK2 grammar lessons, 39 source-specific teaching decisions and contextual transfer.",
+          "sourceContentSha256": "sha256:9258fd5e375cd6761541276dce1aacd1f44d9faa17c35fa7d2595e31a521f1c9"
+        },
+        "objectiveVi": "Nối lời kể theo nguyên nhân, chuyển ý và chi tiết cần nhấn",
+        "pitfallVi": "“Vì mệt nên vẫn đọc” đổi quan hệ nhượng bộ; “vì không ra ngoài nên mưa” đảo nguyên nhân.",
+        "prerequisites": [
+          "hsk2-complements-and-motion-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "因为 nêu lý do; 虽然…但是… nối điều trái kỳ vọng; 再 nói hành động tiếp theo; 跟 nối danh từ theo mẫu; 是…的 nhấn chi tiết của sự việc đã biết. Không thay từ nối chỉ vì dịch tiếng Việt gần giống.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-grammar-row-019",
+          "hsk2-grammar-row-027",
+          "hsk2-grammar-row-028",
+          "hsk2-grammar-row-029",
+          "hsk2-grammar-row-062"
+        ],
+        "sourceLessonIds": [
+          "hsk2-clause-linking-lesson-01"
+        ],
+        "sourceTaskIds": [
+          "hsk2-sentence-chain-task:hsk2-clause-linking-lesson-01"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00311",
+          "hsk-vocab-00316",
+          "hsk-vocab-00320",
+          "hsk-vocab-00330",
+          "hsk-vocab-00331",
+          "hsk-vocab-00336",
+          "hsk-vocab-00345",
+          "hsk-vocab-00376",
+          "hsk-vocab-00378",
+          "hsk-vocab-00388",
+          "hsk-vocab-00438",
+          "hsk-vocab-00439",
+          "hsk-vocab-00448",
+          "hsk-vocab-00476",
+          "hsk-vocab-00495"
+        ],
+        "targetLessonId": "hsk2-clause-linking-lesson-01",
+        "titleZh": "HSK二级 · 29",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/82-REVIEW-HSK2-GRAMMAR-ART.md",
+          "humanReviewed": false,
+          "scope": "Time, clause links and motion viewpoint contextual illustrations.",
+          "sourceRevisionId": "12d3a88d-86e7-4129-b575-8fd9da4cfbea"
+        },
+        "vocabulary": [
+          "hsk-vocab-00311",
+          "hsk-vocab-00316",
+          "hsk-vocab-00320",
+          "hsk-vocab-00330",
+          "hsk-vocab-00331",
+          "hsk-vocab-00336",
+          "hsk-vocab-00345",
+          "hsk-vocab-00376",
+          "hsk-vocab-00378",
+          "hsk-vocab-00388",
+          "hsk-vocab-00438",
+          "hsk-vocab-00439",
+          "hsk-vocab-00448",
+          "hsk-vocab-00476",
+          "hsk-vocab-00495"
+        ]
+      },
+      "changes": [
+        {
+          "grammar": "hsk2-grammar-row-019",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-027",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-028",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-029",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-062",
+          "newChoice": 1,
+          "newTransfer": 1
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "8ff89fbc-4dc7-4f94-9992-91d3edbec9d0",
+      "sourceContentSha256": "sha256:3718a3ecdd9ef673117c079bc0b3790e8f60815e0a05aa0a11fe462f94d4ebe9",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Ngày mai đi du lịch nên tối nay chuẩn bị hành lý. Tuy bận vẫn chuẩn bị; chọn ở nhà thay vì công ty; về tới nhà là lấy vé ngay. Viết một câu hỏi lựa chọn và ba câu trả lời nối quan hệ đúng.",
+        "conceptVi": "Chọn quan hệ giữa hai vế trước khi nối câu",
+        "dialogue": [
+          {
+            "hanzi": "你今晚去图书馆，还是在家学习？",
+            "meaningVi": "Tối nay bạn đến thư viện hay học ở nhà?",
+            "pinyin": "Nǐ jīnwǎn qù túshūguǎn, háishi zài jiā xuéxí?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "在家。因为明天考试，所以今晚要复习。",
+            "meaningVi": "Ở nhà. Vì mai thi nên tối nay cần ôn.",
+            "pinyin": "Zài jiā. Yīnwèi míngtiān kǎoshì, suǒyǐ jīnwǎn yào fùxí.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你今天累吗？",
+            "meaningVi": "Hôm nay bạn mệt không?",
+            "pinyin": "Nǐ jīntiān lèi ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "虽然累，但是我还是要复习。",
+            "meaningVi": "Tuy mệt nhưng tôi vẫn cần ôn.",
+            "pinyin": "Suīrán lèi, dànshì wǒ háishi yào fùxí.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "准备什么时候开始？",
+            "meaningVi": "Bạn định bắt đầu khi nào?",
+            "pinyin": "Zhǔnbèi shénme shíhou kāishǐ?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "我一到家就看书。",
+            "meaningVi": "Tôi về tới nhà là đọc sách ngay.",
+            "pinyin": "Wǒ yí dào jiā jiù kàn shū.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "因为明天考试，她今晚在家复习。",
+            "answerMeaningVi": "Vì mai thi nên tối nay ôn ở nhà.",
+            "answerPinyin": "Yīnwèi míngtiān kǎoshì, tā jīnwǎn zài jiā fùxí.",
+            "distractors": [
+              "她已经在图书馆复习了。",
+              "因为今晚学习，所以明天才有考试。"
+            ],
+            "explanationVi": "Đúng: giữ lý do, thời gian và nơi được chọn.",
+            "promptVi": "Câu nào phản ánh đúng quyết định của Lan?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "是你去，还是我去？ đưa hai khả năng để chọn. Không thêm 吗 theo mẫu câu hỏi chọn này. Khác 你去吗？ hỏi có/không.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "是车坏了，还是你来晚了？",
+              "modelAnswerMeaningVi": "Là xe hỏng hay là bạn đến muộn?",
+              "modelAnswerPinyin": "Shì chē huài le, háishi nǐ lái wǎn le?",
+              "promptVi": "Tạo câu chọn nguyên nhân: Là xe hỏng hay là bạn đến muộn?"
+            },
+            "modelExample": {
+              "hanzi": "是你去，还是我去？",
+              "meaningVi": "Bạn đi hay tôi đi?",
+              "pinyin": "Shì nǐ qù, háishi wǒ qù?"
+            },
+            "pattern": "Câu hỏi lựa chọn"
+          },
+          {
+            "explanationVi": "虽然贵，但是好吃 chấp nhận đắt rồi nêu điểm tốt trái kỳ vọng. Không nói Vì đắt nên ngon nếu chưa có quan hệ nguyên nhân đó.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "虽然这个菜很贵，但是很好吃。",
+              "modelAnswerMeaningVi": "Tuy món này đắt nhưng rất ngon.",
+              "modelAnswerPinyin": "Suīrán zhège cài hěn guì, dànshì hěn hǎochī.",
+              "promptVi": "Nối hai vế: Tuy món này đắt nhưng rất ngon."
+            },
+            "modelExample": {
+              "hanzi": "虽然下雨，但是我们还是去了。",
+              "meaningVi": "Mặc dù trời mưa nhưng chúng tôi vẫn đi.",
+              "pinyin": "Suīrán xiàyǔ, dànshì wǒmen háishi qù le."
+            },
+            "pattern": "Nhượng bộ"
+          },
+          {
+            "explanationVi": "因为明天考试，所以今晚学习: có kỳ thi là lý do chọn học tối nay. Đảo hai vế vẫn cần đánh dấu quan hệ đúng, không tự đảo chiều nguyên nhân.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "因为他生病了，所以没去上班。",
+              "modelAnswerMeaningVi": "Vì anh ấy bị ốm nên không đi làm.",
+              "modelAnswerPinyin": "Yīnwèi tā shēngbìng le, suǒyǐ méi qù shàngbān.",
+              "promptVi": "Nối nguyên nhân–kết quả: Vì anh ấy bị ốm nên không đi làm."
+            },
+            "modelExample": {
+              "hanzi": "因为明天考试，所以我今天晚上要学习。",
+              "meaningVi": "Vì ngày mai thi nên tối nay tôi phải học.",
+              "pinyin": "Yīnwèi míngtiān kǎoshì, suǒyǐ wǒ jīntiān wǎnshang yào xuéxí."
+            },
+            "pattern": "Lý do và hệ quả"
+          },
+          {
+            "explanationVi": "一到家就打电话: gọi ngay sau khi về nhà. Không tự thành quá khứ; có thể là thói quen hoặc dự định tùy ngữ cảnh.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他一到家就给妈妈打电话。",
+              "modelAnswerMeaningVi": "Anh ấy vừa đến nhà là gọi điện cho mẹ.",
+              "modelAnswerPinyin": "Tā yí dào jiā jiù gěi māma dǎ diànhuà.",
+              "promptVi": "Dùng mẫu: Anh ấy vừa đến nhà là gọi điện cho mẹ."
+            },
+            "modelExample": {
+              "hanzi": "我一下课就回家。",
+              "meaningVi": "Tôi vừa tan học là về nhà ngay.",
+              "pinyin": "Wǒ yí xiàkè jiù huí jiā."
+            },
+            "pattern": "Vừa…là…"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ngày mai thi nên tối nay Lan cần học. Bạn hỏi học ở nhà hay thư viện; Lan chọn ở nhà. Tuy mệt Lan vẫn ôn. Lan dự định về tới nhà là mở sách ngay.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "复习 fùxí: ôn bài · 选择 xuǎnzé: lựa chọn · 马上 mǎshàng: ngay · 一…就… yī…jiù…: vừa…là…",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:context",
+              "illustration": {
+                "alt": "Người học mệt nhưng mở sách ôn tại nhà buổi tối",
+                "caption": "Lan chọn ở nhà ôn vì ngày mai thi; định vừa về nhà là mở sách.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-exam-home-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Chọn quan hệ giữa hai vế trước khi nối câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你今晚去图书馆，还是在家学习？",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tối nay bạn đến thư viện hay học ở nhà?",
+                  "pinyin": "Nǐ jīnwǎn qù túshūguǎn, háishi zài jiā xuéxí?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "在家。因为明天考试，所以今晚要复习。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ở nhà. Vì mai thi nên tối nay cần ôn.",
+                  "pinyin": "Zài jiā. Yīnwèi míngtiān kǎoshì, suǒyǐ jīnwǎn yào fùxí.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你今天累吗？",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay bạn mệt không?",
+                  "pinyin": "Nǐ jīntiān lèi ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "虽然累，但是我还是要复习。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tuy mệt nhưng tôi vẫn cần ôn.",
+                  "pinyin": "Suīrán lèi, dànshì wǒ háishi yào fùxí.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "准备什么时候开始？",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn định bắt đầu khi nào?",
+                  "pinyin": "Zhǔnbèi shénme shíhou kāishǐ?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我一到家就看书。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi về tới nhà là đọc sách ngay.",
+                  "pinyin": "Wǒ yí dào jiā jiù kàn shū.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:dialogue",
+              "illustration": {
+                "alt": "Người học mệt nhưng mở sách ôn tại nhà buổi tối",
+                "caption": "Lan chọn ở nhà ôn vì ngày mai thi; định vừa về nhà là mở sách.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-exam-home-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện là căn cứ làm bài; hình nền chỉ trang trí. Điểm nhìn được nêu riêng khi chuyển động.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "还是",
+                        "meaningVi": "Lựa chọn",
+                        "note": "Nhà hay thư viện → chọn nhà.",
+                        "pinyin": "háishi",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "因为／虽然",
+                        "meaningVi": "Lý do / nhượng bộ",
+                        "note": "Mai thi nên ôn; tuy mệt vẫn ôn.",
+                        "pinyin": "yīnwèi / suīrán",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "一…就…",
+                        "meaningVi": "Nối tiếp ngay",
+                        "note": "Về tới nhà là đọc, đang nói dự định.",
+                        "pinyin": "yī…jiù…",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn quan hệ giữa hai vế trước khi nối câu"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc cảnh trước khi chọn cấu trúc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "是你去，还是我去？ đưa hai khả năng để chọn. Không thêm 吗 theo mẫu câu hỏi chọn này. Khác 你去吗？ hỏi có/không.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-065:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是你去，还是我去？",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-065:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đi hay tôi đi?",
+                  "pinyin": "Shì nǐ qù, háishi wǒ qù?",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-065:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Câu hỏi lựa chọn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "还是"
+                    ],
+                    "answerIds": [],
+                    "explanation": "还是 nối hai lựa chọn, không nêu kết quả.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Câu hỏi lựa chọn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-065",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Hỏi bạn hay tôi đi: 是你去，___我去？ Điền 还是 hoặc 所以.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-065:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:065:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "Câu nào đưa hai phương tiện để người nghe chọn?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "你坐火车还是坐飞机？",
+                        "feedback": "还是 nối hai phương án. 吗 trong câu thứ hai chỉ hỏi có/không, câu ba là lời kể."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "你坐飞机吗？",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "你已经坐飞机了。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "还是 nối hai phương án. 吗 trong câu thứ hai chỉ hỏi có/không, câu ba là lời kể.",
+                    "learningTarget": {
+                      "objective": "Câu hỏi chọn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-065",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:065:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: hỏi người quen muốn uống trà hay cà phê; họ chọn cà phê. Viết hỏi/đáp với 还是, không thêm 吗 vào mẫu chọn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n你喝茶还是咖啡？我喝咖啡。\nNǐ hē chá háishi kāfēi? Wǒ hē kāfēi.\nBạn uống trà hay cà phê? Tôi uống cà phê.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "还是 giữa hai lựa chọn, không thêm 吗.",
+                        "guidance": "还是 giữa hai lựa chọn, không thêm 吗."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Đáp cà phê đúng lựa chọn mới.",
+                        "guidance": "Đáp cà phê đúng lựa chọn mới."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Câu hỏi chọn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-065",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-065:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Câu hỏi lựa chọn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "虽然贵，但是好吃 chấp nhận đắt rồi nêu điểm tốt trái kỳ vọng. Không nói Vì đắt nên ngon nếu chưa có quan hệ nguyên nhân đó.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-066:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "虽然下雨，但是我们还是去了。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-066:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mặc dù trời mưa nhưng chúng tôi vẫn đi.",
+                  "pinyin": "Suīrán xiàyǔ, dànshì wǒmen háishi qù le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-066:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nhượng bộ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "虽然"
+                    ],
+                    "answerIds": [],
+                    "explanation": "虽然 tạo nhượng bộ; 因为 tự gán giá là nguyên nhân của vị ngon.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Nhượng bộ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-066",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Tuy đắt nhưng ngon: ___很贵，但是很好吃。 Điền 虽然 hoặc 因为.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-066:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:066:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "虽然贵，但是好吃 có khẳng định món ăn ngon vì đắt không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, đó là nguyên nhân",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, chỉ đặt hai ý nhượng bộ",
+                        "feedback": "虽然…但是… không lập quan hệ nguyên nhân giữa giá và vị ngon."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, mọi món đắt đều ngon",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "虽然…但是… không lập quan hệ nguyên nhân giữa giá và vị ngon.",
+                    "learningTarget": {
+                      "objective": "Nhượng bộ không thành nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-066",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:066:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: chiếc áo đắt nhưng bạn rất thích. Viết với 虽然…但是…; không nói đắt là nguyên nhân thích.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n虽然这件衣服很贵，但是我很喜欢。\nSuīrán zhè jiàn yīfu hěn guì, dànshì wǒ hěn xǐhuan.\nMặc dù chiếc áo này đắt nhưng tôi rất thích.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "虽然 nêu đắt, 但是 nêu vẫn thích.",
+                        "guidance": "虽然 nêu đắt, 但是 nêu vẫn thích."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không biến thành 因为贵所以喜欢 hoặc nhận xét mọi áo.",
+                        "guidance": "Không biến thành 因为贵所以喜欢 hoặc nhận xét mọi áo."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Nhượng bộ không thành nguyên nhân",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-066",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-066:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Nhượng bộ"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "因为明天考试，所以今晚学习: có kỳ thi là lý do chọn học tối nay. Đảo hai vế vẫn cần đánh dấu quan hệ đúng, không tự đảo chiều nguyên nhân.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-067:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "因为明天考试，所以我今天晚上要学习。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-067:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì ngày mai thi nên tối nay tôi phải học.",
+                  "pinyin": "Yīnwèi míngtiān kǎoshì, suǒyǐ wǒ jīntiān wǎnshang yào xuéxí.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-067:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Lý do và hệ quả"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "所以"
+                    ],
+                    "answerIds": [],
+                    "explanation": "所以 mở hệ quả của lý do đã cho.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Lý do và hệ quả",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-067",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Do mai thi: 因为明天考试，___今晚我要学习。 Điền 所以 hoặc 还是.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-067:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:067:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "Đề nói bị ốm nên nghỉ làm. Câu nào giữ nguyên nhân–kết quả?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "因为没上班，所以他生病了。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "因为他生病了，所以没去上班。",
+                        "feedback": "生病 là nguyên nhân, 没去上班 là hệ quả; không đảo chiều."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "虽然他上班，所以没生病。",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "生病 là nguyên nhân, 没去上班 là hệ quả; không đảo chiều.",
+                    "learningTarget": {
+                      "objective": "Nguyên nhân và hệ quả mới",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-067",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:067:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: ngày mai thi nên tối nay bạn ở nhà học. Viết với 因为…所以…, không nói việc học tạo ra kỳ thi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n因为明天考试，所以我今晚在家学习。\nYīnwèi míngtiān kǎoshì, suǒyǐ wǒ jīnwǎn zài jiā xuéxí.\nVì ngày mai thi nên tối nay tôi học ở nhà.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "明天考试 là lý do của 今晚学习.",
+                        "guidance": "明天考试 là lý do của 今晚学习."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ ở nhà, không tự thêm điểm thi hay kết quả.",
+                        "guidance": "Giữ ở nhà, không tự thêm điểm thi hay kết quả."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Nguyên nhân và hệ quả mới",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-067",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-067:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Lý do và hệ quả"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "一到家就打电话: gọi ngay sau khi về nhà. Không tự thành quá khứ; có thể là thói quen hoặc dự định tùy ngữ cảnh.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-068:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我一下课就回家。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-068:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi vừa tan học là về nhà ngay.",
+                  "pinyin": "Wǒ yí xiàkè jiù huí jiā.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-068:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Vừa…là…"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "就"
+                    ],
+                    "answerIds": [],
+                    "explanation": "一…就… nhấn nối tiếp ngay; 再 không giữ mẫu này.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Vừa…là…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-068",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Cứ về nhà là gọi ngay: 我一到家___给妈妈打电话。 Điền 就 hoặc 再.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-068:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:068:choice",
+                  "kind": "activity",
+                  "title": "Đối chiếu quan hệ",
+                  "body": "我一到家就打电话 có tự chứng minh cuộc gọi đã xảy ra không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, 一…就… luôn là quá khứ",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, còn tùy thói quen/dự định và ngữ cảnh",
+                        "feedback": "Mẫu nêu nối tiếp ngay; thời gian và việc đã xảy ra cần ngữ cảnh riêng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, chắc đã gọi hai lần",
+                        "feedback": "Đọc lại quan hệ, chiều nguyên nhân hoặc mức chắc chắn."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Mẫu nêu nối tiếp ngay; thời gian và việc đã xảy ra cần ngữ cảnh riêng.",
+                    "learningTarget": {
+                      "objective": "Vừa…là… không tự là quá khứ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-068",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-clause-linking-lesson-02:r85:068:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bạn hứa hôm nay vừa về tới nhà là gọi cho mẹ. Viết với 一…就…, giữ tương lai theo ngữ cảnh lời hứa.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我今天一到家就给妈妈打电话。\nWǒ jīntiān yí dào jiā jiù gěi māma dǎ diànhuà.\nHôm nay vừa về đến nhà là tôi sẽ gọi điện cho mẹ.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "一到家…就… giữ quan hệ vừa về là gọi.",
+                        "guidance": "一到家…就… giữ quan hệ vừa về là gọi."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không tự thêm 已经 hoặc kết quả đã gọi thành công.",
+                        "guidance": "Không tự thêm 已经 hoặc kết quả đã gọi thành công."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Vừa…là… không tự là quá khứ",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-068",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:grammar:hsk2-grammar-row-068:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Vừa…là…"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "lớp; nhóm; ca làm",
+                  "hanzi": "我们班有二十个学生。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00304",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lớp chúng tôi có hai mươi học sinh.",
+                  "pinyin": "Wǒmen bān yǒu èrshí ge xuésheng.",
+                  "provenance": "",
+                  "title": "班 · bān"
+                },
+                {
+                  "alt": "",
+                  "body": "đánh; thực hiện một hành động",
+                  "hanzi": "我们周末一起打球。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00327",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cuối tuần chúng tôi cùng chơi bóng.",
+                  "pinyin": "Wǒmen zhōumò yìqǐ dǎqiú.",
+                  "provenance": "",
+                  "title": "打 · dǎ"
+                },
+                {
+                  "alt": "",
+                  "body": "nhưng; chỉ",
+                  "hanzi": "我很累，但还要工作。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00330",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi mệt nhưng vẫn phải làm việc.",
+                  "pinyin": "Wǒ hěn lèi, dàn hái yào gōngzuò.",
+                  "provenance": "",
+                  "title": "但 · dàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nhưng; tuy nhiên",
+                  "hanzi": "但是我今天很忙。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00331",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhưng hôm nay tôi rất bận.",
+                  "pinyin": "Dànshì wǒ jīntiān hěn máng.",
+                  "provenance": "",
+                  "title": "但是 · dànshì"
+                },
+                {
+                  "alt": "",
+                  "body": "vẫn; hay là",
+                  "hanzi": "喝红茶还是绿茶？",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00352",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Uống trà đen hay trà xanh?",
+                  "pinyin": "Hē hóngchá háishi lǜchá?",
+                  "provenance": "",
+                  "title": "还是 · háishi"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "xấu; hỏng",
+                  "hanzi": "手表已经坏了。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00360",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đồng hồ đã hỏng rồi.",
+                  "pinyin": "Shǒubiǎo yǐjīng huài le.",
+                  "provenance": "",
+                  "title": "坏 · huài"
+                },
+                {
+                  "alt": "",
+                  "body": "liền; thì; chỉ",
+                  "hanzi": "前面就是学校。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00376",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Phía trước chính là trường học.",
+                  "pinyin": "Qiánmiàn jiù shì xuéxiào.",
+                  "provenance": "",
+                  "title": "就 · jiù"
+                },
+                {
+                  "alt": "",
+                  "body": "thi; kiểm tra",
+                  "hanzi": "我们明天考汉语。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00380",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai chúng tôi thi tiếng Trung.",
+                  "pinyin": "Wǒmen míngtiān kǎo Hànyǔ.",
+                  "provenance": "",
+                  "title": "考 · kǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "thi; kỳ thi",
+                  "hanzi": "考试九点开始。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00381",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bài thi bắt đầu lúc chín giờ.",
+                  "pinyin": "Kǎoshì jiǔ diǎn kāishǐ.",
+                  "provenance": "",
+                  "title": "考试 · kǎoshì"
+                },
+                {
+                  "alt": "",
+                  "body": "mặc dù",
+                  "hanzi": "虽然很累，但是他还在工作。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00438",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc.",
+                  "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò.",
+                  "provenance": "",
+                  "title": "虽然 · suīrán"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "vì vậy; cho nên",
+                  "hanzi": "因为下雨，所以我们没出去。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00439",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì trời mưa nên chúng tôi không ra ngoài.",
+                  "pinyin": "Yīnwèi xiàyǔ, suǒyǐ wǒmen méi chūqù.",
+                  "provenance": "",
+                  "title": "所以 · suǒyǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "bởi vì",
+                  "hanzi": "因为我的手有点儿疼。",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:word-hsk-vocab-00476",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì tay tôi hơi đau.",
+                  "pinyin": "Yīnwèi wǒ de shǒu yǒudiǎnr téng.",
+                  "provenance": "",
+                  "title": "因为 · yīnwèi"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: giữ lý do, thời gian và nơi được chọn. 一到家就看书 không tự có nghĩa đã về nhà. Học vì ngày mai thi, không phải kỳ thi xuất hiện vì tối nay học.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn quan hệ giữa hai vế trước khi nối câu",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-clause-linking-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Lan chọn nhà và nói dự định, chưa nói đã ôn tại thư viện.",
+                        "id": "option-0",
+                        "text": "她已经在图书馆复习了。"
+                      },
+                      {
+                        "feedback": "Đúng: giữ lý do, thời gian và nơi được chọn.",
+                        "id": "option-1",
+                        "text": "因为明天考试，她今晚在家复习。"
+                      },
+                      {
+                        "feedback": "Đã đảo quan hệ nhân quả.",
+                        "id": "option-2",
+                        "text": "因为今晚学习，所以明天才有考试。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào phản ánh đúng quyết định của Lan?",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ngày mai đi du lịch nên tối nay chuẩn bị hành lý. Tuy bận vẫn chuẩn bị; chọn ở nhà thay vì công ty; về tới nhà là lấy vé ngay. Viết một câu hỏi lựa chọn và ba câu trả lời nối quan hệ đúng.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n你在公司准备，还是回家准备？因为明天去旅行，所以我今晚在家准备。虽然很忙，但是我还是要准备。我一到家就拿机票。\nNǐ zài gōngsī zhǔnbèi, háishi huí jiā zhǔnbèi? Yīnwèi míngtiān qù lǚxíng, suǒyǐ wǒ jīnwǎn zài jiā zhǔnbèi. Suīrán hěn máng, dànshì wǒ háishi yào zhǔnbèi. Wǒ yí dào jiā jiù ná jīpiào.\nChuẩn bị tại công ty hay về nhà? Vì mai du lịch nên tối nay chuẩn bị ở nhà; tuy bận vẫn chuẩn bị; về tới nhà lấy vé ngay.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn quan hệ giữa hai vế trước khi nối câu",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-clause-linking-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Có câu hỏi lựa chọn với 还是.",
+                        "id": "criterion-0",
+                        "label": "Có câu hỏi lựa chọn với 还是."
+                      },
+                      {
+                        "guidance": "Du lịch là lý do chuẩn bị, không đảo lại.",
+                        "id": "criterion-1",
+                        "label": "Du lịch là lý do chuẩn bị, không đảo lại."
+                      },
+                      {
+                        "guidance": "Giữ tuy bận vẫn chuẩn bị.",
+                        "id": "criterion-2",
+                        "label": "Giữ tuy bận vẫn chuẩn bị."
+                      },
+                      {
+                        "guidance": "一…就… nói lấy vé ngay khi về, không bịa đã về.",
+                        "id": "criterion-3",
+                        "label": "一…就… nói lấy vé ngay khi về, không bịa đã về."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Có câu hỏi lựa chọn với 还是.\nDu lịch là lý do chuẩn bị, không đảo lại.\nGiữ tuy bận vẫn chuẩn bị.\n一…就… nói lấy vé ngay khi về, không bịa đã về.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-clause-linking-lesson-02:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-clause-linking-lesson-02:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/31-REVIEW-HSK2-GRAMMAR.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-clause-linking-lesson-02",
+          "reviewedAt": "2026-09-20",
+          "scope": "Six HSK2 grammar lessons, 39 source-specific teaching decisions and contextual transfer.",
+          "sourceContentSha256": "sha256:632ba16c07ae20bda88694c6956bb329b23dde48632b387977220794eadb0118"
+        },
+        "objectiveVi": "Chọn quan hệ giữa hai vế trước khi nối câu",
+        "pitfallVi": "一到家就看书 không tự có nghĩa đã về nhà. Học vì ngày mai thi, không phải kỳ thi xuất hiện vì tối nay học.",
+        "prerequisites": [
+          "hsk2-clause-linking-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "还是 đặt hai lựa chọn trong câu hỏi; 虽然…但是… nối nhượng bộ; 因为…所以… nối lý do/hệ quả; 一…就… nối hai việc xảy ra liền nhau. Dùng ngữ cảnh để biết đó là thói quen, dự định hay sự việc đã xảy ra.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-grammar-row-065",
+          "hsk2-grammar-row-066",
+          "hsk2-grammar-row-067",
+          "hsk2-grammar-row-068"
+        ],
+        "sourceLessonIds": [
+          "hsk2-clause-linking-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-sentence-chain-task:hsk2-clause-linking-lesson-02"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00304",
+          "hsk-vocab-00327",
+          "hsk-vocab-00330",
+          "hsk-vocab-00331",
+          "hsk-vocab-00352",
+          "hsk-vocab-00360",
+          "hsk-vocab-00376",
+          "hsk-vocab-00380",
+          "hsk-vocab-00381",
+          "hsk-vocab-00438",
+          "hsk-vocab-00439",
+          "hsk-vocab-00476"
+        ],
+        "targetLessonId": "hsk2-clause-linking-lesson-02",
+        "titleZh": "HSK二级 · 30",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/82-REVIEW-HSK2-GRAMMAR-ART.md",
+          "humanReviewed": false,
+          "scope": "Time, clause links and motion viewpoint contextual illustrations.",
+          "sourceRevisionId": "bfb764e5-0d53-4954-8c4c-9c36cec1f357"
+        },
+        "vocabulary": [
+          "hsk-vocab-00304",
+          "hsk-vocab-00327",
+          "hsk-vocab-00330",
+          "hsk-vocab-00331",
+          "hsk-vocab-00352",
+          "hsk-vocab-00360",
+          "hsk-vocab-00376",
+          "hsk-vocab-00380",
+          "hsk-vocab-00381",
+          "hsk-vocab-00438",
+          "hsk-vocab-00439",
+          "hsk-vocab-00476"
+        ]
+      },
+      "changes": [
+        {
+          "grammar": "hsk2-grammar-row-065",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-066",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-067",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-068",
+          "newChoice": 1,
+          "newTransfer": 1
+        }
+      ]
+    }
+  ]
+}

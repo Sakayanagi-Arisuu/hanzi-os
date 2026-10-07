@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Three HSK4 timed-sectional-rehearsal integrated-study lessons; multiple bound source texts, evidence-limited task models, editable rubrics and self-paced countdown rehearsal. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check and clock do not grant mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/56-REVIEW-HSK4-INTEGRATION.md",
+  "items": [
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-01",
+      "sourceContentSha256": "sha256:585bedffd34aa426d077b7c4fc6be10a590ee454b47847dff6906df40fe7f5f4",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-02",
+      "sourceContentSha256": "sha256:b73fa238d118110de380ca1a51ebeed546f58ed204e5908aa67887fa4c2533d0",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-03",
+      "sourceContentSha256": "sha256:f965d67026210eb52b0aa7b02924c77fda46b3a487f324d9e546eef4417d7b08",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

@@ -1,5 +1,1111 @@
 # HANZI.OS — Implementation checkpoint
 
+## Ký Ức Trận / Bảng Trạng Thái · phản hồi xác minh và thứ tự giọng · 07/10/2026
+
+- **Module:** Review verification / status voice — IN-REVIEW.
+- **Người học thấy gì:** Tách xác minh đang chạy khỏi thất bại khi còn cache; hai bước khôi phục/xác minh và CTA phù hợp trạng thái mạng. Thành công chuyển vào lượt ôn. Giọng chào chờ hai frame và hoạt cảnh mở hữu hạn; đóng bảng hủy lời chào.
+- **Đã kiểm:** Typecheck, targeted lint qua; browser mở được bảng. Chưa tái hiện cache tài khoản của người dùng và chưa nghe trên Cốc Cốc. Full check của mốc Git dừng tại 7 lỗi unused-vars có trước trong scripts/demo; không coi toàn bộ workspace đã qua gate.
+- **Dữ liệu giữ được:** Không đổi cache/owner/reset/evidence/ví hoặc inventory 4/40/40/55/78, 213 rich. Không sửa docs/reports/output hay dữ liệu .wrangler.
+- **Tiếp theo:** Người dùng test retry và thứ tự giọng trên Cốc Cốc; commit/push nhánh hiện tại theo yêu cầu, không deploy.
+
+## Vạn Quyển Các · hình khối sách · 07/10/2026
+
+- **Module:** Reader library / cover — IN-REVIEW.
+- **Người học thấy gì:** Giữ ảnh bìa, thêm gáy cong với rãnh đóng sách, lớp giấy cạnh phải/đáy và bìa sau. Độ dày nằm trong footprint, bóng tĩnh; hover/focus chỉ dịch nhẹ, bỏ chuyển động filter.
+- **Đã kiểm:** Typecheck và scoped diff-check qua. Browser thư viện 1280×800, mobile 375×812 và bìa nhỏ trang mô tả; không tràn ngang mobile, mép giấy không chồng tên. Giữ quy tắc reduced-motion sẵn có. Ảnh tmp/reader-books-desktop.png.
+- **Dữ liệu giữ được:** Chỉ sửa CSS, giữ ảnh/nội dung/IDs/tiến độ/ví/session/outbox; inventory 4/40/40/55/78, 213 rich không đổi. Không migration/commit/push/deploy.
+- **Tiếp theo:** Web local port 3000 đang chạy, chờ người dùng test tạo hình sách.
+
+## Bảng Triệu Hồi · tự phát giọng khi mở · 07/10/2026
+
+- **Module:** Bảng Triệu Hồi / âm thanh — IN-REVIEW.
+- **Người học thấy gì:** Nút Triệu hồi và Alt+S gọi lời chào “Đồng bộ hồ sơ hoàn tất, bảng trạng thái sẵn sàng.” ngay trong thao tác mở, dùng clip status.summary theo voice profile hiện có. Bỏ effect đọc lời cũ sau 250ms; giữ mute/volume, không tự bật thông báo giọng cho các module khác.
+- **Đã kiểm:** Browser mở bằng nút, Escape đóng và Alt+S mở lại; file mechanical-core-v1/status-summary.mp3 trả 200 sau mở, không cần bấm đọc. Chưa xác nhận âm phát ra loa trên Cốc Cốc của người dùng. Typecheck, targeted lint và 3 voice-pack test qua.
+- **Dữ liệu giữ được:** Chỉ đổi điểm gọi announce; không thay profile preferences, learner data, ví, session/outbox hoặc inventory 4/40/40/55/78, 213 rich. Không commit/push/deploy.
+- **Tiếp theo:** Người dùng mở Bảng Triệu Hồi để nghe thử; chưa USER-ACCEPTED.
+
+## Thiên Lộ · màn chuẩn bị nội dung bài · 07/10/2026
+
+- **Module:** Lesson content loading — IN-REVIEW.
+- **Người học thấy gì:** Thay dòng chữ trong khung trống bằng học quyển ngọc/vàng, tên bài, trạng thái tải, khung chờ nội dung và nút về Thiên Lộ. Hai trạng thái đọc cache/khôi phục vị trí dùng cùng khung, thông báo riêng. Không phần trăm giả, không trì hoãn tải hoặc thay đổi luồng ready/fallback.
+- **Đã kiểm:** Typecheck, targeted lint và 11 test sequence/reading session qua; scoped diff-check qua. Browser bài boot-1 ở trạng thái tải thực (tạm giữ riêng Fetch projection learning) và chuyển sang reader khi có dữ liệu; desktop 1280×720, mobile 375×812, landscape 812×375 không tràn ngang, back 44px, phần giữa không cuộn ở các kích thước này. Reduced-motion tắt cả hai animation. Đã gỡ interception/media/viewport thử nghiệm. Ảnh tmp/lesson-content-loading-desktop.png và tmp/lesson-content-loading-mobile.png. Một lần mở trực tiếp gặp worker network error, reload phục hồi.
+- **Dữ liệu giữ được:** Chỉ thay UI loading của LessonTheoryPanel và ResumableLessonReader; giữ owner scope, cache, drafts, attempts, session/outbox, IDs và inventory 4/40/40/55/78, 213 rich. Không sửa API/content/.wrangler/docs/reports/output; không commit/push/deploy.
+- **Tiếp theo:** Web local đang bật để người dùng mở bài test; chưa USER-ACCEPTED.
+
+## Header · bỏ nhãn Premium lặp · 07/10/2026
+
+- **Module:** Header — IN-REVIEW.
+- **Người học thấy gì:** Nút Premium đổi dòng nhỏ từ “KHÁM PHÁ PREMIUM” thành “KHÁM PHÁ”, giữ chữ Premium lớn.
+- **Đã kiểm:** Browser xác nhận hai dòng “KHÁM PHÁ / Premium”; ảnh tmp/premium-header-label.png. Typecheck qua.
+- **Dữ liệu giữ được:** Chỉ sửa nhãn; không đổi dữ liệu, quyền, giao dịch hoặc inventory 4/40/40/55/78 và 213 rich.
+- **Tiếp theo:** Chờ người dùng test; chưa USER-ACCEPTED.
+
+## Premium · khung hình đầu, quyền luyện đề và giá VNĐ · 07/10/2026
+
+- **Module:** Premium UI + giá niêm yết quản trị — IN-REVIEW.
+- **Người học thấy gì:** Đưa hero lên cao, rút gọn thẻ gói; hiển thị cả tháng/năm và quyền mở bài Thiên Lộ HSK4 cùng cửa Phòng Luyện Đề đánh dấu Premium. Ví Hanzi chuyển lên góc đầu trang, mở popup giao dịch. Mobile dùng hai ô kỳ hạn cạnh nhau. Theo ủy quyền chọn giá của người dùng: 79.000đ/tháng, 699.000đ/năm; admin chỉnh giá VNĐ độc lập với giá Hanzi ở /admin/premium. Chỉ niêm yết giá, thanh toán tiền thật chưa mở.
+- **Đã kiểm:** Typecheck, targeted ESLint, db:check và scoped diff-check qua; 15 test repository/admin/boundary qua, gồm rollback khi audit lỗi, chặn thiếu step-up/cross-origin/giá sai, giá VNĐ không sửa ví hoặc giá Hanzi. Browser 1280×640: hero kết thúc ở 529 px, thẻ gói 636 px, CTA 525 px; mobile 360×800: CTA 627 px, thanh điều hướng bắt đầu 734 px, không tràn ngang. Nút ví mới mở/đóng popup đúng. Ảnh tmp/premium-first-viewport-desktop.png và tmp/premium-first-viewport-mobile.png. Chưa kiểm form admin bằng tài khoản quản trị trên browser; luồng ghi đã kiểm bằng test.
+- **Dữ liệu giữ được:** Migration 0034 chỉ thêm bảng premium_vnd_prices và hai giá ban đầu; không sửa wallet/orders/progress/FSRS/session/outbox/owner/reset. Inventory HSK0 4/4; HSK1–4 40/40/55/78, 213 rich giữ nguyên. Không đụng docs/reports/output; giữ .wrangler. Không commit/push/deploy.
+- **Tiếp theo:** Web local đang bật để người dùng test Premium; chưa USER-ACCEPTED.
+
+## Premium · khôi phục gói năm và trung tâm tài khoản · 07/10/2026
+
+- **Module:** Premium UI — IN-REVIEW.
+- **Người học thấy gì:** Khôi phục cả gói tháng/năm, giữ giá theo server; gói chưa có giá hiện rõ trạng thái. Phần cuối có ba thẻ chức năng: Ví & giao dịch, Gói học của bạn, Trung tâm hỗ trợ. Mỗi thẻ mở native modal dialog, header/footer cố định, nội dung cuộn; hỗ trợ Escape và trả focus bằng native dialog. Form hỗ trợ giữ bản nháp khi đóng/mở trong cùng trang.
+- **Đã kiểm:** Typecheck và targeted lint qua. Browser desktop xác nhận cả gói tháng/năm và ba popup; Escape đóng và trả focus đúng thẻ mở. Mobile 360×800: dialog 340 px, footer nằm trong viewport; bản nháp hỗ trợ còn sau đóng/mở, đã xóa bản nháp test không gửi. Ảnh tmp/premium-service-center.png và tmp/premium-wallet-popup.png. Dev port 3000 chạy sau một lần khởi động lỗi worker; chưa kiểm giao dịch có tiền trong browser.
+- **Dữ liệu giữ được:** Không đổi giá, số dư, giao dịch, API, nội dung, ID, progress/FSRS/session/outbox/owner/reset; inventory 4/40/40/55/78 và 213 rich giữ nguyên. Không migration/commit/push/deploy, không đụng docs/reports/output/.wrangler.
+- **Tiếp theo:** Đã mở Premium local cho người dùng test; chưa USER-ACCEPTED.
+
+## Premium · căn bố cục và hoàn thiện cuối trang · 06/10/2026
+
+- **Module:** Premium UI — IN-REVIEW theo phản hồi bố cục lệch và lịch sử sơ sài.
+- **Người học thấy gì:** Bỏ khoảng đệm hero 180 px, căn hai cột theo đầu khối; tăng nền tối phía sau chữ. Bổ sung ba thẻ quyền lợi/điều kiện, FAQ rõ trạng thái mở, hai cột cao độc lập. Lịch sử ví có tên nghiệp vụ/cấp thưởng, thời gian, số xu tăng giảm; ban đầu bốn giao dịch, xem thêm tối đa 50 dòng do API cung cấp. Có trạng thái trống và form hỗ trợ được căn chỉnh.
+- **Đã kiểm:** Typecheck, targeted ESLint qua. Browser desktop và mobile 390×844: không tràn ngang, panel 343 px, input/textarea 301 px; mở/đóng form hỗ trợ đúng. Browser hiện dùng tài khoản ví 0, chưa kiểm trực quan danh sách nhiều giao dịch trên tài khoản có 1.400 xu của người dùng; không bơm dữ liệu test vào ví thật. Ảnh tmp/premium-aligned-hero.png và tmp/premium-refined-aftercare.png.
+- **Dữ liệu giữ được:** Không thay đổi mua/hoàn/số dư, migration, content hoặc tiến độ. Inventory 4/40/40/55/78 và 213 rich giữ nguyên. Không đụng docs/reports/output/.wrangler; không commit/push/deploy.
+- **Tiếp theo:** Chờ người dùng test Premium local; chưa USER-ACCEPTED.
+
+## Premium · tiên cung và ví Hanzi nổi bật · 06/10/2026
+
+- **Module:** Premium UI — IN-REVIEW.
+- **Người học thấy gì:** Tạo ảnh nền nguyên bản bằng image_gen trước khi code; tiên cung ngọc/vàng, hero thoáng và thẻ gói tương phản. Ví có số dư lớn, thiếu xu hoặc số dư dự kiến sau đổi. Ẩn kỳ hạn chưa niêm yết giá; giữ gói tháng và các kỳ hạn đã cấu hình. Quyền lợi, FAQ, lịch sử và hỗ trợ còn nguyên.
+- **Đã kiểm:** Typecheck qua; browser desktop 1280×720 và mobile 390×844 không tràn ngang; số dư 0 từ tài khoản kiểm tra, giá 1.000, nút đổi bị khóa đúng. Không thực hiện giao dịch thật. Ảnh WebP 216.486 byte, static, không thêm animation liên tục. Local commerce có lỗi tải tạm thời rồi tự khôi phục; không coi là nghiệm thu hiệu năng backend.
+- **Dữ liệu giữ được:** Không đổi API mua/hoàn, nội dung/IDs/progress/FSRS/session/outbox/owner/reset hoặc số dư thực. Inventory HSK0 4/4; HSK1–4 40/40/55/78 và 213 rich giữ nguyên. Không migration/commit/push/deploy. Asset và provenance ở public/images/premium/.
+- **Tiếp theo:** Mở trang Premium local cho người dùng test; chưa USER-ACCEPTED.
+
+## Bảo Khố Thăng Cấp · Hanzi xu đổi Premium tháng · 06/10/2026
+
+- **Module:** Dashboard cấp độ → thưởng → ví → Premium tháng — IN-REVIEW. Người dùng chọn đổi trọn gói tháng, không giảm giá hay đổi từng ngày.
+- **Người học thấy gì:** Thay Bản đồ nhịp học bằng Bảo Khố Thăng Cấp: cấp/XP tới cấp tiếp theo, thưởng chờ nhận, ví và giá gói tháng. Chính sách ban đầu 500 XP/cấp, 100 xu cho mỗi cấp từ cấp 2; nhận các mốc đã đạt theo XP server. Dùng ví và luồng mua Premium tháng hiện có, không mở production/public payment.
+- **Tính đúng:** Chỉ server quyết định mốc/giá trị thưởng theo tài khoản; khóa mốc level:N độc lập reset epoch để không farm lại sau reset. Mỗi ghi xu và ledger nằm cùng D1 batch, có reset fence và giới hạn số mốc mỗi request. API chặn guest/cross-origin, giới hạn tần suất. UI bỏ các ô trộn streak local/lịch ôn trống.
+- **Đã kiểm:** 19 test thưởng/route/Premium qua gồm retry, concurrency, rollback, reset, owner isolation, migration giữ ledger/giá đã cấu hình và mua Premium tháng từ xu thưởng. Typecheck, targeted lint, db:check và scoped diff-check qua. Full check qua inventory/typecheck rồi dừng ở 7 unused-vars có trước trong scripts content/demo. Browser 1280×720: thẻ thưởng 221/221 px, không tràn; mobile 360×800: không tràn ngang, CTA 44 px trong viewport, thẻ phụ cuộn riêng không cắt chữ. Gói tháng được chọn, giá 1.000 xu, nút đổi khóa đúng khi ví 0. Ảnh tmp/level-rewards-final.png. API local lần đầu mất 39 giây; chưa coi là nghiệm thu hiệu năng backend.
+- **Dữ liệu giữ được:** Migration 0033 mở rộng kind level_reward bằng sao chép toàn bộ ledger cũ, giữ PK/unique/FK và balance. Không đổi nội dung/IDs/progress/FSRS/session/outbox; inventory 4/40/40/55/78, 213 rich giữ nguyên. Không đụng docs/reports/output, không xóa .wrangler, không commit/push/deploy.
+- **Tiếp theo:** Migration 0033 đã áp dụng local; xác minh kind mới và giá tháng 1.000 xu. Backup logic phạm vi ví tại tmp/pre-level-rewards-wallets.json; ví/ledger/order đều 0 dòng trước và sau. Bản backup SQLite đầy đủ bị gián đoạn, không coi là bản khôi phục hợp lệ. Dev port 3000 đang chạy, browser mở Bảo Khố; chờ người dùng test, chưa USER-ACCEPTED.
+
+## Thất Trụ · rút gọn chỉ còn phần trăm · 06/10/2026
+
+- **Module:** Thất Trụ ở ba consumer — IN-REVIEW.
+- **Người học thấy gì:** Bỏ số câu/tổng câu và lượt luyện khỏi các hàng Thất Trụ, chỉ giữ tên kỹ năng, phần trăm và thanh tiến độ. Bảng Triệu Hồi căn tên/% cùng hàng, thanh ngay bên dưới; rút gọn chú thích.
+- **Đã kiểm:** Browser desktop xác nhận các hàng không chồng chữ; ảnh tmp/pillars-percent-only.jpg. Giữ mô tả chi tiết cho trình đọc màn hình, giữ nguyên công thức và nguồn số liệu.
+- **Dữ liệu giữ được:** Không đổi dữ liệu/nội dung/IDs/tiến độ; inventory 4/40/40/55/78, 213 rich giữ nguyên. Không migration/commit/push/deploy.
+- **Tiếp theo:** Chờ người dùng test.
+
+## Thất Trụ thống nhất + Tinh Đồ Cảnh Giới + tâm hiệu ứng Thiên Lộ · 06/10/2026
+
+- **Module:** Slice theo phản hồi tại Thức Tỉnh Điện / Bảng Triệu Hồi / Thiên Cơ Kính / Thiên Lộ — IN-REVIEW.
+- **Người học thấy gì:** Ba Thất Trụ cùng usePracticeCoverage và PracticeCoverageMeter: câu khác nhau đã luyện / kho câu phát hành thực có, không dùng mốc 1.000 hay bằng chứng đủ gate thay thế tiến độ luyện. Giữ bằng chứng năng lực trong phần chi tiết riêng. Tải lại theo cursor/evidence identity, không theo object sync thay đổi; mẫu số khử alias cùng cách với tử số. Tinh Đồ Cảnh Giới thay thẻ bài kế tiếp bằng cảnh giới hiện tại và chặng đã vượt/đang mở/phía trước; hiển thị toàn bộ chặng phát hành thay vì chỉ cấp khởi đầu. Hoạt cảnh bài Thiên Lộ neo vào icon, bỏ offset px của cả thẻ. Dời ghi kích thước containment sang RAF hữu hạn để tránh ResizeObserver loop khi đổi viewport.
+- **Đã kiểm:** 13 Vitest (practicePercent + practiceCoverageRoute) qua, targeted ESLint/typecheck qua. Browser tài khoản local đối chiếu cả bảy chuỗi câu/tỷ lệ ở ba nơi bằng nhau. Tâm icon/hoạt cảnh lệch 0 px theo cả hai trục ở desktop và mobile 360 px; mobile không tràn ngang. Desktop Tinh Đồ hiển thị 16 chặng, nút mở Thiên Lộ không bị cắt; giữ scroll vùng danh sách trên mobile. Ảnh tmp/dashboard-realm-map.jpg, tmp/dashboard-pillars-unified.jpg, tmp/path-centered-vignette.jpg. Dev có Network connection lost/500 tạm thời, reload khôi phục; kho câu tải chậm khoảng 8–29 giây trên local, chưa coi là tối ưu tốc độ API.
+- **Dữ liệu giữ được:** Không sửa nội dung, IDs, completion/streak/saved/FSRS/mistakes/session/outbox/owner/reset; không migration. Inventory 4/40/40/55/78, 213 rich giữ nguyên. Không đụng docs/reports/output/.wrangler, không commit/push/deploy.
+- **Tiếp theo:** Chờ người dùng test bản local; chưa USER-ACCEPTED.
+
+## Cấu hình hệ thống · hàng cuối xem trước · 06/10/2026
+
+- **Module:** Cấu hình hệ thống — IN-REVIEW.
+- **Người học thấy gì:** Thu gọn padding/gap tổng quan, đặt hoạt cảnh header ở góc với kích thước 88 px (mobile 64 px); bảng xem trước giữ bốn hàng tối thiểu 30 px và nút mở tối thiểu 44 px. Giọng đang chọn không bị nút vàng chèn ép.
+- **Đã kiểm:** Typecheck và scoped diff-check qua. Browser guest local 1280×600: document/page/preview không tràn chiều cao, hàng cuối cách nút 11 px; 1320×644: document 644/644, page 556/556, preview 297/297. Mobile 390×844 không tràn ngang, bảng xem trước không tràn; giữ luồng cuộn mobile hiện có. Đã trả viewport bình thường và mở trang local cho người dùng test.
+- **Dữ liệu giữ được:** Chỉ CSS trình bày; không đổi IDs/content/completion/streak/saved/FSRS/mistakes/session/outbox/owner/reset hay tùy chọn âm thanh. Inventory HSK0 4/4 và HSK1–4 40/40/55/78, 213 rich giữ nguyên; không migration/reset/commit/push/deploy.
+- **Tiếp theo:** Chờ người dùng test bố cục; chưa USER-ACCEPTED.
+
+## Tàng Tự Khố + nhãn Nghịch Cảnh Lục · 06/10/2026
+
+- **Module:** Hai chỉnh sửa bố cục theo phản hồi — IN-REVIEW.
+- **Người học thấy gì:** Hoạt cảnh Tàng Tự Khố chuyển từ float 132 px sang vùng absolute 88 px (mobile 64 px) trong header, có paint containment để các nét chuyển động không làm nở vùng cuộn. Nhãn bộ đếm Nghịch Cảnh Lục chia hai dòng căn giữa, phân cấp chữ và số rõ hơn.
+- **Đã kiểm:** Typecheck, ESLint RemediationAtlas và scoped diff-check qua. Ảnh local nhãn mới tại tmp/rem-core-label-refined.jpg. Browser Tàng Tự Khố 1280×720: vùng nội dung clientHeight = scrollHeight = 632 px, document 720 px; 24 mẫu trong khoảng 2 giây sau phát lại hoạt cảnh đều không tràn chiều cao. Ảnh tmp/dictionary-overflow-fixed.jpg. Dev đã khởi động lại thành công, mở port 3000; chưa đo lại mobile ở lượt này.
+- **Dữ liệu giữ được:** Chỉ đổi JSX/CSS trình bày; không đổi nội dung/IDs/progress/session/FSRS/outbox/owner/reset; inventory 4/40/40/55/78 và 213 rich giữ nguyên. Không migration/reset/commit/push/deploy.
+- **Tiếp theo:** Đã mở Tàng Tự Khố local cho người dùng test; chưa USER-ACCEPTED.
+
+## Vạn Âm Điện + Nghịch Cảnh Lục · làm thoáng tâm hiệu ứng · 06/10/2026
+
+- **Module:** Artwork motion của hai module — IN-REVIEW. Người dùng thích hoạt ảnh, yêu cầu bỏ chi tiết che micro và con số.
+- **Người học thấy gì:** Bỏ cột âm/đường khiên nằm giữa; thay bằng nét ngắn và cung sáng ở viền. Clip tĩnh giữ vùng tâm trống cả lúc các nhóm đang chuyển động; số liệu và caption nằm trên lớp trang trí. Giữ thời lượng, trigger, âm thanh và chuyển động hữu hạn hiện có.
+- **Đã kiểm:** Browser local xác nhận cả hai màn hình hiển thị rõ micro/số; ảnh tmp/realm-voice-clean.jpg và tmp/realm-repair-clean.jpg. Không đổi dữ liệu để tạo số 66 của ảnh người dùng; browser kiểm tra đang là guest 0 lỗi.
+- **Dữ liệu giữ được:** Không đổi nội dung/IDs/progress/session/FSRS/outbox/owner/reset; giữ inventory 4/40/40/55/78 và 213 rich; không migration/reset/commit/push/deploy.
+- **Tiếp theo:** Chờ người dùng test hai chi tiết đã sửa; chưa USER-ACCEPTED.
+
+## Hoạt cảnh + âm thanh theo module · 06/10/2026
+
+- **Module:** Motion/audio dùng chung cho learner UI — IN-REVIEW, chưa được người dùng nghiệm thu.
+- **Người học thấy gì:** Hoạt cảnh hữu hạn khoảng 2 giây với pháp trận/kiếm, tinh thể ký ức, lò chữ, sách, cổng khảo luyện, khiên, tinh đồ, ấn hồ sơ và vương miện. Phát lại bằng ấn ở header. Đã rà và bổ sung host thực trong 12 khu vực chính, gồm những khu vực trước đây chỉ có hoa văn header; thêm host ở bài học guest/account, quyển/chương đọc, phiên luyện chữ và câu khảo luyện. SVG nguyên bản; 13 motif âm tổng hợp dùng chung AudioContext hiện có, theo âm lượng/tắt tiếng, chỉ phát sau tương tác, không khởi phát trong bài nghe/thu âm; âm hoạt cảnh đang chạy dừng khi audio học được ưu tiên. Giới hạn nốt đồng thời/cooldown, ngắt node khi kết thúc và khi tắt tiếng. Không có âm nền hay vòng trang trí vô hạn mới.
+- **Hiệu năng:** Chỉ mount tối đa 2 hoạt cảnh nhìn thấy (máy yếu 1), bản nhẹ tối đa 3 nhóm chuyển động; tạm dừng/hủy khi khuất hoặc tab ẩn. Không quét lại tập observer khi chỉ đổi chữ. Thiên Lộ đo kích thước thật của thẻ khóa bằng ResizeObserver rồi dùng content-visibility:auto để bỏ render phần ngoài màn hình, không xóa nội dung/link hoặc đo lại mỗi khung. Giữ nền núi mây và quy tắc fixed/scroll đã khôi phục.
+- **Đã kiểm:** 23 Vitest/5 file, targeted lint, typecheck và build cuối/premium bundle boundary qua. E2E 7 test qua qua các lượt targeted: 12 khu vực có artwork thực, mobile 360 px, reduced-motion, state preservation, audio tạo/giải phóng node và tắt tiếng, luồng thư viện → quyển → chương, cửa vào bài học mobile, phiên luyện chữ và bốn subview Hồ sơ. Thẻ khóa >200 còn nguyên và chênh lệch chiều cao trang giữa native containment và layout tự nhiên <4 px. Mẫu CPU4×: idle median/p95 16.7 ms, 0/90 khung >50 ms; vừa chạy hoạt cảnh vừa cuộn median16.7/p95 33.4 ms, 1/90 khung >50 ms, tối đa9 animations. Trước tối ưu containment/giới hạn lớp, mẫu hoạt động cùng bài test có p95116.6 ms, 11/90 khung >50 ms; đây là mẫu local, không cam kết mọi thiết bị. Full check qua inventory/typecheck rồi dừng ở 7 unused-vars có trước trong scripts content/demo. Harness production vẫn có thông báo cài ngoại tuyến lỗi/API fallback; không coi là nghiệm thu offline/backend. Chưa đánh giá cảm nhận âm bằng nghe trực tiếp và chưa test mọi trạng thái từng phiên.
+- **Dữ liệu giữ được:** Không đổi content, ID, completion/streak/saved/FSRS/mistakes/session/outbox/owner/reset; không migration/reset. Inventory 4/40/40/55/78, 213 rich giữ nguyên. Giữ .wrangler, docs/reports, output và dirty work có trước; không commit/push/deploy.
+- **Tiếp theo:** Đã chốt gate bài học/luyện chữ/cấu hình; mở lại dev local port3000. Browser thật xác nhận Vạn Quyển Các hiển thị và nút phát lại hoạt cảnh hoạt động; ảnh tmp/realm-reader-local-final.jpg. Dev có lỗi Network connection lost ở lần tải đầu, reload đã khôi phục; không reset dữ liệu. Chờ người dùng test âm/hoạt cảnh các module. Public/auth/admin/studio không thuộc lượt UI người học này; chưa USER-ACCEPTED.
+
+## Thiên Lộ · khôi phục nền núi mây sau tối ưu motion · 06/10/2026
+
+- **Module:** Thiên Lộ UI — IN-REVIEW, chờ người dùng test lại.
+- **Người học thấy gì:** Gỡ override background-attachment của chế độ light đã khiến ảnh cover bị phóng theo chiều dài danh sách bài trên desktop. Trả đúng cách hiển thị nền núi mây đã chốt trước: fixed trên desktop, quy tắc nền mobile cũ giữ nguyên.
+- **Đã kiểm:** Browser local desktop 1320×800 xác nhận computed attachment fixed và núi mây hiện rõ; ở viewport 668 px dùng đúng quy tắc mobile auto 100vh/repeat-y. Ảnh tmp/path-background-restored.jpg; đã trả viewport về bình thường. Chỉ đổi CSS, không đổi TypeScript/runtime học tập.
+- **Dữ liệu giữ được:** Không đổi asset/nội dung/IDs/progress/session/FSRS/outbox, không migration/reset; giữ inventory 4/40/40/55/78, 213 rich, .wrangler, docs/reports/output và dirty work có trước.
+- **Tiếp theo:** Người dùng test lại nền Thiên Lộ local; chưa USER-ACCEPTED, không commit/push/deploy.
+
+## Hoạt ảnh thức tỉnh · ngôn ngữ riêng theo khu vực và chế độ máy yếu · 06/10/2026
+
+- **Module:** Hệ hoạt ảnh dùng chung cho learner UI — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** 13 nhóm hình vẽ/choreography riêng cho Thức Tỉnh Điện, Thiên Lộ, bài học, Ôn, lỗi sai, Nói, Luyện chữ, Đọc, từ điển, khảo luyện, phân tích, Hồ sơ và Premium. SVG nguyên bản: đường/sương, mảnh ký ức, sóng âm, nét/tia sáng, trang sách, cổng/ấn, khiên, vòng thuộc tính. Header đổi hoa văn theo khu vực; artwork trong nội dung xuất hiện tại host thích hợp, không phủ màn hình. Chuyển câu/trang/reveal và thao tác kích hoạt chuyển động hữu hạn. Máy ít lõi/RAM hoặc tiết kiệm dữ liệu dùng bản nhẹ; mẫu nhịp khung hình chậm giảm chất lượng. Giới hạn animation/observer, hủy khi ẩn/offscreen, bỏ blur và vệt quét rail/bóng lọc/nền cố định trên bản nhẹ. Reduced-motion của OS luôn được ưu tiên, kể cả đã chọn Cinematic.
+- **Đã kiểm:** Typecheck, targeted ESLint, 16 Vitest/3 file qua. E2E bản production: 12 route có family/hoa văn khác nhau, focus trong main, mobile 360×800 giữ CTA trên nav/không tràn ngang; reduced-motion không đổi bytes learning state; giả lập 2 lõi + CPU chậm 4 lần chọn light và không còn backdrop-filter. Full check xác nhận inventory rồi dừng ở 7 unused-vars có sẵn tại scripts content/demo ngoài module. Lighthouse 3 lần trên public landing chưa đạt: median P49/A11y99/BP93/SEO66, LCP62566ms, CLS0.027, TBT1275ms; có ảnh lớn/carousel và CSP asset origin ở harness. Đây không phải phép đo các phiên học. Phép đo frame pacing trước khi bỏ railScan còn median50–66.6ms/p95≈100ms ở idle path CPU4×; không tuyên bố mọi máy yếu mượt hoặc mọi màn hình đã audit. Build cuối và 3/3 E2E qua sau sửa railScan; tại mốc idle không còn animation chạy nhưng phép đo CPU4× 90 khung tiếp theo vẫn median66.6ms/p9583.4ms (48 khung >50ms, có toast mới). Mục tiêu mượt trên máy yếu chưa được chứng minh. Browser local xác nhận Thiên Lộ có vignette, quality light và 0 animation chạy khi nghỉ; chuyển Phòng Luyện Đề/chọn HSK2 đổi hoa văn trial và giữ focus. Dev khởi động chậm/có Network connection lost, cửa đề chưa tải xong nên chưa nghiệm thu luồng mở đề local. Đã mở lại Thiên Lộ cho người dùng, ảnh tmp/awakening-motion-local-path.jpg. Report riêng tại tmp/awakening-lighthouse.json, không ghi docs/reports/output.
+- **Dữ liệu giữ được:** Không đổi nội dung, lesson/vocabulary/character IDs, completion, streak, saved, FSRS, mistakes, session/outbox/owner/reset hoặc migration; inventory HSK0 4/4 (0 rich), HSK1–4 40/40/55/78, 213/213 rich giữ nguyên. Browser E2E dùng guest/storage riêng, không reset tài khoản/browser người dùng; giữ .wrangler, docs/reports, output và mọi dirty work có trước.
+- **Tiếp theo:** Người dùng test các khu vực learner local và phản hồi hoạt ảnh/độ mượt; public/auth/admin/studio chưa được thiết kế hoạt ảnh riêng, chưa audit mọi trạng thái phiên. Chưa USER-ACCEPTED, không commit/push/deploy.
+
+## Phòng Luyện Đề · cửa miễn phí/Premium và Xưởng soạn đề · 06/10/2026
+
+- **Module:** Phòng Luyện Đề — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** Mỗi HSK1–4 mặc định A/B/C miễn phí; D–L Premium khi đã có đề phát hành. Cửa khóa dẫn tới Premium; API mở/khôi phục kiểm quyền trước khi trả câu hỏi. Xưởng có mục Bộ đề và quyền truy cập: người có quyền phát hành đổi riêng từng cửa với audit; biên tập viên chọn miễn phí/Premium trong bản nháp. Soạn câu bằng biểu mẫu, ghép đề G–L và thay từng câu theo nội dung, không nhập mã; câu phát hành được ghim theo revision, kiểm định chống câu thiếu/sai cấp. Sửa danh sách cửa co về chiều cao 0 trên viewport thấp. Nhãn header/sidebar dùng Khám phá Premium/Gói Premium, bỏ HSK4.
+- **Đã kiểm:** Typecheck và targeted ESLint qua; 28 test quyền/server/authoring/bank/UI, 24 test Studio/route và 4 test route đổi quyền đề qua. Browser xác nhận cửa D có CTA Premium, deep link D bị chặn, Xưởng tạo nháp cửa I 40 câu miễn phí, reload giữ quyền/câu; đổi sang Premium và lưu thành công. Giữ bản nháp kiểm tra chưa phát hành. Mobile 390×844 không tràn ngang, cửa cao 49 px, CTA nằm trên bottom nav; HSK4 giữ A/B/C miễn phí. Desktop 1320×800 xác nhận nhãn Premium không gắn HSK4. Ảnh: tmp/mock-exams-mobile-final.png và tmp/mock-exams-desktop-final.png. Full check qua validator inventory rồi dừng ở lint: 7 lỗi unused-vars có sẵn trong scripts ngoài module; artifact QA cũ do agent tạo đã dọn và lint lại chỉ còn 7 lỗi đó.
+- **Dữ liệu giữ được:** Migration 0032 chỉ thêm bảng quyền cửa, đã áp dụng local; không đổi/xóa completion, streak, FSRS, saved, mistakes, session/outbox/owner hoặc IDs. Phiên đã cấp vẫn ghi/nộp được, lịch sử giữ nguyên. Giữ 4/40/40/55/78 và 213 rich, .wrangler, docs/reports, output; không commit/push/deploy. Premium vẫn dùng cơ chế sandbox local hiện có, chưa payment production.
+- **Tiếp theo:** Người dùng test /exams và /studio/exams; chưa USER-ACCEPTED.
+
+## Thiên Lộ · thông tin banner và bỏ nền đen · 06/10/2026
+
+- **Module:** Thiên Lộ UI — USER-ACCEPTED. Người dùng xác nhận “oke tốt rồi” và chuyển sang Phòng Luyện Đề.
+- **Người học thấy gì:** Tên bài xuống dòng đầy đủ trong thẻ ngọc, số bài thông qua lấy từ completion/catalog hiện tại. Giữ phần thông tin người dùng vừa chốt; bỏ nền và bóng hình chữ nhật quanh banner, dùng SVG mask theo đường viền cuộn gốc để nền núi mây hiện quanh mép. Không thay ảnh gốc hoặc chuyển tên bài xuống dải thông tin mới.
+- **Đã kiểm:** Typecheck, targeted ESLint và scoped diff-check qua; browser desktop 1320 px và mobile 390 px xác nhận nền banner trong suốt, mask tải, không tràn ngang và vòng đếm hiển thị. Ảnh desktop: tmp/path-banner-no-black-desktop.png.
+- **Dữ liệu giữ được:** Không đổi content/IDs/progress/FSRS/session/outbox/owner, không reset/migration; giữ inventory 4/40/40/55/78, 213 rich và các thay đổi Header 02/Premium/triệu hồi. Không đụng .wrangler, docs/reports, output.
+- **Tiếp theo:** Module Phòng Luyện Đề theo yêu cầu người dùng, không commit/push/deploy.
+
+## Thiên Lộ · logo đầu mục và ảnh nền, giữ banner · 06/10/2026
+
+- **Module:** Thiên Lộ UI — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** Chỉ thay logo đầu mục HSK0–HSK4 bằng năm ảnh riêng rồng/hạc/hổ/phượng/kỳ lân; bỏ dịch trái, căn giữa ngang/dọc trong vùng logo. Khung tự giãn đủ chứa logo và chữ; đường trang trí không xuyên chữ khi khung cao hơn. Thêm ảnh nền núi mây tông ngọc cho Thiên Lộ. Banner path-celestial-scroll-g.png, nhãn bài/số bài và tự cuộn giữ nguyên để chỉnh sau.
+- **Đã kiểm:** Typecheck và scoped diff-check qua. Browser desktop xác nhận năm nguồn ảnh riêng tải thành công và tâm logo trùng tâm khung theo chiều dọc; mobile 390×844 không tràn ngang, logo trùng tâm vùng chứa cả hai chiều. Ảnh: tmp/path-level-logos-desktop.png, tmp/path-level-logos-mobile.png. Chưa USER-ACCEPTED.
+- **Dữ liệu giữ được:** Chỉ đổi asset/CSS/logo, không đổi content/IDs/progress/FSRS/session/outbox/owner, không migration/reset. Giữ inventory 4/40/40/55/78, 213 rich, .wrangler, docs/reports, output và các sửa Header 02/triệu hồi/Premium. Asset nguyên bản từ built-in image_gen và prompt/provenance lưu trong public/art/thien-lo/.
+- **Tiếp theo:** Người dùng test http://127.0.0.1:3000/path; banner để lượt sau. Không commit/push/deploy.
+
+## Thiên Lộ · trả giao diện trước theo yêu cầu · 06/10/2026
+
+- **Module:** Thiên Lộ UI — IN-REVIEW. Người dùng không chọn bản banner/logo mới và yêu cầu trả giao diện trước.
+- **Người học thấy gì:** Khôi phục banner path-celestial-scroll-g.png, nhãn bài/số bài cũ, logo SpiritBeastSeal, bố cục cũ và tự cuộn tới bài đang học. Gỡ import PathJourney.css/PathJourneyBanner khỏi trang. Giữ sửa Premium có trước, Header 02, triệu hồi và các module khác.
+- **Đã kiểm:** Typecheck và scoped diff-check qua; diff PathPage chỉ còn năm dòng Premium có trước lần thiết kế bị rút.
+- **Dữ liệu giữ được:** Không đổi content/IDs/progress/FSRS/session/outbox/owner hoặc migration/reset; giữ inventory 4/40/40/55/78 và 213 rich. Ảnh thử nghiệm vẫn lưu nhưng không còn được trang sử dụng. Không đụng .wrangler, docs/reports, output; không commit/push/deploy.
+- **Tiếp theo:** Người dùng test bản local; bản thiết kế Thiên Lộ ở checkpoint dưới đã được rút khỏi giao diện đang chạy, chưa USER-ACCEPTED.
+
+## Khảo Nghiệm Căn Cơ · Ngọc Điện và bảo toàn Thiên Lộ · 06/10/2026
+
+- **Ảnh giao diện thực tế:** tmp/placement-ngoc-dien-final.jpg; desktop 1320×644 không tràn ngang, CTA nằm trong viewport. Đã trả viewport về mặc định và mở cổng để người dùng test.
+- **Module:** Khảo Nghiệm Căn Cơ — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** Giao diện Ngọc Điện tối theo mockup v2, giữ header/sidebar hiện tại; giới thiệu → chọn HSK1–4 → 12 câu/tầng → kết quả theo đọc/từ/ngữ pháp. Chọn rồi xác nhận, có “Chưa biết”, xem lời giải sau câu cuối. Kết quả gợi ý thử tầng trên/xác minh tầng dưới; đã đi xuống không bị mời quay lên ngay. Nghe/nói/viết chưa được đo; không cấp mastery hay miễn tiên quyết.
+- **Phiên dở:** Lưu riêng từng owner/form, hết hạn sau 7 ngày từ lúc bắt đầu. Đối chiếu state, phiên học IndexedDB, projection tài khoản và reset trước khi ghi câu/nhận kết quả. Học thêm hoặc đổi hành trình thì chặn phiên cũ và mời lượt mới; bản cũ giữ lại. Người đã học giữ starting level và bài đề xuất, chỉ nhận gợi ý củng cố. Ghi thành công mới tiến câu; kết quả đã nhận đóng phiên, chặn bấm nhận lặp.
+- **Đã kiểm:** 31/31 targeted Vitest qua (policy, resume, lifetime/owner, preservation, IndexedDB owner/reset và storage); typecheck, targeted ESLint và scoped diff-check qua. Browser thật: chọn tầng, phím mũi tên/radio, xác nhận rồi tiến câu, reload tiếp câu, 0/12 và nhận HSK0; học xen giữa làm phiên cũ bị chặn, làm lại/lưu gợi ý trở về đúng Thiên Lộ. Mobile 390×844 và 360×800: CTA phiên/kết quả nằm trên bottom nav, nội dung giữa cuộn. Full check qua precheck inventory/lockfile/typecheck rồi dừng tại 7 lỗi unused-vars có sẵn trong script content/demo ngoài module. Web local có lúc dừng vì EBUSY file watch và lỗi Miniflare khi tải lại; đã khôi phục để kiểm hành trình. Chưa pixel-diff để tuyên bố giống ảnh 100%, chưa calibration/người dùng nghiệm thu.
+- **Dữ liệu giữ được:** Không migration/reset, không đổi nội dung/IDs/completion/streak/saved/FSRS/mistakes/lesson sessions/outbox; giữ .wrangler, docs/reports, output. Inventory HSK0 4/4 (0 rich), HSK1–4 40/40/55/78, 213/213 rich được precheck xác nhận. Artwork AI nguyên bản có provenance, WebP 307 KB. Không commit/push/deploy.
+- **Tiếp theo:** Test http://127.0.0.1:3000/assessment; phản hồi giao diện và luồng khảo nghiệm. Chưa USER-ACCEPTED. Thiết kế/quy tắc: docs/design/placement-ngoc-dien/.
+
+## Thiên Lộ · banner sống và năm logo HSK riêng · 06/10/2026
+
+- **Module:** Thiên Lộ UI — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** Banner cuộn ngọc có lớp sương/ánh sáng chuyển động, đánh dấu chặng đang học và chặng đã thông qua từ dữ liệu thật; số bài theo catalog phát hành. Tên bài đang học hiển thị đầy đủ, xuống dòng và có nút Học tiếp. Thêm nền ngọc tối cho trang. HSK0 rồng, HSK1 hạc, HSK2 hổ, HSK3 phượng, HSK4 kỳ lân dùng năm ảnh tạo riêng, cùng kích thước/đường tâm ở banner và đầu mục. Có dừng chuyển động, tự dừng khi ngoài màn hình và hỗ trợ reduced-motion.
+- **Đã kiểm:** 4/4 targeted Vitest cho banner/catalog, gồm fixture tiến độ HSK2/HSK3, tên bài dài, hoàn tất và năm asset khác nhau; typecheck và targeted ESLint qua. Browser desktop: đủ năm WebP tải thành công, logo ngang hàng; mobile kiểm tra tên bài không bị cắt và logo cùng y. Đã kiểm tra nút dừng, transform chuyển động thật và reduced-motion. Ảnh desktop: tmp/thien-lo-desktop-final.png. Full check còn 7 lỗi script ngoài module đã ghi ở checkpoint trước.
+- **Dữ liệu giữ được:** Chỉ đổi trình bày và asset; không migration/reset hoặc đổi content, IDs, completion, FSRS, saved/mistakes/session/outbox/owner. Giữ 217 bài (4/40/40/55/78), HSK1–4 213/213 rich, .wrangler, docs/reports và output. Các sửa Header 02/Thức Tỉnh Điện/triệu hồi trước được giữ. Prompt và nguồn ảnh tại public/art/thien-lo/provenance.json và level-seals.provenance.json; ảnh gốc PNG cùng bản WebP nằm trong workspace.
+- **Tiếp theo:** Web local http://127.0.0.1:3000/path mở để người dùng test; chưa USER-ACCEPTED, không commit/push/deploy.
+
+## Bảng triệu hồi · sửa mất phần trăm Thất Trụ · 06/10/2026
+
+- **Module:** Bảng triệu hồi — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** Bảy số phần trăm hiển thị lại; mở lại bảng giữ kết quả trong lúc cập nhật cùng owner/reset. Tính câu duy nhất đã luyện trên tổng câu đã phát hành của từng kỹ năng, không dùng mốc 1.000. Giữ hai bảng cánh cân nhau và hiệu ứng 3D; các thay đổi Header 02/cửa sổ Thức Tỉnh Điện/cấu hình ở checkpoint trước vẫn giữ.
+- **Đã kiểm:** 16 targeted Vitest qua cho công thức, catalog, cache và route; thêm kiểm tra đọc nguồn đề theo lô đạt, parity ID/kỹ năng với bộ chấm, từ chối digest sai/bản nháp. Typecheck và targeted ESLint qua. Browser thật hiển thị Phát âm <0,1% từ một câu đã luyện, sáu trụ chưa luyện 0%; đóng/mở lại không mất %. Tổng câu khớp trước tối ưu: 21098/1595/909/2198/1745/10088/827 theo pronunciation/listening/speaking/reading/writing/vocabulary/grammar. Local lần đầu sau restart cần khoảng 39 giây gồm biên dịch; cache khoảng 1,7 giây. Đọc theo lô giữ immutable digest fence, không đưa đáp án vào API. Ảnh kiểm tra: tmp/ngoc-summon-percent-final.jpg. Full check vẫn có 7 lỗi lint script ngoài phạm vi đã ghi ở checkpoint trước.
+- **Dữ liệu giữ được:** Không migration/reset hoặc thay nội dung, IDs, progress, FSRS, session/outbox; giữ .wrangler, docs/reports, output và inventory HSK0 4/4, HSK1–4 213/213 rich. Không commit/push/deploy.
+- **Tiếp theo:** Web http://localhost:3000 mở sẵn để người dùng test; chưa USER-ACCEPTED.
+
+## Bảng triệu hồi · khôi phục 3D và cân hai bảng cánh · 05/10/2026
+
+- **Module:** Bảng triệu hồi — IN-REVIEW.
+- **Người học thấy gì:** Khôi phục perspective, hiệu ứng xuất hiện và nghiêng theo con trỏ trên desktop thấp; hai bảng Nhiệm vụ/Thất Trụ dùng chung chiều rộng và chiều cao, góc nghiêng đối xứng. Bảy hàng Thất Trụ giãn theo khung, bỏ ô vuông quanh nhãn âm/thính; giữ công thức phần trăm đã sửa.
+- **Đã kiểm:** Browser 1320×644: hai khung ngoài cùng 337×420 px, không tràn nội dung, không che footer; transform matrix3d và góc/con trỏ thay đổi thật khi tương tác. Mobile giữ bố cục cuộn giữa và reduced-motion giữ tắt chuyển động theo tùy chọn.
+- **Dữ liệu giữ được:** Chỉ sửa CSS, không thay dữ liệu/IDs/tiến độ/.wrangler hoặc nội dung; giữ HSK0 4/4, HSK1–4 213/213 rich.
+- **Tiếp theo:** Người dùng test lại hiệu ứng và tỷ lệ hai bảng; chưa USER-ACCEPTED.
+
+## Ngọc điện · Header 02, cửa sổ Thức Tỉnh Điện và bảng triệu hồi · 05/10/2026
+
+- **Module:** Giao diện hệ thống — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** Một Header 02 với Premium và hồ sơ gọn hơn; loading Ngọc điện; bốn cửa sổ sau hero đầu dùng nền/ngôn ngữ thị giác Ngọc điện, giữ nút trước/sau và chu kỳ 5 giây. Sửa CTA bị cắt và chồng chữ ở desktop thấp/mobile. Cấu hình đủ mục 1–4, không cuộn lồng ở desktop 1320×644. Triệu hồi có bảy hàng Thất Trụ đồng bộ, bỏ nút đọc riêng và gọi đọc tự động mỗi lần mở (tôn trọng tùy chọn giọng; cần giọng Việt của thiết bị).
+- **Phần trăm:** Bỏ mốc 1.000. Đếm giao của câu đã luyện với ngân hàng câu đã phát hành theo kỹ năng; khử trùng lặp câu/revision lexical và nguồn diagnostic, nhận thêm page activities có learningTarget và đề đã phát hành. Tài khoản đọc đúng owner/reset epoch; guest dùng evidence và bản lưu trang trên thiết bị. Chỉ trả ID, không đáp án. Câu ngoài ngân hàng/không gán kỹ năng không được tự suy ra; lỗi tải hiện —, không giả 0%. Đây là độ phủ luyện, không phải mastery.
+- **Đã kiểm:** 20 Vitest qua cho Header, công thức/khử trùng lặp, parity ngân hàng bài học, API guest/owner/reset/fail-closed; typecheck và targeted ESLint qua. Browser desktop 1320×644 và mobile 390×844: bốn cửa sổ, CTA, cấu hình, Premium, mở/đóng triệu hồi/Escape; sửa overlap mobile. Chưa xác minh âm thanh nghe được trên máy người dùng. Full `npm run check` bị chặn bởi 7 lỗi unused-vars có sẵn ở script nội dung/demo ngoài phạm vi.
+- **Dữ liệu giữ được:** Không sửa nội dung, IDs, progress, FSRS, session, outbox hoặc reset; không migration. Giữ inventory HSK0 4/4, HSK1–4 213/213 rich, .wrangler, docs/reports và output. Chưa commit/push/deploy.
+- **Tiếp theo:** Test bản local http://127.0.0.1:3000 và phản hồi giao diện; chưa USER-ACCEPTED.
+
+## Thiên Lộ · khép 14 nhóm biên tập dự kiến và giao local · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW theo quy ước nghiệm thu, chưa USER-ACCEPTED. Đã khép14/14 nhóm biên tập dự kiến; không suy mọi câu/nghĩa phụ đã rà hoặc đủ HSK từ con số này.
+- **Người học thấy gì:** Catalog luyện/Ôn/Nói mới đã nhận1.312 mục từ đã phát hành với version riêng; Lỗi resolve đúng version. Lô108 APPLY thêm3 trang/7 mẫu về giáo dục gia đình trong bài campus-education, có mẫu Trung/Pinyin/Việt, phân biệt/feedback, đoạn đọc ngắn và vận dụng khác ngữ cảnh. Không thêm lesson hoặc replay. Hồ sơ201–203 ghi phạm vi và giới hạn; local http://127.0.0.1:3000.
+- **Đã rà/kiểm:** Đọc current bài campus-education cùng5 yêu cầu nhiệm vụ gia đình trong PDF hash trùng nguồn pin. Validation catalog read-only và rehearsal rollback sáu phiên/grade thẻ mới giữ51 bảng/405 thẻ cũ; lô108 release giữ43 bảng/heads khác/immutable parent/FK. Final audit đủ217 current heads,2.000 word tuples không thiếu bộ trường,0 job release chờ; đây không phải proof ngữ nghĩa/mastery. Không browser/timed learner/parity/Vitest/typecheck/full check. Những phạm vi đọc/rà trước nằm trong hồ sơ gốc, không gọi lượt cuối đã đọc lại toàn kho.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs/progress/FSRS/lỗi/saved/session/outbox/owner/reset scope, draft editor/Premium/admin/.wrangler/docs/reports/output. Phiên/thẻ cũ giữ bản nền; hai form08.5 giữ nguyên, chưa thuộc resolver08.7. humanReviewed:false; không USER-ACCEPTED/stage/commit/push/deploy.
+- **Tiếp theo:** Người học dùng bản local; xử lý issue nội dung cụ thể nếu phát hiện, không tự mở lại backlog kiểm thử đã bỏ. Automation nội dung đã xác minhPAUSED;get_goal trảgoal:null. Không tuyên bố có tiến trình goal nền hoặc tự khởi động vòng lặp tiếp.
+
+## Thiên Lộ · catalog ngữ liệu cho phiên mới · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; còn nhóm đối chiếu cuối.
+- **Người học thấy gì:** Catalog lexical-editorial-2026.10.5 pin 1.312 mục từ đã sửa/phát hành trong Xưởng. Luyện local/account mới dùng nghĩa/mẫu/lời giải mới với ID/version riêng; phiên cũ giữ catalog nền. Ôn local và thẻ account mới dùng bản mới, thẻ cũ giữ FSRS/version, không tạo hai thẻ cùng từ. Nói dùng câu mới và activity version riêng; Lỗi resolve đúng version của câu gốc. Không thêm bài/trang, không replay. Hồ sơ201.
+- **Đã kiểm:** Validation nội tại read-only source/digest/answer/options, catalog cũ khớp baseline; 217 bài × hai script, 868 resume forms. Ba started forms package hiện hành hợp lệ; hai form package08.5 giữ nguyên nhưng chưa thuộc resolver hiện hành. Rehearsal open/attempt/submit sáu bài và grade thẻ mới, ROLLBACK giữ51 bảng/FK cùng405 thẻ cũ. Backup trong .wrangler; không browser/timed learner/parity/Vitest/typecheck/full check.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, IDs/progress/FSRS/lỗi/saved/session/outbox/owner/reset scope, draft editor/Premium/admin/.wrangler/docs/reports/output. humanReviewed:false; không USER-ACCEPTED/commit/push/deploy. Web local PID7904 tại http://127.0.0.1:3000, không migration/reset.
+- **Tiếp theo:**13/14 nhóm dự kiến đã khép. Còn một nhóm đối chiếu cuối để đọc các điểm còn mở và xử lý thiếu hụt thật; không suy toàn bộ ngữ liệu đã rà từ số candidates hay snapshots. Automation lần xác minh gần nhấtPAUSED,goal:null; không tuyên bố nền chạy.
+
+## Thiên Lộ · khép lượt đọc nghĩa HSK1 · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; chưa hoàn tất toàn phạm vi.
+- **Người học thấy gì:** Lô106 APPLY35 mục/44 mẫu HSK1,7 nghĩa cùng word blocks9 bài; tổng44 revisions. Hồ sơ200 và receipt giữ nguồn/backup. Không thêm bài/trang hoặc replay.
+- **Đã rà/kiểm:** Đọc đủ300 tripleHSK1 hiện hành/fallback để sửa các nghĩa và ngữ cảnh đã nêu. Không suy mọi cách dùng/ngữ pháp/toàn40bài đã rà. Rehearsal rollback/validation nội tại/backup/APPLY giữ43 bảng/heads khác/parents/FK; không browser/timed learner/parity/Vitest/typecheck/full check.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78,IDs/progress/FSRS/lỗi/session/outbox/owner,draft editor/Premium/admin/.wrangler/docs/reports/output;humanReviewed:false,không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Kế hoạch14 nhóm đã khép12. Còn2 nhóm dự kiến:catalog luyện phiên mới và đối chiếu cuối/phát hành. Đã đọc consumerexerciseGeneration/authoritativeItemBank/attemptScoring/resumeProtocol/normalizedLessonRuntime/lessonSessionRepository/reviewProtocol/reviewQueueRepository:catalog nền và phiên đang pin chặt cùngversion; chưa thayngữ liệu chấm hoặc protocol,không gọi đồng bộcatalogxong. Thiếu hụt thực tế có thể phát sinh ở đối chiếu cuối. Automation lần xác minh gần nhấtPAUSED,goal:null;không tuyên bố nền chạy.
+
+
+## Thiên Lộ · đề B và bản sao ngữ liệu · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; chưa hoàn tất toàn phạm vi.
+- **Người học thấy gì:** Lô101–105 APPLY. Cửa H HSK2/3/4 có60/80/100 câu cho phiên mới; phát hành119 exam items mới và3 forms, reuse revisions cũ. Sửa7 khối nghĩa/7 bài cùng11 mục từ/11 mẫu/3 bài. Hồ sơ195–199 giữ receipts/backup; không replay.
+- **Đã rà/kiểm:** Đọc60 HSK2 B,23 HSK3 B còn lại,36 HSK4 B từ/ngữ pháp; sửa15 grammar HSK3 và36 lời giải/cue HSK4. Đối chiếu48 phrase nguồn cũ trong217 current lesson heads:0literal hits, không suy toàn kho sạch. Đọc đầy đủcampus-education và13 triples còn khớp để chọn11 sửa. Validation/rehearsal/backup/immutable reuse/head guards/43 bảng/FK/public answer redaction đạt. Pinned restore với source archived đã rehearsal bằng transition đúng workflow và ROLLBACK cho4 cửaG, definitions giữ nguyên; helper cho phép published hoặc archived với digest fence. Một thử SQL trực tiếp bị immutable trigger từ chối và rollback, không gỡ trigger. Không kiểm thử đã bỏ.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs/progress/FSRS/lỗi/session/outbox/owner, draft editor/Premium/admin/.wrangler/docs/reports/output;humanReviewed:false. Không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Kế hoạch14 nhóm đã khép11; còn3 nhóm dự kiến:nghĩa/cách dùngHSK1,catalog luyện phiên mới,đối chiếu cuối/phát hành. Các nhóm khép có phạm vi cụ thể ở hồ sơ, không gọi mọi nghĩa phụ/Pinyin toàn bank/toàn217bài đã rà. Thiếu hụt thật có thể tăng số nhóm. Automation lần đọc gần nhấtPAUSED,goal:null; không tuyên bố nền chạy hoặc hoàn tất.
+
+
+## Thiên Lộ · khép lượt đọc từ điển HSK3 · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; chưa hoàn tất toàn phạm vi.
+- **Người học thấy gì:** Lô95–100 APPLY,141 mục HSK3/150 mẫu,191 revisions gồm word blocks liên kết; sửa32 nghĩa theo ngữ cảnh/từ loại pinned. Không tăng bài/trang; không replay. Hồ sơ189–194 giữ receipts/backup. Hồ sơ189 giữ hậu tốROUND92 do metadata đã pin, nguồn thực tế round95.
+- **Đã rà/kiểm:** Đọc300 triple00701–01000; đọc bù00633–00643 nối mốc186. Đây là lượt đọc nghĩa/ví dụ, không chứng minh đã dạy đủ mọi nghĩa phụ/nguồn dài/đáp án. Validation nội tại/rehearsal rollback/backup/APPLY bảo toàn43 bảng/parents/heads/FK. Không chạy các kiểm thử đã bỏ.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs/progress/FSRS/lỗi/session/outbox/owner, draft editor/Premium/admin/.wrangler/docs/reports/output. humanReviewed:false; không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Kế hoạch đã báo người dùng14 nhóm, khép6 nhóm dictionary; còn8 nhóm dự kiến:3 assessment B,2 nguồn dài/bản sao và đáp án,1 nghĩa/cách dùng HSK1,1 catalog luyện phiên mới,1 đối chiếu cuối/phát hành. Số nhóm là dự kiến, không phải phần trăm hay chứng minh đầy đủ toàn HSK; thiếu hụt thật có thể tăng phạm vi. Automation lần xác minh gần nhấtPAUSED, goal:null.
+
+
+## Thiên Lộ · bốn cửa khảo luyện cho phiên mới · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; toàn phạm vi nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Lô90–94 đã APPLY, không replay. Thêm cửa G HSK1/2/3/4 gồm40/60/80/100 câu từ revisions mới qua Xưởng và API khảo luyện hiện hành. Sửa lời giải/nguồn/cue,15 câu grammar HSK3 cùng ngữ cảnh,20 câu đọc/nghe có căn cứ;13 mục HSK1 và33 mục HSK3 được sửa ví dụ. Giữ đề/phiên cũ; không gọi các cửa A–F đã sửa hoặc số câu là mastery.
+- **Đã rà/kiểm:** Hồ sơ184–188 giữ phạm vi đọc/revisions/backup. Đọc50 HSK1,60 HSK2,54 HSK3 A+31 nguồn B chọn,72 HSK4 A+36 nghe/đọc B. Nguồn B chưa chọn/Pinyin toàn bank vẫn mở. Validation nội tại/rehearsal rollback/backup/APPLY giữ43 bảng, heads/forms cũ/FK, pin/restore và public answer redaction. Không browser/timed learner/parity/Vitest/typecheck/full check; chưa browser các cửa G.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs/progress/FSRS/lỗi/session/outbox/owner, nháp editor/Premium/admin/.wrangler/docs/reports/output. humanReviewed:false; không USER-ACCEPTED/commit/push/deploy.
+- **Còn mở:** Nghĩa/độ sâu và các bản sao nguồn dài HSK1–3, các mẫu/Pinyin còn lại, nguồn assessment B chưa chọn và versioned catalog luyện tương lai. Không mở lại backlog kiểm thử đã bỏ. Automation được đọc05/10:automation.toml xác nhận PAUSED; get_goal trảgoal:null. Chưa bật lại/dừng automation trong lượt này, không tuyên bố có việc nền đang chạy.
+
+## Thiên Lộ · bộ đánh giá HSK4 cho phiên mới · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Lô91 APPLY108 câu và cửa G HSK4 gồm100 câu qua Xưởng/module khảo luyện hiện hành; sửa lời giải sai nguồn, dữ kiện tự thêm, cue ngữ pháp và câu 不是一定. Giữ đề/phiên cũ; không gọi mọi assessment đã sửa. Nghe TTS/viết chọn đáp án vẫn là luyện local, không chứng nhận/mastery.
+- **Đã rà/kiểm:**72 câu form A và36 nghe/đọc form B; không gồm36 từ vựng/ngữ pháp form B hoặc HSK1–3. Validation nội tại phát hiện/sửa giới hạn Hanzi hai ký tự và resolver cần private answers của đúng released revision. Rehearsal rollback rồi APPLY109, pin/hash/restore/public answer redaction/FK/43 bảng đạt; hồ sơ185. Không chạy các kiểm thử đã bỏ; chưa browser cửa G.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, old heads/forms, stable IDs/progress/FSRS/lỗi/session/outbox/owner, drafts editor/Premium/admin/.wrangler/docs/reports/output; humanReviewed:false, không USER-ACCEPTED/commit/push/deploy.
+- **Còn mở:** Độ sâu/nghĩa HSK1/HSK3, assessment HSK1–3 và nguồn HSK4 form B còn lại, mẫu/Pinyin và versioned catalog luyện tương lai. Không replay85–91. Automation chưa dừng; trạng thái automation/goal ngày05/10 chưa xác minh.
+- **Mốc92:** APPLY33 mục HSK3/37 mẫu, sửa4 nghĩa theo từ loại pinned và word blocks trong15 bài; tổng48 revisions, hồ sơ186. Rehearsal/backup/apply giữ43 bảng/heads/parents/FK. Không tự sửa nguồn dài/đáp án phiên cũ. Đã đọc50 câu assessment HSK1 và60 HSK2 (phần reading01–03 từng cắt đã đọc lại); đang sửa nghĩa Việt衣服/件, thoại màu–độ dài, 还有/还在 và so sánh thiếu mốc để giao phiên mới. Chưa tính assessment HSK1/2 đã phát hành.
+- **Mốc93:** Đã APPLY110 câu và hai cửa G HSK1/HSK2 (40/60 câu),112 revisions; hồ sơ187. Sửa các vấn đề trên, lời giải25 câu grammar và ánh xạ bài nguồn HSK1 cho publications mới. Validation/rehearsal/backup/apply/pin/restore/public answer redaction giữ43 bảng, old forms/heads/FK; không kiểm thử đã bỏ. Đang rà assessment HSK3; chưa gọi các nguồn form B HSK2–4 đã rà toàn bộ.
+
+## Thiên Lộ · ngữ pháp HSK2 và ví dụ từ điển · 05/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; nội dung HSK0–4 chưa hoàn tất, không tự suy phần trăm hay ETA.
+- **Người học thấy gì:** Lô85–89 đã APPLY, không replay. Lô85–87 thêm56 câu phân biệt và56 vận dụng vào tám bài HSK2, không tăng trang. Lô88 sửa 花 động từ và 近 tính từ trong Từ điển/bài; thêm hai mẫu, một câu phân biệt và một vận dụng ở shopping03; sửa dấu tách âm tiết/Pinyin tiền. Lô89 sửa61 mục từ/65 mẫu và bản sao word blocks trong38 bài. Cùng lô83–84 trước đó,75 nhóm grammar HSK2 đã có phần luyện bổ sung; con số không chứng minh đủ mọi nghĩa hay đủ HSK.
+- **Đã rà/phát hành:** Đọc note/mẫu/guided practice/cloze của75 nhóm HSK2; đọc hội thoại, giải thích, câu chọn/cloze/order và vận dụng trong20 bài chủ đề/10 bài kỹ năng,200 ví dụ mục từ HSK2 để chọn sửa. Output nhóm daily từng bị cắt đã đọc lại phần rút gọn và riêng phần daily03. Không gọi mọi word blocks, ảnh/diagram, Pinyin toàn kho, metadata/exercise nền hoặc assessment đã rà. Hồ sơ179–183 giữ phạm vi/receipts. Lô89 đã xác minh99/99 heads và không có job release đang chờ.
+- **Đã kiểm:** Validation nội tại, rehearsal rollback, backup/apply, immutable parents, heads ngoài lô, FK và43 bảng bảo toàn. Lô88 bị từ chối cờ AI review chưa hoàn tất rồi rollback/sửa; lô89 rehearsal đầu chưa drain đủ99 đã rollback, sau sửa có giới hạn đạt99. Không browser/timed learner/parity Xưởng/Vitest/typecheck/full check theo yêu cầu.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs/progress/FSRS/lỗi/session/outbox/owner; giữ draft editor mới/Premium/admin/.wrangler/docs/reports/output. humanReviewed:false, không USER-ACCEPTED/commit/push/deploy.
+- **Mốc90:** Đã APPLY 19 mẫu/13 mục HSK1 (10 mục pinned và3 bridge), cập nhật word blocks trong9 bài, tổng22 revisions; hồ sơ184 và receipt giữ danh sách/backup. Không tăng trang hoặc thay catalog chấm của phiên cũ; không replay.
+- **Còn mở:** Rà nghĩa/độ sâu HSK1 và HSK3 còn lại, assessment HSK1–4 (đã thấy giải thích HSK4 sao chép sai phạm vi nguồn), các mẫu/Pinyin cũ và giao catalog tương lai có phiên bản an toàn. Tham khảo projection trong Ôn/Nói/Lỗi đã nối, nhưng scoring catalog/target của phiên cũ còn giữ bản nền. Chưa dừng automation vì chưa hoàn tất; chưa xác minh trạng thái automation/goal trong lượt05/10, không tuyên bố nền đang chạy.
+
+## Thiên Lộ · HSK1 câu cơ bản và HSK2 vận dụng · 04/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Lô79–84 đã apply, không replay. HSK1 thêm26 trang/7 bài: vị ngữ danh từ, nơi+是/有+số lượng, cách gọi 小, năng nguyện/phạm vi phủ định/chính phản, chuỗi động từ/一下/hai tân ngữ. Sửa 下午 lời đáp thiếu ngữ cảnh trong week và phát hành mục Từ điển; 很 được diễn giải là phó từ. HSK2 thêm19 câu phân biệt/19 vận dụng vào các trang practice của2 bài aspect/state, thêm4 mẫu mốc thời gian; không tăng trang. Sửa so sánh có mốc rõ, tuổi chênh lệch và dịch 着/听歌. Hồ sơ172–177 giữ revision/backup.
+- **Đã rà/phát hành:** Đọc current heads trước sửa. Đọc rule/grammar/dialogue/activity của journey1/2, professional1–4;10 nhóm grammar và các activity của aspect01;9 nhóm grammar/practice của aspect02. Chỉ phạm vi ghi trong hồ sơ, không gọi40 bài HSK2 hay mọi Pinyin/diagram đã rà. Rehearsal/validation nội tại/backup/apply giữ43 bảng, heads khác, parents immutable và FK. Không browser/timed learner/Xưởng parity/Vitest/typecheck/full check.
+- **Giao ngữ liệu bổ trợ:** Đã nối tham khảo projection vocabulary theo stable word ID ở Ôn sau reveal, Nói và Lỗi sau submit; Từ điển mở đúng word hoặc lesson đã có. Source/diff đọc và diff-check, chưa browser/typecheck theo yêu cầu. Hồ sơ178. Không đổi câu target, scoring catalog, version, lệnh chấm hoặc outbox/FSRS của phiên cũ; đây là bổ trợ, chưa tuyên bố catalog tương lai đã đổi ngữ liệu.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs/progress/FSRS/lỗi/session/outbox/owner; giữ nháp editor mới, Premium/admin, .wrangler, docs/reports và output. humanReviewed:false, không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Độ sâu/nghĩa/ngữ pháp/task/topic HSK1–3, mẫu/Pinyin và assessment chưa rà, catalog tương lai có phiên bản an toàn. Đang đọc nhóm clause-linking HSK2. Automation giữ ACTIVE theo mốc đã xác minh trước, chưa dừng vì phạm vi chưa hoàn tất; không tuyên bố goal tool đang chạy.
+
+## Thiên Lộ · precision và các bài tích hợp HSK4 · 04/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; phạm vi nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Lô65–76 đã apply. Lô66–69 bổ sung24 nhóm grammar/4 bài precision:74 mẫu,57 câu chọn,24 vận dụng, net+48 trang. Tổng chuỗi223 trang/35 bài độc nhất có bổ sung ròng; không suy đủ HSK/mastery. Lô70–75 sửa nhiệm vụ/mẫu/giải thích ở17 bài integration (written02 đã đọc, chưa có sửa trong lượt này), thêm câu phân loại có dữ liệu thật, bảng kiểm, nhãn từng đoạn, mẫu viết đủ độ dài có Pinyin/Việt, đơn vị nói theo giây, mức chắc chắn và trình tự nguồn. Lô72 cũng sửa vận dụng đã ghi/sẽ ghi ở precision04. Lô76 sửa21 trường/5 bài dùng chung nguồn giao lưu/du ký: không bịa tỷ lệ thắng tăng khi thiếu baseline; di tích khác cổ tích. Hồ sơ158–169 giữ receipts; không replay.
+- **Đã rà:** Đọc note/mẫu/câu chọn/giải thích/vận dụng của24 nhóm precision. Đọc Hán tự và hoạt động của18 bài integration thuộc6 nhóm (inference3, synthesis3, written3, spoken3, structure3, sectional3); một số nguồn dùng chung đã đọc trước. Đọc nghĩa Việt đầy đủ ở inference và synthesis01; không gọi đã rà mọi Pinyin/Việt/consumer của18 bài. Các mẫu cũ còn thiếu Pinyin, task/topic/meaning HSK1–3 và assessment HSK4 vẫn mở.
+- **Đã kiểm:** Rehearsal/validation nội tại/backup/apply mỗi lô giữ43 bảng, heads khác, immutable parents và FK. Không browser/timed learner/Xưởng parity/Vitest/typecheck/full check theo yêu cầu. Cổng3000 đang listener PID13020; chỉ xác nhận server, chưa browser journey.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs, progress/FSRS/lỗi/session/outbox/owner; giữ nháp mới, Premium/admin, .wrangler, docs/reports và output. humanReviewed:false; không USER-ACCEPTED/commit/push/deploy.
+- **Mốc mới:** Lô77 apply5 trang/2 bài HSK1 số lượng và thời tiết;4 khối mẫu,6 câu chọn,2 vận dụng. Rà sáu bài time-place-events, chưa gọi mọi Pinyin/diagram/dictionary đã rà. Row032 gắn ở weather là 数量短语 trong inventory, cần rà ánh xạ grammar; source target mới dùng từ đã liên kết. Rehearsal đầu77 bị validator từ chối stage/kind/ID, rollback rồi sửa đúng schema, rehearsal/apply đạt. Hồ sơ170 giữ receipt. Còn ngữ liệu 下午 thiếu lượt hỏi khi đứng riêng.
+- **Mốc78:** Đã apply4 danh sách sourceGrammarIds đúng nội dung đang dạy: số lượng, thứ/buổi, giờ/thời lượng và thời tiết/vị trí. Không đổi trang/đáp án/timer/IDs; hồ sơ171. Liên kết này không chứng minh đủ mọi nghĩa của row. Còn cần bổ sung 小 ở calendar, mẫu 处所+是/有+数量短语 ở location và luyện vị ngữ danh từ ở week; mẫu 下午 thiếu lượt hỏi cần sửa.
+- **Tiếp theo:** Độ sâu ngữ pháp/task/topic/meaning HSK1–3, các mẫu và assessment còn thiếu rà, giao ngữ liệu cho Ôn/Nói/Lỗi theo phiên bản an toàn. Automation nội dung đã được bật lại theo yêu cầu tiếp tục; automation_update và automation.toml cùng xác nhận ACTIVE, lịch mỗi giờ và prompt/phạm vi giữ nguyên. get_goal hiện trả goal:null, không có goal tool nền đang chạy; automation là cơ chế nối việc, chỉ dừng khi thật sự hoàn tất.
+
+## Thiên Lộ · nhượng bộ, điều kiện và đối chiếu nguồn · 04/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Lô51/53/54/57 đã phát hành12 nhóm ngữ pháp về bị động/đánh giá, vai trò/sai khiến, nhượng bộ và điều kiện. Tăng24 trang trong các bài hiện có, tổng chuỗi117 trang/24 bài có bổ sung ròng. Lô52 sửa40 trường Pinyin/3 bài. Lô55 sửa7 hoạt động tiệm bánh/lễ hội: loại dữ kiện bịa, sửa đáp án audit0, viết lại5 mẫu Trung/Pinyin/Việt và rubric. Lô56 sửa45 trường Pinyin/7 bài, gồm 垃圾 lājī, 拥挤 yōngjǐ và lỗi còn sót trong mẫu mới. Số trang không chứng minh đủ HSK/mastery.
+- **Đã rà/phát hành:** Hồ sơ144–150 có revision/backup; các lô51–57 đã apply, không replay. Đọc sáu đoạn và hoạt động ngoài grammar của argument-02..04; argument-03/04 đang soạn sửa chung lô58, chưa phát hành. Lô57 hoàn tất bốn nhóm grammar argument-02; grammar argument-03/04 và stance vẫn còn. Validation/rehearsal/backup/apply giữ43 bảng, heads khác, immutable parents và FK; không chạy kiểm thử đã bỏ. Không coi các bài dùng chung nguồn đã được rà mọi hoạt động.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, stable IDs, progress/FSRS/lỗi/session/outbox; giữ drafts mới, Premium/admin, .wrangler, docs/reports và output. humanReviewed:false; không USER-ACCEPTED/commit/push/deploy.
+- **Mốc nối tiếp:** Lô58 đã apply14 hoạt động/2 bài argument-03/04, hồ sơ151. Lô59 apply8 nhóm grammar/2 bài này,16 mẫu/16 câu chọn/8 vận dụng, net+16. Lô60 apply9 nhóm stance-01/02,18 mẫu/18 câu chọn/9 vận dụng, net+18; tổng chuỗi151 trang/28 bài bổ sung ròng, không chứng minh mastery. Hồ sơ152–153 giữ revision/backup. Lô61 đang rehearsal56 trường Pinyin/16 bài cho các lỗi đọc đã xác định; không coi là rà hết Pinyin. Đã đọc nguồn,7 hoạt động và4 grammar stance-03, đang xử lý; stance-04/05 còn chưa rà đầy đủ. Stance-02 còn lỗi mẫu Việt gọi thử ba tháng chưa xong dù nguồn có kết quả.
+- **Mốc mới nhất:** Lô61 apply56 trường/16 bài; lô62 apply4 nhóm stance03 (8 mẫu/8 câu chọn/4 vận dụng, net+8); lô63 apply8 nhóm stance04/05 (16/16/8, net+16). Tổng chuỗi175 trang/31 bài có bổ sung ròng, không suy đủ HSK. Đã đọc nguồn và hoạt động ngoài grammar cả5 bài stance; toàn bộ grammar của nhóm này được soạn lại. Lô64 apply16 trường/3 bài: thử3 tháng đã có kết quả, ≤100 chữ, ranh giới mở rộng/so sánh, ổn định mùa đông và quan sát môi trường. Hồ sơ154–157 giữ receipts. Lô65 đã rehearsal54 trường/14 bài, đang apply: 卡住 qiǎ zhù, 行程 xíngchéng, 空调 kōngtiáo, 质量 zhìliàng, 将 jiāng, 成为 chéngwéi, 得 de và 古迹 là di tích. Không gọi mọi hoạt động ở các bài dùng chung đã rà toàn bộ. Một rehearsal62 từng bị database locked khi61 còn chạy; chưa ghi, sau61 hoàn tất rerun và apply đạt.
+- **Tiếp theo:** Hoàn tất65 rồi grammar precision01/03/04/05, HSK1–3 và ma trận task/topic/meaning. Ôn/Nói/Lỗi còn cần giao nội dung theo phiên bản an toàn; chưa gọi liên thông hoàn tất. Automation chưa dừng vì phạm vi còn mở; chưa xác minh goal nền đang chạy.
+
+## Thiên Lộ · đối chiếu nguồn và bổ sung ngữ pháp · 04/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; phạm vi nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Lô35/37 sửa12 hoạt động ở precision-05/06, gồm đảo ngày–tối, nhầm báo cáo ho với số khách, tự thêm số người và phủ nhận thỏa thuận gia đình đã có. Lô36/38 sửa80 trường Pinyin ở các bản dùng chung. Lô39 bổ sung sáu nhóm mức độ/khả năng/định lượng:19 mẫu,17 câu chọn,6 vận dụng. Lô40 sửa39 trường 广播 guǎngbō, gồm lỗi còn sót sau lô36. Lô41–43 sửa141 trường/bản sao về nguồn nghệ thuật, thể thao và giao lưu, giữ điều kiện giả định, tự báo cáo, tỷ lệ, thời lượng và giới hạn nhân quả. Lô44 thêm chín nhóm liên kết:19 mẫu,18 câu chọn,9 vận dụng. Tổng chuỗi bổ sung ròng81 trang/17 bài, không phải chứng minh mastery/đủ HSK.
+- **Đã rà/phát hành:** Hồ sơ128–137 có revision/backup. Đọc toàn bộ nguồn và hoạt động ngoài grammar precision-05/06, information-order-cohesion-02..05; grammar precision-06 và information-02..04 được soạn lại. Không gọi mọi hoạt động của các bài dùng chung đã rà. Lô45 đã apply56 thay đổi/4 bài văn hóa; lô46 apply45 thay đổi/3 bài khoa học. Lô47 apply bốn nhóm grammar ở information-05/event-01:11 mẫu,10 câu chọn,4 vận dụng, net+8 trang; tổng chuỗi89 trang/19 bài. Hồ sơ138–140 giữ revisions. Lô48 apply53 thay đổi/3 bài cỏ biển/đường mòn; lô49 apply hai nhóm 把 thời lượng/số lần/cách thức (6 mẫu,6 câu chọn,2 vận dụng, net+4 trang). Tổng chuỗi93 trang/20 bài, hồ sơ141–142. Lô50 apply51 thay đổi/4 bài dữ liệu công/chợ; đang apply51 và đã soạn52/53, chưa tính các lô này vào tổng. Release giữ43 bảng/heads khác/parents/FK; không chạy các kiểm thử đã bỏ.
+- **Dữ liệu giữ được:**217 bài4/40/40/55/78, IDs, progress/FSRS/lỗi/session/outbox; drafts mới, Premium/admin, .wrangler, docs/reports và output. humanReviewed:false, không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Hoàn tất lô48/49, tiếp rà nhóm event-agency-voice/argument-logic/stance và ngữ pháp còn lại HSK1–4. Consumer Ôn/Nói/Lỗi vẫn cần giao ngữ liệu theo phiên bản an toàn; không tuyên bố đồng bộ xong. Không dừng automation vì còn việc, không khẳng định goal nền đang chạy.
+
+
+## Thiên Lộ · sửa đối chiếu nguồn, rubric và phó từ · 04/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; chưa hoàn tất toàn phạm vi nội dung.
+- **Người học thấy gì:** 24 bài HSK4 có rubric phản biện rõ vai trò ý kiến đối lập. precision-reference-quantity-02 sửa bảy hoạt động có mẫu/tiêu chí sai nguồn sân bay và lịch sử gia đình; năm mẫu mới có Trung/Pinyin/Việt. Ba bài chung nguồn sửa43 trường Pinyin. Sáu nhóm phó từ có28 mẫu,16 câu chọn,6 vận dụng mới; net+12 trang (bài18→30).
+- **Đã rà/phát hành:** Lô24–27 apply với backup và validation nội tại; hồ sơ117–120 giữ revisions. Đọc đủ sáu đoạn nguồn, sáu grammar và bảy hoạt động của bài sửa; đọc24 câu hỏi/counterargument/boundary để sửa rubric, không gọi rà toàn văn24 bài. Giữ43 bảng, parent packages, heads ngoài lô, FK. Không chạy kiểm thử đã bỏ.
+- **Dữ liệu giữ được:** 217 bài nền 4/40/40/55/78, stable IDs, FSRS/tiến độ/lỗi/phiên/outbox. Giữ Premium/admin và mọi draft mới; humanReviewed:false, không USER-ACCEPTED/commit/push/deploy. Tổng bổ sung trong chuỗi ngữ liệu là51 trang/13 bài, không phải mastery.
+- **Tiếp theo:** Đối chiếu đáp án với toàn văn nguồn các bài HSK4 còn lại, tiếp độ sâu ngữ pháp HSK1–4 và nối ngữ liệu vào Ôn/Nói/Lỗi theo phiên bản an toàn. Lô28 đã sửa64 trường/7 bài dùng ba đoạn nguồn: 夏夜/市中心, 种树 zhòng, 操作熟练, 报销 hoàn trả chi phí, mua trùng dụng cụ/nhàn rỗi; hồ sơ121. Lô29 sửa7 hoạt động precision-01 để bám bảng dịch vụ và bến xe, năm mẫu Trung/Pinyin/Việt. Lô30 sửa34 trường Pinyin/3 bài dùng cùng sáu đoạn; hồ sơ122–123. Lô31 sửa6 hoạt động precision-03 tự thêm chi tiết ngoài nguồn; năm mẫu mới Trung/Pinyin/Việt. Lô32 sửa37 trường Pinyin/3 bài nguồn cầu cổ/thầy Trần, gồm 咳 ké, 长 cháng, 危险 wēixiǎn, 改为 wéi; hồ sơ124–125. Lô33 sửa7 hoạt động precision-04; lô34 sửa43 trường Pinyin/3 bài, hồ sơ126–127. Đã bật lại Vinext trực tiếp cổng3000 PID6624/session24110, không migration, chỉ xác nhận listener chưa browser. Lô35 sửa7 hoạt động precision-05; lô36 sửa40 trường Pinyin/3 bài, hồ sơ128–129. Lô37 sửa5 hoạt động precision-06: thỏa thuận3 tháng đã có, không tự thêm số người đêm đọc; lô38 sửa40 trường Pinyin/5 bài, hồ sơ130–131. Đã đọc sáu nhóm grammar precision-06 và phát hành lô39 (19 mẫu,17 câu chọn,6 vận dụng; net+12 trang, hồ sơ132; tổng chuỗi63 trang/14 bài). Tiếp các bài summary khác và grammar chưa rà sâu. Phát hiện 广播 còn bị đọc guǎngbò trong nguồn khác và một phần lô36; đang chuẩn bị sửa lô40, không coi lần rà trước không còn lỗi. Chưa dừng automation hoặc xác nhận goal nền.
+
+## Thiên Lộ · hoàn tất thay ví dụ giữ chỗ HSK4 trong Từ điển · 02/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; toàn phạm vi nội dung chưa hoàn tất.
+- **Người học thấy gì:** Lô 17–23 phát hành thêm 705 mục từ HSK4, tổng 1.000/1.000 có ví dụ theo ngữ cảnh và nghĩa Việt được biên tập trong Xưởng/Từ điển. Giữ 12 sửa HSK3 và 39 trang bổ sung/12 bài từ các lô trước. Không suy đủ mọi nghĩa hoặc đủ HSK từ con số này.
+- **Đã rà/phát hành:** Đọc/soạn các triple Trung/Pinyin/Việt và nghĩa Việt của 705 mục còn lại; hồ sơ110–116 giữ revision. Rehearsal/backup/apply đạt, 43 bảng/parents/heads khác/FK giữ nguyên. Current heads xác nhận 1.000 HSK4, không còn mẫu câu meta đã khoanh vùng. Không chạy các đợt kiểm thử đã bỏ.
+- **Dữ liệu giữ được:** 217 bài nền 4/40/40/55/78, stable IDs, FSRS/tiến độ/lỗi/phiên/outbox, mọi draft mới và Premium/admin. humanReviewed:false; không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Rà ngữ pháp/nhiệm vụ/chủ đề HSK1–4 và độ sâu bài học; giao ngữ liệu mới vào Ôn/Nói/Lỗi mà không đổi đáp án/phiên cũ. Snapshot fallback chưa nối runtime; chưa tuyên bố đồng bộ consumer. Chưa dừng automation vì phạm vi chưa hoàn tất, không khẳng định goal nền đang chạy.
+
+## Thiên Lộ · sửa nghĩa, ngữ cảnh và liên từ HSK4 · 02/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW; phạm vi nội dung HSK0–4 chưa hoàn tất.
+- **Người học thấy gì:** Các lô dictionary HSK4 3/5/6/7/9/12/13/16 đã sửa và phát hành 295 mục; cùng 12 HSK3 là 307 mục mới trong chuỗi này. Lô 16 giữ riêng 生1 động từ và 生2 tính từ theo syllabus trang 121. Thêm 6 trang/2 bài đối chiếu 既然/如果 và hai nghĩa 尽管. Lô 14 soạn lại ba nhóm liên từ (16 mẫu, 13 câu luyện, ba vận dụng), tăng thêm 6 trang/1 bài; tổng bổ sung ròng trong chuỗi là 39 trang/12 bài. Lô 8 sửa 16 trường Pinyin/4 bài; lô 11 sửa 52 trường và bản sao/4 bài về múa bóng, mẫu suy luận 既然 và Pinyin; lô 15 sửa 18 trường Pinyin/3 bài dùng đoạn nền tảng tự học. Không cộng số revision thành số bài độc nhất.
+- **Đã rà/phát hành:** Hồ sơ 94–109, các plan tới round16 đã apply; không replay. Đã đọc gloss cả 1.000 HSK4 để triage, chưa rà đủ mọi nghĩa/cách dùng. Đọc toàn văn Hán tự/Việt và câu hỏi/giải thích của arts-process-timeline, nature-comparison-variation và information-order-cohesion-01; chưa gọi rà đủ mọi Pinyin/options. Lô 14 từng bị validation từ chối ID hàng syllabus, đã rollback rồi giữ source grammar registry gốc; lượt sau đạt. Release rehearsal/backup/apply, validation nội tại, 43 bảng/parents/heads ngoài lô/FK giữ nguyên. Không browser/Vitest/typecheck/full check. Đã bật Vinext trực tiếp trên DB hiện có (không chạy migration), cổng3000 listener PID14952/session23391; đây chỉ là xác nhận server lên, không phải browser journey.
+- **Còn thiếu:** 705 ví dụ HSK4 nền vẫn là câu meta, cần soạn ngữ cảnh; ma trận ngữ pháp/nhiệm vụ/chủ đề HSK1–4 chưa rà đủ. Từ điển/Xưởng nhận bản sửa nhưng Ôn/Nói/bài tập legacy còn dùng curriculum nền. Chưa nối snapshot fallback vì thay trực tiếp gây drift đáp án và tái dựng phiên; không tuyên bố liên thông xong.
+- **Dữ liệu giữ được:** 217 bài nền 4/40/40/55/78, stable IDs, tiến độ/FSRS/lỗi/phiên/outbox; giữ mọi draft mới, Premium/admin, .wrangler, docs/reports và output. humanReviewed:false, không USER-ACCEPTED/commit/push/deploy.
+- **Tiếp theo:** Tiếp xử lý 705 câu meta HSK4 và các nhóm ngữ pháp còn gộp nhiều mục; nhóm liên từ information-order-cohesion-01 đã xử lý lô 14. Tiếp tục giải quyết consumer có phiên bản mà không thay nội dung phiên cũ. Không dừng automation vì chưa hoàn tất, chưa xác minh trạng thái goal nền.
+
+## Thiên Lộ · ngữ liệu HSK3 và lỗi nghĩa HSK4 · 01/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW, chưa hoàn tất nội dung HSK0–4.
+- **Người học thấy gì:** Hai lô HSK3 thêm 21 trang/7 bài, sửa 12 mục từ; HSK4 sửa nghĩa/ví dụ 40 mục từ và thêm 6 trang/2 bài dạy 白酒/博士. Tổng lượt này 27 trang/9 bài, 52 mục từ mới được sửa/phát hành. Nội dung đọc được qua release heads và biên tập được trong Xưởng.
+- **Đã rà/phát hành:** Hồ sơ 94–97; bốn plan round1–4 đã apply, không replay. Validation nội tại, backup, 43 bảng bảo toàn, heads ngoài lô/parents/FK. Không chạy browser, Vitest, typecheck, full check. Đọc 95 triple ứng viên HSK3 và 70 triple ứng viên HSK4 để chọn sửa, chưa rà đủ toàn kho.
+- **Thiếu hụt mới:** Cả 1.000 ví dụ HSK4 của package nền dùng câu meta “X là từ trọng tâm”. Đã sửa 40 trong projection Từ điển, còn 960; không suy số từ vắng khỏi bài. Nghĩa sai gồm 白酒, 博士, 大巴, 感动/感人, 歌声… Đã xuất snapshot 56 mục (gồm 4 HSK2 cũ) nhưng **chưa nối curriculum**: thay trực tiếp làm drift đáp án/version và mất khả năng tái dựng phiên cũ. Đã gỡ thử nghiệm runtime, không thay package nền hoặc dữ liệu phiên. Ôn/Nói/bài tập legacy vẫn còn đọc bản nền; versioned delivery là việc chưa xong.
+- **Dữ liệu giữ được:** 217 bài nền 4/40/40/55/78, stable IDs, FSRS/progress/lỗi/session/outbox. Giữ Premium/admin, docs/reports, output, .wrangler; humanReviewed:false, chưa USER-ACCEPTED, không push/deploy.
+- **Tiếp theo:** Tiếp sửa từ vựng HSK4 theo chủ đề, kiểm ngữ nghĩa các bài đã phát hành và ma trận ngữ pháp/nhiệm vụ/chủ đề; giải quyết versioned content delivery trước khi gọi đồng bộ Ôn/Lỗi hoàn tất. Không dừng automation khi phạm vi còn mở; chưa xác minh goal nền.
+
+## Thiên Lộ · từ vựng HSK3, nghĩa và ngữ cảnh lô 1 · 01/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW, chưa hoàn tất phạm vi nội dung HSK0–4.
+- **Người học thấy gì:** 12 trang/4 bài HSK3 dạy và luyện 矮, 爱人, 笔记本, 比如; sửa hai mục từ 矮/爱人 trong Xưởng/Từ điển. Có mẫu, giải thích, câu chọn và vận dụng khác ngữ cảnh; không tăng số bài. Snapshot fallback đã xuất nhưng chưa nối consumer curriculum (xem mốc mới nhất).
+- **Đã rà/phát hành:** Current release heads và consumer; AI tự rà Trung/Pinyin/Việt/đáp án. 6 revision apply thành công với backup, validation nội tại, 43 bảng bảo toàn, parent packages/head khác/FK. Hồ sơ 94 ghi revision và giới hạn. Không chạy browser/Vitest/typecheck/full check. Đọc thêm 95 ví dụ ứng viên HSK3 để chọn lô tiếp, chưa coi đã rà đủ mọi nghĩa/ngữ cảnh.
+- **Dữ liệu giữ được:** 217 bài nền 4/40/40/55/78, IDs, package nền và dữ liệu người học; không sửa Premium/admin, docs/reports hoặc output. humanReviewed:false, chưa USER-ACCEPTED, không push/deploy.
+- **Tiếp theo:** Tiếp sửa ngữ liệu và độ sâu từ vựng theo nhóm, rồi ma trận ngữ pháp/nhiệm vụ/chủ đề HSK1–4. Không replay Pinyin boot-3 hoặc lô vocabulary-context-round1. Chưa dừng automation vì phạm vi chưa hoàn tất; không tuyên bố goal nền đang chạy.
+
+## Thiên Lộ · thu gọn scope và bổ sung nền Pinyin · 01/10/2026
+
+- **Module:** Thiên Lộ — IN-REVIEW. Người dùng yêu cầu phần còn lại chỉ rà độ sâu/tính đúng/độ phủ HSK0–4 và bổ sung nếu thiếu; bỏ các đợt kiểm thử còn lại. Không tiếp tục timed learner, browser/full check hoặc parity Xưởng như điều kiện hoàn thành mới. Automation đã cập nhật theo phạm vi này; không tự USER-ACCEPTED.
+- **Người học thấy gì:** boot-3 có thêm 9 trang dạy cấu tạo âm tiết, nguyên âm/vần, b/p–d/t–g/k, đuôi mũi, u/ü/y/w, đặt dấu, tự kiểm và vận dụng 旅行. Giữ tất cả trang/khối/targets cũ; dùng loại khối Xưởng đang hỗ trợ. Không cộng điểm phát âm từ tự đọc/hiểu ký hiệu.
+- **Đã rà/phát hành:** Đọc bốn manuscript HSK0, soạn/rà supplement ở boot-pinyin-foundations.mjs; hồ sơ 92. Apply local exit0, revision 7e57e0f9-1be6-4797-b138-7910ee151d26, backup và 43 bảng được giữ; validation nội tại của release repository. Không chạy test suite/browser/typecheck theo yêu cầu mới.
+- **Dữ liệu giữ được:** 217 bài nền, không đổi lesson IDs hay dữ liệu học; humanReviewed:false, không push/deploy. Không thêm bài chỉ để tăng số lượng.
+- **Tiếp theo:** Rà nội dung HSK1–4. Triage 2.000 từ: tất cả có lesson assignment; 182 từ HSK3 và 569 từ HSK4 chưa có literal occurrence trong trang của các bài gắn ID. Đối chiếu toàn kho còn 95/254 ứng viên không thấy trong lessonPages, nhưng đều có ví dụ từ điển. Hồ sơ 93 đọc năm trường hợp, xác định ví dụ 爱人 cần sửa nghĩa phối ngẫu; chưa phát hành sửa từ vựng. Không tuyên bố hoàn tất độ phủ từ phép dò chuỗi. Tiếp đọc/rà các ứng viên và bổ sung ngữ cảnh đúng cấp, không quay lại backlog kiểm thử đã bỏ.
+
+## Thiên Lộ/Xưởng · inventory cấu trúc bản phát hành · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; chưa hoàn tất v0.2.
+- **Người học thấy gì:** Không đổi nội dung hoặc UI trong lượt audit này.
+- **Đã kiểm:** Audit read-only các release heads: 217 document hợp lệ, 3.065 trang, 1.676 activity đều có learningTarget, 44 activity có đồng hồ; không bài nào thiếu stage practice hoặc transfer. Script audit-published-learning-depth.ts, typecheck/ESLint đạt; chi tiết từng ID/revision trong published-learning-depth-audit.json thuộc hồ sơ redesign. Đây là cấu trúc, không chứng minh 1.676 câu độc nhất, target đúng ngữ nghĩa, đủ HSK hoặc mastery.
+- **Dữ liệu giữ được:** Không ghi D1, không đổi release/learner data; humanReviewed:false, chưa USER-ACCEPTED, không push/deploy.
+- **Tiếp theo:** Kiểm timed learner thật và ma trận độ sâu ngữ nghĩa, parity Xưởng theo checklist v0.2; không tính audit cấu trúc này là nghiệm thu nội dung.
+
+## Thiên Lộ/Xưởng · khôi phục reader khi API gián đoạn · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; toàn scope v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Bài chỉ có document đã phát hành (như boot-1) mở lại đúng bản học và nháp đã lưu khi API nội dung thất bại, thay vì rơi thẳng về giao diện legacy. Snapshot không hợp lệ/phiên bản tương lai không bị ghi đè.
+- **Đã kiểm:** Typecheck/ESLint đạt; 11 test panel/session và 9 test IndexedDB đạt. Browser guest cô lập: API chậm, API outage, nháp cũ, chủ động cập nhật/giữ history và version999 đạt. Hồ sơ 91 ghi rõ đây là API-only outage và fixture snapshot cũ, chưa phải full offline PWA. Server có timeout; khởi động lại Vinext, lượt sau đạt, chưa tuyên bố sửa nguyên nhân chậm.
+- **Dữ liệu giữ được:** 217 baseline (4/40/40/55/78), không đổi content heads/IDs/progress/FSRS/lỗi/owner/outbox/D1. humanReviewed:false; không push/deploy, chưa USER-ACCEPTED.
+- **Tiếp theo:** Timed learner, parity Xưởng và ma trận độ sâu/toàn checklist v0.2. Goal tool đang paused; không tuyên bố goal nền đang chạy hoặc hoàn tất.
+
+## Thiên Lộ/Xưởng · khép lỗ trống học liệu thị giác HSK4 · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; chưa hoàn tất toàn scope v0.2.
+- **Người học thấy gì:** Phát hành thêm 18 bài summary với 36 trang sơ đồ cuối bài và 18 bài integration với 60 trang đối chiếu sau tự luyện. Sơ đồ khớp toàn văn nguồn, có provenance, sửa được trong Xưởng; giữ nhiệm vụ, đáp án, đồng hồ, targets và trang cũ. Không coi sơ đồ tái sử dụng là ảnh mới độc nhất.
+- **Đã kiểm:** Rehearsal/backup/apply mỗi lô 18 giữ 43 bảng, parent packages/head khác/FK. Regression 42 bài so nút với sơ đồ nguồn và bảo toàn trang cũ đạt; typecheck/ESLint đạt. Browser summary đủ36 trang/18 bài đạt nhãn/ý nghĩa/mobile375. Browser integration đủ60 trang/18 bài đạt nhãn/ý nghĩa/mobile375. Hồ sơ 89/90.
+- **Dữ liệu giữ được:** 217 baseline/published (4/40/40/55/78), ID/progress/FSRS/lỗi/phiên/owner/outbox. Audit mới: 217 bài có ít nhất một ảnh hoặc sơ đồ, 79 bài có page art, 0 scene dùng nền chung, 0 bài thiếu cả image/diagram. Đây chỉ là inventory học liệu, không chứng minh review đủ sâu, đủ HSK hoặc mastery. humanReviewed:false; không push/deploy, chưa USER-ACCEPTED.
+- **Tiếp theo:** Kiểm ma trận độ sâu/nhu cầu thêm bài, timed learner, pinned revision/offline, parity Xưởng và đối chiếu toàn checklist v0.2. Không replay các plan đã apply. Giữ báo cáo full check timeout và rerun riêng ở mốc dưới.
+
+## Thiên Lộ/Xưởng · gate rộng và lô sơ đồ lập luận đang thử · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; chưa hoàn tất v0.2.
+- **Người học thấy gì:** Giữ các bản Pinyin và 12 trang sơ đồ đã phát hành. Đã chuẩn bị 36 trang sơ đồ cuối bài cho 18 bài stance/event/cohesion/concession; chưa coi phát hành khi rehearsal/apply chưa xong.
+- **Đã kiểm:** Full check qua validator/lint/typecheck/restore, test 429 file đạt và 1 file lỗi timeout 10 giây/EBUSY tại generateReleaseEvidence. Chạy riêng file đó đạt 21/21; full command vẫn exit1. Build riêng đã tạo dist/build-provenance.json; mất process handle sau thay đổi môi trường nên không khẳng định exit của command. Kiểm lại bundle/Premium boundary exit0, cảnh báo advisory 1045.4 KiB. Regression lô sơ đồ 24 bài đạt; gate lô 18 và rehearsal đang chạy.
+- **Dữ liệu giữ được:** 217 bài nền, không push/deploy; .wrangler và dữ liệu học được giữ. humanReviewed:false; chưa USER-ACCEPTED.
+- **Tiếp theo:** Hoàn thành rehearsal/apply/browser 18 bài từ plan summary-map v1, tiếp 18 bài tích hợp còn cần quyết định thị giác và các yêu cầu v0.2. Server cũ đã dừng sau thay đổi môi trường; đã bật lại Vinext cổng3000, không reset D1.
+
+## Thiên Lộ/Xưởng · sơ đồ đối chiếu diễn đạt chính xác HSK4 · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; phạm vi v0.2 còn mở.
+- **Người học thấy gì:** Sáu bài precision-reference-quantity có 12 sơ đồ theo đúng nguồn đọc để đối chiếu sau tự viết; dùng khối diagram biên tập được, giữ các trang cũ và bài vận dụng. Có hướng dẫn không coi sơ đồ là đáp án duy nhất/điểm năng lực.
+- **Đã kiểm:** Rehearsal/backup/apply 6 revision giữ 43 bảng/parent packages/head khác/FK; 3 regression Pinyin và sơ đồ đạt; typecheck/ESLint/diff check đạt. Browser 12 trang, đúng nhãn/ý nghĩa và mobile375 đạt. Hồ sơ 87. Thêm browser learner nghe–chép HSK2/đọc HSK3: nháp, lịch sử hỗ trợ, snapshot và footer mobile/ngang đạt trong guest cô lập với prerequisite fixture; lượt đầu tải lâu, lượt sau đạt, không tuyên bố sửa runtime. Hồ sơ 88. Full check đang chạy, chưa ghi đạt. Audit sơ đồ v1 được khóa giữ nguyên vì release plan tham chiếu; không ghi đè khi audit tiếp.
+- **Dữ liệu giữ được:** 217 bài nền, IDs/progress/FSRS/lỗi/phiên/owner/outbox; giữ hai lô sửa Pinyin trước. humanReviewed:false; chưa USER-ACCEPTED, không push/deploy.
+- **Tiếp theo:** Còn 36 bài HSK4 chưa có image/diagram cần quyết định học liệu theo mục tiêu (không mặc định thêm sơ đồ vào assessment); tiếp kiểm learner modalities, parity Xưởng và ma trận độ sâu theo v0.2. Chưa hoàn tất toàn goal.
+
+## Thiên Lộ/Xưởng · Pinyin nguồn HSK4 và audit sơ đồ · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; scope v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành 5 revision sửa 14 trường Pinyin, tiếp 21 revision sửa 59 trường ở 10 đoạn nguồn: hái/huán, cháng/zhǎng, gěi/jǐ, zūnzhòng và tách từ. Đồng bộ bài nguồn và bài tổng hợp; giữ Hanzi, nghĩa, đáp án, targets.
+- **Đã kiểm:** Hai regression test đạt; typecheck, ESLint và diff check đạt. Rehearsal/backup/apply giữ 43 bảng, parent packages, head khác/FK. Browser Xưởng dùng renderer chung đạt 5 trang + 23 trang/21 bài, Pinyin thực tế và mobile375. Lượt đầu endpoint demo và render lỗi; render báo Network connection lost, chạy lại đạt; chưa coi lỗi runtime đã sửa. Hồ sơ 85/86. Audit hiện tại không còn bảy mẫu lỗi Pinyin đã khoanh vùng, không suy hết lỗi toàn kho.
+- **Dữ liệu giữ được:** 217 baseline (4/40/40/55/78), không đổi IDs/progress/FSRS/lỗi/phiên/owner/outbox; humanReviewed:false. Không push/deploy, chưa USER-ACCEPTED.
+- **Tiếp theo:** 42 bài HSK4 thiếu image/diagram có 108 nguồn đọc khớp nguyên văn với sơ đồ nguồn; mới audit, chưa gắn sơ đồ. Rà quyết định sư phạm (không lộ đáp án phần tự luyện), tiếp learner modalities/parity Xưởng và toàn scope v0.2. Không replay hai lô Pinyin đã apply.
+
+## Thiên Lộ/Xưởng · đóng cảnh nền chung HSK2 · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, toàn scope v0.2 còn mở.
+- **Người học thấy gì:** Mười revision/20 trang cuối thuộc HSK2 reference, reconstruction, travel có ảnh riêng; các giá trị số, vị trí và kế hoạch hiển thị bằng caption biên tập được. Không thay targets hoặc bài tập, giữ sửa lời đáp travel-02.
+- **Đã kiểm:** Rehearsal/backup/apply 5+5 giữ 43 bảng, parent packages, head khác/FK; browser 10+10 trang tải ảnh/caption/mobile375 đạt; typecheck/ESLint đạt. Hồ sơ 83/84; prompt/gốc trong drafts, WebP trong public/lessons/ngoc-dien.
+- **Dữ liệu giữ được:** 217 baseline/published (4/40/40/55/78), ID/progress/FSRS/lỗi/phiên/owner/outbox. Audit: 79 bài có page art; scene/dialogue dùng ảnh chung = 0. Không đồng nhất hết fallback với hoàn tất sư phạm; 42 bài HSK4 chưa có image/diagram cần rà quyết định học liệu. humanReviewed:false; chưa USER-ACCEPTED, không push/deploy.
+- **Tiếp theo:** Rà 42 bài HSK4 chưa có học liệu thị giác; kiểm các luồng learner dictation/reading/timed, pinned revision và parity Xưởng trong phạm vi v0.2. Web local cổng 3000 đang chạy; không phát hành lại các plan đã apply.
+
+## Thiên Lộ/Xưởng · môi trường, ngữ pháp và lời đáp địa điểm HSK2 · 01/10/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành 11 revision/22 trang ảnh đúng ngữ cảnh nhóm person-events-environment, aspect-time, clause-linking, complements-motion. Một revision travel-leisure-02 sửa lời đáp địa điểm, đồng bộ Hanzi/Pinyin/Việt giữa dialogue và trang học. Kho Xưởng có đủ ảnh và caption.
+- **Đã kiểm:** Rehearsal/backup/apply 5+6+1 giữ 43 bảng, parent packages, head khác/FK. Browser 10+12 trang ảnh và câu địa điểm đạt; regression correction 1/1, typecheck/ESLint đạt. Server cũ dừng sau thay đổi môi trường; khởi động lại Vinext cổng 3000, không sửa/xóa D1. Chưa coi lỗi Network connection lost cũ đã được sửa. Hồ sơ 80/81/82.
+- **Dữ liệu giữ được:** 217 baseline/published (4/40/40/55/78), IDs/tiến độ/FSRS/lỗi/phiên/owner/outbox không đổi. 69 bài có page art, 20 scene chung thuộc 10 bài HSK2; không suy đủ năng lực hoặc đủ scope từ số liệu này. humanReviewed:false; không push/deploy, chưa USER-ACCEPTED.
+- **Tiếp theo:** Năm ảnh travel/reference đã sinh, xem và lưu WebP/prompt-results nhưng chưa gắn/phát hành; tiếp tục 10 bài cuối dùng cảnh chung rồi kiểm các yêu cầu v0.2 còn thiếu.
+
+## Thiên Lộ/Xưởng · năm bài HSK2 học tập–văn hóa · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, scope v0.2 còn mở.
+- **Người học thấy gì:** Năm revision study-work-culture-01..05 phát hành local với 10 trang có ảnh/chú thích đúng từng bối cảnh; ảnh chọn được trong Xưởng.
+- **Đã kiểm:** Rehearsal/backup/apply giữ 43 bảng, parent packages, head khác/FK; browser 10 trang tải ảnh/caption/mobile đạt; typecheck/ESLint đạt. Hồ sơ 79, prompt và PNG gốc lưu đủ.
+- **Dữ liệu giữ được:** 217 bài nền, IDs và tiến độ/FSRS/lỗi/phiên/owner/outbox giữ nguyên; 58 bài có page art, 42 scene chung còn lại trong 21 bài HSK2. humanReviewed:false; không push/deploy, chưa USER-ACCEPTED.
+- **Tiếp theo:** Tiếp tục 21 bài còn cảnh chung. Đang sửa lời đáp địa điểm trong travel-leisure-02: rehearsal đạt nhưng chưa apply; không tính sửa nội dung này đã phát hành.
+
+## Thiên Lộ/Xưởng · bảy bài HSK2 có ảnh theo ngữ cảnh · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; toàn scope v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành local 7 revision/14 trang context–hội thoại: daily-needs-family-01..05 và travel-leisure-03/04. Bảy ảnh riêng cho nhờ mở cửa, bàn bữa tối, chọn quần, hỏi sức khỏe, gia đình, chuẩn bị chuyến bay, hẹn thể thao. Caption thật và kho Xưởng hỗ trợ biên tập; không đổi nội dung bài vận dụng/targets.
+- **Đã kiểm:** Full check kết thúc đạt (426 test files, 2621 tests, build) trước lô media mới; typecheck/targeted ESLint/diff check sau lô đạt. Rehearsal/backup/apply 3+4 giữ 43 bảng bảo vệ, parent packages, heads khác và FK. Browser Xưởng 6+8 trang đạt tải ảnh/caption/mobile 375 px; lượt life đầu Network connection lost, chạy lại đạt, lỗi runner chưa giải quyết. Hồ sơ 77/78 và prompt nguồn đã lưu.
+- **Dữ liệu giữ được:** 217 bài nền phát hành, HSK0–4 4/40/40/55/78; ID/tiến độ/FSRS/lỗi/phiên/owner/outbox giữ nguyên. 53 bài có page art, 52 scene chung còn lại trong 26 bài HSK2. Không suy mastery từ inventory; humanReviewed:false. Không push/deploy, chưa USER-ACCEPTED.
+- **Tiếp theo:** Tiếp tục ảnh/ngữ cảnh của 26 bài HSK2 còn lại và kiểm toàn scope Thiên Lộ/Xưởng; không phát hành lại bảy kế hoạch đã áp dụng.
+
+## Thiên Lộ/Xưởng · học tập/công việc, di chuyển/giải trí và mở đầu HSK0 · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** Phát hành local 10 revision/17 trang: professional-2..4 có ba cảnh riêng ở mission/hội thoại; journey-1 hội thoại đúng nhà–taxi–trường; journey-2 ảnh hai người xem phim/nghe nhạc; hai sơ đồ journey focus; professional-1 listen gắn cảnh trường; boot-2 hai trang chào hỏi có ảnh riêng; boot-1/3/4 intro focus cho kiến thức âm/thanh. Không thay nội dung câu/target/đáp án/rubric hoặc gắn tranh lộ dữ kiện vào tự luyện.
+- **Đã kiểm:** Rehearsal/backup/apply 3+3+4 revision đạt, giữ 43 bảng bảo vệ, parent packages, head khác, FK. Browser 6 trang professional + 4 trang ảnh journey/trường kèm hai sơ đồ + 5 trang boot đạt, ảnh tải thật, caption mobile và không tràn ngang. Typecheck/ESLint/diff check đạt. Hồ sơ 74/75/76 và prompt/gốc ảnh lưu trong drafts. Full check đang chạy, chưa ghi đạt.
+- **Dữ liệu giữ được:** 217 bài nền (4/40/40/55/78), IDs, progress/FSRS/lỗi/phiên/owner/outbox không đổi. 46 bài có page art, 66 scene chung còn lại thuộc HSK2; không đồng nhất inventory với đủ chất lượng/mastery. humanReviewed:false; không push/deploy.
+- **Tiếp theo:** Gate rộng và lô hình ảnh/ngữ cảnh HSK2, tiếp tục kiểm liên thông và Xưởng trong scope v0.2. Chưa USER-ACCEPTED.
+
+
+## Thiên Lộ/Xưởng · hoàn thiện media nhóm thời gian–vị trí và biên tập chú thích · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành local thêm 6 revision/11 trang của nhóm thời gian–vị trí: thời tiết ở nhà, hai sách/mã 203, lịch học–nghỉ–gặp bạn, ngày hẹn, giờ học, cốc gần–xa. Kết hợp ảnh sách–mèo và 6 sơ đồ focus đã phát hành, nhóm có học liệu theo từng tình huống. Không dùng tranh chứa đáp án cho trang tự luyện. Kho Xưởng có 6 ảnh mới và caption bằng chữ thật; giữ ảnh/sơ đồ trước.
+- **Xưởng/renderer:** Chỉnh caption/focal point sau chọn ảnh ngay trong khối và minh họa trang; chọn media cho trang không làm rơi caption/focal metadata. Schema optional tương thích bài cũ, validation chặn giá trị sai. Caption mobile/ngang không bị ẩn/đè ảnh. Nhãn người nói không gán 甲 cho mọi “Lượt 2”/câu mẫu, chỉ A/B mới hiện 甲/乙.
+- **Đã kiểm:** Rehearsal/backup/apply cả lô giữ 43 bảng bảo vệ, parent packages, head khác và FK. Browser 2 trang weather + 4 numbers/week + 5 remaining đạt, ảnh tải thật và mobile không tràn. Xưởng QA cùng nháp `1b46e15d-d319-466d-9cbb-82d2c1198518`: tải/reuse media, sửa caption/focal, save/reload/preview, usage reference; cả khối ảnh và minh họa trang kiểm 3 viewport đạt, release heads không đổi. Typecheck, ESLint/diff check; schema/renderer 11 test đạt. Local runner từng Network connection lost, lượt lại đạt; chưa kết luận runtime đã sửa.
+- **Dữ liệu giữ được:** 217 bài nền (4/40/40/55/78), IDs/targets/Hanzi/Pinyin/Việt/đáp án/rubric và tiến độ/FSRS/lỗi/phiên/owner/outbox giữ nguyên. Audit 41 bài có page art, 83 scene chung còn lại; không dùng số này làm thước đo hoàn tất sư phạm. humanReviewed:false. Hồ sơ 71/72/73, prompt/gốc ảnh được lưu. Không push/deploy.
+- **Tiếp theo:** Hoàn thiện các cảnh HSK1 công việc/học tập và HSK2 còn thiếu, cùng kiểm learner các dạng chưa đủ evidence; chưa USER-ACCEPTED.
+
+
+## Thiên Lộ/Xưởng · chú thích ảnh và bảo toàn tự đối chiếu · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; toàn bộ goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Khối ảnh hiển thị caption đã lưu trong metadata Xưởng bằng figcaption. Ảnh có chú thích dùng luồng nội dung bình thường để chữ không bị ảnh định vị tuyệt đối đè lên. Không thay ảnh riêng của trang hay sửa release payload.
+- **Đã kiểm:** Typecheck và targeted ESLint đạt; StudioContentPreview 4/4, gồm metadata qua schema/renderer. Browser guest mới không seed progress kiểm boot-1: viết rubric dở, reload giữ chữ, tiêu chí ẩn trước đối chiếu, tích tiêu chí/reload giữ, sửa câu không được chấm tự động; tra từ, 10 câu luyện, kết quả, sửa lỗi thật và reload; CTA ở desktop/mobile/ngang đạt. Script chờ màn tải xong tối đa 30 giây thay ngưỡng 5 giây; các lượt đầu dừng khi app còn loading, không coi là mất dữ liệu hay đã sửa tốc độ runtime. Caption mới kiểm renderer, chưa có browser upload/caption toàn vòng.
+- **Dữ liệu giữ được:** Không sửa D1 hoặc release heads; giữ 217 bài nền (4/40/40/55/78), ID/tiến độ/FSRS/lỗi/phiên/owner/outbox. Các sửa đổi user/task khác giữ nguyên; không push/deploy.
+- **Tiếp theo:** Tiếp tục media theo bài và kiểm Xưởng upload/metadata cùng các dạng learner còn thiếu; chưa USER-ACCEPTED.
+
+
+## Thiên Lộ/Xưởng · minh họa đúng vị trí sách và mèo · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** Trang hội thoại bài hsk1-time-place-events-05-location có ảnh riêng sách trên bàn, mèo dưới bàn. Ảnh được chọn trong Xưởng, có alt/provenance; sơ đồ vừa phát hành giữ nguyên. Context cần hình khác cho hai cốc gần–xa, chưa tính hoàn tất.
+- **Đã kiểm:** Rehearsal/backup/apply revision 1/1, 43 bảng bảo vệ, parent packages, head khác và FK đạt; typecheck/lint/diff check đạt. Browser Xưởng local 3000 tải ảnh đúng revision, mobile 375 px không tràn ngang. Hồ sơ `70-REVIEW-LOCATION-ART.md`.
+- **Dữ liệu giữ được:** Giữ 217 bài nền (4/40/40/55/78), IDs, targets, nội dung và tiến độ/FSRS/lỗi/phiên/owner/outbox. humanReviewed:false; không push/deploy.
+- **Tiếp theo:** Tiếp tục minh họa theo tình huống cùng kiểm learner/Xưởng trong toàn scope; không USER-ACCEPTED.
+
+
+## Thiên Lộ/Xưởng · sáu sơ đồ thời gian–vị trí dùng đủ vùng học · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Sáu trang sơ đồ số lượng, ngày tháng, lịch tuần, giờ/thời lượng, vị trí và nơi cư trú dùng layout focus, không bị ảnh cảnh chung chiếm vùng đọc. Nội dung sơ đồ vẫn biên tập được trong Xưởng; context/hội thoại chưa được tính là hoàn tất media.
+- **Đã kiểm:** Phát hành local 6/6 revision sau rehearsal/backup, giữ 43 bảng bảo vệ, parent packages và các head ngoài phạm vi; FK đạt. Typecheck, targeted ESLint, diff check đạt. Browser kiểm cả sáu trang từ revision đã phát hành, nhãn chính xác, mobile 375 px không tràn ngang. Lượt browser đầu lỗi lấy tài khoản demo; API sau đó trả 200 và chạy lại đạt, chưa tuyên bố đã sửa runtime gián đoạn. Hồ sơ `69-REVIEW-TIME-PLACE-DIAGRAMS.md`.
+- **Dữ liệu giữ được:** IDs, target, Hanzi/Pinyin/Việt, đáp án/rubric, D1 tiến độ/FSRS/lỗi/phiên/owner/outbox không đổi. Giữ 217 bài nền (4/40/40/55/78); 35 bài có page art, scene chung 101 → 95. Giữ humanReviewed:false.
+- **Tiếp theo:** Tiếp tục media theo tình huống và kiểm hành trình learner/Xưởng trong scope v0.2; chưa USER-ACCEPTED, không push/deploy.
+
+
+## Thiên Lộ/Xưởng · chín hội thoại sinh tồn dùng cảnh đúng tình huống · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành 9 revision `survival-1..9`: trang hội thoại không quay về cảnh campus/city chung. survival-1 có tranh trả sách/cảm ơn mới; tám bài còn lại chọn ảnh riêng của cùng tình huống context, không kế thừa tự động giữa các trang khác cảnh. Ảnh mới có trong kho Xưởng, alt/provenance, `humanReviewed:false`.
+- **Đã kiểm:** Kế hoạch pin revision/hash, diễn tập rollback rồi backup/apply cả 9 bài, giữ 43 bảng bảo vệ, package cha, head khác và FK. Typecheck, targeted ESLint, diff check đạt. Browser Xưởng local 3000 kiểm 9 ảnh tải thật, nút nghe tổng hợp và mở lời thoại từng mục, mobile 375 px không tràn ngang. Hồ sơ `68-REVIEW-SURVIVAL-DIALOGUE-VISUALS.md`; prompt/gốc ảnh trong `lesson-scene-generation-2026-09-30-book.json`.
+- **Dữ liệu giữ được:** Giữ Hanzi/Pinyin/Việt, target, đáp án/rubric, IDs, nội dung sửa vai survival-1 và D1 học/tiến độ/FSRS/lỗi/phiên/owner/outbox. 217 bài nền giữ nguyên, HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78. Audit D1: 35 bài có page art; scene chung giảm 110 → 101. Không coi giảm ảnh chung là chứng nhận hoàn tất sư phạm.
+- **Tiếp theo:** Tiếp tục các cảnh và sơ đồ thời gian–vị trí/công việc cùng kiểm learner toàn scope; chưa USER-ACCEPTED, không push/deploy.
+
+## Xưởng · lưu rubric và ảnh riêng rồi xem đúng bản đã sửa · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Editor thấy gì:** Trên cùng nháp QA chưa phát hành của lượt trước, chuyển lựa chọn sang tự viết/rubric, thêm tiêu chí và hướng dẫn, chọn ảnh quầy táo và sửa alt bằng biểu mẫu. Lưu/reload giữ rubric/ảnh; preview tải đúng ảnh, ẩn tiêu chí trước khi đối chiếu và mở đúng tiêu chí sau khi nhập.
+- **Đã kiểm:** `smoke-studio-edit-roundtrip.ts --resume` đã mở rộng và đạt cả sơ đồ/đáp án/phản hồi/rubric/ảnh, lưu/reload/preview, mobile 375 px; typecheck và ESLint đạt. Toàn bộ release heads trước/sau giữ nguyên. Lượt chạy cùng lúc typecheck gặp lại Miniflare Network connection lost khi mở trang; kiểm lại sau các gate trên cùng server đạt, chưa xác định nguyên nhân hay tuyên bố lỗi đã sửa.
+- **Dữ liệu giữ được:** Tái dùng revision QA `1b46e15d-d319-466d-9cbb-82d2c1198518`, không thêm nháp trùng, không phát hành. Giữ 217 bài nền, HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 cùng D1 học/ID/tiến độ/FSRS/lỗi/phiên/owner/outbox. QA là kiểm khả năng biên tập, không review nội dung người học.
+- **Tiếp theo:** Tiếp tục media theo bối cảnh toàn kho và learner các dạng bài; rà lỗi server local tái diễn nếu chặn hành trình. Chưa USER-ACCEPTED, không push/deploy.
+
+## Xưởng · lưu và mở lại sơ đồ, đáp án, phản hồi · 30/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học/editor thấy gì:** Đã kiểm sửa nhãn/ghi chú sơ đồ, nội dung lựa chọn, đáp án đúng và phản hồi trong biểu mẫu Xưởng; lưu, reload và preview dùng đúng giá trị mới. Dùng bản QA riêng chưa phát hành từ hai trang daily-1, không sửa release hiện hành.
+- **Đã kiểm:** `smoke-studio-edit-roundtrip.ts --resume` đạt cả lưu/reload/preview và mobile 375 px không tràn ngang. Đối chiếu toàn bộ content_release_heads trước/sau không đổi. Script tạo nháp một lần rồi tiếp tục cùng revision `1b46e15d-d319-466d-9cbb-82d2c1198518`; giữ nháp QA có nhãn rõ để kiểm lại, không phát hành/xóa. Lượt đầu redirect và một lượt mở trang gặp Miniflare Network connection lost; sau server khởi động lại và hydration hoàn tất, hành trình đạt. Sửa selector test để phân biệt preview đang soạn với preview hiện tại; không sửa production để né lỗi. ESLint, typecheck và diff check đạt.
+- **Dữ liệu giữ được:** Không đổi 217 release heads, stable IDs, D1 học, tiến độ/FSRS/lỗi/phiên/owner/outbox; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên. Đây là kiểm editor, không phải human review nội dung.
+- **Tiếp theo:** Tiếp tục rubric/media và liên kết module theo phạm vi v0.2; 110 scene còn dùng ảnh chung ở audit trước. Chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ · lỗi từ Thử Luyện tới Nghịch Cảnh Lục · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; kiểm consumer Nghịch Cảnh Lục trong phạm vi liên thông.
+- **Người học thấy gì:** Không đổi UI/runtime; xác minh luồng lỗi thật bằng guest mới: trả lời sai một câu boot-1, hoàn tất 10 câu, mở Nghịch Cảnh Lục thấy đúng prompt, tự trả lời đúng không hint và tải lại giữ đã xử lý.
+- **Đã kiểm:** `smoke-learner-study-trial.ts --mistakes` đạt toàn hành trình học/tra từ/luyện/kết quả và hóa giải. Queue lấy bản ghi lỗi do bài luyện tạo; correctedStreak=1 và nút bắt đầu hóa giải khóa khi không còn lỗi chưa xử lý sau reload. Kết quả này chỉ chứng minh tự sửa trong lượt, không mastery dài hạn. Typecheck và targeted ESLint đạt.
+- **Dữ liệu giữ được:** Browser context cô lập, không seed evidence/completion, không đăng nhập account hay sửa D1 học. 217 bài nền và inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên; chưa mở rộng kết luận sang rubric tự đối chiếu hoặc mọi activity trang.
+- **Tiếp theo:** Tiếp tục learner/nháp Xưởng theo dạng hoạt động khác và media còn thiếu; goal v0.2 vẫn mở, chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ · kiểm guest học–tra từ–luyện–kết quả · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Không đổi UI trong lượt này; bổ sung hành trình kiểm browser thật cho boot-1 trên server local. Guest mới đọc trang phát hành, trả lời hoạt động, tải lại giữ lựa chọn, mở từ điển đúng bài trong tab mới, vào Thử Luyện, xem lại lý thuyết/quay lại đúng câu, tải lại phiên, trả lời 10 câu và tới kết quả có giải thích giới hạn mastery.
+- **Đã kiểm:** `smoke-learner-study-trial.ts` đạt, typecheck và targeted ESLint đạt. Thanh trả lời/kết quả nằm trong viewport 1280×800, 375×812 và 812×375. Browser context cô lập, không seed completion/evidence. Web trước lượt đã dừng (không listener/process); bật lại `npm run dev`, không migration mới. Lượt đầu lỗi 500 Network connection lost tại reload do Miniflare; chạy lại cùng server đạt toàn hành trình, chưa kết luận sửa nguyên nhân. Server local 3000 tiếp tục chạy.
+- **Dữ liệu giữ được:** Không sửa nội dung/D1 học hoặc browser người dùng; toàn bộ tiến trình test thuộc guest cô lập. Inventory 217 bài giữ nguyên (HSK0 4, HSK1 40, HSK2 40, HSK3 55, HSK4 78). Không suy kết quả boot-1 thành kiểm toàn bộ bài hay linked module.
+- **Tiếp theo:** Tiếp tục kiểm các revision gần đây ở learner và nháp Xưởng, nội dung/media còn thiếu theo phạm vi v0.2; còn 110 scene dùng cảnh chung ở audit trước. Không USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · tập trung hình chữ ở 15 bài nhận diện · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành 15 revision `characters-1..15`, đổi layout 30 trang context/visual sang focus. Bỏ ảnh khuôn viên chung ở phần mục tiêu, mở khung bảng so sánh hình chữ 大/太, 妈/吗…; nội dung bảng và hoạt động giữ nguyên, Xưởng vẫn chỉnh từng node/nhãn/lời giải.
+- **Đã kiểm:** Hai regression tests, typecheck và targeted ESLint đạt. Rehearsal rollback rồi backup/apply bảo vệ 43 bảng, parent package, head khác và FK. Browser Xưởng local 3000 kiểm đủ 30 trang focus và 15 bảng chữ chính xác ở desktop/375 px, không tràn ngang. Chưa kiểm riêng learner resume hoặc sửa/lưu node trong lượt này. Hồ sơ `67-REVIEW-CHARACTER-VISUALS.md`.
+- **Dữ liệu giữ được:** 217 bài nền, HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78; giữ 246 character links, target, rubric, correction 做饭 và mọi ID/tiến độ/FSRS/lỗi/phiên/owner/outbox. `humanReviewed:false`. Audit D1: 35 bài có page art, 110 scene còn chung (trước 125); không quy đổi sang mastery hay phần trăm hoàn thiện.
+- **Tiếp theo:** Rà cảnh/diagram các nhóm thời gian–vị trí và sinh tồn; kiểm learner/nháp/reload/liên kết module theo v0.2. Chưa USER-ACCEPTED, không push/deploy.
+
+## Gói học · thiết kế lại trang Premium · 29/09/2026
+
+- **Module:** Trang chọn gói Premium HSK4 — IN-REVIEW.
+- **Người học thấy gì:** Quyền lợi HSK4 và thẻ chọn kỳ hạn xuất hiện ở đầu trang, dùng màu ngọc/vàng cùng hệ thống. Giá Hanzi lấy từ cấu hình; ví và lưu ý điểm thử nằm cạnh nút xác nhận. Lịch sử ví, đơn/hoàn và hỗ trợ được thu gọn phía dưới, có FAQ về phạm vi và hết hạn. Thanh tiêu đề nay ghi Premium HSK4.
+- **Đã kiểm:** TypeScript và ESLint đạt. Browser Chromium trên local 3000 ở 1366×644 và 375×812: không tràn ngang, nút mua ở màn đầu và trên thanh mobile; chọn năm khi thiếu điểm khóa nút, chọn tháng gửi đúng gói/giá. Mock API cô lập kiểm mua ví, trạng thái chưa có giá với tạo/xác nhận sandbox và khách chưa đăng nhập; không tạo giao dịch D1. Đã xem ảnh dark/light và chỉnh nền/độ tương phản light. Đây là kiểm giao diện và kết nối handler, không phải giao dịch tiền thật.
+- **Dữ liệu giữ được:** Không đổi migration, giá admin, số dư hoặc nội dung học. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich và tiến độ giữ nguyên.
+- **Tiếp theo:** người dùng xem lại trang Premium; VNPAY/payOS vẫn để cuối. Chưa USER-ACCEPTED, chưa mở bán.
+
+## Thiên Lộ/Xưởng · bốn bài đời sống có cảnh đúng ngữ cảnh và sơ đồ rộng · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Phát hành local bốn revision `daily-1..4`, đổi 11 trang. Thêm ba tranh quầy táo, mua áo/tiền thừa, phòng chờ khám; chọn đích danh tranh phù hợp cho context và dialogue của bốn bài. Bốn trang visual dành khung focus cho sơ đồ sẵn có, không còn tranh chung chiếm diện tích. Ảnh mới có trong danh mục Xưởng, alt/provenance; `humanReviewed:false`.
+- **Đã kiểm:** Hai regression test, targeted ESLint, typecheck trước smoke đạt. Rehearsal rollback rồi backup/apply bảo vệ 43 bảng, parent package, head khác và FK. Browser Xưởng local 3000 kiểm tám trang ảnh tải đúng, desktop/375 px và bốn sơ đồ không còn scene chung đạt. Chưa gọi đây là kiểm trọn learner học–luyện–kết quả. Hồ sơ `66-REVIEW-DAILY-VISUALS.md`, prompt/gốc ở `lesson-scene-generation-2026-09-29-daily.json`.
+- **Dữ liệu giữ được:** 217 bài nền; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78. Không đổi target, đáp án, rubric, ID, tiến độ/FSRS/lỗi/phiên/owner/outbox. Audit D1 nay 35 bài có page art, 125 scene dùng ảnh chung (trước 136). Pending visual review trong script vẫn mặc định tổng 217, chưa phản ánh quyết định từng bài; không coi con số này là đo chất lượng.
+- **Tiếp theo:** Tiếp tục quyết định hình theo từng bài và kiểm learner/khôi phục nháp/liên kết module theo phạm vi đã chốt. Không USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · sửa vai cảm ơn/xin lỗi trong vận dụng · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Bài `survival-1` đã phát hành revision local mới. Mẫu vận dụng tách sáu lượt A/B, chỉ rõ người giữ cửa và va chạm: 谢谢 → 不客气, 对不起 → 没关系, rồi hẹn mai gặp. Đề đầy đủ ngay tại ô viết; không còn chuỗi ba câu khiến người mới tưởng 没关系 đáp lời cảm ơn. Generator nối cùng lớp hiệu chỉnh cho lần soạn lại sau; snapshot/review lịch sử giữ nguyên.
+- **Đã kiểm:** Hai regression test đạt, typecheck, targeted ESLint và diff check đạt. Release diễn tập rollback rồi backup/apply, bảo vệ 43 bảng, head khác, immutable parent và khóa ngoại. Browser Xưởng local 3000 đạt: đề đúng, mẫu ẩn trước đối chiếu, đủ vai sau nhập, mobile 375 px không tràn ngang. Chưa kiểm riêng learner resume của revision này; không gọi studio preview là hành trình learner đầy đủ. Hồ sơ `65-REVIEW-SURVIVAL-POLITENESS.md`.
+- **Dữ liệu giữ được:** Không đổi lesson/page/block IDs, target, rubric, cảnh riêng, dữ liệu học hoặc inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78. Tổng phát hành vẫn 217 bài/1.676 hoạt động có target; giữ `humanReviewed:false`, không tự ghi USER-ACCEPTED.
+- **Tiếp theo:** Tiếp tục hình theo bối cảnh (mốc audit trước: 136 scene dùng ảnh chung), rà hành trình learner/nháp/reload và liên kết module theo v0.2. Không push/deploy; automation còn cần tiếp tục.
+
+## Thiên Lộ/Xưởng · gate target đạt và ba cảnh HSK1 phát hành local · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Trang mở bài `daily-2` có quán ăn sáng/gọi nước; `journey-1` có hai điểm nhìn nhà–trường và taxi; `professional-1` có hai học sinh làm quen trước trường trung học. Ba tranh nguyên bản đã nhập danh mục chọn ảnh Xưởng, có alt/provenance và `humanReviewed:false`. Không tự lan ảnh qua các trang có bối cảnh khác.
+- **Đã kiểm:** `npm run check` sau lô target đạt validator/typecheck/lint/test/restore/build, premium boundary đạt; build còn cảnh báo advisory toàn app vượt khoảng 25 KiB. Sau bổ sung ảnh, typecheck đạt. Ba revision hình đã diễn tập rollback rồi apply, bảo vệ 43 bảng ngoài content/audit, immutable parent, head khác và khóa ngoại. Browser Xưởng trên local 3000 qua cả ba ảnh: đúng src, tải ảnh thật, hiển thị và không tràn ngang ở 375 px. Server 3003 thử mới lỗi D1 khi có server 3000 hoạt động; kiểm lại trên 3000 đạt, đã dừng phiên 3003 do lượt này tạo.
+- **Dữ liệu giữ được:** 217 bài, 1.676/1.676 hoạt động có target; audit hình D1 nay 32 bài có page art, 136 trang scene còn ảnh chung, 217 quyết định thị giác chưa hoàn tất. Giữ IDs, nội dung/đáp án/rubric, tiến độ/FSRS/lỗi/phiên/owner/outbox và inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78. Hồ sơ hình tại `64-REVIEW-HSK1-SCENES.md`.
+- **Tiếp theo:** Tiếp tục quyết định hình từng bài theo ngữ cảnh; sửa mẫu survival-1 và kiểm hành trình người học/khôi phục nháp/liên kết module. Chưa USER-ACCEPTED; không push/deploy.
+
+## Giao diện chung · dark-only và bỏ nền trang trí · 29/09/2026
+
+- **Module:** Giao diện chung — IN-REVIEW.
+- **Người học thấy gì:** Chỉ còn giao diện tối ngay từ HTML đầu tiên, không theo theme thiết bị/thiết lập cũ. Gỡ 443 rule CSS của palette sáng/nút theme, script chuyển theme và metadata sáng ở learner/Admin/Xưởng. Bỏ nền lưới, quỹ đạo, quầng sáng, chữ Hán chìm chung; xóa SystemAtmosphere và useSystemMotion sau khi rà consumer, bỏ pointermove/requestAnimationFrame và animation riêng của nền. Giữ nền riêng từng module; cập nhật mô tả tùy chọn chuyển động.
+- **Đã kiểm:** Typecheck sau thay đổi đạt; targeted ESLint và diff check đạt. Playwright dark-only desktop 1440×900/mobile 375×812 đạt: giả lập thiết bị sáng và preference cũ, nền phẳng/không atmosphere, CTA trong viewport, trả lời bài boot-1 rồi reload giữ lựa chọn. Browser thật trang /profile/premium xác nhận nền tối phẳng. Full npm run check đã chạy nhưng bị ngắt giữa validator HSK3, nên chưa chứng nhận full test/build/Lighthouse. Web local http://localhost:3000 đang chạy.
+- **Dữ liệu giữ được:** Không thay nội dung/ID/migration hay D1/browser người dùng. HSK0 4/4 (rich 0/4), HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich; tổng HSK1–4 213/213 giữ nguyên. Completion, streak, FSRS, saved item, mistakes, owner/reset scope, phiên và outbox không bị sửa. Ghi chép lịch sử dưới đây giữ nguyên; theme sáng chỉ còn là fixture kiểm tương thích cũ.
+- **Tiếp theo:** Người dùng test giao diện chung; chưa USER-ACCEPTED. Không commit/push/deploy.
+
+
+## Gói học · lối vào Premium hiện rõ trên mọi màn người học · 29/09/2026
+
+- **Module:** Điều hướng gói Premium HSK4 — IN-REVIEW.
+- **Người học thấy gì:** Trang Hồ sơ nay đặt thẻ “Mở bài Thiên Lộ HSK4 với Premium” thành một hàng riêng, không còn bị bảng cấu hình đè. Thanh trái desktop có nút Gói Premium HSK4 kể cả khi thu gọn; điện thoại có nút Premium trên thanh trên cùng và mục trong “Khác”. Các lối này dẫn thẳng tới trang chọn kỳ hạn/mua bằng Ví Hanzi thử nghiệm.
+- **Đã kiểm:** TypeScript, targeted ESLint và diff check đạt. Trình duyệt Chromium trên web local cổng 3000 ở 1366×768 và 375×812, giảm chuyển động: thẻ Hồ sơ nằm trọn viewport, tâm bấm không bị lớp khác che; bấm thẻ và nút điều hướng toàn cục đều tới trang gói, tiêu đề trang hiển thị. Kiểm cả thanh trái thu gọn. Dev server cũ bị lỗi tải module động; đã khởi động lại phiên sạch trên cổng 3000 và chạy lại hành trình đạt.
+- **Dữ liệu giữ được:** Chỉ đổi điều hướng và CSS; không sửa D1, gói, ví, quyền bài hoặc tiến độ. Inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên.
+- **Tiếp theo:** người dùng kiểm lối vào trên trình duyệt của mình. Admin local đã có hồ sơ khách, ví/giá, quyền bài, hoàn/từ chối và hỗ trợ; báo cáo doanh thu thật, SLA/tranh chấp và VNPAY/payOS chưa hoàn thiện. Chưa USER-ACCEPTED, không mở bán.
+
+## Thiên Lộ/Xưởng · toàn bộ hoạt động đã có target biên tập, chưa đồng nghĩa mastery · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** 10 bài đời sống/thời gian/vị trí HSK1, 2 bài hành trình, 4 bài học tập/công việc HSK1 và bài nối đoạn HSK3 đầu tiên giữ nguyên nội dung/đáp án nhưng Xưởng nay có thêm 60 target theo đúng nguồn từng câu. Các rubric tự viết/tự luyện vẫn là tự đối chiếu; câu `第二天` cho phép giải thích bằng tiếng Việt nên là đọc hiểu, không bị gán thành chấm viết tiếng Trung.
+- **Đã kiểm:** Ba kế hoạch exact và self-review `humanReviewed:false` ở `61–63-REVIEW-*.md`; generator `--check`, targeted Vitest và typecheck đạt. Mỗi lô đã ghi review hash, diễn tập rollback rồi apply với backup D1, bảo vệ 43 bảng ngoài content/audit, parent immutable, head khác và khóa ngoại. Browser Xưởng local 3003 qua 10 bài everyday, 6 bài journey/professional và bài HSK3: lựa chọn sai→đúng, preview, 375 px không tràn ngang. Audit đọc D1 release heads xác nhận 217 bài, 1.676 hoạt động, **1.676 có target, 0 thiếu**. Full `npm run check` và audit hành trình người học/hình/liên kết vẫn ở bước tiếp.
+- **Dữ liệu giữ được:** Lesson/page/block IDs, đáp án, rubric, ảnh đã phát hành, completion, FSRS, lỗi, phiên, owner, outbox và inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên. Target metadata không phải evidence độc lập hay chứng nhận đủ HSK; `humanReviewed:false`.
+- **Tiếp theo:** Chạy full gate; rà lỗi ngữ liệu còn biết (mẫu `survival-1`), kiểm hành trình học/nháp/reload và liên thông module; xử lý 217 quyết định hình theo ngữ cảnh, 139 scene còn dùng ảnh chung. Chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · 9 bài sinh tồn HSK1 có target, giữ ảnh riêng · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** 9 bài `survival-1..9` giữ nguyên câu, đáp án, rubric và ảnh cảnh riêng; Xưởng có thêm 27 mục tiêu/nguồn exact cho câu chọn, điền và vận dụng tự soát. 写, 再 và 还没 không bị gán nhầm vocabulary ID không thuộc bài.
+- **Đã kiểm:** Kế hoạch exact 9 bài/27 target, review AI-assisted `humanReviewed:false` ở `60-REVIEW-SURVIVAL-TARGETS.md`, generator `--check`, targeted Vitest và typecheck đạt. Guard xác nhận chỉ 9 ảnh scene riêng là phần chênh giữa bản thảo và head; script giữ ảnh trên revision mới. D1 diễn tập rollback rồi apply có backup, bảo vệ 43 bảng ngoài content/audit, parent immutable, head khác và khóa ngoại. Browser Xưởng local 3003 qua cả 9 bài: sai→đúng, editor preview và 375 px không tràn ngang.
+- **Dữ liệu giữ được:** 217/217 bài nền phát hành local; D1 audit **1.616/1.676** hoạt động có target, **60 thiếu**. 9 ảnh đã phát hành giữ nguyên, cùng lesson/page/block IDs, completion, FSRS, lỗi, phiên, owner, outbox và inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78. Target chưa thành evidence/mastery; mẫu rubric survival-1 còn cần ngữ cảnh rõ hơn ở vòng rà sư phạm.
+- **Tiếp theo:** Rà 60 hoạt động còn thiếu theo nhóm daily/time-place, journey, professional và HSK3 cohesion; sửa ngữ liệu có vấn đề trước khi tuyên bố hoàn tất nội dung. Rà hình và liên kết module/hành trình người học. Chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · 35 rubric tự luyện trình bày HSK4 có target · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** 30 bài HSK4 thuộc bảy nhóm giữ nguyên nội dung và nháp; Xưởng có thêm 35 target gắn với nhiệm vụ tự tập nói/ghi dàn ý. Rubric vẫn chỉ tự đối chiếu, không thu âm hoặc chấm nói.
+- **Đã kiểm:** Kế hoạch exact 30 bài/35 target, review AI-assisted `humanReviewed:false` ở `59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md`, generator `--check`, targeted Vitest và typecheck đạt. D1 diễn tập rollback rồi apply có backup, giữ 43 bảng ngoài content/audit, parent immutable, head khác và khóa ngoại. Browser Xưởng local 3003 qua một bài của mỗi nhóm (7 bài): nhập bản viết, mở tiêu chí tự kiểm và 375 px không tràn ngang.
+- **Dữ liệu giữ được:** 217/217 bài nền, 1.676 hoạt động; sau lô này 1.589 có target và 87 thiếu, trước lô sinh tồn ngay trên. ID, answer/rubric, learner state và inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên. `skill:'speaking'` là nhãn mục tiêu tự luyện, không tạo điểm phát âm, nghe hoặc mastery độc lập.
+- **Tiếp theo:** Xử lý các gap cũ theo chủ đề và kiểm hành trình/hình/liên kết module. Không USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · 15 bài chữ HSK1 có target và một câu hết mơ hồ · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** 15 bài chữ HSK1 giữ nguyên 356 hoạt động và ID nhưng Xưởng nay có target/source riêng cho mỗi câu tìm chữ, nhớ chữ, chọn hình, điền sau mẫu và vận dụng. Riêng `characters-13`, câu “làm · zuò: □” trước đây chấp nhận cả 做/作 đã đổi thành “nấu cơm · zuòfàn: □饭”, chỉ nhận 做; lời giải nêu rõ 作 không thay được trong 做饭. Phiên cũ vẫn gắn revision/đáp án cũ.
+- **Đã kiểm:** Kế hoạch exact 15 bài/356 target và bản tự rà AI-assisted ở `58-REVIEW-CHARACTER-TARGETS.md`, `humanReviewed:false`; một correction kiểm exact trước/sau. Diễn tập rollback rồi apply có backup D1, bảo vệ 43 bảng ngoài content/audit, immutable parent packages, release heads khác và khóa ngoại. Browser Xưởng local 3003 qua cả 15 bài: sai→đúng, bản sửa 做/作, 375 px không tràn ngang. `npm run check` đạt: validator, typecheck, lint, restore D1, 418 file/2.608 test và build; premium client boundary đạt. Build toàn app còn vượt advisory 1024 KiB khoảng 25 KiB.
+- **Dữ liệu giữ được:** 217/217 bài nền vẫn local. Audit D1 mới: **1.554/1.676** hoạt động có target, **122 thiếu**; 15 bài chữ đạt 356/356. ID, completion, FSRS, lỗi, phiên, owner, outbox, D1 và inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên. 29 bài có page art, 139 trang scene còn dùng ảnh chung; 217 quyết định biên tập hình chưa xong. Target là liên kết biên tập, không chứng minh nhớ độc lập hay viết tay.
+- **Tiếp theo:** Rà 87 hoạt động cũ còn thiếu theo nhóm tình huống và 35 rubric HSK4 chưa có target, không gán nghe/nói/mastery bừa; rà hình theo ngữ cảnh và kiểm liên kết module. Chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · mục tiêu hoạt động boot-2/3/4 · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Ba bài HSK0 chào hỏi, âm đầu và biến điệu giữ nguyên câu hỏi/đáp án/rubric nhưng được liên kết đúng 14 mục tiêu và nguồn trong Xưởng; người học vẫn thấy bài như trước, không có điểm nghe/nói hoặc mastery mới từ bài tự soát. Editor có thể sửa target cùng nội dung trong revision tương lai.
+- **Đã kiểm:** Tự rà từng prompt, phương án, phản hồi và nguồn ở `57-REVIEW-BOOT-2-4-TARGETS.md`, `humanReviewed:false`; review hash và validator 14 mapping đạt. D1 diễn tập rollback rồi apply có backup, giữ 43 bảng ngoài content/audit, các head khác, immutable parent packages, khóa ngoại. Browser Xưởng local 3003 qua cả ba bài: câu sai→đúng và phản hồi đúng, viewport 375 px không tràn ngang. Targeted Vitest 3 file/5 test, typecheck và targeted ESLint đạt. Full `npm run check` ở mốc ngay dưới đã đạt trước lô metadata này; chưa lặp full suite sau lô nhỏ.
+- **Dữ liệu giữ được:** 217/217 bài nền vẫn phát hành local. Audit mới: 1.198/1.676 hoạt động có target, **478 thiếu**; ba bài boot-2/3/4 nay 14/14 có target. Giữ lesson/page/block IDs, đáp án, tiến độ/FSRS/lỗi/phiên/owner/outbox và D1 local; không đổi inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78. Hình vẫn 29 bài có page art, 139 trang scene dùng ảnh chung, 217 quyết định biên tập chưa xong.
+- **Tiếp theo:** Rà target theo câu/nguồn ở các lô còn thiếu, ưu tiên hoạt động có bằng chứng thực rồi phân loại rubric tự soát; tiếp tục hình theo bối cảnh và liên kết module. Không USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · 217 bài nền phát hành local, reader có giờ dùng được · 29/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** 42 bài HSK4 còn lại (24 tóm tắt/lập luận, 18 tích hợp) đã được biên soạn, tự rà AI-assisted và phát hành local theo sáu lô mỗi nhóm; tổng nền HSK0–4 nay 217/217 bài có trang authored trong Xưởng và runtime. Nhiệm vụ tích hợp dùng nhiều nguồn, sơ đồ, bài viết/nói tự đối chiếu và đồng hồ tự luyện; transcript đọc và TTS tổng hợp không thành bằng chứng nghe/nói. Sửa chiều cao bản xem trước Xưởng để hoạt động có giờ không bị khung 245 px che mất.
+- **Đã kiểm:** Audit release heads D1 đọc-only xác nhận 217 bài, 1.676 hoạt động; import/release các lô trước có diễn tập rollback, bảo vệ 44/43 bảng và kiểm khóa ngoại. Browser local 3003 qua ba lô tích hợp có giờ: bản đã phát hành khớp Xưởng, guest HSK4 trả 403, nút canh giờ bấm và đếm được, khung hoạt động cao hữu dụng, màn 375 px không tràn ngang. `npm run check` đạt: validator, typecheck, lint, restore D1, 416 test files/2.605 tests và build; premium client boundary đạt. Build toàn app vượt ngưỡng advisory 1024 KiB khoảng 25 KiB, không phải lỗi boundary Premium.
+- **Dữ liệu giữ được:** Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich; lesson/vocabulary IDs và tiến độ/FSRS/lỗi/phiên/owner/outbox không đổi. D1 không bị xóa; browser fixture cô lập. `humanReviewed:false`, không tuyên bố đủ năng lực HSK từ số bài. Audit learning target: 1.184/1.676 hoạt động có target, **492 thiếu** (457 tồn trước hai lô HSK4 cuối và 35 ở hai lô này, gồm bài rubric tự đối chiếu không được gán evidence nghe/nói bừa). Audit hình: 29 bài có page art, 139 trang scene còn dùng ảnh chung, cả 217 bài chờ quyết định biên tập hình theo bối cảnh.
+- **Tiếp theo:** Rà và bổ sung target theo từng câu/đáp án/nguồn, phân biệt bài tự luyện không tạo mastery; thay cảnh dùng chung bằng hình hoặc phương tiện dạy học đúng nội dung khi có quyết định biên tập. Kiểm thêm hành trình người học có giờ, nháp sau reload và liên kết module sau các sửa tiếp theo. Không USER-ACCEPTED, không push/deploy; goal còn mở.
+
+## Thiên Lộ/Xưởng · 36 bài HSK4 đọc sâu, sáu chủ đề · 28/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Sáu lô HSK4 đọc sâu về đời sống/cộng đồng, giáo dục/công việc, thiên nhiên/công nghệ, xã hội/kinh tế, nghệ thuật/thể thao và văn hóa/lịch sử đã phát hành local: 36 bài, 684 trang, 396 hoạt động. Mỗi bài dùng hai ngữ liệu riêng, Hanzi/Pinyin/Việt, hai sơ đồ bằng chứng, mười câu hỏi có đáp án và phản hồi, bài tổng hợp có rubric; Xưởng biên tập được các khối, sơ đồ, câu, đáp án và rubric. Nguồn B là transcript đọc với TTS tổng hợp, không tính nghe độc lập; xem mẫu bài viết không tự cấp mastery viết. Hồ sơ tự rà từng lô ở `docs/thien-lo-redesign-review/45–50-REVIEW-HSK4-*.md`.
+- **Đã kiểm:** Source/schema và review hash từng lô; import diễn tập/áp dụng bảo vệ 44 bảng, release diễn tập/áp dụng bảo vệ 43 bảng và kiểm khóa ngoại, backup D1 trước apply. Browser dev local 3003 cho cả sáu lô: exact document đã phát hành, quyền HSK4 guest 403, Xưởng hiện sơ đồ và 375 px không tràn ngang. TypeScript, targeted ESLint, validators nguồn sáu chủ đề đạt; `npm run build` sau source binding đạt, premium client boundary không lộ nội dung, toàn app vượt advisory 1024 KiB khoảng 24,4 KiB. Chưa chạy lại full `npm run check` sau các lô chỉ đổi nội dung và script; full suite trước đó từng bị một test timeout dưới tải đồng thời, test riêng đạt 23/23. Smoke mới xác nhận bản xem trước revision đã khóa, chờ hydration trước khi chọn trang.
+- **Dữ liệu giữ được:** Runtime D1 có **175/217** bài nền đã phát hành local: HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 **36/78**. Có 1.307 hoạt động trang, 850 có target và 457 cũ chưa có. Inventory rich HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 giữ nguyên. Lesson/vocabulary IDs và tiến độ/FSRS/lỗi/phiên/owner/outbox không thay; browser fixture cô lập. AI-assisted `humanReviewed:false`; nguồn long-form gốc vẫn chưa đạt production review và audio bản ngữ.
+- **Tiếp theo:** 42 HSK4 còn lại: 24 bài tóm tắt/lập luận và 18 bài tích hợp theo thời gian. Cần biên soạn/rà/phát hành các lô này, sau đó xử lý 457 target cũ và quyết định hình riêng theo bối cảnh. Không coi 175 bài hoặc số trang là đủ năng lực HSK; chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · 14 bài HSK3 ghi ý, kể lại, viết và giải thích · 28/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** 14 bài sản xuất HSK3 còn lại đã có trang authored trên local: 112 trang/42 hoạt động. Bài ghi ý chính (3), khôi phục liên kết đoạn (2), kể lại sự kiện (3), viết đoạn (3), giải thích lựa chọn có giới hạn (3) dùng ngữ liệu đã học, sơ đồ dữ kiện, câu kiểm hiểu với phản hồi, chỗ điền, nhiệm vụ mới và rubric tự đối chiếu. Nội dung nguồn và `sourceLessonIds` nối tới bài đã phát hành; Xưởng sửa được văn bản, sơ đồ, hoạt động, đáp án và rubric. Nhãn sơ đồ đã sửa thành Hán tự/Pinyin thay vì lặp nghĩa Việt. Bản tự rà ở `docs/thien-lo-redesign-review/44-REVIEW-HSK3-PRODUCTION.md`.
+- **Đã kiểm:** Builder/source/schema và review hash 14 bài; import diễn tập/áp dụng giữ 44 bảng, release diễn tập/áp dụng giữ 43 bảng và khóa ngoại, backup D1 trước apply. Sửa nhãn sơ đồ bằng revision có rehearsal/apply, chỉ cho phép đổi nhãn/Pinyin, bảo vệ nội dung và dữ liệu học. Browser dev local 3003 đạt cả 14 bài: khóa tiên quyết gồm bài cohesion 01 nằm ngoài lô, exact runtime, đọc/sơ đồ, câu sai→đúng, nháp IDB sau reload; mobile 375 px không tràn ngang; Xưởng preview cùng renderer. TypeScript, targeted ESLint, `npm run build`, test lỗi chạy riêng 23/23 và diff check đạt. `npm run check` đã chạy qua các validator, typecheck, lint và content validate nhưng gặp một test `contentCommand` quá thời gian khi dev server chạy đồng thời; dừng full suite sau lỗi, test đó đạt 23/23 khi chạy riêng. Web local 3003 đã bật lại và runtime API trả 200.
+- **Dữ liệu giữ được:** 139/217 bài nền có trang authored phát hành local, HSK3 55/55; còn 78 HSK4. Runtime 911 hoạt động: 454 có learning target, 457 cũ chưa có. Audit hình: 29 bài có page art, 139 trang còn dùng cảnh chung, 217 quyết định hình chưa được ký duyệt; sơ đồ không được tính thành ảnh đã duyệt. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich giữ nguyên. Không thay lesson/vocabulary IDs, completion, FSRS/mistakes/session/owner/outbox. Browser fixture cô lập; AI-assisted `humanReviewed:false`. Bài luyện nói dùng dàn ý/tự đối chiếu, chưa có chấm phát âm độc lập.
+- **Tiếp theo:** HSK4 gồm 36 bài đọc sâu, 24 bài tóm tắt/lập luận, 18 bài tích hợp theo thời gian. Sáu nguồn văn bản dài có 216 đoạn; file nguồn không nhúng Pinyin nhưng kho hỗ trợ riêng khớp đủ 216/216 dòng. Cần rà cách đọc, câu hỏi và bài vận dụng theo chủ đề trước khi phát hành, không phát hành nguyên scaffold. Sau đó rà 457 target cũ và hình theo bối cảnh. Chưa USER-ACCEPTED, không push/deploy; không có căn cứ cam kết toàn bộ phần còn lại xong trong ngày.
+
+## Thiên Lộ/Xưởng · chín bài HSK3 sự kiện, so sánh và liên kết câu · 28/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Chín bài event/complements, comparison và discourse đã có nội dung mới trên local: 129 trang, 75 hoạt động, 48 điểm ngữ pháp; mỗi bài có sáu đoạn Hanzi/Pinyin/nghĩa Việt, sơ đồ riêng, câu kiểm hiểu với phản hồi, bài điền và viết vận dụng theo dữ kiện mới. Sửa cách dùng bổ ngữ/tồn hiện, phạm vi số tăng thêm, dự đoán khác sự kiện, lựa chọn khác thứ tự, điều kiện cần khác điều kiện đủ. Toàn bộ khối, sơ đồ, đáp án và rubric nằm trong tài liệu Xưởng có thể biên tập. Tự rà ở `docs/thien-lo-redesign-review/43-REVIEW-HSK3-GRAMMAR-FINISH.md`.
+- **Đã kiểm:** Builder và source/schema validator cả chín bài; review hash AI-assisted; TypeScript và targeted ESLint đạt. Import diễn tập/áp dụng giữ 44 bảng; release diễn tập/áp dụng giữ 43 bảng và khóa ngoại, có backup D1 trước mỗi áp dụng. Browser dev local 3003 đạt cho cả chín bài: khóa tiên quyết, exact runtime so với bản soạn, đọc/sơ đồ, trả lời sai→đúng, grammar đầu/cuối, nháp IndexedDB sau reload; mobile 375 px không tràn ngang; Xưởng nhận exact document và preview cùng renderer. Không chạy lại full build cho lô chỉ đổi nội dung/công cụ soạn; production local runner còn hạn chế đã ghi ở mốc trước.
+- **Dữ liệu giữ được:** 125/217 bài nền có trang authored được phát hành local, HSK3 41/55; còn 92 bài nền (14 HSK3, 78 HSK4). Runtime 869 hoạt động: 412 có learning target, 457 cũ còn thiếu. Audit hình vẫn 29 bài có page art, 139 trang dùng cảnh chung, 217 quyết định hình cần rà; chín sơ đồ mới không được tính là hoàn tất ảnh toàn kho. Nền HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich giữ nguyên. Không đổi lesson/vocabulary IDs, completion, FSRS/mistakes/session/owner/outbox; fixture chỉ nằm trong browser cô lập. AI-assisted `humanReviewed:false`. Nguồn `hsk3-task-13` lệch chủ đề trong inventory cũ được giữ ID nhưng không dùng làm target của câu mới.
+- **Tiếp theo:** làm lô 14 bài sản xuất HSK3 còn lại (ghi ý chính, liên kết đoạn, kể lại, viết đoạn, giải thích), giữ bài cohesion 01 đã phát hành; sau đó HSK4. Tiếp tục rà 457 target cũ và hình theo bối cảnh. Chưa USER-ACCEPTED, không push/deploy; chưa đủ căn cứ cam kết hoàn tất toàn bộ trong ngày.
+
+## Thiên Lộ/Xưởng · ba bài HSK3 tình thái, thời điểm và góc nhìn · 27/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Ba bài theo chuỗi sau nhóm quy chiếu nay có 18 trang/bài: sáu đoạn Hanzi/Pinyin/nghĩa Việt, sơ đồ thông tin riêng, câu đọc hiểu có phản hồi, chỗ điền chính, chín điểm ngữ pháp gắn exact grammar ID và bài viết vận dụng ở tình huống mới. Tổng 36 hoạt động; 27 trang ngữ pháp có prompt/đáp án/feedback riêng. Bài 01 phân biệt dấu hiệu, lời khuyên, bắt buộc và không cần; bài 02 tách mục đích, căn cứ, điều kiện và góc nhìn; bài 03 giữ phạm vi thời gian của phủ định và thái độ từng người. Xưởng lưu/preview được sơ đồ, câu, nguồn và rubric; tự rà ở `docs/thien-lo-redesign-review/42-REVIEW-HSK3-MODALITY.md`.
+- **Đã kiểm:** Builder/validator và review hash AI-assisted 3 bài; import diễn tập/áp dụng giữ 44 bảng, release diễn tập/áp dụng giữ 43 bảng và khóa ngoại, có backup D1 trước mỗi áp dụng. Browser trên dev local cổng 3003 đạt hành trình khóa tiên quyết, exact runtime cả ba bài, văn bản/sơ đồ/câu sai→đúng, grammar đầu/cuối mỗi bài, nháp IndexedDB sau reload, mobile 375 px không tràn ngang và Xưởng preview cùng renderer. TypeScript, targeted ESLint, `npm run build`, diff check đạt; bundle toàn app vượt advisory 1024 KiB 24,5 KiB. `vinext start` trên cổng 3001/3002 trả HTML cho asset và runtime 503 trong phiên này, nên browser evidence lấy từ dev local 3003; chưa coi production local runner là đã thông qua.
+- **Dữ liệu giữ được:** 116/217 bài có trang authored local, HSK3 32/55; còn 101 bài nền. Runtime 794 hoạt động: 337 có learning target, 457 cũ còn thiếu. Audit hình: 29 bài có page art, 139 trang dùng cảnh chung, 217 quyết định hình chưa được ký duyệt. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi. Không đổi lesson/vocabulary IDs, completion, FSRS/mistakes/session/owner/outbox; fixture chỉ trong browser cô lập. AI-assisted `humanReviewed:false`.
+- **Tiếp theo:** nhóm HSK3 event/complements theo tiên quyết, rồi comparison/discourse và bài sản xuất HSK3, sau đó HSK4. Rà 457 target cũ theo câu hỏi/đáp án/nguồn và quyết định hình ảnh theo bài; sửa runner production local riêng trước khi dùng kết quả đó làm gate. Chưa USER-ACCEPTED, không push/deploy.
+
+## Gói học · từ chối yêu cầu hoàn Ví Hanzi · 27/09/2026
+
+- **Module:** Vận hành hoàn điểm Ví Hanzi — IN-REVIEW.
+- **Người học thấy gì:** Admin có thể từ chối một yêu cầu hoàn Ví Hanzi với lý do; người học thấy lý do trong lịch sử gói và được hướng tới yêu cầu hỗ trợ. Đơn vẫn còn hiệu lực, số dư không đổi; yêu cầu đã từ chối rời hàng chờ và không thể gửi lại cùng đơn.
+- **Đã kiểm:** 15 test liên quan đạt, gồm phân quyền step-up, chặn nguồn khác, từ chối lặp, quyền/số dư giữ nguyên, audit lỗi rollback. `db:check`, targeted ESLint và restore rehearsal 32 migration/51 bảng đạt. Đã sao lưu D1 local trước khi áp migration 0031; áp migration local thành công, `/api/commerce` và `/profile/premium` trên web local cổng 3000 trả 200. Typecheck toàn repo đang vướng lỗi ngoài module ở `scripts/content/smoke-hsk3-modality.ts:54` (`row.value` có thể undefined); chưa có browser kiểm hai vai trò cho nhánh từ chối.
+- **Dữ liệu giữ được:** Backup `.wrangler/demo-backups/before-refund-rejection-0031-*`; migration chỉ thêm ba cột nullable, không đổi đơn cũ, ví, lesson ID, tiến độ/FSRS/session/outbox. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich giữ nguyên.
+- **Tiếp theo:** người dùng test luồng từ chối trên web local và chốt chính sách tranh chấp/SLA cho điểm thử. VNPAY/payOS ở cuối; chưa USER-ACCEPTED, chưa mở bán.
+
+## Thiên Lộ/Xưởng · ba bài HSK3 quy chiếu, lượng từ và hành trình · 27/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Ba bài theo chuỗi sau văn hóa nay có 16 trang/bài: sáu đoạn Hanzi/Pinyin/nghĩa Việt, sơ đồ dữ kiện riêng, câu hiểu văn bản, bài điền chính, bảy điểm ngữ pháp có nguồn riêng và bài viết với dữ kiện mới. Tổng 30 hoạt động; 21 trang ngữ pháp gắn exact grammar ID và feedback. Xưởng lưu/preview được đúng tài liệu, sơ đồ, đáp án và rubric; những sửa câu nguồn và ranh giới ước lượng được ghi ở `docs/thien-lo-redesign-review/41-REVIEW-HSK3-REFERENCE.md`.
+- **Đã kiểm:** Builder/validator và AI-assisted review hash 3 bài; import rehearsal/apply giữ 44 bảng, release rehearsal/apply giữ 43 bảng và FK, có backup D1 trước apply. Browser trên server production local cổng 3001 đạt 2/2: khóa tiên quyết, exact runtime ba bài, đọc/sơ đồ/câu sai→đúng, điểm ngữ pháp đầu/cuối mỗi bài, nháp IDB sau reload và mobile 375 px không tràn ngang; Xưởng nhận exact document và preview cùng renderer. TypeScript, targeted ESLint đạt. Dev server từng có lỗi Vinext RSC worker `Network connection lost`, nên kết luận browser lấy từ server production local ổn định; không lẫn lỗi worker với kết quả học.
+- **Dữ liệu giữ được:** 113/217 bài có trang authored local, HSK3 29/55; còn 104 bài nền. Runtime 758 hoạt động: 301 có learning target, 457 cũ còn thiếu. Audit hình: 29 bài có page art, 139 trang dùng cảnh chung, 217 quyết định thị giác chưa được ký duyệt. Nền HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi. Không thay lesson/vocabulary IDs, tiến độ thật, FSRS/mistakes/session/owner/outbox; fixture browser cô lập. AI-assisted `humanReviewed:false`.
+- **Tiếp theo:** nhóm HSK3 modality/time/viewpoint gồm ba bài theo tiên quyết, rồi event/comparison/discourse và bài sản xuất HSK3; sau đó HSK4 theo lô. Tiếp tục xử lý 457 target và audit hình riêng; chưa USER-ACCEPTED, không push/deploy.
+
+## Gói học · hồ sơ khách hàng và vận hành thử nghiệm · 27/09/2026
+
+- **Module:** Quản trị thương mại Premium HSK4 — IN-REVIEW.
+- **Người học thấy gì:** không đổi màn học; admin tra chính xác tên đăng nhập hoặc mã tài khoản, xem hạn Premium, đơn của cả hai luồng thử nghiệm, số dư và biến động Ví Hanzi, yêu cầu hỗ trợ trong cùng hồ sơ. Bảng quản trị thêm số lượt mua bằng ví, tài khoản từng mua từ hai lượt, gói hết hạn trong 7 ngày và hàng hỗ trợ; không gọi đó là doanh thu.
+- **Đã kiểm:** 13 test liên quan, gồm tra đúng chủ sở hữu, không trả kết quả theo tên một phần, gộp đơn và tính gói sắp hết hạn; TypeScript và ESLint đạt. Playwright local bằng phiên `admin.demo` cô lập mở `/admin/premium?walletUserId=learner.demo` trên port 3000, thấy hồ sơ; tra sai trả không tìm thấy; đăng xuất phiên kiểm thử. `npm run check` đạt 415 test files/2597 tests, restore rehearsal, build và kiểm bundle Premium; cảnh báo bundle toàn app vẫn là advisory. Web local port 3000 trả `/api/commerce` 200 sau khi bật lại.
+- **Dữ liệu giữ được:** chỉ thêm truy vấn đọc/UI/tài liệu, không migration hoặc sửa ví/đơn/progress của tài khoản. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich giữ nguyên.
+- **Tiếp theo:** người dùng kiểm hồ sơ quản trị và quy trình hỗ trợ/hoàn trên local; phần chính sách từ chối hoàn, SLA, thông báo và giao dịch VND còn cần quyết định riêng. VNPAY/payOS vẫn để cuối; chưa USER-ACCEPTED.
+
+## Gói học · chốt giá mua và yêu cầu hoàn Ví Hanzi · 27/09/2026
+
+- **Module:** Ví Hanzi/checkout HSK4 — IN-REVIEW.
+- **Người học thấy gì:** Nếu admin đổi giá trong lúc mua, không trừ ví và nhắc tải lại giá; đơn sandbox không thu tiền cũ không còn nút xác nhận khi đã bật giá Hanzi, nhưng vẫn hủy được. Yêu cầu hoàn Ví Hanzi thất bại được báo là xung đột khi đơn không còn hợp lệ.
+- **Đã kiểm:** 18 test liên quan đạt, gồm mô phỏng đổi giá ngay sau bước đọc, audit yêu cầu hoàn lỗi thì hàng chờ rollback; typecheck và targeted ESLint đạt. `npm run check` dừng ở TypeScript của `scripts/content/author-hsk3-reference.ts` (modelExample thiếu `speaker`), ngoài module này; phần commerce không báo lỗi. Web local port 3001 `/api/commerce` trả 200, trang gói học tải được Ví Hanzi của phiên hiện có. Chưa có browser end-to-end mua/hoàn bằng hai tài khoản thật.
+- **Dữ liệu giữ được:** Không migration, không sửa D1 local hay dữ liệu học; test dùng SQLite cô lập. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich giữ nguyên.
+- **Tiếp theo:** người dùng nghiệm thu luồng Ví Hanzi trên web local; VNPAY/payOS để cuối. Chưa USER-ACCEPTED.
+
+## Thiên Lộ/Xưởng · năm bài HSK3 văn hóa và so sánh · 27/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 chưa hoàn tất.
+- **Người học thấy gì:** Năm bài ẩm thực/khẩu vị, dụng cụ bàn ăn, lịch Trung thu một gia đình, hai địa điểm và so sánh cách tiếp khách nay có 9 trang/bài. Mỗi bài có bốn đoạn Hanzi/Pinyin/nghĩa Việt, sơ đồ dữ kiện riêng, câu chọn có phản hồi, chỗ điền và bài viết dùng tình huống mới. Sơ đồ, nguồn và hoạt động đều nằm trong tài liệu Xưởng có thể biên tập. Các ví dụ cá nhân không được trình bày thành quy tắc của cả vùng hoặc quốc gia.
+- **Đã kiểm:** Builder/validator 5 bài, 45 trang/15 hoạt động; import rehearsal/apply bảo vệ 44 bảng, release rehearsal/apply bảo vệ 43 bảng và FK, có backup D1 trước apply. Playwright trên web local 2/2: khóa tiên quyết, exact runtime cả năm, văn bản/sơ đồ/feedback sai→đúng/nháp sau reload, mobile 375 px không tràn ngang; Xưởng mở exact document và preview sơ đồ. TypeScript, targeted ESLint, diff check đạt. `npm run check` 414 files/2592 tests và build đạt trước khi thêm lô văn hóa; lô mới được kiểm bằng các gate riêng trên.
+- **Dữ liệu giữ được:** 110/217 bài có trang authored local, HSK3 26/55; còn 107 bài nền. Runtime có 728 hoạt động, 271 có learning target, 457 cũ còn thiếu. Audit thị giác: 29 bài có page art, 139 trang còn dùng cảnh chung, 217 quyết định biên tập hình chưa được ký duyệt. Nền HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich vẫn giữ. Không đổi lesson/vocabulary IDs, tiến độ thật, FSRS, mistakes, session, owner hay outbox. Fixture chỉ trong browser cô lập; AI-assisted giữ `humanReviewed:false`, bản rà ở `docs/thien-lo-redesign-review/40-REVIEW-HSK3-CULTURE.md`.
+- **Tiếp theo:** tiếp tục các nhóm HSK3 diễn ngôn/tổng hợp và HSK4 theo lô; rà 457 target theo câu hỏi, đáp án và nguồn; quyết định hình ảnh phù hợp từng bài. Chưa USER-ACCEPTED, không push/deploy.
+
+## Gói học · tổng hợp quản trị Ví Hanzi · 26/09/2026
+
+- **Module:** Quản trị Gói học/Ví Hanzi — IN-REVIEW.
+- **Người học thấy gì:** Không đổi luồng mua; admin thấy giao dịch Ví Hanzi trong tổng số giao dịch, số tài khoản, gói còn hiệu lực, lượt hoàn và bảng 200 giao dịch gần đây. Bảng ghi rõ phương thức Hanzi hay sandbox không thu tiền; số yêu cầu chờ xử lý gồm cả hai loại.
+- **Đã kiểm:** Test repository với một tài khoản mua ở hai phương thức và một đơn Ví Hanzi đã hoàn; 9 test liên quan đạt, TypeScript/ESLint/diff check đạt. Web local `/api/commerce` trả 200; trang `/profile/premium` tải ví tài khoản hiện hành trong browser. Chưa kiểm browser admin và mua/hoàn bằng hai tài khoản thật.
+- **Dữ liệu giữ được:** Chỉ sửa truy vấn đọc và hiển thị quản trị, không migration hay ghi D1; inventory bài/tiến độ không đổi.
+- **Tiếp theo:** người dùng kiểm trang quản trị và hành trình Ví Hanzi; sau đó xử lý phát hiện trong cùng module. VNPAY/payOS để cuối theo yêu cầu; chưa USER-ACCEPTED.
+
+## Gói học · Ví Hanzi và quyền bài Thiên Lộ · 26/09/2026
+
+- **Module:** Ví Hanzi và quyền bài Thiên Lộ — IN-REVIEW.
+- **Người học thấy gì:** Ví Hanzi hiển thị số dư/lịch sử; admin cấp/thu hồi điểm thử, đặt giá Hanzi tháng/năm. Khi giá đã đặt và ví đủ điểm, người học có thể mua gói HSK4 bằng ví; yêu cầu hoàn qua admin trả lại đúng điểm đã trừ. VNPAY và VietQR qua payOS được ghi rõ là chưa cấu hình. Admin có thể mở Free hoặc trả lại Premium cho từng bài Thiên Lộ HSK4; HSK0–3, từ điển, chữ Hán và đề luyện giữ quyền hiện có.
+- **Đã kiểm:** Vitest sổ cái, mua/hoàn, idempotency, thiếu số dư, owner, giá thay đổi khi mua và rollback khi audit lỗi; kiểm quyền bài mặc định/override. `npm run check` đạt 413 test files/2586 tests, build và kiểm bundle Premium; restore rehearsal 31 migration/51 bảng, export/delete tài khoản. Browser mobile 375×812 với API mô phỏng xác nhận bấm mua gói 80 Hanzi và số dư 100→20; API local guest `/api/commerce` trả 200, ranh giới mặc định bài HSK4/Khảo Nghiệm đạt. Migration local 0028–0030 đã áp sau khi sao lưu D1. Chưa có browser end-to-end tài khoản/admin với ví thật; một test cũ tìm thẻ Khảo Nghiệm HSK4 trên trang Thiên Lộ bị stale do thẻ không còn ở trang ấy. `verify:production` fail-closed với 23 blocker.
+- **Dữ liệu giữ được:** D1 local được sao lưu trong `.wrangler/demo-backups/before-wallet-0028-*`, `before-wallet-0029-*`, `before-access-0030-*`; không xóa tiến độ, FSRS, phiên học hoặc outbox. Inventory nền HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** người dùng test web local và xác nhận quyền bài/giá Hanzi; tiếp tục cổng tiền thật khi có merchant sandbox, secret, domain callback và giá VND. Chưa USER-ACCEPTED, không mở production.
+
+## Gói học · đối chiếu Chương 5 báo cáo gốc · 25/09/2026
+
+- **Module:** Phạm vi hướng doanh nghiệp — IN-REVIEW.
+- **Người học thấy gì:** không đổi code; quyền Premium tiếp tục chỉ áp cho bài Thiên Lộ HSK4. Đề xuất rộng trong báo cáo gốc về khóa thêm thư viện, luyện đề và tra cứu đã được chỉ thị mới của chủ sản phẩm thay thế.
+- **Đã kiểm:** đọc đủ 10 trang PDF báo cáo, đặc biệt bảng quyền lợi trang 9 và danh sách module/ba giai đoạn trang 10; đối chiếu với code và `docs/PREMIUM_COMMERCE.md`. Đã ghi rõ các module vẫn cần làm: thanh toán đã xác minh, gia hạn/hết hạn, hỗ trợ/hoàn tiền và chỉ số kinh doanh từ giao dịch thật. Bảng sandbox không được gọi là doanh thu.
+- **Dữ liệu giữ được:** chỉ cập nhật tài liệu; không chạm D1, người học, nội dung hoặc ID. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** cần chủ sản phẩm chốt điều kiện thương mại và merchant sandbox/domain callback; sau đó triển khai provider, đối soát, báo cáo thật và pilot theo gate production. Chưa USER-ACCEPTED.
+
+## Gói học · hết hạn quyền bài trên browser · 25/09/2026
+
+- **Module:** Vòng đời hết hạn bài Thiên Lộ HSK4 — IN-REVIEW.
+- **Người học thấy gì:** khi hạn gói do server cấp trôi qua, màn bài HSK4 đóng và mời xem gói; Khảo Nghiệm Căn Cơ HSK4 vẫn mở.
+- **Đã kiểm:** Playwright/Chromium mobile 375×812, reduced motion, guest đã onboarding: giả response commerce đầu tiên `active:true` với hạn 1,2 giây, response refresh `active:false`; chờ qua hạn xác nhận màn Premium và có ít nhất hai lần đọc commerce, không đóng sớm trước hạn; API level check HSK4 vẫn 200. Lượt đầu vào thẳng URL với browser mới dừng ở màn chào (fixture thiếu onboarding), sau khi sửa fixture chạy lại đạt. Đây là kiểm countdown/client; server expiry đã được kiểm bởi policy/repository, chưa phải provider thật.
+- **Dữ liệu giữ được:** browser context cô lập, không tạo tài khoản hoặc đổi D1; progress/FSRS/session/outbox và inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm hết hạn bằng entitlement provider đã xác minh sau khi chốt giá/cổng/chính sách và có merchant sandbox; chưa USER-ACCEPTED.
+
+## Gói học · kiểm xuất/xóa dữ liệu giao dịch theo tài khoản · 25/09/2026
+
+- **Module:** Bảo toàn dữ liệu gói Premium sandbox — IN-REVIEW.
+- **Người học thấy gì:** bản xuất tài khoản có đơn sandbox và yêu cầu hoàn; khi xóa tài khoản, đơn và ticket của đúng chủ sở hữu được xóa, dữ liệu tài khoản khác giữ nguyên.
+- **Đã kiểm:** bổ sung fixture đơn đã kích hoạt và yêu cầu hoàn vào test export, đơn của cả hai chủ vào test xóa; `src/server/syncRepository.test.ts` đạt 9/9. `npm run test:restore` đạt 28 migration/46 bảng, integrity và FK; typecheck, ESLint đạt. Đây là dữ liệu thử nghiệm; chính sách lưu chứng từ giao dịch thật vẫn cần quyết định pháp lý trước production.
+- **Dữ liệu giữ được:** test chỉ dùng SQLite cô lập, không đụng D1 local, progress/FSRS/session/outbox hoặc content ID; inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** xác định quy tắc lưu/chuyển ẩn danh chứng từ thanh toán thật cùng quyết định giá/provider/hoàn tiền; chưa USER-ACCEPTED.
+
+## Gói học · khóa sandbox trên môi trường public · 25/09/2026
+
+- **Module:** Biên môi trường quyền bài Thiên Lộ HSK4 — IN-REVIEW.
+- **Người học thấy gì:** không đổi hành vi local; giao dịch thử nghiệm không thể mở bài HSK4 trong môi trường production. Bài HSK0–HSK3 không hỏi commerce.
+- **Đã kiểm:** regression test đặt `NODE_ENV=production` ngay trên URL localhost và xác nhận `requestPremiumAccess` trả false trước khi đọc D1/tài khoản/ledger; kiểm localhost development được nhận diện sandbox và HSK0–HSK3 trả `null` ở premium gate. 2 file/5 test scope đạt, typecheck và ESLint đạt. Đây chưa phải tích hợp thanh toán production.
+- **Dữ liệu giữ được:** không chạm D1, progress/FSRS/session/outbox hoặc content ID; inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** dùng quyết định giá/cổng/chính sách và merchant sandbox để thiết kế luồng thanh toán đã xác minh, tách hẳn ledger thật khỏi sandbox; chưa USER-ACCEPTED.
+
+## Gói học · rà điều kiện production và đồng bộ tài liệu phạm vi · 25/09/2026
+
+- **Module:** Ranh giới phát hành Premium — IN-REVIEW.
+- **Người học thấy gì:** không đổi giao diện; tài liệu kiến trúc, tầm nhìn và kiểm thử nay nói đúng phạm vi đã chốt: chỉ bài Thiên Lộ HSK4 cần Premium, còn từ điển, chữ Hán, khảo nghiệm, đề luyện HSK4 và khu khác giữ nguyên.
+- **Đã kiểm:** `node scripts/verify-production-readiness.mjs` fail-closed đúng kỳ vọng với 23 blocker của package `foundation-2026.08.7`; có native review, provenance/license, pilot assessment, identity/recovery, hosted restore, independent security/privacy, vận hành, load/a11y/performance và ownership/hosting. Tài liệu commerce đã cập nhật bằng chứng browser admin sandbox vừa đạt; chưa có provider callback/hoàn tiền thật. Không dùng các test local để nhận production.
+- **Dữ liệu giữ được:** chỉ sửa tài liệu, không chạm D1, progress/FSRS/session/outbox hay content ID; inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** chờ chốt giá/cổng/chính sách và merchant sandbox/domain callback; hoàn thiện các gate production bằng bằng chứng thật trước mở bán. Chưa USER-ACCEPTED.
+
+## Gói học · browser quản trị hoàn và hỗ trợ sandbox · 25/09/2026
+
+- **Module:** Hành trình quản trị Premium thử nghiệm — IN-REVIEW.
+- **Người học thấy gì:** sau khi quản trị hoàn giao dịch thử nghiệm, bài Thiên Lộ HSK4 lại yêu cầu Premium; yêu cầu hỗ trợ có phản hồi trong tài khoản. Các khu HSK4 khác giữ cách dùng bình thường.
+- **Đã kiểm:** Playwright/Chromium trên web local: tài khoản thử đăng ký, kích hoạt gói sandbox, gửi yêu cầu hoàn và hỗ trợ; `admin.demo` đăng nhập phiên mới, trang `/admin/premium` mở, nút hoàn trả thông báo thành công; API rich bài HSK4 của người học đổi 200 → 403, snapshot gói `active:false`; quản trị phản hồi hỗ trợ trên trang và API người học trả ticket `answered`. Tài khoản thử xóa API 200; phiên admin demo đăng xuất API 200. Đây là giao dịch không thu tiền, không chứng minh callback/hoàn tiền provider thật.
+- **Dữ liệu giữ được:** không reset progress/FSRS/session/outbox hoặc thay tài khoản demo; chỉ tạo rồi xóa tài khoản thử và đăng xuất phiên admin vừa tạo. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** chốt giá, provider, chính sách hoàn và merchant sandbox/domain callback trước tích hợp thanh toán thật; production vẫn fail-closed. Chưa USER-ACCEPTED.
+
+## Gói học · phản hồi hỗ trợ có audit nguyên tử · 25/09/2026
+
+- **Module:** Hỗ trợ Premium ở Cổng Quản Trị — IN-REVIEW.
+- **Người học thấy gì:** khi quản trị phản hồi yêu cầu hỗ trợ, trạng thái yêu cầu và dấu vết quản trị cùng thành công hoặc cùng được hoàn tác; không có phản hồi đã lưu mà thiếu audit.
+- **Đã kiểm:** test SQLite memory cố tình làm audit insert thất bại xác nhận ticket vẫn mở, retry thành công tạo đúng một sự kiện và phản hồi lần hai bị chặn; route test xác nhận `commerce:manage`, step-up, chặn cross-origin và phản hồi quá ngắn. 2 file/6 test mới đạt; cùng 3 file commerce liên quan là 11 test đạt, typecheck, ESLint và `git diff --check` đạt. Web local `/admin/premium` trả 200; chưa kiểm phiên admin thật trên browser.
+- **Dữ liệu giữ được:** không chạm D1 local, progress, FSRS, session hay outbox; inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm admin step-up end-to-end bằng tài khoản thử cô lập; cần chủ sản phẩm chốt giá/provider/chính sách và merchant sandbox trước khi tích hợp thanh toán thật. Chưa USER-ACCEPTED.
+
+## Gói học · phân quyền quản trị giao dịch thử nghiệm · 25/09/2026
+
+- **Module:** Quản trị giao dịch Premium — IN-REVIEW.
+- **Người học thấy gì:** không đổi phạm vi quyền học; chỉ bài Thiên Lộ HSK4 cần Premium. Trang quản trị gói, thao tác hoàn và phản hồi hỗ trợ dùng quyền `commerce:manage` riêng thay vì quyền đọc tài khoản. Hoàn giao dịch vẫn đòi xác minh lại phiên quản trị.
+- **Đã kiểm:** 4 file Vitest/13 test đạt, gồm route hoàn kiểm quyền, step-up, chặn cross-origin và audit actor; `npm run typecheck`, ESLint các file đổi và `git diff --check` đạt. Chưa kiểm admin step-up bằng browser thật hoặc hoàn tiền qua provider.
+- **Dữ liệu giữ được:** không chạm D1 local, tiến độ, FSRS, session hay outbox; inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm admin end-to-end trong môi trường thử cô lập; chốt giá, provider, chính sách hoàn và merchant sandbox trước tích hợp thanh toán thật. Chưa USER-ACCEPTED.
+
+## Gói học · hoàn sandbox và audit nguyên tử · 25/09/2026
+
+- **Module:** Quản trị hoàn giao dịch thử nghiệm — IN-REVIEW.
+- **Người học thấy gì:** khi quản trị hoàn giao dịch, quyền bài Thiên Lộ HSK4 và dấu vết quản trị được ghi cùng một transaction; lỗi ghi audit không để giao dịch bị hoàn một nửa rồi hiện thông báo thất bại.
+- **Đã kiểm:** route quản trị gọi `refundWithAudit`; test SQLite D1 batch chủ động làm audit insert thất bại xác nhận ledger rollback, quyền còn active, rồi retry thành công tạo đúng một audit event và thu hồi quyền; lần hoàn lặp bị chặn. 5 test repository đạt, typecheck, ESLint, build và gate bundle 184 JS asset/192 marker bài HSK4 đạt. Chưa kiểm trên browser bằng tài khoản admin step-up hoặc provider hoàn tiền thật.
+- **Dữ liệu giữ được:** không migration và không chạm D1 local; chỉ dùng SQLite memory trong test. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm admin step-up end-to-end ở môi trường thử cô lập; chốt phương án giá/provider/chính sách hoàn và merchant sandbox trước tích hợp thật. Chưa USER-ACCEPTED.
+
+## Gói học · yêu cầu hoàn và thu hồi quyền bài HSK4 · 25/09/2026
+
+- **Module:** Vòng đời quyền bài Thiên Lộ HSK4 — IN-REVIEW.
+- **Người học thấy gì:** gửi yêu cầu hoàn vẫn học bài HSK4 trong lúc chờ xử lý; khi server xác nhận quyền đã thu hồi, màn bài trở lại thông báo Premium. Khảo Nghiệm Căn Cơ HSK4 vẫn mở.
+- **Đã kiểm:** browser tài khoản thử mới: guest bài HSK4 403, khảo nghiệm 72 câu/chữ 441 mục 200, đề HSK4 trả 200 sau đăng nhập trước khi mua; sandbox pay mở rich lesson 200; request-refund thành công nhưng rich lesson vẫn 200; response commerce giả `active:false` khi focus đóng màn bài, khảo nghiệm vẫn hiện. Tài khoản thử xóa API 200. Test repository mới xác nhận access giữ active khi chỉ request-refund và thành inactive sau admin refund; 6 test commerce/policy, typecheck, ESLint đạt. Chưa kiểm admin refund thật trên browser hoặc callback provider.
+- **Dữ liệu giữ được:** chỉ tạo rồi xóa tài khoản thử; không migration, reset hay thay tiến độ/FSRS/session của người dùng khác. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm admin refund end-to-end với tài khoản quản trị cô lập. Phương án cụ thể để chốt đã ghi ở `docs/PREMIUM_COMMERCE.md`: VNPAY PAY, 99.000đ/tháng, 790.000đ/năm, gia hạn chủ động, cửa sổ yêu cầu hoàn 7 ngày nếu chưa dùng bài HSK4; chưa áp dụng giá hay chính sách vào code. Cần chủ sản phẩm chốt và cung cấp merchant sandbox/domain trước tích hợp thanh toán thật; chưa USER-ACCEPTED.
+
+## Gói học · browser tài khoản thử theo phạm vi bài Thiên Lộ · 25/09/2026
+
+- **Module:** Quyền bài học Thiên Lộ HSK4 — IN-REVIEW.
+- **Người học thấy gì:** khách chưa mua thấy màn Premium ở bài Thiên Lộ HSK4, nhưng Khảo Nghiệm Căn Cơ, chữ HSK4 và đề mô phỏng vẫn mở. Khi mua gói thử, API bài HSK4 mở; nếu chưa học bài tiên quyết, màn vẫn báo Cảnh Giới chưa mở theo lộ trình.
+- **Đã kiểm:** browser 375 px với tài khoản thử mới: guest rich lesson 403, khảo nghiệm 72 câu 200, chữ 441 mục 200; sau đăng ký/onboarding/enrollment, đề HSK4 trả 200 trước khi mua; mua sandbox mở rich lesson 200; màn bài chuyển từ khóa Premium sang khóa tiên quyết, không tự vượt lộ trình; yêu cầu hoàn thử nghiệm được ghi nhận. Tài khoản thử xóa qua API trả 200. Script cô lập `tmp/premium-lesson-scope-smoke.mjs` đạt; lượt đầu thiếu onboarding, lượt hai đợi nội dung bài dù tài khoản chưa đạt tiên quyết, cả hai là lỗi kỳ vọng fixture và đã chỉnh trước lượt đạt.
+- **Dữ liệu giữ được:** chỉ tạo rồi xóa tài khoản thử; không thay catalog, ID, completion, FSRS, session hoặc dữ liệu người dùng khác. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm thu hồi quyền sau admin hoàn tiền và hết hạn với account cô lập, giá/cổng/chính sách hoàn để chốt trước thanh toán thật; chờ người dùng nghiệm thu, chưa USER-ACCEPTED.
+
+## Gói học · chốt lại phạm vi Premium theo người dùng · 25/09/2026
+
+- **Module:** Biên quyền Thiên Lộ HSK4 — IN-REVIEW.
+- **Người học thấy gì:** chỉ bài học HSK4 trong Thiên Lộ cần Premium; từ điển, chữ Hán, Khảo Nghiệm Căn Cơ HSK4 và đề mô phỏng HSK4 vẫn dùng như bình thường. Màn gói và Hồ sơ nói rõ ranh giới này.
+- **Đã kiểm:** catalog nền/kho từ mở rộng HSK4 được giữ công khai đúng phạm vi; bỏ audit chặn production cho chúng và endpoint catalog trả phí không cần thiết. Route boundary chỉ chặn `/lesson/<bài HSK4>`. Local guest: level check 200, chữ 200, runtime vocabulary HSK4 200, mock exam trả 401 do yêu cầu đăng nhập chứ không phải gói, rich lesson và runtime lesson HSK4 trả 403. Phát hiện 78 communicative function HSK4 gắn trực tiếp với bài Thiên Lộ từng lọt qua raw runtime; nay guest nhận 0 item ở route đó. Targeted tests, typecheck, ESLint, build và Chromium guest (bài khóa/Khảo Nghiệm mở) đạt; build quét 184 JS asset và 192 marker rich bài HSK4 vắng mặt. `npm run check` đã qua validator, D1 và restore nhưng lượt Vitest song song timeout 1 test provenance (10 giây, temp EBUSY); file đó chạy riêng đạt 21/21, toàn Vitest một worker đạt 407 file/2.566 test. Web local cổng 3000 trả 200, `git diff --check` đạt.
+- **Dữ liệu giữ được:** không sửa catalog, D1, ID, progress, FSRS, session hay outbox; inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** người dùng test tại `http://localhost:3000` các màn bài HSK4/Khảo Nghiệm/chữ/đề; kiểm thêm browser paid/hoàn/hết hạn theo ranh giới mới, sau đó chốt giá/provider/chính sách hoàn trước thanh toán thật. Chưa USER-ACCEPTED.
+
+## Gói học · đóng màn Premium đúng lúc hết hạn · 25/09/2026
+
+- **Module:** Vòng đời quyền HSK4 trên client — IN-REVIEW.
+- **Người học thấy gì:** màn HSK4 tự đóng tại thời hạn server cấp, không đợi lượt kiểm tra gói định kỳ 30 giây; đồng hồ máy người học lệch giờ không kéo dài quyền. Lượt gia hạn hoặc đổi quyền vẫn được làm mới từ server.
+- **Đã kiểm:** 2 test chính sách thời hạn với đồng hồ lệch, 5 test gồm ledger đạt; typecheck, ESLint và build đạt. Browser 375 px chặn thử response commerce có thời hạn ngắn, xác nhận màn quyền Premium hiện trước lượt poll 30 giây; đây là kiểm UI với response giả, không phải bài thử thanh toán thật. Gate bundle 183 JS asset/264 marker vẫn đạt.
+- **Dữ liệu giữ được:** không migration, không thay order, completion, FSRS hay session. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** kiểm thu hồi do hoàn tiền và cache nội dung đã tải với tài khoản thử cô lập; chờ người dùng test, chưa USER-ACCEPTED.
+
+## Gói học · khóa phiên đề mô phỏng theo cấp độ và form · 25/09/2026
+
+- **Module:** Đề mô phỏng HSK4 Premium — IN-REVIEW.
+- **Người học thấy gì:** câu trả lời và nộp đề chỉ được xử lý khi phiên server phát thuộc đúng cấp độ/form trên URL. Đổi URL sang HSK3 hoặc form khác không còn dùng được phiên HSK4 để ghi câu trả lời hoặc chấm đề.
+- **Đã kiểm:** test repository kiểm phiên HSK4 bị từ chối khi đưa qua đường HSK3, đồng thời phiên HSK3 vẫn mở lại đúng form; 4 test trong file đạt, typecheck, ESLint và build đạt. Build gate 183 JS asset/264 marker HSK4 đạt. Browser 390 px với tài khoản thử đã onboarding, đồng bộ và kích hoạt enrollment qua API: mua sandbox, mở phiên HSK4 thật, lưu một đáp án, thử ghi/nộp qua URL HSK3 và form B đều 409, phiên gốc vẫn `started`; chạy lại script sạch đạt. Tài khoản thử đã xóa qua API. Lượt browser đầu thiếu enrollment là lỗi fixture, không phải bằng chứng đạt.
+- **Dữ liệu giữ được:** không sửa D1 hay các phiên người học hiện có; chỉ kiểm ràng buộc trước khi dùng phiên. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich giữ nguyên.
+- **Tiếp theo:** rà hết hạn/hoàn tiền và cache nội dung đã tải; chờ người dùng test, chưa USER-ACCEPTED.
+
+## Gói học · media phát hành HSK4 có kiểm quyền · 25/09/2026
+
+- **Module:** Biên phân phối media Premium — IN-REVIEW.
+- **Người học thấy gì:** media từ gói phát hành chỉ thuộc HSK4 yêu cầu quyền Premium trước khi trả byte; phản hồi không được lưu cache công khai. Media thuộc HSK0–HSK3 vẫn đọc công khai; media không xác định được cấp độ chỉ mở cho Xưởng đã xác thực.
+- **Đã kiểm:** 7 test repository/route kiểm guest bị chặn trước khi đọc byte, phản hồi HSK4 `private, no-store`, HSK0–3 cache công khai, media không rõ cấp độ đóng; typecheck, ESLint và build đạt. Gate bundle vẫn quét 183 JS asset/264 marker HSK4 vắng mặt. Web local trả HSK3 200, HSK4 guest 403; đang chạy cổng 3000. Chưa có media HSK4 phát hành trong D1 local để kiểm hành trình media HSK4 thật trên browser.
+- **Dữ liệu giữ được:** không sửa D1, ID, package phát hành hoặc learner state. Inventory nền HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** audit tiếp các consumer HSK4 khác và cache/offline sau hết hạn; chờ người dùng test module, chưa USER-ACCEPTED.
+
+## Gói học · hỗ trợ Premium theo tài khoản · 25/09/2026
+
+- **Module:** Hỗ trợ Premium — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** trong Hồ sơ → Premium, tài khoản đăng nhập có thể gửi vấn đề quyền truy cập, gói/giao dịch hoặc lỗi kỹ thuật, xem trạng thái và phản hồi sau khi tải lại. Quản trị viên có hàng chờ và form trả lời cần xác minh lại. Guest được hướng dẫn đăng nhập.
+- **Đã kiểm:** typecheck, ESLint, `db:check`, 11 test repository liên quan, rehearsal 28 migration/46 bảng/FK/integrity đạt. Browser 375 px kiểm guest 401, tài khoản thử gửi ticket, reload vẫn thấy, export chứa ticket, xóa tài khoản thử thành công. Gate toàn repo đạt: 404 file / 2.557 test, production build và kiểm bundle HSK4.
+- **Dữ liệu giữ được:** backup D1 trước migration 0027 tại `tmp/before-premium-support-2026-09-25.sqlite`, integrity `ok`; migration local áp dụng thành công. Export schema v10 và delete account bao gồm ticket; rehearsal khôi phục đúng phản hồi. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi; không reset progress, FSRS, mistakes, session hay outbox.
+- **Tiếp theo:** người dùng test tại `http://localhost:3000/profile/premium`; chưa USER-ACCEPTED. Cần chốt giá, provider và chính sách hoàn tiền trước tích hợp thanh toán thật; chưa mở bán hoặc public deploy.
+
+## Gói học · HSK0–HSK3 miễn phí, HSK4 Premium thử nghiệm · 25/09/2026
+
+- **Module:** Gói học/Premium HSK4 — IN-REVIEW, chờ người dùng test.
+- **Người học thấy gì:** HSK0–HSK3 tiếp tục miễn phí; HSK4 có màn kiểm quyền và trang gói trong Hồ sơ. Tài khoản có thể tạo/xác nhận giao dịch **thử nghiệm local, không thu tiền** theo kỳ hạn một tháng hoặc một năm, gia hạn chủ động, xem lịch sử và yêu cầu hoàn. Nội dung rich của bài, 72 câu Khảo Nghiệm cấp độ và 441 mục chữ HSK4 được tải qua API kiểm quyền; guest không nhận payload. Quản trị viên có danh sách giao dịch/yêu cầu hoàn thử nghiệm. Hết hạn hoặc hoàn giao dịch không xóa tiến độ học.
+- **Đã kiểm:** typecheck, ESLint, `db:check`, `test:restore` và production build đạt; toàn bộ 403 file / 2.555 test đạt sau khi tách nội dung HSK4. Browser smoke kiểm guest HSK3 được mở, HSK4 API rich/level-check/characters trả 403; tài khoản thử nghiệm kích hoạt rồi cả ba API trả 200, mở route bài và khảo nghiệm HSK4, yêu cầu hoàn, mobile 375 px không tràn ngang. Tài khoản test đã xóa qua API. Build check quét 183 client JS assets, 264 marker payload HSK4 vắng mặt; rich chunk giảm từ khoảng 1,6 MB xuống 830 KB. Báo cáo quản trị nay tính trên toàn ledger thay vì chỉ 200 dòng gần nhất; test 201 giao dịch xác nhận yêu cầu hoàn cũ vẫn hiện. Hoàn lặp bị chặn để không ghi audit thành công lần nữa. `verify:production` fail-closed với 23 blocker còn thiếu evidence.
+- **Dữ liệu giữ được:** sao lưu D1 local tại `tmp/before-hsk4-premium-sandbox-2026-09-25.sqlite` trước migration 0026; restore rehearsal bảo toàn 45 bảng, FK/integrity. Giữ inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich; 100/217 authored local theo checkpoint trước, HSK4 chưa authored mới. Không reset progress, FSRS, mistakes, session hay outbox.
+- **Giới hạn và tiếp theo:** chưa có giá/cổng thanh toán thật, không mở bán hay public deploy. Metadata/ID HSK4 vẫn công khai trong `curriculum-*.js` để hiển thị lộ trình; 264 marker bundle không phải audit đầy đủ mọi payload. Cần rà toàn bộ consumer/asset HSK4, kể cả đề mock, và bảo đảm cache/offline/phiên hết hạn không lộ nội dung trước production. Nội dung HSK4 chưa human-reviewed. Phương án VNPAY/MoMo, giá, gia hạn và hoàn tiền cùng threat model đã ghi trong `docs/PREMIUM_COMMERCE.md` để người dùng chốt; `verify:production` còn 23 blocker. Chờ người dùng test web local; chưa USER-ACCEPTED.
+
+## Thiên Lộ/Xưởng · năm bài HSK3 đời sống–xã hội và thể thao · 27/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** Năm bài `hsk3-society-arts-sports-reports-*` đã phát hành local, mỗi bài chín trang gồm ngữ liệu mới, một sơ đồ dữ kiện có thể sửa trong Xưởng, luyện chọn/điền có phản hồi và viết với bối cảnh mới. Bài phân biệt thói quen đổi cách nhưng không mất, công năng ba tầng đã mở so với khảo sát tháng sau, ý định tập thêm so với việc đã làm, buổi thử thể thao so với thi đấu và tỉ số hiệp đầu so với chung cuộc. Sơ đồ thời gian/quy trình/so sánh là học liệu thị giác đúng dữ kiện thay cho ảnh bối cảnh lặp lại.
+- **Đã kiểm:** Builder/validator 5 bài, 45 trang/15 hoạt động và nguồn target trong bài; import rehearsal/apply giữ 44 bảng, release rehearsal/apply giữ 43 bảng và FK, có backup D1 trước mỗi apply. Playwright trên web local 2/2: khóa trước tiên quyết, exact runtime cho cả năm, đọc/sơ đồ/feedback sai→đúng/nháp viết sau reload, mobile 375 px không tràn ngang; Xưởng mở exact document, nhận diagram, preview cùng renderer. TypeScript/ESLint/diff check đạt. `npm run check` đạt 414 test files/2592 tests và build.
+- **Dữ liệu giữ được:** 105/217 bài có trang authored local, HSK3 21/55; 112 bài còn lại. Audit 713 hoạt động: 256 có target, 457 cũ còn thiếu. Nền HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi. Không thay ID, graph, tiến độ thật, FSRS/mistakes/session/outbox; fixture browser cô lập không dùng trong tài khoản. Backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-27T03-24-20-588Z.sqlite`. AI-assisted giữ `humanReviewed:false`; bản rà ở `docs/thien-lo-redesign-review/39-REVIEW-HSK3-SOCIETY.md`.
+- **Tiếp theo:** tiếp tục HSK3 các dạng diễn ngôn/tổng hợp và HSK4 theo lô; rà 457 target bằng nội dung/đáp án thật và xử lý 217 quyết định thị giác. Chưa USER-ACCEPTED, không push/deploy.
+
+## Thiên Lộ/Xưởng · hàng đợi biên tập mục tiêu hoạt động · 26/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** Chưa đổi bài đã phát hành. Trong Xưởng, biên tập viên thấy số hoạt động đã gắn mục tiêu/nguồn của bài, số còn thiếu theo từng trang và có thể nhảy thẳng đến hoạt động tiếp theo cần rà; phần chọn mục tiêu tự mở. Đây là tăng tốc biên tập có kiểm soát, không tự gán kỹ năng từ dạng câu hỏi.
+- **Đã kiểm:** Browser Studio trên web local cổng 3000: tạo nháp bài âm HSK0, nhảy tới hoạt động thiếu mục tiêu, gắn nguồn phát âm, lưu, tải lại, xác nhận đáp án giữ nguyên; Playwright 1/1 đạt. TypeScript, ESLint và diff check đạt.
+- **Dữ liệu giữ được:** Chỉ thêm điều hướng editor; không sửa release head hoặc trạng thái học. Audit hiện tại vẫn 100/217 bài có trang phát hành local, 457/698 hoạt động chưa có learning target; không gọi đó là đã xử lý. Inventory HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 rich không đổi.
+- **Tiếp theo:** dùng hàng đợi để rà nội dung/đáp án/nguồn theo lô và tạo revision mới; song song chuyển các nhóm bài HSK3–4 còn lại lên trải nghiệm học, rồi kiểm browser theo nhóm. Chưa USER-ACCEPTED.
+
+## Xưởng · hoàn tác giữ vị trí trang · 25/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal còn mở.
+- **Người học/biên tập viên thấy gì:** hoàn tác trong trình soạn khôi phục cả tài liệu và trang đang chọn, không luôn nhảy về trang đầu. Áp dụng cho chỉnh nội dung, thêm/xóa/nhân bản/đổi thứ tự. Một mức hoàn tác như trước.
+- **Đã kiểm:** typecheck/ESLint đạt; test nhân bản giữ đáp án/ID riêng đạt. Browser nháp cô lập đã qua nhân bản → xóa trang → hoàn tác → đúng tiêu đề/vị trí và exact document → lưu → mở preview trên mobile, 24.1 giây. Log `tmp/studio-undo-browser-final.log`. Hai lượt trước lỗi Vinext `Network connection lost`; lượt sau đạt khi web local PID 1788 phục vụ ổn định, không bỏ assertion.
+- **Dữ liệu giữ được:** không thay release lesson hoặc learner state; chỉ nháp browser riêng. Vẫn 100/217 authored; không commit/push/deploy.
+- **Tiếp theo:** tiếp tục nội dung/media và Xưởng theo goal toàn phạm vi. Chưa USER-ACCEPTED.
+
+## Thiên Lộ/Xưởng · năm bài thiên nhiên–môi trường và khung kết quả mobile · 23/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** năm bài nature-environment-explanations đã phát hành local, 42 trang/15 hoạt động; năm cảnh riêng, hai bản đồ dữ liệu khác nhau cho học/vận dụng. Nội dung phân biệt khí hậu/dự báo, dọn xong/duy trì, nhóm con khảo sát/ý định/hành động, hướng cố định/vị trí, quan sát cây/kết luận. Màn kết quả mobile và ngang thấp ẩn bản đồ trang trí khi chưa đạt hoặc đã nhận thưởng; giữ rương chưa nhận, xác nhận thưởng bằng chữ và CTA.
+- **Đã kiểm:** 6 tests ba lô HSK3 đạt; typecheck/ESLint đạt sau sửa type của trang bản đồ. Import rehearsal/apply giữ 37 bảng; release rehearsal/apply giữ 36 bảng/FK. Studio năm bài exact-document/ảnh/cloze preview đạt 45.8 giây. Learner cả năm bài đạt 1.4 phút: lock trước evidence fixture guest cô lập, exact runtime, ảnh tải, tọa độ hai bản đồ, ghi chú/bằng chứng/Pinyin/reload, choice sai→đúng, viết→reload→rubric. Lượt đầu API trả lỗi Network thay JSON; Studio sau đó đạt, chạy lại riêng learner đạt, không restart/reset hoặc bỏ assertion. Logs `tmp/nature-{browser,learner}.log`. Khung kết quả hai browser journeys đạt 1.2 phút trước đó; xem ảnh mobile retry xác nhận bỏ vùng bản đồ, giữ đủ nội dung và nút. Log `tmp/result-compact-browser.log`.
+- **Dữ liệu giữ được:** local 100/217 authored, còn 117; HSK3 16/55, HSK4 chưa authored mới. Nền HSK0 4 + HSK1–4 213 rich giữ. Audit 698 activities/241 target/457 thiếu; 29 bài có published page art, còn 139 scene/dialogue pages dùng ảnh chung; chưa chứng minh editorial visual review toàn kho. Backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-23T02-04-00-971Z.sqlite`. Giữ ID, prerequisite và 83/72/79/71/67 vocabulary links. HumanReviewed:false; không reset learner state. Review 38; prompt/original ảnh tại `content/drafts/lesson-scenes-hsk3-nature-2026-09-23.json`.
+- **Tiếp theo:** HSK3 văn hóa/xã hội, các dạng tổng hợp và HSK4; tiếp tục UI/Xưởng/media/liên thông theo phạm vi gốc. Chưa USER-ACCEPTED, không commit/push/deploy. Web local đã xác nhận PID 11108 trong lượt này.
+
+## Thiên Lộ/Xưởng · đồng bộ lối ôn ở màn kết quả · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal còn mở.
+- **Người học thấy gì:** tài khoản đăng nhập có lối “Xem câu cần ôn” tới `/mistakes` khi chưa vượt ải, giống guest. Màn thành công hướng dẫn đúng bước tiếp theo được truyền vào, không luôn quảng bá Vạn Âm Điện khi nút đi nơi khác. Không đổi scoring/reward hoặc graph.
+- **Đã kiểm:** 7/7 tests kết quả và prerequisite fixture; typecheck/ESLint đạt. Browser ba hành trình đạt 1.3 phút: toàn lô HSK2 học tập/công việc, guest retry và reward; CTA trong viewport desktop 1440×900, mobile 375×812, ngang 812×375. Xem ảnh mobile retry xác nhận nút ôn/làm lại rõ; phần hình bản đồ phía trên vẫn tốn chỗ, chưa coi giao diện hoàn tất. Account link đã kiểm wiring/source và component; chưa thêm lượt account terminal mới. Web local PID 11108, log `tmp/result-links-browser.log`; lượt đầu chạy trước listener sẵn sàng lỗi connection refused, lượt sau kiểm listener rồi chạy đạt.
+- **Dữ liệu giữ được:** không mutation dữ liệu nội dung hoặc tài khoản; inventory vẫn 95/217 authored, nền 217. Phát hiện fixture HSK3 ở lượt trước ghi đè tên fixture HSK2: đã tách `hsk3-study-work-prerequisite-evidence.json`, tái tạo fixture HSK2 từ graph và thêm test closure cho cả hai. Đây là evidence giả trong browser test cô lập, không dữ liệu người học thật. Không commit/push/deploy.
+- **Tiếp theo:** tiếp tục nội dung/media HSK3–4 và trải nghiệm Thiên Lộ/Xưởng; màn kết quả vẫn cần tối ưu vùng bản đồ ở mobile. Chưa USER-ACCEPTED.
+
+## Thiên Lộ/Xưởng · lô học tập/công việc và giảm công việc lặp · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở, chưa USER-ACCEPTED.
+- **Người học thấy gì:** năm bài study-work-accounts đã phát hành local: 40 trang, 15 hoạt động đọc/viết, năm cảnh nguyên bản riêng. Phân biệt phương pháp/kết quả học; vai trò mẹ–con–giáo viên; manh mối/kết quả tìm đồ; phân công/chờ xác nhận; trải nghiệm/nghề nghiệp dự định. Có bài đọc bốn đoạn, bằng chứng/ghi chú, tám từ trọng tâm, quan hệ câu, choice/cloze, vận dụng đổi dữ kiện và rubric. Tất cả trong schema Xưởng.
+- **Đã kiểm:** 4/4 tests hai lô HSK3, typecheck và ESLint đạt. Tách `build-narrative-batch.ts` dùng chung HSK3/4; tạo lại personal khớp từng byte, không đổi bản phát hành. Browser spec dùng lựa chọn lô `THIEN_LO_NARRATIVE_BATCH=study-work`, giữ mặc định personal. Import rehearsal/apply bảo toàn 37 bảng; release rehearsal/apply bảo toàn 36 bảng/FK. Browser cả năm learner + Studio đạt 2.3 phút: exact runtime/document, prerequisite lock trước fixture guest cô lập, ảnh tải, evidence/Pinyin/note reload, đáp án sai→đúng, viết→reload→rubric, cloze preview. Log `tmp/study-work-browser.log`. Lượt đầu ECONNREFUSED vì PID cũ không tồn tại; khởi động vinext PID 11372, không migrate/reset.
+- **Dữ liệu giữ được:** nền 217 giữ nguyên; local 95/217 authored, còn 122; HSK3 11/55, HSK4 chưa authored mới. Audit 683 activities: 226 target/457 thiếu. 24 bài có published page art; vẫn 139 scene/dialogue pages dùng ảnh chung, 217 cần editorial visual review toàn diện. Backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-22T09-57-15-727Z.sqlite`. Giữ IDs, prerequisites, vocabulary 71/64/59/60/66; không reset progress/FSRS/lỗi/owner/outbox. HumanReviewed:false. Review 37, prompt/source ảnh trong `content/drafts/lesson-scenes-hsk3-study-work-2026-09-22.json`.
+- **Tiếp theo:** tiếp tục Thiên Lộ/Xưởng theo goal: nhóm HSK3 kế tiếp, HSK4, media, trải nghiệm học–luyện–kết quả và liên thông. Công cụ dựng/schema/browser đã dùng chung để giảm mã lặp; chưa có bằng chứng tăng tốc toàn dự án hoặc hoàn thiện toàn kho. Không commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · phát hành năm bài kể chuyện HSK3 · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** năm bài personal-life-narratives đã phát hành local, 43 trang và 17 hoạt động có source task. Năm cảnh riêng; bài food-shopping thêm ba đoạn ăn uống, chọn theo khẩu vị/ngân sách và vận dụng mới. Mỗi bài có bốn đoạn chính, ghi chú/chọn bằng chứng, tám từ trọng tâm, giải thích quan hệ, choice/cloze và viết đổi dữ kiện. Tất cả giữ trong schema Xưởng.
+- **Đã kiểm:** nội dung schema/source/đáp án/ID đạt; typecheck/ESLint đạt. Import rehearsal/apply giữ 37 bảng; release rehearsal/apply giữ 36 bảng/FK. Studio năm nháp riêng exact-document, ảnh, preview cloze đạt 44.7 giây. Learner đạt 2.2 phút: lock trước fixture guest cô lập, exact runtime, ảnh tải, ghi chú/bằng chứng/Pinyin lưu và reload, sai→đúng, viết→reload→rubric. Lần đầu Vinext Network connection lost ngay onboarding/API; restart đúng tiến trình dev, không reset/migrate. Lượt sau test tải lại trước hàng đợi IndexedDB lưu Pinyin; đã chờ đúng snapshot dữ liệu, không sleep cố định. Log `tmp/hsk3-personal-{browser,learner}.log`.
+- **Dữ liệu giữ được:** backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-22T06-51-51-590Z.sqlite`. Nay 90/217 authored, còn 127 bài nền; HSK3 6/55 authored. Audit 668 activities, 211 có target/457 thiếu; 19 bài có ảnh trang riêng, 139 trang scene/dialogue dùng ảnh chung. Không mất ID/prerequisite/progress/FSRS/lỗi/owner/outbox. HumanReviewed:false. Không coi ghi chú/rubric tự đánh giá là mastery.
+- **Tiếp theo:** HSK3 nhóm học tập/công việc và các bài tổng hợp; tiếp tục media toàn kho, UI và liên thông. Ba ví dụ từ trọng tâm fallback (比较、照顾、搬家) vẫn là ví dụ nguồn ngoài truyện chính, không coi là sự kiện trong truyện; cần nhãn ví dụ độc lập rõ hơn ở lần sửa nội dung. Chưa USER-ACCEPTED/commit/push/deploy. Web local PID 6368 sau restart. Review 36.
+
+## Thiên Lộ/Xưởng · nháp năm bài kể chuyện HSK3 và năm cảnh riêng · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** kho chọn ảnh Xưởng thêm năm cảnh mua sắm, phòng khám, chuyển nhà, nộp đơn, taxi đổi tuyến. Năm bài `hsk3-personal-life-narratives-*` mới chỉ là draft, chưa import/release: 40 trang, mỗi bài bốn đoạn đọc, tám từ trọng tâm, choice/cloze/rubric có source task và vận dụng đổi dữ kiện. Giữ đủ 45–72 vocabulary IDs mỗi bài trong liên kết tra/ôn, không gọi tất cả là từ mới buộc học trong phiên.
+- **Đã kiểm:** test `authoredHsk3Personal` đạt schema/source/ID/prerequisite/đáp án; năm ảnh đã xem trực tiếp và chuyển WebP vào `public/lessons/ngoc-dien/hsk3-*-v1.webp`. Built-in imagegen, prompt/original lưu `content/drafts/lesson-scenes-hsk3-personal-2026-09-22.json`. Builder ban đầu trùng page/block IDs, đã sửa block prefix và chạy thành công. Các gate TypeScript/ESLint có log `tmp/hsk3-personal-*`; chưa kiểm browser hoặc phát hành nhóm này.
+- **Dữ liệu giữ được:** không mutation D1/progress; local vẫn 85/217 authored, không đếm năm draft vào bài đã phát hành. HumanReviewed:false. Không commit/push/deploy.
+- **Tiếp theo:** review năm bản thảo tại `scripts/content/hsk3-personal-narratives.ts` và draft `content/drafts/thien-lo-hsk3-personal-v2.json`; kiểm từ hỗ trợ bổ sung (guānchá, ānpái, xiūgǎi, liánxì fāngshì…), ví dụ từ trọng tâm fallback, độ rộng ăn uống trong bài food-shopping (hiện mới mua quần), rồi import/release/browse. Không coi năm cảnh là đủ media toàn kho. Tiếp tục HSK3/4 và liên thông còn thiếu.
+
+## Thiên Lộ/Xưởng · bốn bài HSK2 tin nhắn/mô tả tranh · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** guided-message-01/02 và picture-description-01/02 đã phát hành local, 40 trang, 12 hoạt động có source task, 14 ví dụ từ được sửa. Tin nhắn có yêu cầu/cập nhật/đổi dữ kiện; tranh dạy vị trí, trạng thái và phân biệt quan sát với suy đoán. Hai ảnh nguyên bản riêng hồ cá/cửa ga trời mưa đã vào kho Xưởng, prompt/source lưu tại `content/drafts/lesson-scene-observation-2026-09-22.json`. Ảnh hướng dẫn dùng khối không crop; CSS ảnh độc lập co theo vùng học, màn hình ngang thấp chuyển chọn trang sang bên cạnh. Ảnh, thẻ dữ kiện, rubric và nội dung đều biên tập bằng schema Xưởng.
+- **Đã kiểm:** hai tests nội dung kiểm source/ID/prerequisite/đáp án/từ/ảnh đạt; typecheck và ESLint đạt. Import rehearsal/apply giữ 37 bảng; release rehearsal/apply giữ 36 bảng/FK. Studio exact-document + preview + cloze bốn nháp thử riêng đạt (lượt browser 1.8 phút có learner thất bại trước sửa CSS). Learner sau sửa đạt 46.6 giây: prerequisite trước fixture, runtime đúng payload, sai→đúng, viết→reload giữ bản nháp, tự đối chiếu, ảnh không crop và nằm trọn vùng học/footer ở 1440×900, 390×844, 812×375; đã xem screenshot portrait/landscape. Lỗi kiểm phát hiện và sửa: test sai text phản hồi; test thử sửa bản published thay vì nháp riêng; chờ tải ảnh; ảnh bị khuất trên landscape. Không tuyên bố mọi kiểu media/viewport đã được kiểm toàn kho.
+- **Dữ liệu giữ được:** backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-22T04-12-13-866Z.sqlite`. Inventory nền 217 giữ; local nay 85 authored, HSK2 40/40; còn 132 bài nền chưa authored. Audit 651 activities, 194 có target/457 thiếu; 14 bài có ảnh trang riêng, 139 trang scene/dialogue dùng ảnh chung. Không reset progress/FSRS/lỗi/phiên/owner/outbox. HumanReviewed:false, không tự chuyển kết quả rubric thành mastery.
+- **Tiếp theo:** HSK3/4, minh họa và liên thông còn thiếu trong goal toàn kho. Source HSK3 đã trích read-only tại `tmp/hsk3-authoring-source.json`; lưu ý một số bài tổng hợp có hơn 200 wordIds, không đổ tất cả thành trang học từ mới. Review 35. Chưa USER-ACCEPTED, không commit/push/deploy. Web PID 8548 vẫn chạy khi kiểm.
+
+## Thiên Lộ/Xưởng · phát hành ba bài nghe–chép · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** dictation-01/02/03 đã phát hành local, 42 trang, ba ảnh mở đầu riêng, sáu bài cloze hiểu văn bản (target reading, không tính nghe), 12 đoạn nghe–chép và ba lượt vận dụng đổi dữ kiện. Có hướng dẫn tách cụm và quan hệ trước luyện, sửa mười ví dụ từ vựng thiếu/cụt. TTS có nhãn; có mở mẫu và ghi nhận Pinyin/gợi ý bàn phím. Lượt đối chiếu đầu giữ snapshot, hỗ trợ và lịch sử reveal; không tự tạo điểm nghe/viết.
+- **Đã kiểm:** tám tests nội dung/builder/session đạt; typecheck/ESLint đạt. Import rehearsal/apply bảo toàn 37 bảng; release rehearsal/apply bảo toàn 36 bảng/FK. Browser Xưởng nghe–chép đạt 17.7 giây; learner ba bài kiểm prerequisite lock trước fixture, exact runtime/ảnh/chép sai→mở mẫu→thu mẫu→reload giữ text/support→sửa đúng đạt 33.7 giây. Fixture chỉ ở guest Playwright cô lập. Review 34, humanReviewed:false.
+- **Dữ liệu giữ được:** backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-22T03-21-24-565Z.sqlite`. Nền 217 giữ, nay 81 authored; còn 136 bài nền chưa authored. Audit 639 activities, 182 target/457 thiếu. 12 bài có ảnh trang riêng; còn 139 trang scene/dialogue dùng ảnh chung. Không reset progress/FSRS/lỗi/phiên/owner/outbox. Ví dụ trong bài đã sửa, không tuyên bố package nền và mọi consumer đã đồng bộ.
+- **Tiếp theo:** bốn bài HSK2 tin nhắn/mô tả còn lại, tiếp tục minh họa toàn kho, Xưởng/giao diện và liên thông chưa đạt. Không USER-ACCEPTED/commit/push/public deploy. Web local chạy nền node vinext PID 8548 tại thời điểm kiểm.
+
+## Thiên Lộ/Xưởng · hoàn thiện cảnh mở đầu chín bài survival · 22/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, goal toàn kho còn mở.
+- **Người học thấy gì:** thêm ảnh riêng cho survival-2/3/4: nhóm đại từ, trao đổi thẻ tên, album gia đình. Nay cả chín bài survival có chín cảnh mở đầu khác nhau; chưa coi các trang hội thoại/transfer và media toàn bài đã đủ. Kho Xưởng có 12 cảnh mới tổng cộng, gồm ba cảnh dictation chưa phát hành bài. Prompt/nguồn ba ảnh mới ở `content/drafts/lesson-scene-generation-2026-09-22.json`; asset trong `public/lessons/ngoc-dien/`, built-in imagegen, humanReviewed:false.
+- **Đã kiểm:** rehearsal/apply ba revision qua fork/validate/release worker bảo toàn 36 bảng và FK, runtime đúng ảnh. Typecheck/ESLint đạt. Browser sau phát hành đạt 1.1 phút: runtime đúng payload/ảnh, ảnh tải thành công, bài tập sai→đúng và footer ba viewport; lần đầu ECONNREFUSED do devserver cũ mất handle, đã khởi động tiến trình nền ẩn (node vinext, không migration/reset).
+- **Dữ liệu giữ được:** baseline 217, local 78 authored không đổi; chín bài có ảnh trang riêng, còn 139 trang scene/dialogue dùng ảnh chủ đề. Source hash/head/latest-draft kiểm trước fork; nội dung/đáp án/ID chỉ khác illustration và metadata review. Chưa USER-ACCEPTED, không commit/push/public deploy.
+- **Tiếp theo:** hoàn thành kiểm browser, tiếp tục cảnh theo bài còn lại và các phần nội dung/giao diện/biên tập/liên thông v0.2 chưa xong. Không dừng ở 12 ảnh và không lấy số ảnh làm độ phủ toàn kho.
+
+## Thiên Lộ/Xưởng · minh họa riêng theo trang và sáu revision local · 21/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; toàn v0.2 còn mở.
+- **Người học thấy gì:** survival-1/5/6/7/8/9 đã phát hành ảnh tình huống riêng ở trang mở đầu; nội dung/đáp án/ID giữ nguyên. Có chín asset mới theo bối cảnh, ba asset còn lại gắn draft dictation chưa phát hành. Xưởng chọn cảnh, tải/chọn media và sửa mô tả theo trang; không còn bị giới hạn vào năm ảnh chủ đề. Không coi chín ảnh là đủ toàn kho.
+- **Đã kiểm:** 13 tests schema/session/manuscript, typecheck và ESLint đạt. Browser nghe–chép đạt 13 giây; browser chọn ba ảnh → lưu → reload → preview đạt 25.5 giây. Screenshot phát hiện thanh lưu che footer preview, đã sửa position khi preview; kiểm lại đạt: learner toàn nhóm survival 1.1 phút và Xưởng lưu/reload/preview/footer 21.8 giây. Rehearsal/apply sáu revision bảo toàn 36 bảng/FK, runtime khớp ảnh. Lượt browser release đầu ECONNREFUSED do devserver dừng; đã khởi động lại vinext không migration/reset.
+- **Dữ liệu giữ được:** 217 bài nền, 78 authored không tăng do đây là sửa ảnh. Backup `.wrangler/demo-backups/before-lesson-scene-revisions-2026-09-21T16-41-55-009Z.sqlite`. Audit ảnh từ release heads: sáu bài có ảnh trang riêng, còn 142 trang cảnh/hội thoại dùng ảnh chung. Chưa xong media toàn bài/toàn kho. Không mất progress/FSRS/lỗi/phiên/owner/outbox; nháp test riêng trong Studio không thay bài người dùng.
+- **Tiếp theo:** xác minh browser release và footer; tiếp tục minh họa theo từng bối cảnh trong toàn kho, nội dung dictation và các phần v0.2 còn thiếu. Review 33, prompt/source được lưu. Không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · khối nghe–chép biên tập được · 21/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, goal v0.2 còn mở.
+- **Người học thấy gì:** thêm khối dictation nghe trước → viết → đối chiếu/mở lời trong cùng mục học; dùng bản ghi nội bộ hoặc giọng tổng hợp có nhãn. Xưởng chọn được loại khối, sửa yêu cầu/Hán tự/Pinyin/nghĩa, chọn audio hoặc quay về giọng tổng hợp. Không tự tạo điểm nghe/mastery. Chưa ghép/phát hành ba bài dictation vào local nên chưa tuyên bố người học đã nhận bài mới.
+- **Dữ liệu giữ được:** parser phiên nhận draft dictation và lịch sử reveal; audio thường cũng ghi lịch sử mở lời. Giữ everChecked khi đối chiếu. Validator từ chối phát hành dictation thiếu dữ liệu hoặc transcript khác đáp án; nháp chưa hoàn chỉnh vẫn biên tập được. Không đổi ID nền, không mutation D1/progress/FSRS/owner/outbox; inventory vẫn 78/217 authored.
+- **Đã kiểm:** 11 tests schema/session đạt, ESLint sáu file đạt, typecheck lần đầu đạt. Builder ba manuscript thành các trang/khối thường đã thêm; chưa browser/render kiểm luồng mới, chưa chứng minh đủ viewport hay media parity toàn kho.
+- **Tiếp theo:** kiểm browser khối mới từ Xưởng qua preview, ghép ba manuscript vào bài hoàn chỉnh và phát hành local; tiếp tục giao diện/Xưởng và toàn kho đúng v0.2. Không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · phát hành bảy bài quy chiếu/so sánh/dựng câu · 21/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; goal v0.2 còn mở.
+- **Người học thấy gì:** bảy bài reference-description-comparison-01…04 và sentence-reconstruction-01…03 đã phát hành local: 152 trang, 59 hoạt động, gồm 36 cloze đúng grammar source và chín bài sắp xếp thật. Bảy cảnh, thẻ dữ kiện và vận dụng đổi đối tượng/mốc/quan hệ. Order prompt cố định cấu trúc theo yêu cầu, không tuyên bố tiếng Trung chỉ có một thứ tự đúng. Review 32, humanReviewed:false.
+- **Đã kiểm:** sáu tests nội dung/helper đạt; Typecheck/ESLint/diff check đạt. Import rehearsal/apply giữ 37 bảng, release rehearsal/apply giữ 36 bảng/FK. Xưởng exact-document/sơ đồ/choice/cloze/order sai→sửa đúng đạt 1.1 phút. Learner exact runtime/prerequisite/choice/reload/model và order/reload giữ thứ tự đạt 1.6 phút. Lượt đầu web đã dừng, khởi động vinext không migration/reset; lượt learner đầu gặp vinext Network connection lost ở bài cuối, kiểm lại toàn lô đạt, không nới gate hoặc timeout.
+- **Dữ liệu giữ được:** backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-21T10-43-31-660Z.sqlite`. Nền 217 giữ; local 78 authored, 633 activities/176 target/457 thiếu. Còn 139 bài nền chưa authored, HSK2 còn bảy bài nghe–chép/tin nhắn/mô tả tranh. Không reset progress/FSRS/lỗi/phiên/owner/outbox.
+- **Tiếp theo:** đã soạn ba kịch bản dictation (12 đoạn luyện + ba chuyển giao) với giờ/số/phủ định, câu vị trí và chuỗi cập nhật phòng/giờ. Chưa có bản audio reviewed hoặc lesson release mới cho chúng; phải ghép UI nghe–chép phù hợp và đường hỗ trợ có provenance, không chỉ thay tên khung hội thoại. Hai bài tin nhắn và hai mô tả tranh còn lại; media/editor/integration toàn kho chưa hoàn tất. Không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · phần dạy/luyện bảy bài quy chiếu và dựng câu · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, lô mới chưa phát hành.
+- **Đã biên soạn:** đủ 36 grammar row của reference-description-comparison-01…04, mỗi row có giải thích, mẫu và cloze đúng nguồn. Chín order activity riêng cho sentence-reconstruction-01…03; câu yêu cầu cố định chủ đề/vị trí thời gian/quan hệ vế để không giả định mọi câu chỉ có một trật tự đúng. Phản hồi thừa nhận thứ tự thay thế hợp lệ khi phù hợp; không đổi scorer hoặc ghép lời mẫu thành câu duy nhất đúng cho mọi ngữ cảnh.
+- **Học liệu:** xuất 81 trang thành phần sửa được trong Xưởng tại `thien-lo-hsk2-reference-teaching-pack-v2.json`, đánh dấu partial-authoring-not-publishable. Từ theo ID tái dùng các sửa nghĩa của lô trước và thêm 11 ví dụ cho 啊/包/高/红茶/篮球/旅游/面/手/为什么/眼睛/自己; 手 không dùng 手表. Chưa đăng ký release pack thành bài hoàn chỉnh.
+- **Đã kiểm:** bốn tests source coverage 36 row, đáp án số chênh/ước lượng/so sánh, order activity đúng source/unique pieces, ví dụ đủ câu và đúng nghĩa tay; đạt. Lượt đầu lỗi test regex phân biệt hoa/thường của “bắt đầu”, đã sửa test, không đổi yêu cầu bài để qua gate. Typecheck/ESLint đạt sau xuất pack và ví dụ.
+- **Dữ liệu giữ được:** không D1 mutation, không thay release/owner/progress/FSRS/lỗi/phiên/outbox. Nền 217, local vẫn 71 authored/574 activities/117 target/457 thiếu. AI-assisted giữ humanReviewed:false.
+- **Tiếp theo:** ghép bảy cảnh, sơ đồ và vận dụng riêng, rà đầy đủ ví dụ/ngôn ngữ, import/release/browser theo lô. Không tính 81 trang thành bảy bài hoàn tất; media/editor/integration toàn scope vẫn mở. Không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · phát hành sáu bài ngữ pháp HSK2 · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; phạm vi v0.2 vẫn chưa hoàn tất.
+- **Người học thấy gì:** aspect-time-experience-01/02, clause-linking-01/02, complements-and-motion-01/02 đã phát hành local. 138 trang, 39 điểm ngữ pháp có giải thích/luyện theo nguồn, 51 hoạt động. Có sáu cảnh, bảng dữ kiện, câu tổng hợp và vận dụng đổi mốc/người/hướng/kết quả. 27 ví dụ chọn theo word ID tránh nhầm hai nghĩa 过. Giữ humanReviewed:false, rubric là self-review. Review 31.
+- **Đã kiểm:** sáu Vitest source/parity/đáp án/coverage/ví dụ đạt; Typecheck/ESLint/diff check đạt trước phát hành. Import rehearsal/apply giữ 37 bảng; release rehearsal/apply giữ 36 bảng/FK. Xưởng cả sáu bài exact-document→sơ đồ→choice→cloze sai/đúng đạt 50.1 giây. Lượt browser đầu 503 D1 trong lúc rehearsal còn chạy; không đổi auth/reset, chờ transaction kết thúc rồi kiểm lại đạt. Browser learner cả sáu bài prerequisite lock/exact runtime/answer/reload/transfer đạt 1.6 phút (`tmp/grammar-learner.log`).
+- **Dữ liệu giữ được:** backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-20T15-38-17-654Z.sqlite`. Nền 217 giữ, local 71 authored; audit 574 activities/117 target/457 thiếu. Còn 146 bài nền chưa authored, HSK2 còn 14 bài kỹ năng/ngữ pháp. Không reset owner/progress/FSRS/lỗi/phiên/outbox, không public deploy.
+- **Tiếp theo:** nhóm reference-description-comparison và sentence-reconstruction: đã trích nguồn bảy bài (36 grammar rows trong bốn bài reference, ba bài dựng câu). Media riêng, editor parity toàn scope và integration/remediation còn thiếu; không coi 71 bài là 71 bài đã nghiệm thu hoặc đủ mastery. Không USER-ACCEPTED/commit/push.
+
+## Thiên Lộ/Xưởng · sáu bài ngữ pháp, phần giải thích/luyện theo nguồn · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW. Lô aspect-time-experience/clause-linking/complements-and-motion đang biên soạn, chưa phát hành.
+- **Nội dung đã làm:** 39 quyết định sư phạm riêng theo đủ 39 grammar rows của sáu bài; xuất 78 trang giải thích/luyện bằng khối Xưởng chuẩn. Mỗi câu luyện trỏ đúng row, có đáp án/feedback; 来/去 nêu rõ điểm nhìn, 完 không suy hiểu, 可能 không suy chắc chắn. Đây mới là phần thành phần, chưa đủ sáu bài hoàn chỉnh; file `thien-lo-hsk2-grammar-teaching-pack-v2.json` đánh dấu partial-authoring-not-publishable, không đăng ký release.
+- **Ví dụ từ:** chọn theo vocabulary ID, phân biệt 过 guò qua đường với 过 guo trải nghiệm. Thay ví dụ cụt và lệch nghĩa cho 27 mục, gồm 着 zhe không dùng 着急, 点 gọi món thay mốc giờ cho entry hiện hành, 名 thứ hạng theo nghĩa mục từ; lượng từ 名 vẫn được dạy tại grammar source riêng. Chưa thay từ điển nền hoặc release cũ.
+- **Đã kiểm:** bốn tests kiểm source coverage chính xác, source target từng activity, serialization, thiếu/trùng decision bị chặn, các đáp án sai quan trọng, ví dụ theo đúng ID/đủ câu. Typecheck và ESLint nhóm helper/decision/tests đạt; Typecheck/ESLint sau thêm script xuất pack cũng đạt (tmp/grammar-pack-typecheck.log, tmp/grammar-pack-eslint.log). Diff check checkpoint đạt.
+- **Dữ liệu giữ được:** không D1 mutation; nền 217, local vẫn 65 authored, 523 activities/66 target/457 thiếu. Không tính teaching pack thành bài đã hoàn tất; không reset progress/FSRS/lỗi/phiên/owner/outbox.
+- **Tiếp theo:** ghép sáu tình huống, quyết định tổng hợp, sơ đồ và chuyển giao riêng; rà ngôn ngữ/model nguồn rồi import/release/browser theo lô. Không USER-ACCEPTED/commit/push/public deploy; goal toàn kho còn mở.
+
+## Thiên Lộ/Xưởng · phát hành trọn năm bài học tập/công việc/văn hóa · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, goal toàn kho vẫn mở.
+- **Người học thấy gì:** study-work-culture-01…05 có 49 trang, 36 từ theo inventory, 15 hoạt động. Phân biệt làm xong/hiểu, lịch khai giảng/giờ học, nghề/nghiệp vụ đang làm, trải nghiệm/phong tục trong phạm vi gia đình và hỏi họ/xưng hô. Vận dụng đổi dữ kiện; bảng timeline/comparison sửa được trong Xưởng. Mục tiêu đọc/grammar/tự viết tách rõ; rubric vẫn self-review. Review 30, humanReviewed:false.
+- **Đã kiểm:** hai tests source/parity/ví dụ đúng nghĩa/đáp án/self-review đạt. Typecheck/ESLint/diff check đạt. Import rehearsal/apply giữ 37 bảng, release rehearsal/apply giữ 36 bảng/FK. Xưởng năm bài exact-document/sơ đồ/feedback đạt 45.3 giây; learner prerequisite/exact runtime/answer/reload/transfer đạt 58.2 giây. Backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-20T14-32-33-943Z.sqlite`.
+- **Dữ liệu giữ được:** nền 217 (HSK0 4, HSK1–4 213 rich), 65 authored hiện hành. Audit 523 hoạt động: 66 có target, 457 thiếu. Còn 152 bài nền chưa phát hành authored; HSK2 đã có 20 bài tình huống, còn 20 bài kỹ năng/ngữ pháp. Không reset owner/progress/FSRS/lỗi/phiên/outbox. Guest prerequisite chỉ là fixture Playwright cô lập.
+- **Tiếp theo:** sáu bài aspect-time-experience/clause-linking/complements-and-motion đã đọc source graph; nhiều grammar row trên mỗi bài, cần dạy đủ từng cụm và kiểm đúng nguồn, không gắn mọi mục tiêu vào grammar[0]. Có hai từ 过 khác ID/nghĩa: ví dụ phải chọn theo ID, tránh map mặt chữ chung. Media/editor/integration toàn kho vẫn còn mở; không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · hoàn thành phát hành học phần con người/sự việc/môi trường · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW. Ba bài person-events-environment-03/04/05 đã phát hành local, cùng 01/02 tạo đủ năm bài authored của học phần; không đồng nghĩa nghiệm thu hoặc hoàn tất media.
+- **Người học thấy gì:** thêm 28 trang, 13 từ gốc và chín hoạt động có mục tiêu. Chọn áo theo hai giới hạn; phân biệt thời tiết/dự báo và đổi kế hoạch; mô tả có/vị trí với mốc rõ. Vận dụng thay toàn bộ dữ kiện quyết định. Bảng comparison/timeline sửa được trong Xưởng, không yêu cầu đoán từ campus art. Review 29, humanReviewed:false.
+- **Đã kiểm:** hai tests nội dung/parity/source/đáp án/self-review đạt; typecheck/ESLint/diff check đạt. Import rehearsal/apply bảo toàn 37 bảng, release rehearsal/apply bảo toàn 36 bảng/FK. Browser Xưởng ba bài exact-document/sơ đồ/feedback đạt 22.7 giây; learner prerequisite lock/exact runtime/answer/reload/transfer đạt 38.7 giây. Backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-20T14-19-38-889Z.sqlite`.
+- **Dữ liệu giữ được:** nền 217 (HSK0 4 và HSK1–4 213 rich), nay 60 authored. Audit 508 hoạt động, 51 có mục tiêu/457 thiếu; còn 157 bài nền chưa phát hành authored. Không reset progress, FSRS, lỗi, phiên, owner hoặc outbox. Fixture prerequisite chỉ nằm trong guest Playwright cô lập.
+- **Tiếp theo:** lô năm bài study-work-culture đã đọc nguồn. Phải sửa ví dụ lớp 班 dùng 上班, sai 错 dùng 不错, lượng từ 名 dùng 名字, ví dụ cụt 教/考/考试/意思; tách làm xong với hiểu bài, dự định với trải nghiệm, tránh khái quát mọi gia đình Trung Quốc đều ăn sủi cảo. Tiếp tục media/editor/integration trong scope v0.2; không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · phát hành người/sự việc, sửa tìm kiếm mã dài · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, goal toàn kho còn mở. Người dùng yêu cầu tăng tốc; gom tác giả/phát hành/kiểm theo học phần, không đổi chuẩn nội dung hoặc thu hẹp phạm vi.
+- **Người học thấy gì:** person-events-environment-01/02 đã phát hành local: 22 trang, 25 từ, sáu hoạt động có mục tiêu. Nhận diện ba người/so sánh đúng phạm vi; kể thời gian đợi và đến muộn, giữ mức phỏng đoán. Sơ đồ sửa được trong Xưởng. Review 28, humanReviewed:false.
+- **Đã kiểm:** import/apply bảo toàn 37 bảng; release/apply bảo toàn 36 bảng, FK đạt. Backup `before-authored-thien-lo-batch-release-2026-09-20T14-06-56-500Z.sqlite`. Hai test nội dung đạt. Browser Xưởng đạt 2.3 phút; browser learner đạt 44.8 giây gồm prerequisite lock, exact document, câu trả lời, reload, model. Typecheck/ESLint/diff check đạt.
+- **Lỗi Xưởng:** D1 báo LIKE pattern quá phức tạp khi tìm mã bài dài. Thay bằng instr/lower tại list/count/coordination queue, giữ tìm chuỗi literal. 13 repository tests đạt, có mã dài và ký tự %/_; browser mở đúng bài xác nhận fix. Không đổi quyền truy cập.
+- **Dữ liệu giữ được:** nền 217, nay 57 bài authored; audit 499 hoạt động, 42 có mục tiêu và 457 còn thiếu. Còn 160 bài nền chưa phát hành authored; số này không chứng minh mastery/độ phủ HSK. Tiến độ, FSRS, lỗi, phiên/account không reset.
+- **Tiếp theo:** gom ba bài còn lại của person-events-environment thành một lô, sau đó học phần kế tiếp. Media riêng/editor/integration toàn kho chưa hoàn tất. Không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · đồng bộ bốn ví dụ với Tàng Tự Khố · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng, điểm liên thông mục từ — IN-REVIEW.
+- **Người học thấy gì:** các ví dụ 有时/过/着/游 trong từ điển đã khớp ví dụ đúng nghĩa của bài authored. Giữ mã từ gốc khi ghép bản nhập Xưởng; mở bằng đường dẫn Xưởng cũ vẫn xem đúng ví dụ và lưu theo ID từ gốc. Bản nháp/revision và workflow ở Xưởng được giữ để tiếp tục biên tập.
+- **Phát hành:** đối chiếu canonical bốn draft với nguồn trước khi thay, chỉ sửa examples và review. Rehearsal/apply qua repository/release worker đạt, 36 bảng được bảo vệ/FK giữ nguyên. Backup `.wrangler/demo-backups/before-vocabulary-example-corrections-2026-09-20T13-36-15-529Z.sqlite`. Review 27, humanReviewed:false. Không sửa gói nền đã pin hoặc đáp án các phiên cũ.
+- **Đã kiểm:** browser runtime→bốn từ→cả ID gốc và stable key Xưởng→tab Ví dụ→link bài nguồn→lưu từ đạt 25.3s. SavedWords giữ ID gốc, không thêm stable key bản nhập; chỉ guest test cô lập bị thay đổi. Lượt đầu thất bại vì test chưa chọn tab Ví dụ, đã sửa thao tác; không sửa UI để né test. Typecheck/ESLint đạt sau xóa hai script audit tạm do chính lượt này tạo (chúng gây lỗi typecheck); không xóa dữ liệu người dùng.
+- **Dữ liệu giữ được:** baseline 217 và 55 bài authored không đổi, đây là sửa bốn mục từ chứ không tính thêm bài. Tiến độ/FSRS/lỗi/phiên/account được fingerprint bảo toàn; không reset/migrate. Các consumer trực tiếp dùng ví dụ package nền vẫn cần audit, chưa tuyên bố đồng bộ toàn bộ assessment/FSRS.
+- **Tiếp theo:** tiếp tục nhóm bài HSK2 còn lại và media/editor trong phạm vi v0.2; dung lượng tổng chỉ cảnh báo theo yêu cầu người dùng. Goal còn mở; không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · ưu tiên triển khai và liên kết mục từ · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng, điểm nối Tàng Tự Khố — IN-REVIEW.
+- **Theo yêu cầu mới:** tổng dung lượng toàn ứng dụng vượt 1 MiB chuyển thành cảnh báo, giữ báo cáo asset và phép đo, không tăng ngưỡng hoặc xóa nội dung. Lệnh đã chạy exit 0 với cùng số đo vượt 113.2 KiB; chưa phải bằng chứng hiệu năng thực tế.
+- **Thay đổi:** nhận diện bản nhập Xưởng `curriculum-word-<ID>` bằng sourceVocabularyIds khớp từ, Hanzi, Pinyin và liên kết bài nguồn. Ghép vào mục từ gốc giữ ID, isCore, traditional/classifiers và quan hệ learner; mục từ độc lập cùng mặt chữ vẫn riêng. Giữ sourceStableKey để đường dẫn bản Xưởng cũ vẫn tìm đúng mục từ sau ghép. Không sửa package nền đã pin hoặc hợp nhất theo Hanzi mơ hồ.
+- **Đã kiểm:** năm tests projection/merge đạt, bao gồm sửa đúng một mục từ, giữ ID, từ chối nguồn/chữ/Pinyin lệch và không ghép mục từ độc lập. Typecheck đạt. Chưa có browser cho thay đổi dictionary này; chưa phát hành các bản sửa ví dụ vocabulary.
+- **Dữ liệu giữ được:** không D1 mutation, không sửa progress/FSRS/saved/phiên; kho vẫn 55 authored trên nền 217. Goal đầy đủ còn mở; 162 bài nền và phần media/editor/integration vẫn chưa hoàn tất.
+- **Tiếp theo:** hoàn thành xác minh browser và bản sửa ví dụ có review trong Xưởng, rồi tiếp tục nội dung bài. Không quay lại tối ưu tổng bundle như một blocker; không USER-ACCEPTED/commit/push/deploy.
+
+## Thiên Lộ/Xưởng · kiểm khôi phục học liệu và lượt làm bài · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW, scope v0.2 còn mở.
+- **Thay đổi:** mở rộng rehearsal từ 23 lên 26 migration/44 bảng, thêm fixture riêng cho ngày truy cập theo owner, media hai chunk đúng cách nối base64 của repository và ba page-attempt cùng idempotency key ở owner/reset epoch khác nhau. So sánh toàn bộ row trước/sau backup, byte/hash/metadata ảnh, response có trợ giúp và ràng buộc unique/FK/JSON/outcome/epoch. Chỉ database tạm, không chạm `.wrangler/`.
+- **Đã kiểm:** `npm run test:restore` đạt: 26 migration, 44 bảng; ảnh exact byte, ba receipts và ba ngày truy cập giữ nguyên; các kiểm Reader/outbox/credential/editorial cũ đều đạt. ESLint hai script và diff check đạt. Full Vitest kết thúc 381 tệp/2509 tests đạt, 7 tests lỗi: sáu timeout 10 giây ở content, một test CharactersPage vẫn tìm nhãn cũ `Hiểu cấu trúc` tại trang chọn chữ trong khi hướng dẫn đã nằm trong session. Chưa đổi UI module chữ ngoài phạm vi. Sáu tệp content đang chạy lại với maxWorkers=1, giữ timeout cũ; log `tmp/thien-lo-content-serial-recheck.log`.
+- **Dữ liệu giữ được:** không release mới hoặc mutation tài khoản, baseline 217 và 55 authored giữ nguyên. Không reset/migrate D1 thật; test mới kiểm bảo toàn chứ không đổi schema runtime.
+- **Kết quả kiểm lại:** sáu tệp content đạt 43/43 với maxWorkers=1 và timeout vẫn 10 giây. Sửa riêng test boundary chữ để kiểm CharacterStructurePanel/hướng dẫn tại session và so tập ký tự thực tế thay cho chuỗi hiển thị số lượng đã bỏ; 5/5 đạt, ESLint đạt, không sửa learner UI. Lượt full trước đó vẫn là failed, chưa tuyên bố full suite xanh từ các rerun. Build đang chạy tại `tmp/thien-lo-build-check.log`.
+- **Build:** biên dịch Vinext hoàn tất nhưng bundle budget fail: 1137.2 KiB gồm client Brotli 1071.5 KiB + hero 65.7 KiB; vượt ceiling local 1024 KiB khoảng 113.2 KiB. Không tăng ngưỡng. Build provenance local/unattestable do worktree có thay đổi, không phải public release.
+- **Audit bundle:** bổ sung bảng 15 asset lớn nhất ngay khi gate fail, vẫn cùng phép tính và ngưỡng. Chạy lại xác nhận richLessonContent 201.0 KiB Brotli, curriculum 127.2 KiB, FullStyleBoundary CSS 54.6 KiB; LessonPage 25.5 KiB và StudioStructuredEditor 17.0 KiB. ESLint script đạt. Các JSON rich runtime chủ yếu là nội dung thật, không có khối metadata lớn có thể bỏ ngay. Service worker bỏ qua `/api`, nên không chuyển dữ liệu nền sang API chỉ để giảm JS nếu chưa thiết kế cache offline tương ứng. Chưa có bằng chứng giảm dung lượng; log `tmp/thien-lo-bundle-breakdown.log`.
+- **Tiếp theo:** audit bundle client để giảm mã/dữ liệu thừa rồi tiếp tục phần nội dung/media/editor còn thiếu. Không kết luận full check/build đạt, không USER-ACCEPTED/commit/push/deploy.
+
+## Thiên Lộ/Xưởng · phát hành HSK2 chuyến đi và giải trí · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; scope toàn v0.2 chưa hoàn tất.
+- **Người học thấy gì:** travel-leisure-03/04 có 24 trang, timeline trải nghiệm/việc đã làm/kế hoạch và comparison sở thích/khả năng/quyết định. Sáu hoạt động có target, hai nhiệm vụ vận dụng đổi dữ kiện; sửa ví dụ nghĩa của 过/着/游 trong bài. Xưởng nhận cùng dữ liệu trang, sơ đồ, đáp án và rubric. HumanReviewed:false; review 26 ghi rõ từ điển global chưa sửa.
+- **Phát hành:** import rehearsal/apply giữ 37 bảng; release rehearsal/apply giữ 36 bảng, FK đạt. Backup `.wrangler/demo-backups/before-authored-thien-lo-batch-release-2026-09-20T04-46-59-689Z.sqlite`.
+- **Đã kiểm:** ba Vitest nguồn/parity/đáp án/nghĩa từ đạt; TypeScript/ESLint/diff check đạt. Browser Xưởng exact document→sơ đồ→sai/đúng đạt 37.8s; learner gate trước tiên quyết→exact runtime→hai bài→đáp án→reload→model đạt 46.5s. Fixture tiên quyết chỉ ở guest browser mới, không đổi tiến độ demo. Kiểm bố cục ảnh phủ khung và nút nghe đạt lại ba viewport (1235×640, 375×812, 812×375); đã xem screenshot desktop/mobile. Không thêm CSS vì bố cục đã đáp ứng phép kiểm này.
+- **Tích hợp:** sửa test bundle remediation: cho phép tên correctAnswer trong receipt sau nộp, mở rộng kiểm cấm import kho đáp án/scorer support/local learning state; năm tests boundary/helper đạt. Không đổi runtime ở bước này.
+- **Gate toàn dự án:** full check đã qua typecheck/lint, authoring HSK1–4 và db:check; dừng test:restore vì script pin 23 migration qua 0022 nhưng có 26. Ba migration mới tạo learner_access_days, lesson_media_assets/chunks và lesson_page_attempts; cần mở rộng dữ liệu rehearsal và kiểm preservation, không chỉ tăng số lượng cho qua gate. Chưa chạy full tests/build ở lượt này.
+- **Dữ liệu giữ được:** audit D1 55 authored, 493 activities, 36 có target/457 thiếu target; còn 162 bài nền chưa phát hành authored. Nền 217 giữ, không reset ID/progress/FSRS/lỗi/phiên/outbox. Số lượng không chứng minh mastery/đủ HSK. Art campus còn chung.
+- **Tiếp theo:** cập nhật rehearsal khôi phục cho dữ liệu mới, rồi tiếp tục nội dung/media/editor và liên thông còn thiếu trong v0.2. Web local 3000 đang chạy. Không USER-ACCEPTED/commit/push/public deploy.
+
+## Thiên Lộ/Xưởng · sửa binding authoring HSK1 · 20/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW; scope v0.2 còn mở.
+- **Thay đổi:** serializer scope HSK1 giữ CRLF đúng byte runtime đã pin. Tái tạo hai draft character/level-check với guard chỉ cho phép thay source hash: ba và bốn binding, không đổi nội dung. Manifest chỉ đổi tám hash nguồn; promotion queue chỉ đổi hai hash phụ thuộc. Không thay trạng thái duyệt, approval hoặc quyền phát hành.
+- **Đã kiểm:** scope generator `--check` đạt; sáu tệp Vitest (scope, character, level-check, review manifest/workflow, promotion queue) đạt 29/29 tests. `git diff --check` đạt. Full `npm run check` đang chạy, chưa có kết luận toàn dự án; log `tmp/hsk1-binding-full-check.log`.
+- **Dữ liệu giữ được:** không D1 migration, reset hoặc release mới; nền 217 và số authored được kiểm gần nhất 53 giữ nguyên. Không thay lesson ID, progress, FSRS, lỗi, phiên hoặc outbox; humanReviewed giữ nguyên. Không commit/push/deploy.
+- **Tiếp theo:** lấy kết quả gate đang chạy và xác minh lại browser ảnh phủ khung/nút nghe trên ba viewport; tiếp tục phần nội dung, media và editor còn thiếu theo scope đã chốt. Không USER-ACCEPTED.
+
+## Thiên Lộ → sửa lỗi · giữ hợp đồng chấm điểm, tách phản hồi · 18/09/2026
+
+- **Module:** Thiên Lộ/Xưởng, điểm tích hợp sửa lỗi — IN-REVIEW; scope v0.2 còn mở.
+- **Người học thấy gì:** giữ giải thích/đáp án sau khi gửi lượt sửa lỗi; phần này được tạo tại bước lưu receipt sau kiểm tra account/reset/context, không đi vào score/evidence. Retry trả nguyên receipt đã lưu. Không thêm answer vào queue hoặc cấp mastery từ sửa lỗi.
+- **Thay đổi:** tách remediationAttemptFeedback khỏi attemptScoring; scorer khớp lại snapshot foundation-2026.08.7, không sửa snapshot/manifest để qua gate. Helper chỉ xử lý source mistake với activity/method/version đúng nguồn bài đã phát hành; reader không tự nhận feedback của lesson.
+- **Đã kiểm:** 87 tests scoring/repository/packageGovernance đạt, bao gồm persistence và duplicate receipt; hai test helper đạt cho đáp án khi sai và từ chối source/method/version/activity khác. Typecheck/ESLint/diff check đạt. Full check vượt local-study, graduation/HKS4, queue, dependency, typecheck/lint rồi dừng tại `Checked HSK1 curriculum scope is stale` trong authoring chain (log tmp/resume-scoring-check.log); chưa chạy hết test/build. Browser hai bài motion/meeting dùng guest cô lập: gate trước tiên quyết→exact runtime→đáp án→reload→model đạt 33.5s. Đây là regression hành trình bài học, chưa phải browser riêng cho receipt sửa lỗi; receipt có repository integration test.
+- **Dữ liệu giữ được:** không đổi protocol/ID/score/mastery/phiên/outbox schema, không D1 migration hoặc reset. Kho nền 217 và 53 authored giữ; humanReviewed không đổi. Không commit/push/deploy.
+- **Tiếp theo:** đối soát binding authoring HSK1 đang chặn gate, rồi quay lại nội dung travel-leisure-03/04; test UI đọc receipt còn phải rà. Web local 3000 đã mở bằng vinext trực tiếp, không chạy migration. Không USER-ACCEPTED.
+
+## Thiên Lộ/Xưởng · tiếp tục theo yêu cầu người dùng, sửa byte nguồn · 18/09/2026
+
+- **Module:** Thiên Lộ/Xưởng — IN-REVIEW. Người dùng đã nói “tiếp tục phát triển đi”, thay thế yêu cầu tạm ngừng bên dưới; scope v0.2 còn nguyên, chưa hoàn tất.
+- **Thay đổi:** audit chứng minh review manifest HSK4 có cùng JSON nhưng CRLF khác serializer. Script normalize-content-checkout chỉ khôi phục LF khi bằng Git index, snapshot phải khớp manifest. Khôi phục 257 JSON sang LF; bốn nguồn giữ CRLF theo binding runtime đã pin (inventory HSK, scope HSK1, vocabulary HSK1, reviewer packet). Khôi phục 138 snapshot TypeScript về byte LF đã kiểm chứng khớp 138 hash manifest, không đổi nội dung snapshot. Thêm thuộc tính checkout rõ ràng. Consumer authoring cũ của ba nguồn HSK1 vẫn có binding LF/CRLF xung đột, chưa coi đã xử lý toàn bộ.
+- **Đã kiểm:** HSK4 review manifest check/validate đạt (168 pending, 0 approvals); HSK1 local-study-review check đạt. Nhóm 4 tệp/36 tests đạt sau khôi phục ngoại lệ. Lượt 5 tệp/102 tests đạt 101, còn lỗi packageGovernance: src/server/attemptScoring.ts digest khác manifest, không bỏ gate hoặc sửa manifest. Chạy nội dung rộng trong lúc điều tra có 30 lỗi/584 đạt, không dùng làm kết luận trạng thái cuối. Full check đã vượt HSK4 và dừng tại promotion queue stale.
+- **Promotion queue:** diff tái tạo chỉ có ba sourceBindings hash cho scope/personal/communicative HSK1; không đổi summary, approvals hoặc quyền phát hành. Đã cập nhật báo cáo derived và check/validate đạt: 213 blueprint, 0 approvalRecords, 0 promotionReadyUnits, 0 completionClaims. Chưa chạy lại full check sau mốc này.
+- **Gate cuối của slice:** 5 tệp/41 tests đạt (promotion queue, source provenance, HSK0, editorial assignments, demo); ESLint script khôi phục byte và diff check đạt. Diff scorer còn đỏ được xác định là phần thêm remediationFeedback sau chấm điểm, cần tách khỏi contract scorer đã pin hoặc migration phù hợp, không phải lỗi xuống dòng.
+- **Dữ liệu giữ được:** không thay D1, browser state, ID, progress, FSRS, lỗi hay phiên. Không sửa docs/reports/output, không stage/commit/push/deploy. Kho local vẫn 53 authored trên nền 217; các sửa byte không phải bài mới.
+- **Tiếp theo:** đối chiếu scorer hiện tại với snapshot/contract và xử lý binding authoring còn stale; sau gate quay lại hai bài travel-leisure-03/04 cùng phần media/editor/remediation còn thiếu. Không USER-ACCEPTED.
+
 ## Tạm ngừng phát triển và báo cáo học phần · 16/09/2026
 
 - **Module:** Bàn giao hiện trạng — IN-REVIEW. Người dùng tạm ngừng phát triển vài ngày; chưa chọn hướng doanh nghiệp, chưa USER-ACCEPTED toàn sản phẩm.

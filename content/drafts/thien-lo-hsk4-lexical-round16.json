@@ -1,0 +1,82 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/109-REVIEW-HSK4-LEXICAL-ROUND16.md",
+  "entries": [
+    {
+      "sourceRevisionId": "597db6a3-3bd0-4d4f-ab8a-5ae08f989cc2",
+      "sourceContentSha256": "sha256:436c68647867ded216d888c21ee28444a253a97b645381243951f25c4074b3d5",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这棵树去年生了病，经过照顾，今年又长出了新叶。",
+            "pinyin": "Zhè kē shù qùnián shēng le bìng, jīngguò zhàogù, jīnnián yòu zhǎng chū le xīn yè.",
+            "meaningVi": "Cây này năm ngoái bị bệnh, sau khi được chăm sóc, năm nay lại mọc lá mới."
+          }
+        ],
+        "hanzi": "生",
+        "meaningVi": "sinh; mọc; phát sinh (động từ)",
+        "pinyin": "shēng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01646"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "62bea5fa-0c28-4918-a4d9-a7d140016280",
+      "sourceContentSha256": "sha256:d8104e693930292b8f76df6304cb047b4e7a5d716588bea9f5d553a4517472f9",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这块肉里面还是生的，需要再煮一会儿。",
+            "pinyin": "Zhè kuài ròu lǐmian háishi shēng de, xūyào zài zhǔ yíhuìr.",
+            "meaningVi": "Bên trong miếng thịt này vẫn còn sống, cần nấu thêm một lúc."
+          }
+        ],
+        "hanzi": "生",
+        "meaningVi": "sống, chưa chín; lạ, chưa quen (tính từ)",
+        "pinyin": "shēng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-process-timeline"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01647"
+        ]
+      }
+    }
+  ]
+}

@@ -10,7 +10,8 @@ import {
   Volume2,
   Waves,
 } from "lucide-react";
-import { ResumableLessonReader } from './ResumableLessonReader';
+import { ResumableLessonReader, SavedLessonReader } from './ResumableLessonReader';
+import { LessonContentLoading } from './LessonContentLoading';
 import { isLessonPageDocument, lessonPagesFromRich } from '../learning/lessonPages';
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { mergePublishedStudioLessonEnhancement } from "../content/publishedStudioClient";
@@ -211,8 +212,8 @@ export function LessonTheoryPanel(props: Parameters<typeof LegacyLessonTheoryPan
   const pages = useMemo(() => rich?.lessonPages ?? (rich ? lessonPagesFromRich(rich) : null), [rich]);
   // Do not present the legacy lesson while its published replacement is still
   // loading. Fallback remains available after an actual load failure.
-  if (props.contentStatus === 'loading') return <section className="lesson-page-reader jade-lesson" aria-busy="true"><p role="status">Đang tải nội dung bài học…</p></section>;
-  if (!pages || !isLessonPageDocument(pages) || (props.lessonId.startsWith('boot-') && !isLessonPageDocument(rich?.lessonPages))) return <LegacyLessonTheoryPanel {...props} />;
+  if (props.contentStatus === 'loading') return <LessonContentLoading title={props.lessonTitle} />;
+  if (!pages || !isLessonPageDocument(pages) || (props.lessonId.startsWith('boot-') && !isLessonPageDocument(rich?.lessonPages))) return <SavedLessonReader lessonId={props.lessonId} fallback={<LegacyLessonTheoryPanel {...props} />} completionLabel={props.completionLabel} disabled={props.completionDisabled} onComplete={()=>{props.onReadinessChange?.(true);props.onComplete?.();}} />;
   return <ResumableLessonReader sourceStatus={props.contentStatus} key={props.lessonId} document={pages} lessonId={props.lessonId} title={props.lessonTitle} objective={props.lessonObjective} completionLabel={props.completionLabel} disabled={props.completionDisabled} onComplete={()=>{props.onReadinessChange?.(true);props.onComplete?.();}} />;
 }
 

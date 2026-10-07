@@ -1,0 +1,2176 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/161-REVIEW-HSK4-TIME-POSSIBILITY-ROUND68.md",
+  "entries": [
+    {
+      "sourceRevisionId": "6ac06f28-1aa5-4485-b184-5fc96e30acc2",
+      "sourceContentSha256": "sha256:039250e29859a8c0877955171777da9711585654dfdb386546ba780fd7da386a",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "phân biệt chỉ báo và quyết định\nbằng chứng phạm vi thời gian từ phòng chung\ngiải thích thay thế từ tiệm cắt tóc\nphản biện về chi phí duy trì dịch vụ ít dùng\nđề xuất ngưỡng và thời gian thử",
+        "conceptVi": "Viết kết luận có giới hạn: Kiểm soát phạm vi, thời gian, thái độ, lượng, cấu trúc cố định và số liệu để diễn đạt thông tin chính xác.",
+        "dialogue": [
+          {
+            "hanzi": "海风小区有一间公共房间，位置在大门对面。物业查看预约表后表示，过去三个月平均每天只有两次登记，因此建议把房间租给商店，增加小区收入。这个数字看起来支持“利用不足”的判断，周围几栋楼的居民却提出了不同意见。",
+            "meaningVi": "Khu Hải Phong có một phòng sinh hoạt chung đối diện cổng. Sau khi xem bảng đặt chỗ, ban quản lý cho biết ba tháng qua trung bình chỉ có hai lượt đăng ký mỗi ngày, nên đề nghị cho cửa hàng thuê để tăng thu nhập khu. Con số có vẻ ủng hộ nhận định “chưa tận dụng”, nhưng cư dân quanh đó đưa ý kiến khác.",
+            "pinyin": "Hǎifēng xiǎoqū yǒu yì jiān gōnggòng fángjiān, wèizhì zài dàmén duìmiàn. Wùyè chákàn yùyuēbiǎo hòu biǎoshì, guòqù sān ge yuè píngjūn měi tiān zhǐyǒu liǎng cì dēngjì, yīncǐ jiànyì bǎ fángjiān zū gěi shāngdiàn, zēngjiā xiǎoqū shōurù. Zhè ge shùzì kàn qǐlái zhīchí “lìyòng bù zú” de pànduàn, zhōuwéi jǐ dòng lóu de jūmín què tíchū le bùtóng yìjiàn.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "居民调查发现，很多老人上午直接去下棋，没有使用网上预约；孩子放学后在门口读书，也没有被登记。另一方面，房间晚上确实常空着，冬天暖气费用还很高。也就是说，预约表低估了部分白天使用，却可能准确反映了晚上的空闲情况。",
+            "meaningVi": "Khảo sát cư dân thấy nhiều người già buổi sáng đến chơi cờ trực tiếp mà không đặt trên mạng; trẻ đọc sách ở cửa sau giờ học cũng không được ghi. Mặt khác, buổi tối phòng thường trống và chi phí sưởi mùa đông cao. Như vậy, bảng đặt chỗ đánh giá thấp một phần sử dụng ban ngày nhưng có thể phản ánh đúng thời gian trống buổi tối.",
+            "pinyin": "Jūmín diàochá fāxiàn, hěn duō lǎorén shàngwǔ zhíjiē qù xià qí, méiyǒu shǐyòng wǎngshàng yùyuē; háizi fàng xué hòu zài ménkǒu dú shū, yě méiyǒu bèi dēngjì. Lìng yì fāngmiàn, fángjiān wǎnshang quèshí cháng kōng zhe, dōngtiān nuǎnqì fèiyong hái hěn gāo. Yě jiù shì shuō, yùyuēbiǎo dīgū le bùfen báitiān shǐyòng, què kěnéng zhǔnquè fǎnyìng le wǎnshang de kòngxián qíngkuàng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "双方最后同意先进行四周人工计数，分别记录时间、活动人数和是否预约，再讨论用途。物业还公开电费和可能的租金，居民则提出晚上开付费课程、白天保留免费空间的方案。目前证据只能说明原来的登记不完整，不能直接证明出租或保留哪一种选择更好。",
+            "meaningVi": "Hai bên thống nhất đếm thủ công bốn tuần, tách thời gian, số người và có đặt chỗ hay không rồi mới bàn công dụng. Ban quản lý công khai tiền điện và tiền thuê dự kiến; cư dân đề xuất tối mở lớp có phí, ban ngày giữ không gian miễn phí. Hiện bằng chứng chỉ cho thấy ghi chép cũ chưa đầy đủ, chưa chứng minh cho thuê hay giữ lại tốt hơn.",
+            "pinyin": "Shuāngfāng zuìhòu tóngyì xiān jìnxíng sì zhōu réngōng jìshù, fēnbié jìlù shíjiān, huódòng rénshù hé shìfǒu yùyuē, zài tǎolùn yòngtú. Wùyè hái gōngkāi diànfèi hé kěnéng de zūjīn, jūmín zé tíchū wǎnshang kāi fùfèi kèchéng, báitiān bǎoliú miǎnfèi kōngjiān de fāng’àn. Mùqián zhèngjù zhǐ néng shuōmíng yuánlái de dēngjì bù wánzhěng, bù néng zhíjiē zhèngmíng chūzū huò bǎoliú nǎ yì zhǒng xuǎnzé gèng hǎo.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "社区广播采访了一家理发店。店主说，最近常有客人在午餐后咳嗽，因此他怀疑店里的毛巾清洗不干净。为了安全，他立刻更换了清洗用品，还减少了每天理发的人数。两周后，客人咳嗽的报告似乎少了，他便认为新用品有效。",
+            "meaningVi": "Đài cộng đồng phỏng vấn một tiệm cắt tóc. Chủ tiệm nói gần đây khách thường ho sau bữa trưa nên nghi khăn mặt chưa giặt sạch. Để an toàn, ông đổi chất giặt và giảm số người cắt tóc mỗi ngày. Hai tuần sau, báo cáo ho có vẻ ít đi nên ông cho rằng chất mới hiệu quả.",
+            "pinyin": "Shèqū guǎngbō cǎifǎng le yì jiā lǐfàdiàn. Diànzhǔ shuō, zuìjìn cháng yǒu kèrén zài wǔcān hòu késou, yīncǐ tā huáiyí diàn lǐ de máojīn qīngxǐ bù gānjìng. Wèile ānquán, tā lìkè gēnghuàn le qīngxǐ yòngpǐn, hái jiǎnshǎo le měi tiān lǐ fà de rénshù. Liǎng zhōu hòu, kèrén késou de bàogào sìhū shǎo le, tā biàn rènwéi xīn yòngpǐn yǒuxiào.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "一位顾客提醒，咳嗽也可能与下午的道路施工有关。店门打开时，灰尘会进入室内；施工队午休结束后，声音和灰尘同时增加。广播记者查看记录，发现“咳嗽减少”的两周正好下雨较多，店门大部分时间关闭，而且记录只写了主动反映的客人。",
+            "meaningVi": "Một khách nhắc rằng ho có thể liên quan công trình đường buổi chiều. Khi cửa mở, bụi bay vào; sau giờ nghỉ trưa của đội thi công, tiếng ồn và bụi cùng tăng. Phóng viên xem ghi chép và thấy hai tuần “giảm ho” trùng lúc mưa nhiều, cửa phần lớn đóng, trong khi sổ chỉ ghi người chủ động báo.",
+            "pinyin": "Yí wèi gùkè tíxǐng, késou yě kěnéng yǔ xiàwǔ de dàolù shīgōng yǒuguān. Diànmén dǎkāi shí, huīchén huì jìnrù shìnèi; shīgōngduì wǔxiū jiéshù hòu, shēngyīn hé huīchén tóngshí zēngjiā. Guǎngbō jìzhě chákàn jìlù, fāxiàn “késou jiǎnshǎo” de liǎng zhōu zhènghǎo xià yǔ jiào duō, diànmén dà bùfen shíjiān guānbì, érqiě jìlù zhǐ xiě le zhǔdòng fǎnyìng de kèrén.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "这些信息没有证明清洗用品无效，只说明原来的判断缺少对照。店主决定同时记录门窗状态、施工时间、天气和客人反映，并请客人扫描二维码报告。广播把这种变化称为一个信号：当结果可能由多个原因造成时，先补充证据，再判断哪项措施真正有效。",
+            "meaningVi": "Thông tin này không chứng minh chất giặt vô hiệu mà chỉ cho thấy phán đoán ban đầu thiếu đối chiếu. Chủ tiệm sẽ ghi trạng thái cửa, giờ thi công, thời tiết và phản ánh, đồng thời mời khách quét mã báo cáo. Đài gọi thay đổi này là tín hiệu: khi kết quả có thể do nhiều nguyên nhân, hãy bổ sung bằng chứng rồi mới đánh giá biện pháp nào thật sự hiệu quả.",
+            "pinyin": "Zhèxiē xìnxī méiyǒu zhèngmíng qīngxǐ yòngpǐn wúxiào, zhǐ shuōmíng yuánlái de pànduàn quēshǎo duìzhào. Diànzhǔ juédìng tóngshí jìlù ménchuāng zhuàngtài, shīgōng shíjiān, tiānqì hé kèrén fǎnyìng, bìng qǐng kèrén sǎomiáo èrwéimǎ bàogào. Guǎngbō bǎ zhè zhǒng biànhuà chēng wéi yí ge xìnhào: dāng jiéguǒ kěnéng yóu duō ge yuányīn zàochéng shí, xiān bǔchōng zhèngjù, zài pànduàn nǎ xiàng cuòshī zhēnzhèng yǒuxiào.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:22cfa2d3478716ad591cdcaaedd085ce624f0dfa9b545646dc9003d486df3ee0",
+          "evidenceDocument": "docs/thien-lo-redesign-review/149-REVIEW-HSK4-TRADITION-CONTEXT-ROUND56.md",
+          "humanReviewed": false,
+          "scope": "Correct six shared bakery and lantern paragraphs plus yongji tone in current lesson copies; preserve Hanzi, meaning, IDs and keys.",
+          "sourceContentSha256": "sha256:4e74254f30a798a7e5a5640fd53977e3937dabcaf3684caecce57642f2e9bcc5",
+          "sourceRevisionId": "1e297acd-4bd6-4fee-9ac0-1cf693bf3f58"
+        },
+        "exercises": [
+          {
+            "answer": "海风小区有一间公共房间，位置在大门对面。物业查看预约表后表示，过去三个月平均每天只有两次登记，因此建议把房间租给商店，增加小区收入。这个数字看起来支持“利用不足”的判断，周围几栋楼的居民却提出了不同意见。",
+            "answerMeaningVi": "Khu Hải Phong có một phòng sinh hoạt chung đối diện cổng. Sau khi xem bảng đặt chỗ, ban quản lý cho biết ba tháng qua trung bình chỉ có hai lượt đăng ký mỗi ngày, nên đề nghị cho cửa hàng thuê để tăng thu nhập khu. Con số có vẻ ủng hộ nhận định “chưa tận dụng”, nhưng cư dân quanh đó đưa ý kiến khác.",
+            "answerPinyin": "Hǎifēng xiǎoqū yǒu yì jiān gōnggòng fángjiān, wèizhì zài dàmén duìmiàn. Wùyè chákàn yùyuēbiǎo hòu biǎoshì, guòqù sān ge yuè píngjūn měi tiān zhǐyǒu liǎng cì dēngjì, yīncǐ jiànyì bǎ fángjiān zū gěi shāngdiàn, zēngjiā xiǎoqū shōurù. Zhè ge shùzì kàn qǐlái zhīchí “lìyòng bù zú” de pànduàn, zhōuwéi jǐ dòng lóu de jūmín què tíchū le bùtóng yìjiàn.",
+            "distractors": [
+              "居民调查发现，很多老人上午直接去下棋，没有使用网上预约；孩子放学后在门口读书，也没有被登记。另一方面，房间晚上确实常空着，冬天暖气费用还很高。也就是说，预约表低估了部分白天使用，却可能准确反映了晚上的空闲情况。",
+              "双方最后同意先进行四周人工计数，分别记录时间、活动人数和是否预约，再讨论用途。物业还公开电费和可能的租金，居民则提出晚上开付费课程、白天保留免费空间的方案。目前证据只能说明原来的登记不完整，不能直接证明出租或保留哪一种选择更好。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "来得及 lái de jí nói còn đủ thời gian làm việc, 来不及 lái bu jí không kịp. Có thể đứng trước động từ hoặc dùng riêng khi việc đã rõ. 得/不 ở bổ ngữ khả năng nhẹ. Khác 不能: dữ liệu một tuần không đủ kết luận cả năm là thiếu căn cứ, không phải tự nhiên “không kịp” kết luận; hãy nói 数据不足/不能判断.",
+            "guidedPractice": {
+              "promptVi": "Còn mười phút trước giờ đóng cửa, bạn nghĩ vẫn kịp tới thư viện. Viết 来得及 như nhận định hiện tại.",
+              "modelAnswerHanzi": "还有十分钟，我想现在去还来得及。",
+              "modelAnswerPinyin": "Hái yǒu shí fēnzhōng, wǒ xiǎng xiànzài qù hái lái de jí.",
+              "modelAnswerMeaningVi": "Còn mười phút, tôi nghĩ bây giờ đi vẫn kịp."
+            },
+            "modelExample": {
+              "hanzi": "现在出发还来得及。",
+              "pinyin": "Xiànzài chūfā hái lái de jí.",
+              "meaningVi": "Bây giờ xuất phát vẫn còn kịp.",
+              "speaker": "A"
+            },
+            "pattern": "来得及/来不及"
+          },
+          {
+            "explanationVi": "有的是 yǒu de shì nhấn có nhiều/dư dả: 时间有的是. Khác 有的…有的… một số…một số…. Có thể nói 我有的是办法 = tôi có nhiều cách. Không thay cho con số chính xác, không nhất thiết mọi đối tượng đều có.",
+            "guidedPractice": {
+              "promptVi": "Bạn muốn trấn an người tìm chỗ ngồi vì ở đây còn nhiều chỗ. Viết 有的是, không thêm số.",
+              "modelAnswerHanzi": "别着急，这里有的是空位。",
+              "modelAnswerPinyin": "Bié zháojí, zhèlǐ yǒu de shì kòngwèi.",
+              "modelAnswerMeaningVi": "Đừng sốt ruột, ở đây có rất nhiều chỗ trống."
+            },
+            "modelExample": {
+              "hanzi": "别急，时间有的是。",
+              "pinyin": "Bié jí, shíjiān yǒu de shì.",
+              "meaningVi": "Đừng vội, còn nhiều thời gian mà.",
+              "speaker": "A"
+            },
+            "pattern": "有的是"
+          },
+          {
+            "explanationVi": "说不定 shuō bu dìng đánh dấu khả năng chưa chắc. Có thể đầu câu hoặc trước vị từ: 他今天说不定会来. Khác 一定 chắc chắn, 不一定 chưa chắc; ba mức không thay nhau. Không dùng giả thuyết thời tiết/đặt lịch như nguyên nhân đã xác nhận trong nguồn.",
+            "guidedPractice": {
+              "promptVi": "Bạn chưa biết bạn học có rảnh tối nay, nghĩ biết đâu sẽ tới. Viết 说不定, không hứa thay bạn.",
+              "modelAnswerHanzi": "他今晚说不定有空，会来参加活动。",
+              "modelAnswerPinyin": "Tā jīnwǎn shuō bu dìng yǒu kòng, huì lái cānjiā huódòng.",
+              "modelAnswerMeaningVi": "Biết đâu tối nay anh ấy rảnh và sẽ tới tham gia hoạt động."
+            },
+            "modelExample": {
+              "hanzi": "他今天说不定会来。",
+              "pinyin": "Tā jīntiān shuō bu dìng huì lái.",
+              "meaningVi": "Biết đâu hôm nay anh ấy sẽ đến.",
+              "speaker": "A"
+            },
+            "pattern": "说不定"
+          },
+          {
+            "explanationVi": "不怎么 bù zěnme đứng trước động từ/tính từ để giảm mức hoặc tần suất: 不怎么贵、不怎么去. Khác 一点儿也不 hoàn toàn không. Có thể vẫn đi ít lần hoặc giá hơi cao, tùy ngữ cảnh. Khi tóm tắt, không đổi nghĩa “không…lắm” thành “hoàn toàn không có”.",
+            "guidedPractice": {
+              "promptVi": "Gần đây bạn ít uống cà phê, không nói đã bỏ hoàn toàn. Viết 不怎么.",
+              "modelAnswerHanzi": "我最近不怎么喝咖啡。",
+              "modelAnswerPinyin": "Wǒ zuìjìn bù zěnme hē kāfēi.",
+              "modelAnswerMeaningVi": "Gần đây tôi không uống cà phê mấy."
+            },
+            "modelExample": {
+              "hanzi": "这件衣服不怎么贵。",
+              "pinyin": "Zhè jiàn yīfu bù zěnme guì.",
+              "meaningVi": "Bộ quần áo này không đắt lắm.",
+              "speaker": "A"
+            },
+            "pattern": "不怎么"
+          },
+          {
+            "explanationVi": "一天比一天、一年比一年 nêu xu hướng từ đơn vị sau so đơn vị trước, thường theo tính từ/mức độ: 天气一天比一天冷. Lặp đúng cùng đơn vị. Mô tả xu hướng trong quãng quan sát không dự báo mãi mãi, không cho số tăng mỗi bước.",
+            "guidedPractice": {
+              "promptVi": "Trong ba ngày tập, bạn thấy thao tác ngày càng quen. Viết 一天比一天 với giới hạn ba ngày.",
+              "modelAnswerHanzi": "这三天，我一天比一天熟练。",
+              "modelAnswerPinyin": "Zhè sān tiān, wǒ yì tiān bǐ yì tiān shúliàn.",
+              "modelAnswerMeaningVi": "Trong ba ngày này, tôi mỗi ngày một thành thạo hơn."
+            },
+            "modelExample": {
+              "hanzi": "这几天气温一天比一天低。",
+              "pinyin": "Zhè jǐ tiān qìwēn yì tiān bǐ yì tiān dī.",
+              "meaningVi": "Mấy ngày này nhiệt độ ngày sau thấp hơn ngày trước.",
+              "speaker": "A"
+            },
+            "pattern": "一+量词+比+一+量词"
+          },
+          {
+            "explanationVi": "在…方面 zài…fāngmiàn giới hạn khía cạnh đánh giá như 在沟通方面. Thường đặt đầu câu hoặc trước vị từ. Không thay bằng 在…里面 khi nói một lĩnh vực. Một mặt tốt hơn không có nghĩa tất cả tốt hơn; cần nêu khía cạnh và mốc nếu so sánh.",
+            "guidedPractice": {
+              "promptVi": "Theo bảng mới, hai lịch trình có chi phí gần nhau, chưa so thời gian. Viết 在费用方面 và giữ giới hạn.",
+              "modelAnswerHanzi": "在费用方面，这两种安排差不多，时间还需要比较。",
+              "modelAnswerPinyin": "Zài fèiyong fāngmiàn, zhè liǎng zhǒng ānpái chàbuduo, shíjiān hái xūyào bǐjiào.",
+              "modelAnswerMeaningVi": "Về chi phí, hai cách sắp xếp này gần như nhau; thời gian còn cần so sánh."
+            },
+            "modelExample": {
+              "hanzi": "他在沟通方面很有经验。",
+              "pinyin": "Tā zài gōutōng fāngmiàn hěn yǒu jīngyàn.",
+              "meaningVi": "Anh ấy có nhiều kinh nghiệm về mặt giao tiếp.",
+              "speaker": "A"
+            },
+            "pattern": "在……方面"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng viết kết luận có giới hạn để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Viết kết luận có giới hạn: Kiểm soát phạm vi, thời gian, thái độ, lượng, cấu trúc cố định và số liệu để diễn đạt thông tin chính xác."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "海风小区有一间公共房间，位置在大门对面。物业查看预约表后表示，过去三个月平均每天只有两次登记，因此建议把房间租给商店，增加小区收入。这个数字看起来支持“利用不足”的判断，周围几栋楼的居民却提出了不同意见。",
+                        "id": "hsk4-precision-reference-quantity-lesson-05:source-0-0",
+                        "meaningVi": "Khu Hải Phong có một phòng sinh hoạt chung đối diện cổng. Sau khi xem bảng đặt chỗ, ban quản lý cho biết ba tháng qua trung bình chỉ có hai lượt đăng ký mỗi ngày, nên đề nghị cho cửa hàng thuê để tăng thu nhập khu. Con số có vẻ ủng hộ nhận định “chưa tận dụng”, nhưng cư dân quanh đó đưa ý kiến khác.",
+                        "pinyin": "Hǎifēng xiǎoqū yǒu yì jiān gōnggòng fángjiān, wèizhì zài dàmén duìmiàn. Wùyè chákàn yùyuēbiǎo hòu biǎoshì, guòqù sān ge yuè píngjūn měi tiān zhǐyǒu liǎng cì dēngjì, yīncǐ jiànyì bǎ fángjiān zū gěi shāngdiàn, zēngjiā xiǎoqū shōurù. Zhè ge shùzì kàn qǐlái zhīchí “lìyòng bù zú” de pànduàn, zhōuwéi jǐ dòng lóu de jūmín què tíchū le bùtóng yìjiàn."
+                      },
+                      {
+                        "hanzi": "居民调查发现，很多老人上午直接去下棋，没有使用网上预约；孩子放学后在门口读书，也没有被登记。另一方面，房间晚上确实常空着，冬天暖气费用还很高。也就是说，预约表低估了部分白天使用，却可能准确反映了晚上的空闲情况。",
+                        "id": "hsk4-precision-reference-quantity-lesson-05:source-0-1",
+                        "meaningVi": "Khảo sát cư dân thấy nhiều người già buổi sáng đến chơi cờ trực tiếp mà không đặt trên mạng; trẻ đọc sách ở cửa sau giờ học cũng không được ghi. Mặt khác, buổi tối phòng thường trống và chi phí sưởi mùa đông cao. Như vậy, bảng đặt chỗ đánh giá thấp một phần sử dụng ban ngày nhưng có thể phản ánh đúng thời gian trống buổi tối.",
+                        "pinyin": "Jūmín diàochá fāxiàn, hěn duō lǎorén shàngwǔ zhíjiē qù xià qí, méiyǒu shǐyòng wǎngshàng yùyuē; háizi fàng xué hòu zài ménkǒu dú shū, yě méiyǒu bèi dēngjì. Lìng yì fāngmiàn, fángjiān wǎnshang quèshí cháng kōng zhe, dōngtiān nuǎnqì fèiyong hái hěn gāo. Yě jiù shì shuō, yùyuēbiǎo dīgū le bùfen báitiān shǐyòng, què kěnéng zhǔnquè fǎnyìng le wǎnshang de kòngxián qíngkuàng."
+                      },
+                      {
+                        "hanzi": "双方最后同意先进行四周人工计数，分别记录时间、活动人数和是否预约，再讨论用途。物业还公开电费和可能的租金，居民则提出晚上开付费课程、白天保留免费空间的方案。目前证据只能说明原来的登记不完整，不能直接证明出租或保留哪一种选择更好。",
+                        "id": "hsk4-precision-reference-quantity-lesson-05:source-0-2",
+                        "meaningVi": "Hai bên thống nhất đếm thủ công bốn tuần, tách thời gian, số người và có đặt chỗ hay không rồi mới bàn công dụng. Ban quản lý công khai tiền điện và tiền thuê dự kiến; cư dân đề xuất tối mở lớp có phí, ban ngày giữ không gian miễn phí. Hiện bằng chứng chỉ cho thấy ghi chép cũ chưa đầy đủ, chưa chứng minh cho thuê hay giữ lại tốt hơn.",
+                        "pinyin": "Shuāngfāng zuìhòu tóngyì xiān jìnxíng sì zhōu réngōng jìshù, fēnbié jìlù shíjiān, huódòng rénshù hé shìfǒu yùyuē, zài tǎolùn yòngtú. Wùyè hái gōngkāi diànfèi hé kěnéng de zūjīn, jūmín zé tíchū wǎnshang kāi fùfèi kèchéng, báitiān bǎoliú miǎnfèi kōngjiān de fāng’àn. Mùqián zhèngjù zhǐ néng shuōmíng yuánlái de dēngjì bù wánzhěng, bù néng zhíjiē zhèngmíng chūzū huò bǎoliú nǎ yì zhǒng xuǎnzé gèng hǎo."
+                      }
+                    ]
+                  },
+                  "title": "Phòng sinh hoạt chung có thật sự chưa được tận dụng?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Phòng sinh hoạt chung có thật sự chưa được tận dụng?"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "社区广播采访了一家理发店。店主说，最近常有客人在午餐后咳嗽，因此他怀疑店里的毛巾清洗不干净。为了安全，他立刻更换了清洗用品，还减少了每天理发的人数。两周后，客人咳嗽的报告似乎少了，他便认为新用品有效。",
+                        "id": "hsk4-precision-reference-quantity-lesson-05:source-1-0",
+                        "meaningVi": "Đài cộng đồng phỏng vấn một tiệm cắt tóc. Chủ tiệm nói gần đây khách thường ho sau bữa trưa nên nghi khăn mặt chưa giặt sạch. Để an toàn, ông đổi chất giặt và giảm số người cắt tóc mỗi ngày. Hai tuần sau, báo cáo ho có vẻ ít đi nên ông cho rằng chất mới hiệu quả.",
+                        "pinyin": "Shèqū guǎngbō cǎifǎng le yì jiā lǐfàdiàn. Diànzhǔ shuō, zuìjìn cháng yǒu kèrén zài wǔcān hòu késou, yīncǐ tā huáiyí diàn lǐ de máojīn qīngxǐ bù gānjìng. Wèile ānquán, tā lìkè gēnghuàn le qīngxǐ yòngpǐn, hái jiǎnshǎo le měi tiān lǐ fà de rénshù. Liǎng zhōu hòu, kèrén késou de bàogào sìhū shǎo le, tā biàn rènwéi xīn yòngpǐn yǒuxiào."
+                      },
+                      {
+                        "hanzi": "一位顾客提醒，咳嗽也可能与下午的道路施工有关。店门打开时，灰尘会进入室内；施工队午休结束后，声音和灰尘同时增加。广播记者查看记录，发现“咳嗽减少”的两周正好下雨较多，店门大部分时间关闭，而且记录只写了主动反映的客人。",
+                        "id": "hsk4-precision-reference-quantity-lesson-05:source-1-1",
+                        "meaningVi": "Một khách nhắc rằng ho có thể liên quan công trình đường buổi chiều. Khi cửa mở, bụi bay vào; sau giờ nghỉ trưa của đội thi công, tiếng ồn và bụi cùng tăng. Phóng viên xem ghi chép và thấy hai tuần “giảm ho” trùng lúc mưa nhiều, cửa phần lớn đóng, trong khi sổ chỉ ghi người chủ động báo.",
+                        "pinyin": "Yí wèi gùkè tíxǐng, késou yě kěnéng yǔ xiàwǔ de dàolù shīgōng yǒuguān. Diànmén dǎkāi shí, huīchén huì jìnrù shìnèi; shīgōngduì wǔxiū jiéshù hòu, shēngyīn hé huīchén tóngshí zēngjiā. Guǎngbō jìzhě chákàn jìlù, fāxiàn “késou jiǎnshǎo” de liǎng zhōu zhènghǎo xià yǔ jiào duō, diànmén dà bùfen shíjiān guānbì, érqiě jìlù zhǐ xiě le zhǔdòng fǎnyìng de kèrén."
+                      },
+                      {
+                        "hanzi": "这些信息没有证明清洗用品无效，只说明原来的判断缺少对照。店主决定同时记录门窗状态、施工时间、天气和客人反映，并请客人扫描二维码报告。广播把这种变化称为一个信号：当结果可能由多个原因造成时，先补充证据，再判断哪项措施真正有效。",
+                        "id": "hsk4-precision-reference-quantity-lesson-05:source-1-2",
+                        "meaningVi": "Thông tin này không chứng minh chất giặt vô hiệu mà chỉ cho thấy phán đoán ban đầu thiếu đối chiếu. Chủ tiệm sẽ ghi trạng thái cửa, giờ thi công, thời tiết và phản ánh, đồng thời mời khách quét mã báo cáo. Đài gọi thay đổi này là tín hiệu: khi kết quả có thể do nhiều nguyên nhân, hãy bổ sung bằng chứng rồi mới đánh giá biện pháp nào thật sự hiệu quả.",
+                        "pinyin": "Zhèxiē xìnxī méiyǒu zhèngmíng qīngxǐ yòngpǐn wúxiào, zhǐ shuōmíng yuánlái de pànduàn quēshǎo duìzhào. Diànzhǔ juédìng tóngshí jìlù ménchuāng zhuàngtài, shīgōng shíjiān, tiānqì hé kèrén fǎnyìng, bìng qǐng kèrén sǎomiáo èrwéimǎ bàogào. Guǎngbō bǎ zhè zhǒng biànhuà chēng wéi yí ge xìnhào: dāng jiéguǒ kěnéng yóu duō ge yuányīn zàochéng shí, xiān bǔchōng zhèngjù, zài pànduàn nǎ xiàng cuòshī zhēnzhèng yǒuxiào."
+                      }
+                    ]
+                  },
+                  "title": "“Tín hiệu buổi chiều” của một tiệm cắt tóc"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · “Tín hiệu buổi chiều” của một tiệm cắt tóc"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Đoạn2 nêu hoạt động trực tiếp ban ngày chưa vào bảng đặt chỗ và phòng thường trống buổi tối. Đây là đối chiếu trong nguồn, chưa phải kết quả đếm thủ công bốn tuần sắp thực hiện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tình hình sử dụng phòng chung không giống nhau giữa các khung giờ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Đoạn2 nêu hoạt động trực tiếp ban ngày chưa vào bảng đặt chỗ và phòng thường trống buổi tối. Đây là đối chiếu trong nguồn, chưa phải kết quả đếm thủ công bốn tuần sắp thực hiện.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn2 nêu hoạt động trực tiếp ban ngày chưa vào bảng đặt chỗ và phòng thường trống buổi tối. Đây là đối chiếu trong nguồn, chưa phải kết quả đếm thủ công bốn tuần sắp thực hiện.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "公共房间在不同时间段的使用情况并不相同。\nTình hình sử dụng phòng chung không giống nhau giữa các khung giờ.\nĐối chiếu Nguồn A · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Đó là suy đoán của chủ tiệm. Cùng lúc số khách, mưa và trạng thái cửa thay đổi; sổ chỉ ghi người tự báo. Chưa chứng minh tác dụng riêng của chất giặt.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Báo cáo ho giảm đã chứng minh chất giặt mới chắc chắn hiệu quả.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Đó là suy đoán của chủ tiệm. Cùng lúc số khách, mưa và trạng thái cửa thay đổi; sổ chỉ ghi người tự báo. Chưa chứng minh tác dụng riêng của chất giặt.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Đó là suy đoán của chủ tiệm. Cùng lúc số khách, mưa và trạng thái cửa thay đổi; sổ chỉ ghi người tự báo. Chưa chứng minh tác dụng riêng của chất giặt.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "咳嗽报告减少，已经证明新的清洗用品一定有效。\nBáo cáo ho giảm đã chứng minh chất giặt mới chắc chắn hiệu quả.\nĐối chiếu Nguồn B · đoạn1–3.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n预约表平均每天只有两次登记，但老人下棋和孩子读书没有完全进入记录。房间晚上确实常空着，不能因此说所有时段都没人用。双方决定先人工计数四周，再结合电费和可能的租金讨论用途；保留或出租还没有定论。\nYùyuēbiǎo píngjūn měi tiān zhǐyǒu liǎng cì dēngjì, dàn lǎorén xià qí hé háizi dú shū méiyǒu wánquán jìnrù jìlù. Fángjiān wǎnshang quèshí cháng kōng zhe, bù néng yīncǐ shuō suǒyǒu shíduàn dōu méi rén yòng. Shuāngfāng juédìng xiān réngōng jìshù sì zhōu, zài jiéhé diànfèi hé kěnéng de zūjīn tǎolùn yòngtú; bǎoliú huò chūzū hái méiyǒu dìnglùn.\nBảng đặt chỗ trung bình chỉ hai lượt mỗi ngày nhưng chưa ghi đủ người cao tuổi chơi cờ và trẻ đọc sách. Buổi tối phòng thực sự thường trống; không vì vậy nói mọi giờ đều không ai dùng. Hai bên định đếm thủ công bốn tuần rồi xem thêm tiền điện và tiền thuê có thể thu; chưa kết luận giữ hay cho thuê.\nNêu đúng chỉ số, phạm vi và kế hoạch. Mẫu hỗ trợ tự sửa, không phải điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại kết luận về mức sử dụng phòng, phân biệt dữ liệu khung giờ và claim “chưa được tận dụng”.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Bản ghi đặt chỗ thiếu một số người sử dụng ban ngày, không phải thiếu hoạt động tối/cuối tuần.",
+                        "id": "point-0",
+                        "label": "Bản ghi đặt chỗ thiếu một số người sử dụng ban ngày, không phải thiếu hoạt động tối/cuối tuần."
+                      },
+                      {
+                        "guidance": "Dữ liệu bổ sung làm đổi cách hiểu.",
+                        "id": "point-1",
+                        "label": "Dữ liệu bổ sung làm đổi cách hiểu."
+                      },
+                      {
+                        "guidance": "Claim phải giới hạn theo thời gian.",
+                        "id": "point-2",
+                        "label": "Claim phải giới hạn theo thời gian."
+                      },
+                      {
+                        "guidance": "Không suy ra việc mở thêm giờ chắc chắn làm tăng lợi ích cộng đồng.",
+                        "id": "point-3",
+                        "label": "Không suy ra việc mở thêm giờ chắc chắn làm tăng lợi ích cộng đồng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại kết luận về mức sử dụng phòng, phân biệt dữ liệu khung giờ và claim “chưa được tận dụng”.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n店主换了清洗用品，也减少了每天理发的人数，后来收到的咳嗽报告似乎变少。他把变化归给新用品，但记者发现同期雨多、门常关着，记录又只包括主动反映的人。因此还要记录施工、天气和门窗状态，不能马上判断用品有效或无效。\nDiànzhǔ huàn le qīngxǐ yòngpǐn, yě jiǎnshǎo le měi tiān lǐ fà de rénshù, hòulái shōu dào de késou bàogào sìhū biàn shǎo. Tā bǎ biànhuà guī gěi xīn yòngpǐn, dàn jìzhě fāxiàn tóngqī yǔ duō, mén cháng guān zhe, jìlù yòu zhǐ bāokuò zhǔdòng fǎnyìng de rén. Yīncǐ hái yào jìlù shīgōng, tiānqì hé ménchuāng zhuàngtài, bù néng mǎshàng pànduàn yòngpǐn yǒuxiào huò wúxiào.\nChủ tiệm đổi chất giặt và giảm số người cắt tóc mỗi ngày, sau đó báo cáo ho có vẻ ít hơn. Ông quy thay đổi cho chất mới, nhưng phóng viên thấy cùng thời gian mưa nhiều, cửa thường đóng, sổ chỉ gồm người tự phản ánh. Vì vậy cần ghi thêm thi công, thời tiết và cửa, chưa thể kết luận chất giặt hiệu quả hay vô hiệu.\nNêu đúng chỉ số, phạm vi và kế hoạch. Mẫu hỗ trợ tự sửa, không phải điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Diễn đạt lại giới hạn kết luận từ báo cáo ho trong tiệm cắt tóc.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Chủ tiệm đổi chất giặt và giảm số khách mỗi ngày.",
+                        "id": "point-0",
+                        "label": "Chủ tiệm đổi chất giặt và giảm số khách mỗi ngày."
+                      },
+                      {
+                        "guidance": "Mưa, cửa đóng, thi công và chỉ ghi người tự phản ánh là các yếu tố cần xét.",
+                        "id": "point-1",
+                        "label": "Mưa, cửa đóng, thi công và chỉ ghi người tự phản ánh là các yếu tố cần xét."
+                      },
+                      {
+                        "guidance": "Chưa chứng minh chất giặt hiệu quả hay vô hiệu; không biến nguồn thành thống kê ít khách chiều.",
+                        "id": "point-2",
+                        "label": "Chưa chứng minh chất giặt hiệu quả hay vô hiệu; không biến nguồn thành thống kê ít khách chiều."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại vì sao báo cáo ho giảm chưa chứng minh chất giặt mới có tác dụng. Phân biệt thay đổi đã có, yếu tố khác và kế hoạch ghi chép thêm.\nNguồn B · đoạn1–3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "来得及 lái de jí nói còn đủ thời gian làm việc, 来不及 lái bu jí không kịp. Có thể đứng trước động từ hoặc dùng riêng khi việc đã rõ. 得/不 ở bổ ngữ khả năng nhẹ. Khác 不能: dữ liệu một tuần không đủ kết luận cả năm là thiếu căn cứ, không phải tự nhiên “không kịp” kết luận; hãy nói 数据不足/不能判断.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "来得及/来不及: kịp/không kịp về thời gian"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "现在出发还来得及。",
+                  "pinyin": "Xiànzài chūfā hái lái de jí.",
+                  "meaningVi": "Bây giờ xuất phát vẫn còn kịp.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "车马上开了，我来不及买水。",
+                  "pinyin": "Chē mǎshàng kāi le, wǒ lái bu jí mǎi shuǐ.",
+                  "meaningVi": "Xe sắp chạy rồi, tôi không kịp mua nước.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "来得及/来不及: kịp/không kịp về thời gian"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:0:practice",
+              "title": "Khảo Luyện · 来得及/来不及: kịp/không kịp về thời gian",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Thiếu bằng chứng có nhất thiết là 来不及 không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, 来不及 nói không đủ thời gian",
+                        "feedback": "Phân biệt hạn thời gian với dữ liệu không đủ."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu một tuần",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Phân biệt hạn thời gian với dữ liệu không đủ.",
+                    "learningTarget": {
+                      "objective": "来得及/来不及: kịp/không kịp về thời gian",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "来不及买水 nói gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không thích nước",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không biết mua",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không kịp mua trước hạn tình huống",
+                        "feedback": "Không phủ nhận kỹ năng hoặc sở thích."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Không phủ nhận kỹ năng hoặc sở thích.",
+                    "learningTarget": {
+                      "objective": "来得及/来不及: kịp/không kịp về thời gian",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:0:transfer",
+              "title": "Vận dụng · 来得及/来不及: kịp/không kịp về thời gian",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n还有十分钟，我想现在去还来得及。\nHái yǒu shí fēnzhōng, wǒ xiǎng xiànzài qù hái lái de jí.\nCòn mười phút, tôi nghĩ bây giờ đi vẫn kịp.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "来得及/来不及: kịp/không kịp về thời gian",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Gắn khả năng với thời gian còn lại.",
+                        "guidance": "Gắn khả năng với thời gian còn lại."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "我想 đánh dấu nhận định.",
+                        "guidance": "我想 đánh dấu nhận định."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không kể đã tới.",
+                        "guidance": "Không kể đã tới."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Còn mười phút trước giờ đóng cửa, bạn nghĩ vẫn kịp tới thư viện. Viết 来得及 như nhận định hiện tại.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "有的是 yǒu de shì nhấn có nhiều/dư dả: 时间有的是. Khác 有的…有的… một số…một số…. Có thể nói 我有的是办法 = tôi có nhiều cách. Không thay cho con số chính xác, không nhất thiết mọi đối tượng đều có.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "有的是: có rất nhiều"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "别急，时间有的是。",
+                  "pinyin": "Bié jí, shíjiān yǒu de shì.",
+                  "meaningVi": "Đừng vội, còn nhiều thời gian mà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这里有的是空位。",
+                  "pinyin": "Zhèlǐ yǒu de shì kòngwèi.",
+                  "meaningVi": "Ở đây có rất nhiều chỗ trống.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "有的是: có rất nhiều"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:1:practice",
+              "title": "Khảo Luyện · 有的是: có rất nhiều",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "有的是空位 có cho chính xác bao nhiêu chỗ không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không",
+                        "feedback": "Nhấn nhiều, không phải con số."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu là nhà hàng",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Nhấn nhiều, không phải con số.",
+                    "learningTarget": {
+                      "objective": "有的是: có rất nhiều",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "有的喜欢茶，有的喜欢咖啡 là gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Một số thích trà, một số thích cà phê",
+                        "feedback": "有的 không phải 有的是."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Ai cũng thích trà",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chắc có nhiều chỗ",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "有的 không phải 有的是.",
+                    "learningTarget": {
+                      "objective": "有的是: có rất nhiều",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:1:transfer",
+              "title": "Vận dụng · 有的是: có rất nhiều",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n别着急，这里有的是空位。\nBié zháojí, zhèlǐ yǒu de shì kòngwèi.\nĐừng sốt ruột, ở đây có rất nhiều chỗ trống.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "有的是: có rất nhiều",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ 有的是 nghĩa nhiều.",
+                        "guidance": "Giữ 有的是 nghĩa nhiều."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không bịa số chính xác.",
+                        "guidance": "Không bịa số chính xác."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không đổi 有的 thành một vài ghế.",
+                        "guidance": "Không đổi 有的 thành một vài ghế."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn muốn trấn an người tìm chỗ ngồi vì ở đây còn nhiều chỗ. Viết 有的是, không thêm số.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "说不定 shuō bu dìng đánh dấu khả năng chưa chắc. Có thể đầu câu hoặc trước vị từ: 他今天说不定会来. Khác 一定 chắc chắn, 不一定 chưa chắc; ba mức không thay nhau. Không dùng giả thuyết thời tiết/đặt lịch như nguyên nhân đã xác nhận trong nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "说不定: biết đâu/có thể"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "他今天说不定会来。",
+                  "pinyin": "Tā jīntiān shuō bu dìng huì lái.",
+                  "meaningVi": "Biết đâu hôm nay anh ấy sẽ đến.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "说不定这本书对你有帮助。",
+                  "pinyin": "Shuō bu dìng zhè běn shū duì nǐ yǒu bāngzhù.",
+                  "meaningVi": "Biết đâu cuốn sách này giúp ích cho bạn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "说不定: biết đâu/có thể"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:2:practice",
+              "title": "Khảo Luyện · 说不定: biết đâu/có thể",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "说不定会来 xác nhận đã tới không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có vì 会",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không",
+                        "feedback": "Giữ trạng thái có thể chưa xác nhận."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Giữ trạng thái có thể chưa xác nhận.",
+                    "learningTarget": {
+                      "objective": "说不定: biết đâu/có thể",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Chọn nghĩa chắc chắn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "说不定",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "一定",
+                        "feedback": "一定 chắc chắn, 说不定 có thể."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不一定",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "一定 chắc chắn, 说不定 có thể.",
+                    "learningTarget": {
+                      "objective": "说不定: biết đâu/có thể",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:2:transfer",
+              "title": "Vận dụng · 说不定: biết đâu/có thể",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n他今晚说不定有空，会来参加活动。\nTā jīnwǎn shuō bu dìng yǒu kòng, huì lái cānjiā huódòng.\nBiết đâu tối nay anh ấy rảnh và sẽ tới tham gia hoạt động.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "说不定: biết đâu/có thể",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "说不定 giữ khả năng chưa biết.",
+                        "guidance": "说不定 giữ khả năng chưa biết."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không hứa thay người khác.",
+                        "guidance": "Không hứa thay người khác."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không kể đã tham gia.",
+                        "guidance": "Không kể đã tham gia."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn chưa biết bạn học có rảnh tối nay, nghĩ biết đâu sẽ tới. Viết 说不定, không hứa thay bạn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不怎么 bù zěnme đứng trước động từ/tính từ để giảm mức hoặc tần suất: 不怎么贵、不怎么去. Khác 一点儿也不 hoàn toàn không. Có thể vẫn đi ít lần hoặc giá hơi cao, tùy ngữ cảnh. Khi tóm tắt, không đổi nghĩa “không…lắm” thành “hoàn toàn không có”.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "不怎么: không…lắm"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "这件衣服不怎么贵。",
+                  "pinyin": "Zhè jiàn yīfu bù zěnme guì.",
+                  "meaningVi": "Bộ quần áo này không đắt lắm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我最近不怎么去那家店。",
+                  "pinyin": "Wǒ zuìjìn bù zěnme qù nà jiā diàn.",
+                  "meaningVi": "Gần đây tôi không đến tiệm đó mấy.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "不怎么: không…lắm"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:3:practice",
+              "title": "Khảo Luyện · 不怎么: không…lắm",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "不怎么去 có nhất thiết chưa bao giờ tới không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không",
+                        "feedback": "Tần suất thấp khác chưa bao giờ."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu 最近",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Tần suất thấp khác chưa bao giờ.",
+                    "learningTarget": {
+                      "objective": "不怎么: không…lắm",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "不怎么贵 gần nghĩa nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Miễn phí chắc chắn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không đắt lắm",
+                        "feedback": "Mức không cao, không cho giá bằng không."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đắt nhất",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Mức không cao, không cho giá bằng không.",
+                    "learningTarget": {
+                      "objective": "不怎么: không…lắm",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:3:transfer",
+              "title": "Vận dụng · 不怎么: không…lắm",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我最近不怎么喝咖啡。\nWǒ zuìjìn bù zěnme hē kāfēi.\nGần đây tôi không uống cà phê mấy.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "不怎么: không…lắm",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "不怎么 trước 喝.",
+                        "guidance": "不怎么 trước 喝."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ gần đây.",
+                        "guidance": "Giữ gần đây."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự nói không bao giờ uống.",
+                        "guidance": "Không tự nói không bao giờ uống."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Gần đây bạn ít uống cà phê, không nói đã bỏ hoàn toàn. Viết 不怎么.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "一天比一天、一年比一年 nêu xu hướng từ đơn vị sau so đơn vị trước, thường theo tính từ/mức độ: 天气一天比一天冷. Lặp đúng cùng đơn vị. Mô tả xu hướng trong quãng quan sát không dự báo mãi mãi, không cho số tăng mỗi bước.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-rule:4",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-example:4",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "这几天气温一天比一天低。",
+                  "pinyin": "Zhè jǐ tiān qìwēn yì tiān bǐ yì tiān dī.",
+                  "meaningVi": "Mấy ngày này nhiệt độ ngày sau thấp hơn ngày trước.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:4:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "孩子一年比一年高。",
+                  "pinyin": "Háizi yì nián bǐ yì nián gāo.",
+                  "meaningVi": "Đứa trẻ mỗi năm một cao hơn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:grammar:4",
+              "layout": "split",
+              "stage": "understand",
+              "title": "一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:4:practice",
+              "title": "Khảo Luyện · 一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:4:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "一天比一天低 có cho đúng số độ giảm mỗi ngày không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không",
+                        "feedback": "Chỉ chiều xu hướng, không cung cấp độ chênh."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có vì có 比",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Chỉ chiều xu hướng, không cung cấp độ chênh.",
+                    "learningTarget": {
+                      "objective": "一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:4:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Mấy ngày lạnh dần có chứng minh cả năm sẽ lạnh dần không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không",
+                        "feedback": "Giữ quãng thời gian được nói."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu 一 lặp",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Giữ quãng thời gian được nói.",
+                    "learningTarget": {
+                      "objective": "一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:4:transfer",
+              "title": "Vận dụng · 一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n这三天，我一天比一天熟练。\nZhè sān tiān, wǒ yì tiān bǐ yì tiān shúliàn.\nTrong ba ngày này, tôi mỗi ngày một thành thạo hơn.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "一+đơn vị+比+一+đơn vị: ngày càng theo từng đơn vị",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "一天 lặp cùng đơn vị.",
+                        "guidance": "一天 lặp cùng đơn vị."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ quãng ba ngày.",
+                        "guidance": "Giữ quãng ba ngày."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự dự báo dài hạn.",
+                        "guidance": "Không tự dự báo dài hạn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trong ba ngày tập, bạn thấy thao tác ngày càng quen. Viết 一天比一天 với giới hạn ba ngày.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-write:4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "在…方面 zài…fāngmiàn giới hạn khía cạnh đánh giá như 在沟通方面. Thường đặt đầu câu hoặc trước vị từ. Không thay bằng 在…里面 khi nói một lĩnh vực. Một mặt tốt hơn không có nghĩa tất cả tốt hơn; cần nêu khía cạnh và mốc nếu so sánh.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-rule:5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "在…方面: về mặt…"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-example:5",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "他在沟通方面很有经验。",
+                  "pinyin": "Tā zài gōutōng fāngmiàn hěn yǒu jīngyàn.",
+                  "meaningVi": "Anh ấy có nhiều kinh nghiệm về mặt giao tiếp.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:5:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "在费用方面，两种方案差不多。",
+                  "pinyin": "Zài fèiyong fāngmiàn, liǎng zhǒng fāng’àn chàbuduō.",
+                  "meaningVi": "Về chi phí, hai phương án gần như nhau.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:grammar:5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "在…方面: về mặt…"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:5:practice",
+              "title": "Khảo Luyện · 在…方面: về mặt…",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:5:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Chi phí gần nhau có chứng minh thời gian cũng như nhau không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có vì hai phương án",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không",
+                        "feedback": "Giữ mặt chi phí riêng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Giữ mặt chi phí riêng.",
+                    "learningTarget": {
+                      "objective": "在…方面: về mặt…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:5:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Nói về mặt giao tiếp, chọn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "在沟通方面",
+                        "feedback": "方面 dùng lĩnh vực/khía cạnh."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "在沟通里面房间",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "沟通在有的",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "方面 dùng lĩnh vực/khía cạnh.",
+                    "learningTarget": {
+                      "objective": "在…方面: về mặt…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-05:time-possibility-r68:5:transfer",
+              "title": "Vận dụng · 在…方面: về mặt…",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n在费用方面，这两种安排差不多，时间还需要比较。\nZài fèiyong fāngmiàn, zhè liǎng zhǒng ānpái chàbuduo, shíjiān hái xūyào bǐjiào.\nVề chi phí, hai cách sắp xếp này gần như nhau; thời gian còn cần so sánh.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "在…方面: về mặt…",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu rõ mặt chi phí.",
+                        "guidance": "Nêu rõ mặt chi phí."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ chưa so thời gian.",
+                        "guidance": "Giữ chưa so thời gian."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không kết luận toàn diện ngang nhau.",
+                        "guidance": "Không kết luận toàn diện ngang nhau."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Theo bảng mới, hai lịch trình có chi phí gần nhau, chưa so thời gian. Viết 在费用方面 và giữ giới hạn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:grammar-write:5",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n公共房间的预约表漏掉了部分白天使用，晚上却确实常空着。双方计划人工计数四周，再结合费用讨论用途。理发店的咳嗽报告减少，看似支持新清洗用品，但同时客人数、天气和门窗状态也变了，记录还遗漏没有主动反映的人。前者提醒我们检查使用记录是否完整，后者提醒我们区分报告数量与原因。两个案例都要求先补充证据，不能直接从少量登记或报告减少作出全面判断。\nGōnggòng fángjiān de yùyuēbiǎo lòu diào le bùfen báitiān shǐyòng, wǎnshang què quèshí cháng kōng zhe. Shuāngfāng jìhuà réngōng jìshù sì zhōu, zài jiéhé fèiyong tǎolùn yòngtú. Lǐfàdiàn de késou bàogào jiǎnshǎo, kàn sì zhīchí xīn qīngxǐ yòngpǐn, dàn tóngshí kèrén shù, tiānqì hé ménchuāng zhuàngtài yě biàn le, jìlù hái yílòu méiyǒu zhǔdòng fǎnyìng de rén. Qiánzhě tíxǐng wǒmen jiǎnchá shǐyòng jìlù shìfǒu wánzhěng, hòuzhě tíxǐng wǒmen qūfēn bàogào shùliàng yǔ yuányīn. Liǎng ge ànlì dōu yāoqiú xiān bǔchōng zhèngjù, bù néng zhíjiē cóng shǎoliàng dēngjì huò bàogào jiǎnshǎo zuò chū quánmiàn pànduàn.\nBảng đặt phòng bỏ sót một phần lượt dùng ban ngày, còn tối thực sự thường trống. Hai bên định đếm bốn tuần rồi xét chi phí và công dụng. Báo cáo ho ở tiệm giảm có vẻ ủng hộ chất giặt mới, nhưng số khách, thời tiết và trạng thái cửa cũng đổi; sổ còn bỏ sót người không tự phản ánh. Trường hợp đầu nhắc kiểm độ đầy đủ bản ghi sử dụng; trường hợp sau nhắc tách số báo cáo với nguyên nhân. Cả hai cần thêm bằng chứng trước kết luận rộng từ ít lượt đăng ký hoặc báo cáo giảm.\nNêu đúng chỉ số, phạm vi và kế hoạch. Mẫu hỗ trợ tự sửa, không phải điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách hai nguồn sửa một kết luận quá rộng bằng cách bổ sung phạm vi thời gian và giải thích thay thế.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Bỏ sót lượt dùng trực tiếp ban ngày; buổi tối thực sự thường trống.",
+                        "id": "criterion-0",
+                        "label": "Bỏ sót lượt dùng trực tiếp ban ngày; buổi tối thực sự thường trống."
+                      },
+                      {
+                        "guidance": "claim sử dụng chưa đủ",
+                        "id": "criterion-1",
+                        "label": "claim sử dụng chưa đủ"
+                      },
+                      {
+                        "guidance": "Báo cáo ho giảm và giới hạn của cách ghi ở tiệm tóc.",
+                        "id": "criterion-2",
+                        "label": "Báo cáo ho giảm và giới hạn của cách ghi ở tiệm tóc."
+                      },
+                      {
+                        "guidance": "các giải thích thay thế",
+                        "id": "criterion-3",
+                        "label": "các giải thích thay thế"
+                      },
+                      {
+                        "guidance": "Không đổi chỉ báo sử dụng thành kết luận về chất lượng, lợi ích hay hiệu quả tài chính.",
+                        "id": "criterion-4",
+                        "label": "Không đổi chỉ báo sử dụng thành kết luận về chất lượng, lợi ích hay hiệu quả tài chính."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách hai nguồn sửa một kết luận quá rộng bằng cách bổ sung phạm vi thời gian và giải thích thay thế.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n使用记录少可以成为调查的起点，但不足以直接决定关闭服务。公共房间的网上登记漏掉了老人和孩子的部分活动，晚上空闲却是真实问题，所以应分时段观察并计算费用。有人担心继续保留会浪费资源，这需要用电费、租金和实际使用人数来讨论。理发店材料并不是低使用率的例子，而是另一个记录不完整的案例：咳嗽报告少了，不等于新用品的作用已经得到证明。它提醒我们先确认数字测量什么、漏掉了谁。我的建议是完成四周计数，比较保留、出租和分时使用的条件，再公开说明决定依据；不能把尚未实施的付费课程说成已经成功。\nShǐyòng jìlù shǎo kěyǐ chéngwéi diàochá de qǐdiǎn, dàn bù zú yǐ zhíjiē juédìng guānbì fúwù. Gōnggòng fángjiān de wǎngshàng dēngjì lòu diào le lǎorén hé háizi de bùfen huódòng, wǎnshang kòngxián què shì zhēnshí wèntí, suǒyǐ yīng fēn shíduàn guānchá bìng jìsuàn fèiyong. Yǒu rén dānxīn jìxù bǎoliú huì làngfèi zīyuán, zhè xūyào yòng diànfèi, zūjīn hé shíjì shǐyòng rénshù lái tǎolùn. Lǐfàdiàn cáiliào bìng bú shì dī shǐyònglǜ de lìzi, ér shì lìng yí ge jìlù bù wánzhěng de ànlì: késou bàogào shǎo le, bù děngyú xīn yòngpǐn de zuòyòng yǐjīng dédào zhèngmíng. Tā tíxǐng wǒmen xiān quèrèn shùzì cèliáng shénme, lòu diào le shéi. Wǒ de jiànyì shì wánchéng sì zhōu jìshù, bǐjiào bǎoliú, chūzū hé fēn shí shǐyòng de tiáojiàn, zài gōngkāi shuōmíng juédìng yījù; bù néng bǎ shàng wèi shíshī de fùfèi kèchéng shuō chéng yǐjīng chénggōng.\nÍt bản ghi sử dụng là điểm khởi đầu điều tra, chưa đủ để đóng dịch vụ. Đăng ký mạng của phòng chung bỏ sót một phần hoạt động người cao tuổi và trẻ em, nhưng trống buổi tối là vấn đề thật, nên quan sát theo giờ và tính chi phí. Lo giữ phòng lãng phí cần được bàn bằng tiền điện, tiền thuê và số người dùng thật. Nguồn tiệm tóc không phải ví dụ tỷ lệ dùng thấp mà là một trường hợp bản ghi thiếu khác: ít báo cáo ho hơn chưa chứng minh tác dụng chất mới. Nó nhắc xác nhận con số đo gì và bỏ sót ai. Tôi đề nghị đếm đủ bốn tuần, so điều kiện giữ, thuê và dùng theo giờ rồi công khai căn cứ; không kể lớp có phí chưa triển khai như đã thành công.\nNêu đúng chỉ số, phạm vi và kế hoạch. Mẫu hỗ trợ tự sửa, không phải điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: dữ liệu sử dụng thấp có đủ để đóng hoặc cắt giảm một dịch vụ không?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "phân biệt chỉ báo và quyết định",
+                        "id": "criterion-0",
+                        "label": "phân biệt chỉ báo và quyết định"
+                      },
+                      {
+                        "guidance": "bằng chứng phạm vi thời gian từ phòng chung",
+                        "id": "criterion-1",
+                        "label": "bằng chứng phạm vi thời gian từ phòng chung"
+                      },
+                      {
+                        "guidance": "giải thích thay thế từ tiệm cắt tóc",
+                        "id": "criterion-2",
+                        "label": "giải thích thay thế từ tiệm cắt tóc"
+                      },
+                      {
+                        "guidance": "phản biện về chi phí duy trì dịch vụ ít dùng",
+                        "id": "criterion-3",
+                        "label": "phản biện về chi phí duy trì dịch vụ ít dùng"
+                      },
+                      {
+                        "guidance": "đề xuất ngưỡng và thời gian thử",
+                        "id": "criterion-4",
+                        "label": "đề xuất ngưỡng và thời gian thử"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Duy trì dịch vụ ít người dùng lãng phí nguồn lực; quyết định nhanh giúp chuyển ngân sách sang nơi có nhu cầu cao hơn.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất điều kiện ra quyết định; hai nguồn không có đủ chi phí năm, nhu cầu ẩn hoặc khả năng tiếp cận dịch vụ thay thế.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất điều kiện ra quyết định; hai nguồn không có đủ chi phí năm, nhu cầu ẩn hoặc khả năng tiếp cận dịch vụ thay thế."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: dữ liệu sử dụng thấp có đủ để đóng hoặc cắt giảm một dịch vụ không?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n先核对记录：预约次数不等于实际使用人数。再分开看白天和晚上，并公开费用。然后比较保留、出租或分时使用等方案。最后说明哪些是已经观察到的结果，哪些只是建议。理发店的例子提醒我们，报告减少也可能受记录方式和其他变化影响。\nXiān héduì jìlù: yùyuē cìshù bù děngyú shíjì shǐyòng rénshù. Zài fēnkāi kàn báitiān hé wǎnshang, bìng gōngkāi fèiyong. Ránhòu bǐjiào bǎoliú, chūzū huò fēn shí shǐyòng děng fāng’àn. Zuìhòu shuōmíng nǎxiē shì yǐjīng guānchá dào de jiéguǒ, nǎxiē zhǐshì jiànyì. Lǐfàdiàn de lìzi tíxǐng wǒmen, bàogào jiǎnshǎo yě kěnéng shòu jìlù fāngshì hé qítā biànhuà yǐngxiǎng.\nTrước hết kiểm bản ghi: số lần đặt không bằng số người dùng thực tế. Tiếp đó tách ngày, tối và công khai chi phí. So các phương án giữ, thuê hoặc dùng theo giờ. Cuối cùng nói rõ kết quả đã thấy và điều mới là đề nghị. Ví dụ tiệm tóc nhắc rằng báo cáo giảm cũng có thể do cách ghi và các thay đổi khác.\nNêu đúng chỉ số, phạm vi và kế hoạch. Mẫu hỗ trợ tự sửa, không phải điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Trình bày trước hội đồng một checklist trước khi cắt giảm dịch vụ dựa trên dữ liệu sử dụng. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "kiểm tra độ phủ thời gian",
+                        "id": "move-0",
+                        "label": "kiểm tra độ phủ thời gian"
+                      },
+                      {
+                        "guidance": "kiểm tra nhóm chưa được ghi",
+                        "id": "move-1",
+                        "label": "kiểm tra nhóm chưa được ghi"
+                      },
+                      {
+                        "guidance": "thử giải thích thay thế",
+                        "id": "move-2",
+                        "label": "thử giải thích thay thế"
+                      },
+                      {
+                        "guidance": "đặt ngưỡng, thời hạn và phương án thay thế",
+                        "id": "move-3",
+                        "label": "đặt ngưỡng, thời hạn và phương án thay thế"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trình bày trước hội đồng một checklist trước khi cắt giảm dịch vụ dựa trên dữ liệu sử dụng.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "claim",
+                        "label": "线索一",
+                        "meaningVi": "Phòng ít dùng nên có thể cho thuê.",
+                        "note": "Luận điểm đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "support",
+                        "label": "线索二",
+                        "meaningVi": "Trung bình hai đăng ký và buổi tối trống.",
+                        "note": "Bằng chứng ủng hộ · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "counter",
+                        "label": "线索三",
+                        "meaningVi": "Có sử dụng ban ngày không được đăng ký.",
+                        "note": "Bằng chứng phản bác · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索四",
+                        "meaningVi": "Chưa đo theo thời gian, số người và cách vào.",
+                        "note": "Khoảng trống · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "next",
+                        "label": "线索五",
+                        "meaningVi": "Đếm bốn tuần và công khai chi phí/lợi ích.",
+                        "note": "Bước kiểm tra · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-personal-community-analysis-claim-evidence-inference; revision 9a7d02aa-6815-48e6-b580-d08035e16d00; humanReviewed:false",
+                  "title": "Phòng sinh hoạt chung có thật sự chưa được tận dụng?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "claim",
+                        "label": "线索一",
+                        "meaningVi": "Chất giặt mới làm giảm ho.",
+                        "note": "Nhận định đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "observed",
+                        "label": "线索二",
+                        "meaningVi": "Báo cáo ho giảm trong hai tuần.",
+                        "note": "Kết quả quan sát · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "alternatives",
+                        "label": "线索三",
+                        "meaningVi": "Bụi thi công, mưa và cửa đóng.",
+                        "note": "Giải thích khác · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "bias",
+                        "label": "线索四",
+                        "meaningVi": "Chỉ ghi khách chủ động phản ánh.",
+                        "note": "Thiên lệch dữ liệu · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "test",
+                        "label": "线索五",
+                        "meaningVi": "Theo dõi nhiều biến và mở kênh QR.",
+                        "note": "Thiết kế ghi mới · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-05:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-personal-community-analysis-claim-evidence-inference; revision 9a7d02aa-6815-48e6-b580-d08035e16d00; humanReviewed:false",
+                  "title": "“Tín hiệu buổi chiều” của một tiệm cắt tóc"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-05:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "cbeede75-c4ff-44d5-857f-f3d0d1c3cc88",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng viết kết luận có giới hạn để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-precision-reference-quantity-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-028",
+          "hsk4-grammar-row-029",
+          "hsk4-grammar-row-030",
+          "hsk4-grammar-row-031",
+          "hsk4-grammar-row-033",
+          "hsk4-grammar-row-034"
+        ],
+        "sourceLessonIds": [
+          "hsk4-precision-reference-quantity-lesson-05",
+          "hsk4-personal-community-analysis-claim-evidence-inference"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-09",
+          "hsk4-task-10"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01035",
+          "hsk-vocab-01067",
+          "hsk-vocab-01175",
+          "hsk-vocab-01963",
+          "hsk-vocab-01678",
+          "hsk-vocab-01428",
+          "hsk-vocab-01460",
+          "hsk-vocab-01497",
+          "hsk-vocab-01785",
+          "hsk-vocab-01822"
+        ],
+        "targetLessonId": "hsk4-precision-reference-quantity-lesson-05",
+        "titleZh": "HSK四级 · 41",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/87-REVIEW-HSK4-PRECISION-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific diagrams for post-writing review; existing pages and exercises preserved.",
+          "sourceRevisionId": "c8c3cdaf-0025-49a9-954e-5d236355f188"
+        },
+        "vocabulary": [
+          "hsk-vocab-01035",
+          "hsk-vocab-01067",
+          "hsk-vocab-01175",
+          "hsk-vocab-01963",
+          "hsk-vocab-01678",
+          "hsk-vocab-01428",
+          "hsk-vocab-01460",
+          "hsk-vocab-01497",
+          "hsk-vocab-01785",
+          "hsk-vocab-01822"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 6,
+          "netPages": 12
+        }
+      ]
+    }
+  ]
+}

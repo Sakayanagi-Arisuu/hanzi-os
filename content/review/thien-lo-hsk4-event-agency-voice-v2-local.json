@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Four HSK4 event/agency/voice lessons, with actor responsibilities across conservation, restoration, public data and business change. AI-assisted local review only. Source B is transcript reading, not native listening evidence; writing/speaking self-check is not independent mastery. Grammar examples are labeled hypothetical unless the learner finds support in the source.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/53-REVIEW-HSK4-AGENCY.md",
+  "items": [
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-01",
+      "sourceContentSha256": "sha256:806d1deb0620331ecdb09f01876ead0f674f9e2357eed809d88647344977effa",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-02",
+      "sourceContentSha256": "sha256:acc31c0aaf105b9417a0f5e08573c67a458adcbc6600e19f8eb49dd8cf50d33e",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-03",
+      "sourceContentSha256": "sha256:5461ee5ba83e4de0d4636211d7fe0ebff2af7bd0d31c289f833a85f03e8d9de3",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-04",
+      "sourceContentSha256": "sha256:2d41bd2fd3a25723caf9656d9eccc7666ece63bfb56c96b6ceb33e51fb216636",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

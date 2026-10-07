@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "HSK3 cohesion timeline reading and self-review writing target links; no unsupported writing mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/63-REVIEW-HSK3-COHESION-TARGETS.md",
+  "targetPlanSha256": "sha256:506a187bc5eb405daf3f74f57665c0077485360596025dc42a643f50f8d5d35b",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "hsk3-cohesion-reconstruction-lesson-01",
+      "parentRevisionId": "7fc29486-e680-4e3e-94c1-a0fb46eb9040",
+      "parentContentSha256": "sha256:f89208815537ab2efc7585c0377daf97edb22cf25d65c5d745f52ef1aa0c4e24",
+      "proposedContentSha256": "sha256:d3bb2c687de0df5e58967c0111182c2794bfb3a83d875805ddeea83c1d786b7a",
+      "targetCount": 5
+    }
+  ]
+}

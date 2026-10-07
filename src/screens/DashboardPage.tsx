@@ -1,3 +1,7 @@
+import { LevelRewardPanel } from "../components/LevelRewardPanel";
+import { PracticeCoverageMeter } from "../components/PracticeCoverageMeter";
+import { usePracticeCoverage } from "../learning/usePracticeCoverage";
+import "./NgocDashboard.css";
 import {
   ArrowRight,
   BookOpenText,
@@ -7,7 +11,6 @@ import {
   ChevronRight,
   CircleGauge,
   Clock3,
-  Flame,
   Headphones,
   LockKeyhole,
   Mic2,
@@ -26,7 +29,6 @@ import { useEffect, useRef, useState } from "react";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ResponsiveHeroBackdrop } from "../components/ResponsiveHeroBackdrop";
 import { COURSE_UNITS, RELEASED_LESSONS } from "../data/curriculum";
-import { getHskCurriculumView } from "../data/hskCurriculumGraph";
 import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import {
   deriveLocalLearnerActivityCoverage,
@@ -106,7 +108,7 @@ const journeyDestinationLabels: Record<LearningJourneyStepKind, string> = {
 
 const DASHBOARD_TABS = [
   { id: "awakening", code: "01", label: "Thức tỉnh", description: "Tổng quan hôm nay" },
-  { id: "status", code: "02", label: "Trạng thái", description: "Dữ liệu học hôm nay" },
+  { id: "status", code: "02", label: "Bảo Khố", description: "Phần thưởng cấp độ" },
   { id: "missions", code: "03", label: "Chỉ thị", description: "Nhiệm vụ ưu tiên" },
   { id: "pillars", code: "04", label: "Thất Trụ", description: "Tín hiệu học tập" },
   { id: "path", code: "05", label: "Thiên Lộ", description: "Tiến độ bài học" },
@@ -163,21 +165,20 @@ export function DashboardPage() {
   const [transitionDirection, setTransitionDirection] = useState<"previous" | "next">("next");
   const [pageVisible, setPageVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const practiceCoverage = usePracticeCoverage(true);
   const [pillarDetailsOpen, setPillarDetailsOpen] = useState(false);
   const pillarDetailsTriggerRef = useRef<HTMLButtonElement>(null);
   const pillarDetailsCloseRef = useRef<HTMLButtonElement>(null);
-  const { state, dueWordIds, level, sync } = useLearning();
+  const { state, level, sync } = useLearning();
   const { journey: integratedJourney } = useLearningJourney();
   const interactionXp = useInteractionXp();
   const { uniqueActivityCount: localSpeechPracticeCount } =
     summarizePronunciationPractice(state.evidence);
-  const curriculumView = getHskCurriculumView(state.profile.startingLevel);
-  const visibleLessonIds = new Set(curriculumView.visibleLessonIds);
   const releasedCourseUnits = COURSE_UNITS
     .map((unit) => ({
       ...unit,
       lessons: unit.lessons.filter((lesson) =>
-        isLessonReleased(lesson) && visibleLessonIds.has(lesson.id)
+        isLessonReleased(lesson)
       ),
     }))
     .filter((unit) => unit.lessons.length > 0);
@@ -314,10 +315,6 @@ export function DashboardPage() {
       ) / measuredSkillEvidence.length) * 10,
     ) / 10
     : 0;
-  const dailyTarget = state.profile.dailyMinutes * 6;
-  const dailyProgress = interactionXp.dailyXp === null
-    ? null
-    : Math.min(100, Math.round((interactionXp.dailyXp / dailyTarget) * 100));
   const authoritativeGoal = normalized.projection?.enrollment?.goal;
   const goal = GOAL_CONFIG[authoritativeGoal ?? state.profile.goal];
   const rank = getInteractionRankProgress(interactionXp.totalXp);
@@ -384,20 +381,11 @@ export function DashboardPage() {
     )[0];
   const priorityEvidence = coverageGap ?? lowestObserved
     ?? supportedSkillEvidence[0]!;
-  const statusActionTo = authenticated || state.diagnostic.completed ? "/analytics" : "/assessment";
-  const statusActionLabel = authenticated || state.diagnostic.completed
-    ? "Mở phân tích đích đến"
-    : "Khảo Nghiệm Căn Cơ";
   const signalStatus = hasMeasuredCoverage
     ? `${formatCoveragePercent(contentCoveragePercent)} tín hiệu đã xác lập`
     : authenticated
       ? "Cần thêm bằng chứng đủ điều kiện"
       : "Cần thêm bằng chứng học tập";
-  const signalGuidance = hasMeasuredCoverage
-    ? `Mở rộng tiếp trụ ${skillLabels[priorityEvidence.skill]}.`
-    : authenticated
-      ? "Chưa đủ dữ liệu đã xác minh để đề xuất một trụ yếu."
-      : "Hoàn thành các nhiệm vụ khác nhau để hệ thống nhận diện vùng cần mở rộng.";
   const realmNodes = releasedCourseUnits.map((unit) => {
     const completed = unit.lessons.every((item) =>
       pathView.lessons.get(item.id)?.passed === true
@@ -421,7 +409,7 @@ export function DashboardPage() {
 
   return (
     <div
-      className="dashboard-page dashboard-deck"
+      className="dashboard-page dashboard-deck ngoc-deck"
       role="region"
       aria-roledescription="carousel"
       aria-label="Các cửa sổ hologram của Thức Tỉnh Điện. Dùng phím mũi tên trái hoặc phải để chuyển cửa sổ."
@@ -510,78 +498,19 @@ export function DashboardPage() {
         data-slide-id="status"
         role="group"
         aria-roledescription="slide"
-        aria-label="Cửa sổ 2 trên 5 · Trạng thái · Dữ liệu học hôm nay"
+        aria-label="Cửa sổ 2 trên 5 · Bảo Khố · Phần thưởng cấp độ"
         hidden={activeTab !== "status"}
       >
         <DashboardWindowHeader
           code="02"
-          eyebrow="TRẠNG THÁI HÔM NAY"
-          title="Bản đồ nhịp học"
-          purpose="Nhìn một lần để biết hôm nay nên giữ nhịp, ôn lại hay khảo nghiệm tiếp."
+          eyebrow="CẤP ĐỘ · HANZI XU"
+          title="Bảo Khố Thăng Cấp"
+          purpose="Tích lũy XP, nhận Hanzi xu và đổi trọn gói Premium."
           icon={CircleGauge}
           meta={<span>{channelLabel}</span>}
         />
 
-        <div className="dashboard-status-body dashboard-slide-body">
-          <section className="status-focus-card dashboard-holo-card" data-glyph="势">
-            <div className="status-focus-copy">
-              <span className="dashboard-card-kicker"><Target size={15} /> THIÊN MỆNH ĐANG THEO ĐUỔI</span>
-              <h3>{goal.label}</h3>
-              <p>{goal.destination}</p>
-              <div className="status-signal-note" data-state={hasMeasuredCoverage ? "measured" : "insufficient"}>
-                <ShieldCheck size={17} />
-                <span><strong>{signalStatus}</strong><small>{signalGuidance}</small></span>
-              </div>
-              <Link className="dashboard-window-cta" to={statusActionTo} viewTransition>
-                {statusActionLabel} <ArrowRight size={17} />
-              </Link>
-            </div>
-            <div
-              className="dashboard-signal-orbit"
-              data-state={hasMeasuredCoverage ? "measured" : "insufficient"}
-              style={{ "--signal-progress": `${contentCoveragePercent * 3.6}deg` } as React.CSSProperties}
-              aria-label={`Tín hiệu Thất Trụ: ${signalStatus}`}
-            >
-              <span aria-hidden="true">
-                <strong>THẤT TRỤ</strong>
-                <small><span>TÍN HIỆU</span><span>HỌC TẬP</span></small>
-              </span>
-              <em>{hasMeasuredCoverage ? formatCoveragePercent(contentCoveragePercent) : "ĐANG DÒ"}</em>
-            </div>
-          </section>
-
-          <section className="dashboard-metric-grid" aria-label="Các chỉ số học hôm nay">
-            <article className="dashboard-metric-card is-jade">
-              <span className="metric-icon jade"><Zap size={18} /></span>
-              {interactionXp.dailyXp === null ? (
-                <div><small>NĂNG LƯỢNG ĐÃ GHI NHẬN</small><strong>{interactionXp.pending ? "—" : interactionXp.totalXp} XP</strong><p>{interactionXp.pending ? "Đang hợp nhất tiến độ tài khoản" : `${interactionXp.totalXp} EXP từ các ải đã vượt`}</p></div>
-              ) : (
-                <div><small>NĂNG LƯỢNG HÔM NAY</small><strong>{interactionXp.dailyXp ?? "—"} / {dailyTarget} XP</strong><p>{dailyProgress === null ? "Đang tải năng lượng hôm nay" : `${dailyProgress}% mục tiêu ngày`}</p></div>
-              )}
-              {interactionXp.dailyXp !== null && <span className="dashboard-metric-progress" aria-hidden="true"><i style={{ width: `${dailyProgress}%` }} /></span>}
-            </article>
-            <article className="dashboard-metric-card is-gold">
-              <span className="metric-icon gold"><Flame size={18} /></span>
-              <div><small>CHUỖI ĐỒNG BỘ</small><strong>{state.streak} ngày</strong><p>{state.streak ? "Nhịp học đang ổn định" : "Hoàn thành một nhiệm vụ để khởi động"}</p></div>
-            </article>
-            <article className="dashboard-metric-card is-cyan">
-              <span className="metric-icon cyan"><BrainCircuit size={18} /></span>
-              <div>
-                <small>KÝ ỨC ĐẾN HẠN</small>
-                <strong>{authenticated ? "—" : dueWordIds.length} mục</strong>
-                {authenticated
-                  ? <Link to="/review" viewTransition>Xem lịch ôn tài khoản <ChevronRight size={13} /></Link>
-                  : dueWordIds.length > 0
-                    ? <Link to="/review" viewTransition>Vào Ký Ức Trận <ChevronRight size={13} /></Link>
-                    : <p>Chưa có lượt ôn đến hạn</p>}
-              </div>
-            </article>
-            <article className="dashboard-metric-card is-vermilion">
-              <span className="metric-icon vermilion"><Radar size={18} /></span>
-              <div><small>TÍN HIỆU THẤT TRỤ</small><strong>{hasMeasuredCoverage ? "Đã xác lập" : "Chưa đủ tín hiệu"}</strong><p>Chỉ tính bằng chứng học đủ điều kiện</p></div>
-            </article>
-          </section>
-        </div>
+        <LevelRewardPanel />
       </section>
 
       <section
@@ -683,7 +612,7 @@ export function DashboardPage() {
             <article className="mission-primary dashboard-holo-card" data-glyph="令">
               <div className="mission-sigil"><span>{primarySigil}</span></div>
               <div className="mission-copy">
-                <div><span>ƯU TIÊN 01</span><span>{primaryMission.code}</span><span>{primaryMission.kind.toUpperCase()}</span></div>
+                <div><span>ƯU TIÊN HÔM NAY</span><span>HỌC THEO MỤC TIÊU</span></div>
                 <h3>{primaryMission.title}</h3>
                 <p>{primaryMission.description}</p>
                 <ul>
@@ -742,9 +671,9 @@ export function DashboardPage() {
       >
         <DashboardWindowHeader
           code="04"
-          eyebrow="THẤT TRỤ · TÍN HIỆU TỪ BẰNG CHỨNG HỌC"
-          title="Bản đồ bảy vùng kỹ năng"
-          purpose="Phân biệt vùng đã có tín hiệu, vùng còn thiếu mẫu và trụ chưa thể đo."
+          eyebrow="THẤT TRỤ · TIẾN ĐỘ LUYỆN TẬP"
+          title="Thất Trụ · Dấu chân tu luyện"
+          purpose="Số câu khác nhau đã luyện trên kho câu hiện có · không phải mức thành thạo."
           icon={Radar}
           meta={<span>KHÔNG DÙNG XP ĐỂ SUY RA NĂNG LỰC</span>}
         />
@@ -753,16 +682,14 @@ export function DashboardPage() {
           <section className="pillar-focus-card dashboard-holo-card" data-glyph="柱">
             <div
               className="pillar-signal-core"
-              data-state={hasMeasuredCoverage ? "measured" : "insufficient"}
-              style={{ "--signal-progress": `${contentCoveragePercent * 3.6}deg` } as React.CSSProperties}
-              aria-label={signalStatus}
+              aria-label="Bảy trụ tu luyện"
             >
-              <span><strong>{hasMeasuredCoverage ? formatCoveragePercent(contentCoveragePercent) : "07"}</strong><small>{hasMeasuredCoverage ? "TÍN HIỆU CĂN CƠ" : "TRỤ ĐANG DÒ XÉT"}</small></span>
+              <span><strong>07</strong><small>TRỤ TU LUYỆN</small></span>
             </div>
             <div className="pillar-focus-copy">
               <span className="dashboard-card-kicker"><ShieldCheck size={15} /> CÁCH ĐỌC BẢN ĐỒ</span>
-              <h3>{hasMeasuredCoverage ? `Mở rộng ${skillLabels[priorityEvidence.skill]}` : "Chưa đủ tín hiệu để kết luận"}</h3>
-              <p>{signalGuidance}</p>
+              <h3>Mỗi câu luyện, một dấu chân</h3>
+              <p>Thất Trụ ghi nhận các câu khác nhau đã luyện. Luyện lại một câu không tăng độ phủ; bằng chứng năng lực được xem riêng trong phần chi tiết.</p>
               <Link className="dashboard-window-cta" to="/analytics" viewTransition>
                 Mở phân tích Thất Trụ <ArrowRight size={17} />
               </Link>
@@ -770,51 +697,12 @@ export function DashboardPage() {
           </section>
 
           <div className="skill-bars">
-            {skillEvidence.map(({ skill, coverage, practiceAvailable, supported, state }) => {
+            {skillEvidence.map(({ skill }) => {
               const Icon = skillIcons[skill] ?? Target;
-              const visibleSignalState = practiceAvailable && !supported
-                ? "insufficient"
-                : state;
-              const hasUnmeasuredSpeechPractice = skill === "speaking"
-                && localSpeechPracticeCount > 0
-                && visibleSignalState !== "measured";
-              const valueText = hasUnmeasuredSpeechPractice
-                ? `${localSpeechPracticeCount} lượt luyện đã ghi nhận; chưa có phép đo phát âm`
-                : visibleSignalState === "unavailable"
-                ? "Trụ chưa khai mở"
-                : visibleSignalState === "insufficient"
-                  ? authenticated
-                    ? "Chưa có bằng chứng đủ điều kiện"
-                    : "Căn cơ đang được dò xét"
-                  : formatCoveragePercent(coverage);
-              const visibleState = hasUnmeasuredSpeechPractice
-                ? `${localSpeechPracticeCount} lượt luyện đã ghi nhận`
-                : visibleSignalState === "unavailable"
-                ? "Chưa khai mở"
-                : visibleSignalState === "insufficient"
-                  ? "Chưa đủ tín hiệu"
-                  : `${formatCoveragePercent(coverage)} tín hiệu`;
-              return (
-                <div
-                  className="pillar-signal-row"
-                  data-skill={skill}
-                  key={skill}
-                >
-                  <span className="pillar-signal-label"><Icon size={15} /><span><strong>{skillLabels[skill]}</strong><small>{visibleState}</small></span></span>
-                  <div
-                    className="pillar-meter"
-                    data-state={visibleSignalState}
-                    role="progressbar"
-                    aria-label={skillLabels[skill]}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                    aria-valuenow={visibleSignalState === "measured" ? coverage ?? undefined : undefined}
-                    aria-valuetext={valueText}
-                  >
-                    <i style={{ width: `${visibleSignalState === "measured" ? coverage ?? 0 : 0}%` }} />
-                  </div>
-                </div>
-              );
+              return <div className="pillar-signal-row" data-skill={skill} key={skill}>
+                <span className="pillar-signal-label"><Icon size={15} /><span><strong>{skillLabels[skill]}</strong></span></span>
+                <PracticeCoverageMeter value={practiceCoverage[skill]} label={skillLabels[skill]} />
+              </div>;
             })}
           </div>
         </div>
@@ -873,7 +761,7 @@ export function DashboardPage() {
               <aside className="pillar-details-summary">
                 <span><ShieldCheck size={17} aria-hidden="true" /> TRẠNG THÁI TỔNG HỢP</span>
                 <strong>{signalStatus}</strong>
-                <p>{signalGuidance}</p>
+                <p>Thất Trụ ghi nhận các câu khác nhau đã luyện. Luyện lại một câu không tăng độ phủ; bằng chứng năng lực được xem riêng trong phần chi tiết.</p>
                 <small>{hasMeasuredCoverage
                   ? `Ưu tiên mở rộng: ${skillLabels[priorityEvidence.skill]}`
                   : "Chưa đưa ra kết luận về trụ yếu."}</small>
@@ -928,8 +816,8 @@ export function DashboardPage() {
         <DashboardWindowHeader
           code="05"
           eyebrow="THIÊN LỘ · TIẾN ĐỘ BÀI HỌC"
-          title="Biết mình đang ở đâu"
-          purpose="Chặng đang mở, bài kế tiếp và toàn bộ đường đi được gom vào một quyết định rõ ràng."
+          title="Tinh Đồ Cảnh Giới"
+          purpose="Nhìn lại những chặng đã vượt qua và ranh giới tiếp theo trên Thiên Lộ."
           icon={Orbit}
           meta={<span>{pathView.completedCount} / {pathView.totalCount} BÀI VƯỢT NGƯỠNG</span>}
         />
@@ -940,21 +828,16 @@ export function DashboardPage() {
               <span><strong>{courseProgress}%</strong><small>TIẾN ĐỘ THIÊN LỘ</small></span>
             </div>
             <div className="path-next-copy">
-              <span className="dashboard-card-kicker"><BookOpenText size={15} /> {nextPathLesson ? "BƯỚC KẾ TIẾP ĐÃ MỞ" : "TINH ĐỒ HÀNH TRÌNH"}</span>
-              <h3>{nextPathLesson?.title ?? "Mở toàn bộ Thiên Lộ"}</h3>
-              <p>{nextPathLesson?.objective ?? "Xem lại các cảnh giới đã vượt qua và chọn thử luyện phù hợp tiếp theo."}</p>
-              {nextPathLesson ? (
-                <ul>
-                  <li><Clock3 size={14} /> {nextPathLesson.minutes} phút</li>
-                  <li><Zap size={14} /> +{nextPathLesson.xp} XP tương tác</li>
-                  <li><span lang="zh-Hans">{nextPathLesson.chineseTitle}</span></li>
-                </ul>
-              ) : null}
+              <span className="dashboard-card-kicker"><Orbit size={15} /> CẢNH GIỚI HIỆN TẠI</span>
+              <h3>{realmNodes[currentRealmIndex]?.title ?? "Hành trình đã khai mở"}</h3>
+              <p>{pathView.completedCount} / {pathView.totalCount} bài đã vượt ngưỡng. Mỗi chặng mở ra một miền kiến thức mới.</p>
+              <ul>
+                <li><Check size={14} /> {realmNodes.filter(unit => unit.completed).length} chặng đã vượt</li>
+                <li><Orbit size={14} /> {realmNodes.filter(unit => !unit.completed && !unit.locked).length} chặng đang mở</li>
+                <li><LockKeyhole size={14} /> {realmNodes.filter(unit => unit.locked).length} chặng phía trước</li>
+              </ul>
               <div className="path-actions">
-                <Link className="dashboard-window-cta" to={nextPathLesson ? `/lesson/${nextPathLesson.id}` : "/path"} viewTransition>
-                  {nextPathLesson ? "Tiếp tục Thử Luyện" : "Mở Thiên Lộ"} <ArrowRight size={17} />
-                </Link>
-                {nextPathLesson ? <Link className="dashboard-secondary-link" to="/path" viewTransition>Xem toàn bộ lộ trình <ChevronRight size={15} /></Link> : null}
+                <Link className="dashboard-window-cta" to="/path" viewTransition>Khám phá Thiên Lộ <ArrowRight size={17} /></Link>
               </div>
             </div>
           </article>

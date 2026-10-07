@@ -35,12 +35,11 @@ const lessonCommand = (): LearningAttemptCommandV1 => ({
 });
 
 describe("authoritative objective attempt scoring", () => {
-  it("returns released answer feedback only on post-answer remediation scores", () => {
+  it("keeps explanation delivery outside the pinned scoring contract", () => {
     const ordinary = scoreObjectiveAttempt(lessonCommand());
-    expect(ordinary.remediationFeedback).toBeUndefined();
+    expect(ordinary).not.toHaveProperty("remediationFeedback");
     const repaired = scoreObjectiveAttempt({ ...lessonCommand(), source: "mistake", response: { kind: "answer", answer: "incorrect", usedHint: true } });
-    expect(repaired.remediationFeedback?.correctAnswer).toBe(word.meaning);
-    expect(repaired.remediationFeedback?.explanation).toContain(word.meaning);
+    expect(repaired).not.toHaveProperty("remediationFeedback");
     expect(repaired.baseMasteryEligible).toBe(false);
     expect(repaired.outcome).toBe("incorrect");
   });

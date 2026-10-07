@@ -1,0 +1,46 @@
+/** Bounded local correction; default rehearses and rolls back. */
+import {randomUUID} from 'node:crypto';
+import {canonicalStudioJson,studioSha256} from '../../src/content/studioContent.ts';
+import {ContentStudioRepository} from '../../src/server/contentStudioRepository.ts';
+import {ContentReleaseWorker,ContentReleaseWorkerRepository} from '../../src/server/contentReleaseWorker.ts';
+import {correctHsk2MotionResponse} from '../content/hsk2-motion-response-correction.mjs';
+import {backupLocalDatabase,findLocalDemoDatabase,openDatabase,requireDemoAccounts,fingerprint,d1Adapter} from './local-demo-database.mjs';
+const db=openDatabase(findLocalDemoDatabase(process.cwd()));
+const apply=process.argv.includes('--apply');
+try{
+ requireDemoAccounts(db);
+ if(apply)await backupLocalDatabase(db,process.cwd(),'before-hsk2-motion-response');
+ db.exec('BEGIN IMMEDIATE');
+ if(db.prepare("SELECT count(*) n FROM content_release_outbox_events WHERE status IN ('pending','processing')").get().n)throw Error('Unrelated release jobs pending');
+ const tables=db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'content_%' AND name NOT LIKE 'sqlite_%' AND name NOT GLOB '_*'").all().map(r=>r.name).filter(n=>/^[a-z_]+$/.test(n)&&n!=='audit_events');
+ const before=tables.map(t=>fingerprint(db,t));
+ const api=d1Adapter(db),repo=new ContentStudioRepository(api);
+ const runtime=await repo.publishedRuntime({itemType:'lesson',learnerSafe:true});
+ const head=runtime.items.find(i=>i.content.targetLessonId==='hsk2-travel-leisure-lesson-02');
+ if(!head)throw Error('Missing hsk2-travel-leisure-lesson-02 head');
+ const source=await repo.getRevision(head.revisionId);
+ if((await repo.getLatestRevision(source.itemId)).id!==source.id||source.workflowState!=='published')throw Error('Preserve newer editor draft');
+ const others=db.prepare('SELECT * FROM content_release_heads WHERE item_id<>? ORDER BY item_id').all(source.itemId);
+ const parent=await repo.releasedRuntimeRevision(source.id);
+ if(!parent)throw Error('Missing parent package');
+ const corrected=correctHsk2MotionResponse(source.content);
+ const content={...corrected,editorialCorrection:{humanReviewed:false,sourceRevisionId:source.id,sourceContentSha256:await studioSha256(canonicalStudioJson(source.content)),correctedContentSha256:await studioSha256(canonicalStudioJson(corrected)),evidenceDocument:'docs/thien-lo-redesign-review/80-REVIEW-HSK2-MOTION-RESPONSE.md',scope:'Answer the location question and keep outside-door speaker anchor; targets and IDs retained.'}};
+ const author={actorUserId:'local-demo-user-2',actorSessionId:null},admin={actorUserId:'local-demo-user-3',actorSessionId:null};
+ const key=`motion-response-v1:${source.id}`;
+ let revision=await repo.forkRevision({...author,sourceRevisionId:source.id,idempotencyKey:`${key}:fork`});
+ revision=await repo.updateDraft({...author,revisionId:revision.id,expectedRowVersion:revision.rowVersion,title:revision.title,level:revision.level,content,idempotencyKey:`${key}:save`});
+ revision=await repo.validateRevision({...author,revisionId:revision.id,expectedRowVersion:revision.rowVersion,idempotencyKey:`${key}:validate`});
+ if(!revision.validation?.valid)throw Error(JSON.stringify(revision.validation));
+ for(const toState of ['submitted','approved','published'])revision=await repo.transition({...(toState==='submitted'?author:admin),revisionId:revision.id,expectedRowVersion:revision.rowVersion,toState,idempotencyKey:`${key}:${toState}`,requestId:randomUUID(),note:'Local AI-assisted correction of location response; humanReviewed:false.'});
+ const result=await new ContentReleaseWorker(new ContentReleaseWorkerRepository(api),{policy:{batchSize:2,maximumAttempts:5,initialRetryDelayMs:1000,maximumRetryDelayMs:300000}}).drain();
+ if(result.retried||result.deadLettered)throw Error(JSON.stringify(result));
+ if(db.prepare('SELECT revision_id FROM content_release_heads WHERE item_id=?').get(source.itemId)?.revision_id!==revision.id)throw Error('Release head mismatch');
+ if(canonicalStudioJson(parent)!==canonicalStudioJson(await repo.releasedRuntimeRevision(source.id)))throw Error('Immutable parent changed');
+ if(canonicalStudioJson(others)!==canonicalStudioJson(db.prepare('SELECT * FROM content_release_heads WHERE item_id<>? ORDER BY item_id').all(source.itemId)))throw Error('Other heads changed');
+ const actual=(await repo.publishedRuntime({itemType:'lesson',learnerSafe:true})).items.find(i=>i.content.targetLessonId==='hsk2-travel-leisure-lesson-02');
+ if(canonicalStudioJson(actual.content.lessonPages)!==canonicalStudioJson(corrected.lessonPages))throw Error('Runtime pages mismatch');
+ tables.forEach((t,i)=>{if(fingerprint(db,t)!==before[i])throw Error(`Protected data changed: ${t}`);});
+ if(db.prepare('PRAGMA foreign_key_check').all().length)throw Error('Foreign key failure');
+ db.exec(apply?'COMMIT':'ROLLBACK');
+ console.log({mode:apply?'apply':'rehearse-rollback',lessons:1,protectedTables:tables.length,completed:result.completed,revisionId:revision.id});
+}catch(error){if(db.isTransaction)db.exec('ROLLBACK');throw error;}finally{db.close();}

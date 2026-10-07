@@ -29,6 +29,7 @@ import {
   noStoreJsonHeaders,
   type SyncApiError,
 } from "../../../../src/sync/protocol";
+import { requirePremiumLesson } from "../../../../src/server/premiumAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -136,6 +137,8 @@ export async function POST(request: Request) {
         requestId,
       );
     }
+    const premiumGate = await requirePremiumLesson(request, parsed.command.lessonId);
+    if (premiumGate) return premiumGate;
 
     const receipt: OpenLessonSessionReceiptV1 =
       await new LessonSessionRepository(database).open(userId, parsed.command);

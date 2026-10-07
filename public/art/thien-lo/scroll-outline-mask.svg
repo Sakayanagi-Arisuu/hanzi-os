@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1460 363" preserveAspectRatio="none">
+  <!-- Non-destructive silhouette for the original 1460 × 363 scroll. -->
+  <defs><filter id="edge" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="0.6"/></filter></defs>
+  <g fill="white" filter="url(#edge)">
+    <path d="M47 59 Q51 32 72 30 Q74 18 87 20 Q101 20 101 32 Q121 38 127 56 C166 85 216 47 348 47 L977 47 L1019 43 L1055 18 L1090 44 L1130 47 C1213 52 1290 68 1326 44 Q1330 22 1343 19 Q1337 8 1354 9 Q1370 8 1372 21 Q1387 24 1391 46 L1417 302 Q1420 317 1409 328 L1407 341 Q1390 359 1376 341 L1374 326 C1349 347 1319 345 1285 337 C1158 317 1092 349 968 350 Q948 349 948 322 L352 323 C277 324 209 330 153 299 Q148 316 133 318 L132 326 Q115 345 99 328 L97 309 Q77 306 68 287 Z"/>
+  </g>
+  <g fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#edge)">
+    <path d="M49 81 C24 96 31 122 59 137 M62 149 C73 179 35 213 36 247 C29 288 44 310 72 307 M54 155 C18 204 26 245 49 260 M1346 110 C1385 116 1437 116 1431 152 C1424 174 1440 186 1424 213 L1406 219 M1353 325 C1350 348 1342 361 1310 350 L1291 337 M317 318 C298 327 281 353 257 335 L248 320 M949 303 C971 293 987 290 991 277"/>
+  </g>
+</svg>

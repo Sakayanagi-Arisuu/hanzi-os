@@ -21,3 +21,20 @@ export function applyEditorialActivityTargets(lessonId:string,document:LessonPag
  if(errors.length)throw new Error(errors.join('\n'));
  return copy;
 }
+
+/** Fill only the explicitly reviewed gaps in a published lesson. Existing
+ * targets, answers and learner-pinned revisions must remain untouched. */
+export function applyMissingEditorialActivityTargets(lessonId:string,document:LessonPageDocument,targets:Record<string,LessonActivityTarget>):LessonPageDocument{
+ const missing=document.pages.flatMap(page=>page.blocks.filter(block=>block.kind==='activity'&&block.activity&&!block.activity.learningTarget).map(block=>block.id));
+ if(missing.length!==Object.keys(targets).length||missing.some(id=>!Object.hasOwn(targets,id)))throw new Error('Editorial gap map must cover exactly the missing lesson activities');
+ const copy=structuredClone(document);
+ for(const page of copy.pages)for(const block of page.blocks){
+  if(block.kind!=='activity'||!block.activity||block.activity.learningTarget)continue;
+  const target=targets[block.id];
+  if(validateActivityTarget(target).length)throw new Error('Invalid editorial target');
+  block.activity.learningTarget=structuredClone(target);
+ }
+ const errors=[...validateLessonPages(copy),...validateLessonActivitySources(lessonId,copy)];
+ if(errors.length)throw new Error(errors.join('\n'));
+ return copy;
+}

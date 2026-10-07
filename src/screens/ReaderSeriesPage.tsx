@@ -117,7 +117,7 @@ export function ReaderSeriesPage() {
       <Link className="reader-route-back" to="/reader"><ArrowLeft size={18} aria-hidden="true" /> Thư Khố</Link>
       <header className="reader-series-hero">
         <ReaderCover series={series} />
-        <div>
+        <div><div className="realm-emblem" aria-hidden="true" />
           <span className="reader-kicker"><Sparkles size={15} aria-hidden="true" /> {series.volumes[0]?.titleVi}</span>
           <p lang="zh-Hans">{series.titleZh}</p>
           <h1>{series.titleVi}</h1>

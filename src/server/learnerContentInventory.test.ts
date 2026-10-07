@@ -11,6 +11,7 @@ import {
 } from "../data/curriculum";
 import { KNOWLEDGE_ITEM_BLUEPRINTS } from "../data/knowledgeItemBlueprints";
 import { RELEASED_RICH_LESSONS } from "../learning/richLessonContent";
+import { listPremiumRichLessons } from "./premiumRichLesson";
 import { READER_DISCOVERABLE_SERIES } from "../reader/library/readerManifest";
 import { HSK_MOCK_EXAM_SOURCE_ITEM_COUNTS } from "./hskMockExamBank";
 import {
@@ -21,6 +22,7 @@ import { STUDIO_MODULE_AUTHORING_COVERAGE } from "../content/studioAuthoringCata
 
 const unique = <Item,>(items: readonly Item[], id: (item: Item) => string) =>
   new Set(items.map(id)).size;
+const allRichLessons = [...RELEASED_RICH_LESSONS, ...listPremiumRichLessons()];
 
 describe("learner content inventory", () => {
   it("projects every figure from the source consumed by the learner module", () => {
@@ -35,13 +37,13 @@ describe("learner content inventory", () => {
       unique(RELEASED_STORIES, (item) => item.id),
     );
     expect(LEARNER_CONTENT_INVENTORY.byType.grammar.count).toBe(
-      unique(RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.grammar), (item) => item.id),
+      unique(allRichLessons.flatMap((lesson) => lesson.grammar), (item) => item.id),
     );
     expect(LEARNER_CONTENT_INVENTORY.byType.communicative_function.count).toBe(
-      unique(RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.tasks), (item) => item.id),
+      unique(allRichLessons.flatMap((lesson) => lesson.tasks), (item) => item.id),
     );
     expect(LEARNER_CONTENT_INVENTORY.byType.character.count).toBe(
-      unique(RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.characters), (item) => item.id),
+      unique(allRichLessons.flatMap((lesson) => lesson.characters), (item) => item.id),
     );
     expect(LEARNER_CONTENT_INVENTORY.byType.pronunciation.count).toBe(
       unique(

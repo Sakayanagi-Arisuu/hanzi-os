@@ -69,6 +69,7 @@ export type HskMockExamItem = AuthoritativeAssessmentItem & {
 };
 
 export type HskMockExamDefinition = {
+  accessTier?: 'free' | 'premium';
   examLevel: HskMockExamLevel;
   formKey: HskMockExamFormKey;
   title: string;
@@ -535,6 +536,7 @@ export const createEditorialHskMockExamDefinition = (
     examLevel,
     formKey,
     title: publication.title,
+    accessTier: content.accessTier === 'free' ? 'free' : 'premium',
     timeLimitMinutes: timeLimitByLevel[examLevel],
     contentVersion: CONTENT_VERSION,
     humanReviewed: false,
@@ -562,6 +564,15 @@ export type HskMockExamEditorialSuggestions = Record<
   HskMockExamLevel,
   Partial<Record<HskMockExamFormKey, readonly string[]>>
 >;
+
+export function hskMockExamAuthoringChoices(editorialItems: readonly HskMockExamEditorialPublication[] = []) {
+  return HSK_MOCK_EXAM_LEVELS.flatMap(level => {
+    const sources = [...sourceByLevel[level], ...editorialItems.map(asEditorialSourceItem)
+      .filter(entry => entry?.level === level).map(entry => entry!.source)];
+    return sources.map(item => ({ key: item.sourceItemVersion, level, skill: item.skill,
+      label: `${item.stimulusText} · ${item.promptVi}` }));
+  });
+}
 
 export const hskMockExamEditorialSuggestions = (
   editorialItems: readonly HskMockExamEditorialPublication[] = [],

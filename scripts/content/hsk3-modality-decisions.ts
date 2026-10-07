@@ -1,0 +1,32 @@
+/** Curated retrieval items. Each row maps to exactly one grammar source, not to general lesson completion. */
+type Decision={row:string;title:string;prompt:string;answer:string;answerPinyin:string;answerVi:string;feedback:string};
+const rows:Array<[string,string,string,string,string,string,string]>=[
+ ['004','Nhu cầu hay lời khuyên','Bác sĩ khuyên nghỉ nhiều, không ra lệnh: 你___多休息。','应该','yīnggāi','nên','应该 nêu lời khuyên; 必须 mạnh hơn.'],
+ ['016','Mức độ tương đối','Kết quả tương đối tốt, chưa nói hoàn toàn khỏe: 检查结果___好。','比较','bǐjiào','tương đối','比较 giới hạn mức độ, không phải hoàn toàn.'],
+ ['018','Việc vừa xảy ra','Bác sĩ vừa khám xong: 医生___检查完。','刚','gāng','vừa','刚 đặt trước động từ cho việc mới xảy ra.'],
+ ['019','Lặp lại thường xuyên','Gần đây bà thường xuyên ngủ không ngon: 奶奶最近___睡不好。','总是','zǒngshì','thường xuyên','总是 nêu thói quen/lặp lại, không phải một đêm duy nhất.'],
+ ['021','Có vẻ, chưa chắc','Người kể thấy bà có vẻ mệt: 奶奶___有些累。','好像','hǎoxiàng','có vẻ','好像 là suy đoán từ biểu hiện, không phải chẩn đoán.'],
+ ['022','Cuối cùng an tâm','Sau kết quả, cả nhà cuối cùng an tâm: 我们___放心了。','终于','zhōngyú','cuối cùng','终于 đặt kết quả sau khoảng chờ.'],
+ ['023','Không cần nữa','Sau khám, không cần xếp hàng lại: 我们___再排队。','不必','búbì','không cần','不必 bỏ yêu cầu, không phải cấm xếp hàng.'],
+ ['024','Hướng lời nói tới ai','Bác sĩ giải thích cho gia đình: 医生___家人说明情况。','向','xiàng','với/hướng tới','向 dẫn người nhận lời giải thích.'],
+ ['025','Hướng đi, chưa phải đích','Cả nhà đi về phía cổng nam: 我们___南门走去。','向','xiàng','về phía','向 chỉ hướng chuyển động, chưa xác nhận tới cổng.'],
+ ['026','Mục đích học','Để nâng nghe hiểu: ___提高听力，我每天练习。','为了','wèile','để','为了 mở mục đích của việc luyện.'],
+ ['028','Căn cứ của kế hoạch','Dựa theo lời khuyên của thầy: ___老师的建议，我安排学习计划。','根据','gēnjù','dựa theo','根据 cần căn cứ được nêu rõ.'],
+ ['031','Điều kiện kể lại','Nếu có thời gian thì kể lại: 有时间___，我再说一遍。','的话','dehuà','nếu','的话 gắn với điều kiện 有时间.'],
+ ['036','Sau một lát ngắn','Thầy giải thích; chẳng bao lâu cả lớp hiểu: 老师解释以后，___大家就明白了。','不一会儿','bù yíhuìr','chẳng bao lâu','不一会儿 nêu một khoảng ngắn trôi qua, không phải giờ cụ thể.'],
+ ['037','Suy ra từ dấu hiệu','Kết quả tăng nên người kể nhận định: ___这个计划适合我。','看来','kànlái','xem ra','看来 là kết luận của người nói từ dấu hiệu.'],
+ ['038','Góc nhìn của thầy','Theo thầy, lỗi là một phần học tập: ___，错误是学习的一部分。','在老师看来','zài lǎoshī kànlái','theo thầy','在…看来 chỉ rõ chủ thể của góc nhìn.'],
+ ['042','Khái quát có giới hạn','Nói chung, ôn ngắn nhiều lần thường hữu ích: ___，短时间多次复习有帮助。','一般来说','yìbān láishuō','nói chung','一般来说 cho phép ngoại lệ, không biến ví dụ thành quy luật tuyệt đối.'],
+ ['045','Mốc bắt đầu','Từ hôm nay bắt đầu nghe mỗi ngày: ___，我每天听一段新闻。','从今天起','cóng jīntiān qǐ','từ hôm nay','从…起 xác lập mốc bắt đầu.'],
+ ['046','Đánh giá theo cá nhân','Đối với tôi, kiên trì khó nhất: ___，坚持最难。','对我来说','duì wǒ láishuō','đối với tôi','对…来说 giới hạn người được đánh giá.'],
+ ['047','Không dù một lần','Trước lúc về không gọi dù một cuộc: 他一个电话___没打。','也','yě','cũng','一个…也没… là phủ định toàn bộ trong phạm vi đã nêu.'],
+ ['048','Hoàn toàn không giận','Mẹ không hề giận chút nào: 妈妈___不生气。','一点儿也','yìdiǎnr yě','chút nào cũng','一点儿也不 nhấn phủ định mức độ.'],
+ ['050','Trước mốc về nhà','Trước khi về nhà lần này: 回家___，他没打电话。','以前','yǐqián','trước khi','以前 gắn sau mốc 回家, không nói về mọi thời điểm trong ba năm.'],
+ ['051','Trấn an thân mật','Bố trấn an “lo gì chứ?”: ___？他已经到车站了。','担心什么啊','dānxīn shénme a','lo gì chứ','X什么啊 là câu hỏi tu từ thân mật; không dùng như câu hỏi trung lập.'],
+ ['052','Đã đến lúc','Trời tối; đến lúc ra đón: 我们___出门接他了。','该','gāi','đã đến lúc','该…了 đánh dấu thời điểm hành động nên xảy ra.'],
+ ['064','Khoảng rời nhà','Anh rời nhà đã ba năm: 哥哥离开家___了。','三年','sān nián','ba năm','Khoảng thời gian tính từ mốc rời nhà, không phải thời gian chuyến về.'],
+ ['065','Hỏi cách làm','Hỏi cách chào đón anh: 我们应该___欢迎哥哥？','怎样','zěnyàng','như thế nào','怎样 hỏi phương thức, không hỏi người được đón.'],
+ ['066','Nhắc lại điều đã biết','Nhắc lời anh từng nói: 哥哥___已经说了今天回来吗？','不是','bú shì','chẳng phải','不是…吗 là phản vấn; giọng điệu cần phù hợp quan hệ.'],
+ ['080','Nhấn thái độ của mình','Tôi thực sự ủng hộ việc anh đi làm xa: 我___支持哥哥去外地工作的。','是','shì','thực sự','是…的 ở đây nhấn thái độ người nói, không áp cho cả nhà.'],
+];
+export const modalityDecisions:Decision[]=rows.map(([row,title,prompt,answer,answerPinyin,answerVi,feedback])=>({row,title,prompt,answer,answerPinyin,answerVi,feedback}));

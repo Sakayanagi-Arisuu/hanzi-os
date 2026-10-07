@@ -1,0 +1,36 @@
+{
+  "mode": "apply",
+  "backup": "D:\\Projects\\hanzi-os\\.wrangler\\demo-backups\\before-hsk3-word-meaning-round104-2026-10-05T04-55-21-384Z.sqlite",
+  "protectedTables": 43,
+  "releases": [
+    {
+      "stableKey": "thien-lo-v2-hsk3-comparison-description-evaluation-lesson-02",
+      "revisionId": "74358664-cb79-4587-9cc3-4240c593a40e"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-culture-tradition-descriptions-regional-cuisine",
+      "revisionId": "ea4b98de-91e2-4d31-8254-d93f5c82f035"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-nature-environment-explanations-environment-protection",
+      "revisionId": "55c8e580-9ab0-49d8-a7df-49c47c7f729e"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-nature-environment-explanations-plants-animals",
+      "revisionId": "ea17b97a-e62b-411a-adf9-d6f60e5425d4"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-personal-life-narratives-home-family-leisure",
+      "revisionId": "8499e228-a89a-4377-a2b0-e64c1c231e47"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-reference-quantity-phrase-building-lesson-01",
+      "revisionId": "2eaf0e97-39a3-4f6e-b446-382f813cacea"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-society-arts-sports-reports-arts-activities",
+      "revisionId": "864d1f6d-b2e7-40ad-b431-3cdbcf1a976a"
+    }
+  ],
+  "completed": 7
+}

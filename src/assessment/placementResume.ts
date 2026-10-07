@@ -3,7 +3,10 @@ import {
   HSK_LEVEL_CHECK_SESSION_STORAGE_KEYS,
   PLACEMENT_GATE_SESSION_STORAGE_SUFFIX,
   readLocalStorage,
+  getOwnedPlacementStorageKey,
 } from "../lib/storageKeys";
+import type { LearningState } from "../types";
+import { evaluatePlacementSafety, type PlacementBaseline } from "./placementSafety";
 
 type PlacementPhase = "question" | "result";
 
@@ -42,6 +45,7 @@ const parseCandidate = (
       || (value.index as number) >= 12
       || typeof value.checked !== "boolean"
       || Object.values(value.answers).some((answer) => typeof answer !== "string")
+      || (value.phase === "result" && Object.keys(value.answers).length !== 12)
     ) return null;
 
     const storedIndex = value.index as number;
@@ -76,10 +80,20 @@ export type PlacementResumeDestination = Omit<PlacementResumeCandidate, "updated
 
 export const resolvePlacementResumeDestination = (
   read: (key: string) => string | null = readLocalStorage,
+  context?: { state: LearningState; ownerKey: string; now?: number; contextSnapshot?: string | null },
 ): PlacementResumeDestination | null => {
   const candidates = HSK_LEVEL_CHECK_SESSION_STORAGE_KEYS.flatMap((storageKey, index) => {
+    const key = getPlacementGateSessionStorageKey(storageKey);
+    const raw = read(context ? getOwnedPlacementStorageKey(key, context.ownerKey) : key);
+    if (context) {
+      try {
+        const value = JSON.parse(raw ?? "null") as { baseline?: PlacementBaseline; dismissed?: boolean } | null;
+        if (!value || value.dismissed || evaluatePlacementSafety(value.baseline, context.state, context.ownerKey, context.now) !== "current") return [];
+        if (context.contextSnapshot !== undefined && value.baseline?.contextSnapshot !== context.contextSnapshot) return [];
+      } catch { return []; }
+    }
     const candidate = parseCandidate(
-      read(getPlacementGateSessionStorageKey(storageKey)),
+      raw,
       (index + 1) as 1 | 2 | 3 | 4,
     );
     return candidate ? [candidate] : [];

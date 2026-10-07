@@ -36,7 +36,7 @@ export function MemoryReviewLobby({
 
   return (
     <div className="memory-experience memory-lobby">
-      <section className="memory-lobby-hero" aria-labelledby="memory-lobby-title">
+      <section className="memory-lobby-hero" aria-labelledby="memory-lobby-title"><div className="realm-emblem" aria-hidden="true" />
         <span>MEM-01 · KÝ ỨC TRẬN</span>
         <h1 id="memory-lobby-title">SẢNH KÝ ỨC</h1>
         <p>Khai mở trí nhớ. Tôi luyện ý chí.</p>

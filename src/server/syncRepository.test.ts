@@ -885,12 +885,31 @@ describe("D1 sync repository", () => {
       "export-enrollment",
       deviceRecordId,
     );
+    d1.database.prepare(
+      "INSERT INTO premium_support_tickets (id,user_id,category,subject,message,status,response,responded_by,created_at,updated_at) VALUES ('export-support',?,'access','Không mở bài','Tôi không mở được bài HSK4','answered','Đã kiểm tra quyền',?,1,2)",
+    ).run(userId, userId);
+    d1.database.prepare(
+      "INSERT INTO commerce_sandbox_orders (id,user_id,plan_id,idempotency_key,status,created_at,paid_at,updated_at,refund_requested_at,refund_reason) VALUES ('export-premium-order',?,'hsk4-month','export-premium-key','paid',1,2,3,4,'Không còn nhu cầu')",
+    ).run(userId);
+    d1.database.prepare("INSERT INTO hanzi_wallets (user_id,balance,updated_at) VALUES (?,75,3)").run(userId);
+    d1.database.prepare("INSERT INTO hanzi_wallet_entries (id,user_id,delta,kind,reference_id,actor_user_id,created_at) VALUES ('export-wallet-entry',?,75,'admin_credit','export-wallet-ref',?,3)").run(userId, userId);
+    d1.database.prepare("INSERT INTO hanzi_premium_orders (id,user_id,plan_id,amount,idempotency_key,status,paid_at) VALUES ('export-hanzi-order',?,'hsk4-month',25,'export-hanzi-key','paid',3)").run(userId);
     const exported = await repository.exportAccountData(userId);
     expect(Object.keys(exported.tables)).toEqual([...ACCOUNT_EXPORT_TABLES]);
     expect(exported.rowCount).toBe(
       Object.values(exported.tables).reduce((total, rows) => total + rows.length, 0),
     );
     expect(exported.tables.learning_documents).toHaveLength(1);
+    expect(exported.tables.premium_support_tickets).toEqual([expect.objectContaining({
+      user_id: userId, subject: "Không mở bài", response: "Đã kiểm tra quyền",
+    })]);
+    expect(exported.tables.commerce_sandbox_orders).toEqual([expect.objectContaining({
+      user_id: userId, plan_id: "hsk4-month", status: "paid",
+      refund_reason: "Không còn nhu cầu",
+    })]);
+    expect(exported.tables.hanzi_wallets).toEqual([expect.objectContaining({ user_id: userId, balance: 75 })]);
+    expect(exported.tables.hanzi_wallet_entries).toEqual([expect.objectContaining({ user_id: userId, delta: 75 })]);
+    expect(exported.tables.hanzi_premium_orders).toEqual([expect.objectContaining({ user_id: userId, amount: 25 })]);
     expect(exported.tables.mutation_rate_limits).toEqual([
       expect.objectContaining({
         user_id: userId,
@@ -1411,6 +1430,19 @@ describe("D1 sync repository", () => {
     )).toThrow(/FOREIGN KEY constraint failed/u);
 
     const tenantTables = ACCOUNT_EXPORT_TABLES.filter((table) => table !== "users");
+    for (const [userId, suffix] of [[userA, "a"], [userB, "b"]] as const) {
+      d1.database.prepare(
+        "INSERT INTO premium_support_tickets (id,user_id,category,subject,message,status,created_at,updated_at) VALUES (?,?,'technical','Không tải','Tôi không tải được bài HSK4','open',1,1)",
+      ).run(`delete-support-${suffix}`, userId);
+      d1.database.prepare(
+        "INSERT INTO commerce_sandbox_orders (id,user_id,plan_id,idempotency_key,status,created_at,paid_at,updated_at) VALUES (?,?,'hsk4-year',?,'paid',1,2,2)",
+      ).run(`delete-order-${suffix}`, userId, `delete-key-${suffix}`);
+      d1.database.prepare("INSERT INTO hanzi_wallets (user_id,balance,updated_at) VALUES (?,10,1)").run(userId);
+      d1.database.prepare("INSERT INTO hanzi_wallet_entries (id,user_id,delta,kind,reference_id,actor_user_id,created_at) VALUES (?,?,10,'admin_credit',?,?,1)")
+        .run(`delete-wallet-${suffix}`, userId, `delete-wallet-ref-${suffix}`, userId);
+      d1.database.prepare("INSERT INTO hanzi_premium_orders (id,user_id,plan_id,amount,idempotency_key,status,paid_at) VALUES (?,?,'hsk4-year',5,?,'paid',1)")
+        .run(`delete-hanzi-order-${suffix}`, userId, `delete-hanzi-key-${suffix}`);
+    }
     const countRows = (table: typeof tenantTables[number], userId: string) =>
       Number((d1.database
         .prepare(`SELECT COUNT(*) AS count FROM "${table}" WHERE user_id = ?`)

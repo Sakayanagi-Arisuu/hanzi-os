@@ -1,0 +1,12 @@
+.level-reward-panel { display:grid; grid-template-rows:minmax(0,1.7fr) minmax(140px,1fr); gap:14px; min-height:0; }
+.level-reward-hero { padding:12px 20px; display:grid; grid-template-columns:120px minmax(0,1fr); gap:24px; align-items:center; overflow:auto; }
+.level-reward-seal { display:grid; place-items:center; gap:5px; color:#f3d68e; border:1px solid #d7b76b70; border-radius:50%; aspect-ratio:1; background:radial-gradient(circle,#164632,#082019); }
+.level-reward-seal small { font-size:10px; letter-spacing:.12em; }.level-reward-seal strong { font:700 38px/1 var(--sans); }
+.level-reward-copy { min-width:0; }.level-reward-copy h3 { margin:6px 0; font-size:clamp(22px,2.3vw,30px); }.level-reward-copy p { color:#c0d0c6; font-size:13px; line-height:1.5; margin:6px 0; }
+.level-reward-copy > small { display:block; margin:7px 0 12px; color:#b5c9bd; }.level-reward-progress { height:7px; background:#153c2d; overflow:hidden; border-radius:8px; }.level-reward-progress i { display:block; height:100%; background:linear-gradient(90deg,#35e7b4,#f0d084); }
+.level-reward-copy button { cursor:pointer; }.level-reward-copy button:disabled { opacity:.6; cursor:wait; }
+.level-reward-cards { display:grid; grid-template-columns:1fr 1fr 1.3fr; gap:12px; min-height:0; overflow:auto; }
+.level-reward-cards article { padding:16px; display:flex; flex-direction:column; gap:8px; min-width:0; }
+.level-reward-cards svg { color:#edce83; flex-shrink:0; }.level-reward-cards small { color:#b9cbbb; font-size:10px; letter-spacing:.08em; }.level-reward-cards strong { color:#eddfb5; font-size:20px; }.level-reward-cards span { color:#a9c0b3; font-size:12px; line-height:1.4; }.level-reward-cards a { display:flex; align-items:center; gap:6px; min-height:44px; color:#56ebc0; font-size:13px; }
+@media(max-width:760px) { .level-reward-panel { grid-template-rows:auto minmax(0,1fr); gap:10px; }.level-reward-hero { grid-template-columns:64px minmax(0,1fr); gap:12px; padding:14px; }.level-reward-seal strong { font-size:24px; }.level-reward-seal svg { display:none; }.level-reward-copy h3 { font-size:22px; }.level-reward-copy p { font-size:12px; }.level-reward-cards { grid-template-columns:1fr; }.level-reward-cards article { padding:12px; } }
+@media(max-width:760px) { .level-reward-cards { grid-auto-rows:max-content; align-content:start; } }

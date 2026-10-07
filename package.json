@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "npm run db:local:setup && vinext dev",
-    "build": "npm run sync:hanzi-data && node scripts/clean-sites-build.mjs && node scripts/build-provenance.mjs start && vinext build && node scripts/build-provenance.mjs finish && node scripts/check-bundle-budget.mjs",
+    "build": "npm run sync:hanzi-data && node scripts/clean-sites-build.mjs && node scripts/build-provenance.mjs start && vinext build && node scripts/build-provenance.mjs finish && node scripts/check-bundle-budget.mjs && node scripts/check-premium-client-bundle.mjs",
     "start": "vinext start",
     "clean:local": "node scripts/clean-local-artifacts.mjs",
     "typecheck": "tsc --noEmit --pretty false",

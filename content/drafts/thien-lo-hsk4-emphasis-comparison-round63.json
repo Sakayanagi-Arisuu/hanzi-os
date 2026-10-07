@@ -1,0 +1,3466 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/156-REVIEW-HSK4-EMPHASIS-COMPARISON-ROUND63.md",
+  "entries": [
+    {
+      "sourceRevisionId": "4c8975d6-f60d-47cb-8869-63e6fcc51830",
+      "sourceContentSha256": "sha256:2f90810784416b13d72eff201c8378f53287660a7d72bd47319a9c48ffc59e73",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm ưu tiên điều kiện kiểm chứng được\nbằng chứng một phần ba tăng ca\nkhác biệt theo hoạt động trong văn phòng\nphản biện về chi phí và độ phức tạp\nkết luận giới hạn vì hai phương án chưa vận hành đủ",
+        "conceptVi": "Nêu phản biện và điều kiện: Dùng định dạng tu từ, phản vấn, so sánh và nhấn mạnh để nêu thái độ mà không làm mất ranh giới giữa dữ kiện và ý kiến.",
+        "dialogue": [
+          {
+            "hanzi": "软件公司连续两个月大量加班后，员工调查显示六成人对工作安排不满。项目经理解释，客户临时改变要求，若拒绝可能失去合同；员工代表则指出，需求变化是真的，但很多任务没有重新排优先顺序，所有小组都被要求同时完成。",
+            "meaningVi": "Sau hai tháng tăng ca nhiều, khảo sát công ty phần mềm cho thấy sáu phần mười nhân viên không hài lòng với sắp việc. Quản lý dự án nói khách đổi yêu cầu đột ngột, từ chối có thể mất hợp đồng; đại diện nhân viên cho rằng thay đổi là thật nhưng nhiệm vụ không được xếp lại ưu tiên, mọi nhóm bị yêu cầu hoàn thành đồng thời.",
+            "pinyin": "Ruǎnjiàn gōngsī liánxù liǎng gè yuè dàliàng jiābān hòu, yuángōng diàochá xiǎnshì liù chéngrén duì gōngzuò ānpái bùmǎn. Xiàngmù jīnglǐ jiěshì, kèhù línshí gǎibiàn yāoqiú, ruò jùjué kěnéng shīqù hétóng; yuángōng dàibiǎo zé zhǐchū, xūqiú biànhuà shì zhēn de, dàn hěnduō rènwù méiyǒu chóngxīn pái yōuxiān shùnxù, suǒyǒu xiǎozǔ dōu bèi yāoqiú tóngshí wánchéng.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "管理层提出增加奖金，认为收入能补偿辛苦。员工代表不反对奖金，却说主要问题是时间不可预测和休息被打断。双方查看记录后发现，有三分之一加班来自等待审批后的集中返工。于是讨论从“要不要加钱”转向“怎样减少不必要的加班”。",
+            "meaningVi": "Ban quản lý đề xuất tăng thưởng, cho rằng thu nhập bù vất vả. Đại diện nhân viên không phản đối nhưng nói vấn đề chính là thời gian không đoán được và nghỉ bị gián đoạn. Xem hồ sơ, hai bên thấy một phần ba tăng ca đến từ làm lại tập trung sau chờ duyệt. Tranh luận chuyển từ “có thêm tiền không” sang “giảm tăng ca không cần thiết thế nào”.",
+            "pinyin": "Guǎnlǐ céng tíchū zēngjiā jiǎngjīn, rènwéi shōurù néng bǔcháng xīnkǔ. Yuángōng dàibiǎo bù fǎnduì jiǎngjīn, quèshuō zhǔyào wèntí shì shíjiān bùkě yùcè hé xiūxí bèi dǎ duàn. Shuāngfāng chákàn jìlù hòu fāxiàn, yǒu sān fēn zhī yī jiābān láizì děngdài shěnpī hòu de jízhōng fǎngōng. Yúshì tǎolùn cóng “yào bùyào jiā qián” zhuǎnxiàng “zěnyàng jiǎn shào bù bìyào de jiābān”.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "最后，公司保留高峰奖金，同时规定新需求必须说明优先级；负责人若增加一项任务，就要指出哪一项延期。审批超过一天会自动提醒，团队每周检查返工原因。这个方案承认客户和收入的压力，也承认员工需要可预测时间。三个月试行尚未开始，所以目前不能说加班一定会减少。",
+            "meaningVi": "Cuối cùng, công ty giữ thưởng cao điểm, đồng thời yêu cầu nhu cầu mới phải có ưu tiên; nếu thêm một việc, người phụ trách phải chỉ việc nào hoãn. Phê duyệt quá một ngày tự nhắc và nhóm kiểm nguyên nhân làm lại hàng tuần. Phương án thừa nhận áp lực khách hàng/thu nhập lẫn nhu cầu thời gian dự đoán. Thử ba tháng chưa bắt đầu nên chưa thể nói tăng ca chắc chắn giảm.",
+            "pinyin": "Zuìhòu, gōngsī bǎoliú gāofēng jiǎngjīn, tóngshí guīdìng xīn xūqiú bìxū shuōmíng yōuxiān jí; fùzé rén ruò zēngjiā yī xiàng rènwù, jiù yào zhǐchū nǎ yī xiàng yánqí. Shěnpī chāoguò yītiān huì zìdòng tíxǐng, tuánduì měi zhōu jiǎnchá fǎngōng yuányīn. Zhège fāng'àn chéngrèn kèhù hé shōurù de yālì, yě chéngrèn yuángōng xūyào kě yùcè shíjiān. Sān gè yuè shìxíng shàngwèi kāishǐ, suǒyǐ mùqián bùnéng shuō jiābān yīdìng huì jiǎnshǎo.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "一家设计公司搬办公室前，请全部员工讨论空间质量。管理人员希望使用开放区域，认为交流更快；需要集中写作的人担心声音影响工作。早晨到公司的员工喜欢阳光充足的位置，晚班员工却更关心灯光、空调和回家交通。",
+            "meaningVi": "Trước khi chuyển văn phòng, một công ty thiết kế mời toàn bộ nhân viên bàn chất lượng không gian. Quản lý muốn dùng khu mở để trao đổi nhanh; người cần tập trung viết lo tiếng ồn ảnh hưởng việc. Người đến buổi sáng thích chỗ nhiều nắng, ca tối quan tâm đèn, điều hòa và đường về.",
+            "pinyin": "Yījiā shèjì gōngsī bān bàngōngshì qián, qǐng quánbù yuángōng tǎolùn kōngjiān zhìliàng. Guǎnlǐ rényuán xīwàng shǐyòng kāifàng qūyù, rènwéi jiāoliú gèng kuài; xūyào jízhōng xiězuò de rén dānxīn shēngyīn yǐngxiǎng gōngzuò. Zǎochén dào gōngsī de yuángōng xǐhuān yángguāng chōngzú de wèizhì, wǎn bān yuángōng què gèng guānxīn dēngguāng, kòngtiáo hé huí jiā jiāotōng.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "最初的设计把一半空间做成开放区，另一半安排固定座位。试用两周后，员工发现“开放”和“安静”不是简单对立：小组讨论需要开放桌，个人写作需要安静房，短电话只需要几个隔音位置。不同任务在同一天内也会变化，一个人可能上午讨论、下午独立写作。",
+            "meaningVi": "Thiết kế đầu chia nửa khu mở, nửa ghế cố định. Sau hai tuần, nhân viên thấy “mở” và “yên” không đối lập đơn giản: thảo luận cần bàn mở, viết cá nhân cần phòng yên, gọi ngắn chỉ cần vài điểm cách âm. Nhiệm vụ trong ngày cũng đổi; một người có thể sáng họp, chiều viết riêng.",
+            "pinyin": "Zuìchū de shèjì bǎ yībàn kōngjiān zuò chéng kāifàng qū, lìng yībàn ānpái gùdìng zuòwèi. Shìyòng liǎng zhōu hòu, yuángōng fāxiàn “kāifàng” hé “ānjìng” bùshì jiǎndān duìlì: Xiǎozǔ tǎolùn xūyào kāifàng zhuō, gèrén xiězuò xūyào ānjìng fáng, duǎn diànhuà zhǐ xūyào jǐ gè géyīn wèizhì. Bùtóng rènwù zài tóngyī tiānnèi yě huì biànhuà, yīgè rén kěnéng shàngwǔ tǎolùn, xiàwǔ dúlì xiězuò.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "公司因此不再按人员类型分区，而按活动设置可预约空间，并每月收集噪音、使用率和完成任务的自评。这个做法综合了交流与集中两种观点，也承认交通和班次问题不能只靠室内设计解决。新办公室尚未正式启用，满意度和工作结果都只是待测指标。",
+            "meaningVi": "Công ty thôi chia theo loại người, chuyển sang không gian đặt theo hoạt động và hàng tháng lấy tiếng ồn, tỷ lệ dùng, tự đánh giá hoàn thành. Cách này tổng hợp giao tiếp với tập trung, đồng thời thừa nhận giao thông và ca làm không thể chỉ giải bằng nội thất. Văn phòng chưa chính thức dùng nên hài lòng và kết quả đều còn phải đo.",
+            "pinyin": "Gōngsī yīncǐ bù zài àn rényuán lèixíng fēnqū, ér àn huódòng shèzhì kě yùyuē kōngjiān, bìng měi yuè shōují zàoyīn, shǐyòng lǜ hé wánchéngrènwù de zì píng. Zhège zuòfǎ zōnghéle jiāoliú yǔ jízhōng liǎng zhǒng guāndiǎn, yě chéng rèn jiāotōng hé bāncì wèntí bùnéng zhǐ kào shìnèi shèjì jiějué. Xīn bàngōngshì shàngwèi zhèngshì qǐyòng, mǎnyì dù hé gōngzuò jiéguǒ dōu zhǐshì dài cè zhǐbiāo.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:463221d60e5ae9c5c6ad40c78bf1e8584ab217d37767cd1058c3f5cb495a7d4c",
+          "evidenceDocument": "docs/thien-lo-redesign-review/154-REVIEW-HSK4-CONFIRMED-PINYIN-ROUND61.md",
+          "humanReviewed": false,
+          "scope": "Correct confirmed Mainland readings in paired HSK4 texts only; preserve Chinese, meaning, activity keys, IDs and source revisions.",
+          "sourceContentSha256": "sha256:aef6a30ac371fae1487ce7d1abf30e8c1d012fb87cbc414ea1a79d083b0fa0f1",
+          "sourceRevisionId": "bc2983a4-831e-4fc7-80e9-863b0a8c16a0"
+        },
+        "exercises": [
+          {
+            "answer": "软件公司连续两个月大量加班后，员工调查显示六成人对工作安排不满。项目经理解释，客户临时改变要求，若拒绝可能失去合同；员工代表则指出，需求变化是真的，但很多任务没有重新排优先顺序，所有小组都被要求同时完成。",
+            "answerMeaningVi": "Sau hai tháng tăng ca nhiều, khảo sát công ty phần mềm cho thấy sáu phần mười nhân viên không hài lòng với sắp việc. Quản lý dự án nói khách đổi yêu cầu đột ngột, từ chối có thể mất hợp đồng; đại diện nhân viên cho rằng thay đổi là thật nhưng nhiệm vụ không được xếp lại ưu tiên, mọi nhóm bị yêu cầu hoàn thành đồng thời.",
+            "answerPinyin": "Ruǎnjiàn gōngsī liánxù liǎng gè yuè dàliàng jiābān hòu, yuángōng diàochá xiǎnshì liù chéngrén duì gōngzuò ānpái bùmǎn. Xiàngmù jīnglǐ jiěshì, kèhù línshí gǎibiàn yāoqiú, ruò jùjué kěnéng shīqù hétóng; yuángōng dàibiǎo zé zhǐchū, xūqiú biànhuà shì zhēn de, dàn hěnduō rènwù méiyǒu chóngxīn pái yōuxiān shùnxù, suǒyǒu xiǎozǔ dōu bèi yāoqiú tóngshí wánchéng.",
+            "distractors": [
+              "管理层提出增加奖金，认为收入能补偿辛苦。员工代表不反对奖金，却说主要问题是时间不可预测和休息被打断。双方查看记录后发现，有三分之一加班来自等待审批后的集中返工。于是讨论从“要不要加钱”转向“怎样减少不必要的加班”。",
+              "最后，公司保留高峰奖金，同时规定新需求必须说明优先级；负责人若增加一项任务，就要指出哪一项延期。审批超过一天会自动提醒，团队每周检查返工原因。这个方案承认客户和收入的压力，也承认员工需要可预测时间。三个月试行尚未开始，所以目前不能说加班一定会减少。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "说什么也得… hoặc 怎么着也得… nhấn nhất định phải làm trong khẩu ngữ. 得 đọc děi. 说什么 ở mẫu này không phải hỏi người kia nói từ nào. Giọng mạnh; dùng cho quyết tâm hoặc yêu cầu có căn cứ trong tình huống, không tự tạo nghĩa vụ phổ quát.",
+            "guidedPractice": {
+              "promptVi": "Bạn quyết tâm gọi xác nhận địa chỉ hôm nay. Viết 说什么也得… như ý định.",
+              "modelAnswerHanzi": "今天说什么也得打电话确认地址。",
+              "modelAnswerPinyin": "Jīntiān shuō shénme yě děi dǎ diànhuà quèrèn dìzhǐ.",
+              "modelAnswerMeaningVi": "Hôm nay dù thế nào cũng phải gọi điện xác nhận địa chỉ."
+            },
+            "modelExample": {
+              "hanzi": "今天说什么也得把报告写完。",
+              "pinyin": "Jīntiān shuō shénme yě děi bǎ bàogào xiě wán.",
+              "meaningVi": "Hôm nay dù thế nào cũng phải viết xong báo cáo.",
+              "speaker": "A"
+            },
+            "pattern": "说什么/怎么（着）也得X"
+          },
+          {
+            "explanationVi": "贵就贵点儿吧、晚就晚点儿吧 nhượng bộ “đắt thì đắt một chút vậy”, thường rồi nêu điều quan trọng hơn. X lặp là cùng tính chất/hành động. 点儿 diǎnr nói một chút; bỏ hay có tùy câu. Giọng có thể chấp nhận miễn cưỡng, không phải đồng ý vô hạn mọi mức.",
+            "guidedPractice": {
+              "promptVi": "Bạn chấp nhận chờ thêm một chút miễn bạn mình tới an toàn. Viết X就X点儿吧 và điều bạn coi trọng.",
+              "modelAnswerHanzi": "等就等一会儿吧，安全最重要。",
+              "modelAnswerPinyin": "Děng jiù děng yíhuìr ba, ānquán zuì zhòngyào.",
+              "modelAnswerMeaningVi": "Chờ thì chờ một lúc vậy, an toàn quan trọng nhất."
+            },
+            "modelExample": {
+              "hanzi": "贵就贵点儿吧，只要质量好。",
+              "pinyin": "Guì jiù guì diǎnr ba, zhǐyào zhìliàng hǎo.",
+              "meaningVi": "Đắt thì đắt một chút vậy, miễn chất lượng tốt.",
+              "speaker": "A"
+            },
+            "pattern": "X就X（点儿）吧"
+          },
+          {
+            "explanationVi": "好是好、忙是忙 lặp tính chất quanh 是 để công nhận nó, thường thêm 但是/不过/就是 hoặc vế sau theo ngữ cảnh. Khác 学一点是一点 nhấn lượng từng phần, và X是X，Y是Y tách hai khái niệm. Không lấy vế hạn chế xóa điều đã công nhận.",
+            "guidedPractice": {
+              "promptVi": "Chỗ ở tiện nhưng ồn. Viết X是X công nhận tiện, nêu giới hạn.",
+              "modelAnswerHanzi": "方便是方便，就是有点儿吵。",
+              "modelAnswerPinyin": "Fāngbiàn shì fāngbiàn, jiù shì yǒudiǎnr chǎo.",
+              "modelAnswerMeaningVi": "Tiện thì tiện, chỉ là hơi ồn."
+            },
+            "modelExample": {
+              "hanzi": "好是好，就是太远了。",
+              "pinyin": "Hǎo shì hǎo, jiù shì tài yuǎn le.",
+              "meaningVi": "Tốt thì tốt, chỉ là xa quá.",
+              "speaker": "A"
+            },
+            "pattern": "X是X"
+          },
+          {
+            "explanationVi": "难道 nándào + mệnh đề + 吗 tạo phản vấn, thường người nói cho câu trả lời đối lập là hiển nhiên. 难道你忘了吗？ ngụ ý ngạc nhiên vì tưởng bạn nhớ. Câu có phủ định như 难道你不想试试吗？ thường gợi muốn thử. Giọng không tự chứng minh kết luận đúng; có thể tạo áp lực với người nghe.",
+            "guidedPractice": {
+              "promptVi": "Bạn nghi ngờ kết luận rằng đông người đăng ký là mọi người đã học tốt. Viết phản vấn, rồi nói cần bằng chứng kết quả.",
+              "modelAnswerHanzi": "难道报名人多就说明大家都学得好吗？还需要学习结果的证据。",
+              "modelAnswerPinyin": "Nándào bàomíng rén duō jiù shuōmíng dàjiā dōu xué de hǎo ma? Hái xūyào xuéxí jiéguǒ de zhèngjù.",
+              "modelAnswerMeaningVi": "Chẳng lẽ nhiều người đăng ký là mọi người đều học tốt sao? Vẫn cần bằng chứng kết quả học."
+            },
+            "modelExample": {
+              "hanzi": "难道你忘了吗？",
+              "pinyin": "Nándào nǐ wàng le ma?",
+              "meaningVi": "Chẳng lẽ bạn quên rồi sao?",
+              "speaker": "A"
+            },
+            "pattern": "难道……吗？"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng nêu phản biện và điều kiện để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Nêu phản biện và điều kiện: Dùng định dạng tu từ, phản vấn, so sánh và nhấn mạnh để nêu thái độ mà không làm mất ranh giới giữa dữ kiện và ý kiến."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "软件公司连续两个月大量加班后，员工调查显示六成人对工作安排不满。项目经理解释，客户临时改变要求，若拒绝可能失去合同；员工代表则指出，需求变化是真的，但很多任务没有重新排优先顺序，所有小组都被要求同时完成。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-04:source-0-0",
+                        "meaningVi": "Sau hai tháng tăng ca nhiều, khảo sát công ty phần mềm cho thấy sáu phần mười nhân viên không hài lòng với sắp việc. Quản lý dự án nói khách đổi yêu cầu đột ngột, từ chối có thể mất hợp đồng; đại diện nhân viên cho rằng thay đổi là thật nhưng nhiệm vụ không được xếp lại ưu tiên, mọi nhóm bị yêu cầu hoàn thành đồng thời.",
+                        "pinyin": "Ruǎnjiàn gōngsī liánxù liǎng gè yuè dàliàng jiābān hòu, yuángōng diàochá xiǎnshì liù chéngrén duì gōngzuò ānpái bùmǎn. Xiàngmù jīnglǐ jiěshì, kèhù línshí gǎibiàn yāoqiú, ruò jùjué kěnéng shīqù hétóng; yuángōng dàibiǎo zé zhǐchū, xūqiú biànhuà shì zhēn de, dàn hěnduō rènwù méiyǒu chóngxīn pái yōuxiān shùnxù, suǒyǒu xiǎozǔ dōu bèi yāoqiú tóngshí wánchéng."
+                      },
+                      {
+                        "hanzi": "管理层提出增加奖金，认为收入能补偿辛苦。员工代表不反对奖金，却说主要问题是时间不可预测和休息被打断。双方查看记录后发现，有三分之一加班来自等待审批后的集中返工。于是讨论从“要不要加钱”转向“怎样减少不必要的加班”。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-04:source-0-1",
+                        "meaningVi": "Ban quản lý đề xuất tăng thưởng, cho rằng thu nhập bù vất vả. Đại diện nhân viên không phản đối nhưng nói vấn đề chính là thời gian không đoán được và nghỉ bị gián đoạn. Xem hồ sơ, hai bên thấy một phần ba tăng ca đến từ làm lại tập trung sau chờ duyệt. Tranh luận chuyển từ “có thêm tiền không” sang “giảm tăng ca không cần thiết thế nào”.",
+                        "pinyin": "Guǎnlǐ céng tíchū zēngjiā jiǎngjīn, rènwéi shōurù néng bǔcháng xīnkǔ. Yuángōng dàibiǎo bù fǎnduì jiǎngjīn, quèshuō zhǔyào wèntí shì shíjiān bùkě yùcè hé xiūxí bèi dǎ duàn. Shuāngfāng chákàn jìlù hòu fāxiàn, yǒu sān fēn zhī yī jiābān láizì děngdài shěnpī hòu de jízhōng fǎngōng. Yúshì tǎolùn cóng “yào bùyào jiā qián” zhuǎnxiàng “zěnyàng jiǎn shào bù bìyào de jiābān”."
+                      },
+                      {
+                        "hanzi": "最后，公司保留高峰奖金，同时规定新需求必须说明优先级；负责人若增加一项任务，就要指出哪一项延期。审批超过一天会自动提醒，团队每周检查返工原因。这个方案承认客户和收入的压力，也承认员工需要可预测时间。三个月试行尚未开始，所以目前不能说加班一定会减少。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-04:source-0-2",
+                        "meaningVi": "Cuối cùng, công ty giữ thưởng cao điểm, đồng thời yêu cầu nhu cầu mới phải có ưu tiên; nếu thêm một việc, người phụ trách phải chỉ việc nào hoãn. Phê duyệt quá một ngày tự nhắc và nhóm kiểm nguyên nhân làm lại hàng tuần. Phương án thừa nhận áp lực khách hàng/thu nhập lẫn nhu cầu thời gian dự đoán. Thử ba tháng chưa bắt đầu nên chưa thể nói tăng ca chắc chắn giảm.",
+                        "pinyin": "Zuìhòu, gōngsī bǎoliú gāofēng jiǎngjīn, tóngshí guīdìng xīn xūqiú bìxū shuōmíng yōuxiān jí; fùzé rén ruò zēngjiā yī xiàng rènwù, jiù yào zhǐchū nǎ yī xiàng yánqí. Shěnpī chāoguò yītiān huì zìdòng tíxǐng, tuánduì měi zhōu jiǎnchá fǎngōng yuányīn. Zhège fāng'àn chéngrèn kèhù hé shōurù de yālì, yě chéngrèn yuángōng xūyào kě yùcè shíjiān. Sān gè yuè shìxíng shàngwèi kāishǐ, suǒyǐ mùqián bùnéng shuō jiābān yīdìng huì jiǎnshǎo."
+                      }
+                    ]
+                  },
+                  "title": "Lựa chọn quản lý sau giai đoạn tăng ca nhiều"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Lựa chọn quản lý sau giai đoạn tăng ca nhiều"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "一家设计公司搬办公室前，请全部员工讨论空间质量。管理人员希望使用开放区域，认为交流更快；需要集中写作的人担心声音影响工作。早晨到公司的员工喜欢阳光充足的位置，晚班员工却更关心灯光、空调和回家交通。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-04:source-1-0",
+                        "meaningVi": "Trước khi chuyển văn phòng, một công ty thiết kế mời toàn bộ nhân viên bàn chất lượng không gian. Quản lý muốn dùng khu mở để trao đổi nhanh; người cần tập trung viết lo tiếng ồn ảnh hưởng việc. Người đến buổi sáng thích chỗ nhiều nắng, ca tối quan tâm đèn, điều hòa và đường về.",
+                        "pinyin": "Yījiā shèjì gōngsī bān bàngōngshì qián, qǐng quánbù yuángōng tǎolùn kōngjiān zhìliàng. Guǎnlǐ rényuán xīwàng shǐyòng kāifàng qūyù, rènwéi jiāoliú gèng kuài; xūyào jízhōng xiězuò de rén dānxīn shēngyīn yǐngxiǎng gōngzuò. Zǎochén dào gōngsī de yuángōng xǐhuān yángguāng chōngzú de wèizhì, wǎn bān yuángōng què gèng guānxīn dēngguāng, kòngtiáo hé huí jiā jiāotōng."
+                      },
+                      {
+                        "hanzi": "最初的设计把一半空间做成开放区，另一半安排固定座位。试用两周后，员工发现“开放”和“安静”不是简单对立：小组讨论需要开放桌，个人写作需要安静房，短电话只需要几个隔音位置。不同任务在同一天内也会变化，一个人可能上午讨论、下午独立写作。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-04:source-1-1",
+                        "meaningVi": "Thiết kế đầu chia nửa khu mở, nửa ghế cố định. Sau hai tuần, nhân viên thấy “mở” và “yên” không đối lập đơn giản: thảo luận cần bàn mở, viết cá nhân cần phòng yên, gọi ngắn chỉ cần vài điểm cách âm. Nhiệm vụ trong ngày cũng đổi; một người có thể sáng họp, chiều viết riêng.",
+                        "pinyin": "Zuìchū de shèjì bǎ yībàn kōngjiān zuò chéng kāifàng qū, lìng yībàn ānpái gùdìng zuòwèi. Shìyòng liǎng zhōu hòu, yuángōng fāxiàn “kāifàng” hé “ānjìng” bùshì jiǎndān duìlì: Xiǎozǔ tǎolùn xūyào kāifàng zhuō, gèrén xiězuò xūyào ānjìng fáng, duǎn diànhuà zhǐ xūyào jǐ gè géyīn wèizhì. Bùtóng rènwù zài tóngyī tiānnèi yě huì biànhuà, yīgè rén kěnéng shàngwǔ tǎolùn, xiàwǔ dúlì xiězuò."
+                      },
+                      {
+                        "hanzi": "公司因此不再按人员类型分区，而按活动设置可预约空间，并每月收集噪音、使用率和完成任务的自评。这个做法综合了交流与集中两种观点，也承认交通和班次问题不能只靠室内设计解决。新办公室尚未正式启用，满意度和工作结果都只是待测指标。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-04:source-1-2",
+                        "meaningVi": "Công ty thôi chia theo loại người, chuyển sang không gian đặt theo hoạt động và hàng tháng lấy tiếng ồn, tỷ lệ dùng, tự đánh giá hoàn thành. Cách này tổng hợp giao tiếp với tập trung, đồng thời thừa nhận giao thông và ca làm không thể chỉ giải bằng nội thất. Văn phòng chưa chính thức dùng nên hài lòng và kết quả đều còn phải đo.",
+                        "pinyin": "Gōngsī yīncǐ bù zài àn rényuán lèixíng fēnqū, ér àn huódòng shèzhì kě yùyuē kōngjiān, bìng měi yuè shōují zàoyīn, shǐyòng lǜ hé wánchéngrènwù de zì píng. Zhège zuòfǎ zōnghéle jiāoliú yǔ jízhōng liǎng zhǒng guāndiǎn, yě chéng rèn jiāotōng hé bāncì wèntí bùnéng zhǐ kào shìnèi shèjì jiějué. Xīn bàngōngshì shàngwèi zhèngshì qǐyòng, mǎnyì dù hé gōngzuò jiéguǒ dōu zhǐshì dài cè zhǐbiāo."
+                      }
+                    ]
+                  },
+                  "title": "Ai định nghĩa chất lượng môi trường làm việc?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Ai định nghĩa chất lượng môi trường làm việc?"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Đoạn 2 nêu trực tiếp tỷ lệ một phần ba và nguyên nhân ghi trong hồ sơ, làm cơ sở chuyển thảo luận từ chỉ tăng tiền sang giảm tăng ca không cần thiết. Giới hạn: Không được suy ra hai phần ba còn lại đều cần thiết hoặc chỉ cần sửa phê duyệt là xóa được toàn bộ tăng ca.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Hồ sơ cho thấy khoảng một phần ba thời gian tăng ca đến từ việc làm lại dồn sau khi chờ phê duyệt.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Đoạn 2 nêu trực tiếp tỷ lệ một phần ba và nguyên nhân ghi trong hồ sơ, làm cơ sở chuyển thảo luận từ chỉ tăng tiền sang giảm tăng ca không cần thiết.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn 2 nêu trực tiếp tỷ lệ một phần ba và nguyên nhân ghi trong hồ sơ, làm cơ sở chuyển thảo luận từ chỉ tăng tiền sang giảm tăng ca không cần thiết.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "记录显示，约三分之一的加班来自等待审批后出现的集中返工。\nHồ sơ cho thấy khoảng một phần ba thời gian tăng ca đến từ việc làm lại dồn sau khi chờ phê duyệt.\nĐối chiếu Nguồn A · đoạn 2 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn mô tả thiết kế mới và các chỉ báo sẽ thu thập, nhưng văn phòng chưa chính thức vận hành; cả hài lòng lẫn kết quả đều được gọi là chỉ báo chờ đo. Giới hạn: Có thể nói thiết kế tổng hợp nhu cầu thảo luận và tập trung, không thể nói nó đã tạo kết quả hoặc giải quyết giao thông và ca làm.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sau khi đặt không gian đặt trước theo hoạt động, mức hài lòng và kết quả làm việc của nhân viên chắc chắn đều tăng.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Có thể nói thiết kế tổng hợp nhu cầu thảo luận và tập trung, không thể nói nó đã tạo kết quả hoặc giải quyết giao thông và ca làm.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn mô tả thiết kế mới và các chỉ báo sẽ thu thập, nhưng văn phòng chưa chính thức vận hành; cả hài lòng lẫn kết quả đều được gọi là chỉ báo chờ đo.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "按活动设置可预约空间以后，员工满意度和工作结果一定都会提高。\nSau khi đặt không gian đặt trước theo hoạt động, mức hài lòng và kết quả làm việc của nhân viên chắc chắn đều tăng.\nĐối chiếu Nguồn B · đoạn 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n公司没有在奖金和流程之间二选一：它保留高峰奖金，要求新增任务同时说明延期项，并为超过一天的审批设置提醒。方案回应收入和可预测休息两种关切，但三个月试行尚未开始，不能断言加班会减少。\nCông ty không chọn một trong hai giữa thưởng và quy trình: vẫn giữ thưởng giai đoạn cao điểm, yêu cầu nhiệm vụ mới phải nói hạng mục hoãn, và nhắc duyệt quá một ngày. Phương án đáp lại cả thu nhập lẫn nghỉ ngơi có thể dự đoán, nhưng thử nghiệm ba tháng chưa bắt đầu nên chưa thể khẳng định tăng ca sẽ giảm.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại thỏa thuận về tăng ca, giữ cả tiền thưởng, ưu tiên, phê duyệt và trạng thái chưa thử.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Công ty giữ thưởng cao điểm và thêm quy tắc nêu ưu tiên cùng hạng mục bị hoãn.",
+                        "id": "point-0",
+                        "label": "Công ty giữ thưởng cao điểm và thêm quy tắc nêu ưu tiên cùng hạng mục bị hoãn."
+                      },
+                      {
+                        "guidance": "Phê duyệt quá một ngày sẽ có nhắc và nhóm kiểm tra nguyên nhân làm lại hằng tuần.",
+                        "id": "point-1",
+                        "label": "Phê duyệt quá một ngày sẽ có nhắc và nhóm kiểm tra nguyên nhân làm lại hằng tuần."
+                      },
+                      {
+                        "guidance": "Thử nghiệm ba tháng chưa bắt đầu.",
+                        "id": "point-2",
+                        "label": "Thử nghiệm ba tháng chưa bắt đầu."
+                      },
+                      {
+                        "guidance": "Không dự báo tăng ca chắc chắn giảm, không nói nhân viên đã hài lòng và không gán toàn bộ tăng ca cho khách hàng hay phê duyệt.",
+                        "id": "point-3",
+                        "label": "Không dự báo tăng ca chắc chắn giảm, không nói nhân viên đã hài lòng và không gán toàn bộ tăng ca cho khách hàng hay phê duyệt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại thỏa thuận về tăng ca, giữ cả tiền thưởng, ưu tiên, phê duyệt và trạng thái chưa thử.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n试用发现同一员工会在讨论、写作和打电话之间转换，公司因此按活动设置开放桌、安静房和隔音位置，并计划收集噪音、使用率与任务自评。新办公室尚未启用，设计只能称为待检验方案。\nThử dùng cho thấy cùng một nhân viên chuyển giữa thảo luận, viết và gọi điện, nên công ty đặt bàn mở, phòng yên tĩnh và vị trí cách âm theo hoạt động, rồi dự kiến thu thập tiếng ồn, tỷ lệ sử dụng và tự đánh giá nhiệm vụ. Văn phòng mới chưa vận hành, vì thế thiết kế chỉ là phương án chờ kiểm tra.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase thiết kế văn phòng theo hoạt động mà không biến phương án thành kết quả đã đo.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Nhu cầu thay đổi theo hoạt động, không chỉ theo kiểu người.",
+                        "id": "point-0",
+                        "label": "Nhu cầu thay đổi theo hoạt động, không chỉ theo kiểu người."
+                      },
+                      {
+                        "guidance": "Công ty tổ chức không gian có thể đặt trước theo hoạt động.",
+                        "id": "point-1",
+                        "label": "Công ty tổ chức không gian có thể đặt trước theo hoạt động."
+                      },
+                      {
+                        "guidance": "Mức hài lòng và kết quả công việc chưa được đo ở văn phòng mới.",
+                        "id": "point-2",
+                        "label": "Mức hài lòng và kết quả công việc chưa được đo ở văn phòng mới."
+                      },
+                      {
+                        "guidance": "Không nói thiết kế đã tăng năng suất, không bỏ vấn đề ca làm và giao thông, không gán nhu cầu cố định cho từng nhóm người.",
+                        "id": "point-3",
+                        "label": "Không nói thiết kế đã tăng năng suất, không bỏ vấn đề ca làm và giao thông, không gán nhu cầu cố định cho từng nhóm người."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase thiết kế văn phòng theo hoạt động mà không biến phương án thành kết quả đã đo.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "说什么也得… hoặc 怎么着也得… nhấn nhất định phải làm trong khẩu ngữ. 得 đọc děi. 说什么 ở mẫu này không phải hỏi người kia nói từ nào. Giọng mạnh; dùng cho quyết tâm hoặc yêu cầu có căn cứ trong tình huống, không tự tạo nghĩa vụ phổ quát.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "说什么/怎么着也得: dù thế nào cũng phải"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "今天说什么也得把报告写完。",
+                  "pinyin": "Jīntiān shuō shénme yě děi bǎ bàogào xiě wán.",
+                  "meaningVi": "Hôm nay dù thế nào cũng phải viết xong báo cáo.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "怎么着也得先确认时间。",
+                  "pinyin": "Zěnmezhe yě děi xiān quèrèn shíjiān.",
+                  "meaningVi": "Dù thế nào cũng phải xác nhận giờ trước.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "说什么/怎么着也得: dù thế nào cũng phải"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:0:practice",
+              "title": "Khảo Luyện · 说什么/怎么着也得: dù thế nào cũng phải",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "得 ở đây đọc gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "děi",
+                        "feedback": "得 biểu thị phải."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "dé",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "de",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "得 biểu thị phải.",
+                    "learningTarget": {
+                      "objective": "说什么/怎么着也得: dù thế nào cũng phải",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "说什么 ở mẫu này làm gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Hỏi đúng từ đã nói",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Nhấn dù thế nào",
+                        "feedback": "Cụm cố định nhấn quyết tâm/yêu cầu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chỉ nói tiếng gì",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cụm cố định nhấn quyết tâm/yêu cầu.",
+                    "learningTarget": {
+                      "objective": "说什么/怎么着也得: dù thế nào cũng phải",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:0:transfer",
+              "title": "Vận dụng · 说什么/怎么着也得: dù thế nào cũng phải",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n今天说什么也得打电话确认地址。\nJīntiān shuō shénme yě děi dǎ diànhuà quèrèn dìzhǐ.\nHôm nay dù thế nào cũng phải gọi điện xác nhận địa chỉ.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "说什么/怎么着也得: dù thế nào cũng phải",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ 说什么也得 trước hành động.",
+                        "guidance": "Giữ 说什么也得 trước hành động."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "得 đọc děi.",
+                        "guidance": "得 đọc děi."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không coi quyết tâm là đã xác nhận.",
+                        "guidance": "Không coi quyết tâm là đã xác nhận."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn quyết tâm gọi xác nhận địa chỉ hôm nay. Viết 说什么也得… như ý định.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "贵就贵点儿吧、晚就晚点儿吧 nhượng bộ “đắt thì đắt một chút vậy”, thường rồi nêu điều quan trọng hơn. X lặp là cùng tính chất/hành động. 点儿 diǎnr nói một chút; bỏ hay có tùy câu. Giọng có thể chấp nhận miễn cưỡng, không phải đồng ý vô hạn mọi mức.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "X就X（点儿）吧: chấp nhận một điều"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "贵就贵点儿吧，只要质量好。",
+                  "pinyin": "Guì jiù guì diǎnr ba, zhǐyào zhìliàng hǎo.",
+                  "meaningVi": "Đắt thì đắt một chút vậy, miễn chất lượng tốt.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "晚就晚点儿吧，路上注意安全。",
+                  "pinyin": "Wǎn jiù wǎn diǎnr ba, lù shàng zhùyì ānquán.",
+                  "meaningVi": "Muộn thì muộn một chút vậy, trên đường chú ý an toàn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "X就X（点儿）吧: chấp nhận một điều"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:1:practice",
+              "title": "Khảo Luyện · X就X（点儿）吧: chấp nhận một điều",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "贵就贵点儿吧 có đồng ý mọi giá không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, ngữ cảnh còn giới hạn",
+                        "feedback": "Nhượng bộ không xóa điều kiện chất lượng hoặc mức chấp nhận."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có vì 贵 lặp",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Nhượng bộ không xóa điều kiện chất lượng hoặc mức chấp nhận.",
+                    "learningTarget": {
+                      "objective": "X就X（点儿）吧: chấp nhận một điều",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Hai X có cần cùng ý không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Luôn hai người",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, tính chất được nhượng bộ lặp lại",
+                        "feedback": "Cặp 贵就贵 lặp điều được chấp nhận."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cặp 贵就贵 lặp điều được chấp nhận.",
+                    "learningTarget": {
+                      "objective": "X就X（点儿）吧: chấp nhận một điều",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:1:transfer",
+              "title": "Vận dụng · X就X（点儿）吧: chấp nhận một điều",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n等就等一会儿吧，安全最重要。\nDěng jiù děng yíhuìr ba, ānquán zuì zhòngyào.\nChờ thì chờ một lúc vậy, an toàn quan trọng nhất.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "X就X（点儿）吧: chấp nhận một điều",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "等 lặp để nhượng bộ việc chờ.",
+                        "guidance": "等 lặp để nhượng bộ việc chờ."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ một lúc, không hứa đợi vô hạn.",
+                        "guidance": "Giữ một lúc, không hứa đợi vô hạn."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Nêu an toàn là ưu tiên.",
+                        "guidance": "Nêu an toàn là ưu tiên."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn chấp nhận chờ thêm một chút miễn bạn mình tới an toàn. Viết X就X点儿吧 và điều bạn coi trọng.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "好是好、忙是忙 lặp tính chất quanh 是 để công nhận nó, thường thêm 但是/不过/就是 hoặc vế sau theo ngữ cảnh. Khác 学一点是一点 nhấn lượng từng phần, và X是X，Y是Y tách hai khái niệm. Không lấy vế hạn chế xóa điều đã công nhận.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "X是X: công nhận rồi nêu giới hạn"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "好是好，就是太远了。",
+                  "pinyin": "Hǎo shì hǎo, jiù shì tài yuǎn le.",
+                  "meaningVi": "Tốt thì tốt, chỉ là xa quá.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "忙是忙，不过我能安排时间。",
+                  "pinyin": "Máng shì máng, búguò wǒ néng ānpái shíjiān.",
+                  "meaningVi": "Bận thì bận, nhưng tôi có thể sắp thời gian.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "X是X: công nhận rồi nêu giới hạn"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:2:practice",
+              "title": "Khảo Luyện · X是X: công nhận rồi nêu giới hạn",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "好是好，就是太远了 phủ nhận tốt không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không",
+                        "feedback": "Tốt được thừa nhận; hạn chế xa."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không nói khoảng cách",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Tốt được thừa nhận; hạn chế xa.",
+                    "learningTarget": {
+                      "objective": "X是X: công nhận rồi nêu giới hạn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Học từng chút là mẫu nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "好是好",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "学一点是一点",
+                        "feedback": "Phân biệt lặp tính chất với lặp một lượng sau động từ."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "X是X，Y是Y luôn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Phân biệt lặp tính chất với lặp một lượng sau động từ.",
+                    "learningTarget": {
+                      "objective": "X是X: công nhận rồi nêu giới hạn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:2:transfer",
+              "title": "Vận dụng · X是X: công nhận rồi nêu giới hạn",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n方便是方便，就是有点儿吵。\nFāngbiàn shì fāngbiàn, jiù shì yǒudiǎnr chǎo.\nTiện thì tiện, chỉ là hơi ồn.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "X是X: công nhận rồi nêu giới hạn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "方便 lặp quanh 是.",
+                        "guidance": "方便 lặp quanh 是."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Vế sau nêu ồn.",
+                        "guidance": "Vế sau nêu ồn."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy mọi người không thể ở.",
+                        "guidance": "Không suy mọi người không thể ở."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Chỗ ở tiện nhưng ồn. Viết X是X công nhận tiện, nêu giới hạn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "难道 nándào + mệnh đề + 吗 tạo phản vấn, thường người nói cho câu trả lời đối lập là hiển nhiên. 难道你忘了吗？ ngụ ý ngạc nhiên vì tưởng bạn nhớ. Câu có phủ định như 难道你不想试试吗？ thường gợi muốn thử. Giọng không tự chứng minh kết luận đúng; có thể tạo áp lực với người nghe.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "难道…吗？: chẳng lẽ…sao?"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "难道你忘了吗？",
+                  "pinyin": "Nándào nǐ wàng le ma?",
+                  "meaningVi": "Chẳng lẽ bạn quên rồi sao?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "难道你不想试试吗？",
+                  "pinyin": "Nándào nǐ bù xiǎng shìshi ma?",
+                  "meaningVi": "Chẳng lẽ bạn không muốn thử sao?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "难道…吗？: chẳng lẽ…sao?"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:3:practice",
+              "title": "Khảo Luyện · 难道…吗？: chẳng lẽ…sao?",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "难道…吗 có tự cấp bằng chứng cho điều người nói tin không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có nếu câu hỏi mạnh",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không",
+                        "feedback": "Sắc thái phản vấn khác dữ kiện chứng minh."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Sắc thái phản vấn khác dữ kiện chứng minh.",
+                    "learningTarget": {
+                      "objective": "难道…吗？: chẳng lẽ…sao?",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "难道你不想试试吗 thường ngụ ý gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Gợi kỳ vọng muốn thử",
+                        "feedback": "Phủ định trong phản vấn thường gợi ý khẳng định đối lập."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Xác nhận chưa bao giờ thử",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chỉ hỏi năm sinh",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Phủ định trong phản vấn thường gợi ý khẳng định đối lập.",
+                    "learningTarget": {
+                      "objective": "难道…吗？: chẳng lẽ…sao?",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:emphasis-comparison-r63:3:transfer",
+              "title": "Vận dụng · 难道…吗？: chẳng lẽ…sao?",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n难道报名人多就说明大家都学得好吗？还需要学习结果的证据。\nNándào bàomíng rén duō jiù shuōmíng dàjiā dōu xué de hǎo ma? Hái xūyào xuéxí jiéguǒ de zhèngjù.\nChẳng lẽ nhiều người đăng ký là mọi người đều học tốt sao? Vẫn cần bằng chứng kết quả học.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "难道…吗？: chẳng lẽ…sao?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "难道…吗 phản vấn suy luận mạnh.",
+                        "guidance": "难道…吗 phản vấn suy luận mạnh."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Nêu bằng chứng còn cần.",
+                        "guidance": "Nêu bằng chứng còn cần."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không kết luận người học đều học kém.",
+                        "guidance": "Không kết luận người học đều học kém."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn nghi ngờ kết luận rằng đông người đăng ký là mọi người đã học tốt. Viết phản vấn, rồi nói cần bằng chứng kết quả.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n面对连续加班，经理强调客户合同，员工强调优先级混乱和休息不可预测；记录还显示三分之一加班与等待审批后的返工有关。公司保留奖金，同时要求新增任务说明延期项并提醒超时审批。办公室设计中，开放交流与安静写作也不是简单对立，同一人会随任务变化。公司改按活动设置空间，计划记录噪音、使用率和任务自评。两项方案都综合观点，但三个月试行和新办公室尚未开始。\nTrước tăng ca kéo dài, quản lý nhấn mạnh hợp đồng khách hàng, nhân viên nhấn mạnh ưu tiên hỗn loạn và nghỉ không thể dự đoán; hồ sơ còn cho thấy một phần ba tăng ca liên quan làm lại sau chờ duyệt. Công ty giữ thưởng, đồng thời buộc nhiệm vụ mới nêu hạng mục hoãn và nhắc duyệt quá hạn. Trong thiết kế văn phòng, giao tiếp mở và viết yên tĩnh cũng không đối lập đơn giản vì cùng một người đổi theo nhiệm vụ. Công ty tổ chức không gian theo hoạt động, dự kiến ghi tiếng ồn, tỷ lệ dùng và tự đánh giá. Cả hai phương án tổng hợp quan điểm nhưng thử ba tháng và văn phòng mới chưa bắt đầu.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách hai công ty dung hòa ý kiến đối lập bằng điều kiện vận hành thay vì chọn một phía.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "áp lực khách hàng và nhu cầu nghỉ có thể dự đoán",
+                        "id": "criterion-0",
+                        "label": "áp lực khách hàng và nhu cầu nghỉ có thể dự đoán"
+                      },
+                      {
+                        "guidance": "thưởng cùng thay đổi ưu tiên và phê duyệt",
+                        "id": "criterion-1",
+                        "label": "thưởng cùng thay đổi ưu tiên và phê duyệt"
+                      },
+                      {
+                        "guidance": "nhu cầu không gian theo hoạt động",
+                        "id": "criterion-2",
+                        "label": "nhu cầu không gian theo hoạt động"
+                      },
+                      {
+                        "guidance": "các chỉ báo và trạng thái chưa triển khai",
+                        "id": "criterion-3",
+                        "label": "các chỉ báo và trạng thái chưa triển khai"
+                      },
+                      {
+                        "guidance": "Không nói các phương án đã giảm tăng ca, tăng hài lòng hoặc cải thiện kết quả làm việc; mọi chỉ báo chính vẫn chờ đo.",
+                        "id": "criterion-4",
+                        "label": "Không nói các phương án đã giảm tăng ca, tăng hài lòng hoặc cải thiện kết quả làm việc; mọi chỉ báo chính vẫn chờ đo."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách hai công ty dung hòa ý kiến đối lập bằng điều kiện vận hành thay vì chọn một phía.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n当相反需求都有根据时，管理者应设置可检查的运行条件，不必急着只选一方。客户临时改要求是真的，但记录显示三分之一加班来自等待审批后的集中返工。奖金能补偿辛苦，却不能让休息时间更可预测，所以公司保留奖金，也要求新增任务说明优先级和延期项。办公室里，开放桌并非总比安静房好；同一员工会在讨论、写作和电话之间转换。按活动预约空间能让不同需求并存，并用噪音、使用率和任务自评检验。反对者认为多种规则与空间增加成本，单一决定更容易执行。这个担心值得测量，因此方案应限制规则数量和空间类型；可是只选一方会忽略另一类任务的证据。加班试行和新办公室都未完成，目前只能说这些条件可用于检验观点，不能说方案已经成功。\nKhi nhu cầu đối lập nhưng đều có cơ sở, quản lý nên đặt điều kiện vận hành và đo riêng kết quả thay vì vội chọn một phía. Trong vấn đề tăng ca, khách hàng đổi yêu cầu là thật, nhưng hồ sơ cho thấy một phần ba tăng ca đến từ chờ duyệt rồi làm lại dồn. Tăng thưởng có thể bù công sức, song không làm thời gian dễ dự đoán. Vì vậy công ty vừa giữ thưởng vừa buộc nhiệm vụ mới nêu ưu tiên và hạng mục hoãn. Ở văn phòng, bàn mở không phải lúc nào cũng hơn phòng yên tĩnh: cùng một người có lúc thảo luận, có lúc viết hoặc gọi điện. Thiết kế theo hoạt động cho phép các nhu cầu cùng tồn tại và tạo chỉ báo tiếng ồn, sử dụng, tự đánh giá để kiểm tra. Người phản đối có thể nói nhiều quy tắc và loại không gian làm tăng chi phí, quyết định đơn giản dễ thực hiện hơn. Điều đó đúng, nên phương án phải giới hạn số quy tắc và đo chi phí; nhưng chọn một phía sẽ xóa bằng chứng về nhiệm vụ khác. Cả thử nghiệm tăng ca và văn phòng mới đều chưa hoàn tất, nên đây là cách kiểm tra quan điểm, chưa phải bằng chứng thành công.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận xem khi các bên có nhu cầu đối lập, quản lý nên chọn một phía rõ ràng hay xây điều kiện cho nhiều nhu cầu cùng tồn tại.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm ưu tiên điều kiện kiểm chứng được",
+                        "id": "criterion-0",
+                        "label": "luận điểm ưu tiên điều kiện kiểm chứng được"
+                      },
+                      {
+                        "guidance": "bằng chứng một phần ba tăng ca",
+                        "id": "criterion-1",
+                        "label": "bằng chứng một phần ba tăng ca"
+                      },
+                      {
+                        "guidance": "khác biệt theo hoạt động trong văn phòng",
+                        "id": "criterion-2",
+                        "label": "khác biệt theo hoạt động trong văn phòng"
+                      },
+                      {
+                        "guidance": "phản biện về chi phí và độ phức tạp",
+                        "id": "criterion-3",
+                        "label": "phản biện về chi phí và độ phức tạp"
+                      },
+                      {
+                        "guidance": "kết luận giới hạn vì hai phương án chưa vận hành đủ",
+                        "id": "criterion-4",
+                        "label": "kết luận giới hạn vì hai phương án chưa vận hành đủ"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Một phương án dung hòa có thể tốn tiền, tăng quy tắc và khiến trách nhiệm không rõ; chọn một ưu tiên duy nhất dễ truyền đạt và thực thi hơn.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất điều kiện có thể đo cho hai công ty; chưa kết luận cấu hình thưởng, phê duyệt hoặc không gian nào tối ưu và không dự báo thành công.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất điều kiện có thể đo cho hai công ty; chưa kết luận cấu hình thưởng, phê duyệt hoặc không gian nào tối ưu và không dự báo thành công."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận xem khi các bên có nhu cầu đối lập, quản lý nên chọn một phía rõ ràng hay xây điều kiện cho nhiều nhu cầu cùng tồn tại.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n客户合同和空间成本都是真实限制，应先明确承认。\n三分之一加班来自审批后返工，同一员工也需要不同空间。\n新增任务必须说明延期项，空间按活动预约并记录使用。\n若规则太复杂，就限制字段和空间类型，同时测量管理成本。\n试行未完成，所以主张的是最低条件，不是成功保证。\nHợp đồng khách hàng và chi phí không gian là giới hạn thật, cần thừa nhận trước.\nMột phần ba tăng ca do làm lại sau duyệt; cùng nhân viên cũng cần nhiều loại không gian.\nNhiệm vụ mới phải nêu hạng mục hoãn, không gian đặt theo hoạt động và ghi sử dụng.\nNếu quy tắc quá phức tạp, giới hạn trường và loại không gian, đồng thời đo chi phí quản lý.\nThử nghiệm chưa xong nên đây là điều kiện tối thiểu, không phải bảo đảm thành công.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Bảo vệ trong ba phút một điều kiện tối thiểu mà quản lý không được bỏ qua khi áp lực khách hàng hoặc chi phí không gian tăng. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "thừa nhận một áp lực của quản lý",
+                        "id": "move-0",
+                        "label": "thừa nhận một áp lực của quản lý"
+                      },
+                      {
+                        "guidance": "nêu một bằng chứng từ phía nhân viên",
+                        "id": "move-1",
+                        "label": "nêu một bằng chứng từ phía nhân viên"
+                      },
+                      {
+                        "guidance": "đề xuất điều kiện vận hành có thể kiểm tra",
+                        "id": "move-2",
+                        "label": "đề xuất điều kiện vận hành có thể kiểm tra"
+                      },
+                      {
+                        "guidance": "trả lời phản biện về chi phí và độ phức tạp",
+                        "id": "move-3",
+                        "label": "trả lời phản biện về chi phí và độ phức tạp"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bảo vệ trong ba phút một điều kiện tối thiểu mà quản lý không được bỏ qua khi áp lực khách hàng hoặc chi phí không gian tăng.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "management",
+                        "label": "线索一",
+                        "meaningVi": "Hợp đồng và bồi thường bằng thưởng.",
+                        "note": "Góc nhìn quản lý · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "employee",
+                        "label": "线索二",
+                        "meaningVi": "Ưu tiên, thời gian và nghỉ bị gián đoạn.",
+                        "note": "Góc nhìn nhân viên · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "evidence",
+                        "label": "线索三",
+                        "meaningVi": "Một phần ba tăng ca do chờ duyệt và làm lại.",
+                        "note": "Dữ liệu chung · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "solution",
+                        "label": "线索四",
+                        "meaningVi": "Thưởng, ưu tiên, nhắc duyệt và rà soát.",
+                        "note": "Giải pháp · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "boundary",
+                        "label": "线索五",
+                        "meaningVi": "Thử nghiệm chưa bắt đầu.",
+                        "note": "Giới hạn · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-education-work-evaluation-viewpoint-synthesis; revision f54b4fdc-ed44-4e24-8dbd-b987383ee16b; humanReviewed:false",
+                  "title": "Lựa chọn quản lý sau giai đoạn tăng ca nhiều"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "management",
+                        "label": "线索一",
+                        "meaningVi": "Không gian mở cho trao đổi.",
+                        "note": "Góc nhìn quản lý · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "focus",
+                        "label": "线索二",
+                        "meaningVi": "Không gian yên cho viết.",
+                        "note": "Góc nhìn tập trung · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "shift",
+                        "label": "线索三",
+                        "meaningVi": "Nhu cầu đổi theo hoạt động trong ngày.",
+                        "note": "Phát hiện · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "design",
+                        "label": "线索四",
+                        "meaningVi": "Không gian đặt theo hoạt động.",
+                        "note": "Tổng hợp · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "metrics",
+                        "label": "线索五",
+                        "meaningVi": "Tiếng ồn, sử dụng và tự đánh giá.",
+                        "note": "Đánh giá · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-education-work-evaluation-viewpoint-synthesis; revision f54b4fdc-ed44-4e24-8dbd-b987383ee16b; humanReviewed:false",
+                  "title": "Ai định nghĩa chất lượng môi trường làm việc?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-04:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "b8f00b52-6ef9-40dd-b4a5-1fd96fab7dd2",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng nêu phản biện và điều kiện để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-stance-comparison-rhetoric-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-048",
+          "hsk4-grammar-row-049",
+          "hsk4-grammar-row-050",
+          "hsk4-grammar-row-053"
+        ],
+        "sourceLessonIds": [
+          "hsk4-stance-comparison-rhetoric-lesson-04",
+          "hsk4-education-work-evaluation-viewpoint-synthesis"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-16"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01056",
+          "hsk-vocab-01126",
+          "hsk-vocab-01273",
+          "hsk-vocab-01349",
+          "hsk-vocab-01416",
+          "hsk-vocab-01599",
+          "hsk-vocab-01668",
+          "hsk-vocab-01955",
+          "hsk-vocab-01919",
+          "hsk-vocab-01311"
+        ],
+        "targetLessonId": "hsk4-stance-comparison-rhetoric-lesson-04",
+        "titleZh": "HSK四级 · 46",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "eee03552-ab48-4563-a8c4-2ba78dd26d0f"
+        },
+        "vocabulary": [
+          "hsk-vocab-01056",
+          "hsk-vocab-01126",
+          "hsk-vocab-01273",
+          "hsk-vocab-01349",
+          "hsk-vocab-01416",
+          "hsk-vocab-01599",
+          "hsk-vocab-01668",
+          "hsk-vocab-01955",
+          "hsk-vocab-01919",
+          "hsk-vocab-01311"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "267b4f7c-aeb6-4fe5-bf33-d001fc07113c",
+      "sourceContentSha256": "sha256:394f35d1655b59fe0af6c822ca652db57edb9cf301f77d1f780f8a63ecd66ac6",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm chống xếp hạng thiếu khẩu径\nso sánh cửa theo mùa và chỉ báo\nphân biệt địa phương với toàn hệ thống\nphản biện về nhu cầu quyết định đơn giản\nkết luận giới hạn theo dữ liệu bảo trì và điện",
+        "conceptVi": "Viết kết luận có giới hạn: Dùng định dạng tu từ, phản vấn, so sánh và nhấn mạnh để nêu thái độ mà không làm mất ranh giới giữa dữ kiện và ý kiến.",
+        "dialogue": [
+          {
+            "hanzi": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+            "meaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+            "pinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "冬季数据中，双层窗减少热量流失的效果稳定；自动遮阳窗在晴天也不错，但阴天差异小。夏季时，遮阳窗使下午温度下降更多，却有居民觉得房间变暗。两种窗都有效，只是指标和季节不同。",
+            "meaningVi": "Dữ liệu đông: kính hai lớp giảm thất thoát ổn định; che tự động tốt ngày nắng nhưng ít khác ngày âm. Mùa hè, che làm chiều mát hơn nhưng có cư dân thấy tối. Cả hai hiệu quả theo chỉ số và mùa khác.",
+            "pinyin": "Dōngjì shùjù zhōng, shuāng céng chuāng jiǎnshǎo rèliàng liúshī de xiàoguǒ wěndìng; zìdòng zhēyáng chuāng zài qíngtiān yě bùcuò, dàn yīn tiān chāyì xiǎo. Xiàjì shí, zhēyáng chuāng shǐ xiàwǔ wēndù xiàjiàng gèng duō, què yǒu jūmín juédé fángjiān biàn àn. Liǎng zhǒng chuāng dōu yǒuxiào, zhǐshì zhǐbiāo hé jìjié bùtóng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "小组没有用全年平均数决定唯一优胜者，而是分别报告能耗、温度、亮度和满意度。下一步还要比较维护费用。研究说明“效果好”必须说明针对什么目标和条件，否则同一个结论会隐藏重要差异。",
+            "meaningVi": "Nhóm không dùng trung bình năm chọn một người thắng, mà báo năng lượng, nhiệt, sáng, hài lòng riêng. Bước sau so chi phí bảo trì. Nghiên cứu cho thấy “hiệu quả tốt” phải nói mục tiêu/điều kiện, nếu không kết luận che khác biệt quan trọng.",
+            "pinyin": "Xiǎozǔ méiyǒu yòng quán nián píngjūn shù juédìng wéiyī yōushèng zhě, ér shì fēnbié bàogào néng hào, wēndù, liàngdù hé mǎnyì dù. Xià yībù hái yào bǐjiào wéihù fèiyòng. Yánjiū shuōmíng “xiàoguǒ hǎo” bìxū shuōmíng zhēnduì shénme mùbiāo hé tiáojiàn, fǒuzé tóng yīgè jiélùn huì yǐncáng zhòngyào chāyì.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "一座工厂从上世纪起使用燃料油。去年停止用油，改成电加热。附近监测站发现黑烟变得少见，某种空气污染下降三成，于是有人说能源更换解决了全部环境问题。",
+            "meaningVi": "Một nhà máy dùng dầu từ thế kỷ trước. Năm ngoái ngừng dầu, chuyển điện. Trạm gần đó thấy khói đen hiếm và một chất ô nhiễm giảm ba phần mười, nên có người nói đổi năng lượng giải mọi vấn đề.",
+            "pinyin": "Yīzuò gōngchǎng cóng shàng shìjì qǐ shǐyòng ránliào yóu. Qùnián tíngzhǐ yòng yóu, gǎi chéng diàn jiārè. Fùjìn jiāncè zhàn fāxiàn hēi yān biàn dé shǎojiàn, mǒu zhǒng kōngqì wūrǎn xiàjiàng sānchéng, yúshì yǒurén shuō néngyuán gēnghuàn jiějuéle quánbù huánjìng wèntí.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "进一步比较显示，工厂本地排放确实下降，但用电在高峰期来自远处燃煤电站；同时生产量也减少了一成。若只看厂门口，效果明显；若计算整个电力来源和生产变化，解释就更复杂。",
+            "meaningVi": "So thêm cho thấy phát thải tại chỗ giảm, nhưng điện cao điểm từ nhà máy than xa; sản lượng cũng giảm một phần mười. Chỉ nhìn cổng thì hiệu quả rõ, tính nguồn điện và sản lượng thì phức tạp.",
+            "pinyin": "Jìnyībù bǐjiào xiǎnshì, gōngchǎng běndì páifàng quèshí xiàjiàng, dàn yòng diàn zài gāofēng qī láizì yuǎn chù rán méi diànzhàn; tóngshí shēngchǎn liàng yě jiǎnshǎole yī chéng. Ruò zhǐ kàn chǎng ménkǒu, xiàoguǒ míngxiǎn; ruò jìsuàn zhěnggè diànlì láiyuán hé shēngchǎn biànhuà, jiěshì jiù gèng fùzá.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "研究人员提出两种口径：本地空气质量和全系统排放。前者已有改善证据，后者仍需电力数据。停止用油是重要变化，却不能单独回答全球或全地区污染是否下降。报告将同时保留两种结果。",
+            "meaningVi": "Nhà nghiên cứu dùng hai phạm vi: chất lượng không khí địa phương và phát thải toàn hệ. Cái đầu có bằng chứng cải thiện, cái sau cần dữ liệu điện. Ngừng dầu quan trọng nhưng không tự trả lời ô nhiễm toàn vùng/toàn cầu; báo cáo giữ cả hai.",
+            "pinyin": "Yánjiū rényuán tíchū liǎng zhǒng kǒujìng: Běndì kōngqì zhí liàng hé quán xìtǒng páifàng. Qiánzhě yǐ yǒu gǎishàn zhèngjù, hòu zhě réng xū diànlì shùjù. Tíngzhǐ yòng yóu shì zhòngyào biànhuà, què bùnéng dāndú huídá quánqiú huò quán dìqū wūrǎn shìfǒu xiàjiàng. Bàogào jiāng tóngshí bǎoliú liǎng zhǒng jiéguǒ.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:928ff209276115335a55f6dc42382f4495b7479fe5a5b8ed501ecacd07f411a7",
+          "evidenceDocument": "docs/thien-lo-redesign-review/117-REVIEW-HSK4-RUBRIC-ROUND24.md",
+          "humanReviewed": false,
+          "scope": "Clarify counterargument rubric instructions in 24 HSK4 lessons; preserve claims and stable IDs.",
+          "sourceContentSha256": "sha256:9287ce27e0f9b54975247a2b574f424f476d333c7d2cf46c0efb993b7897c4a1",
+          "sourceRevisionId": "1765c636-095e-4b07-9408-5dfc87cb46ad"
+        },
+        "exercises": [
+          {
+            "answer": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+            "answerMeaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+            "answerPinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù.",
+            "distractors": [
+              "冬季数据中，双层窗减少热量流失的效果稳定；自动遮阳窗在晴天也不错，但阴天差异小。夏季时，遮阳窗使下午温度下降更多，却有居民觉得房间变暗。两种窗都有效，只是指标和季节不同。",
+              "小组没有用全年平均数决定唯一优胜者，而是分别报告能耗、温度、亮度和满意度。下一步还要比较维护费用。研究说明“效果好”必须说明针对什么目标和条件，否则同一个结论会隐藏重要差异。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "谁、怎么、哪儿… có thể tạo phản vấn khi câu trả lời được ngữ cảnh ngụ ý: 谁不想成功呢？ = ai chẳng muốn thành công. Khác câu 谁来了？ hỏi thông tin chưa biết. Không phân loại chỉ theo có từ nghi vấn; xét ngữ cảnh và ý người nói. Phản vấn không thay căn cứ.",
+            "guidedPractice": {
+              "promptVi": "Bạn phản vấn việc kết luận toàn hệ thống từ một trạm đo. Dùng 怎么…呢 và nêu phạm vi thiếu.",
+              "modelAnswerHanzi": "只看一个监测站，怎么能判断整个系统呢？还缺少其他地方的数据。",
+              "modelAnswerPinyin": "Zhǐ kàn yí ge jiāncèzhàn, zěnme néng pànduàn zhěng ge xìtǒng ne? Hái quēshǎo qítā dìfang de shùjù.",
+              "modelAnswerMeaningVi": "Chỉ nhìn một trạm đo, sao đánh giá toàn hệ thống được? Còn thiếu dữ liệu các nơi khác."
+            },
+            "modelExample": {
+              "hanzi": "谁不想成功呢？",
+              "pinyin": "Shéi bù xiǎng chénggōng ne?",
+              "meaningVi": "Ai chẳng muốn thành công?",
+              "speaker": "A"
+            },
+            "pattern": "由疑问代词构成的反问句"
+          },
+          {
+            "explanationVi": "不如 bùrú so A không bằng B theo khía cạnh ngữ cảnh. 可以不写 tính từ khi tiêu chí đã rõ: 这次不如上次. Có thể 不如… đề xuất “hay là” nhưng cần ngữ cảnh khác, không tự xếp hạng toàn diện. Phân biệt 没有B那么… cùng nêu không bằng theo tính chất.",
+            "guidedPractice": {
+              "promptVi": "Bạn đi hai tuyến mới, tuyến A mất nhiều thời gian hơn tuyến B. So về tốc độ với 不如, không đánh giá mọi mặt.",
+              "modelAnswerHanzi": "只比较速度，走A路线不如走B路线快。",
+              "modelAnswerPinyin": "Zhǐ bǐjiào sùdù, zǒu A lùxiàn bùrú zǒu B lùxiàn kuài.",
+              "modelAnswerMeaningVi": "Chỉ so tốc độ, đi tuyến A không nhanh bằng đi tuyến B."
+            },
+            "modelExample": {
+              "hanzi": "这次的成绩不如上次好。",
+              "pinyin": "Zhè cì de chéngjì bùrú shàng cì hǎo.",
+              "meaningVi": "Kết quả lần này không tốt bằng lần trước.",
+              "speaker": "A"
+            },
+            "pattern": "（1）A不如B（+形容词）"
+          },
+          {
+            "explanationVi": "跟 gēn + đối tượng + 相比 xiāngbǐ đưa mốc so. Sau đó nêu thay đổi hoặc khác biệt, không buộc so hơn về mọi mặt. Mốc có thể thời điểm như 跟去年相比. Không nêu con số nếu nguồn chỉ nói nhiều/ít, và không biến so trước–sau thành nguyên nhân duy nhất.",
+            "guidedPractice": {
+              "promptVi": "Sổ ghi tháng này bạn học đều hơn tháng trước, chưa có điểm thi. Viết 跟…相比 giữ hành vi học.",
+              "modelAnswerHanzi": "跟上个月相比，这个月我的学习更有规律。",
+              "modelAnswerPinyin": "Gēn shàng ge yuè xiāngbǐ, zhè ge yuè wǒ de xuéxí gèng yǒu guīlǜ.",
+              "modelAnswerMeaningVi": "So với tháng trước, tháng này việc học của tôi đều đặn hơn."
+            },
+            "modelExample": {
+              "hanzi": "跟去年相比，今年的雨更多。",
+              "pinyin": "Gēn qùnián xiāngbǐ, jīnnián de yǔ gèng duō.",
+              "meaningVi": "So với năm ngoái, năm nay mưa nhiều hơn.",
+              "speaker": "A"
+            },
+            "pattern": "（2）跟……相比"
+          },
+          {
+            "explanationVi": "不能不、不得不、没有人不… có hai phần phủ định dẫn tới khẳng định/nhấn nghĩa phải. 我不能不考虑成本 = tôi buộc phải tính chi phí. Không phải hai phủ định luôn cho cùng mức: 不得不 thường bất đắc dĩ; 不能不 có thể nhấn nghĩa vụ/lý do. Phân biệt 不能去 phủ định đơn.",
+            "guidedPractice": {
+              "promptVi": "Bạn đánh giá hai sản phẩm, không thể bỏ qua phí bảo trì. Viết 不能不…, không bịa mức phí.",
+              "modelAnswerHanzi": "比较这两种产品时，我们不能不考虑维护费用。",
+              "modelAnswerPinyin": "Bǐjiào zhè liǎng zhǒng chǎnpǐn shí, wǒmen bù néng bù kǎolǜ wéihù fèiyong.",
+              "modelAnswerMeaningVi": "Khi so hai sản phẩm này, chúng ta không thể không cân nhắc phí bảo trì."
+            },
+            "modelExample": {
+              "hanzi": "我不能不考虑成本。",
+              "pinyin": "Wǒ bù néng bù kǎolǜ chéngběn.",
+              "meaningVi": "Tôi không thể không cân nhắc chi phí.",
+              "speaker": "A"
+            },
+            "pattern": "用双重否定表示强调"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng viết kết luận có giới hạn để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Viết kết luận có giới hạn: Dùng định dạng tu từ, phản vấn, so sánh và nhấn mạnh để nêu thái độ mà không làm mất ranh giới giữa dữ kiện và ý kiến."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-05:source-0-0",
+                        "meaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+                        "pinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù."
+                      },
+                      {
+                        "hanzi": "冬季数据中，双层窗减少热量流失的效果稳定；自动遮阳窗在晴天也不错，但阴天差异小。夏季时，遮阳窗使下午温度下降更多，却有居民觉得房间变暗。两种窗都有效，只是指标和季节不同。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-05:source-0-1",
+                        "meaningVi": "Dữ liệu đông: kính hai lớp giảm thất thoát ổn định; che tự động tốt ngày nắng nhưng ít khác ngày âm. Mùa hè, che làm chiều mát hơn nhưng có cư dân thấy tối. Cả hai hiệu quả theo chỉ số và mùa khác.",
+                        "pinyin": "Dōngjì shùjù zhōng, shuāng céng chuāng jiǎnshǎo rèliàng liúshī de xiàoguǒ wěndìng; zìdòng zhēyáng chuāng zài qíngtiān yě bùcuò, dàn yīn tiān chāyì xiǎo. Xiàjì shí, zhēyáng chuāng shǐ xiàwǔ wēndù xiàjiàng gèng duō, què yǒu jūmín juédé fángjiān biàn àn. Liǎng zhǒng chuāng dōu yǒuxiào, zhǐshì zhǐbiāo hé jìjié bùtóng."
+                      },
+                      {
+                        "hanzi": "小组没有用全年平均数决定唯一优胜者，而是分别报告能耗、温度、亮度和满意度。下一步还要比较维护费用。研究说明“效果好”必须说明针对什么目标和条件，否则同一个结论会隐藏重要差异。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-05:source-0-2",
+                        "meaningVi": "Nhóm không dùng trung bình năm chọn một người thắng, mà báo năng lượng, nhiệt, sáng, hài lòng riêng. Bước sau so chi phí bảo trì. Nghiên cứu cho thấy “hiệu quả tốt” phải nói mục tiêu/điều kiện, nếu không kết luận che khác biệt quan trọng.",
+                        "pinyin": "Xiǎozǔ méiyǒu yòng quán nián píngjūn shù juédìng wéiyī yōushèng zhě, ér shì fēnbié bàogào néng hào, wēndù, liàngdù hé mǎnyì dù. Xià yībù hái yào bǐjiào wéihù fèiyòng. Yánjiū shuōmíng “xiàoguǒ hǎo” bìxū shuōmíng zhēnduì shénme mùbiāo hé tiáojiàn, fǒuzé tóng yīgè jiélùn huì yǐncáng zhòngyào chāyì."
+                      }
+                    ]
+                  },
+                  "title": "Hiệu quả khác nhau của hai loại cửa sổ tiết kiệm năng lượng"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Hiệu quả khác nhau của hai loại cửa sổ tiết kiệm năng lượng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "一座工厂从上世纪起使用燃料油。去年停止用油，改成电加热。附近监测站发现黑烟变得少见，某种空气污染下降三成，于是有人说能源更换解决了全部环境问题。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-05:source-1-0",
+                        "meaningVi": "Một nhà máy dùng dầu từ thế kỷ trước. Năm ngoái ngừng dầu, chuyển điện. Trạm gần đó thấy khói đen hiếm và một chất ô nhiễm giảm ba phần mười, nên có người nói đổi năng lượng giải mọi vấn đề.",
+                        "pinyin": "Yīzuò gōngchǎng cóng shàng shìjì qǐ shǐyòng ránliào yóu. Qùnián tíngzhǐ yòng yóu, gǎi chéng diàn jiārè. Fùjìn jiāncè zhàn fāxiàn hēi yān biàn dé shǎojiàn, mǒu zhǒng kōngqì wūrǎn xiàjiàng sānchéng, yúshì yǒurén shuō néngyuán gēnghuàn jiějuéle quánbù huánjìng wèntí."
+                      },
+                      {
+                        "hanzi": "进一步比较显示，工厂本地排放确实下降，但用电在高峰期来自远处燃煤电站；同时生产量也减少了一成。若只看厂门口，效果明显；若计算整个电力来源和生产变化，解释就更复杂。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-05:source-1-1",
+                        "meaningVi": "So thêm cho thấy phát thải tại chỗ giảm, nhưng điện cao điểm từ nhà máy than xa; sản lượng cũng giảm một phần mười. Chỉ nhìn cổng thì hiệu quả rõ, tính nguồn điện và sản lượng thì phức tạp.",
+                        "pinyin": "Jìnyībù bǐjiào xiǎnshì, gōngchǎng běndì páifàng quèshí xiàjiàng, dàn yòng diàn zài gāofēng qī láizì yuǎn chù rán méi diànzhàn; tóngshí shēngchǎn liàng yě jiǎnshǎole yī chéng. Ruò zhǐ kàn chǎng ménkǒu, xiàoguǒ míngxiǎn; ruò jìsuàn zhěnggè diànlì láiyuán hé shēngchǎn biànhuà, jiěshì jiù gèng fùzá."
+                      },
+                      {
+                        "hanzi": "研究人员提出两种口径：本地空气质量和全系统排放。前者已有改善证据，后者仍需电力数据。停止用油是重要变化，却不能单独回答全球或全地区污染是否下降。报告将同时保留两种结果。",
+                        "id": "hsk4-stance-comparison-rhetoric-lesson-05:source-1-2",
+                        "meaningVi": "Nhà nghiên cứu dùng hai phạm vi: chất lượng không khí địa phương và phát thải toàn hệ. Cái đầu có bằng chứng cải thiện, cái sau cần dữ liệu điện. Ngừng dầu quan trọng nhưng không tự trả lời ô nhiễm toàn vùng/toàn cầu; báo cáo giữ cả hai.",
+                        "pinyin": "Yánjiū rényuán tíchū liǎng zhǒng kǒujìng: Běndì kōngqì zhí liàng hé quán xìtǒng páifàng. Qiánzhě yǐ yǒu gǎishàn zhèngjù, hòu zhě réng xū diànlì shùjù. Tíngzhǐ yòng yóu shì zhòngyào biànhuà, què bùnéng dāndú huídá quánqiú huò quán dìqū wūrǎn shìfǒu xiàjiàng. Bàogào jiāng tóngshí bǎoliú liǎng zhǒng jiéguǒ."
+                      }
+                    ]
+                  },
+                  "title": "Sau khi ngừng dùng dầu, ô nhiễm có giảm không"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Sau khi ngừng dùng dầu, ô nhiễm có giảm không"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Nguồn báo riêng dữ liệu mùa đông, mùa hè và cảm nhận độ sáng, đồng thời từ chối dùng trung bình năm để chọn một loại thắng tuyệt đối. Giới hạn: Không được gọi một loại cửa tốt nhất toàn diện vì chi phí bảo trì chưa so và mục tiêu của cư dân khác nhau.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Cửa kính hai lớp giữ nhiệt mùa đông ổn định hơn; cửa tự che nắng giảm nhiệt mùa hè nhiều hơn nhưng cũng có thể làm phòng tối.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Nguồn báo riêng dữ liệu mùa đông, mùa hè và cảm nhận độ sáng, đồng thời từ chối dùng trung bình năm để chọn một loại thắng tuyệt đối.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn báo riêng dữ liệu mùa đông, mùa hè và cảm nhận độ sáng, đồng thời từ chối dùng trung bình năm để chọn một loại thắng tuyệt đối.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "双层窗冬季保温较稳定，自动遮阳窗夏季降温更多，但也可能使房间变暗。\nCửa kính hai lớp giữ nhiệt mùa đông ổn định hơn; cửa tự che nắng giảm nhiệt mùa hè nhiều hơn nhưng cũng có thể làm phòng tối.\nĐối chiếu Nguồn A · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn xác nhận cải thiện cục bộ nhưng nêu điện giờ cao điểm đến từ nhà máy than ở xa và sản lượng giảm 10%; dữ liệu toàn hệ thống còn thiếu. Giới hạn: Chỉ được kết luận có bằng chứng cải thiện không khí địa phương, không mở rộng sang toàn khu vực, toàn cầu hoặc mọi vấn đề môi trường.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sau khi nhà máy ngừng dùng dầu, một loại ô nhiễm địa phương giảm 30%, cho thấy đổi năng lượng đã giải quyết toàn bộ vấn đề môi trường.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Chỉ được kết luận có bằng chứng cải thiện không khí địa phương, không mở rộng sang toàn khu vực, toàn cầu hoặc mọi vấn đề môi trường.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn xác nhận cải thiện cục bộ nhưng nêu điện giờ cao điểm đến từ nhà máy than ở xa và sản lượng giảm 10%; dữ liệu toàn hệ thống còn thiếu.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "工厂停止用油后，本地一种污染下降三成，说明能源更换已经解决全部环境问题。\nSau khi nhà máy ngừng dùng dầu, một loại ô nhiễm địa phương giảm 30%, cho thấy đổi năng lượng đã giải quyết toàn bộ vấn đề môi trường.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n双层玻璃窗冬季保温更稳定，自动遮阳窗夏季降低下午温度更多，却可能减少亮度。研究分别报告能耗、温度、亮度和满意度，没有用全年平均数选唯一优胜者；维护费用仍待比较。\nCửa kính hai lớp giữ nhiệt mùa đông ổn định hơn; cửa tự che nắng giảm nhiệt chiều mùa hè nhiều hơn nhưng có thể giảm ánh sáng. Nghiên cứu báo riêng năng lượng, nhiệt độ, độ sáng và hài lòng, không dùng trung bình năm để chọn một người thắng; chi phí bảo trì vẫn chờ so.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase so sánh hai loại cửa theo từng chỉ báo, mùa và phần dữ liệu còn thiếu.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Hiệu quả của hai loại cửa thay đổi theo mùa và chỉ báo.",
+                        "id": "point-0",
+                        "label": "Hiệu quả của hai loại cửa thay đổi theo mùa và chỉ báo."
+                      },
+                      {
+                        "guidance": "Một số cư dân thấy cửa tự che nắng làm phòng tối.",
+                        "id": "point-1",
+                        "label": "Một số cư dân thấy cửa tự che nắng làm phòng tối."
+                      },
+                      {
+                        "guidance": "Chi phí bảo trì chưa được so sánh.",
+                        "id": "point-2",
+                        "label": "Chi phí bảo trì chưa được so sánh."
+                      },
+                      {
+                        "guidance": "Không xếp hạng một loại cửa tốt nhất, không thêm số tiền tiết kiệm và không coi mức hài lòng là giống nhau giữa cư dân.",
+                        "id": "point-3",
+                        "label": "Không xếp hạng một loại cửa tốt nhất, không thêm số tiền tiết kiệm và không coi mức hài lòng là giống nhau giữa cư dân."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase so sánh hai loại cửa theo từng chỉ báo, mùa và phần dữ liệu còn thiếu.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n工厂改用电加热后，厂门口黑烟减少，本地一种污染下降三成；但高峰用电部分来自远处燃煤电站，生产量也下降一成。因此本地改善已有证据，全系统排放仍要等电力数据。\nSau khi nhà máy chuyển sang gia nhiệt điện, khói đen ở cổng giảm và một loại ô nhiễm địa phương giảm 30%; nhưng một phần điện giờ cao điểm đến từ nhà máy than ở xa, sản lượng cũng giảm 10%. Vì thế đã có bằng chứng cải thiện địa phương, còn phát thải toàn hệ thống phải chờ dữ liệu điện.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại kết quả đổi năng lượng, giữ riêng không khí địa phương, nguồn điện xa và thay đổi sản lượng.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Khói đen ít đi và một loại ô nhiễm địa phương giảm ba mươi phần trăm.",
+                        "id": "point-0",
+                        "label": "Khói đen ít đi và một loại ô nhiễm địa phương giảm ba mươi phần trăm."
+                      },
+                      {
+                        "guidance": "Sản lượng giảm một phần mười trong cùng giai đoạn.",
+                        "id": "point-1",
+                        "label": "Sản lượng giảm một phần mười trong cùng giai đoạn."
+                      },
+                      {
+                        "guidance": "Nguồn điện giờ cao điểm có phần đến từ nhà máy than ở xa.",
+                        "id": "point-2",
+                        "label": "Nguồn điện giờ cao điểm có phần đến từ nhà máy than ở xa."
+                      },
+                      {
+                        "guidance": "Không nói phát thải toàn hệ thống tăng hay giảm khi chưa có dữ liệu, không bỏ thay đổi sản lượng và không mở rộng sang toàn cầu.",
+                        "id": "point-3",
+                        "label": "Không nói phát thải toàn hệ thống tăng hay giảm khi chưa có dữ liệu, không bỏ thay đổi sản lượng và không mở rộng sang toàn cầu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại kết quả đổi năng lượng, giữ riêng không khí địa phương, nguồn điện xa và thay đổi sản lượng.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "谁、怎么、哪儿… có thể tạo phản vấn khi câu trả lời được ngữ cảnh ngụ ý: 谁不想成功呢？ = ai chẳng muốn thành công. Khác câu 谁来了？ hỏi thông tin chưa biết. Không phân loại chỉ theo có từ nghi vấn; xét ngữ cảnh và ý người nói. Phản vấn không thay căn cứ.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đại từ nghi vấn trong câu phản vấn"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "谁不想成功呢？",
+                  "pinyin": "Shéi bù xiǎng chénggōng ne?",
+                  "meaningVi": "Ai chẳng muốn thành công?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "没有数据，怎么能下结论呢？",
+                  "pinyin": "Méiyǒu shùjù, zěnme néng xià jiélùn ne?",
+                  "meaningVi": "Không có dữ liệu, sao có thể kết luận được?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Đại từ nghi vấn trong câu phản vấn"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:0:practice",
+              "title": "Khảo Luyện · Đại từ nghi vấn trong câu phản vấn",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "谁来了？ trong hỏi ai vừa đến luôn là phản vấn không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, có thể hỏi thông tin thật",
+                        "feedback": "Ngữ cảnh hỏi thông tin khác kỳ vọng câu trả lời hiển nhiên."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có vì có 谁",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có vì ngắn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Ngữ cảnh hỏi thông tin khác kỳ vọng câu trả lời hiển nhiên.",
+                    "learningTarget": {
+                      "objective": "Đại từ nghi vấn trong câu phản vấn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "谁不想成功呢 thường gợi gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không ai muốn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mọi người đều muốn trong cách nói nhấn mạnh",
+                        "feedback": "Đây là phản vấn dùng phủ định để nhấn ý khẳng định, không phải dữ liệu khảo sát mọi người."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có tên người chưa biết",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Đây là phản vấn dùng phủ định để nhấn ý khẳng định, không phải dữ liệu khảo sát mọi người.",
+                    "learningTarget": {
+                      "objective": "Đại từ nghi vấn trong câu phản vấn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:0:transfer",
+              "title": "Vận dụng · Đại từ nghi vấn trong câu phản vấn",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n只看一个监测站，怎么能判断整个系统呢？还缺少其他地方的数据。\nZhǐ kàn yí ge jiāncèzhàn, zěnme néng pànduàn zhěng ge xìtǒng ne? Hái quēshǎo qítā dìfang de shùjù.\nChỉ nhìn một trạm đo, sao đánh giá toàn hệ thống được? Còn thiếu dữ liệu các nơi khác.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đại từ nghi vấn trong câu phản vấn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Dùng 怎么…呢 phản vấn.",
+                        "guidance": "Dùng 怎么…呢 phản vấn."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Nêu thiếu dữ liệu nơi khác.",
+                        "guidance": "Nêu thiếu dữ liệu nơi khác."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy hệ thống chắc xấu đi.",
+                        "guidance": "Không suy hệ thống chắc xấu đi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn phản vấn việc kết luận toàn hệ thống từ một trạm đo. Dùng 怎么…呢 và nêu phạm vi thiếu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不如 bùrú so A không bằng B theo khía cạnh ngữ cảnh. 可以不写 tính từ khi tiêu chí đã rõ: 这次不如上次. Có thể 不如… đề xuất “hay là” nhưng cần ngữ cảnh khác, không tự xếp hạng toàn diện. Phân biệt 没有B那么… cùng nêu không bằng theo tính chất.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "A不如B（+tính từ）: A không bằng B"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "这次的成绩不如上次好。",
+                  "pinyin": "Zhè cì de chéngjì bùrú shàng cì hǎo.",
+                  "meaningVi": "Kết quả lần này không tốt bằng lần trước.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这条路不如那条路方便。",
+                  "pinyin": "Zhè tiáo lù bùrú nà tiáo lù fāngbiàn.",
+                  "meaningVi": "Đường này không tiện bằng đường kia.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "A不如B（+tính từ）: A không bằng B"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:1:practice",
+              "title": "Khảo Luyện · A不如B（+tính từ）: A không bằng B",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Không tiện bằng có chứng minh đắt hơn hoặc nguy hiểm hơn không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, chỉ khía cạnh tiện",
+                        "feedback": "Giữ tiêu chí so sánh cụ thể."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu dùng 不如",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Giữ tiêu chí so sánh cụ thể.",
+                    "learningTarget": {
+                      "objective": "A不如B（+tính từ）: A không bằng B",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Trong A不如B好, cái nào được nói tốt hơn?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "A",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Cả hai không tốt",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "B theo tiêu chí tốt",
+                        "feedback": "A không bằng B trong khía cạnh đã nêu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "A không bằng B trong khía cạnh đã nêu.",
+                    "learningTarget": {
+                      "objective": "A不如B（+tính từ）: A không bằng B",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:1:transfer",
+              "title": "Vận dụng · A不如B（+tính từ）: A không bằng B",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n只比较速度，走A路线不如走B路线快。\nZhǐ bǐjiào sùdù, zǒu A lùxiàn bùrú zǒu B lùxiàn kuài.\nChỉ so tốc độ, đi tuyến A không nhanh bằng đi tuyến B.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "A不如B（+tính từ）: A không bằng B",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "A trước 不如, B sau.",
+                        "guidance": "A trước 不如, B sau."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ khía cạnh tốc độ.",
+                        "guidance": "Giữ khía cạnh tốc độ."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự kết luận giá/an toàn.",
+                        "guidance": "Không tự kết luận giá/an toàn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn đi hai tuyến mới, tuyến A mất nhiều thời gian hơn tuyến B. So về tốc độ với 不如, không đánh giá mọi mặt.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "跟 gēn + đối tượng + 相比 xiāngbǐ đưa mốc so. Sau đó nêu thay đổi hoặc khác biệt, không buộc so hơn về mọi mặt. Mốc có thể thời điểm như 跟去年相比. Không nêu con số nếu nguồn chỉ nói nhiều/ít, và không biến so trước–sau thành nguyên nhân duy nhất.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "跟…相比: so với…"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "跟去年相比，今年的雨更多。",
+                  "pinyin": "Gēn qùnián xiāngbǐ, jīnnián de yǔ gèng duō.",
+                  "meaningVi": "So với năm ngoái, năm nay mưa nhiều hơn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "跟坐车相比，走路要花更多时间。",
+                  "pinyin": "Gēn zuò chē xiāngbǐ, zǒu lù yào huā gèng duō shíjiān.",
+                  "meaningVi": "So với đi xe, đi bộ tốn nhiều thời gian hơn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "跟…相比: so với…"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:2:practice",
+              "title": "Khảo Luyện · 跟…相比: so với…",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Mốc so trong 跟去年相比 là gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Năm ngoái",
+                        "feedback": "去年 là đối tượng/mốc giữa 跟 và 相比."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mọi năm tương lai",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Người đi bộ",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "去年 là đối tượng/mốc giữa 跟 và 相比.",
+                    "learningTarget": {
+                      "objective": "跟…相比: so với…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Mưa nhiều hơn có tự cho phần trăm tăng không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không",
+                        "feedback": "更多 không cung cấp con số."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu dùng 更多",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "更多 không cung cấp con số.",
+                    "learningTarget": {
+                      "objective": "跟…相比: so với…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:2:transfer",
+              "title": "Vận dụng · 跟…相比: so với…",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n跟上个月相比，这个月我的学习更有规律。\nGēn shàng ge yuè xiāngbǐ, zhè ge yuè wǒ de xuéxí gèng yǒu guīlǜ.\nSo với tháng trước, tháng này việc học của tôi đều đặn hơn.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "跟…相比: so với…",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ mốc tháng trước.",
+                        "guidance": "Giữ mốc tháng trước."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Nêu đều đặn hơn.",
+                        "guidance": "Nêu đều đặn hơn."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm điểm thi tăng.",
+                        "guidance": "Không thêm điểm thi tăng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Sổ ghi tháng này bạn học đều hơn tháng trước, chưa có điểm thi. Viết 跟…相比 giữ hành vi học.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不能不、不得不、没有人不… có hai phần phủ định dẫn tới khẳng định/nhấn nghĩa phải. 我不能不考虑成本 = tôi buộc phải tính chi phí. Không phải hai phủ định luôn cho cùng mức: 不得不 thường bất đắc dĩ; 不能不 có thể nhấn nghĩa vụ/lý do. Phân biệt 不能去 phủ định đơn.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Phủ định kép để nhấn mạnh"
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我不能不考虑成本。",
+                  "pinyin": "Wǒ bù néng bù kǎolǜ chéngběn.",
+                  "meaningVi": "Tôi không thể không cân nhắc chi phí.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "雨太大，我们不得不取消活动。",
+                  "pinyin": "Yǔ tài dà, wǒmen bù dé bù qǔxiāo huódòng.",
+                  "meaningVi": "Mưa lớn quá, chúng tôi buộc phải hủy hoạt động.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Phủ định kép để nhấn mạnh"
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:3:practice",
+              "title": "Khảo Luyện · Phủ định kép để nhấn mạnh",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "不能不考虑 có nghĩa bỏ qua chi phí không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có nếu có 不",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không, nhấn phải cân nhắc",
+                        "feedback": "Hai phủ định dẫn tới ý không thể bỏ việc cân nhắc."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Hai phủ định dẫn tới ý không thể bỏ việc cân nhắc.",
+                    "learningTarget": {
+                      "objective": "Phủ định kép để nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "不得不取消 thường có sắc thái gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Bắt buộc/bất đắc dĩ",
+                        "feedback": "Bối cảnh mưa khiến phải hủy, giữ phạm vi hoạt động đó."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tự do muốn hủy hay không",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đã chắc mọi hoạt động hủy",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Bối cảnh mưa khiến phải hủy, giữ phạm vi hoạt động đó.",
+                    "learningTarget": {
+                      "objective": "Phủ định kép để nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:emphasis-comparison-r63:3:transfer",
+              "title": "Vận dụng · Phủ định kép để nhấn mạnh",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n比较这两种产品时，我们不能不考虑维护费用。\nBǐjiào zhè liǎng zhǒng chǎnpǐn shí, wǒmen bù néng bù kǎolǜ wéihù fèiyong.\nKhi so hai sản phẩm này, chúng ta không thể không cân nhắc phí bảo trì.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phủ định kép để nhấn mạnh",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "不能不 nhấn cần cân nhắc.",
+                        "guidance": "不能不 nhấn cần cân nhắc."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ phí bảo trì chưa biết.",
+                        "guidance": "Giữ phí bảo trì chưa biết."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy sản phẩm nào thắng nếu thiếu dữ liệu.",
+                        "guidance": "Không suy sản phẩm nào thắng nếu thiếu dữ liệu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn đánh giá hai sản phẩm, không thể bỏ qua phí bảo trì. Viết 不能不…, không bịa mức phí.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n双层玻璃窗冬季保温更稳定，自动遮阳窗夏季降温更多，却有居民觉得房间变暗；研究因此分开报告能耗、温度、亮度和满意度，维护费仍待比较。工厂改用电加热后，厂门口黑烟减少，本地一种污染下降三成，但生产量也下降一成，高峰电力还来自远处燃煤电站。前者不能选全年唯一优胜窗，后者只能确认本地改善，全系统排放需补充电力数据。\nCửa kính hai lớp giữ nhiệt mùa đông ổn định hơn, cửa tự che nắng giảm nhiệt mùa hè nhiều hơn nhưng có cư dân thấy phòng tối; nghiên cứu vì thế báo riêng năng lượng, nhiệt độ, độ sáng và hài lòng, còn phí bảo trì chưa so. Nhà máy chuyển sang điện khiến khói đen cổng nhà máy ít đi và một loại ô nhiễm địa phương giảm 30%, nhưng sản lượng cũng giảm 10% và điện giờ cao điểm còn từ nhà máy than xa. Nguồn thứ nhất không chọn một cửa thắng cả năm; nguồn thứ hai chỉ xác nhận cải thiện địa phương, phát thải toàn hệ thống cần dữ liệu điện.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt hai so sánh môi trường bằng cách giữ riêng mục tiêu, mùa, vị trí đo và dữ liệu còn thiếu.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "khác biệt hai loại cửa theo mùa",
+                        "id": "criterion-0",
+                        "label": "khác biệt hai loại cửa theo mùa"
+                      },
+                      {
+                        "guidance": "các chỉ báo độ sáng và bảo trì",
+                        "id": "criterion-1",
+                        "label": "các chỉ báo độ sáng và bảo trì"
+                      },
+                      {
+                        "guidance": "mức giảm ô nhiễm địa phương",
+                        "id": "criterion-2",
+                        "label": "mức giảm ô nhiễm địa phương"
+                      },
+                      {
+                        "guidance": "nguồn điện, sản lượng và khẩu径 toàn hệ thống",
+                        "id": "criterion-3",
+                        "label": "nguồn điện, sản lượng và khẩu径 toàn hệ thống"
+                      },
+                      {
+                        "guidance": "Không chọn công nghệ thắng tuyệt đối, không quy toàn bộ giảm ô nhiễm cho đổi năng lượng và không điền dữ liệu bảo trì hay hệ thống còn thiếu.",
+                        "id": "criterion-4",
+                        "label": "Không chọn công nghệ thắng tuyệt đối, không quy toàn bộ giảm ô nhiễm cho đổi năng lượng và không điền dữ liệu bảo trì hay hệ thống còn thiếu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt hai so sánh môi trường bằng cách giữ riêng mục tiêu, mùa, vị trí đo và dữ liệu còn thiếu.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n环境报告要帮助决定，却不应在目标和范围不同时强选一个“最好”。双层窗冬季保温更稳定，自动遮阳窗夏季降低下午温度更多，却可能使房间变暗；若只看全年平均数，就会隐藏亮度需求和未知维护费。工厂改用电以后，厂门口黑烟减少，本地一种污染下降三成，可是生产量也下降一成，高峰电力还来自远处燃煤电站。跟燃料油相比，本地改善有证据，全系统排放仍缺数据。有人认为公众需要简单选择，报告太多指标会拖延行动。为回应这一点，报告可以按目标给出条件式建议：分别说明冬季保温、夏季降温或本地空气改善，同时标出适用条件。清楚来自具体问题，不是删除不确定性。当前结论不能包括尚未比较的维护费或全系统排放。\nBáo cáo môi trường cần hỗ trợ quyết định, nhưng không nên buộc chọn một “tốt nhất” khi mục tiêu và phạm vi đo khác nhau. Với cửa tiết kiệm năng lượng, kính hai lớp giữ nhiệt mùa đông ổn định hơn, còn cửa tự che nắng giảm nhiệt chiều mùa hè nhiều hơn nhưng có thể làm phòng tối. Nếu gộp thành trung bình năm, báo cáo sẽ che nhu cầu về độ sáng và phí bảo trì chưa biết. Với nhà máy, đổi sang điện làm khói đen ở cổng ít đi và một chất ô nhiễm địa phương giảm 30%; tuy nhiên sản lượng cùng giảm 10%, điện giờ cao điểm còn từ nhà máy than xa. So với dầu, cải thiện địa phương là thật, nhưng toàn hệ thống chưa đủ dữ liệu. Có ý kiến rằng công chúng cần một lựa chọn rõ, báo nhiều chỉ báo sẽ gây khó hiểu. Vì vậy báo cáo có thể nêu khuyến nghị theo mục tiêu: chọn phương án giữ nhiệt mùa đông, giảm nóng mùa hè hoặc cải thiện không khí địa phương, đồng thời ghi điều kiện. Sự rõ ràng đến từ câu hỏi cụ thể, không phải xóa bất định. Kết luận hiện chưa bao gồm phí bảo trì hay phát thải toàn hệ thống.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận xem báo cáo môi trường có nên buộc chọn một giải pháp tốt nhất để công chúng dễ quyết định hay không.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm chống xếp hạng thiếu khẩu径",
+                        "id": "criterion-0",
+                        "label": "luận điểm chống xếp hạng thiếu khẩu径"
+                      },
+                      {
+                        "guidance": "so sánh cửa theo mùa và chỉ báo",
+                        "id": "criterion-1",
+                        "label": "so sánh cửa theo mùa và chỉ báo"
+                      },
+                      {
+                        "guidance": "phân biệt địa phương với toàn hệ thống",
+                        "id": "criterion-2",
+                        "label": "phân biệt địa phương với toàn hệ thống"
+                      },
+                      {
+                        "guidance": "phản biện về nhu cầu quyết định đơn giản",
+                        "id": "criterion-3",
+                        "label": "phản biện về nhu cầu quyết định đơn giản"
+                      },
+                      {
+                        "guidance": "kết luận giới hạn theo dữ liệu bảo trì và điện",
+                        "id": "criterion-4",
+                        "label": "kết luận giới hạn theo dữ liệu bảo trì và điện"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Người dân và quản lý cần một lựa chọn đơn giản để hành động; quá nhiều chỉ báo, mùa và cách xác định phạm vi đo có thể làm báo cáo khó hiểu hoặc trì hoãn quyết định.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ yêu cầu khuyến nghị theo mục tiêu và phạm vi của hai nghiên cứu; phí bảo trì cùng dữ liệu điện toàn hệ thống vẫn thiếu nên chưa có xếp hạng cuối.",
+                        "id": "criterion-6",
+                        "label": "Chỉ yêu cầu khuyến nghị theo mục tiêu và phạm vi của hai nghiên cứu; phí bảo trì cùng dữ liệu điện toàn hệ thống vẫn thiếu nên chưa có xếp hạng cuối."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận xem báo cáo môi trường có nên buộc chọn một giải pháp tốt nhất để công chúng dễ quyết định hay không.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n先问要解决冬季保温、夏季降温，还是本地空气污染。\n双层窗冬季更稳定，遮阳窗夏季降温更多但可能变暗。\n改用电后本地污染下降三成，全系统仍缺电力来源数据。\n为了便于决定，可按目标给条件式建议，不必制造唯一冠军。\n维护费和全系统排放未完成前，结论必须保留范围。\nTrước hết hỏi cần giải quyết giữ nhiệt mùa đông, giảm nóng mùa hè hay ô nhiễm địa phương.\nCửa hai lớp ổn định hơn mùa đông; cửa che nắng giảm nóng hơn mùa hè nhưng có thể tối.\nĐổi sang điện làm ô nhiễm địa phương giảm 30%, còn toàn hệ thống thiếu dữ liệu nguồn điện.\nĐể dễ quyết định, có thể khuyến nghị có điều kiện theo mục tiêu, không cần tạo một quán quân.\nTrước khi có phí bảo trì và phát thải toàn hệ thống, kết luận phải giữ phạm vi.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Trong ba phút, bảo vệ một kết luận môi trường có giới hạn trước người yêu cầu chọn ngay một công nghệ thắng tuyệt đối. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-stance-comparison-rhetoric-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu mục tiêu và điều kiện so sánh",
+                        "id": "move-0",
+                        "label": "nêu mục tiêu và điều kiện so sánh"
+                      },
+                      {
+                        "guidance": "đưa một kết quả về cửa và một kết quả ô nhiễm",
+                        "id": "move-1",
+                        "label": "đưa một kết quả về cửa và một kết quả ô nhiễm"
+                      },
+                      {
+                        "guidance": "phân biệt địa phương với toàn hệ thống",
+                        "id": "move-2",
+                        "label": "phân biệt địa phương với toàn hệ thống"
+                      },
+                      {
+                        "guidance": "trả lời phản biện rằng nhiều chỉ báo gây khó quyết định",
+                        "id": "move-3",
+                        "label": "trả lời phản biện rằng nhiều chỉ báo gây khó quyết định"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trong ba phút, bảo vệ một kết luận môi trường có giới hạn trước người yêu cầu chọn ngay một công nghệ thắng tuyệt đối.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "double",
+                        "label": "线索一",
+                        "meaningVi": "Giữ nhiệt đông ổn định.",
+                        "note": "Kính hai lớp · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "shade",
+                        "label": "线索二",
+                        "meaningVi": "Giảm nóng hè nhưng có thể tối.",
+                        "note": "Che tự động · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "metrics",
+                        "label": "线索三",
+                        "meaningVi": "Năng lượng, nhiệt, sáng, hài lòng.",
+                        "note": "Chỉ số · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "conditions",
+                        "label": "线索四",
+                        "meaningVi": "Mùa và thời tiết.",
+                        "note": "Điều kiện · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "next",
+                        "label": "线索五",
+                        "meaningVi": "Chi phí bảo trì.",
+                        "note": "Thiếu · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-nature-technology-explanation-comparison-variation; revision 57717092-d7a8-4239-8fe9-7072f0bfc3a1; humanReviewed:false",
+                  "title": "Hiệu quả khác nhau của hai loại cửa sổ tiết kiệm năng lượng"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "change",
+                        "label": "线索一",
+                        "meaningVi": "Dầu sang điện.",
+                        "note": "Thay đổi · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "local",
+                        "label": "线索二",
+                        "meaningVi": "Khói hiếm và một chất giảm.",
+                        "note": "Kết quả địa phương · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "confound",
+                        "label": "线索三",
+                        "meaningVi": "Sản lượng giảm.",
+                        "note": "Biến khác · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "upstream",
+                        "label": "线索四",
+                        "meaningVi": "Điện than ở xa.",
+                        "note": "Nguồn ngoài · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "scopes",
+                        "label": "线索五",
+                        "meaningVi": "Địa phương và toàn hệ.",
+                        "note": "Hai phạm vi · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-nature-technology-explanation-comparison-variation; revision 57717092-d7a8-4239-8fe9-7072f0bfc3a1; humanReviewed:false",
+                  "title": "Sau khi ngừng dùng dầu, ô nhiễm có giảm không"
+                }
+              ],
+              "id": "hsk4-stance-comparison-rhetoric-lesson-05:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "d6c336a7-b5cd-425c-9c25-2d9517dd6b9a",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng viết kết luận có giới hạn để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-stance-comparison-rhetoric-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-054",
+          "hsk4-grammar-row-063",
+          "hsk4-grammar-row-064",
+          "hsk4-grammar-row-065"
+        ],
+        "sourceLessonIds": [
+          "hsk4-stance-comparison-rhetoric-lesson-05",
+          "hsk4-nature-technology-explanation-comparison-variation"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-17"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01095",
+          "hsk-vocab-01278",
+          "hsk-vocab-01420",
+          "hsk-vocab-01816",
+          "hsk-vocab-01846",
+          "hsk-vocab-01635",
+          "hsk-vocab-01672",
+          "hsk-vocab-01742",
+          "hsk-vocab-01780",
+          "hsk-vocab-01885"
+        ],
+        "targetLessonId": "hsk4-stance-comparison-rhetoric-lesson-05",
+        "titleZh": "HSK四级 · 47",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "eba4537a-0090-48f5-ac7d-c3e9e3bea592"
+        },
+        "vocabulary": [
+          "hsk-vocab-01095",
+          "hsk-vocab-01278",
+          "hsk-vocab-01420",
+          "hsk-vocab-01816",
+          "hsk-vocab-01846",
+          "hsk-vocab-01635",
+          "hsk-vocab-01672",
+          "hsk-vocab-01742",
+          "hsk-vocab-01780",
+          "hsk-vocab-01885"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { RELEASED_LESSONS } from "../data/curriculum";
+import { RELEASED_LESSONS, WORD_BY_ID } from "../data/curriculum";
 import { studioLessonMatchesLevel } from "./studioLessonIdentity";
 import {
   publishedRuntimeHeader,
@@ -30,6 +30,8 @@ export type DictionaryWord = {
   sourceTitle?: string;
   sourcePublishedAt?: number;
   sourceLessonIds?: string[];
+  sourceVocabularyId?: string;
+  sourceStableKey?: string;
 };
 
 type PublishedVocabularyRuntimeItem = {
@@ -48,6 +50,7 @@ type PublishedVocabularyRuntimeItem = {
     meaningVi: string;
     examples: Array<{ hanzi: string; pinyin: string; meaningVi: string }>;
     sourceLessonIds: string[];
+    sourceVocabularyIds?: string[];
     review: {
       humanReviewed: false;
       aiSelfReview: Record<"accuracy" | "levelFit" | "pedagogy" | "answerIntegrity" | "originality", true>;
@@ -118,6 +121,18 @@ const parseRuntimeItem = (value: unknown): PublishedVocabularyRuntimeItem | null
     meaningVi: string;
   } => runtimeTriple(example));
   if (examples.length !== content.examples.length) return null;
+  // Only the explicit curriculum-import identity may replace an existing word.
+  // Matching Hanzi alone would conflate different readings/senses.
+  if (String(item.stableKey).startsWith("curriculum-word-")) {
+    const id = String(item.stableKey).slice("curriculum-word-".length);
+    const word = WORD_BY_ID.get(id);
+    if (!word || word.simplified !== content.hanzi.trim()
+      || word.pinyin.normalize("NFC") !== content.pinyin.trim().normalize("NFC")
+      || !Array.isArray(content.sourceVocabularyIds)
+      || content.sourceVocabularyIds.length !== 1 || content.sourceVocabularyIds[0] !== id
+      || !content.sourceLessonIds.every(lessonId =>
+        RELEASED_LESSON_BY_ID.get(String(lessonId))?.wordIds.includes(id))) return null;
+  }
   return item as unknown as PublishedVocabularyRuntimeItem;
 };
 
@@ -155,6 +170,10 @@ export const parsePublishedStudioVocabulary = (value: unknown): DictionaryWord[]
       sourceTitle: item.title.trim(),
       sourcePublishedAt: item.publishedAt,
       sourceLessonIds: [...item.content.sourceLessonIds],
+      ...(item.stableKey.startsWith("curriculum-word-") ? {
+        sourceVocabularyId: item.stableKey.slice("curriculum-word-".length),
+        sourceStableKey: item.stableKey,
+      } : {}),
     };
   });
 };

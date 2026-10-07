@@ -1,0 +1,106 @@
+{
+  "mode": "apply",
+  "backup": "D:\\Projects\\hanzi-os\\.wrangler\\demo-backups\\before-hsk3-assessment-editorial-round102-2026-10-05T04-48-40-384Z.sqlite",
+  "protectedTables": 43,
+  "completed": 24,
+  "formBlueprintId": "hsk-mock-editorial-1126cf5c-95f9-4b05-8852-37b911a37fac",
+  "formVersion": "foundation-2026.08.7:hsk-mock-editorial:1126cf5c-95f9-4b05-8852-37b911a37fac:sha256:59878432521cb9ed753ca6e693a2c59afb99e33c2e18bd3d526b2466e36874ab",
+  "releases": [
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-08",
+      "revisionId": "2044850c-4009-4282-8b09-490003f41975"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-09",
+      "revisionId": "89e0608c-5e7a-4321-9406-0695df7d8366"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-10",
+      "revisionId": "75b3da0d-5cb9-4de5-8389-690484196787"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-11",
+      "revisionId": "5b2054d1-bdbd-4123-8381-6f55a4d63675"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-12",
+      "revisionId": "a0f5dff1-016f-4f0e-a73b-b9ff7a8bd2b1"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-13",
+      "revisionId": "9cef7946-377e-4af2-9bd9-42685986cc2f"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-14",
+      "revisionId": "354a64c7-0527-4f43-8b74-c4dffb91e46d"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-15",
+      "revisionId": "04482c17-f0a6-429a-94d7-1513644e95e8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-01",
+      "revisionId": "3a5b4238-1403-485f-beb1-2737a0f524aa"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-02",
+      "revisionId": "e836cfbf-f598-4e00-9020-76b8e0d7c0c3"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-03",
+      "revisionId": "fbba6d24-9723-49fc-97fd-d6c8bb5084e9"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-04",
+      "revisionId": "271a05d3-8afc-4d63-b328-270927e5c0f8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-05",
+      "revisionId": "51740b75-d932-4aff-8384-bc05fe4473a3"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-06",
+      "revisionId": "f4580273-b27d-4820-934f-3f530393b61b"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-07",
+      "revisionId": "fad49fe9-b2d4-4bc5-a3de-711c94524ff7"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-08",
+      "revisionId": "86930d23-6af0-49da-8dee-cb466f9ceaa3"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-09",
+      "revisionId": "806f895a-c3cc-45a5-84a1-064a0e3a5a5f"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-10",
+      "revisionId": "4857684e-9ecc-4c39-a0d0-682b0ebaad52"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-11",
+      "revisionId": "c0933885-c7af-42e0-b75c-372fff8448a9"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-12",
+      "revisionId": "9ecbbf94-c534-4f04-aa81-2eef3fda168d"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-13",
+      "revisionId": "71da25fd-377e-431d-b366-40e61b193574"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-14",
+      "revisionId": "15edb2fd-77ee-43cd-8771-77e1a30355f4"
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-15",
+      "revisionId": "2aa6b8a2-ca71-43a4-aa6a-1a36635c8dfe"
+    },
+    {
+      "stableKey": "hsk3-assessment-reviewed-round102-h",
+      "revisionId": "1126cf5c-95f9-4b05-8852-37b911a37fac"
+    }
+  ]
+}

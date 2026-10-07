@@ -9,7 +9,7 @@ import {
   REVIEW_QUEUE_MAX_OFFERS,
   REVIEW_QUEUE_PROTOCOL_VERSION,
   REVIEW_SCHEDULER_VERSION,
-  reviewWordVersion,
+  isSupportedReviewWordVersion,
   type ReviewQueueCardV1,
   type ReviewQueueV1,
 } from "../learning/reviewProtocol";
@@ -273,7 +273,7 @@ export class ReviewQueueRepository {
         || row.enrollmentId !== enrollmentRows[0].enrollmentId
         || !RELEASED_WORD_BY_ID.has(row.wordId)
         || wordIds.has(row.wordId)
-        || row.wordVersion !== reviewWordVersion(row.wordId)
+        || !isSupportedReviewWordVersion(row.wordId, row.wordVersion)
         || row.modality !== REVIEW_MODALITY
         || !safeTimestamp(row.dueAt)
         || row.dueAt > now

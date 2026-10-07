@@ -1,7 +1,7 @@
 # HANZI.OS Reforge — tầm nhìn sản phẩm
 
 **Trạng thái:** nguồn định hướng sản phẩm cho giai đoạn tái cấu trúc
-**Cập nhật:** 10/08/2026
+**Cập nhật:** 25/09/2026
 **Phạm vi:** Mandarin Trung Quốc đại lục, giao diện tiếng Việt, HSK0–HSK4,
 local-first
 
@@ -21,8 +21,14 @@ biến thuật ngữ nghiệp vụ thành nội dung người học phải hiể
 - **North-star:** Học tiếng Trung rõ đường, nhớ lâu, dùng được.
 - **Người học:** Người Việt tự học từ số 0 đến HSK4.
 - **Ngôn ngữ:** Mandarin Trung Quốc đại lục, chữ giản thể và Pinyin.
-- **Nền tảng:** Web/PWA local-first; lõi học HSK0–HSK4 dùng ẩn danh đầy đủ và
-  giữ tiến độ trên thiết bị; tài khoản và AI ngoài chỉ là tùy chọn.
+- **Nền tảng:** Web/PWA local-first; HSK0–HSK3 miễn phí, dùng ẩn danh và giữ
+  tiến độ trên thiết bị. Chỉ bài học HSK4 trong Thiên Lộ thuộc Premium, cần
+  tài khoản và xác minh quyền trên máy chủ; từ điển, chữ Hán, khảo nghiệm, đề
+  luyện và khu khác vẫn dùng bình thường. Hết hạn gói không xóa tiến độ. Cùng
+  một UI học cho guest/account.
+- **Thương mại:** bản local hiện chỉ mô phỏng giao dịch, không thu tiền. Giá,
+  nhà cung cấp thanh toán, điều khoản thuê bao/hoàn tiền và phân phối nội dung
+  HSK4 có kiểm quyền ở máy chủ phải được hoàn thiện trước khi mở bán thật.
 - **Trạng thái:** Đây là hợp đồng đích Reforge đang được triển khai, không phải tuyên bố mọi chức năng đã hoàn tất.
 - **Năm khu vực duy nhất:** **Học**, **Ôn**, **Nói**, **Luyện**, **Hồ sơ**.
 - **Vòng học chính:** Học/Hôm nay → bài ngắn → Ôn → Nói hoặc Luyện → kết phiên.
@@ -206,10 +212,13 @@ người học dùng được. Vì vậy:
 
 - khóa học Taiwan Mandarin, Cantonese, HSK5+ hoặc ngôn ngữ giao diện ngoài Việt;
 - sao chép giao diện, nội dung, media, API hoặc mô hình thương mại ChineseSkill;
-- app iOS/Android native, league xã hội, quảng cáo, paywall và commerce;
+- app iOS/Android native, league xã hội và quảng cáo;
 - production deployment, vận hành đa tenant, marketplace và CMS quy mô lớn;
 - tuyên bố “giọng bản ngữ”, “AI chấm phát âm chuẩn” hoặc “đề thi thật” khi chưa
   có nguồn, quyền sử dụng và kiểm định tương ứng.
 
-Các mục ngoài phạm vi chỉ được mở khi người dùng chủ động thay đổi tầm nhìn và
-module critical path hiện tại không bị bỏ dở để chạy theo tính năng mới.
+Người dùng đã mở lại hướng doanh nghiệp ngày 25/09/2026: HSK0–HSK3 miễn phí,
+chỉ bài Thiên Lộ HSK4 Premium và commerce là phạm vi triển khai đang hoạt động. Public deploy
+vẫn là quyết định riêng sau khi giá, cổng thanh toán, quyền nội dung, pháp lý
+và các gate production có bằng chứng đạt. Các mục ngoài phạm vi còn lại chỉ
+được mở khi người dùng chủ động thay đổi tầm nhìn.

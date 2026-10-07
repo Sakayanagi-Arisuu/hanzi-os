@@ -499,6 +499,7 @@ export class LessonSessionRepository {
       lesson,
       enrollment.script,
       this.randomSource,
+      true,
     );
     const expectedEvidenceCount = exercises.length;
     if (!Number.isSafeInteger(expectedEvidenceCount) || expectedEvidenceCount < 1) {

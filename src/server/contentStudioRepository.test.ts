@@ -330,6 +330,15 @@ describe("governed Content Studio revisions", () => {
       revisions: [],
       filteredTotal: 0,
     });
+    const longKey = "thien-lo-v2-hsk2-person-events-environment-lesson-01";
+    await repository.createDraft({actorUserId:"editor",actorSessionId:"editor-session",
+      itemType:"lesson",stableKey:longKey,title:"Hồ sơ 100%_literal",level:"hsk1",
+      content:reviewedLesson("Mục tiêu kiểm tra tìm mã dài."),idempotencyKey:"create:long-key"});
+    await expect(repository.count({query:longKey})).resolves.toBe(1);
+    await expect(repository.list({query:longKey})).resolves.toHaveLength(1);
+    await expect(repository.coordinationQueuePage({query:longKey})).resolves.toMatchObject({filteredTotal:1});
+    await expect(repository.count({query:"%_"})).resolves.toBe(1);
+    await expect(repository.count({query:"100XXliteral"})).resolves.toBe(0);
   });
 
   it("prevents self-approval and lets a separate reviewer request actionable changes", async () => {

@@ -1,16 +1,18 @@
 "use client";
+import {useState} from 'react';
 import { emptyLessonActivity, type LessonActivity } from '../../src/learning/lessonActivities';
 import {ACTIVITY_SKILL_LABELS,ACTIVITY_SOURCE_LABELS,type LessonActivityTarget} from '../../src/learning/lessonActivityTarget';
 import {lessonActivitySources} from '../../src/learning/lessonActivitySources';
 
-export function LessonActivityEditor({lessonId,value,onChange}:{lessonId:string;value?:LessonActivity;onChange:(value:LessonActivity)=>void}) {
+export function LessonActivityEditor({lessonId,value,onChange,openTarget=false}:{lessonId:string;value?:LessonActivity;onChange:(value:LessonActivity)=>void;openTarget?:boolean}) {
+  const [targetExpanded,setTargetExpanded]=useState(openTarget);
   const activity=value??emptyLessonActivity();
   const update=(fields:Partial<LessonActivity>)=>onChange({...activity,...fields});
   const target=activity.learningTarget;
   const sources=lessonActivitySources(lessonId);
   const updateTarget=(fields:Partial<LessonActivityTarget>)=>update({learningTarget:{skill:'vocabulary',objective:'',sources:[],...target,...fields}});
   return <div className="lesson-activity-editor">
-    <details><summary>Mục tiêu và nguồn liên kết</summary><p>Chỉ rõ nội dung được luyện. Chọn kỹ năng không tự tạo điểm thành thạo hoặc chứng minh năng lực nghe/nói.</p>
+    <details open={targetExpanded} onToggle={e=>setTargetExpanded(e.currentTarget.open)}><summary>Mục tiêu và nguồn liên kết</summary><p>Đọc câu hỏi, đáp án và phần hỗ trợ trước khi chọn kỹ năng và nguồn. Liên kết này không tự tạo điểm thành thạo hoặc chứng minh năng lực nghe/nói.</p>
       {!target?<button type="button" onClick={()=>updateTarget({})}>Thêm mục tiêu hoạt động</button>:<fieldset><legend>Mục tiêu hoạt động</legend>
         <label>Kỹ năng được luyện<select value={target.skill} onChange={e=>updateTarget({skill:e.target.value as LessonActivityTarget['skill']})}>{Object.entries(ACTIVITY_SKILL_LABELS).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
         <label>Người học làm được gì?<textarea value={target.objective} onChange={e=>updateTarget({objective:e.target.value})}/></label>
@@ -20,6 +22,7 @@ export function LessonActivityEditor({lessonId,value,onChange}:{lessonId:string;
       </fieldset>}
     </details>
     <label>Dạng bài tập<select aria-label="Dạng bài tập" value={activity.type} onChange={e=>update({type:e.target.value as LessonActivity['type']})}><option value="choice">Chọn đáp án và giải thích lỗi</option><option value="order">Sắp xếp câu</option><option value="cloze">Điền chỗ trống</option><option value="rubric">Viết và tự kiểm theo tiêu chí</option></select></label>
+    <label>Thời gian tự luyện (giây, để trống nếu không giới hạn)<input type="number" min="30" max="1800" step="1" value={activity.timeLimitSeconds??''} onChange={e=>{const seconds=Number(e.target.value);update({timeLimitSeconds:e.target.value?seconds:undefined});}}/><small>Đồng hồ chỉ hỗ trợ luyện tập, không cấp điểm kỹ năng.</small></label>
     {(activity.type==='choice'||activity.type==='order')&&<><p>{activity.type==='order'?'Nhập các mảnh theo thứ tự sẽ hiển thị; đặt đáp án đúng bằng các nút bên dưới.':'Mỗi lựa chọn có phản hồi riêng; chọn một đáp án đúng.'}</p>{activity.options.map((option,index)=><fieldset key={option.id}><legend>{activity.type==='order'?'Mảnh':'Lựa chọn'} {index+1}</legend><label>Nội dung lựa chọn<input value={option.text} onChange={e=>update({options:activity.options.map(o=>o.id===option.id?{...o,text:e.target.value}:o)})}/></label>{activity.type==='choice'&&<><label><input type="radio" checked={activity.answerIds[0]===option.id} onChange={()=>update({answerIds:[option.id]})}/>Đáp án đúng</label><label>Phản hồi khi chọn<textarea value={option.feedback} onChange={e=>update({options:activity.options.map(o=>o.id===option.id?{...o,feedback:e.target.value}:o)})}/></label></>}<button type="button" onClick={()=>update({options:activity.options.filter(o=>o.id!==option.id),answerIds:activity.answerIds.filter(id=>id!==option.id)})}>Xóa lựa chọn</button></fieldset>)}<button type="button" onClick={()=>update({options:[...activity.options,{id:crypto.randomUUID(),text:'',feedback:''}]})}>Thêm lựa chọn</button></>}
     {activity.type==='order'&&<fieldset><legend>Thứ tự đáp án đúng</legend><ol>{activity.answerIds.map((id,index)=><li key={id}>{activity.options.find(o=>o.id===id)?.text}<button type="button" aria-label={`Đưa mảnh ${index+1} lên`} disabled={!index} onClick={()=>{const ids=[...activity.answerIds];[ids[index-1],ids[index]]=[ids[index],ids[index-1]];update({answerIds:ids});}}>↑</button><button type="button" onClick={()=>update({answerIds:activity.answerIds.filter(x=>x!==id)})}>Bỏ</button></li>)}</ol>{activity.options.filter(o=>!activity.answerIds.includes(o.id)).map(o=><button type="button" key={o.id} onClick={()=>update({answerIds:[...activity.answerIds,o.id]})}>{o.text||'Mảnh chưa đặt tên'}</button>)}</fieldset>}
     {activity.type==='cloze'&&<label>Đáp án chấp nhận (mỗi dòng một cách)<textarea value={activity.acceptedAnswers.join('\n')} onChange={e=>update({acceptedAnswers:e.target.value.split('\n')})}/><small>Chỉ dùng cho phần điền có đáp án xác định; câu mở dùng tiêu chí tự kiểm.</small></label>}

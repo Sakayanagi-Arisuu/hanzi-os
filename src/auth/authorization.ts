@@ -19,6 +19,7 @@ export const APP_PERMISSIONS = [
   "admin:settings:read",
   "admin:settings:write",
   "admin:audit:read",
+  "commerce:manage",
 ] as const;
 
 export type AppPermission = typeof APP_PERMISSIONS[number];
@@ -48,6 +49,7 @@ const ROLE_PERMISSIONS: Record<AppRole, readonly AppPermission[]> = {
     "admin:settings:read",
     "admin:settings:write",
     "admin:audit:read",
+    "commerce:manage",
   ],
 };
 

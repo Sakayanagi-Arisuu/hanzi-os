@@ -1,3 +1,4 @@
+import {emptyLessonBlock,validateLessonPages} from '../learning/lessonPages';
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -70,4 +71,23 @@ describe("Content Studio learner UI preview", () => {
     expect(html).toContain("Lựa chọn đúng được ẩn trong bản xem trước");
     expect(html).not.toContain("Ngày đầu học tiếng Trung");
   });
+});
+
+it('preserves an editor media caption in the shared learner renderer without overlaying the image',()=>{
+ const src='/api/content/media/12345678-1234-1234-1234-123456789012.webp';
+ const document={version:1,pages:[{id:'image-page',title:'Vị trí',layout:'focus',blocks:[{
+  ...emptyLessonBlock('image-block'),kind:'image',imageSrc:src,alt:'Sách trên bàn',provenance:'Original',
+  media:{src,mimeType:'image/webp',metadata:{title:'Vị trí',alt:'Sách trên bàn',caption:'Sách ở trên bàn; mèo ở dưới bàn.',provenance:'Original',license:'Original',sourceKind:'synthetic',transcript:'',focalX:50,focalY:50,humanReviewed:false}},
+ }]}]};
+ expect(validateLessonPages(document)).toEqual([]);
+ const html=renderToStaticMarkup(createElement(StudioContentPreview,{revisionId:'caption-preview',itemType:'lesson',content:{lessonPages:JSON.parse(JSON.stringify(document))}}));
+ expect(html).toContain('<figcaption>Sách ở trên bàn; mèo ở dưới bàn.</figcaption>');
+ expect(html).not.toContain('is-standalone-image');
+});
+
+it('does not invent speaker A for numbered dialogue turns or vocabulary examples',()=>{
+ for(const [title,badge] of [['Lượt 2','中文'],['Từ trong bài','中文'],['A','甲'],['B','乙']]){
+  const html=renderToStaticMarkup(createElement(StudioContentPreview,{revisionId:'speaker-preview',itemType:'lesson',content:{lessonPages:{version:1,pages:[{id:'dialogue',title:'Hội thoại',layout:'focus',blocks:[{...emptyLessonBlock('line'),kind:'dialogue',title,hanzi:'你好。',pinyin:'Nǐ hǎo.',meaningVi:'Xin chào.'}]}]}}}));
+  expect(html).toContain(`<span class="jade-speaker">${badge}</span>`);
+ }
 });

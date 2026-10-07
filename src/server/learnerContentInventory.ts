@@ -13,6 +13,7 @@ import {
 } from "../data/curriculum";
 import { KNOWLEDGE_ITEM_BLUEPRINTS } from "../data/knowledgeItemBlueprints";
 import { RELEASED_RICH_LESSONS } from "../learning/richLessonContent";
+import { listPremiumRichLessons } from "./premiumRichLesson";
 import { READER_CONTENT_VERSION } from "../reader/library/readerContentModel";
 import { READER_DISCOVERABLE_SERIES } from "../reader/library/readerManifest";
 import type { StudioItemType } from "../content/studioContent";
@@ -30,9 +31,10 @@ const uniqueCount = <Item,>(
   identity: (item: Item) => string,
 ) => new Set(items.map(identity)).size;
 
-const richGrammar = RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.grammar);
-const richTasks = RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.tasks);
-const richCharacters = RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.characters);
+const allRichLessons = [...RELEASED_RICH_LESSONS, ...listPremiumRichLessons()];
+const richGrammar = allRichLessons.flatMap((lesson) => lesson.grammar);
+const richTasks = allRichLessons.flatMap((lesson) => lesson.tasks);
+const richCharacters = allRichLessons.flatMap((lesson) => lesson.characters);
 const pronunciationBlueprints = KNOWLEDGE_ITEM_BLUEPRINTS.filter(
   (item) => item.itemType === "pronunciation",
 );

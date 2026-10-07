@@ -1,0 +1,64 @@
+{
+  "mode": "apply",
+  "backup": "D:\\Projects\\hanzi-os\\.wrangler\\demo-backups\\before-hsk3-dictionary-context-round105-2026-10-05T04-57-33-643Z.sqlite",
+  "protectedTables": 43,
+  "releases": [
+    {
+      "stableKey": "thien-lo-v2-hsk3-nature-environment-explanations-climate-seasons",
+      "revisionId": "dc3f1668-7afc-4c64-aa4e-f4236b1ae40e"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-study-work-accounts-campus-education",
+      "revisionId": "0929ee6d-c392-4d1c-8262-e7a753a4769e"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-study-work-accounts-colleague-workplace",
+      "revisionId": "8f510f6a-1c19-49cc-b62a-96313ddd5a5f"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00542",
+      "revisionId": "281478d9-b6f5-4fd1-8933-60b7c93940d0"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00549",
+      "revisionId": "e5542382-4976-4363-86f7-fe8bcd208ebb"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00568",
+      "revisionId": "93b155d9-662b-440f-ae59-51d6d64837ad"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00598",
+      "revisionId": "fc3d752a-fcf5-4b96-aa69-ff85d7a8eaca"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00600",
+      "revisionId": "67e9fc7e-acc1-4415-b1cd-19e6481bdf4d"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00609",
+      "revisionId": "565fa66c-d698-4327-a3b6-38c7c641998c"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00623",
+      "revisionId": "1544d192-b62e-448d-869d-f4a7e3c8b5a5"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00666",
+      "revisionId": "1d2769a0-7cff-4a87-95fd-f159b763dd37"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00669",
+      "revisionId": "9019e960-63ea-4990-9883-3201e5792cdd"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00674",
+      "revisionId": "c602e78a-db17-41fd-8f1c-f005893662f4"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00694",
+      "revisionId": "2cb39406-d1f0-48dc-a377-0d893c5cd760"
+    }
+  ],
+  "completed": 14
+}

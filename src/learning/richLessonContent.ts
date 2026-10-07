@@ -1,7 +1,6 @@
 import hsk1LevelRichLessonContentJson from "../../content/runtime/hsk1-level-rich-lessons.json";
 import hsk2LevelRichLessonContentJson from "../../content/runtime/hsk2-level-rich-lessons.json";
 import hsk3LevelRichLessonContentJson from "../../content/runtime/hsk3-level-rich-lessons.json";
-import hsk4LevelRichLessonContentJson from "../../content/runtime/hsk4-level-rich-lessons.json";
 import { CONTENT_VERSION } from "../data/curriculum";
 
 export type RichDialogueTurn = {
@@ -84,9 +83,8 @@ const artifacts = [
   { level: "hsk1", artifact: hsk1LevelRichLessonContentJson },
   { level: "hsk2", artifact: hsk2LevelRichLessonContentJson },
   { level: "hsk3", artifact: hsk3LevelRichLessonContentJson },
-  { level: "hsk4", artifact: hsk4LevelRichLessonContentJson },
 ] as unknown as Array<{
-  level: "hsk1" | "hsk2" | "hsk3" | "hsk4";
+  level: "hsk1" | "hsk2" | "hsk3";
   artifact: RichLessonArtifact;
 }>;
 

@@ -472,7 +472,7 @@ export function ReaderChapterPage() {
           <X size={21} aria-hidden="true" />
         </button>
         <div>
-          <small>{series.titleVi}</small>
+          <div className="realm-emblem realm-emblem-compact" aria-hidden="true" /><small>{series.titleVi}</small>
           <strong>Chương {chapter!.chapterNumber} · {chapter!.titleVi}</strong>
         </div>
         <span className="reader-chapter-percent" aria-hidden="true">{progressPercent}%</span>

@@ -1,0 +1,148 @@
+{
+  "mode": "apply",
+  "backup": "D:\\Projects\\hanzi-os\\.wrangler\\demo-backups\\before-hsk3-dictionary-context-round97-2026-10-05T04-32-47-190Z.sqlite",
+  "protectedTables": 43,
+  "releases": [
+    {
+      "stableKey": "thien-lo-v2-hsk3-comparison-description-evaluation-lesson-01",
+      "revisionId": "14d4c956-2e2e-47d3-8691-5f46efaeb0ae"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-comparison-description-evaluation-lesson-02",
+      "revisionId": "1afcc0ca-97c3-4f4a-bdff-fa746242dfe2"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-culture-tradition-descriptions-tableware-etiquette",
+      "revisionId": "4b7b1287-ca77-4fa5-a45c-acbb3838db06"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-event-complements-voice-lesson-02",
+      "revisionId": "4a36dec8-b998-4aa1-af37-e79499ef06c0"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-modality-time-viewpoint-framing-lesson-02",
+      "revisionId": "bead0faf-69da-4217-8f40-996b69eb831a"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-nature-environment-explanations-climate-seasons",
+      "revisionId": "b7a316cf-a2c5-4f58-a0ca-8cc74aed30e4"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-nature-environment-explanations-plants-animals",
+      "revisionId": "42e6efbb-b456-4807-adfd-ab24c49ade9c"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-personal-life-narratives-food-shopping",
+      "revisionId": "a2094314-c652-47f2-a080-57df1e1124e1"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-personal-life-narratives-identity-transactions",
+      "revisionId": "4141cce2-961c-4bae-a164-c8b4c34dbf8b"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-study-work-accounts-campus-education",
+      "revisionId": "dce48364-6590-44ea-b8d5-8626ba91f33c"
+    },
+    {
+      "stableKey": "thien-lo-v2-hsk3-study-work-accounts-colleague-workplace",
+      "revisionId": "221cdd74-4d2d-43ba-bd60-f093c51fd7cb"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00801",
+      "revisionId": "d6f22477-a5df-46be-9c52-f4a571c3a5f6"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00807",
+      "revisionId": "8a75415a-0a91-4ad9-96ec-55ceffc40300"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00809",
+      "revisionId": "344a103d-51c2-4f7c-94e7-768b64572df1"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00811",
+      "revisionId": "f01471bc-90f7-4445-93db-c4364f60ed65"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00816",
+      "revisionId": "40085a57-c7e4-48e6-90e3-801af36d4fa4"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00818",
+      "revisionId": "389fb43b-0c15-4ae2-937a-ba75a19b1baf"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00821",
+      "revisionId": "ccadedc2-032f-4c75-bd95-9143c1c3ad66"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00824",
+      "revisionId": "51a31436-9edb-4257-90bd-be2ae709d235"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00825",
+      "revisionId": "0a214b7f-0b4d-4b35-a122-5b1210479f6b"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00826",
+      "revisionId": "1d853703-f4cb-4a1c-966a-edb5aea2e255"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00827",
+      "revisionId": "ece986b6-cf44-4fe1-9728-21d81dd40906"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00828",
+      "revisionId": "40534bea-b18c-4911-a646-6cd94f068608"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00831",
+      "revisionId": "e9a46004-3cdb-4258-9a80-6b6420f24446"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00832",
+      "revisionId": "b8da0651-6d73-455b-b2b1-6da8020e9e89"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00833",
+      "revisionId": "d0b6e122-aff9-4959-893b-b9fda50c6976"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00834",
+      "revisionId": "4fb2ed00-384e-468d-9fe7-fbf418c9b23a"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00838",
+      "revisionId": "34fb2fb1-142a-48a4-b05c-7b8b89ebbd10"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00839",
+      "revisionId": "3b45311e-2d38-4f28-bc27-afed2e47cd95"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00842",
+      "revisionId": "70e679d5-6ce9-41e5-9170-331ccfc66f0c"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00844",
+      "revisionId": "a2e0e707-fbc7-4927-8e07-2c77952f7a70"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00845",
+      "revisionId": "72eff399-503a-48b1-ae0c-a30d08c56bd3"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00846",
+      "revisionId": "ccf1c0e1-2bd3-4bca-990f-4f2931955406"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00848",
+      "revisionId": "de3ab2ef-71c3-49d2-bc06-930bf05575fc"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00849",
+      "revisionId": "58e2b241-a610-4f82-9094-096f964deebc"
+    }
+  ],
+  "completed": 35
+}

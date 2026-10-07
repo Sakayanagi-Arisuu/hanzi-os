@@ -1,0 +1,2735 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "boot-1",
+      "baseRevisionId": "23f0dd27-dd36-4426-82ec-a4acb2e5b1c6",
+      "baseContentSha256": "sha256:6943eb1eea112025b3caf3dd9c7ed36db448bc601f4005fb67b43364d6182050",
+      "changedPageIds": [
+        "boot-1:v2:mission"
+      ],
+      "content": {
+        "checkpointVi": "Phân biệt bốn đường thanh, rồi nhận ra thanh 4 trên âm dà.",
+        "conceptVi": "Bốn thanh khác hướng giọng; thanh nhẹ không có cao độ cố định độc lập.",
+        "dialogue": [
+          {
+            "hanzi": "妈",
+            "meaningVi": "mẹ",
+            "pinyin": "mā",
+            "speaker": "Âm mẫu thanh 1"
+          },
+          {
+            "hanzi": "麻",
+            "meaningVi": "cây gai",
+            "pinyin": "má",
+            "speaker": "Âm mẫu thanh 2"
+          },
+          {
+            "hanzi": "马",
+            "meaningVi": "ngựa",
+            "pinyin": "mǎ",
+            "speaker": "Âm mẫu thanh 3"
+          },
+          {
+            "hanzi": "骂",
+            "meaningVi": "mắng",
+            "pinyin": "mà",
+            "speaker": "Âm mẫu thanh 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "mà",
+            "answerMeaningVi": "mắng",
+            "answerPinyin": "mà",
+            "distractors": [
+              "mā",
+              "má",
+              "mǎ"
+            ],
+            "explanationVi": "Thanh 4: cao rồi rơi nhanh. Các phương án còn lại lần lượt là ngang, lên và thấp.",
+            "promptVi": "Chọn âm ma có hướng cao rồi rơi nhanh."
+          },
+          {
+            "answer": "má",
+            "answerMeaningVi": "cây gai",
+            "answerPinyin": "má",
+            "distractors": [
+              "mā",
+              "mà"
+            ],
+            "explanationVi": "Thanh 2 đi lên; thanh 1 ngang, thanh 4 đi xuống.",
+            "promptVi": "Chọn âm ma có hướng từ vừa đi lên."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Giữ nguyên phụ âm và vần, thay thanh điệu sẽ thay từ và nghĩa. Cao độ là tương đối trong quãng giọng người nói.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "骂",
+              "modelAnswerMeaningVi": "mắng",
+              "modelAnswerPinyin": "mà",
+              "promptVi": "Chọn âm ma có hướng cao rồi rơi nhanh."
+            },
+            "modelExample": {
+              "hanzi": "妈",
+              "meaningVi": "mẹ",
+              "pinyin": "mā"
+            },
+            "pattern": "mā / má / mǎ / mà"
+          }
+        ],
+        "lessonPages": {
+          "art": "sound",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Cùng âm “ma”, đổi cao độ sẽ đổi từ và nghĩa. Bạn sẽ nhìn đường giọng, nghe mẫu từng âm rồi nhận diện một âm khác. Chưa cần thuộc cách viết các chữ ví dụ.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:mission",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nghe đường giọng trước, nhớ số thanh sau"
+                },
+                {
+                  "alt": "",
+                  "body": "Dùng nút nghe nếu thiết bị hỗ trợ. Âm mẫu là giọng tổng hợp; nếu không nghe được, theo mũi tên và dấu Pinyin để tiếp tục. Tự đọc không được hệ thống chấm thành điểm phát âm.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:access",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Học bằng mắt và tai"
+                }
+              ],
+              "id": "boot-1:v2:mission",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Một âm, bốn đường giọng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "1 là thấp nhất, 5 là cao nhất trong quãng giọng thoải mái của bạn. Các số 55, 35, 214, 51 mô tả hướng đi; không cần bắt chước cao độ tuyệt đối của người đọc.",
+                    "nodes": [
+                      {
+                        "id": "tone-1",
+                        "label": "1 · → 55",
+                        "meaningVi": "妈 — mẹ",
+                        "note": "Bắt đầu cao, giữ ngang và đều.",
+                        "pinyin": "mā",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "tone-2",
+                        "label": "2 · ↗ 35",
+                        "meaningVi": "麻 — cây gai",
+                        "note": "Bắt đầu vừa, đi lên rõ.",
+                        "pinyin": "má",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "tone-3",
+                        "label": "3 · ↘↗ 214",
+                        "meaningVi": "马 — ngựa",
+                        "note": "Khi đọc riêng: hạ xuống thấp rồi nhấc lên. Trong lời nói liền thường chỉ giữ phần thấp.",
+                        "pinyin": "mǎ",
+                        "x": 2,
+                        "y": 0
+                      },
+                      {
+                        "id": "tone-4",
+                        "label": "4 · ↘ 51",
+                        "meaningVi": "骂 — mắng",
+                        "note": "Bắt đầu cao, rơi nhanh và dứt khoát.",
+                        "pinyin": "mà",
+                        "x": 3,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:tone-map",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cao độ tương đối, không phải nốt nhạc"
+                }
+              ],
+              "id": "boot-1:v2:map",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Bản đồ bốn thanh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "妈",
+                  "id": "boot-1:v2:block:tone-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "mẹ",
+                  "pinyin": "mā",
+                  "provenance": "",
+                  "title": "Thanh 1 · giữ tay ngang"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "麻",
+                  "id": "boot-1:v2:block:tone-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "cây gai",
+                  "pinyin": "má",
+                  "provenance": "",
+                  "title": "Thanh 2 · đưa tay lên"
+                },
+                {
+                  "alt": "",
+                  "body": "Thanh 1 bắt đầu cao và kết thúc cao, gần như không đổi. Thanh 2 bắt đầu vừa rồi lên cao. Nghe mỗi mẫu, vẽ một đường bằng tay rồi đọc lại; không tăng âm lượng để thay cho tăng cao độ.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:contrast-12",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nghe điểm kết thúc"
+                }
+              ],
+              "id": "boot-1:v2:level-rise",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Giữ ngang hay đi lên?"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "马",
+                  "id": "boot-1:v2:block:tone-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "ngựa",
+                  "pinyin": "mǎ",
+                  "provenance": "",
+                  "title": "Thanh 3 · tìm phần thấp"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "骂",
+                  "id": "boot-1:v2:block:tone-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "mắng",
+                  "pinyin": "mà",
+                  "provenance": "",
+                  "title": "Thanh 4 · rơi dứt khoát"
+                },
+                {
+                  "alt": "",
+                  "body": "Thanh 3 đọc riêng có đường xuống thấp rồi nhấc lên. Khi nói liền thường không nhấc đầy đủ; đừng ép mọi âm thanh 3 thành một đường uốn dài. Thanh 4 bắt đầu cao rồi rơi nhanh. Không cần gằn giọng hay hét.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:contrast-34",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm xuất phát khác nhau"
+                }
+              ],
+              "id": "boot-1:v2:low-fall",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Hạ thấp hay rơi từ trên cao?"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-3"
+                    ],
+                    "explanation": "Thanh 4: 51, cao → thấp. Hãy đối chiếu mà với mǎ ở trang trước nếu còn nhầm.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nhận diện thanh 4 từ mô tả đường cao độ cao rồi rơi; đây là nhận diện quy tắc bằng chữ, không đo nghe hay chất lượng phát âm.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "mandarin-tone-system",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Thanh 1 giữ cao và ngang; không rơi.",
+                        "id": "answer-0",
+                        "text": "Thanh 1"
+                      },
+                      {
+                        "feedback": "Thanh 2 đi lên từ mức vừa.",
+                        "id": "answer-1",
+                        "text": "Thanh 2"
+                      },
+                      {
+                        "feedback": "Thanh 3 chú trọng phần thấp, không bắt đầu cao rồi rơi dứt khoát.",
+                        "id": "answer-2",
+                        "text": "Thanh 3"
+                      },
+                      {
+                        "feedback": "Đúng. Thanh 4 đi từ cao xuống thấp.",
+                        "id": "answer-3",
+                        "text": "Thanh 4"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Đường giọng bắt đầu cao rồi rơi nhanh là thanh nào?",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:fall-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự nhận diện"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-0"
+                    ],
+                    "explanation": "Nhận diện dựa vào hướng giọng, không dựa vào nghĩa của chữ ví dụ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt thanh 2 đi lên với thanh 1 ngang và thanh 4 rơi dựa trên mô tả hướng giọng.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "mandarin-tone-system",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: 35, từ vừa lên cao.",
+                        "id": "answer-0",
+                        "text": "Thanh 2"
+                      },
+                      {
+                        "feedback": "Thanh 4 rơi xuống, ngược hướng cần tìm.",
+                        "id": "answer-1",
+                        "text": "Thanh 4"
+                      },
+                      {
+                        "feedback": "Thanh 1 giữ ngang; không đi lên.",
+                        "id": "answer-2",
+                        "text": "Thanh 1"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Đường đi từ mức vừa lên cao là thanh nào?",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:rise-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đổi sang một hướng khác"
+                }
+              ],
+              "id": "boot-1:v2:recognize",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nhìn hướng, gọi đúng thanh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "妈妈",
+                  "id": "boot-1:v2:block:mother",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "mẹ",
+                  "pinyin": "māma",
+                  "provenance": "",
+                  "title": "Hai âm trong một từ"
+                },
+                {
+                  "alt": "",
+                  "body": "Trong 妈妈, âm thứ hai thường đọc ngắn và nhẹ hơn. Thanh nhẹ không có một đường cao độ cố định riêng, mà phụ thuộc âm đứng trước. Không gọi đây là thanh 5 và không tự thêm dấu vào mọi âm không dấu.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:neutral",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Âm ma thứ hai không có dấu thanh"
+                },
+                {
+                  "alt": "",
+                  "body": "Nghe 妈妈. Chú ý âm đầu rõ, âm sau nhẹ. Nếu giọng tổng hợp chưa thể hiện rõ, dựa vào Pinyin māma; bài này không dùng chất lượng giọng máy để kết luận bạn nghe sai.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:listening",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nghe lại rồi thử nhắc"
+                }
+              ],
+              "id": "boot-1:v2:neutral",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Thanh nhẹ: ngắn, nhẹ, tùy âm trước"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "一",
+                  "id": "boot-1:v2:block:word-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "một",
+                  "pinyin": "yī",
+                  "provenance": "",
+                  "title": "Từ trong bài"
+                },
+                {
+                  "alt": "",
+                  "body": "Đọc Pinyin yī, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “một”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhìn từng âm tiết"
+                }
+              ],
+              "id": "boot-1:v2:word-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Gắn dấu với từ: 一"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "人",
+                  "id": "boot-1:v2:block:word-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "người",
+                  "pinyin": "rén",
+                  "provenance": "",
+                  "title": "Từ trong bài"
+                },
+                {
+                  "alt": "",
+                  "body": "Đọc Pinyin rén, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “người”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:word-note-1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhìn từng âm tiết"
+                }
+              ],
+              "id": "boot-1:v2:word-1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Gắn dấu với từ: 人"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你",
+                  "id": "boot-1:v2:block:word-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "bạn",
+                  "pinyin": "nǐ",
+                  "provenance": "",
+                  "title": "Từ trong bài"
+                },
+                {
+                  "alt": "",
+                  "body": "Đọc Pinyin nǐ, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “bạn”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:word-note-2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhìn từng âm tiết"
+                }
+              ],
+              "id": "boot-1:v2:word-2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Gắn dấu với từ: 你"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "二",
+                  "id": "boot-1:v2:block:word-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "hai",
+                  "pinyin": "èr",
+                  "provenance": "",
+                  "title": "Từ trong bài"
+                },
+                {
+                  "alt": "",
+                  "body": "Đọc Pinyin èr, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “hai”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:word-note-3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhìn từng âm tiết"
+                }
+              ],
+              "id": "boot-1:v2:word-3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Gắn dấu với từ: 二"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "大",
+                  "id": "boot-1:v2:block:new-syllable",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "to; lớn",
+                  "pinyin": "dà",
+                  "provenance": "",
+                  "title": "Một âm mới để đối chiếu"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-0"
+                    ],
+                    "explanation": "Dấu thanh vẫn chỉ cùng hướng giọng dù ma đổi thành da. Không dùng quy tắc thanh điệu tiếng Việt để thay thế Pinyin.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chuyển quy tắc dấu thanh 4 từ mà sang âm tiết mới dà, chọn đúng hướng cao rồi rơi mà không dựa vào nghĩa của từ.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "mandarin-tone-system",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: dấu huyền trong Pinyin là thanh 4.",
+                        "id": "answer-0",
+                        "text": "Cao rồi rơi xuống"
+                      },
+                      {
+                        "feedback": "Đó là thanh 1, thường mang dấu ngang.",
+                        "id": "answer-1",
+                        "text": "Giữ ngang cao"
+                      },
+                      {
+                        "feedback": "Đó là thanh 2, thường mang dấu sắc.",
+                        "id": "answer-2",
+                        "text": "Từ vừa đi lên"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Dấu trong dà yêu cầu hướng giọng nào?",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:transfer-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhận diện trên âm mới"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Đây là tự đối chiếu, chưa chứng minh phát âm đúng. Nếu chưa chắc một cặp, nghe và xem lại cặp đó trước khi làm Thử Luyện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự đọc chuỗi thanh và đối chiếu hướng giọng, sự thoải mái cùng khả năng đổi âm; kết quả chỉ là tự nhận xét, không phải chấm phát âm.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "mandarin-tone-system",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Thanh 1 ngang, thanh 2 lên, thanh 3 thấp, thanh 4 rơi.",
+                        "id": "direction",
+                        "label": "Giữ đúng hướng"
+                      },
+                      {
+                        "guidance": "Dùng quãng giọng thoải mái; không gằn giọng hoặc hét.",
+                        "id": "comfort",
+                        "label": "Không ép giọng"
+                      },
+                      {
+                        "guidance": "mà và dà đều đi từ cao xuống thấp, dù phụ âm và nghĩa khác nhau.",
+                        "id": "transfer",
+                        "label": "Đổi âm vẫn đọc theo dấu"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Thử đọc mā → má → mǎ → mà, rồi dà. Có thể ghi chú bằng tiếng Việt về cặp dễ nhầm. Không cần microphone.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:self-read",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự đọc rồi tự đối chiếu"
+                }
+              ],
+              "id": "boot-1:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Đổi âm mà giữ hướng thanh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "mā: ngang cao · má: đi lên · mǎ: xuống thấp (đọc riêng có nhấc lên) · mà: rơi nhanh.\nThanh nhẹ ngắn, nhẹ, tùy âm trước; không phải thanh thứ năm.\nThử Luyện kiểm các câu cụ thể bằng đường ghi kết quả hiện có. Xem hết trang hay tự tích rubric không có nghĩa đã thành thạo phát âm.",
+                  "hanzi": "",
+                  "id": "boot-1:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhớ hướng thay vì chỉ nhớ số"
+                }
+              ],
+              "id": "boot-1:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Mang bốn hướng vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "draftContentSha256": "sha256:5e39c05b1239034281e1314c7c5589ce22df9a41fec562a1c7b4ebbd0f60e36a",
+          "draftRevisionId": "23f0dd27-dd36-4426-82ec-a4acb2e5b1c6",
+          "evidenceDocument": "docs/thien-lo-redesign-review/20-REVIEW-BOOT-ACTIVITY-TARGETS.md",
+          "humanReviewed": false,
+          "lessonId": "boot-1",
+          "parentContentSha256": "sha256:d56c9bd5db9fa61b5af71f8f753133450edb27edadc53ea15748277c2d511df3",
+          "parentRevisionId": "955d0aac-39d1-4d51-914c-680f058fcfe8",
+          "reviewedAt": "2026-09-15",
+          "schemaVersion": 1,
+          "scope": "Activity target metadata only; written tone-rule recognition and self-review, not listening or scored pronunciation.",
+          "sourceContentSha256": "sha256:8837daf6f3f248fbad86dfc05b6d9b87ad580c15ba9d6a02d0b2b67eace40de0",
+          "targetPlanSha256": "sha256:7b32c987d930a78c4c1510e242ceb3b305493fc4ed8cb54743d1dcf6c6498ff1"
+        },
+        "objectiveVi": "Nhận ra bốn hướng thanh điệu, phân biệt dấu Pinyin và thử đọc theo hướng giọng; biết thanh nhẹ không phải thanh thứ năm.",
+        "pitfallVi": "Không đồng nhất Pinyin với thanh tiếng Việt. Không ép thanh 3 luôn xuống rồi lên đầy đủ trong lời nói liền.",
+        "prerequisites": [],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Thanh 1 ngang cao; thanh 2 đi lên; thanh 3 có phần thấp; thanh 4 rơi từ cao xuống thấp.",
+        "skills": [
+          "pronunciation",
+          "listening"
+        ],
+        "sourceLessonIds": [
+          "boot-1"
+        ],
+        "sourceVocabularyIds": [
+          "yi",
+          "ren",
+          "ni",
+          "er"
+        ],
+        "targetLessonId": "boot-1",
+        "titleZh": "四声",
+        "vocabulary": [
+          "yi",
+          "ren",
+          "ni",
+          "er"
+        ]
+      }
+    },
+    {
+      "lessonId": "boot-2",
+      "baseRevisionId": "10d03c1b-6ca5-4a63-a6cb-ca5e96e650f1",
+      "baseContentSha256": "sha256:3fd3baa4af3921dd7e6e57ac32c1a015a4617b4b14a7ae516c5cb9bdc3f71130",
+      "changedPageIds": [
+        "boot-2:v2:meet",
+        "boot-2:v2:exchange"
+      ],
+      "content": {
+        "checkpointVi": "Trong một buổi sinh hoạt mới, chủ động chào rồi đổi vai đáp lời chào; giải thích 你 chỉ ai.",
+        "conceptVi": "Dùng 你好 để chào và đáp lời chào. 我 chỉ người nói, 你 chỉ người nghe trực tiếp, 好 nghĩa tốt/ổn.",
+        "dialogue": [
+          {
+            "hanzi": "你好！",
+            "meaningVi": "Xin chào!",
+            "pinyin": "Nǐ hǎo!",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "你好！",
+            "meaningVi": "Xin chào!",
+            "pinyin": "Nǐ hǎo!",
+            "speaker": "Bạn B"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "你好！",
+            "answerMeaningVi": "Xin chào!",
+            "answerPinyin": "Nǐ hǎo!",
+            "distractors": [
+              "我好！",
+              "好你！"
+            ],
+            "explanationVi": "Dùng lại lời chào 你好. 我好 không phải lời chào; 好你 đảo sai thứ tự.",
+            "promptVi": "Một người bạn mới chào 你好. Chọn lời đáp chào lại."
+          },
+          {
+            "answer": "我",
+            "answerMeaningVi": "tôi",
+            "answerPinyin": "wǒ",
+            "distractors": [
+              "你",
+              "好"
+            ],
+            "explanationVi": "我 chỉ người nói. 你 chỉ người được nói với. 好 diễn tả tốt/ổn, không chỉ một người.",
+            "promptVi": "Bạn đang nói. Từ nào chỉ chính bạn?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "你好 dùng chào. Thêm 吗 tạo lời hỏi thăm tình trạng trong mẫu này, không phải bước bắt buộc của mỗi cuộc gặp.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "你好！",
+              "modelAnswerMeaningVi": "Xin chào!",
+              "modelAnswerPinyin": "Nǐ hǎo!",
+              "promptVi": "Bạn mới chào bạn bằng 你好. Viết lời đáp chào lại."
+            },
+            "modelExample": {
+              "hanzi": "你好！",
+              "meaningVi": "Xin chào!",
+              "pinyin": "Nǐ hǎo!"
+            },
+            "pattern": "你好！ / 你好吗？"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một người bạn mới bước đến trước giờ học. Bạn sẽ mở lời chào và đáp lại lời chào. Chưa cần giới thiệu tên hay nhớ một đoạn hội thoại dài. Tranh minh họa bối cảnh; đáp án nằm trong lời nói, không nằm trong tranh.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:mission",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Một việc nhỏ bạn sẽ làm được"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你好！",
+                  "id": "boot-2:v2:first-greeting",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào!",
+                  "pinyin": "Nǐ hǎo!",
+                  "provenance": "",
+                  "title": "Câu đầu tiên"
+                },
+                {
+                  "alt": "",
+                  "body": "Có thể đọc Hán tự, Pinyin và nghĩa cùng lúc. Nút nghe dùng giọng tổng hợp của trình duyệt; nếu thiết bị không phát được âm, tiếp tục bằng chữ. Bài này chưa chấm khả năng phát âm của bạn.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:access",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc hoặc nghe theo cách phù hợp"
+                }
+              ],
+              "id": "boot-2:v2:meet",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Gặp bạn mới trước giờ học",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/first-class-greeting-v1.webp",
+                "alt": "Hai người học chào nhau trước cửa lớp bằng lời và cử chỉ thân thiện",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你好！",
+                  "id": "boot-2:v2:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào!",
+                  "pinyin": "Nǐ hǎo!",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你好！",
+                  "id": "boot-2:v2:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào!",
+                  "pinyin": "Nǐ hǎo!",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                }
+              ],
+              "id": "boot-2:v2:exchange",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Lời chào có hai lượt",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/first-class-greeting-v1.webp",
+                "alt": "Hai người học chào nhau trước cửa lớp bằng lời và cử chỉ thân thiện",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "我 chỉ người đang nói; 你 chỉ người được nói trực tiếp với. Khi đổi lượt, cùng một người có thể được gọi bằng từ khác. Không gắn 我 cố định với Bạn A.",
+                    "nodes": [
+                      {
+                        "id": "a",
+                        "label": "A nói: 我 / 你",
+                        "meaningVi": "tôi / bạn",
+                        "note": "我 là A; 你 là B.",
+                        "pinyin": "wǒ / nǐ",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "b",
+                        "label": "B nói: 我 / 你",
+                        "meaningVi": "tôi / bạn",
+                        "note": "我 là B; 你 là A.",
+                        "pinyin": "wǒ / nǐ",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "boot-2:v2:roles",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đổi người nói thì đổi điểm nhìn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "you"
+                    ],
+                    "explanation": "我 đổi theo người nói; 你 đổi theo người nghe trực tiếp. Đây là nhận diện điểm nhìn, chưa phải kiểm tra tự nhớ chữ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 你 cho người đang được nói trực tiếp và phân biệt với 我 của người nói; đây là nhận diện điểm nhìn có phương án, không phải nhớ chữ độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "ni",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "wo",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. A là người B đang nói với nên B gọi A là 你.",
+                        "id": "you",
+                        "text": "你 · nǐ · bạn"
+                      },
+                      {
+                        "feedback": "我 sẽ chỉ B, vì B đang nói. Câu hỏi cần chỉ A.",
+                        "id": "me",
+                        "text": "我 · wǒ · tôi"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "B đang nói trực tiếp với A. B dùng từ nào để chỉ A?",
+                  "hanzi": "",
+                  "id": "boot-2:v2:role-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Theo người đang nói"
+                }
+              ],
+              "id": "boot-2:v2:people",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Ai là “tôi”, ai là “bạn”?"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好",
+                  "id": "boot-2:v2:good",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "tốt; ổn",
+                  "pinyin": "hǎo",
+                  "provenance": "",
+                  "title": "好 trong một từ"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你好！",
+                  "id": "boot-2:v2:hello",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào!",
+                  "pinyin": "Nǐ hǎo!",
+                  "provenance": "",
+                  "title": "你好 là lời chào"
+                },
+                {
+                  "alt": "",
+                  "body": "Trong tình huống gặp nhau, 你好 là một lời chào. 好 có nghĩa tốt/ổn, nhưng cả cụm được dùng để chào người đối diện. 我好 không thay được 你好 để chào.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:meaning",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không dịch từng chữ thành “bạn tốt”"
+                },
+                {
+                  "alt": "",
+                  "body": "Dạng Pinyin từ điển viết nǐ hǎo, cả hai âm có thanh 3. Khi nói liền, âm 你 thường đọc với đường đi lên gần thanh 2 trước thanh 3 của 好. Vẫn viết nǐ hǎo; bài Cặp thanh điệu sẽ luyện kỹ hơn. Không cần cố uốn cả hai âm xuống rồi lên đầy đủ.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:tones",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm nối với bài bốn thanh"
+                }
+              ],
+              "id": "boot-2:v2:greeting",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Hiểu cả cụm, không ghép máy móc"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "hello"
+                    ],
+                    "explanation": "Chào và đáp lời chào có thể dùng cùng cụm 你好！ Đừng thay 你 bằng 我 chỉ vì đến lượt mình nói.",
+                    "hint": "Nhớ lời chào trọn cụm.",
+                    "learningTarget": {
+                      "objective": "Chọn 你好 để đáp lời chào trực tiếp và bác bỏ 我好 hoặc đảo thứ tự trong ngữ cảnh này.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "ni",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hao",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Có thể đáp bằng cùng lời chào 你好.",
+                        "id": "hello",
+                        "text": "你好！"
+                      },
+                      {
+                        "feedback": "我好 không phải lời chào đáp lại trong tình huống này. Dùng 你好.",
+                        "id": "me-good",
+                        "text": "我好！"
+                      },
+                      {
+                        "feedback": "Không đảo hai chữ. Lời chào cố định ở đây là 你好.",
+                        "id": "reverse",
+                        "text": "好你！"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Chọn lời đáp chào lại.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:reply",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Một người chào bạn: 你好！"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "you",
+                      "good"
+                    ],
+                    "explanation": "你好！ Nǐ hǎo! Đặt 你 trước 好. Có thể thêm dấu chấm than khi viết, không phải thêm một từ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Xếp 你 trước 好 thành lời chào 你好; hoạt động có sẵn hai chữ nên chưa kiểm hồi tưởng độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "ni",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hao",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "good",
+                        "text": "好"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "you",
+                        "text": "你"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Xếp hai chữ thành lời chào một người.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:assemble",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự xếp lời chào"
+                }
+              ],
+              "id": "boot-2:v2:respond",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Chọn lời đáp phù hợp"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "吗 (ma) đặt cuối câu để tạo câu hỏi đúng/sai; 很 (hěn) đứng trước 好 trong câu trả lời thông dụng bên dưới. Ở đây 很好 có thể hiểu tự nhiên là “khỏe/ổn”, không nhất thiết nhấn mạnh “rất”. Hai từ này được giới thiệu để bạn hiểu mẫu, chưa yêu cầu nhớ độc lập.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:extension",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Một mở rộng có hỗ trợ"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你好吗？",
+                  "id": "boot-2:v2:how",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn khỏe không?",
+                  "pinyin": "Nǐ hǎo ma?",
+                  "provenance": "",
+                  "title": "Hỏi thăm"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我很好。",
+                  "id": "boot-2:v2:fine",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi khỏe/ổn.",
+                  "pinyin": "Wǒ hěn hǎo.",
+                  "provenance": "",
+                  "title": "Đáp lời hỏi thăm"
+                },
+                {
+                  "alt": "",
+                  "body": "你好！ dùng để chào. 你好吗？ hỏi người đó có khỏe/ổn không; dùng khi thực sự muốn hỏi thăm, không cần thêm vào mọi lần gặp. Với người lạ trong bối cảnh bài này, một lời 你好 là đủ.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:usage",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Phân biệt chào với hỏi tình trạng"
+                }
+              ],
+              "id": "boot-2:v2:ask",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nhận ra lời hỏi thăm"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ở một buổi sinh hoạt mới, bạn gặp một người chưa quen. Viết lời chào ngắn. Sau đó đổi vai: người đó chào trước, bạn viết lời đáp. Không cần dùng tên hay thông tin cá nhân thật.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:new-situation",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Lần này bạn chủ động mở lời"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án: Mở lời: 你好！ Đáp lại: 你好！ Hai lượt giống nhau vẫn đúng. Mục tiêu là dùng đúng trong tình huống mới, không viết dài. Tự đối chiếu không phải điểm nói hoặc điểm nhớ chữ độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự viết hoặc ghi Pinyin cho hai lượt chào và đối chiếu cách dùng 你好 với vai trò 你/我; rubric tự soát không cấp điểm nói hay viết độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "ni",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hao",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "wo",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Mở lời bằng 你好！ (Nǐ hǎo!), không dùng 我好.",
+                        "id": "open",
+                        "label": "Chào người đối diện"
+                      },
+                      {
+                        "guidance": "Có thể đáp 你好！; không đảo chữ thành 好你.",
+                        "id": "reply",
+                        "label": "Đáp lại lời chào"
+                      },
+                      {
+                        "guidance": "Ở mỗi lượt, 你 chỉ người bạn đang nói với. 我 chỉ bản thân người đang nói.",
+                        "id": "viewpoint",
+                        "label": "Hiểu 你 chỉ ai"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Ghi “Mở lời: …” và “Đáp lại: …”. Nếu chưa nhập được chữ Trung, có thể viết Pinyin rồi mở hướng dẫn để đối chiếu; cách đó là tự luyện có hỗ trợ.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:your-turn",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết hai lượt của bạn"
+                }
+              ],
+              "id": "boot-2:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Đổi sang người bạn khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "你好！ — chào và đáp lời chào một người.\n我 — người đang nói; 你 — người được nói với.\n好 — tốt/ổn; trong 你好, hiểu cả cụm là lời chào.\nNếu còn đảo chữ hoặc đổi sai đại từ, quay lại trang “Hiểu cả cụm”. Sau đó vào Thử Luyện; hệ thống giữ riêng kết quả bài tập có chấm và việc đọc trang.",
+                  "hanzi": "",
+                  "id": "boot-2:v2:takeaway",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ba điều cần nhớ"
+                }
+              ],
+              "id": "boot-2:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Giữ lại một lời chào dùng được"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/57-REVIEW-BOOT-2-4-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "53480f2a-1d57-4991-88b1-a9bb0e50ddbd",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK0 boot-2/3/4 activity target metadata; visual rule recognition and self-review only, no listening or pronunciation score.",
+          "targetPlanSha256": "sha256:68e48b31c98bf070fae8fe987bfb4562ffb5d3b45d6f74474d45f8683b68b80e"
+        },
+        "objectiveVi": "Chào và đáp lời chào với một người; phân biệt 我 (tôi) và 你 (bạn), nhận ra 好 trong lời chào và lời hỏi thăm.",
+        "pitfallVi": "Không dịch lời chào thành bạn tốt; không đảo thành 好你. 你好吗 hỏi thăm, không bắt buộc ở mọi lần gặp.",
+        "prerequisites": [
+          "boot-1"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Giữ thứ tự 你 + 好 trong lời chào. Khi đổi lượt nói, 我 và 你 đổi điểm nhìn; không đổi 你好 thành 我好.",
+        "skills": [
+          "listening",
+          "vocabulary",
+          "reading"
+        ],
+        "sourceLessonIds": [
+          "boot-2"
+        ],
+        "sourceVocabularyIds": [
+          "ni",
+          "hao",
+          "wo"
+        ],
+        "targetLessonId": "boot-2",
+        "titleZh": "你好",
+        "vocabulary": [
+          "ni",
+          "hao",
+          "wo"
+        ]
+      }
+    },
+    {
+      "lessonId": "boot-3",
+      "baseRevisionId": "02d04e41-7bff-4ded-8da0-6cefdf78dbaa",
+      "baseContentSha256": "sha256:6734ce8b5635d431caf687b7ebaa5562cefd2249778516e6d638b0c536bbba70",
+      "changedPageIds": [
+        "boot-3:v2:mission"
+      ],
+      "content": {
+        "checkpointVi": "Bạn muốn cảm ơn. Tự nói hoặc viết lời cảm ơn, rồi ghi âm đầu cần chú ý và vị trí lưỡi của nó. Có thể dùng Pinyin nếu chưa gõ được chữ.",
+        "conceptVi": "Xác định vị trí lưỡi của j/q/x, zh/ch/sh, z/c/s; phân biệt bật hơi với vị trí lưỡi và luyện một cụm cảm ơn.",
+        "dialogue": [
+          {
+            "hanzi": "谢谢！",
+            "meaningVi": "Cảm ơn!",
+            "pinyin": "Xièxie!",
+            "speaker": "Cụm đích"
+          },
+          {
+            "hanzi": "鸡",
+            "meaningVi": "gà",
+            "pinyin": "jī",
+            "speaker": "j trong một từ ngắn"
+          },
+          {
+            "hanzi": "七",
+            "meaningVi": "bảy",
+            "pinyin": "qī",
+            "speaker": "q có bật hơi"
+          },
+          {
+            "hanzi": "西",
+            "meaningVi": "tây",
+            "pinyin": "xī",
+            "speaker": "x là âm xát"
+          },
+          {
+            "hanzi": "中国",
+            "meaningVi": "Trung Quốc",
+            "pinyin": "Zhōngguó",
+            "speaker": "zh trong từ quen thuộc"
+          },
+          {
+            "hanzi": "吃",
+            "meaningVi": "ăn",
+            "pinyin": "chī",
+            "speaker": "ch trong từ"
+          },
+          {
+            "hanzi": "四",
+            "meaningVi": "bốn",
+            "pinyin": "sì",
+            "speaker": "s ở phía trước"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "谢谢",
+            "answerMeaningVi": "cảm ơn",
+            "answerPinyin": "xièxie",
+            "distractors": [
+              "你好",
+              "再见"
+            ],
+            "explanationVi": "谢谢 dùng x ở cả hai âm tiết; 你好 là lời chào, 再见 là tạm biệt. Nhận dạng chữ chưa chứng minh nghe phân biệt được âm.",
+            "promptVi": "Chọn lời cảm ơn có âm đầu x ở cả hai âm tiết."
+          },
+          {
+            "answer": "七",
+            "answerMeaningVi": "bảy",
+            "answerPinyin": "qī",
+            "distractors": [
+              "鸡",
+              "西"
+            ],
+            "explanationVi": "七 có q bật hơi; 鸡 có j không bật hơi mạnh, 西 có x là âm xát. Đây là đối chiếu có Pinyin.",
+            "promptVi": "Chọn từ có âm đầu q bật hơi. Từ hỗ trợ: 七 qī = bảy; 鸡 jī = gà; 西 xī = tây."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Trong từng nhóm, j/zh/z là âm tắc-xát không bật hơi mạnh, q/ch/c bật hơi, x/sh/s là âm xát. Giữ riêng vị trí lưỡi và luồng hơi khi so sánh.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "谢谢",
+              "modelAnswerMeaningVi": "cảm ơn",
+              "modelAnswerPinyin": "xièxie",
+              "promptVi": "Chọn lời cảm ơn có âm đầu x ở cả hai âm tiết."
+            },
+            "modelExample": {
+              "hanzi": "谢谢！",
+              "meaningVi": "Cảm ơn!",
+              "pinyin": "Xièxie!"
+            },
+            "pattern": "j/q/x · zh/ch/sh · z/c/s"
+          }
+        ],
+        "lessonPages": {
+          "art": "sound",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn muốn nói 谢谢 rõ hơn. Trước hết tìm nhóm âm x, sau đó so với sh và s. Bài cho biết cách đặt lưỡi và tự quan sát; không tự chấm phát âm từ việc bạn bấm đúng lựa chọn.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:mission",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Vị trí lưỡi và luồng hơi"
+                },
+                {
+                  "alt": "",
+                  "body": "Âm x xuất hiện ở cả hai âm tiết. Âm tiết thứ hai nhẹ. Nghe cả cụm nếu thiết bị có giọng tổng hợp; có thể học bằng chữ khi không nghe được.",
+                  "hanzi": "谢谢！",
+                  "id": "boot-3:v2:block:thanks",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cảm ơn!",
+                  "pinyin": "Xièxie!",
+                  "provenance": "",
+                  "title": "Cụm đích"
+                }
+              ],
+              "id": "boot-3:v2:mission",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Hai điều cần nghe và cảm nhận"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Mô tả hướng dẫn, không phải hình giải phẫu. Giữ hàm thư giãn, không dùng lực ép lưỡi.",
+                    "nodes": [
+                      {
+                        "id": "row-0",
+                        "label": "j / q / x",
+                        "meaningVi": "Mặt trước lưỡi gần ngạc cứng",
+                        "note": "Đầu lưỡi hướng gần mặt sau răng dưới; không uốn đầu lưỡi lên như zh.",
+                        "pinyin": "",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-1",
+                        "label": "zh / ch / sh",
+                        "meaningVi": "Đầu lưỡi nâng về phía sau lợi trên",
+                        "note": "Nâng vừa đủ, không cuộn sâu hoặc chạm ngạc mềm.",
+                        "pinyin": "",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-2",
+                        "label": "z / c / s",
+                        "meaningVi": "Đầu lưỡi gần mặt sau răng trên",
+                        "note": "Vùng tiếp xúc phía trước hơn nhóm zh/ch/sh.",
+                        "pinyin": "",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:positions",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Định vị trước khi bật hơi"
+                },
+                {
+                  "alt": "",
+                  "body": "i trong ji/qi/xi khác phần âm sau zhi/chi/shi và zi/ci/si. Không ghép một âm “i” tiếng Việt vào tất cả. Khi luyện vị trí lưỡi, dùng cả âm tiết mẫu thay vì tách chữ cái để đoán.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:vowels",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chữ i không luôn là cùng một nguyên âm"
+                }
+              ],
+              "id": "boot-3:v2:positions",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Ba vùng đặt lưỡi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Đặt lòng bàn tay cách miệng một khoảng thoải mái. Quan sát luồng hơi thoát lúc mở âm, không đo bằng độ lớn giọng.",
+                    "nodes": [
+                      {
+                        "id": "row-0",
+                        "label": "j → q",
+                        "meaningVi": "Không bật hơi mạnh → bật hơi",
+                        "note": "Giữ vùng mặt trước lưỡi; q có luồng hơi rõ hơn j.",
+                        "pinyin": "",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-1",
+                        "label": "zh → ch",
+                        "meaningVi": "Không bật hơi mạnh → bật hơi",
+                        "note": "Giữ vùng đầu lưỡi nâng; ch có luồng hơi rõ hơn zh.",
+                        "pinyin": "",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-2",
+                        "label": "z → c",
+                        "meaningVi": "Không bật hơi mạnh → bật hơi",
+                        "note": "Giữ vùng đầu lưỡi phía trước; c có luồng hơi rõ hơn z.",
+                        "pinyin": "",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:air",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giữ một nhóm, đổi luồng hơi"
+                },
+                {
+                  "alt": "",
+                  "body": "Luồng khí đi qua khe hẹp tạo tiếng xát. Không gọi x là phiên bản bật hơi của j; cặp bật hơi trong nhóm này là j/q. Tương tự, so zh/ch và z/c.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:friction",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "x, sh, s là âm xát"
+                }
+              ],
+              "id": "boot-3:v2:air",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Bật hơi không phải nói to"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giới thiệu âm đầu j; chưa yêu cầu nhớ chữ mới.",
+                  "hanzi": "鸡",
+                  "id": "boot-3:v2:block:ji",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "gà",
+                  "pinyin": "jī",
+                  "provenance": "",
+                  "title": "j trong một từ ngắn"
+                },
+                {
+                  "alt": "",
+                  "body": "So jī/qī cùng thanh 1 để tập trung vào luồng hơi; hai từ khác nghĩa.",
+                  "hanzi": "七",
+                  "id": "boot-3:v2:block:qi",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "bảy",
+                  "pinyin": "qī",
+                  "provenance": "",
+                  "title": "q có bật hơi"
+                },
+                {
+                  "alt": "",
+                  "body": "Cùng vùng lưỡi với j/q nhưng không có chặn rồi bật như j/q.",
+                  "hanzi": "西",
+                  "id": "boot-3:v2:block:xi",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "tây",
+                  "pinyin": "xī",
+                  "provenance": "",
+                  "title": "x là âm xát"
+                },
+                {
+                  "alt": "",
+                  "body": "zh ở đầu âm tiết thứ nhất. Không đọc như z chỉ vì cùng bắt đầu bằng chữ z.",
+                  "hanzi": "中国",
+                  "id": "boot-3:v2:block:china",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trung Quốc",
+                  "pinyin": "Zhōngguó",
+                  "provenance": "",
+                  "title": "zh trong từ quen thuộc"
+                },
+                {
+                  "alt": "",
+                  "body": "Chú ý đầu lưỡi nâng và luồng hơi.",
+                  "hanzi": "吃",
+                  "id": "boot-3:v2:block:eat",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "ăn",
+                  "pinyin": "chī",
+                  "provenance": "",
+                  "title": "ch trong từ"
+                },
+                {
+                  "alt": "",
+                  "body": "So vị trí s với sh; không dùng riêng khác biệt thanh điệu để kết luận âm đầu.",
+                  "hanzi": "四",
+                  "id": "boot-3:v2:block:four",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "bốn",
+                  "pinyin": "sì",
+                  "provenance": "",
+                  "title": "s ở phía trước"
+                }
+              ],
+              "id": "boot-3:v2:examples",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Nhận nhóm trong từ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-1"
+                    ],
+                    "explanation": "x dùng vùng mặt trước lưỡi gần ngạc cứng; khác sh ở vùng đầu lưỡi nâng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nhận biết qua mô tả vị trí mặt trước lưỡi gần ngạc cứng của âm x trong xièxie; không đo sản xuất âm.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "initial-contrast-jqx-zhchsh-zcs",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây không phải cách tạo x; cuộn sâu còn gây căng.",
+                        "id": "answer-0",
+                        "text": "Cuộn sâu đầu lưỡi"
+                      },
+                      {
+                        "feedback": "Đúng vùng của j/q/x. Giữ đầu lưỡi gần răng dưới.",
+                        "id": "answer-1",
+                        "text": "Mặt trước lưỡi gần ngạc cứng"
+                      },
+                      {
+                        "feedback": "Mím môi không tạo vị trí của x.",
+                        "id": "answer-2",
+                        "text": "Mím hai môi"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Khi chuẩn bị nói 谢谢 xièxie, chọn hướng đặt lưỡi phù hợp cho x.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:group",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Vị trí của x"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-0"
+                    ],
+                    "explanation": "Đọc jī/qī nhẹ nhàng với cùng thanh điệu; không hét để tạo q.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn j/q là cặp cùng vùng tạo âm nhưng khác mức bật hơi dựa trên mô tả bằng chữ; không đo nghe phân biệt.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "initial-contrast-jqx-zhchsh-zcs",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: cùng vùng tạo âm, q bật hơi rõ hơn j.",
+                        "id": "answer-0",
+                        "text": "j và q"
+                      },
+                      {
+                        "feedback": "Khác cả vị trí lưỡi và cách tạo âm.",
+                        "id": "answer-1",
+                        "text": "j và sh"
+                      },
+                      {
+                        "feedback": "Đây là hai âm xát ở hai vùng lưỡi khác nhau.",
+                        "id": "answer-2",
+                        "text": "x và s"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Giữ trong nhóm j/q/x. Chọn cặp so sánh luồng hơi phù hợp.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:aspiration",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cặp nào khác chủ yếu ở bật hơi?"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-2"
+                    ],
+                    "explanation": "Không đồng nhất Pinyin zh với một chữ cái tiếng Việt.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt z và zh theo vị trí đầu lưỡi thay vì âm lượng hoặc thanh điệu; đây là nhận diện quy tắc.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "initial-contrast-jqx-zhchsh-zcs",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Âm lượng không xác định vùng tạo âm.",
+                        "id": "answer-0",
+                        "text": "Chỉ tăng âm lượng"
+                      },
+                      {
+                        "feedback": "Thanh điệu và âm đầu là hai đặc điểm khác nhau.",
+                        "id": "answer-1",
+                        "text": "Đổi từ thanh 1 sang thanh 4"
+                      },
+                      {
+                        "feedback": "Đúng: thay vùng đặt đầu lưỡi.",
+                        "id": "answer-2",
+                        "text": "Nâng đầu lưỡi về phía sau hơn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Điểm cần đổi khi chuyển từ z sang zh là gì?",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:front",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Phân biệt z và zh"
+                }
+              ],
+              "id": "boot-3:v2:identify",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Tìm nhóm mà không nhìn bảng"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Mục tiêu: jī ít bật hơi, qī bật hơi rõ. Tự cảm nhận hoặc nghe TTS chưa chứng minh đã phát âm chuẩn; có thể cần mẫu người nói và phản hồi riêng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự ghi cảm nhận luồng hơi khi thử jī/qī và chỉ ra khi cần mẫu người nói; rubric tự nhận xét không chấm chất lượng phát âm.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "initial-contrast-jqx-zhchsh-zcs",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ vùng mặt trước lưỡi gần ngạc cứng cho cả hai.",
+                        "id": "place",
+                        "label": "Vị trí"
+                      },
+                      {
+                        "guidance": "q có hơi bật rõ hơn; không thay bằng tăng âm lượng.",
+                        "id": "air",
+                        "label": "Luồng hơi"
+                      },
+                      {
+                        "guidance": "Nếu chưa phân biệt được, mở lại mẫu hoặc nhờ người nói Mandarin phản hồi.",
+                        "id": "support",
+                        "label": "Trợ giúp"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Đọc jī rồi qī, đặt tay trước miệng. Ghi bạn cảm nhận luồng hơi ở âm nào; nếu chưa nghe/đọc được, viết lại hướng đặt lưỡi và đánh dấu cần mẫu âm. Đây là ghi nhận của bạn, không phải điểm phát âm.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:self-observe",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thử một cặp âm"
+                }
+              ],
+              "id": "boot-3:v2:rehearse",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự quan sát rồi trở lại mẫu"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án: 谢谢！ Xièxie! — Cảm ơn! x dùng mặt trước lưỡi gần ngạc cứng. Tự đối chiếu cách đặt lưỡi và ý nghĩa; website chưa chấm chất lượng phát âm của lượt này.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng 谢谢 để cảm ơn trong tình huống mới và tự đối chiếu âm đầu x; tự nói/viết bằng Pinyin được hỗ trợ, không tạo điểm phát âm.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "xiexie",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "initial-contrast-jqx-zhchsh-zcs",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 谢谢 để cảm ơn.",
+                        "id": "meaning",
+                        "label": "Ý định"
+                      },
+                      {
+                        "guidance": "Cả hai âm tiết dùng x, không thay bằng sh hoặc s.",
+                        "id": "initial",
+                        "label": "Âm đầu"
+                      },
+                      {
+                        "guidance": "Âm tiết thứ hai nhẹ; giữ câu tự nhiên, không gằn cả hai âm.",
+                        "id": "rhythm",
+                        "label": "Nhịp"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn muốn cảm ơn. Tự nói hoặc viết lời cảm ơn, rồi ghi âm đầu cần chú ý và vị trí lưỡi của nó. Có thể dùng Pinyin nếu chưa gõ được chữ.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Một người nhặt giúp bạn cuốn sách"
+                }
+              ],
+              "id": "boot-3:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Nói cảm ơn trong tình huống mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Không nhìn bảng: nêu vùng lưỡi của ba nhóm, tìm cặp bật hơi trong từng nhóm, rồi nói 谢谢. Nếu còn nhầm, mở đúng trang vị trí hoặc luồng hơi. Lần ôn sau thử trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "boot-3:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự kiểm trước khi vào Thử Luyện"
+                }
+              ],
+              "id": "boot-3:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Mang sang lần luyện tiếp"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/57-REVIEW-BOOT-2-4-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "c24dee44-9162-4021-8b83-b5cbc5ae3864",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK0 boot-2/3/4 activity target metadata; visual rule recognition and self-review only, no listening or pronunciation score.",
+          "targetPlanSha256": "sha256:68e48b31c98bf070fae8fe987bfb4562ffb5d3b45d6f74474d45f8683b68b80e"
+        },
+        "objectiveVi": "Xác định vị trí lưỡi của j/q/x, zh/ch/sh, z/c/s; phân biệt bật hơi với vị trí lưỡi và luyện một cụm cảm ơn.",
+        "pitfallVi": "Không lấy chữ cái tiếng Việt làm cách đọc Pinyin; không cuộn lưỡi quá mức hoặc coi bật hơi là hét to.",
+        "prerequisites": [
+          "boot-2"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Trong từng nhóm, j/zh/z là âm tắc-xát không bật hơi mạnh, q/ch/c bật hơi, x/sh/s là âm xát. Giữ riêng vị trí lưỡi và luồng hơi khi so sánh.",
+        "skills": [
+          "pronunciation",
+          "listening"
+        ],
+        "sourceLessonIds": [
+          "boot-3"
+        ],
+        "sourceVocabularyIds": [
+          "xiexie",
+          "zhongguo",
+          "chi"
+        ],
+        "targetLessonId": "boot-3",
+        "titleZh": "声母",
+        "vocabulary": [
+          "xiexie",
+          "zhongguo",
+          "chi"
+        ]
+      }
+    },
+    {
+      "lessonId": "boot-4",
+      "baseRevisionId": "b22123da-be15-40ec-acfb-5267a4e81faf",
+      "baseContentSha256": "sha256:69126ae932a730bf3fe8e538594c5a2338e14b3d41d496d02ff4949bb37a3d27",
+      "changedPageIds": [
+        "boot-4:v2:mission"
+      ],
+      "content": {
+        "checkpointVi": "Bạn gặp từ mới 一起, nghĩa là “cùng nhau”, thanh từ điển yī qǐ. Chưa nghe mẫu: hãy dự đoán cách đọc liền và giải thích dựa trên thanh nào. Sau đó so với 第一 (thứ nhất).",
+        "conceptVi": "Phân biệt thanh gốc với cách đọc liền cụm; vận dụng 3+3, 不 trước thanh 4 và 一 theo âm sau trong các ví dụ ngắn.",
+        "dialogue": [
+          {
+            "hanzi": "你好",
+            "meaningVi": "xin chào",
+            "pinyin": "nǐ hǎo",
+            "speaker": "Từ đã gặp"
+          },
+          {
+            "hanzi": "不是",
+            "meaningVi": "không phải",
+            "pinyin": "bù shì",
+            "speaker": "Đọc liền 不是"
+          },
+          {
+            "hanzi": "不好",
+            "meaningVi": "không tốt",
+            "pinyin": "bù hǎo",
+            "speaker": "Trước thanh 3 giữ bù"
+          },
+          {
+            "hanzi": "不要",
+            "meaningVi": "đừng; không muốn, tùy câu",
+            "pinyin": "bù yào",
+            "speaker": "Một ví dụ nữa"
+          },
+          {
+            "hanzi": "一天",
+            "meaningVi": "một ngày",
+            "pinyin": "yī tiān",
+            "speaker": "Trước thanh 1"
+          },
+          {
+            "hanzi": "一年",
+            "meaningVi": "một năm",
+            "pinyin": "yī nián",
+            "speaker": "Trước thanh 2"
+          },
+          {
+            "hanzi": "一本书",
+            "meaningVi": "một quyển sách",
+            "pinyin": "yī běn shū",
+            "speaker": "Trước thanh 3"
+          },
+          {
+            "hanzi": "第一",
+            "meaningVi": "thứ nhất",
+            "pinyin": "dì yī",
+            "speaker": "Số thứ tự"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "不是",
+            "answerMeaningVi": "không phải",
+            "answerPinyin": "bù shì",
+            "distractors": [
+              "不好",
+              "不来"
+            ],
+            "explanationVi": "是 thanh 4 nên 不是 đọc liền bú shì; dòng Pinyin đáp án giữ thanh gốc. 好 thanh 3 và 来 thanh 2 không kích hoạt quy tắc này.",
+            "promptVi": "Cụm nào có 不 đứng ngay trước thanh 4? Hỗ trợ: 是 shì, 好 hǎo, 来 lái."
+          },
+          {
+            "answer": "第一",
+            "answerMeaningVi": "thứ nhất",
+            "answerPinyin": "dì yī",
+            "distractors": [
+              "一年",
+              "一本"
+            ],
+            "explanationVi": "第一 giữ yī. Trong 一年 và 一本, 一 đọc yì khi nói liền theo mẫu.",
+            "promptVi": "Cụm nào giữ 一 thanh 1 vì là số thứ tự? Hỗ trợ: 第一 dì yī = thứ nhất; 一年 yī nián = một năm; 一本 yī běn = một quyển."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Hai thanh 3 trong một cụm thường đọc gần 2+3. 不 trước thanh 4 đọc bú. 一 trước thanh 4 đọc yí, trước thanh 1/2/3 đọc yì; khi đọc số riêng hoặc thứ tự giữ yī.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "不是",
+              "modelAnswerMeaningVi": "không phải",
+              "modelAnswerPinyin": "bù shì",
+              "promptVi": "Cụm nào có 不 đứng ngay trước thanh 4? Hỗ trợ: 是 shì, 好 hǎo, 来 lái."
+            },
+            "modelExample": {
+              "hanzi": "你好",
+              "meaningVi": "xin chào",
+              "pinyin": "nǐ hǎo"
+            },
+            "pattern": "3+3 · 不 · 一"
+          }
+        ],
+        "lessonPages": {
+          "art": "sound",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Thanh gốc 3+3; khi nói liền trong lời chào thường nghe gần ní hǎo (2+3). Đây là cùng từ, không phải đổi nghĩa.",
+                  "hanzi": "你好",
+                  "id": "boot-4:v2:block:hello",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "xin chào",
+                  "pinyin": "nǐ hǎo",
+                  "provenance": "",
+                  "title": "Từ đã gặp"
+                },
+                {
+                  "alt": "",
+                  "body": "Trong bài này, dòng Pinyin của ví dụ giữ thanh từ điển. Phần giải thích ghi cách đọc liền cụm. Cả hai cách ghi có mục đích riêng; không coi một ghi chú biến điệu là lỗi chính tả trong mọi tài liệu.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:notation",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Phân biệt nhãn từ và hướng dẫn nói"
+                }
+              ],
+              "id": "boot-4:v2:mission",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Một từ, hai cách ghi để học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Quy tắc cho hai âm tiết thuộc cùng cụm nói. Thanh cuối có thể chỉ hạ thấp trong lời nói nối tiếp.",
+                    "nodes": [
+                      {
+                        "id": "row-0",
+                        "label": "你好",
+                        "meaningVi": "nǐ hǎo → ní hǎo",
+                        "note": "xin chào",
+                        "pinyin": "",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-1",
+                        "label": "很好",
+                        "meaningVi": "hěn hǎo → hén hǎo",
+                        "note": "rất tốt / rất khỏe theo ngữ cảnh",
+                        "pinyin": "",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-2",
+                        "label": "可以",
+                        "meaningVi": "kě yǐ → ké yǐ",
+                        "note": "có thể / được phép",
+                        "pinyin": "",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:third",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "3 + 3 → gần 2 + 3"
+                },
+                {
+                  "alt": "",
+                  "body": "Trước thanh 1/2/4, thanh 3 thường hạ thấp mà không nhấc đầy đủ. Chuỗi ba thanh 3 còn phụ thuộc cách chia cụm; bài này chưa yêu cầu dự đoán mọi chuỗi dài.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:third-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không kéo mọi thanh 3 thành một đường võng sâu"
+                }
+              ],
+              "id": "boot-4:v2:third",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Hai thanh 3 đi cùng nhau"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "是 shì là thanh 4 nên 不 đọc bú: bú shì. Giữ chữ 不 và thanh gốc bù khi tra từ.",
+                  "hanzi": "不是",
+                  "id": "boot-4:v2:block:not",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "không phải",
+                  "pinyin": "bù shì",
+                  "provenance": "",
+                  "title": "Đọc liền 不是"
+                },
+                {
+                  "alt": "",
+                  "body": "好 hǎo là thanh 3, nên không áp quy tắc bú trước thanh 4.",
+                  "hanzi": "不好",
+                  "id": "boot-4:v2:block:bad",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "không tốt",
+                  "pinyin": "bù hǎo",
+                  "provenance": "",
+                  "title": "Trước thanh 3 giữ bù"
+                },
+                {
+                  "alt": "",
+                  "body": "要 yào là thanh 4: đọc liền bú yào. Hiểu cả câu để chọn nghĩa; không phải mọi 不要 đều là mệnh lệnh.",
+                  "hanzi": "不要",
+                  "id": "boot-4:v2:block:dont",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "đừng; không muốn, tùy câu",
+                  "pinyin": "bù yào",
+                  "provenance": "",
+                  "title": "Một ví dụ nữa"
+                }
+              ],
+              "id": "boot-4:v2:bu",
+              "layout": "split",
+              "stage": "understand",
+              "title": "不 trước thanh 4"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Nhìn ngay âm tiết sau 一 trong cụm. Đây là hướng dẫn đọc liền, không đổi thanh gốc yī.",
+                    "nodes": [
+                      {
+                        "id": "row-0",
+                        "label": "Trước thanh 4",
+                        "meaningVi": "yí",
+                        "note": "一个: yī gè → yí gè khi giữ gè thanh 4 trong mẫu.",
+                        "pinyin": "",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-1",
+                        "label": "Trước thanh 1 / 2 / 3",
+                        "meaningVi": "yì",
+                        "note": "一天 yì tiān; 一年 yì nián; 一本 yì běn.",
+                        "pinyin": "",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "row-2",
+                        "label": "Số riêng / số thứ tự",
+                        "meaningVi": "yī",
+                        "note": "Đếm 一、二、三 hoặc 第一 dì yī giữ thanh 1.",
+                        "pinyin": "",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:yi",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ba trường hợp cần phân biệt"
+                },
+                {
+                  "alt": "",
+                  "body": "个 có thể đọc nhẹ trong lời nói. Mẫu này ghi rõ gè thanh 4 để học quy tắc trước; không dùng TTS của từng thiết bị làm trọng tài cho mọi biến thể.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:neutral",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không đoán từ một âm nhẹ chưa rõ nguồn"
+                }
+              ],
+              "id": "boot-4:v2:yi",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "一 nhìn thanh của âm sau"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Cách đọc liền: yì tiān.",
+                  "hanzi": "一天",
+                  "id": "boot-4:v2:block:day",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "một ngày",
+                  "pinyin": "yī tiān",
+                  "provenance": "",
+                  "title": "Trước thanh 1"
+                },
+                {
+                  "alt": "",
+                  "body": "Cách đọc liền: yì nián.",
+                  "hanzi": "一年",
+                  "id": "boot-4:v2:block:year",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "một năm",
+                  "pinyin": "yī nián",
+                  "provenance": "",
+                  "title": "Trước thanh 2"
+                },
+                {
+                  "alt": "",
+                  "body": "Cách đọc liền: yì běn shū. 本 là lượng từ của sách; không bỏ 本.",
+                  "hanzi": "一本书",
+                  "id": "boot-4:v2:block:book",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "một quyển sách",
+                  "pinyin": "yī běn shū",
+                  "provenance": "",
+                  "title": "Trước thanh 3"
+                },
+                {
+                  "alt": "",
+                  "body": "Giữ yī thanh 1 trong số thứ tự; không đổi vì 第 là thanh 4 đứng trước.",
+                  "hanzi": "第一",
+                  "id": "boot-4:v2:block:first",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "thứ nhất",
+                  "pinyin": "dì yī",
+                  "provenance": "",
+                  "title": "Số thứ tự"
+                }
+              ],
+              "id": "boot-4:v2:examples",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Đọc cả cụm và giữ nghĩa"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-1"
+                    ],
+                    "explanation": "不是: bù shì ở thanh gốc, bú shì khi đọc liền.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn bú cho 不 trước shì thanh 4 từ Pinyin và quy tắc biến điệu; không đo nghe hoặc âm nói thực.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "sandhi-bu-before-fourth",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là thanh gốc, nhưng trước shì thanh 4 thường đọc bú.",
+                        "id": "answer-0",
+                        "text": "bù"
+                      },
+                      {
+                        "feedback": "Đúng: 不 đứng trước thanh 4.",
+                        "id": "answer-1",
+                        "text": "bú"
+                      },
+                      {
+                        "feedback": "Không có quy tắc đổi 不 thành thanh 1 ở đây.",
+                        "id": "answer-2",
+                        "text": "bū"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Đọc liền 不是. Chọn cách đọc của 不 trong cụm này.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:bu-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thanh nào điều khiển 不?"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-2"
+                    ],
+                    "explanation": "Nhìn âm sau 一: běn. 不 và 一 có quy tắc riêng, không hoán đổi.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn yì trong 一本书 vì běn mang thanh 3; nhận diện cách đọc liền bằng chữ.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "sandhi-yi-before-1-2-3",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "yí áp dụng trước thanh 4; běn là thanh 3.",
+                        "id": "answer-0",
+                        "text": "yí běn shū"
+                      },
+                      {
+                        "feedback": "Đây là thanh từ điển; yêu cầu đang hỏi cách đọc liền.",
+                        "id": "answer-1",
+                        "text": "yī běn shū"
+                      },
+                      {
+                        "feedback": "Đúng: trước běn thanh 3, 一 đọc yì.",
+                        "id": "answer-2",
+                        "text": "yì běn shū"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Chọn cách đọc liền cụm 一本书 trong mẫu này.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:yi-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Một quyển sách"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-0"
+                    ],
+                    "explanation": "第 đứng trước không quyết định biến điệu của 一; 第一 là trường hợp giữ thanh gốc.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giữ yī trong số thứ tự 第一 thay vì áp biến điệu của 一 trước danh từ; nhận diện ngoại lệ bằng chữ.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "sandhi-yi-before-1-2-3",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: số thứ tự giữ yī.",
+                        "id": "answer-0",
+                        "text": "yī"
+                      },
+                      {
+                        "feedback": "Không áp quy tắc trước thanh 4 vào số thứ tự này.",
+                        "id": "answer-1",
+                        "text": "yí"
+                      },
+                      {
+                        "feedback": "Không đổi thành thanh 4 trong 第一.",
+                        "id": "answer-2",
+                        "text": "yì"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Trong 第一, 一 đọc thế nào?",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:ordinal",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thứ nhất"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "answer-1"
+                    ],
+                    "explanation": "Có thể dùng ké yǐ để ghi chú cách nói; dạng tra từ vẫn kě yǐ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn ké yǐ khi đọc liền hai thanh 3 của 可以, đổi âm tiết đầu và giữ âm tiết sau; chưa đo sản xuất âm.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "sandhi-third-third",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Quy tắc này đổi âm tiết đầu, không phải âm tiết sau.",
+                        "id": "answer-0",
+                        "text": "kě yí"
+                      },
+                      {
+                        "feedback": "Đúng: âm đầu gần thanh 2, âm sau vẫn thuộc thanh 3.",
+                        "id": "answer-1",
+                        "text": "ké yǐ"
+                      },
+                      {
+                        "feedback": "Không đổi hai âm thành thanh 4.",
+                        "id": "answer-2",
+                        "text": "kè yì"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Đọc liền 可以 kě yǐ. Chọn cách đọc gần đúng theo quy tắc hai thanh 3.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:third-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đổi đúng âm tiết"
+                }
+              ],
+              "id": "boot-4:v2:apply",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Tự chọn trước khi xem giải thích"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "一起: thanh từ điển yī qǐ; nói liền yì qǐ vì qǐ là thanh 3. 第一: dì yī, giữ thanh 1. Nghĩa: cùng nhau / thứ nhất. Đây là kiểm tra vận dụng quy tắc sang từ mới, chưa là điểm phát âm.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dự đoán yì qǐ từ thanh 3 của qǐ rồi đối chiếu ngoại lệ dì yī trong 第一; rubric tự soát không cấp điểm phát âm.",
+                      "skill": "pronunciation",
+                      "sources": [
+                        {
+                          "id": "sandhi-yi-before-1-2-3",
+                          "kind": "pronunciation"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "起 qǐ có thanh 3.",
+                        "id": "after",
+                        "label": "Âm sau"
+                      },
+                      {
+                        "guidance": "一 trước thanh 3 đọc yì: yì qǐ.",
+                        "id": "change",
+                        "label": "Cách đọc"
+                      },
+                      {
+                        "guidance": "第一 đọc dì yī; không áp cách đổi của 一起 vào mọi chỗ có 一.",
+                        "id": "exception",
+                        "label": "Số thứ tự"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn gặp từ mới 一起, nghĩa là “cùng nhau”, thanh từ điển yī qǐ. Chưa nghe mẫu: hãy dự đoán cách đọc liền và giải thích dựa trên thanh nào. Sau đó so với 第一 (thứ nhất).",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Mời bạn cùng luyện"
+                }
+              ],
+              "id": "boot-4:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Chuyển quy tắc sang cụm mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Không nhìn bảng: giải thích 你好, 不是, 一本书 và 第一. Nếu nhầm, quay lại đúng quy tắc thay vì học thuộc một đáp án. Lần ôn sau thử với một cụm khác và ghi thanh gốc riêng cách đọc.",
+                  "hanzi": "",
+                  "id": "boot-4:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự kiểm trước khi vào Thử Luyện"
+                }
+              ],
+              "id": "boot-4:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Mang sang lần luyện tiếp"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/57-REVIEW-BOOT-2-4-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "e7513d81-d687-4e39-ac18-c92228d81131",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK0 boot-2/3/4 activity target metadata; visual rule recognition and self-review only, no listening or pronunciation score.",
+          "targetPlanSha256": "sha256:68e48b31c98bf070fae8fe987bfb4562ffb5d3b45d6f74474d45f8683b68b80e"
+        },
+        "objectiveVi": "Phân biệt thanh gốc với cách đọc liền cụm; vận dụng 3+3, 不 trước thanh 4 và 一 theo âm sau trong các ví dụ ngắn.",
+        "pitfallVi": "Không đổi chữ hoặc thanh từ điển khi mô tả cách đọc thực tế; không áp một quy tắc máy móc cho mọi ranh giới cụm hoặc chuỗi ba thanh 3.",
+        "prerequisites": [
+          "boot-3"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Hai thanh 3 trong một cụm thường đọc gần 2+3. 不 trước thanh 4 đọc bú. 一 trước thanh 4 đọc yí, trước thanh 1/2/3 đọc yì; khi đọc số riêng hoặc thứ tự giữ yī.",
+        "skills": [
+          "pronunciation",
+          "listening"
+        ],
+        "sourceLessonIds": [
+          "boot-4"
+        ],
+        "sourceVocabularyIds": [
+          "ni",
+          "hao",
+          "xuesheng",
+          "laoshi"
+        ],
+        "targetLessonId": "boot-4",
+        "titleZh": "声调组合",
+        "vocabulary": [
+          "ni",
+          "hao",
+          "xuesheng",
+          "laoshi"
+        ]
+      }
+    }
+  ]
+}

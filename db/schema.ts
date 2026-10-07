@@ -11,6 +11,132 @@ import {
   uniqueIndex,
 } from "drizzle-orm/sqlite-core";
 
+/** Local sandbox only; no monetary value or production entitlement. */
+export const commerceSandboxOrders = sqliteTable("commerce_sandbox_orders", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  planId: text("plan_id").notNull(),
+  idempotencyKey: text("idempotency_key").notNull(),
+  status: text("status").notNull().default("pending"),
+  createdAt: integer("created_at").notNull(),
+  paidAt: integer("paid_at"),
+  updatedAt: integer("updated_at").notNull(),
+  refundRequestedAt: integer("refund_requested_at"),
+  refundReason: text("refund_reason"),
+  refundedBy: text("refunded_by"),
+}, table => [
+  uniqueIndex("commerce_sandbox_owner_key").on(table.userId, table.idempotencyKey),
+  index("commerce_sandbox_owner_status").on(table.userId, table.status),
+  check("commerce_sandbox_plan", sql`${table.planId} IN ('hsk4-month','hsk4-year')`),
+  check("commerce_sandbox_status", sql`${table.status} IN ('pending','paid','failed','cancelled','refunded')`),
+  check("commerce_sandbox_paid", sql`(${table.status} IN ('paid','refunded') AND ${table.paidAt} IS NOT NULL) OR (${table.status} IN ('pending','failed','cancelled') AND ${table.paidAt} IS NULL)`),
+]);
+
+/** Internal Hanzi units. This ledger has no VND exchange rate or cash-out path. */
+export const hanziWallets = sqliteTable("hanzi_wallets", {
+  userId: text("user_id").primaryKey().references(() => users.id, { onDelete: "cascade" }),
+  balance: integer("balance").notNull().default(0),
+  updatedAt: integer("updated_at").notNull(),
+}, table => [check("hanzi_wallet_balance", sql`${table.balance} BETWEEN 0 AND 1000000000`)]);
+
+export const hanziWalletEntries = sqliteTable("hanzi_wallet_entries", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  delta: integer("delta").notNull(),
+  kind: text("kind").notNull(),
+  referenceId: text("reference_id").notNull(),
+  actorUserId: text("actor_user_id"),
+  createdAt: integer("created_at").notNull(),
+}, table => [
+  uniqueIndex("hanzi_wallet_owner_reference").on(table.userId, table.referenceId),
+  index("hanzi_wallet_owner_created").on(table.userId, table.createdAt),
+  check("hanzi_wallet_entry_kind", sql`${table.kind} IN ('admin_credit','admin_debit','purchase','refund','verified_topup','level_reward')`),
+  check("hanzi_wallet_entry_delta", sql`${table.delta} BETWEEN -1000000000 AND 1000000000 AND ${table.delta} <> 0`),
+]);
+
+export const hanziPlanPrices = sqliteTable("hanzi_plan_prices", {
+  planId: text("plan_id").primaryKey(),
+  amount: integer("amount").notNull(),
+  updatedBy: text("updated_by").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+}, table => [
+  check("hanzi_plan_price_id", sql`${table.planId} IN ('hsk4-month','hsk4-year')`),
+  check("hanzi_plan_price_amount", sql`${table.amount} BETWEEN 1 AND 1000000`),
+]);
+
+/** VNĐ catalog prices; payment remains disabled until separately implemented. */
+export const premiumVndPrices = sqliteTable("premium_vnd_prices", {
+  planId: text("plan_id").primaryKey(),
+  amount: integer("amount").notNull(),
+  updatedBy: text("updated_by").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+}, table => [
+  check("premium_vnd_price_id", sql`${table.planId} IN ('hsk4-month','hsk4-year')`),
+  check("premium_vnd_price_amount", sql`typeof(${table.amount}) = 'integer' AND ${table.amount} BETWEEN 1 AND 100000000`),
+]);
+
+export const hanziPremiumOrders = sqliteTable("hanzi_premium_orders", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  planId: text("plan_id").notNull(),
+  amount: integer("amount").notNull(),
+  idempotencyKey: text("idempotency_key").notNull(),
+  status: text("status").notNull().default("paid"),
+  paidAt: integer("paid_at").notNull(),
+  refundRequestedAt: integer("refund_requested_at"),
+  refundReason: text("refund_reason"),
+  refundedBy: text("refunded_by"),
+  refundRejectedAt: integer("refund_rejected_at"),
+  refundRejectedBy: text("refund_rejected_by"),
+  refundRejectionReason: text("refund_rejection_reason"),
+}, table => [
+  uniqueIndex("hanzi_premium_owner_key").on(table.userId, table.idempotencyKey),
+  index("hanzi_premium_owner_paid").on(table.userId, table.paidAt),
+  check("hanzi_premium_plan", sql`${table.planId} IN ('hsk4-month','hsk4-year')`),
+  check("hanzi_premium_amount", sql`${table.amount} BETWEEN 1 AND 1000000`),
+  check("hanzi_premium_status", sql`${table.status} IN ('paid','refunded')`),
+]);
+
+/** HSK4 Thiên Lộ lesson overrides only; other content remains on its existing policy. */
+export const lessonAccessRules = sqliteTable("lesson_access_rules", {
+  lessonId: text("lesson_id").primaryKey(),
+  tier: text("tier").notNull(),
+  updatedBy: text("updated_by").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+}, table => [check("lesson_access_tier", sql`${table.tier} IN ('free','premium')`)]);
+
+export const mockExamAccessRules = sqliteTable('mock_exam_access_rules', {
+  examLevel: text('exam_level').notNull(),
+  formKey: text('form_key').notNull(),
+  tier: text('tier').notNull(),
+  updatedBy: text('updated_by').notNull(),
+  updatedAt: integer('updated_at').notNull(),
+}, table => [
+  primaryKey({ columns: [table.examLevel, table.formKey] }),
+  check('mock_exam_access_tier', sql`${table.tier} IN ('free','premium')`),
+  check('mock_exam_access_level', sql`${table.examLevel} IN ('hsk1','hsk2','hsk3','hsk4')`),
+  check('mock_exam_access_form', sql`${table.formKey} IN ('a','b','c','d','e','f','g','h','i','j','k','l')`),
+]);
+
+/** Account-owned requests about Premium access and billing. */
+export const premiumSupportTickets = sqliteTable("premium_support_tickets", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  category: text("category").notNull(),
+  subject: text("subject").notNull(),
+  message: text("message").notNull(),
+  status: text("status").notNull().default("open"),
+  response: text("response"),
+  respondedBy: text("responded_by"),
+  createdAt: integer("created_at").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+}, table => [
+  index("premium_support_owner_created").on(table.userId, table.createdAt),
+  index("premium_support_status_created").on(table.status, table.createdAt),
+  check("premium_support_category", sql`${table.category} IN ('access','billing','technical')`),
+  check("premium_support_status", sql`${table.status} IN ('open','answered','closed')`),
+]);
+
 /** Supported lesson-page attempts do not participate in trial completion. */
 export const lessonPageAttempts = sqliteTable('lesson_page_attempts', {
  id:text('id').primaryKey(),

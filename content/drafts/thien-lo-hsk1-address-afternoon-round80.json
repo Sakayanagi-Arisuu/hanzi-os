@@ -1,0 +1,975 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/173-REVIEW-HSK1-ADDRESS-AFTERNOON-ROUND80.md",
+  "entries": [
+    {
+      "sourceRevisionId": "8f5240aa-8147-4407-bd36-5d0194425eac",
+      "sourceContentSha256": "sha256:034d70125870b36fa23df261e88eb726d8f48d102691643f983824df04a923a6",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Vai của bạn có hai con mèo, thích chó và quen một người bạn nam không phải người yêu. Nói số mèo, sở thích và giới thiệu bạn bằng 朋友.",
+        "conceptVi": "Nói đúng quan hệ và đếm vật nuôi",
+        "dialogue": [
+          {
+            "hanzi": "你认识她吗？",
+            "meaningVi": "Bạn quen cô ấy không?",
+            "pinyin": "Nǐ rènshi tā ma?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "认识，她是我的朋友。",
+            "meaningVi": "Có, cô ấy là bạn tôi.",
+            "pinyin": "Rènshi, tā shì wǒ de péngyou.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "她喜欢猫和狗。",
+            "meaningVi": "Cô ấy thích mèo và chó.",
+            "pinyin": "Tā xǐhuan māo hé gǒu.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "她是我的朋友。",
+            "answerMeaningVi": "Cô ấy là bạn của tôi.",
+            "answerPinyin": "Tā shì wǒ de péngyou.",
+            "distractors": [
+              "她是我的女朋友。",
+              "她是我的妈妈。"
+            ],
+            "explanationVi": "Đúng: chỉ nói quan hệ bạn bè.",
+            "promptVi": "Theo đề, người đó chỉ là bạn của bạn, không có quan hệ yêu đương. Cách giới thiệu rõ phù hợp nhất?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "朋友 là bạn; 男朋友/女朋友 thường là bạn trai/bạn gái trong quan hệ yêu đương, không chỉ bạn nam/nữ. 小朋友 là em nhỏ. 认识 là quen/nhận ra người, 喜欢 thích, 爱 yêu/thích mạnh tùy câu. 和 nối danh từ 我朋友和我, không thay mọi cách nối câu. 一只猫/两只狗 dùng 只. 给 + người/động vật + vật diễn đạt đưa/cho trong mẫu 给猫水.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我有两只猫。我喜欢狗。他是我的朋友。",
+              "modelAnswerMeaningVi": "Tôi có hai con mèo. Tôi thích chó. Anh ấy là bạn tôi.",
+              "modelAnswerPinyin": "Wǒ yǒu liǎng zhī māo. Wǒ xǐhuan gǒu. Tā shì wǒ de péngyou.",
+              "promptVi": "Vai của bạn có hai con mèo, thích chó và quen một người bạn nam không phải người yêu. Nói số mèo, sở thích và giới thiệu bạn bằng 朋友."
+            },
+            "modelExample": {
+              "hanzi": "我有两只猫。",
+              "meaningVi": "Tôi có hai con mèo.",
+              "pinyin": "Wǒ yǒu liǎng zhī māo."
+            },
+            "pattern": "我有 + số + 只 + 猫／狗。"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn giới thiệu một người quen và hai vật nuôi. Cần nói rõ bạn bè hay quan hệ yêu đương, rồi chọn lượng từ khi đếm mèo/chó.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "一 (yī) — một; 两 (liǎng) — hai; 水 (shuǐ) — nước; 这 (zhè) — này; 他/她 (tā) — anh ấy/cô ấy.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "survival-5:v2:context",
+              "illustration": {
+                "alt": "Giới thiệu người bạn và vật nuôi trong phòng khách",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/pets-introduction-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nói đúng quan hệ và đếm vật nuôi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你认识她吗？",
+                  "id": "survival-5:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn quen cô ấy không?",
+                  "pinyin": "Nǐ rènshi tā ma?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "认识，她是我的朋友。",
+                  "id": "survival-5:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có, cô ấy là bạn tôi.",
+                  "pinyin": "Rènshi, tā shì wǒ de péngyou.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她喜欢猫和狗。",
+                  "id": "survival-5:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy thích mèo và chó.",
+                  "pinyin": "Tā xǐhuan māo hé gǒu.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "survival-5:v2:dialogue",
+              "illustration": {
+                "alt": "Giới thiệu người bạn và vật nuôi trong phòng khách",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/pets-introduction-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "朋友 là bạn; 男朋友/女朋友 thường là bạn trai/bạn gái trong quan hệ yêu đương, không chỉ bạn nam/nữ. 小朋友 là em nhỏ. 认识 là quen/nhận ra người, 喜欢 thích, 爱 yêu/thích mạnh tùy câu. 和 nối danh từ 我朋友和我, không thay mọi cách nối câu. 一只猫/两只狗 dùng 只. 给 + người/động vật + vật diễn đạt đưa/cho trong mẫu 给猫水.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我有两只猫。",
+                  "id": "survival-5:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có hai con mèo.",
+                  "pinyin": "Wǒ yǒu liǎng zhī māo.",
+                  "provenance": "",
+                  "title": "我有 + số + 只 + 猫／狗。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không gọi mọi người bạn khác giới là 男朋友/女朋友. Không lấy 爱 và 喜欢 làm hai lựa chọn loại trừ nếu ngữ cảnh cho phép cả hai.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "survival-5:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói đúng quan hệ và đếm vật nuôi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "yêu; thích",
+                  "hanzi": "我爱我的家人。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00001",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi yêu người nhà của mình.",
+                  "pinyin": "Wǒ ài wǒ de jiārén.",
+                  "provenance": "",
+                  "title": "爱 · ài"
+                },
+                {
+                  "alt": "",
+                  "body": "cho; đưa cho",
+                  "hanzi": "老师给我一本书。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00061",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên cho tôi một quyển sách.",
+                  "pinyin": "Lǎoshī gěi wǒ yì běn shū.",
+                  "provenance": "",
+                  "title": "给 · gěi"
+                },
+                {
+                  "alt": "",
+                  "body": "chó",
+                  "hanzi": "那只狗很可爱。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00064",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Con chó kia rất đáng yêu.",
+                  "pinyin": "Nà zhī gǒu hěn kě'ài.",
+                  "provenance": "",
+                  "title": "狗 · gǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "và; với",
+                  "hanzi": "我和朋友去商店。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00078",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi cửa hàng cùng bạn.",
+                  "pinyin": "Wǒ hé péngyou qù shāngdiàn.",
+                  "provenance": "",
+                  "title": "和 · hé"
+                },
+                {
+                  "alt": "",
+                  "body": "mèo",
+                  "hanzi": "猫在椅子下。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00119",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới ghế.",
+                  "pinyin": "Māo zài yǐzi xià.",
+                  "provenance": "",
+                  "title": "猫 · māo"
+                }
+              ],
+              "id": "survival-5:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bạn trai",
+                  "hanzi": "她男朋友是医生。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00143",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn trai cô ấy là bác sĩ.",
+                  "pinyin": "Tā nánpéngyou shì yīshēng.",
+                  "provenance": "",
+                  "title": "男朋友 · nánpéngyou"
+                },
+                {
+                  "alt": "",
+                  "body": "bạn gái",
+                  "hanzi": "我女朋友会说汉语。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00154",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn gái tôi biết nói tiếng Trung.",
+                  "pinyin": "Wǒ nǚpéngyou huì shuō Hànyǔ.",
+                  "provenance": "",
+                  "title": "女朋友 · nǚpéngyou"
+                },
+                {
+                  "alt": "",
+                  "body": "bạn; bạn bè",
+                  "hanzi": "我和朋友去商店。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00156",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi cửa hàng cùng bạn.",
+                  "pinyin": "Wǒ hé péngyou qù shāngdiàn.",
+                  "provenance": "",
+                  "title": "朋友 · péngyou"
+                },
+                {
+                  "alt": "",
+                  "body": "quen; biết; nhận ra",
+                  "hanzi": "他认识我。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00171",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy quen tôi.",
+                  "pinyin": "Tā rènshi wǒ.",
+                  "provenance": "",
+                  "title": "认识 · rènshi"
+                },
+                {
+                  "alt": "",
+                  "body": "thích",
+                  "hanzi": "你喜欢猫吗？",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00225",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn thích mèo không?",
+                  "pinyin": "Nǐ xǐhuan māo ma?",
+                  "provenance": "",
+                  "title": "喜欢 · xǐhuan"
+                }
+              ],
+              "id": "survival-5:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "trẻ em; em nhỏ",
+                  "hanzi": "那个小朋友叫什么名字？",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00235",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn nhỏ kia tên là gì?",
+                  "pinyin": "Nàge xiǎopéngyou jiào shénme míngzi?",
+                  "provenance": "",
+                  "title": "小朋友 · xiǎopéngyǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "con; cái; chiếc (lượng từ cho một số sự vật)",
+                  "hanzi": "我有一只猫。",
+                  "id": "survival-5:v2:block:word-hsk-vocab-00287",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có một con mèo.",
+                  "pinyin": "Wǒ yǒu yì zhī māo.",
+                  "provenance": "",
+                  "title": "只 · zhī"
+                }
+              ],
+              "id": "survival-5:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "id": "survival-5:r80:page:teach",
+              "title": "小王 và 小朋友: cách gọi người",
+              "stage": "understand",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-5:r80:note",
+                  "kind": "explanation",
+                  "title": "小 không luôn nghĩa kích thước nhỏ",
+                  "body": "小 trước họ tạo cách gọi quen thuộc như 小王, thường do người lớn tuổi/có vai trên gọi người trẻ hơn hoặc giữa người quen. Đây không phải quy tắc cứ biết họ là thêm 小, và không nên tự dùng để gọi người lạ/giáo viên. 小朋友 là cách nói/gọi trẻ em, không tự nghĩa là người yêu hay bạn thân thấp bé. Khác với 小猫 (mèo nhỏ), 小 trong cách gọi 小王 không cho biết chiều cao. 王 Wáng là họ Vương; 老师 lǎoshī là giáo viên.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-5:r80:example:0",
+                  "kind": "dialogue",
+                  "title": "Người quen gọi người trẻ hơn",
+                  "body": "",
+                  "hanzi": "小王，你认识那个小朋友吗？",
+                  "pinyin": "Xiǎo Wáng, nǐ rènshi nàge xiǎopéngyou ma?",
+                  "meaningVi": "Tiểu Vương, cháu/cậu có quen em nhỏ kia không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-5:r80:example:1",
+                  "kind": "dialogue",
+                  "title": "Chào giáo viên",
+                  "body": "",
+                  "hanzi": "王老师，您好！",
+                  "pinyin": "Wáng lǎoshī, nín hǎo!",
+                  "meaningVi": "Em chào thầy/cô Vương!",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "survival-5:r80:page:practice",
+              "title": "Chọn cách gọi theo quan hệ",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-5:r80:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Người lớn gọi một người trẻ họ Vương mà mình quen là 小王. Có thể suy người đó thấp bé không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, 小 luôn nói chiều cao",
+                        "feedback": "Xem lại quan hệ người nói/nghe và ý nghĩa của 小 trong mẫu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, đây là cách gọi quen thuộc",
+                        "feedback": "小 trước họ là cách gọi; không đủ dữ kiện để suy chiều cao hoặc quan hệ yêu đương."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đây chắc chắn là người yêu",
+                        "feedback": "Xem lại quan hệ người nói/nghe và ý nghĩa của 小 trong mẫu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "小 trước họ là cách gọi; không đủ dữ kiện để suy chiều cao hoặc quan hệ yêu đương.",
+                    "learningTarget": {
+                      "objective": "Hiểu 小 trước họ trong cách gọi quen thuộc và 小朋友 chỉ trẻ em; chọn cách gọi hợp hoàn cảnh.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00235",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "survival-5:r80:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Bạn lần đầu chào giáo viên họ Vương. Mẫu nào phù hợp nhất trong tình huống này?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "小王，你好！",
+                        "feedback": "Xem lại quan hệ người nói/nghe và ý nghĩa của 小 trong mẫu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "王老师，您好！",
+                        "feedback": "Họ + 老师 cùng 您好 phù hợp khi học sinh chào giáo viên mới gặp."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "小朋友，你好！",
+                        "feedback": "Xem lại quan hệ người nói/nghe và ý nghĩa của 小 trong mẫu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Họ + 老师 cùng 您好 phù hợp khi học sinh chào giáo viên mới gặp.",
+                    "learningTarget": {
+                      "objective": "Hiểu 小 trước họ trong cách gọi quen thuộc và 小朋友 chỉ trẻ em; chọn cách gọi hợp hoàn cảnh.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00235",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "survival-5:r80:q:2",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 3",
+                  "body": "Người nói chỉ một đứa trẻ và gọi 那个小朋友. Nghĩa nào phù hợp?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Người yêu kia",
+                        "feedback": "Xem lại quan hệ người nói/nghe và ý nghĩa của 小 trong mẫu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Bạn nhỏ/em nhỏ kia",
+                        "feedback": "小朋友 chỉ trẻ em; không phải danh xưng cho người yêu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Quyển sách nhỏ kia",
+                        "feedback": "Xem lại quan hệ người nói/nghe và ý nghĩa của 小 trong mẫu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "小朋友 chỉ trẻ em; không phải danh xưng cho người yêu.",
+                    "learningTarget": {
+                      "objective": "Hiểu 小 trước họ trong cách gọi quen thuộc và 小朋友 chỉ trẻ em; chọn cách gọi hợp hoàn cảnh.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00235",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-5:r80:page:transfer",
+              "title": "Giới thiệu một em nhỏ mới gặp",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-5:r80:produce",
+                  "kind": "activity",
+                  "title": "Viết lời chào và câu hỏi",
+                  "body": "Bạn lần đầu gặp cô giáo họ Lý (李 Lǐ). Chào cô lịch sự rồi hỏi tên một em nhỏ ở phía kia. Không tự gọi cô là 小李.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n李老师，您好！那个小朋友叫什么名字？\nLǐ lǎoshī, nín hǎo! Nàge xiǎopéngyou jiào shénme míngzi?\nEm chào cô Lý! Em nhỏ kia tên là gì?\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "李老师 và 您好 phù hợp vai học sinh.",
+                        "guidance": "Không tự dùng 小李 khi mới gặp giáo viên."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "小朋友 chỉ em nhỏ kia.",
+                        "guidance": "Không suy tuổi cụ thể, chiều cao hoặc quan hệ yêu đương."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "叫什么名字 hỏi tên.",
+                        "guidance": "Không tự đặt tên cho em nhỏ."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Hiểu 小 trước họ trong cách gọi quen thuộc và 小朋友 chỉ trẻ em; chọn cách gọi hợp hoàn cảnh.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00235",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: chỉ nói quan hệ bạn bè. Không gọi mọi người bạn khác giới là 男朋友/女朋友. Không lấy 爱 và 喜欢 làm hai lựa chọn loại trừ nếu ngữ cảnh cho phép cả hai.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 朋友 khi đề chỉ nói quan hệ bạn bè, không tự suy thành quan hệ yêu đương. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00156",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Thông thường nghĩa bạn gái/người yêu, khác thông tin đề.",
+                        "id": "option-0",
+                        "text": "她是我的女朋友。"
+                      },
+                      {
+                        "feedback": "Đúng: chỉ nói quan hệ bạn bè.",
+                        "id": "option-1",
+                        "text": "她是我的朋友。"
+                      },
+                      {
+                        "feedback": "Đây là quan hệ mẹ con, không đúng thông tin bạn bè.",
+                        "id": "option-2",
+                        "text": "她是我的妈妈。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo đề, người đó chỉ là bạn của bạn, không có quan hệ yêu đương. Cách giới thiệu rõ phù hợp nhất?",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "survival-5:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "只"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Dùng 只 (zhī) cho mèo/chó trong các mẫu này. 两 đứng trước lượng từ khi nói hai con.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền lượng từ 只 sau 两 để đếm hai con chó trong mẫu đã học. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00287",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền lượng từ đếm chó trong mẫu đã học: 我有两____狗。",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "survival-5:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai của bạn có hai con mèo, thích chó và quen một người bạn nam không phải người yêu. Nói số mèo, sở thích và giới thiệu bạn bằng 朋友.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我有两只猫。我喜欢狗。他是我的朋友。\nWǒ yǒu liǎng zhī māo. Wǒ xǐhuan gǒu. Tā shì wǒ de péngyou.\nTôi có hai con mèo. Tôi thích chó. Anh ấy là bạn tôi.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu giới thiệu bạn bè, vật nuôi và lượng từ; tự kiểm không đổi quan hệ do suy đoán. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-pe-05-friends-and-pets",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "两只猫 có lượng từ đúng.",
+                        "id": "criterion-0",
+                        "label": "两只猫 có lượng từ đúng."
+                      },
+                      {
+                        "guidance": "喜欢 nêu sở thích.",
+                        "id": "criterion-1",
+                        "label": "喜欢 nêu sở thích."
+                      },
+                      {
+                        "guidance": "朋友 không tự thêm quan hệ yêu đương.",
+                        "id": "criterion-2",
+                        "label": "朋友 không tự thêm quan hệ yêu đương."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "survival-5:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "两只猫 có lượng từ đúng.\n喜欢 nêu sở thích.\n朋友 không tự thêm quan hệ yêu đương.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "survival-5:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "survival-5:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/60-REVIEW-SURVIVAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "50943a3b-6cf5-4c2d-a3d4-0979ccf81dde",
+          "reviewedAt": "2026-09-29",
+          "scope": "Nine HSK1 survival lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:2db6af1f5850bad4c30a57ec8195f1d142e2531bde80c0b0ff49d93c052b3ab4"
+        },
+        "objectiveVi": "Nói về người quen, tình cảm và vật nuôi bằng cụm danh từ ngắn.",
+        "pitfallVi": "Không gọi mọi người bạn khác giới là 男朋友/女朋友. Không lấy 爱 và 喜欢 làm hai lựa chọn loại trừ nếu ngữ cảnh cho phép cả hai.",
+        "prerequisites": [
+          "survival-4"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "朋友 là bạn; 男朋友/女朋友 thường là bạn trai/bạn gái trong quan hệ yêu đương, không chỉ bạn nam/nữ. 小朋友 là em nhỏ. 认识 là quen/nhận ra người, 喜欢 thích, 爱 yêu/thích mạnh tùy câu. 和 nối danh từ 我朋友和我, không thay mọi cách nối câu. 一只猫/两只狗 dùng 只. 给 + người/động vật + vật diễn đạt đưa/cho trong mẫu 给猫水.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-022",
+          "hsk1-grammar-row-023",
+          "hsk1-grammar-row-028",
+          "hsk1-grammar-row-001"
+        ],
+        "sourceLessonIds": [
+          "survival-5"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-pe-05-friends-and-pets"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00001",
+          "hsk-vocab-00061",
+          "hsk-vocab-00064",
+          "hsk-vocab-00078",
+          "hsk-vocab-00119",
+          "hsk-vocab-00143",
+          "hsk-vocab-00154",
+          "hsk-vocab-00156",
+          "hsk-vocab-00171",
+          "hsk-vocab-00225",
+          "hsk-vocab-00235",
+          "hsk-vocab-00287"
+        ],
+        "targetLessonId": "survival-5",
+        "titleZh": "朋友和宠物",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/68-REVIEW-SURVIVAL-DIALOGUE-VISUALS.md",
+          "humanReviewed": false,
+          "scope": "Nine individually reviewed dialogue illustrations; no learning content change.",
+          "sourceRevisionId": "d8afa5b8-f840-4776-97c1-04c2277a693b"
+        },
+        "vocabulary": [
+          "hsk-vocab-00001",
+          "hsk-vocab-00061",
+          "hsk-vocab-00064",
+          "hsk-vocab-00078",
+          "hsk-vocab-00119",
+          "hsk-vocab-00143",
+          "hsk-vocab-00154",
+          "hsk-vocab-00156",
+          "hsk-vocab-00171",
+          "hsk-vocab-00225",
+          "hsk-vocab-00235",
+          "hsk-vocab-00287"
+        ]
+      },
+      "changes": [
+        {
+          "netPages": 3,
+          "grammar": "Small address prefix taught in social context."
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "2c50f09a-f20c-4cec-a99c-8a51e2507097",
+      "sourceContentSha256": "sha256:f8213d246b0090b9a08e48aa48451a955caf2240f6609d9fd60a4b2283ac8193",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "我上午不忙，下午很忙。",
+            "pinyin": "Wǒ shàngwǔ bù máng, xiàwǔ hěn máng.",
+            "meaningVi": "Buổi sáng tôi không bận, buổi chiều tôi bận."
+          }
+        ],
+        "hanzi": "下午",
+        "meaningVi": "buổi chiều",
+        "pinyin": "xiàwǔ",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "characters-9",
+          "hsk1-time-place-events-03-week-and-day-parts"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00230"
+        ]
+      },
+      "changes": [
+        {
+          "field": "examples",
+          "scope": "Self-contained context, not an orphaned reply."
+        }
+      ]
+    }
+  ]
+}

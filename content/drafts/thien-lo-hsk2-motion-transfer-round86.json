@@ -1,0 +1,3553 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/180-REVIEW-HSK2-MOTION-TRANSFER-ROUND86.md",
+  "entries": [
+    {
+      "sourceRevisionId": "5f692c46-02c6-4964-8762-efaaaf67a8ce",
+      "sourceContentSha256": "sha256:3ff0e91776e30994c9a3e6abb75602954f040ce40365277eb01951e6f36f9916",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Cảnh mới: giáo viên trong thư viện, Lan đi vào từ cửa. Giáo viên mời Lan đọc câu hai; Lan đọc xong và hiểu rồi. Lan ra khỏi thư viện, đi trái đến lớp để học. Viết bốn câu, giữ ai làm gì và kết quả khác mẫu.",
+        "conceptVi": "Theo dõi đường đi, người thực hiện và kết quả",
+        "dialogue": [
+          {
+            "hanzi": "老师，我可以进来吗？",
+            "meaningVi": "Thầy/cô, em vào được không?",
+            "pinyin": "Lǎoshī, wǒ kěyǐ jìnlái ma?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "请进来。请你读第三题。",
+            "meaningVi": "Mời vào. Em hãy đọc câu số ba.",
+            "pinyin": "Qǐng jìnlái. Qǐng nǐ dú dì sān tí.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "我读完了，但是没看懂。",
+            "meaningVi": "Em đọc xong nhưng chưa hiểu.",
+            "pinyin": "Wǒ dúwán le, dànshì méi kàndǒng.",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "先看看这本书，再告诉我哪里不懂。",
+            "meaningVi": "Xem quyển sách này trước rồi nói chỗ nào chưa hiểu.",
+            "pinyin": "Xiān kànkan zhè běn shū, zài gàosu wǒ nǎlǐ bù dǒng.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "我想去图书馆找书，怎么走？",
+            "meaningVi": "Em muốn đến thư viện tìm sách, đi thế nào?",
+            "pinyin": "Wǒ xiǎng qù túshūguǎn zhǎo shū, zěnme zǒu?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "从教室出去，往右走。",
+            "meaningVi": "Ra khỏi lớp rồi đi về phía phải.",
+            "pinyin": "Cóng jiàoshì chūqù, wǎng yòu zǒu.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "南读完了，但是还没看懂。",
+            "answerMeaningVi": "Nam đọc xong nhưng chưa hiểu.",
+            "answerPinyin": "Nán dúwán le, dànshì hái méi kàndǒng.",
+            "distractors": [
+              "老师读完了，所以南懂了。",
+              "南没有读完。"
+            ],
+            "explanationVi": "Đúng: giữ người thực hiện và tách xong với hiểu.",
+            "promptVi": "Theo cảnh, ai đọc và kết quả đọc thế nào?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "往右走 là đi về phía phải; đứng trước từ chỉ hướng rồi đến động từ. Phải nói rõ hướng theo người đang đi, không suy từ hướng màn hình.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "往右边走。",
+              "modelAnswerMeaningVi": "Đi về bên phải.",
+              "modelAnswerPinyin": "Wǎng yòubian zǒu.",
+              "promptVi": "Dùng 往右 để chỉ đường: Đi về bên phải."
+            },
+            "modelExample": {
+              "hanzi": "往前走五分钟就到了。",
+              "meaningVi": "Đi thẳng về phía trước năm phút là tới.",
+              "pinyin": "Wǎng qián zǒu wǔ fēnzhōng jiù dào le."
+            },
+            "pattern": "Hướng đi với 往"
+          },
+          {
+            "explanationVi": "从门口进来 nêu lối đi từ cửa. Người nói ở trong phòng, người kia đi từ ngoài vào phía người nói. 从 không tự có nghĩa đi đến.",
+            "guidedPractice": {
+              "promptVi": "Dùng 从…到…: Tôi đi bộ từ nhà đến trường.",
+              "modelAnswerHanzi": "我从家走到学校。",
+              "modelAnswerPinyin": "Wǒ cóng jiā zǒu dào xuéxiào.",
+              "modelAnswerMeaningVi": "Tôi đi bộ từ nhà đến trường."
+            },
+            "modelExample": {
+              "hanzi": "他从门口进来了。",
+              "meaningVi": "Anh ấy đã đi vào từ cửa.",
+              "pinyin": "Tā cóng ménkǒu jìnlái le."
+            },
+            "pattern": "Điểm xuất phát với 从"
+          },
+          {
+            "explanationVi": "看完 nói đọc hết, không khẳng định hiểu hết; 看懂 nói hiểu. 听懂 cần nghe và hiểu; 听了 chỉ nghe.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我听懂老师的话了。",
+              "modelAnswerMeaningVi": "Tôi đã nghe hiểu lời giáo viên.",
+              "modelAnswerPinyin": "Wǒ tīngdǒng lǎoshī de huà le.",
+              "promptVi": "Dùng bổ ngữ kết quả 懂: Tôi đã nghe hiểu lời giáo viên."
+            },
+            "modelExample": {
+              "hanzi": "这本书我看完了。",
+              "meaningVi": "Tôi đã đọc xong quyển sách này.",
+              "pinyin": "Zhè běn shū wǒ kànwán le."
+            },
+            "pattern": "Đọc cả cụm động–bổ"
+          },
+          {
+            "explanationVi": "去商店买东西 có cùng chủ thể đi và mua. Nơi đến sau 去, mục đích sau đó. Không tự thêm người mới làm động từ thứ hai.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他去学校学习。",
+              "modelAnswerMeaningVi": "Anh ấy đến trường học.",
+              "modelAnswerPinyin": "Tā qù xuéxiào xuéxí.",
+              "promptVi": "Tạo chuỗi liên động: Anh ấy đến trường học."
+            },
+            "modelExample": {
+              "hanzi": "我去商店买东西。",
+              "meaningVi": "Tôi đến cửa hàng mua đồ.",
+              "pinyin": "Wǒ qù shāngdiàn mǎi dōngxi."
+            },
+            "pattern": "Đi để làm gì"
+          },
+          {
+            "explanationVi": "老师请我读: giáo viên mời, tôi đọc. 我 vừa nhận lời mời vừa là người thực hiện 读. Đọc vai trước khi nối câu.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "妈妈让弟弟做饭。",
+              "modelAnswerMeaningVi": "Mẹ bảo em trai nấu cơm.",
+              "modelAnswerPinyin": "Māma ràng dìdi zuòfàn.",
+              "promptVi": "Dùng 让: Mẹ bảo em trai nấu cơm."
+            },
+            "modelExample": {
+              "hanzi": "老师请我读这个问题。",
+              "meaningVi": "Giáo viên mời tôi đọc câu hỏi này.",
+              "pinyin": "Lǎoshī qǐng wǒ dú zhège wèntí."
+            },
+            "pattern": "Ai thực hiện hành động sau"
+          },
+          {
+            "explanationVi": "做错 làm sai; 听懂 nghe hiểu; 准备好 chuẩn bị xong/sẵn; 学会 học được cách làm; 写完 viết xong. 完 không đảm bảo 正确 đúng.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我写完汉字了。",
+              "modelAnswerMeaningVi": "Tôi đã viết xong chữ Hán.",
+              "modelAnswerPinyin": "Wǒ xiěwán Hànzì le.",
+              "promptVi": "Dùng 完 để nói: Tôi đã viết xong chữ Hán."
+            },
+            "modelExample": {
+              "hanzi": "老师说的话我听懂了。",
+              "meaningVi": "Tôi đã nghe hiểu lời giáo viên nói.",
+              "pinyin": "Lǎoshī shuō de huà wǒ tīngdǒng le."
+            },
+            "pattern": "Kết quả khác nhau"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Người nói là giáo viên đang trong lớp. Nam từ cửa đi vào phía giáo viên. Giáo viên mời Nam đọc câu số ba. Nam đọc xong nhưng chưa hiểu; sau đó đi thư viện để tìm sách. Hướng phải được tính theo hướng Nam đang đi.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "第三题 dì sān tí: câu bài tập số ba · 读 dú: đọc thành tiếng · 找 zhǎo: tìm · 走廊 zǒuláng: hành lang.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:context",
+              "illustration": {
+                "alt": "Nam từ cửa bước vào phía giáo viên đang ở trong lớp",
+                "caption": "Giáo viên ở trong lớp là mốc của 进来. Đọc xong chưa có nghĩa đã hiểu.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-enter-class-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Theo dõi đường đi, người thực hiện và kết quả"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "老师，我可以进来吗？",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thầy/cô, em vào được không?",
+                  "pinyin": "Lǎoshī, wǒ kěyǐ jìnlái ma?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "请进来。请你读第三题。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời vào. Em hãy đọc câu số ba.",
+                  "pinyin": "Qǐng jìnlái. Qǐng nǐ dú dì sān tí.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我读完了，但是没看懂。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Em đọc xong nhưng chưa hiểu.",
+                  "pinyin": "Wǒ dúwán le, dànshì méi kàndǒng.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "先看看这本书，再告诉我哪里不懂。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xem quyển sách này trước rồi nói chỗ nào chưa hiểu.",
+                  "pinyin": "Xiān kànkan zhè běn shū, zài gàosu wǒ nǎlǐ bù dǒng.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我想去图书馆找书，怎么走？",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Em muốn đến thư viện tìm sách, đi thế nào?",
+                  "pinyin": "Wǒ xiǎng qù túshūguǎn zhǎo shū, zěnme zǒu?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "从教室出去，往右走。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ra khỏi lớp rồi đi về phía phải.",
+                  "pinyin": "Cóng jiàoshì chūqù, wǎng yòu zǒu.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:dialogue",
+              "illustration": {
+                "alt": "Nam từ cửa bước vào phía giáo viên đang ở trong lớp",
+                "caption": "Giáo viên ở trong lớp là mốc của 进来. Đọc xong chưa có nghĩa đã hiểu.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-enter-class-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện là căn cứ làm bài; hình nền chỉ trang trí. Điểm nhìn được nêu riêng khi chuyển động.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "老师／南",
+                        "meaningVi": "Người mời / người đọc",
+                        "note": "Giáo viên trong lớp; Nam từ cửa vào.",
+                        "pinyin": "lǎoshī / Nán",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "读完／没看懂",
+                        "meaningVi": "Đọc xong / chưa hiểu",
+                        "note": "Hai kết quả không đồng nhất.",
+                        "pinyin": "dúwán / méi kàndǒng",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "出去／往右",
+                        "meaningVi": "Ra / đi phải",
+                        "note": "Hướng của Nam khi rời lớp đến thư viện.",
+                        "pinyin": "chūqù / wǎng yòu",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Theo dõi đường đi, người thực hiện và kết quả"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc cảnh trước khi chọn cấu trúc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "往右走 là đi về phía phải; đứng trước từ chỉ hướng rồi đến động từ. Phải nói rõ hướng theo người đang đi, không suy từ hướng màn hình.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-022:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "往前走五分钟就到了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-022:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi thẳng về phía trước năm phút là tới.",
+                  "pinyin": "Wǎng qián zǒu wǔ fēnzhōng jiù dào le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-022:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hướng đi với 往"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "往"
+                    ],
+                    "answerIds": [],
+                    "explanation": "往 đánh dấu hướng di chuyển; 在 đánh dấu vị trí, không thay ở đây.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Hướng đi với 往",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-022",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Hướng đi của bạn là bên phải: ___右边走。 Điền 往 hoặc 在.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-022:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:022:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "往左走 có nói người đó đang đứng ở bên trái không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, chỉ vị trí đứng",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, chỉ hướng di chuyển",
+                        "feedback": "往 nêu hướng đi; 在左边 mới nêu vị trí ở bên trái."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, luôn là trái màn hình",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "往 nêu hướng đi; 在左边 mới nêu vị trí ở bên trái.",
+                    "learningTarget": {
+                      "objective": "Nêu hướng của người đi",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-022",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:022:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn chỉ đường từ cổng: đi về phía trái, rồi đi thẳng ba phút. Viết hai bước với 往.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n往左走，再往前走三分钟。\nWǎng zuǒ zǒu, zài wǎng qián zǒu sān fēnzhōng.\nĐi về phía trái, rồi đi thẳng về phía trước ba phút.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "往 đứng trước hướng, động từ đi sau.",
+                        "guidance": "往 đứng trước hướng, động từ đi sau."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ trình tự và ba phút, không tự thêm đã tới.",
+                        "guidance": "Giữ trình tự và ba phút, không tự thêm đã tới."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Nêu hướng của người đi",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-022",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-022:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Hướng đi với 往"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "从门口进来 nêu lối đi từ cửa. Người nói ở trong phòng, người kia đi từ ngoài vào phía người nói. 从 không tự có nghĩa đi đến.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-023:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "他从门口进来了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-023:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy đã đi vào từ cửa.",
+                  "pinyin": "Tā cóng ménkǒu jìnlái le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:023:sample",
+                  "kind": "dialogue",
+                  "title": "Nối điểm xuất phát với nơi đến",
+                  "body": "",
+                  "hanzi": "我从家走到学校。",
+                  "pinyin": "Wǒ cóng jiā zǒu dào xuéxiào.",
+                  "meaningVi": "Tôi đi bộ từ nhà đến trường.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-023:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Điểm xuất phát với 从"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "从"
+                    ],
+                    "answerIds": [],
+                    "explanation": "从 chỉ nguồn/lối chuyển động; 给 không có nghĩa từ cửa.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Điểm xuất phát với 从",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-023",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Người nói ở trong, bạn đi vào từ cửa: 他___门口进来了。 Điền 从 hoặc 给.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-023:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:023:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "我从学校走到商店。 Đâu là điểm xuất phát?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "商店",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "学校",
+                        "feedback": "从学校 là từ trường; 到商店 là đến cửa hàng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không xác định được",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "从学校 là từ trường; 到商店 là đến cửa hàng.",
+                    "learningTarget": {
+                      "objective": "Điểm xuất phát khác nơi đến",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-023",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:023:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn đi từ nhà đến trường, không nêu phương tiện. Viết với 从…到….",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我从家走到学校。\nWǒ cóng jiā zǒu dào xuéxiào.\nTôi đi bộ từ nhà đến trường.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "从家 nêu điểm xuất phát, 到学校 nêu nơi đến.",
+                        "guidance": "从家 nêu điểm xuất phát, 到学校 nêu nơi đến."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "走 thể hiện đi bộ; không đổi chiều thành từ trường về nhà.",
+                        "guidance": "走 thể hiện đi bộ; không đổi chiều thành từ trường về nhà."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Điểm xuất phát khác nơi đến",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-023",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-023:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Điểm xuất phát với 从"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "看完 nói đọc hết, không khẳng định hiểu hết; 看懂 nói hiểu. 听懂 cần nghe và hiểu; 听了 chỉ nghe.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-034:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这本书我看完了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-034:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã đọc xong quyển sách này.",
+                  "pinyin": "Zhè běn shū wǒ kànwán le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-034:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc cả cụm động–bổ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "懂"
+                    ],
+                    "answerIds": [],
+                    "explanation": "懂 nêu kết quả hiểu; 过 chỉ trải nghiệm từng nghe, không thay được.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Đọc cả cụm động–bổ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-034",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Đã nghe nhưng chưa hiểu: 我听了，但是没听___。 Điền 懂 hoặc 过 để giữ ý hiểu.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-034:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:034:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "Đã đọc hết mà chưa hiểu, câu nào phù hợp?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "看完了，但是没看懂。",
+                        "feedback": "完 chỉ hoàn tất lượng đọc; 懂 chỉ kết quả hiểu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "没看完，所以一定看懂了。",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "看完了 nên chắc không có câu khó",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "完 chỉ hoàn tất lượng đọc; 懂 chỉ kết quả hiểu.",
+                    "learningTarget": {
+                      "objective": "Đọc hết khác hiểu hết",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-034",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:034:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn đã đọc xong bài nhưng có hai câu chưa hiểu. Viết hai ý với 看完 và 看懂.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我看完了，但是有两句话没看懂。\nWǒ kànwán le, dànshì yǒu liǎng jù huà méi kàndǒng.\nTôi đã đọc xong, nhưng có hai câu chưa hiểu.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ đã đọc xong và hai câu chưa hiểu.",
+                        "guidance": "Giữ đã đọc xong và hai câu chưa hiểu."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "没看懂 không dùng 不看懂 để kể kết quả chưa đạt.",
+                        "guidance": "没看懂 không dùng 不看懂 để kể kết quả chưa đạt."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Đọc hết khác hiểu hết",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-034",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-034:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Đọc cả cụm động–bổ"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "去商店买东西 có cùng chủ thể đi và mua. Nơi đến sau 去, mục đích sau đó. Không tự thêm người mới làm động từ thứ hai.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-036:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我去商店买东西。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-036:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đến cửa hàng mua đồ.",
+                  "pinyin": "Wǒ qù shāngdiàn mǎi dōngxi.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-036:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đi để làm gì"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "看书"
+                    ],
+                    "answerIds": [],
+                    "explanation": "看书 là hoạt động của cùng chủ thể 我; 老师 là danh từ người, chưa tạo mục đích.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Đi để làm gì",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-036",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Tôi đến thư viện để đọc: 我去图书馆___。 Điền 看书 hoặc 老师.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-036:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:036:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "我去商店买水果。 Ai đi và ai mua?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Tôi đi, cửa hàng mua",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tôi thực hiện cả hai",
+                        "feedback": "Chủ thể 我 thực hiện cả 去 và 买; 商店 chỉ nơi đến."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Một người chưa rõ mua",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Chủ thể 我 thực hiện cả 去 và 买; 商店 chỉ nơi đến.",
+                    "learningTarget": {
+                      "objective": "Một người, hai hành động",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-036",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:036:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn đến bệnh viện thăm bạn, không nói bạn đến thăm mình. Viết chuỗi 去…看….",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我去医院看朋友。\nWǒ qù yīyuàn kàn péngyou.\nTôi đến bệnh viện thăm bạn.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "医院 là nơi đến, 看朋友 là mục đích.",
+                        "guidance": "医院 là nơi đến, 看朋友 là mục đích."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không tự đổi người thực hiện động từ sau.",
+                        "guidance": "Không tự đổi người thực hiện động từ sau."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Một người, hai hành động",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-036",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-036:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Đi để làm gì"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "老师请我读: giáo viên mời, tôi đọc. 我 vừa nhận lời mời vừa là người thực hiện 读. Đọc vai trước khi nối câu.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-037:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "老师请我读这个问题。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-037:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên mời tôi đọc câu hỏi này.",
+                  "pinyin": "Lǎoshī qǐng wǒ dú zhège wèntí.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-037:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Ai thực hiện hành động sau"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "弟弟"
+                    ],
+                    "answerIds": [],
+                    "explanation": "弟弟 nhận yêu cầu và thực hiện 做饭; 妈妈 đưa yêu cầu.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Ai thực hiện hành động sau",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-037",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "妈妈让弟弟做饭。 Ai nấu cơm? Điền 妈妈 hoặc 弟弟.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-037:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:037:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "妈妈请哥哥开门。 Ai mở cửa?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Mẹ",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Anh trai",
+                        "feedback": "哥哥 nhận lời nhờ và thực hiện 开门; 妈妈 là người nhờ."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không ai vì 请 chỉ tặng vật",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "哥哥 nhận lời nhờ và thực hiện 开门; 妈妈 là người nhờ.",
+                    "learningTarget": {
+                      "objective": "Giữ người được yêu cầu",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-037",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:037:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Giáo viên bảo chị đọc câu hỏi; chị là người đọc. Viết với 让.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n老师让姐姐读这个问题。\nLǎoshī ràng jiějie dú zhège wèntí.\nGiáo viên bảo chị đọc câu hỏi này.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "老师 yêu cầu, 姐姐 đọc.",
+                        "guidance": "老师 yêu cầu, 姐姐 đọc."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không đổi thành giáo viên tự đọc.",
+                        "guidance": "Không đổi thành giáo viên tự đọc."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Giữ người được yêu cầu",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-037",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-037:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Ai thực hiện hành động sau"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "做错 làm sai; 听懂 nghe hiểu; 准备好 chuẩn bị xong/sẵn; 学会 học được cách làm; 写完 viết xong. 完 không đảm bảo 正确 đúng.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-045:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "老师说的话我听懂了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-045:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã nghe hiểu lời giáo viên nói.",
+                  "pinyin": "Lǎoshī shuō de huà wǒ tīngdǒng le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-045:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kết quả khác nhau"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "完"
+                    ],
+                    "answerIds": [],
+                    "explanation": "完 nói hoàn thành lượng việc; vẫn có thể viết sai hai chữ.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Kết quả khác nhau",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-045",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Đã viết hết nhưng có lỗi: 写___了，但是写错了两个字。 Điền 完 hoặc 懂.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-045:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:045:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "学会游泳 nêu kết quả nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Học được cách bơi",
+                        "feedback": "会 trong 学会 là đạt kỹ năng; không nêu tốc độ hay hoàn tất mọi môn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Học xong mọi môn",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chắc chắn bơi nhanh nhất",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "会 trong 学会 là đạt kỹ năng; không nêu tốc độ hay hoàn tất mọi môn.",
+                    "learningTarget": {
+                      "objective": "Hoàn thành không bảo đảm đúng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-045",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-01:r86:045:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn làm xong bài tập nhưng làm sai một câu. Viết với 做完 và 做错.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我做完作业了，但是做错了一道题。\nWǒ zuòwán zuòyè le, dànshì zuòcuò le yí dào tí.\nTôi đã làm xong bài tập, nhưng làm sai một câu.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "做完 là xong bài; 做错 là kết quả sai.",
+                        "guidance": "做完 là xong bài; 做错 là kết quả sai."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ một câu sai, không tự suy tất cả đều sai.",
+                        "guidance": "Giữ một câu sai, không tự suy tất cả đều sai."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Hoàn thành không bảo đảm đúng",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-045",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:grammar:hsk2-grammar-row-045:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Kết quả khác nhau"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "từ; theo; kể từ",
+                  "hanzi": "从这里走，没错。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00324",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi từ đây, đúng rồi.",
+                  "pinyin": "Cóng zhèlǐ zǒu, méi cuò.",
+                  "provenance": "",
+                  "title": "从 · cóng"
+                },
+                {
+                  "alt": "",
+                  "body": "hiểu",
+                  "hanzi": "我已经听懂了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00337",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã nghe hiểu rồi.",
+                  "pinyin": "Wǒ yǐjīng tīngdǒng le.",
+                  "provenance": "",
+                  "title": "懂 · dǒng"
+                },
+                {
+                  "alt": "",
+                  "body": "xe buýt",
+                  "hanzi": "地铁比公交车快。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00346",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt.",
+                  "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+                  "provenance": "",
+                  "title": "公交车 · gōngjiāochē"
+                },
+                {
+                  "alt": "",
+                  "body": "qua; vượt qua",
+                  "hanzi": "过马路时要小心。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00347",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Khi qua đường cần cẩn thận.",
+                  "pinyin": "Guò mǎlù shí yào xiǎoxīn.",
+                  "provenance": "",
+                  "title": "过 · guò"
+                },
+                {
+                  "alt": "",
+                  "body": "đi qua; đi sang",
+                  "hanzi": "公交车从这条路开过去。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00350",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xe buýt chạy qua từ con đường này.",
+                  "pinyin": "Gōngjiāochē cóng zhè tiáo lù kāi guòqu.",
+                  "provenance": "",
+                  "title": "过去 · guòqù"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ chỉ trải nghiệm đã từng",
+                  "hanzi": "我没去过北京。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00351",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chưa từng đến Bắc Kinh.",
+                  "pinyin": "Wǒ méi qùguo Běijīng.",
+                  "provenance": "",
+                  "title": "过 · guo"
+                },
+                {
+                  "alt": "",
+                  "body": "vào; tiến vào",
+                  "hanzi": "请进。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00370",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời vào.",
+                  "pinyin": "Qǐng jìn.",
+                  "provenance": "",
+                  "title": "进 · jìn"
+                },
+                {
+                  "alt": "",
+                  "body": "đi vào đây",
+                  "hanzi": "他从门口进来了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00372",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy đã đi vào từ cửa.",
+                  "pinyin": "Tā cóng ménkǒu jìnlái le.",
+                  "provenance": "",
+                  "title": "进来 · jìnlái"
+                },
+                {
+                  "alt": "",
+                  "body": "liền; thì; chỉ",
+                  "hanzi": "前面就是学校。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00376",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Phía trước chính là trường học.",
+                  "pinyin": "Qiánmiàn jiù shì xuéxiào.",
+                  "provenance": "",
+                  "title": "就 · jiù"
+                },
+                {
+                  "alt": "",
+                  "body": "đường; tuyến",
+                  "hanzi": "这条路怎么走？",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00392",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi đường này thế nào?",
+                  "pinyin": "Zhè tiáo lù zěnme zǒu?",
+                  "provenance": "",
+                  "title": "路 · lù"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cửa",
+                  "hanzi": "门开着。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00400",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cửa đang để mở.",
+                  "pinyin": "Mén kāizhe.",
+                  "provenance": "",
+                  "title": "门 · mén"
+                },
+                {
+                  "alt": "",
+                  "body": "cửa ra vào",
+                  "hanzi": "老师站在门口。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00401",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên đứng ở cửa ra vào.",
+                  "pinyin": "Lǎoshī zhàn zài ménkǒu.",
+                  "provenance": "",
+                  "title": "门口 · ménkǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "để; cho phép; nhường",
+                  "hanzi": "让我来帮你吧。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00422",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Để tôi giúp bạn.",
+                  "pinyin": "Ràng wǒ lái bāng nǐ ba.",
+                  "provenance": "",
+                  "title": "让 · ràng"
+                },
+                {
+                  "alt": "",
+                  "body": "đề; câu hỏi",
+                  "hanzi": "这道题我做错了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00442",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã làm sai câu bài tập này.",
+                  "pinyin": "Zhè dào tí wǒ zuòcuò le.",
+                  "provenance": "",
+                  "title": "题 · tí"
+                },
+                {
+                  "alt": "",
+                  "body": "lượng từ cho vật dài; điều hoặc khoản",
+                  "hanzi": "你要拿这条吗？",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00443",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn lấy chiếc này không?",
+                  "pinyin": "Nǐ yào ná zhè tiáo ma?",
+                  "provenance": "",
+                  "title": "条 · tiáo"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "xong; hoàn thành",
+                  "hanzi": "我写完汉字了。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00448",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã viết xong chữ Hán.",
+                  "pinyin": "Wǒ xiěwán Hànzì le.",
+                  "provenance": "",
+                  "title": "完 · wán"
+                },
+                {
+                  "alt": "",
+                  "body": "về phía; hướng tới",
+                  "hanzi": "往右边走。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00450",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi về bên phải.",
+                  "pinyin": "Wǎng yòubian zǒu.",
+                  "provenance": "",
+                  "title": "往 · wǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "phải; phía bên phải",
+                  "hanzi": "请往右走。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00481",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin đi về phía phải.",
+                  "pinyin": "Qǐng wǎng yòu zǒu.",
+                  "provenance": "",
+                  "title": "右 · yòu"
+                },
+                {
+                  "alt": "",
+                  "body": "bên phải",
+                  "hanzi": "往右边走。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00482",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi về bên phải.",
+                  "pinyin": "Wǎng yòubian zǒu.",
+                  "provenance": "",
+                  "title": "右边 · yòubian"
+                },
+                {
+                  "alt": "",
+                  "body": "đi; bước",
+                  "hanzi": "往右边走。",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:word-hsk-vocab-00495",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi về bên phải.",
+                  "pinyin": "Wǎng yòubian zǒu.",
+                  "provenance": "",
+                  "title": "走 · zǒu"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: giữ người thực hiện và tách xong với hiểu. Đọc xong không chứng minh đã hiểu; người mời đọc không nhất thiết là người thực hiện việc đọc.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi đường đi, người thực hiện và kết quả",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-complements-and-motion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Giáo viên yêu cầu, Nam đọc; chưa có kết quả hiểu.",
+                        "id": "option-0",
+                        "text": "老师读完了，所以南懂了。"
+                      },
+                      {
+                        "feedback": "Nam nói đã đọc xong.",
+                        "id": "option-1",
+                        "text": "南没有读完。"
+                      },
+                      {
+                        "feedback": "Đúng: giữ người thực hiện và tách xong với hiểu.",
+                        "id": "option-2",
+                        "text": "南读完了，但是还没看懂。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo cảnh, ai đọc và kết quả đọc thế nào?",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Cảnh mới: giáo viên trong thư viện, Lan đi vào từ cửa. Giáo viên mời Lan đọc câu hai; Lan đọc xong và hiểu rồi. Lan ra khỏi thư viện, đi trái đến lớp để học. Viết bốn câu, giữ ai làm gì và kết quả khác mẫu.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n兰从门口走进来了。老师请她读第二题。她读完了，也看懂了。她从图书馆出去，往左走，去教室学习。\nLán cóng ménkǒu zǒu jìnlái le. Lǎoshī qǐng tā dú dì èr tí. Tā dúwán le, yě kàndǒng le. Tā cóng túshūguǎn chūqù, wǎng zuǒ zǒu, qù jiàoshì xuéxí.\nLan đi vào từ cửa; giáo viên mời đọc câu hai; đã đọc xong và hiểu; ra thư viện, đi trái đến lớp học.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi đường đi, người thực hiện và kết quả",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-complements-and-motion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giáo viên mời, Lan đọc câu hai.",
+                        "id": "criterion-0",
+                        "label": "Giáo viên mời, Lan đọc câu hai."
+                      },
+                      {
+                        "guidance": "Giữ đã hiểu, không chép chưa hiểu của mẫu.",
+                        "id": "criterion-1",
+                        "label": "Giữ đã hiểu, không chép chưa hiểu của mẫu."
+                      },
+                      {
+                        "guidance": "Hướng trái, không phải phải.",
+                        "id": "criterion-2",
+                        "label": "Hướng trái, không phải phải."
+                      },
+                      {
+                        "guidance": "Đi lớp để học, cùng chủ thể Lan.",
+                        "id": "criterion-3",
+                        "label": "Đi lớp để học, cùng chủ thể Lan."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giáo viên mời, Lan đọc câu hai.\nGiữ đã hiểu, không chép chưa hiểu của mẫu.\nHướng trái, không phải phải.\nĐi lớp để học, cùng chủ thể Lan.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-01:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-01:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/31-REVIEW-HSK2-GRAMMAR.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-complements-and-motion-lesson-01",
+          "reviewedAt": "2026-09-20",
+          "scope": "Six HSK2 grammar lessons, 39 source-specific teaching decisions and contextual transfer.",
+          "sourceContentSha256": "sha256:dc1fa9f5895193e094d1baab1bdee0d97511c31ee214e5c4dc766acd568e8c5f"
+        },
+        "objectiveVi": "Theo dõi đường đi, người thực hiện và kết quả",
+        "pitfallVi": "Đọc xong không chứng minh đã hiểu; người mời đọc không nhất thiết là người thực hiện việc đọc.",
+        "prerequisites": [
+          "hsk2-aspect-time-experience-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "从 nêu lối/điểm xuất phát, 往 nêu hướng. 完 là xong, 懂 là hiểu. 去图书馆找书 có cùng chủ thể đi và tìm; 老师请我读 có giáo viên mời nhưng tôi đọc. Mỗi cụm động từ cần xác định đúng người làm.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-grammar-row-022",
+          "hsk2-grammar-row-023",
+          "hsk2-grammar-row-034",
+          "hsk2-grammar-row-036",
+          "hsk2-grammar-row-037",
+          "hsk2-grammar-row-045"
+        ],
+        "sourceLessonIds": [
+          "hsk2-complements-and-motion-lesson-01"
+        ],
+        "sourceTaskIds": [
+          "hsk2-sentence-chain-task:hsk2-complements-and-motion-lesson-01"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00324",
+          "hsk-vocab-00337",
+          "hsk-vocab-00346",
+          "hsk-vocab-00347",
+          "hsk-vocab-00350",
+          "hsk-vocab-00351",
+          "hsk-vocab-00370",
+          "hsk-vocab-00372",
+          "hsk-vocab-00376",
+          "hsk-vocab-00392",
+          "hsk-vocab-00400",
+          "hsk-vocab-00401",
+          "hsk-vocab-00422",
+          "hsk-vocab-00442",
+          "hsk-vocab-00443",
+          "hsk-vocab-00448",
+          "hsk-vocab-00450",
+          "hsk-vocab-00481",
+          "hsk-vocab-00482",
+          "hsk-vocab-00495"
+        ],
+        "targetLessonId": "hsk2-complements-and-motion-lesson-01",
+        "titleZh": "HSK二级 · 27",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/82-REVIEW-HSK2-GRAMMAR-ART.md",
+          "humanReviewed": false,
+          "scope": "Time, clause links and motion viewpoint contextual illustrations.",
+          "sourceRevisionId": "17f72674-cfd7-478a-a965-9161aeee389d"
+        },
+        "vocabulary": [
+          "hsk-vocab-00324",
+          "hsk-vocab-00337",
+          "hsk-vocab-00346",
+          "hsk-vocab-00347",
+          "hsk-vocab-00350",
+          "hsk-vocab-00351",
+          "hsk-vocab-00370",
+          "hsk-vocab-00372",
+          "hsk-vocab-00376",
+          "hsk-vocab-00392",
+          "hsk-vocab-00400",
+          "hsk-vocab-00401",
+          "hsk-vocab-00422",
+          "hsk-vocab-00442",
+          "hsk-vocab-00443",
+          "hsk-vocab-00448",
+          "hsk-vocab-00450",
+          "hsk-vocab-00481",
+          "hsk-vocab-00482",
+          "hsk-vocab-00495"
+        ]
+      },
+      "changes": [
+        {
+          "grammar": "hsk2-grammar-row-022",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-023",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-034",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-036",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-037",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-045",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-023",
+          "guidedPracticeCorrection": true
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "6233dc17-e2fd-40b6-ab3c-9b2cf10aef2c",
+      "sourceContentSha256": "sha256:1dcecd8fac748e15076051f27d14b97b21a4a795957795dca283c4f937a3c0f6",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Đổi vị trí: Mai ở trong phòng, Long ở ngoài. Mai nhờ Long mang sách vào phía mình. Long tặng sách cho Mai. Sau đó Mai bảo Long ra ngoài lấy bút; từ vị trí Mai, Long đi ra xa. Viết bốn câu có mốc, lời nhờ, người nhận và hướng ra.",
+        "conceptVi": "Giữ điểm nhìn và vai người cho, người nhận, người làm",
+        "dialogue": [
+          {
+            "hanzi": "平，我在教室外面，你出来一下吧。",
+            "meaningVi": "Bình, tôi ở ngoài lớp, bạn ra đây chút nhé.",
+            "pinyin": "Píng, wǒ zài jiàoshì wàimiàn, nǐ chūlái yíxià ba.",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "好，我出来了。这本书送给你。",
+            "meaningVi": "Được, tôi ra rồi. Tặng bạn quyển sách này.",
+            "pinyin": "Hǎo, wǒ chūlái le. Zhè běn shū sònggěi nǐ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "谢谢！老师在教室里叫我们。",
+            "meaningVi": "Cảm ơn! Giáo viên đang gọi chúng ta trong lớp.",
+            "pinyin": "Xièxie! Lǎoshī zài jiàoshì lǐ jiào wǒmen.",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "你们进来吧！",
+            "meaningVi": "Các em vào đây nhé!",
+            "pinyin": "Nǐmen jìnlái ba!",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "老师让我们进去，我们走吧。",
+            "meaningVi": "Giáo viên bảo chúng ta vào trong, đi thôi.",
+            "pinyin": "Lǎoshī ràng wǒmen jìnqù, wǒmen zǒu ba.",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "好，我跟你一起进去。",
+            "meaningVi": "Được, tôi cùng bạn vào trong.",
+            "pinyin": "Hǎo, wǒ gēn nǐ yìqǐ jìnqù.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "你们进来吧！",
+            "answerMeaningVi": "Các em vào đây nhé!",
+            "answerPinyin": "Nǐmen jìnlái ba!",
+            "distractors": [
+              "你们出去吧！",
+              "你们出来吧！"
+            ],
+            "explanationVi": "Đúng: đi vào và về phía giáo viên trong lớp.",
+            "promptVi": "Giáo viên đang ở trong lớp nói với hai bạn ở ngoài. Chọn lời gọi phù hợp điểm nhìn."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Người nói đứng ở cổng: bạn chạy về cổng phía người nói dùng 跑来; chạy xa cổng sang phía khác dùng 跑去. 来/去 phụ thuộc điểm quy chiếu.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他跑去了。",
+              "modelAnswerMeaningVi": "Anh ấy chạy về phía kia.",
+              "modelAnswerPinyin": "Tā pǎoqù le.",
+              "promptVi": "Chọn 去 để nói: Anh ấy chạy về phía kia."
+            },
+            "modelExample": {
+              "hanzi": "老师走来了。",
+              "meaningVi": "Giáo viên đi về phía này.",
+              "pinyin": "Lǎoshī zǒulái le."
+            },
+            "pattern": "Hướng về hoặc xa điểm nói"
+          },
+          {
+            "explanationVi": "走上楼 lên tầng, 走下楼 xuống tầng, 走进教室 vào, 走出教室 ra, 走过桥 qua cầu, 跑回家 về nhà. Hướng cơ bản chưa luôn nêu gần/xa người nói.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他跑回家了。",
+              "modelAnswerMeaningVi": "Anh ấy đã chạy về nhà.",
+              "modelAnswerPinyin": "Tā pǎohuí jiā le.",
+              "promptVi": "Dùng 回 để nói: Anh ấy đã chạy về nhà."
+            },
+            "modelExample": {
+              "hanzi": "学生们走进教室。",
+              "meaningVi": "Các học sinh đi vào lớp học.",
+              "pinyin": "Xuéshengmen zǒujìn jiàoshì."
+            },
+            "pattern": "Hướng cơ bản"
+          },
+          {
+            "explanationVi": "Người nói ngoài phòng: người trong đi ra phía mình là 出来; người ngoài đi vào xa mình là 进去. Đổi người nói vào trong: về phía mình là 进来. 上来/上去, 下来/下去, 过来/过去, 回来/回去 cùng nguyên tắc. 起来 trong 站起来 là đứng dậy, cần học theo cụm.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他跑进去了。",
+              "modelAnswerMeaningVi": "Anh ấy đã chạy vào trong.",
+              "modelAnswerPinyin": "Tā pǎo jìnqu le.",
+              "promptVi": "Dùng 进去 để nói: Anh ấy đã chạy vào trong."
+            },
+            "modelExample": {
+              "hanzi": "孩子从房间里跑出来了。",
+              "meaningVi": "Đứa trẻ đã chạy từ trong phòng ra đây.",
+              "pinyin": "Háizi cóng fángjiān lǐ pǎo chūlái le."
+            },
+            "pattern": "Kết hợp tuyến với điểm nhìn"
+          },
+          {
+            "explanationVi": "我请你坐下: tôi mời, bạn ngồi xuống. 老师让我们写: giáo viên yêu cầu, chúng tôi viết. Không coi tân ngữ thứ nhất là vật được trao.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我请你坐下。",
+              "modelAnswerMeaningVi": "Tôi mời bạn ngồi xuống.",
+              "modelAnswerPinyin": "Wǒ qǐng nǐ zuòxia.",
+              "promptVi": "Dùng 请: Tôi mời bạn ngồi xuống."
+            },
+            "modelExample": {
+              "hanzi": "老师让我们写汉字。",
+              "meaningVi": "Giáo viên bảo chúng tôi viết chữ Hán.",
+              "pinyin": "Lǎoshī ràng wǒmen xiě Hànzì."
+            },
+            "pattern": "Người yêu cầu và người làm"
+          },
+          {
+            "explanationVi": "送给我一本书: người nhận 我 trước vật 一本书. Không đổi thành “tôi tặng anh ấy” khi chủ ngữ vẫn là 他.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "妈妈送给弟弟一本书。",
+              "modelAnswerMeaningVi": "Mẹ tặng em trai một quyển sách.",
+              "modelAnswerPinyin": "Māma sònggěi dìdi yì běn shū.",
+              "promptVi": "Dùng 给 trong câu hai tân ngữ: Mẹ tặng em trai một quyển sách."
+            },
+            "modelExample": {
+              "hanzi": "他送给我一本书。",
+              "meaningVi": "Anh ấy tặng tôi một quyển sách.",
+              "pinyin": "Tā sònggěi wǒ yì běn shū."
+            },
+            "pattern": "Người nhận trước vật"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "An đứng ngoài lớp và nói chuyện với Bình ở trong lớp. An gọi Bình chạy ra phía mình. Bình tặng An một sách. Sau đó giáo viên đứng trong lớp gọi cả hai vào; vì đổi người nói nên hướng về phía giáo viên là 进来.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "外面 wàimiàn: bên ngoài · 里面 lǐmiàn: bên trong · 送给 sònggěi: tặng cho · 说话的人 shuōhuà de rén: người nói.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:context",
+              "illustration": {
+                "alt": "Hai bạn trao sách ngoài cửa; giáo viên ở trong lớp gọi vào",
+                "caption": "Hai bạn ở ngoài; giáo viên ở trong gọi 进来. Theo lời hai bạn đi vào là 进去.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-door-book-gift-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Giữ điểm nhìn và vai người cho, người nhận, người làm"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "平，我在教室外面，你出来一下吧。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bình, tôi ở ngoài lớp, bạn ra đây chút nhé.",
+                  "pinyin": "Píng, wǒ zài jiàoshì wàimiàn, nǐ chūlái yíxià ba.",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好，我出来了。这本书送给你。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được, tôi ra rồi. Tặng bạn quyển sách này.",
+                  "pinyin": "Hǎo, wǒ chūlái le. Zhè běn shū sònggěi nǐ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "谢谢！老师在教室里叫我们。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cảm ơn! Giáo viên đang gọi chúng ta trong lớp.",
+                  "pinyin": "Xièxie! Lǎoshī zài jiàoshì lǐ jiào wǒmen.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你们进来吧！",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Các em vào đây nhé!",
+                  "pinyin": "Nǐmen jìnlái ba!",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "老师让我们进去，我们走吧。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên bảo chúng ta vào trong, đi thôi.",
+                  "pinyin": "Lǎoshī ràng wǒmen jìnqù, wǒmen zǒu ba.",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好，我跟你一起进去。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được, tôi cùng bạn vào trong.",
+                  "pinyin": "Hǎo, wǒ gēn nǐ yìqǐ jìnqù.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:dialogue",
+              "illustration": {
+                "alt": "Hai bạn trao sách ngoài cửa; giáo viên ở trong lớp gọi vào",
+                "caption": "Hai bạn ở ngoài; giáo viên ở trong gọi 进来. Theo lời hai bạn đi vào là 进去.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-door-book-gift-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện là căn cứ làm bài; hình nền chỉ trang trí. Điểm nhìn được nêu riêng khi chuyển động.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "安在外面",
+                        "meaningVi": "An ở ngoài",
+                        "note": "Gọi Bình trong lớp ra phía mình: 出来.",
+                        "pinyin": "Ān zài wàimiàn",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "老师在里面",
+                        "meaningVi": "Giáo viên ở trong",
+                        "note": "Gọi hai bạn vào phía mình: 进来.",
+                        "pinyin": "lǎoshī zài lǐmiàn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "平 → 安",
+                        "meaningVi": "Bình tặng An sách",
+                        "note": "Bình cho; An nhận; sách là vật.",
+                        "pinyin": "Píng → Ān",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giữ điểm nhìn và vai người cho, người nhận, người làm"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc cảnh trước khi chọn cấu trúc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Người nói đứng ở cổng: bạn chạy về cổng phía người nói dùng 跑来; chạy xa cổng sang phía khác dùng 跑去. 来/去 phụ thuộc điểm quy chiếu.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-046:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "老师走来了。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-046:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên đi về phía này.",
+                  "pinyin": "Lǎoshī zǒulái le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-046:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hướng về hoặc xa điểm nói"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "来"
+                    ],
+                    "answerIds": [],
+                    "explanation": "来 hướng về điểm người nói đã xác định.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Hướng về hoặc xa điểm nói",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-046",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Tôi đứng ở cổng; bạn chạy từ xa về phía tôi: 他向我跑___。 Điền 来 hoặc 去.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-046:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:046:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "Tôi đứng ở cổng, người kia chạy rời xa tôi. Chọn mô tả theo điểm nhìn này.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "他跑来了。",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "他跑去了。",
+                        "feedback": "去 là xa điểm quy chiếu đã cho; 来 là hướng về điểm đó."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "来/去 luôn thay nhau được",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "去 là xa điểm quy chiếu đã cho; 来 là hướng về điểm đó.",
+                    "learningTarget": {
+                      "objective": "Hướng theo vị trí người nói",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-046",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:046:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn ở cổng, em trai chạy từ sân về phía bạn. Viết câu dùng 来; giữ điểm nhìn đã cho.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n弟弟向我跑来。\nDìdi xiàng wǒ pǎolái.\nEm trai chạy về phía tôi.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Em trai chạy về phía tôi, dùng 来.",
+                        "guidance": "Em trai chạy về phía tôi, dùng 来."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không đổi thành chạy xa khỏi cổng.",
+                        "guidance": "Không đổi thành chạy xa khỏi cổng."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Hướng theo vị trí người nói",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-046",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-046:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Hướng về hoặc xa điểm nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "走上楼 lên tầng, 走下楼 xuống tầng, 走进教室 vào, 走出教室 ra, 走过桥 qua cầu, 跑回家 về nhà. Hướng cơ bản chưa luôn nêu gần/xa người nói.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-047:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "学生们走进教室。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-047:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Các học sinh đi vào lớp học.",
+                  "pinyin": "Xuéshengmen zǒujìn jiàoshì.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-047:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hướng cơ bản"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "进"
+                    ],
+                    "answerIds": [],
+                    "explanation": "进 chỉ từ ngoài vào; 出 sẽ đảo chiều.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Hướng cơ bản",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-047",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Đi từ ngoài vào lớp: 学生走___教室。 Điền 进 hoặc 出.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-047:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:047:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "走过桥 và 走回家 có cùng hướng không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, đều nhất thiết quay về nhà",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, qua cầu khác quay về nhà",
+                        "feedback": "过 nêu đi qua, 回 nêu trở về; không suy cùng điểm đến."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, đều đi lên tầng",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "过 nêu đi qua, 回 nêu trở về; không suy cùng điểm đến.",
+                    "learningTarget": {
+                      "objective": "Hướng vào khác hướng ra",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-047",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:047:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Học sinh từ ngoài bước vào lớp rồi ngồi xuống. Viết với 走进 và 坐下.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n学生走进教室，然后坐下。\nXuésheng zǒujìn jiàoshì, ránhòu zuòxia.\nHọc sinh đi vào lớp, rồi ngồi xuống.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "走进 là từ ngoài vào lớp.",
+                        "guidance": "走进 là từ ngoài vào lớp."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "坐下 là ngồi xuống, không đổi thành 站起来.",
+                        "guidance": "坐下 là ngồi xuống, không đổi thành 站起来."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Hướng vào khác hướng ra",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-047",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-047:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Hướng cơ bản"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Người nói ngoài phòng: người trong đi ra phía mình là 出来; người ngoài đi vào xa mình là 进去. Đổi người nói vào trong: về phía mình là 进来. 上来/上去, 下来/下去, 过来/过去, 回来/回去 cùng nguyên tắc. 起来 trong 站起来 là đứng dậy, cần học theo cụm.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-048:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "孩子从房间里跑出来了。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-048:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đứa trẻ đã chạy từ trong phòng ra đây.",
+                  "pinyin": "Háizi cóng fángjiān lǐ pǎo chūlái le.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-048:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kết hợp tuyến với điểm nhìn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "出来"
+                    ],
+                    "answerIds": [],
+                    "explanation": "出 là từ trong ra; 来 là về phía tôi ngoài phòng.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Kết hợp tuyến với điểm nhìn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-048",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Tôi ở ngoài phòng, bạn chạy từ trong ra phía tôi: 他跑___了。 Điền 出来 hoặc 出去.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-048:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:048:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "Trong 站起来, 起来 có buộc nghĩa đi về phía người nói không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, mọi 来 đều là đi tới người nói",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, cả cụm có nghĩa đứng dậy",
+                        "feedback": "起来 trong 站起来 diễn tả chuyển sang tư thế đứng; học nghĩa của cả cụm."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, nghĩa chạy ra ngoài",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "起来 trong 站起来 diễn tả chuyển sang tư thế đứng; học nghĩa của cả cụm.",
+                    "learningTarget": {
+                      "objective": "Tuyến đường và điểm nhìn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-048",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:048:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn ở trong phòng; bạn của bạn từ ngoài chạy vào phía bạn. Viết với 进来. Sau đó người bạn ngồi nghỉ rồi đứng dậy; kể bước cuối bằng 站起来.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n朋友跑进来了。他坐了一会儿，然后站起来了。\nPéngyou pǎo jìnlái le. Tā zuò le yíhuìr, ránhòu zhàn qǐlái le.\nBạn chạy vào đây. Người ấy ngồi một lát, rồi đứng dậy.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "进来 giữ hướng từ ngoài vào phía tôi ở trong phòng.",
+                        "guidance": "进来 giữ hướng từ ngoài vào phía tôi ở trong phòng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "站起来 là đứng dậy; cần ngữ cảnh người ấy đã ngồi hoặc nằm.",
+                        "guidance": "站起来 là đứng dậy; cần ngữ cảnh người ấy đã ngồi hoặc nằm."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Tuyến đường và điểm nhìn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-048",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-048:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Kết hợp tuyến với điểm nhìn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "我请你坐下: tôi mời, bạn ngồi xuống. 老师让我们写: giáo viên yêu cầu, chúng tôi viết. Không coi tân ngữ thứ nhất là vật được trao.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-063:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "老师让我们写汉字。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-063:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên bảo chúng tôi viết chữ Hán.",
+                  "pinyin": "Lǎoshī ràng wǒmen xiě Hànzì.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-063:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Người yêu cầu và người làm"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "我们"
+                    ],
+                    "answerIds": [],
+                    "explanation": "我们 là người nhận yêu cầu và thực hiện 写.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Người yêu cầu và người làm",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-063",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "老师让我们写汉字。 Ai viết? Điền 老师 hoặc 我们.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-063:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:063:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "我请你喝茶。 Ai uống trà trong lời mời?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Tôi",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Bạn",
+                        "feedback": "你 là người được mời và thực hiện 喝; 我 đưa lời mời."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Trà",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "你 là người được mời và thực hiện 喝; 我 đưa lời mời.",
+                    "learningTarget": {
+                      "objective": "Mời khác tự thực hiện",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-063",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:063:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn mời khách ngồi xuống và nhờ em trai lấy nước. Viết hai câu với 请 và 让.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我请客人坐下，让弟弟拿水。\nWǒ qǐng kèrén zuòxia, ràng dìdi ná shuǐ.\nTôi mời khách ngồi xuống, bảo em trai lấy nước.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Khách ngồi, em trai lấy nước.",
+                        "guidance": "Khách ngồi, em trai lấy nước."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ Tôi là người đưa lời mời/yêu cầu.",
+                        "guidance": "Giữ Tôi là người đưa lời mời/yêu cầu."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Mời khác tự thực hiện",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-063",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-063:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Người yêu cầu và người làm"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "送给我一本书: người nhận 我 trước vật 一本书. Không đổi thành “tôi tặng anh ấy” khi chủ ngữ vẫn là 他.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-064:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "他送给我一本书。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-064:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy tặng tôi một quyển sách.",
+                  "pinyin": "Tā sònggěi wǒ yì běn shū.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-064:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Người nhận trước vật"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "我"
+                    ],
+                    "answerIds": [],
+                    "explanation": "我 là người nhận; 他 đầu câu là người tặng.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Người nhận trước vật",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-064",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Anh ấy tặng tôi một quyển sách: 他送给___一本书。 Điền 我 hoặc 他 để đúng người nhận đã cho.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-064:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:064:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt ý nghĩa",
+                  "body": "哥哥送给妈妈一件衣服。 Ai nhận và nhận gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Anh nhận áo từ mẹ",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mẹ nhận một chiếc áo từ anh",
+                        "feedback": "哥哥 tặng; 妈妈 nhận; 一件衣服 là vật được tặng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Mẹ nhận một quyển sách",
+                        "feedback": "Đối chiếu người thực hiện, hướng và kết quả đã cho."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "哥哥 tặng; 妈妈 nhận; 一件衣服 là vật được tặng.",
+                    "learningTarget": {
+                      "objective": "Người tặng, người nhận, vật",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-064",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-complements-and-motion-lesson-02:r86:064:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Chị tặng em trai hai quyển sách; bạn không phải người nhận. Viết với 送给.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n姐姐送给弟弟两本书。\nJiějie sònggěi dìdi liǎng běn shū.\nChị tặng em trai hai quyển sách.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "姐姐 tặng, 弟弟 nhận.",
+                        "guidance": "姐姐 tặng, 弟弟 nhận."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ 两本书, không dùng 两个书.",
+                        "guidance": "Giữ 两本书, không dùng 两个书."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Người tặng, người nhận, vật",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-064",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:grammar:hsk2-grammar-row-064:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Người nhận trước vật"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ra; xuất hiện",
+                  "hanzi": "出门以后下雨了。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00316",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau khi ra khỏi nhà thì trời mưa.",
+                  "pinyin": "Chūmén yǐhòu xiàyǔ le.",
+                  "provenance": "",
+                  "title": "出 · chū"
+                },
+                {
+                  "alt": "",
+                  "body": "đi ra; xuất hiện",
+                  "hanzi": "一个人从车站出来。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00318",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Một người đi ra từ nhà ga.",
+                  "pinyin": "Yí ge rén cóng chēzhàn chūlái.",
+                  "provenance": "",
+                  "title": "出来 · chūlái"
+                },
+                {
+                  "alt": "",
+                  "body": "từ; theo; kể từ",
+                  "hanzi": "从这里走，没错。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00324",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi từ đây, đúng rồi.",
+                  "pinyin": "Cóng zhèlǐ zǒu, méi cuò.",
+                  "provenance": "",
+                  "title": "从 · cóng"
+                },
+                {
+                  "alt": "",
+                  "body": "gian; phòng; khoảng",
+                  "hanzi": "这里有三间教室。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00366",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ở đây có ba phòng học.",
+                  "pinyin": "Zhèlǐ yǒu sān jiān jiàoshì.",
+                  "provenance": "",
+                  "title": "间 · jiān"
+                },
+                {
+                  "alt": "",
+                  "body": "dạy",
+                  "hanzi": "老师教我们写汉字。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00367",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên dạy chúng tôi viết chữ Hán.",
+                  "pinyin": "Lǎoshī jiāo wǒmen xiě Hànzì.",
+                  "provenance": "",
+                  "title": "教 · jiāo"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "phòng học",
+                  "hanzi": "教室在五楼。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00368",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lớp học ở tầng năm.",
+                  "pinyin": "Jiàoshì zài wǔ lóu.",
+                  "provenance": "",
+                  "title": "教室 · jiàoshì"
+                },
+                {
+                  "alt": "",
+                  "body": "vào; tiến vào",
+                  "hanzi": "请进。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00370",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời vào.",
+                  "pinyin": "Qǐng jìn.",
+                  "provenance": "",
+                  "title": "进 · jìn"
+                },
+                {
+                  "alt": "",
+                  "body": "đi vào trong",
+                  "hanzi": "他跑进去了。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00373",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy đã chạy vào trong.",
+                  "pinyin": "Tā pǎo jìnqu le.",
+                  "provenance": "",
+                  "title": "进去 · jìnqù"
+                },
+                {
+                  "alt": "",
+                  "body": "chạy",
+                  "hanzi": "他每天早上跑步。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00414",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy bộ mỗi sáng.",
+                  "pinyin": "Tā měitiān zǎoshang pǎobù.",
+                  "provenance": "",
+                  "title": "跑 · pǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "để; cho phép; nhường",
+                  "hanzi": "让我来帮你吧。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00422",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Để tôi giúp bạn.",
+                  "pinyin": "Ràng wǒ lái bāng nǐ ba.",
+                  "provenance": "",
+                  "title": "让 · ràng"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "gửi; tặng; tiễn",
+                  "hanzi": "他送给我一本书。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00437",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy tặng tôi một quyển sách.",
+                  "pinyin": "Tā sònggěi wǒ yì běn shū.",
+                  "provenance": "",
+                  "title": "送 · sòng"
+                },
+                {
+                  "alt": "",
+                  "body": "đi; bước",
+                  "hanzi": "往右边走。",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:word-hsk-vocab-00495",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đi về bên phải.",
+                  "pinyin": "Wǎng yòubian zǒu.",
+                  "provenance": "",
+                  "title": "走 · zǒu"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: đi vào và về phía giáo viên trong lớp. Cùng một lần đi vào lớp, người ngoài nói 进去 còn giáo viên trong nói 进来. Không giữ 来 chỉ vì đã dùng ở câu trước.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giữ điểm nhìn và vai người cho, người nhận, người làm",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-complements-and-motion-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: đi vào và về phía giáo viên trong lớp.",
+                        "id": "option-0",
+                        "text": "你们进来吧！"
+                      },
+                      {
+                        "feedback": "Đổi thành đi ra xa giáo viên, sai hướng yêu cầu.",
+                        "id": "option-1",
+                        "text": "你们出去吧！"
+                      },
+                      {
+                        "feedback": "Ra ngoài không đúng việc vào lớp.",
+                        "id": "option-2",
+                        "text": "你们出来吧！"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Giáo viên đang ở trong lớp nói với hai bạn ở ngoài. Chọn lời gọi phù hợp điểm nhìn.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đổi vị trí: Mai ở trong phòng, Long ở ngoài. Mai nhờ Long mang sách vào phía mình. Long tặng sách cho Mai. Sau đó Mai bảo Long ra ngoài lấy bút; từ vị trí Mai, Long đi ra xa. Viết bốn câu có mốc, lời nhờ, người nhận và hướng ra.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n梅在房间里，龙在外面。梅请龙拿着书进来。龙送给梅一本书。梅让龙出去拿笔。\nMéi zài fángjiān lǐ, Lóng zài wàimiàn. Méi qǐng Lóng názhe shū jìnlái. Lóng sònggěi Méi yì běn shū. Méi ràng Lóng chūqù ná bǐ.\nMai trong phòng, Long ngoài; Mai nhờ Long cầm sách vào; Long tặng Mai một sách; Mai bảo Long ra ngoài lấy bút.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giữ điểm nhìn và vai người cho, người nhận, người làm",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-complements-and-motion-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Mai trong, Long ngoài là điểm nhìn mới.",
+                        "id": "criterion-0",
+                        "label": "Mai trong, Long ngoài là điểm nhìn mới."
+                      },
+                      {
+                        "guidance": "Vào phía Mai dùng 进来.",
+                        "id": "criterion-1",
+                        "label": "Vào phía Mai dùng 进来."
+                      },
+                      {
+                        "guidance": "Long tặng, Mai nhận, sách là vật.",
+                        "id": "criterion-2",
+                        "label": "Long tặng, Mai nhận, sách là vật."
+                      },
+                      {
+                        "guidance": "Ra xa Mai dùng 出去; Long lấy bút.",
+                        "id": "criterion-3",
+                        "label": "Ra xa Mai dùng 出去; Long lấy bút."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Mai trong, Long ngoài là điểm nhìn mới.\nVào phía Mai dùng 进来.\nLong tặng, Mai nhận, sách là vật.\nRa xa Mai dùng 出去; Long lấy bút.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-complements-and-motion-lesson-02:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-complements-and-motion-lesson-02:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/31-REVIEW-HSK2-GRAMMAR.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-complements-and-motion-lesson-02",
+          "reviewedAt": "2026-09-20",
+          "scope": "Six HSK2 grammar lessons, 39 source-specific teaching decisions and contextual transfer.",
+          "sourceContentSha256": "sha256:3715a78b975cd605f85e367f4a07714042fd84fec31f1d12f2c62d71dd151865"
+        },
+        "objectiveVi": "Giữ điểm nhìn và vai người cho, người nhận, người làm",
+        "pitfallVi": "Cùng một lần đi vào lớp, người ngoài nói 进去 còn giáo viên trong nói 进来. Không giữ 来 chỉ vì đã dùng ở câu trước.",
+        "prerequisites": [
+          "hsk2-complements-and-motion-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "出/进 nói ra/vào, 来/去 nói về/xa điểm nhìn. Đổi người nói cần xác định lại vị trí. 请/让 + người + hành động: người đó làm hành động sau. 送给 + người nhận + vật: không đổi người nhận thành người tặng.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-grammar-row-046",
+          "hsk2-grammar-row-047",
+          "hsk2-grammar-row-048",
+          "hsk2-grammar-row-063",
+          "hsk2-grammar-row-064"
+        ],
+        "sourceLessonIds": [
+          "hsk2-complements-and-motion-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-sentence-chain-task:hsk2-complements-and-motion-lesson-02"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00316",
+          "hsk-vocab-00318",
+          "hsk-vocab-00324",
+          "hsk-vocab-00366",
+          "hsk-vocab-00367",
+          "hsk-vocab-00368",
+          "hsk-vocab-00370",
+          "hsk-vocab-00373",
+          "hsk-vocab-00414",
+          "hsk-vocab-00422",
+          "hsk-vocab-00437",
+          "hsk-vocab-00495"
+        ],
+        "targetLessonId": "hsk2-complements-and-motion-lesson-02",
+        "titleZh": "HSK二级 · 28",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/82-REVIEW-HSK2-GRAMMAR-ART.md",
+          "humanReviewed": false,
+          "scope": "Time, clause links and motion viewpoint contextual illustrations.",
+          "sourceRevisionId": "136576af-e935-43cc-a875-d087096c0ed5"
+        },
+        "vocabulary": [
+          "hsk-vocab-00316",
+          "hsk-vocab-00318",
+          "hsk-vocab-00324",
+          "hsk-vocab-00366",
+          "hsk-vocab-00367",
+          "hsk-vocab-00368",
+          "hsk-vocab-00370",
+          "hsk-vocab-00373",
+          "hsk-vocab-00414",
+          "hsk-vocab-00422",
+          "hsk-vocab-00437",
+          "hsk-vocab-00495"
+        ]
+      },
+      "changes": [
+        {
+          "grammar": "hsk2-grammar-row-046",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-047",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-048",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-063",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-064",
+          "newChoice": 1,
+          "newTransfer": 1
+        }
+      ]
+    }
+  ]
+}

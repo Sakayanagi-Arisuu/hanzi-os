@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { resolveMotionMode, resolveMotionQuality, type MotionQuality, type DeviceMotionHints } from "./awakeningMotion";
 
 export const SYSTEM_UI_STORAGE_KEY = "hanzi-os-system-ui-v1";
 
@@ -101,6 +102,7 @@ export const parseSystemUiPreferences = (value: unknown): SystemUiPreferences =>
 type SystemUiContextValue = {
   preferences: SystemUiPreferences;
   resolvedMotion: Exclude<SystemMotionMode, "auto">;
+  motionQuality: MotionQuality;
   hydrated: boolean;
   setMotionMode: (mode: SystemMotionMode) => void;
   setSoundEnabled: (enabled: boolean) => void;
@@ -123,6 +125,7 @@ export function SystemUiProvider({ children }: { children: ReactNode }) {
   const [preferences, setPreferences] = useState(DEFAULT_SYSTEM_UI_PREFERENCES);
   const [hydrated, setHydrated] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [motionQuality, setMotionQuality] = useState<MotionQuality>("light");
 
   useEffect(() => {
     try {
@@ -131,6 +134,9 @@ export function SystemUiProvider({ children }: { children: ReactNode }) {
       setPreferences(DEFAULT_SYSTEM_UI_PREFERENCES);
     }
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const device = navigator as Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
+    const hints: DeviceMotionHints = { cores: device.hardwareConcurrency, memory: device.deviceMemory, saveData: device.connection?.saveData };
+    setMotionQuality(resolveMotionQuality(hints));
     const updateMotion = () => setPrefersReducedMotion(media.matches);
     updateMotion();
     media.addEventListener("change", updateMotion);
@@ -153,9 +159,8 @@ export function SystemUiProvider({ children }: { children: ReactNode }) {
   const value = useMemo<SystemUiContextValue>(() => ({
     preferences,
     hydrated,
-    resolvedMotion: preferences.motionMode === "auto"
-      ? prefersReducedMotion ? "reduced" : "balanced"
-      : preferences.motionMode,
+    motionQuality,
+    resolvedMotion: resolveMotionMode(preferences.motionMode, prefersReducedMotion, motionQuality),
     setMotionMode: (motionMode) => persist((current) => ({ ...current, motionMode })),
     setSoundEnabled: (soundEnabled) => persist((current) => ({ ...current, soundEnabled })),
     setSoundVolume: (soundVolume) => persist((current) => ({ ...current, soundVolume })),
@@ -177,7 +182,7 @@ export function SystemUiProvider({ children }: { children: ReactNode }) {
       seenCeremonies: [...new Set([...current.seenCeremonies, ...ids])],
     })),
     replayCeremonies: () => persist((current) => ({ ...current, seenCeremonies: [] })),
-  }), [hydrated, persist, preferences, prefersReducedMotion]);
+  }), [hydrated, motionQuality, persist, preferences, prefersReducedMotion]);
 
   return <SystemUiContext.Provider value={value}>{children}</SystemUiContext.Provider>;
 }

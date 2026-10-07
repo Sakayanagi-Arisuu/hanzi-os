@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+  "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "daily-1",
+      "parentRevisionId": "cdb3a24f-02f6-404c-b6b6-1f8f98800271",
+      "parentContentSha256": "sha256:7622bb1c5e475baf87f3f508a821675588f0d22f1c4c0095699575a27ab1d4d0",
+      "proposedContentSha256": "sha256:26ce86e373e5921afe82bbe343ca217cfa916ac5301873e2f923f6090f4c78ab",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "daily-2",
+      "parentRevisionId": "6767144b-3bde-4dbc-8147-dfa97778ffb3",
+      "parentContentSha256": "sha256:cf0be373a3f538884f912b8b8df6d71bf73975c9d775e0d24e741630dde6b75a",
+      "proposedContentSha256": "sha256:b603cf0825c2f69c1c57a2885b73ed93c6991b96d4991bd5153b6036a4711025",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "daily-3",
+      "parentRevisionId": "5c0da247-d362-417f-bea7-4654c606caff",
+      "parentContentSha256": "sha256:ff0267c35e45019ba22806df5c72687782db8814082a7687c330a54b84d534fc",
+      "proposedContentSha256": "sha256:84cddbbfccf5267f82e320e2d4685e0bc326c23681616c85b8613337dff0c9ae",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "daily-4",
+      "parentRevisionId": "472fcf2f-0fa5-4dcc-9a25-462147db67f5",
+      "parentContentSha256": "sha256:cdb6dcaa1555f9ea804081544ab3b560c84ba051e33595c3c659749b8933d157",
+      "proposedContentSha256": "sha256:09df681ef105b24f6a4a114d8f831bd0e2204d4a6659c98d2505238120e0a022",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk1-time-place-events-01-numbers",
+      "parentRevisionId": "dfa36716-0db1-4aaa-9d99-76d963a36b6b",
+      "parentContentSha256": "sha256:632c20d2946a0c72f259adaac8457cbaf61ce92d753fa6279d830fa5356c2ee6",
+      "proposedContentSha256": "sha256:7355c156e4ddac6010b7441fec2337952fef934b5e4d60969c225e008272f1a7",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk1-time-place-events-02-calendar",
+      "parentRevisionId": "9f2bc0c1-aa2b-4fc4-88d4-38fcf6d050a4",
+      "parentContentSha256": "sha256:f8707f6a0e6b3c1eef944ded02bef684152dda0052c8c3837a373defaae025d1",
+      "proposedContentSha256": "sha256:47db6d694ac6d201dfb3c17f9a1ee9230474ff6148b423ab6189342baca6de72",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
+      "parentRevisionId": "1181c24b-3012-45b8-8dc7-79b33f726823",
+      "parentContentSha256": "sha256:8a458c6d3659a4a6ed43a8d5cd9078ff8cbf80437fb152f69615ad7e7bf2aefb",
+      "proposedContentSha256": "sha256:bfd75b5fef12b81813ece9aee44deaafe8defc15a1f248c95432d7d27efcde4b",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk1-time-place-events-04-clock-and-duration",
+      "parentRevisionId": "0384ca3c-7a2c-44e5-a9e2-ed1e87f648c7",
+      "parentContentSha256": "sha256:a8459574b68b80060e0082581a3cf9939149e04c6929237b41504702467770f5",
+      "proposedContentSha256": "sha256:f1e3d123c372f1dfa94ba1d05904cf24b94fb4c6dda358fae87deb0017f86360",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk1-time-place-events-05-location",
+      "parentRevisionId": "7f2a1498-563b-4132-aba0-981700829be7",
+      "parentContentSha256": "sha256:8fea6ec1d630f51b1310e9bd8fd3ce595f5abb67dddd94773ea9087d746d2c4d",
+      "proposedContentSha256": "sha256:d420b58cb24eeed7f97e98bcaf6081d8d3a06f9dde4973f1d0500a78534a8c2a",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "parentRevisionId": "317340e8-3b24-4cac-a54b-9b4a9355ac81",
+      "parentContentSha256": "sha256:c3f6d573b49d33643c2f5545e1377d29605a5462d8af8cb5d2a6c0c358437d56",
+      "proposedContentSha256": "sha256:97b0bfa22b12ae5449dc7586d2f664b0083de289b7e98275edd8167a210c5568",
+      "targetCount": 3
+    }
+  ]
+}

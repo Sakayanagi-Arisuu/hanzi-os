@@ -1,0 +1,2737 @@
+{
+  "humanReviewed": false,
+  "sourceFiles": [
+    {
+      "path": "content/runtime/hsk-mock-exam-alternate-local.json",
+      "sha256": "1be65713114416a7345691305c034c2030af9940766126cee1ce665c5071f97d"
+    },
+    {
+      "path": "scripts/content/hsk2-assessment-editorial-round101.mjs",
+      "sha256": "bdb6ee6b548b997df46163a1ce2650aa5bb0abfdb845677796570f0c181fece1"
+    },
+    {
+      "path": "content/drafts/thien-lo-hsk12-assessment-editorial-round93.json",
+      "sha256": "b9c18026475a24b17a5eb321db26e5c8b5543c6080c812e3aabbd9f5e5ebd353"
+    },
+    {
+      "path": "docs/thien-lo-redesign-review/187-REVIEW-HSK12-ASSESSMENT-ROUND93.json",
+      "sha256": "224eb200486ce704ca446d77488c9cab2cea11fa265b559435efe1a316be3ab8"
+    }
+  ],
+  "entries": [
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-01",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 01",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:01:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你常跟谁一起踢足球？ B：我常跟同学一起踢。",
+        "options": [
+          "Bạn đã đợi bao lâu? Tôi đã đợi nửa tiếng.",
+          "Bạn muốn mua chiếc áo nào? Tôi muốn xem chiếc màu đỏ.",
+          "Bạn muốn quần áo như thế nào? Tôi muốn chiếc màu đỏ, không muốn chiếc dài đến thế.",
+          "Bạn thường đá bóng cùng ai? Tôi thường đá cùng bạn học."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "跟谁 hỏi người cùng đá bóng; câu trả lời nêu同学, bạn học.",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:01",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-02",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 02",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:02:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你想买哪件衣服？ B：我想看看红色的。",
+        "options": [
+          "Nơi bạn sống thế nào? Tôi sống trong một căn phòng đối diện trường.",
+          "Bạn muốn mua chiếc áo nào? Tôi muốn xem chiếc màu đỏ.",
+          "Bạn muốn quần áo như thế nào? Tôi muốn chiếc màu đỏ, không muốn chiếc dài đến thế.",
+          "Ngày mai có mưa không? Không, ngày mai trời nắng."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“A：你想买哪件衣服？ B：我想看看红色的。” (A: Nǐ xiǎng mǎi nǎ jiàn yīfu? B: Wǒ xiǎng kànkan hóngsè de.): Bạn muốn mua chiếc áo nào? Tôi muốn xem chiếc màu đỏ.",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:02",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-03",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 03",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:03:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：明天会下雨吗？ B：不会，明天是晴天。",
+        "options": [
+          "Nơi bạn sống thế nào? Tôi sống trong một căn phòng đối diện trường.",
+          "Bên ngoài có cửa hàng không? Có, cửa hàng ở ngay đối diện căn phòng.",
+          "Xin hãy giúp tôi mở cửa. Được, tôi sẽ giúp bạn.",
+          "Ngày mai có mưa không? Không, ngày mai trời nắng."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：明天会下雨吗？ B：不会，明天是晴天。” (A: Míngtiān huì xiàyǔ ma? B: Bú huì, míngtiān shì qíngtiān.): Ngày mai có mưa không? Không, ngày mai trời nắng.",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:03",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-04",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 04",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:04:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：外面有商店吗？ B：有，商店就在房间对面。",
+        "options": [
+          "Uống trà đen hay trà xanh? Trà xanh, cảm ơn.",
+          "Bên ngoài có cửa hàng không? Có, cửa hàng ở ngay đối diện căn phòng.",
+          "Xin hãy giúp tôi mở cửa. Được, tôi sẽ giúp bạn.",
+          "Bạn có thường ăn ở nhà hàng không? Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“A：外面有商店吗？ B：有，商店就在房间对面。” (A: Wàimiàn yǒu shāngdiàn ma? B: Yǒu, shāngdiàn jiù zài fángjiān duìmiàn.): Bên ngoài có cửa hàng không? Có, cửa hàng ở ngay đối diện căn phòng.",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-05"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:04",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-05",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 05",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:05:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你经常在饭馆吃饭吗？ B：不，我常在家吃，今天没准备晚饭。",
+        "options": [
+          "Uống trà đen hay trà xanh? Trà xanh, cảm ơn.",
+          "Bạn lấy chiếc này không? Xem giá trước đã. Chiếc này tốn bao nhiêu tiền?",
+          "Bạn bị làm sao? Tôi đau đầu, mắt cũng khó chịu.",
+          "Bạn có thường ăn ở nhà hàng không? Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：你经常在饭馆吃饭吗？ B：不，我常在家吃，今天没准备晚饭。” (A: Nǐ jīngcháng zài fànguǎn chīfàn ma? B: Bù, wǒ cháng zài jiā chī, jīntiān méi zhǔnbèi wǎnfàn.): Bạn có thường ăn ở nhà hàng không? Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối.",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:05",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-06",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 06",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:06:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你要买这条裤子吗？ B：先看看价钱。这条要花多少钱？",
+        "options": [
+          "Bà bạn nấu cơm hằng ngày à? Có khi bà nấu, có khi tôi tự nấu.",
+          "Bạn lấy chiếc này không? Xem giá trước đã. Chiếc này tốn bao nhiêu tiền?",
+          "Bạn bị làm sao? Tôi đau đầu, mắt cũng khó chịu.",
+          "Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn. Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "这条裤子 nêu rõ chiếc quần đang xem; người mua muốn kiểm tra giá trước khi quyết định.",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:06",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-07",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 07",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:07:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：前面就有一家药店，我陪你去买药。 B：谢谢，买药以后我就回家休息。",
+        "options": [
+          "Bà bạn nấu cơm hằng ngày à? Có khi bà nấu, có khi tôi tự nấu.",
+          "Xin hỏi, đi đến hiệu thuốc thế nào? Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải.",
+          "Có xa đây không? Không xa, đi bộ mười phút là tới.",
+          "Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn. Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：前面就有一家药店，我陪你去买药。 B：谢谢，买药以后我就回家休息。” (A: Qiánmiàn jiù yǒu yì jiā yàodiàn, wǒ péi nǐ qù mǎi yào. B: Xièxie, mǎi yào yǐhòu wǒ jiù huí jiā xiūxi.): Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn. Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ.",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:07",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-08",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 08",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:08:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：请问，药店怎么走？ B：从这里往前走，到第二个路口往右边走。",
+        "options": [
+          "Bạn định khi nào đi du lịch? Tuần sau, tôi đã mua vé máy bay rồi.",
+          "Xin hỏi, đi đến hiệu thuốc thế nào? Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải.",
+          "Có xa đây không? Không xa, đi bộ mười phút là tới.",
+          "Sau khi đến phía trước thì sao? Đi lên bằng cầu thang bên phải."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“A：请问，药店怎么走？ B：从这里往前走，到第二个路口往右边走。” (A: Qǐngwèn, yàodiàn zěnme zǒu? B: Cóng zhèlǐ wǎng qián zǒu, dào dì èr ge lùkǒu wǎng yòubian zǒu.): Xin hỏi, đi đến hiệu thuốc thế nào? Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải.",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:08",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-09",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 09",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:09:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：到前面以后呢？ B：从右边的楼梯上去。",
+        "options": [
+          "Bạn định khi nào đi du lịch? Tuần sau, tôi đã mua vé máy bay rồi.",
+          "Khách sạn có xa nhà ga không? Không xa, đi từ nhà ga mười phút.",
+          "Bạn biết đá bóng không? Có, bóng đá thú vị hơn bóng rổ.",
+          "Sau khi đến phía trước thì sao? Đi lên bằng cầu thang bên phải."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：到前面以后呢？ B：从右边的楼梯上去。” (A: Dào qiánmiàn yǐhòu ne? B: Cóng yòubian de lóutī shàngqu.): Sau khi đến phía trước thì sao? Đi lên bằng cầu thang bên phải.",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:09",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-10",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 10",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:10:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：酒店离车站远吗？ B：不远，从车站走十分钟。",
+        "options": [
+          "Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn. Được, lát nữa gặp.",
+          "Khách sạn có xa nhà ga không? Không xa, đi từ nhà ga mười phút.",
+          "Bạn biết đá bóng không? Có, bóng đá thú vị hơn bóng rổ.",
+          "Bạn thức dậy lúc mấy giờ? Bảy giờ. Ăn sáng xong tôi có thời gian."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“A：酒店离车站远吗？ B：不远，从车站走十分钟。” (A: Jiǔdiàn lí chēzhàn yuǎn ma? B: Bù yuǎn, cóng chēzhàn zǒu shí fēnzhōng.): Khách sạn có xa nhà ga không? Không xa, đi từ nhà ga mười phút.",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:10",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-11",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 11",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:11:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你几点起来？ B：七点。吃早饭以后有时间。",
+        "options": [
+          "Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn. Được, lát nữa gặp.",
+          "Mỗi tuần bạn học mấy buổi? Mỗi tuần ba buổi, giáo viên dạy rất tốt.",
+          "Hãy giới thiệu một chút về trường của bạn. Trường không lớn nhưng lớp học rất mới.",
+          "Bạn thức dậy lúc mấy giờ? Bảy giờ. Ăn sáng xong tôi có thời gian."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：你几点起来？ B：七点。吃早饭以后有时间。” (A: Nǐ jǐ diǎn qǐlái? B: Qī diǎn. Chī zǎofàn yǐhòu yǒu shíjiān.): Bạn thức dậy lúc mấy giờ? Bảy giờ. Ăn sáng xong tôi có thời gian.",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-05"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:11",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-12",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 12",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:12:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你每周上几次课？ B：每周三次，老师教得很好。",
+        "options": [
+          "Trường có bao nhiêu giáo viên? Có hơn một trăm giáo viên.",
+          "Mỗi tuần bạn học mấy buổi? Mỗi tuần ba buổi, giáo viên dạy rất tốt.",
+          "Hãy giới thiệu một chút về trường của bạn. Trường không lớn nhưng lớp học rất mới.",
+          "Sau giờ học bạn làm gì? Tôi lấy vở từ cặp ra để vẽ."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“A：你每周上几次课？ B：每周三次，老师教得很好。” (A: Nǐ měi zhōu shàng jǐ cì kè? B: Měi zhōu sān cì, lǎoshī jiāo de hěn hǎo.): Mỗi tuần bạn học mấy buổi? Mỗi tuần ba buổi, giáo viên dạy rất tốt.",
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:12",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-13",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 13",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:13:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：下课以后你做什么？ B：我从书包里拿出本子画画。",
+        "options": [
+          "Trường có bao nhiêu giáo viên? Có hơn một trăm giáo viên.",
+          "Bạn đã từng đón năm mới ở Trung Quốc chưa? Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh.",
+          "Đón năm mới có giống tổ chức sinh nhật không? Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người.",
+          "Sau giờ học bạn làm gì? Tôi lấy vở từ cặp ra để vẽ."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：下课以后你做什么？ B：我从书包里拿出本子画画。” (A: Xiàkè yǐhòu nǐ zuò shénme? B: Wǒ cóng shūbāo lǐ náchū běnzi huàhuà.): Sau giờ học bạn làm gì? Tôi lấy vở từ cặp ra để vẽ.",
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:13",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-14",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 14",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:14:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：你在中国过过年吗？ B：过过。第一次过年时，我还是外国学生。",
+        "options": [
+          "Bạn cao thật, hồi nhỏ bạn cũng cao thế này à? Không, hồi nhỏ tôi không cao.",
+          "Bạn đã từng đón năm mới ở Trung Quốc chưa? Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh.",
+          "Đón năm mới có giống tổ chức sinh nhật không? Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người.",
+          "Tôi có thể gọi ông/bà là thầy/cô Vương không? Được, tiếng Trung thường gọi giáo viên như vậy."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“A：你在中国过过年吗？ B：过过。第一次过年时，我还是外国学生。” (A: Nǐ zài Zhōngguó guòguo nián ma? B: Guòguo. Dì yí cì guònián shí, wǒ háishi wàiguó xuésheng.): Bạn đã từng đón năm mới ở Trung Quốc chưa? Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh.",
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:14",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-listening-15",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · listening · 15",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:15:1",
+      "content": {
+        "skill": "listening",
+        "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+        "hanzi": "A：我可以叫您王老师吗？ B：可以，中文常这样称呼老师。",
+        "options": [
+          "Bạn cao thật, hồi nhỏ bạn cũng cao thế này à? Không, hồi nhỏ tôi không cao.",
+          "Bạn thường đá cùng ai? Tôi thường đá cùng bạn học.",
+          "Bạn đã đợi bao lâu? Tôi đã đợi nửa tiếng.",
+          "Tôi có thể gọi ông/bà là thầy/cô Vương không? Được, tiếng Trung thường gọi giáo viên như vậy."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“A：我可以叫您王老师吗？ B：可以，中文常这样称呼老师。” (A: Wǒ kěyǐ jiào nín Wáng lǎoshī ma? B: Kěyǐ, Zhōngwén cháng zhèyàng chēnghu lǎoshī.): Tôi có thể gọi ông/bà là thầy/cô Vương không? Được, tiếng Trung thường gọi giáo viên như vậy.",
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-05"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:listening:15",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-01",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 01",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:01:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "虽然今天下雨，但是我还是要上课。所以我不能跟你去商店。我们明天再见吧。",
+        "options": [
+          "Hôm nay tôi đau đầu. Sức khỏe của tôi cũng không tốt lắm. Tôi muốn nghỉ ở nhà một ngày.",
+          "Cuối tuần chúng ta có thể đá bóng hoặc khiêu vũ. Tôi muốn đá bóng hơn. Bạn muốn làm gì?",
+          "Bạn có thể đi tàu điện ngầm tới. Hãy xuống ở ga gần trường. Chúng ta gặp ở cửa lúc chín giờ.",
+          "Tuy hôm nay mưa nhưng tôi vẫn phải đi học. Vì vậy tôi không thể đi cửa hàng cùng bạn. Ngày mai chúng ta gặp lại nhé."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“虽然今天下雨，但是我还是要上课。所以我不能跟你去商店。我们明天再见吧。” (Suīrán jīntiān xiàyǔ, dànshì wǒ háishi yào shàngkè. Suǒyǐ wǒ bù néng gēn nǐ qù shāngdiàn. Wǒmen míngtiān zài jiàn ba.): Tuy hôm nay mưa nhưng tôi vẫn phải đi học. Vì vậy tôi không thể đi cửa hàng cùng bạn. Ngày mai chúng ta gặp lại nhé.",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:01",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-02",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 02",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:02:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "周末我们可以踢足球，也可以跳舞。我更想踢足球。你想做什么？",
+        "options": [
+          "Tôi đã làm xong bài tập. Bây giờ tôi có thời gian. Chúng ta cùng đi vận động nhé.",
+          "Cuối tuần chúng ta có thể đá bóng hoặc khiêu vũ. Tôi muốn đá bóng hơn. Bạn muốn làm gì?",
+          "Bạn có thể đi tàu điện ngầm tới. Hãy xuống ở ga gần trường. Chúng ta gặp ở cửa lúc chín giờ.",
+          "Tôi đau đầu từ sáng. Gần đây có hiệu thuốc không? Hãy chỉ tôi đường đi, cảm ơn."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“周末我们可以踢足球，也可以跳舞。我更想踢足球。你想做什么？” (Zhōumò wǒmen kěyǐ tī zúqiú, yě kěyǐ tiàowǔ. Wǒ gèng xiǎng tī zúqiú. Nǐ xiǎng zuò shénme?): Cuối tuần chúng ta có thể đá bóng hoặc khiêu vũ. Tôi muốn đá bóng hơn. Bạn muốn làm gì?",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:02",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-03",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 03",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:03:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "我从早上开始头疼。附近有药店吗？请告诉我怎么走，谢谢。",
+        "options": [
+          "Tôi đã làm xong bài tập. Bây giờ tôi có thời gian. Chúng ta cùng đi vận động nhé.",
+          "Tôi thấy một chiếc máy tính trên mạng. Trên đó ghi mười nghìn tệ. Giá này đúng không?",
+          "Tôi thấy một hiệu sách mới trên mạng. Từ ga tàu điện ngầm đi về phía nào? Hãy cho tôi biết địa chỉ.",
+          "Tôi đau đầu từ sáng. Gần đây có hiệu thuốc không? Hãy chỉ tôi đường đi, cảm ơn."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“我从早上开始头疼。附近有药店吗？请告诉我怎么走，谢谢。” (Wǒ cóng zǎoshang kāishǐ tóuténg. Fùjìn yǒu yàodiàn ma? Qǐng gàosu wǒ zěnme zǒu, xièxie.): Tôi đau đầu từ sáng. Gần đây có hiệu thuốc không? Hãy chỉ tôi đường đi, cảm ơn.",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:03",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-04",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 04",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:04:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "我在网上看见一台电脑。上面写着一万块。这个价钱对吗？",
+        "options": [
+          "Vị giáo viên này họ Vương. Vì xe buýt đến muộn nên thầy vẫn ở trạm. Có thể thầy sẽ đến trường lúc chín giờ.",
+          "Tôi thấy một chiếc máy tính trên mạng. Trên đó ghi mười nghìn tệ. Giá này đúng không?",
+          "Tôi thấy một hiệu sách mới trên mạng. Từ ga tàu điện ngầm đi về phía nào? Hãy cho tôi biết địa chỉ.",
+          "Tôi quên mang sách tiếng Trung. Sách vẫn ở trên bàn của tôi. Hy vọng bạn có thể mang giúp tôi."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“我在网上看见一台电脑。上面写着一万块。这个价钱对吗？” (Wǒ zài wǎngshàng kànjiàn yì tái diànnǎo. Shàngmiàn xiězhe yí wàn kuài. Zhège jiàqian duì ma?): Tôi thấy một chiếc máy tính trên mạng. Trên đó ghi mười nghìn tệ. Giá này đúng không?",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:04",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-05",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 05",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:05:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "我忘了带汉语书。书还在我的桌子上。希望你能帮我拿来。",
+        "options": [
+          "Vị giáo viên này họ Vương. Vì xe buýt đến muộn nên thầy vẫn ở trạm. Có thể thầy sẽ đến trường lúc chín giờ.",
+          "Thứ Bảy chúng ta cùng đi khiêu vũ nhé. Lớp bắt đầu lúc hai giờ chiều. Hy vọng bạn có thời gian tham gia.",
+          "Hãy giúp tôi giặt chiếc áo này. Vì tay tôi hơi đau. Cảm ơn bạn đã giúp.",
+          "Tôi quên mang sách tiếng Trung. Sách vẫn ở trên bàn của tôi. Hy vọng bạn có thể mang giúp tôi."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“我忘了带汉语书。书还在我的桌子上。希望你能帮我拿来。” (Wǒ wàng le dài Hànyǔ shū. Shū hái zài wǒ de zhuōzi shàng. Xīwàng nǐ néng bāng wǒ ná lái.): Tôi quên mang sách tiếng Trung. Sách vẫn ở trên bàn của tôi. Hy vọng bạn có thể mang giúp tôi.",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:05",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-06",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 06",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:06:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "周六我们一起去跳舞吧。课从下午两点开始。希望你有时间参加。",
+        "options": [
+          "Thầy/cô họ Lý, đúng không ạ? Em có thể gọi thầy/cô là thầy/cô Lý không? Rất vui được làm quen với thầy/cô.",
+          "Thứ Bảy chúng ta cùng đi khiêu vũ nhé. Lớp bắt đầu lúc hai giờ chiều. Hy vọng bạn có thời gian tham gia.",
+          "Hãy giúp tôi giặt chiếc áo này. Vì tay tôi hơi đau. Cảm ơn bạn đã giúp.",
+          "Tôi cần dùng một bức ảnh để giới thiệu bạn mình. Trong ảnh này cô ấy cười rất vui. Vì vậy tôi chọn bức này."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“周六我们一起去跳舞吧。课从下午两点开始。希望你有时间参加。” (Zhōuliù wǒmen yìqǐ qù tiàowǔ ba. Kè cóng xiàwǔ liǎng diǎn kāishǐ. Xīwàng nǐ yǒu shíjiān cānjiā.): Thứ Bảy chúng ta cùng đi khiêu vũ nhé. Lớp bắt đầu lúc hai giờ chiều. Hy vọng bạn có thời gian tham gia.",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:06",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-07",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 07",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:07:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "我要用一张照片介绍我的朋友。她在这张照片里笑得很开心。所以我选这张。",
+        "options": [
+          "Thầy/cô họ Lý, đúng không ạ? Em có thể gọi thầy/cô là thầy/cô Lý không? Rất vui được làm quen với thầy/cô.",
+          "Một người đàn ông ngồi cạnh bàn. Mắt anh ấy hơi khó chịu. Trên bàn có thuốc và một cốc nước.",
+          "Ông đang đợi đứa trẻ ở cửa công viên. Đứa trẻ đã chạy tới bên ông. Họ chuẩn bị cùng về nhà.",
+          "Tôi cần dùng một bức ảnh để giới thiệu bạn mình. Trong ảnh này cô ấy cười rất vui. Vì vậy tôi chọn bức này."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“我要用一张照片介绍我的朋友。她在这张照片里笑得很开心。所以我选这张。” (Wǒ yào yòng yì zhāng zhàopiàn jièshào wǒ de péngyou. Tā zài zhè zhāng zhàopiàn lǐ xiào de hěn kāixīn. Suǒyǐ wǒ xuǎn zhè zhāng.): Tôi cần dùng một bức ảnh để giới thiệu bạn mình. Trong ảnh này cô ấy cười rất vui. Vì vậy tôi chọn bức này.",
+        "sourceLessonIds": [
+          "hsk2-guided-message-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:07",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-08",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 08",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:08:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "一个男人坐在桌子旁边。他的眼睛不太舒服。桌子上有药和一杯水。",
+        "options": [
+          "Hôm nay trời âm u. Vẫn có một người đang bơi. Nhưng thời tiết hơi lạnh.",
+          "Một người đàn ông ngồi cạnh bàn. Mắt anh ấy hơi khó chịu. Trên bàn có thuốc và một cốc nước.",
+          "Ông đang đợi đứa trẻ ở cửa công viên. Đứa trẻ đã chạy tới bên ông. Họ chuẩn bị cùng về nhà.",
+          "Hai người gặp nhau ở trạm xe. Người đến muộn nói “xin lỗi”. Vì xe buýt không đến nên anh ấy đến muộn."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“一个男人坐在桌子旁边。他的眼睛不太舒服。桌子上有药和一杯水。” (Yí ge nánrén zuò zài zhuōzi pángbiān. Tā de yǎnjing bú tài shūfu. Zhuōzi shàng yǒu yào hé yì bēi shuǐ.): Một người đàn ông ngồi cạnh bàn. Mắt anh ấy hơi khó chịu. Trên bàn có thuốc và một cốc nước.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:08",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-09",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 09",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:09:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "两个人在车站见面。来晚的人说“不好意思”。因为公交车没来，所以他迟到了。",
+        "options": [
+          "Hôm nay trời âm u. Vẫn có một người đang bơi. Nhưng thời tiết hơi lạnh.",
+          "Một gia đình đang ở cửa sân bay. Họ mang theo ba chiếc túi. Họ chuẩn bị đi du lịch Trung Quốc.",
+          "Trên con đường này có một nhà hàng. Hiệu thuốc ở bên phải nhà hàng. Cửa hiệu thuốc có chữ màu xanh.",
+          "Hai người gặp nhau ở trạm xe. Người đến muộn nói “xin lỗi”. Vì xe buýt không đến nên anh ấy đến muộn."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“两个人在车站见面。来晚的人说“不好意思”。因为公交车没来，所以他迟到了。” (Liǎng ge rén zài chēzhàn jiànmiàn. Lái wǎn de rén shuō “bù hǎoyìsi”. Yīnwèi gōngjiāochē méi lái, suǒyǐ tā chídào le.): Hai người gặp nhau ở trạm xe. Người đến muộn nói “xin lỗi”. Vì xe buýt không đến nên anh ấy đến muộn.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:09",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-10",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 10",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:10:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "一家人在机场门口。他们带着三个包。他们准备去中国旅游。",
+        "options": [
+          "Một người đang xem đồng hồ ở ngã rẽ. Nhà ga rất xa đây. Vì vậy anh ấy định đi taxi.",
+          "Một gia đình đang ở cửa sân bay. Họ mang theo ba chiếc túi. Họ chuẩn bị đi du lịch Trung Quốc.",
+          "Trên con đường này có một nhà hàng. Hiệu thuốc ở bên phải nhà hàng. Cửa hiệu thuốc có chữ màu xanh.",
+          "Hai người đang ăn ở nhà hàng. Trên bàn có cá và cũng có thịt. Họ thấy cá ngon hơn thịt."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“一家人在机场门口。他们带着三个包。他们准备去中国旅游。” (Yì jiā rén zài jīchǎng ménkǒu. Tāmen dàizhe sān ge bāo. Tāmen zhǔnbèi qù Zhōngguó lǚyóu.): Một gia đình đang ở cửa sân bay. Họ mang theo ba chiếc túi. Họ chuẩn bị đi du lịch Trung Quốc.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:10",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-11",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 11",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:11:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "两个人在饭馆吃饭。桌子上有鱼，也有肉。他们觉得鱼比肉更好吃。",
+        "options": [
+          "Một người đang xem đồng hồ ở ngã rẽ. Nhà ga rất xa đây. Vì vậy anh ấy định đi taxi.",
+          "Một người đi ra từ nhà ga. Anh ấy chạy tới sân vận động bên cạnh. Anh ấy sẽ vận động cùng bạn.",
+          "Người bên cạnh người phụ nữ là chồng cô ấy. Chồng cô ấy mặc một chiếc quần rất dài. Anh ấy cao hơn vợ một chút.",
+          "Hai người đang ăn ở nhà hàng. Trên bàn có cá và cũng có thịt. Họ thấy cá ngon hơn thịt."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“两个人在饭馆吃饭。桌子上有鱼，也有肉。他们觉得鱼比肉更好吃。” (Liǎng ge rén zài fànguǎn chīfàn. Zhuōzi shàng yǒu yú, yě yǒu ròu. Tāmen juéde yú bǐ ròu gèng hǎochī.): Hai người đang ăn ở nhà hàng. Trên bàn có cá và cũng có thịt. Họ thấy cá ngon hơn thịt.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:11",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-12",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 12",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:12:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "一个人从车站出来。他跑到旁边的运动场。他要跟朋友一起运动。",
+        "options": [
+          "Trong phòng có một cô gái. Cô ấy đang tự chuẩn bị hành lý. Ngày mai cô ấy sẽ đi du lịch.",
+          "Một người đi ra từ nhà ga. Anh ấy chạy tới sân vận động bên cạnh. Anh ấy sẽ vận động cùng bạn.",
+          "Người bên cạnh người phụ nữ là chồng cô ấy. Chồng cô ấy mặc một chiếc quần rất dài. Anh ấy cao hơn vợ một chút.",
+          "Hôm nay là cuối tuần. Một đứa trẻ cầm bóng đứng ở cửa. Em ấy chuẩn bị đi chơi với bạn học."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“一个人从车站出来。他跑到旁边的运动场。他要跟朋友一起运动。” (Yí ge rén cóng chēzhàn chūlái. Tā pǎo dào pángbiān de yùndòngchǎng. Tā yào gēn péngyou yìqǐ yùndòng.): Một người đi ra từ nhà ga. Anh ấy chạy tới sân vận động bên cạnh. Anh ấy sẽ vận động cùng bạn.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:12",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-13",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 13",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:13:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "今天是周末。一个孩子拿着球站在门口。他准备跟同学去玩。",
+        "options": [
+          "Trong phòng có một cô gái. Cô ấy đang tự chuẩn bị hành lý. Ngày mai cô ấy sẽ đi du lịch.",
+          "Một học sinh đang đi trên đường. Cậu ấy đi thẳng trước rồi rẽ trái. Phía trước chính là trường học.",
+          "Trên sân có hai đội học sinh. Họ đang đá bóng. Bên cạnh còn có giáo viên đang xem.",
+          "Hôm nay là cuối tuần. Một đứa trẻ cầm bóng đứng ở cửa. Em ấy chuẩn bị đi chơi với bạn học."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“今天是周末。一个孩子拿着球站在门口。他准备跟同学去玩。” (Jīntiān shì zhōumò. Yí ge háizi názhe qiú zhàn zài ménkǒu. Tā zhǔnbèi gēn tóngxué qù wán.): Hôm nay là cuối tuần. Một đứa trẻ cầm bóng đứng ở cửa. Em ấy chuẩn bị đi chơi với bạn học.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:13",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-14",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 14",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:14:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "一个学生正在路上走。他先往前走，再往左走。前面就是学校。",
+        "options": [
+          "Tôi muốn tặng Tiểu Vương một quyển sách tiếng Trung. Bạn hãy báo cho cậu ấy. Ngày mai tôi sẽ mang sách tới.",
+          "Một học sinh đang đi trên đường. Cậu ấy đi thẳng trước rồi rẽ trái. Phía trước chính là trường học.",
+          "Trên sân có hai đội học sinh. Họ đang đá bóng. Bên cạnh còn có giáo viên đang xem.",
+          "Trên bàn có ba chiếc đồng hồ. Chiếc màu đen rẻ hơn chiếc màu đỏ. Anh ấy muốn mua chiếc rẻ nhất."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“一个学生正在路上走。他先往前走，再往左走。前面就是学校。” (Yí ge xuésheng zhèngzài lù shàng zǒu. Tā xiān wǎng qián zǒu, zài wǎng zuǒ zǒu. Qiánmiàn jiù shì xuéxiào.): Một học sinh đang đi trên đường. Cậu ấy đi thẳng trước rồi rẽ trái. Phía trước chính là trường học.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:14",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-reading-15",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · reading · 15",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:15:1",
+      "content": {
+        "skill": "reading",
+        "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+        "hanzi": "桌子上有三块手表。黑色的比红色的便宜。他想买最便宜的。",
+        "options": [
+          "Tôi muốn tặng Tiểu Vương một quyển sách tiếng Trung. Bạn hãy báo cho cậu ấy. Ngày mai tôi sẽ mang sách tới.",
+          "Tuy hôm nay mưa nhưng tôi vẫn phải đi học. Vì vậy tôi không thể đi cửa hàng cùng bạn. Ngày mai chúng ta gặp lại nhé.",
+          "Hôm nay tôi đau đầu. Sức khỏe của tôi cũng không tốt lắm. Tôi muốn nghỉ ở nhà một ngày.",
+          "Trên bàn có ba chiếc đồng hồ. Chiếc màu đen rẻ hơn chiếc màu đỏ. Anh ấy muốn mua chiếc rẻ nhất."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Nguồn có ba đồng hồ đeo tay; chiếc đen rẻ hơn chiếc đỏ, người mua muốn chiếc rẻ nhất. Không đủ dữ kiện để xác định chiếc nào rẻ nhất trong cả ba.",
+        "sourceLessonIds": [
+          "hsk2-picture-description-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:reading:15",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-01",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 01",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:01:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "包",
+        "options": [
+          "dài",
+          "giường",
+          "đánh; thực hiện một hành động",
+          "gói; bọc; bao hoặc túi"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“包” (bāo): gói; bọc; bao hoặc túi",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:01",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-02",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 02",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:02:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "床",
+        "options": [
+          "cao",
+          "giường",
+          "đánh; thực hiện một hành động",
+          "đợi; vân vân"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“床” (chuáng): giường",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-05"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:02",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-03",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 03",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:03:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "等",
+        "options": [
+          "cao",
+          "qua; vượt qua",
+          "trà đen",
+          "đợi; vân vân"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“等” (děng): đợi; vân vân",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:03",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-04",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 04",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:04:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "过",
+        "options": [
+          "dạy",
+          "qua; vượt qua",
+          "trà đen",
+          "quay lại đây; trở về"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“过” (guò): qua; vượt qua",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:04",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-05",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 05",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:05:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "回来",
+        "options": [
+          "dạy",
+          "thường xuyên",
+          "thi; kỳ thi",
+          "quay lại đây; trở về"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“回来” (huílái): quay lại đây; trở về",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:05",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-06",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 06",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:06:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "经常",
+        "options": [
+          "du lịch",
+          "thường xuyên",
+          "thi; kỳ thi",
+          "bóng rổ"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“经常” (jīngcháng): thường xuyên",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:06",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-07",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 07",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:07:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "篮球",
+        "options": [
+          "du lịch",
+          "khu vực cửa; lối vào",
+          "kiểu đó; như thế",
+          "bóng rổ"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“篮球” (lánqiú): bóng rổ",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:07",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-08",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 08",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:08:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "门口",
+        "options": [
+          "quả bóng",
+          "khu vực cửa; lối vào",
+          "kiểu đó; như thế",
+          "chạy"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "门口 là khu vực cửa hoặc lối vào; 门 là bản thân cánh cửa.",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:08",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-09",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 09",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:09:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "跑",
+        "options": [
+          "quả bóng",
+          "đi lên",
+          "đồng hồ đeo tay",
+          "chạy"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“跑” (pǎo): chạy",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:09",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-10",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 10",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:10:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "上去",
+        "options": [
+          "bên ngoài",
+          "đi lên",
+          "đồng hồ đeo tay",
+          "đá bằng chân"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "上去 là đi lên theo hướng xa điểm quy chiếu; 上来 là đi lên về phía điểm quy chiếu.",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:10",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-11",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 11",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:11:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "踢",
+        "options": [
+          "bên ngoài",
+          "tại sao",
+          "trẻ con",
+          "đá bằng chân"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“踢” (tī): đá bằng chân",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:11",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-12",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 12",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:12:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "为什么",
+        "options": [
+          "ý; ý nghĩa",
+          "tại sao",
+          "trẻ con",
+          "mắt"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“为什么” (wèi shénme): tại sao",
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:12",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-13",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 13",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:13:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "眼睛",
+        "options": [
+          "ý; ý nghĩa",
+          "phải; phía bên phải",
+          "chồng",
+          "mắt"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“眼睛” (yǎnjing): mắt",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:13",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-14",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 14",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:14:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "右",
+        "options": [
+          "trợ từ cuối câu biểu thị xác nhận hoặc cảm thán",
+          "phải; phía bên phải",
+          "chồng",
+          "bản thân; tự mình"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“右” (yòu): phải; phía bên phải",
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:14",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-vocabulary-15",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · vocabulary · 15",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:15:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+        "hanzi": "自己",
+        "options": [
+          "trợ từ cuối câu biểu thị xác nhận hoặc cảm thán",
+          "gói; bọc; bao hoặc túi",
+          "dài",
+          "bản thân; tự mình"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“自己” (zìjǐ): bản thân; tự mình",
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-05"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:vocabulary:15",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-01",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 01",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:01:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "你先看看这本书。",
+        "options": [
+          "Tại sao bạn học tiếng Trung?",
+          "Mỗi người đều có tên riêng.",
+          "Trong lớp học có ba giáo viên.",
+          "Bạn hãy xem thử quyển sách này trước."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "看看 lặp động từ để nói xem thử một chút; 先 là làm việc này trước.",
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:01",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-02",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 02",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:02:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "每个人都有自己的名字。",
+        "options": [
+          "Tôi đang ăn cơm đây.",
+          "Mỗi người đều có tên riêng.",
+          "Trong lớp học có ba giáo viên.",
+          "Tôi đã từng đến Bắc Kinh hai lần."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "每个人…都… bao quát mọi người; 自己的名字 là tên của chính mỗi người.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:02",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-03",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 03",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:03:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "我去过北京两次。",
+        "options": [
+          "Tôi đang ăn cơm đây.",
+          "Đừng đỗ xe ở đây.",
+          "Tôi làm việc từ tám giờ đến năm giờ.",
+          "Tôi đã từng đến Bắc Kinh hai lần."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "过 đánh dấu trải nghiệm đã từng đến; 两次 là hai lần, không phải hai ngày.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:03",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-04",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 04",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:04:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "别在这里停车。",
+        "options": [
+          "Tôi đã nói việc này với giáo viên.",
+          "Đừng đỗ xe ở đây.",
+          "Tôi làm việc từ tám giờ đến năm giờ.",
+          "Anh ấy đã đi vào từ cửa."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "别… là lời ngăn cấm hoặc nhắc đừng làm; 在这里 là địa điểm không được đỗ xe.",
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:04",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-05",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 05",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:05:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "他从门口进来了。",
+        "options": [
+          "Tôi đã nói việc này với giáo viên.",
+          "Tôi đã mua táo và các loại trái cây khác.",
+          "Tôi đã từng đến Thượng Hải.",
+          "Anh ấy đã đi vào từ cửa."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "从门口 nêu lối đi vào; 进来 là đi vào về phía điểm quy chiếu trong phòng.",
+        "sourceLessonIds": [
+          "hsk2-complements-and-motion-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:05",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-06",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 06",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:06:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "我买了苹果跟别的水果。",
+        "options": [
+          "Tôi đến cửa hàng mua đồ.",
+          "Tôi đã mua táo và các loại trái cây khác.",
+          "Tôi đã từng đến Thượng Hải.",
+          "Bạn đang tìm gì vậy?"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "跟 nối 苹果 và 别的水果: táo cùng các loại trái cây khác.",
+        "sourceLessonIds": [
+          "hsk2-clause-linking-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:06",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-07",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 07",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:07:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "你在找什么呢？",
+        "options": [
+          "Tôi đến cửa hàng mua đồ.",
+          "Tôi thích trà đen, cà phê và những thứ tương tự.",
+          "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?",
+          "Bạn đang tìm gì vậy?"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "在找 diễn đạt đang tìm; 呢 ở câu hỏi nhắc tới việc đang diễn ra.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:07",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-08",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 08",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:08:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "我喜欢红茶、咖啡什么的。",
+        "options": [
+          "Giáo viên đi về phía này.",
+          "Tôi thích trà đen, cà phê và những thứ tương tự.",
+          "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?",
+          "Hôm nay là thứ Hai."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "什么的 đứng sau danh sách để nói những thứ tương tự, không phải câu hỏi “cái gì”.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:08",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-09",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 09",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:09:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "今天星期一。",
+        "options": [
+          "Giáo viên đi về phía này.",
+          "Đứa trẻ đã chạy từ trong phòng ra đây.",
+          "Chiếc quần này dài hơn chiếc kia một chút.",
+          "Hôm nay là thứ Hai."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "今天星期一 là câu vị ngữ danh từ chỉ ngày trong tuần; không bắt buộc dùng 是.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:09",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-10",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 10",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:10:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "孩子从房间里跑出来了。",
+        "options": [
+          "Cậu bé này cao một mét rưỡi.",
+          "Đứa trẻ đã chạy từ trong phòng ra đây.",
+          "Chiếc quần này dài hơn chiếc kia một chút.",
+          "Bạn uống trà hay uống cà phê?"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "从房间里 nêu điểm xuất phát; 跑出来 là chạy từ trong phòng ra phía điểm quy chiếu.",
+        "sourceLessonIds": [
+          "hsk2-complements-and-motion-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:10",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-11",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 11",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:11:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "你喝茶还是喝咖啡？",
+        "options": [
+          "Cậu bé này cao một mét rưỡi.",
+          "Hôm nay nóng hơn hôm qua.",
+          "Anh ấy chạy nhanh hơn tôi.",
+          "Bạn uống trà hay uống cà phê?"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "还是 nối hai lựa chọn trong câu hỏi: uống trà hay cà phê.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:11",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-12",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 12",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:12:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "今天比昨天热。",
+        "options": [
+          "Mặc dù trời mưa nhưng chúng tôi vẫn đi.",
+          "Hôm nay nóng hơn hôm qua.",
+          "Anh ấy chạy nhanh hơn tôi.",
+          "Giáo viên bảo chúng tôi viết chữ Hán."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "今天比昨天热 lấy hôm qua làm mốc so sánh; hôm nay nóng hơn hôm qua.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:12",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-13",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 13",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:13:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "老师让我们写汉字。",
+        "options": [
+          "Mặc dù trời mưa nhưng chúng tôi vẫn đi.",
+          "Tôi vừa tan học là về nhà ngay.",
+          "Bạn đã từng ăn sủi cảo Trung Quốc chưa?",
+          "Giáo viên bảo chúng tôi viết chữ Hán."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "让 dẫn người được yêu cầu làm việc: giáo viên bảo chúng tôi viết chữ Hán.",
+        "sourceLessonIds": [
+          "hsk2-complements-and-motion-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:13",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-14",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 14",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:14:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "我一下课就回家。",
+        "options": [
+          "Đối diện trường học có một hiệu sách.",
+          "Tôi vừa tan học là về nhà ngay.",
+          "Bạn đã từng ăn sủi cảo Trung Quốc chưa?",
+          "Trong lớp có hơn mười học sinh."
+        ],
+        "answerIndex": 1,
+        "explanationVi": "一…就… nối hai việc xảy ra sát nhau: vừa tan học là về nhà.",
+        "sourceLessonIds": [
+          "hsk2-clause-linking-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:14",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk2-assessment-r101-hsk2-level-check-form-b-grammar-15",
+      "itemType": "exam_item",
+      "title": "HSK2 · form-b · grammar · 15",
+      "level": "hsk2",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:15:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+        "hanzi": "教室里有十几个学生。",
+        "options": [
+          "Đối diện trường học có một hiệu sách.",
+          "Bạn hãy xem thử quyển sách này trước.",
+          "Tại sao bạn học tiếng Trung?",
+          "Trong lớp có mười mấy học sinh (khoảng 11–19)."
+        ],
+        "answerIndex": 3,
+        "explanationVi": "十几个 là từ mười một đến mười chín, một số lượng xấp xỉ trong khoảng đó; không phải mọi số lớn hơn mười.",
+        "sourceLessonIds": [
+          "hsk2-reference-description-comparison-lesson-04"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk2-level-check:form-b:grammar:15",
+          "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+        }
+      }
+    }
+  ],
+  "reused": [
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:01:1",
+      "revisionId": "84be1941-347a-4c7e-8e26-b442b85a3e9e",
+      "contentSha256": "sha256:a9724227e834250a5aaff96ab63c373cd69836dd055d94c1a0483a9a527ae276"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:02:1",
+      "revisionId": "4a1347d6-448a-4ea6-a376-e2e20b153a73",
+      "contentSha256": "sha256:92fcd2a54051cc825056486ebd163f0e7b9581649e5462ee841f8e0d82acee66"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:03:1",
+      "revisionId": "c88ee231-8e7e-43fa-8f1b-42c0f02c2ad1",
+      "contentSha256": "sha256:cc4ec4dc8e390edf3ed374044d534adcaaf84eb7849f1d33c3f7ad0e9751a10a"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:04:1",
+      "revisionId": "886bf2af-7db0-471a-8eba-9e3a4a69a6e1",
+      "contentSha256": "sha256:a44fceba798c39c44edf4f55f964369a72187b728cf54f0df021b15692fcc744"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:05:1",
+      "revisionId": "3d75b433-86b1-4011-85a7-de642ca36130",
+      "contentSha256": "sha256:78625f25ed7262129ed12c9e7bcc9a114705fce0da7b55c318214eca20fd0660"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:06:1",
+      "revisionId": "35ec06a3-f92a-47cb-a890-d2bd25f66fcd",
+      "contentSha256": "sha256:0a2f95ba52b4766e4e992a4f9922b8d5d21ecc20e54669069b5ce10143fcac00"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:07:1",
+      "revisionId": "30746ccd-be73-4f4b-a92f-16faf5c89b86",
+      "contentSha256": "sha256:9b81326a47dc97fcc315b2833ef375e6963564e43d80a083ba79ffdc8b851bb9"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:08:1",
+      "revisionId": "6fb5e0d8-d0d8-4b70-973b-1f61710c6303",
+      "contentSha256": "sha256:69202285e79cfb394262ef1f48fd4b8d5fbd08da0bf1bd2e5fc00c9704d58272"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:09:1",
+      "revisionId": "f04c0891-9eef-4e45-bc15-83f63704dd0f",
+      "contentSha256": "sha256:d51f7ec22d8002b3e650f903f3a470b5d99f10d0a0928ad3081e061287804fab"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:10:1",
+      "revisionId": "e0d76892-e33e-4eff-a0ee-6bfc46ec3b4b",
+      "contentSha256": "sha256:9572bdd48a7f3f2a29b53e9e18bd246e271797301c41b2f0af3c7a8f267cf9cb"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:11:1",
+      "revisionId": "3c41ce4b-9420-47d3-b67c-775965f2ff42",
+      "contentSha256": "sha256:6920305f84aa91a6b43f737336821846c8ba659ddea494b0f525da8621be71dd"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:12:1",
+      "revisionId": "ff50bf2e-a3f8-4b32-a7a0-66a74f51454e",
+      "contentSha256": "sha256:4b036c184956e17916495e8cb3f70e550d486a5dcb94545f1ff86eccb5168a4c"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:13:1",
+      "revisionId": "4c61ede8-8769-43fc-9914-4e6882100061",
+      "contentSha256": "sha256:2976ab8471df3cb445730d0cf294d404da45afe875d8621b4e51df7b3bf89075"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:14:1",
+      "revisionId": "1ad02b66-1a2c-4e85-8a81-1dc92eb104ef",
+      "contentSha256": "sha256:61597081092354bd996b00ec0157e58a22e224d41a51d71a6ad27b1477378b71"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:15:1",
+      "revisionId": "b83b6edf-7c82-4a55-959c-510fbbbe46c9",
+      "contentSha256": "sha256:6738ac41121d5ebc8783ccd62dff9275a412763c22240a6d65ea8cc4c2014e20"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:01:1",
+      "revisionId": "9178456b-0fb5-46c9-95c5-e4b45266b1ce",
+      "contentSha256": "sha256:88bc7d25b3baee1198bf398e7198bb3262d162d1d5907df840b45f0a17d8c63b"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:02:1",
+      "revisionId": "cc563478-9138-4030-b6a0-e29d2f8fe48e",
+      "contentSha256": "sha256:ce1d792da156d3fe8399a2b738c1c6073659dd54034100ebd2688df098c957b8"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:03:1",
+      "revisionId": "e48ef0d7-4752-488a-9af4-6e692e723c1e",
+      "contentSha256": "sha256:dd1909b8802b39c6ceb53114511986e3efcd6ff3ad0132fa55497e9300f0d907"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:04:1",
+      "revisionId": "b1f3fe61-0f59-41d5-bf8f-fdace8120f4d",
+      "contentSha256": "sha256:882ca751311c9070c1a7fad20140e16a9ce0e6941faf79cf05e270897a7972b5"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:05:1",
+      "revisionId": "1b4e7ba4-e21f-46e4-9168-2cfa87e78353",
+      "contentSha256": "sha256:56e7158731773f8ce9e768eaef25a5a62705dffb00c0001ed1a8faea0c05d6bb"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:06:1",
+      "revisionId": "c6b7a6d9-6f9e-44df-b977-32df9f7b1ef4",
+      "contentSha256": "sha256:317c070f6353adf8dc13df7ed2f8f31febf527b462219fa7e6ba03d479e1d1a3"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:07:1",
+      "revisionId": "9199ebeb-c65e-46a2-bf67-c21c071c635d",
+      "contentSha256": "sha256:0a40b657b7fb49464d8edc3516d557b6cfdcad9a9c805e0a1598a46b9736cf42"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:08:1",
+      "revisionId": "398b1f74-a64b-425a-a9ab-c25ab7757552",
+      "contentSha256": "sha256:e7e6b133c74bcb71b6bb0185bfc3f2b442093c061a5392e3b0c4869fd081e7a8"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:09:1",
+      "revisionId": "b4871bc2-f552-4d9c-a228-6d3a7d6fc4a1",
+      "contentSha256": "sha256:27b2c8bbb284f058578767f199e7c35b7d806459abd2586872db19d3c728c1cf"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:10:1",
+      "revisionId": "a8136a76-bee4-489a-8379-82481e6de3f8",
+      "contentSha256": "sha256:5b1d182519a4894afa757171f0c19031812e7274c0f6a7498e02bcd423334881"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:11:1",
+      "revisionId": "c2e697cb-d27c-4fd9-961c-fd1ec1ec8d75",
+      "contentSha256": "sha256:221e8f390de749a2036a85dca77a661f32ebe7e94e097e564aa5ce583a91fa3d"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:12:1",
+      "revisionId": "caa212be-bef0-4e68-9982-25e5449b5e8a",
+      "contentSha256": "sha256:ed694a1ab1570ec87594ef05f1bd3ef11cf6bd2eee8f0496cba54d3bdb55c608"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:13:1",
+      "revisionId": "e0fca334-0c4a-47d6-8992-c549bf4d5ae0",
+      "contentSha256": "sha256:27b0ebaf0d2db3f8ee25f4275eccd6fbc2537cfb5d8a73c1f83036d3a3501422"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:14:1",
+      "revisionId": "ea8cf13c-dfbb-4940-9dc1-13070c60d9c8",
+      "contentSha256": "sha256:daa3c07cdbd5a510971e3faa59bb6f658cdbc96bc6db535f3b4bc12f52a0973f"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:15:1",
+      "revisionId": "97b5d908-2b54-436a-97a7-0baa909e596e",
+      "contentSha256": "sha256:096a5e5b49421422ebcbce1b355cb0dd18c4102c7bf9eb3c2419b06fc6a81e5c"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:01:1",
+      "revisionId": "8d34e5f4-8e80-4960-b20f-2d099cac2afc",
+      "contentSha256": "sha256:325e66ec348d5600da8756d80df436eb60afcfca9a0896b9adaed21674fa0007"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:02:1",
+      "revisionId": "d2fcff74-1984-4b73-98c9-023647d285b3",
+      "contentSha256": "sha256:239075f9a7757012fbc0d8097c87222ac34e2c0b09da966eedd43faa0d73c196"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:03:1",
+      "revisionId": "471f59a3-39be-46c6-9174-8ad93280ccbb",
+      "contentSha256": "sha256:3d693a8f03f31f82e455e9fa8455dabeca842da465fdf28184e5f47bf2d4afe0"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:04:1",
+      "revisionId": "9222174f-dc29-4946-8ddf-b7089852c284",
+      "contentSha256": "sha256:72002960b67f3995d07504b3129012609d0192f92c7eaba0c6d8f9a5ca7b757f"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:05:1",
+      "revisionId": "835b466c-73a1-46b2-b134-c8209eef748c",
+      "contentSha256": "sha256:f3089c68daa7f591c74a6355e71a00538e78d88a3d33a10ee346133a40dbd7ec"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:06:1",
+      "revisionId": "70a69d3c-3e14-4490-959b-1fc8d7e209d4",
+      "contentSha256": "sha256:cddc8d5b87e843009890141dad1207194241c3c87fb7f160dbea982ad0066f98"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:07:1",
+      "revisionId": "218d0b6c-65ab-494b-871d-04083e2f83c3",
+      "contentSha256": "sha256:55360da124097ae4fb436f29bd1f8f85bf5b80b0ba6e79f547818308ea85c391"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:08:1",
+      "revisionId": "c5fabad8-9dd8-44d4-85f7-8bc4b041951d",
+      "contentSha256": "sha256:3bf0e3cf41160ed6aa89ef03969e77261a8550c5bb72a9ec89f956b208d82160"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:09:1",
+      "revisionId": "c3f9dfc1-3277-44ea-a043-c6fc5955e21c",
+      "contentSha256": "sha256:5c5acf3247acab4b387e0c79d1597ef7b0b327e6c161dfe9ed9604d9c9f76096"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:10:1",
+      "revisionId": "dd7b8fad-0cc4-4109-9dd5-7b3a666b69ed",
+      "contentSha256": "sha256:0c297ec695ab4f0e645e4fd93d8f4e038cc866e9b039f90ed23bb81ccf15ef8e"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:11:1",
+      "revisionId": "1f1d4890-4de2-4d08-92f1-7b04da834364",
+      "contentSha256": "sha256:4aef33cb4c2c0ebc79329450335ac1b8828803289c7db4c7790c9dd831d948e1"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:12:1",
+      "revisionId": "b35501bd-a630-454e-9dfa-ab4c2f5afd7a",
+      "contentSha256": "sha256:5fb850181a827d6130116e3fd14c08fe9c3b3f5f544605d5bdfade3834604fa6"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:13:1",
+      "revisionId": "46b349e4-9b72-4e5f-80e6-8fe082a181bb",
+      "contentSha256": "sha256:93830e249ed392d045a8e8a148371e537abc133ccca9e0da54084f0db2684ab8"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:14:1",
+      "revisionId": "db8f2dc8-048a-4f31-97fe-80385911228a",
+      "contentSha256": "sha256:8fa985cc4866e5023e9839ec39d8d769dcfe2c6c21c1c286d71dc8ad6524a3e9"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:15:1",
+      "revisionId": "acff944a-06eb-4f79-ac77-b84a9136db1c",
+      "contentSha256": "sha256:d6f65b02f5763ffa894bc67d33f36ef642909ff0c894c57abe67557879a508c8"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:01:1",
+      "revisionId": "a20b0bfd-90ec-4074-8706-618c792281e3",
+      "contentSha256": "sha256:c452fdad42b326f24e1e8cb8f3d8dbf1db812a75ac2787475570139d17a68484"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:02:1",
+      "revisionId": "ec1c4da1-c2d2-459d-a80f-3171b68085cb",
+      "contentSha256": "sha256:a7e0eae261cb60139331ba69df8f8357fbf344ca97d5ed98b6fcf84c4bdf47c7"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:03:1",
+      "revisionId": "bcd2d5a4-1d43-4558-bbe1-1711e844c85b",
+      "contentSha256": "sha256:4f13bb2f639c92cf11a797ecd9a3f47651ec7692c7570349624c063ba4d7a933"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:04:1",
+      "revisionId": "3596652b-cf4e-47c0-bfaa-5ac45562381e",
+      "contentSha256": "sha256:7c9edac2ae3ec9349d7437729b8f87f76d67d9e35940224ebc445be4682f73cb"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:05:1",
+      "revisionId": "70505081-a12b-4a70-b04c-9e8ffbdd4160",
+      "contentSha256": "sha256:8c30044dc2e2b51a9128bffd88f03a727b2b55d299d73319ef30d92e5b8d4256"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:06:1",
+      "revisionId": "191bb27c-8ea7-4fea-8ad2-96582831a778",
+      "contentSha256": "sha256:05cbfbca947404b0be572df043ec42c77d7d8fa73ce522e5b7f08bb6712f33d8"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:07:1",
+      "revisionId": "5ab69fd8-fb4d-492d-8dba-794808abe0db",
+      "contentSha256": "sha256:62e3d05cf6e7a4a6162a01a48452964de04d74e9f25086b02d3cf0618ad58b33"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:08:1",
+      "revisionId": "a4c68bc2-ed59-466c-bee5-b0acd81bf6bf",
+      "contentSha256": "sha256:87d5e5962eed796f2f78e77d42e70c17a635e20acbd3edfa653011551ec9ac5a"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:09:1",
+      "revisionId": "c3e2242a-7f11-4ffc-b722-885f03c47fb1",
+      "contentSha256": "sha256:2596c52c805078cd1b17a90fb1de1e53e9f4db8c19cacac7c43f24769492d27e"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:10:1",
+      "revisionId": "0b48ab3d-da3e-47f7-b198-3164b9b38c22",
+      "contentSha256": "sha256:777910db6063dfafb8366680ecfe10a62413856c400c0748c6de65c2920e43b7"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:11:1",
+      "revisionId": "2524f340-e688-4720-abeb-e8d8d4936266",
+      "contentSha256": "sha256:33a66eece4559b1f0bd83f5bd9277a7fbbfbd6ae9f7b7ba4d4ac38534e3feec8"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:12:1",
+      "revisionId": "6ad27a0a-90fe-430d-b634-83ca8219066c",
+      "contentSha256": "sha256:c661a267036d1cfc6de156323ce0fbaab8cb9c7522ba3ddf9a6ff652b4ae016c"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:13:1",
+      "revisionId": "01ca801b-8f09-4ff5-9c39-44637c8163ba",
+      "contentSha256": "sha256:84c31d8c32a9c4cf345e447a130d2e117ed91a39b6d9be4903e57afa3c9d92ac"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:14:1",
+      "revisionId": "793032d8-2d48-42ad-865c-3b00bf4de77a",
+      "contentSha256": "sha256:7ee58f605675602de1f820c6d833b0574a713cade96d792727012f397bc4ba53"
+    },
+    {
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:15:1",
+      "revisionId": "191bc62d-f34e-4b0a-9dfc-c0d514540da4",
+      "contentSha256": "sha256:d9b793ace36bdb244ea0ad3bab524fb87816bf2434fd7fb4482b78cfb4d7e459"
+    }
+  ],
+  "selected": [
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:01:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:02:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:03:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:04:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:05:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:06:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:07:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:08:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:09:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:10:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:11:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:12:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:13:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:14:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:listening:15:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:01:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:02:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:03:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:04:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:05:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:06:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:07:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:08:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:09:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:10:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:11:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:12:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:13:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:14:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:vocabulary:15:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:01:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:02:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:03:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:04:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:05:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:01:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:02:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:03:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:04:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:05:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:06:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:07:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:08:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:09:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:10:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:11:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:12:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:13:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:14:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:reading:15:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:06:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:07:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:08:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:09:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:10:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:11:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:12:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:13:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:14:1",
+    "hsk2-level-assessment-2026.07:hsk2-level-check:form-b:grammar:15:1"
+  ],
+  "level": "hsk2",
+  "formKey": "h",
+  "timeLimitMinutes": 55,
+  "coverage": {
+    "listening": 35,
+    "reading": 25,
+    "writing": 0
+  },
+  "formStableKey": "hsk2-assessment-reviewed-round101-h",
+  "evidenceDocument": "docs/thien-lo-redesign-review/195-REVIEW-HSK2-ASSESSMENT-ROUND101.md"
+}

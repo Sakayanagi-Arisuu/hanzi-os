@@ -1,0 +1,672 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "baseRevisionId": "773a180b-4a87-4f32-8c25-f0ab731f8dc6",
+      "baseContentSha256": "sha256:a9e65c34a5c1b93a9c787238b936b53a0ae167576af8ad36cdc133ff0bc92797",
+      "changedPageIds": [
+        "hsk1-time-place-events-06-weather-and-residence:v2:context",
+        "hsk1-time-place-events-06-weather-and-residence:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Vai mới sống ở Thượng Hải (上海 Shànghǎi), hiện ở trường (学校 xuéxiào). Trong cảnh giả định, hôm nay nóng. Viết ba thông tin, không thêm mưa nếu đề không nói.",
+        "conceptVi": "Nói thời tiết và nơi đang ở",
+        "dialogue": [
+          {
+            "hanzi": "今天天气怎么样？",
+            "meaningVi": "Thời tiết hôm nay thế nào?",
+            "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "很冷，正在下雨。",
+            "meaningVi": "Lạnh, đang mưa.",
+            "pinyin": "Hěn lěng, zhèngzài xiàyǔ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你住在哪儿？",
+            "meaningVi": "Bạn sống ở đâu?",
+            "pinyin": "Nǐ zhù zài nǎr?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我住在北京，现在在家。",
+            "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+            "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我住在北京。",
+            "answerMeaningVi": "Tôi sống ở Bắc Kinh.",
+            "answerPinyin": "Wǒ zhù zài Běijīng.",
+            "distractors": [
+              "我现在在家。",
+              "正在下雨。"
+            ],
+            "explanationVi": "Đúng: 住在 nói nơi sống.",
+            "promptVi": "Câu nào chỉ rõ nơi cư trú của người nói?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "今天天气很冷 nói trời lạnh; 热 nói nóng. 下雨 là mưa, 雨 là mưa trong vai danh từ; 下雪 là tuyết rơi, 雪 là tuyết. 正在 nhấn hành động đang diễn ra: 正在下雨. 住在北京 nói sống ở Bắc Kinh; 现在在家 nói hiện ở nhà. 在 có thể là vị trí hoặc dấu đang trước động từ tùy cấu trúc, không dịch máy móc một nghĩa.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我住在上海，现在在学校。今天天气很热。",
+              "modelAnswerMeaningVi": "Tôi sống ở Thượng Hải, hiện ở trường. Hôm nay trời nóng.",
+              "modelAnswerPinyin": "Wǒ zhù zài Shànghǎi, xiànzài zài xuéxiào. Jīntiān tiānqì hěn rè.",
+              "promptVi": "Vai mới sống ở Thượng Hải (上海 Shànghǎi), hiện ở trường (学校 xuéxiào). Trong cảnh giả định, hôm nay nóng. Viết ba thông tin, không thêm mưa nếu đề không nói."
+            },
+            "modelExample": {
+              "hanzi": "我住在北京，现在在家。",
+              "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+              "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā."
+            },
+            "pattern": "住在 + nơi sống；现在在 + vị trí hiện tại。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hôm nay trời lạnh và đang mưa. Người nói sống ở Bắc Kinh nhưng hiện ở nhà. Bạn phân biệt nơi cư trú với vị trí hiện tại.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "北京 (Běijīng) — Bắc Kinh; 家 (jiā) — nhà; 今天 (jīntiān) — hôm nay; 现在 (xiànzài) — bây giờ; 怎么样 (zěnmeyàng) — thế nào; 很 (hěn) — từ nối/nhấn trong câu tính từ.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nói thời tiết và nơi đang ở",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/rainy-home-residence-v1.webp",
+                "alt": "Người mặc áo ấm đang ở nhà bên cửa sổ có mưa",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天天气怎么样？",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thời tiết hôm nay thế nào?",
+                  "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "很冷，正在下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lạnh, đang mưa.",
+                  "pinyin": "Hěn lěng, zhèngzài xiàyǔ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你住在哪儿？",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống ở đâu?",
+                  "pinyin": "Nǐ zhù zài nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我住在北京，现在在家。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+                  "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/rainy-home-residence-v1.webp",
+                "alt": "Người mặc áo ấm đang ở nhà bên cửa sổ có mưa",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "今天天气很冷 nói trời lạnh; 热 nói nóng. 下雨 là mưa, 雨 là mưa trong vai danh từ; 下雪 là tuyết rơi, 雪 là tuyết. 正在 nhấn hành động đang diễn ra: 正在下雨. 住在北京 nói sống ở Bắc Kinh; 现在在家 nói hiện ở nhà. 在 có thể là vị trí hoặc dấu đang trước động từ tùy cấu trúc, không dịch máy móc một nghĩa.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我住在北京，现在在家。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+                  "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā.",
+                  "provenance": "",
+                  "title": "住在 + nơi sống；现在在 + vị trí hiện tại。"
+                },
+                {
+                  "alt": "",
+                  "body": "住在 không chứng minh hiện giờ đang ở đó. 正在下雨 cần ngữ cảnh đang mưa, không suy từ thấy từ 雨 rằng mưa đang xảy ra. Không tạo dự báo thật từ cảnh luyện.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói thời tiết và nơi đang ở"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Hai thông tin đồng thời đúng: người nói sống ở Bắc Kinh và hiện đang ở nhà. Không nhầm nơi cư trú với vị trí hiện tại.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "住在北京",
+                        "meaningVi": "Nơi sống: Bắc Kinh",
+                        "note": "",
+                        "pinyin": "Zhù zài Běijīng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "现在在家",
+                        "meaningVi": "Hiện tại: ở nhà",
+                        "note": "",
+                        "pinyin": "Xiànzài zài jiā",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "lạnh",
+                  "hanzi": "今天很冷。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00109",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay rất lạnh.",
+                  "pinyin": "Jīntiān hěn lěng.",
+                  "provenance": "",
+                  "title": "冷 · lěng"
+                },
+                {
+                  "alt": "",
+                  "body": "nóng",
+                  "hanzi": "今天很热，不下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00169",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay rất nóng, không mưa.",
+                  "pinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+                  "provenance": "",
+                  "title": "热 · rè"
+                },
+                {
+                  "alt": "",
+                  "body": "thời tiết",
+                  "hanzi": "今天天气怎么样？",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00208",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay thời tiết thế nào?",
+                  "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+                  "provenance": "",
+                  "title": "天气 · tiānqì"
+                },
+                {
+                  "alt": "",
+                  "body": "mưa",
+                  "hanzi": "今天很热，不下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00227",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay rất nóng, không mưa.",
+                  "pinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+                  "provenance": "",
+                  "title": "下雨 · xiàyǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "tuyết",
+                  "hanzi": "下雪了。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00251",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tuyết rơi rồi.",
+                  "pinyin": "Xiàxuě le.",
+                  "provenance": "",
+                  "title": "雪 · xuě"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "mưa",
+                  "hanzi": "今天的雨很大。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00267",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mưa hôm nay rất lớn.",
+                  "pinyin": "Jīntiān de yǔ hěn dà.",
+                  "provenance": "",
+                  "title": "雨 · yǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "ở; đang",
+                  "hanzi": "我在学校学习。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00271",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học ở trường.",
+                  "pinyin": "Wǒ zài xuéxiào xuéxí.",
+                  "provenance": "",
+                  "title": "在 · zài"
+                },
+                {
+                  "alt": "",
+                  "body": "đang",
+                  "hanzi": "正在下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00286",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đang mưa.",
+                  "pinyin": "Zhèngzài xiàyǔ.",
+                  "provenance": "",
+                  "title": "正在 · zhèngzài"
+                },
+                {
+                  "alt": "",
+                  "body": "ở; sống",
+                  "hanzi": "我住在北京。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00294",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống ở Bắc Kinh.",
+                  "pinyin": "Wǒ zhù zài Běijīng.",
+                  "provenance": "",
+                  "title": "住 · zhù"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: 住在 nói nơi sống. 住在 không chứng minh hiện giờ đang ở đó. 正在下雨 cần ngữ cảnh đang mưa, không suy từ thấy từ 雨 rằng mưa đang xảy ra. Không tạo dự báo thật từ cảnh luyện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 我住在北京 để nói nơi cư trú, không nhầm với vị trí hiện thời hay thời tiết. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00294",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: 住在 nói nơi sống.",
+                        "id": "option-0",
+                        "text": "我住在北京。"
+                      },
+                      {
+                        "feedback": "Chỉ vị trí hiện tại, chưa nêu thành phố cư trú.",
+                        "id": "option-1",
+                        "text": "我现在在家。"
+                      },
+                      {
+                        "feedback": "Nói thời tiết, chưa nói nơi cư trú.",
+                        "id": "option-2",
+                        "text": "正在下雨。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào chỉ rõ nơi cư trú của người nói?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "热"
+                    ],
+                    "answerIds": [],
+                    "explanation": "热 là nóng, 冷 là lạnh. Đây là thông tin trong đề, không phải nhiệt độ thật ở nơi bạn đang ở.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 热 cho cảnh thời tiết nóng giả định, không coi đó là thời tiết thật. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00169",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 冷 hoặc 热: cảnh giả định trời nóng, 今天天气很____。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới sống ở Thượng Hải (上海 Shànghǎi), hiện ở trường (学校 xuéxiào). Trong cảnh giả định, hôm nay nóng. Viết ba thông tin, không thêm mưa nếu đề không nói.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我住在上海，现在在学校。今天天气很热。\nWǒ zhù zài Shànghǎi, xiànzài zài xuéxiào. Jīntiān tiānqì hěn rè.\nTôi sống ở Thượng Hải, hiện ở trường. Hôm nay trời nóng.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu về nơi sống và thời tiết trong cảnh giả định, tách cư trú, vị trí hiện tại và trạng thái thời tiết. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "住在 nói nơi sống, 现在在 nói hiện ở đâu.",
+                        "id": "criterion-0",
+                        "label": "住在 nói nơi sống, 现在在 nói hiện ở đâu."
+                      },
+                      {
+                        "guidance": "热 khớp trời nóng.",
+                        "id": "criterion-1",
+                        "label": "热 khớp trời nóng."
+                      },
+                      {
+                        "guidance": "Không tự thêm mưa/tuyết chưa có trong đề.",
+                        "id": "criterion-2",
+                        "label": "Không tự thêm mưa/tuyết chưa có trong đề."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "住在 nói nơi sống, 现在在 nói hiện ở đâu.\n热 khớp trời nóng.\nKhông tự thêm mưa/tuyết chưa có trong đề.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "317340e8-3b24-4cac-a54b-9b4a9355ac81",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Mô tả thời tiết hiện tại và nói nơi mình đang sống.",
+        "pitfallVi": "住在 không chứng minh hiện giờ đang ở đó. 正在下雨 cần ngữ cảnh đang mưa, không suy từ thấy từ 雨 rằng mưa đang xảy ra. Không tạo dự báo thật từ cảnh luyện.",
+        "prerequisites": [
+          "hsk1-time-place-events-05-location"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "今天天气很冷 nói trời lạnh; 热 nói nóng. 下雨 là mưa, 雨 là mưa trong vai danh từ; 下雪 là tuyết rơi, 雪 là tuyết. 正在 nhấn hành động đang diễn ra: 正在下雨. 住在北京 nói sống ở Bắc Kinh; 现在在家 nói hiện ở nhà. 在 có thể là vị trí hoặc dấu đang trước động từ tùy cấu trúc, không dịch máy móc một nghĩa.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-032"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-06-weather-and-residence"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-04"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-006"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00109",
+          "hsk-vocab-00169",
+          "hsk-vocab-00208",
+          "hsk-vocab-00227",
+          "hsk-vocab-00251",
+          "hsk-vocab-00267",
+          "hsk-vocab-00271",
+          "hsk-vocab-00286",
+          "hsk-vocab-00294"
+        ],
+        "targetLessonId": "hsk1-time-place-events-06-weather-and-residence",
+        "titleZh": "天气和住处",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/69-REVIEW-TIME-PLACE-DIAGRAMS.md",
+          "humanReviewed": false,
+          "scope": "Full-width instructional diagrams; learning content unchanged.",
+          "sourceRevisionId": "0a87500e-d29e-4d20-8bb9-43a7122e9a03"
+        },
+        "vocabulary": [
+          "hsk-vocab-00109",
+          "hsk-vocab-00169",
+          "hsk-vocab-00208",
+          "hsk-vocab-00227",
+          "hsk-vocab-00251",
+          "hsk-vocab-00267",
+          "hsk-vocab-00271",
+          "hsk-vocab-00286",
+          "hsk-vocab-00294"
+        ]
+      }
+    }
+  ]
+}

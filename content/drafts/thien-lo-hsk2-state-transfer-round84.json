@@ -1,0 +1,2581 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/177-REVIEW-HSK2-STATE-TRANSFER-ROUND84.md",
+  "entries": [
+    {
+      "sourceRevisionId": "796d2e23-feb8-4891-81ac-71df239de302",
+      "sourceContentSha256": "sha256:27abf41e0290d9dc0a7fdbf716af272fbeb976a21b96af97592a900e78a9cdb5",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Cảnh mới: cửa đóng, hai học sinh đứng ở cửa; bạn đã học sáu tháng, hôm qua luyện một tiếng; từng ăn sủi cảo hai lần, không thường ăn. Viết bốn câu; không kết luận trình độ từ thời lượng.",
+        "conceptVi": "Mô tả trạng thái và thời lượng, không suy năng lực từ trải nghiệm",
+        "dialogue": [
+          {
+            "hanzi": "门口站着几位老师？",
+            "meaningVi": "Có mấy giáo viên đứng ở cửa?",
+            "pinyin": "Ménkǒu zhànzhe jǐ wèi lǎoshī?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "三位。门开着，我们进去吧。",
+            "meaningVi": "Ba người. Cửa đang mở, chúng ta vào nhé.",
+            "pinyin": "Sān wèi. Mén kāizhe, wǒmen jìnqù ba.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你学了多长时间汉语？",
+            "meaningVi": "Bạn đã học tiếng Trung bao lâu?",
+            "pinyin": "Nǐ xué le duō cháng shíjiān Hànyǔ?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "两年了，但是还有很多不懂的地方。",
+            "meaningVi": "Hai năm rồi nhưng vẫn còn nhiều chỗ chưa hiểu.",
+            "pinyin": "Liǎng nián le, dànshì hái yǒu hěn duō bù dǒng de dìfang.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "你吃过饺子吗？经常吃吗？",
+            "meaningVi": "Bạn từng ăn sủi cảo chưa? Có thường ăn không?",
+            "pinyin": "Nǐ chīguo jiǎozi ma? Jīngcháng chī ma?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "吃过一次，不经常吃。",
+            "meaningVi": "Đã ăn một lần, không thường ăn.",
+            "pinyin": "Chīguo yí cì, bù jīngcháng chī.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "门开着，门口站着三位老师。",
+            "answerMeaningVi": "Cửa mở, ba giáo viên đứng ở cửa.",
+            "answerPinyin": "Mén kāizhe, ménkǒu zhànzhe sān wèi lǎoshī.",
+            "distractors": [
+              "她学了两年，所以汉语一定说得很好。",
+              "她经常吃饺子。"
+            ],
+            "explanationVi": "Đúng: trạng thái cửa và ba giáo viên được nêu rõ.",
+            "promptVi": "Kết luận nào chỉ dựa vào thông tin đã có?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "都十点了 nhấn đã muộn so kỳ vọng. 都 ở đây không nghĩa mọi người đều. Không suy thành chắc chắn quá muộn cho mọi hoàn cảnh.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "孩子都十岁了。",
+              "modelAnswerMeaningVi": "Đứa trẻ đã mười tuổi rồi.",
+              "modelAnswerPinyin": "Háizi dōu shí suì le.",
+              "promptVi": "Dùng 都…了: Con đã mười tuổi rồi."
+            },
+            "modelExample": {
+              "hanzi": "都十点了，你怎么还不睡？",
+              "meaningVi": "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?",
+              "pinyin": "Dōu shí diǎn le, nǐ zěnme hái bù shuì?"
+            },
+            "pattern": "Đã tới mốc đáng chú ý"
+          },
+          {
+            "explanationVi": "跑得很快: chạy nhanh; 跑得不快: chạy không nhanh. 得 nối động từ với đánh giá cách/mức độ. 地 thường đứng trước động từ, không đổi chỗ với 得.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他跑得不快。",
+              "modelAnswerMeaningVi": "Anh ấy chạy không nhanh.",
+              "modelAnswerPinyin": "Tā pǎo de bú kuài.",
+              "promptVi": "Dùng 得 để nói: Anh ấy chạy không nhanh."
+            },
+            "modelExample": {
+              "hanzi": "她汉语说得很好。",
+              "meaningVi": "Cô ấy nói tiếng Trung rất tốt.",
+              "pinyin": "Tā Hànyǔ shuō de hěn hǎo."
+            },
+            "pattern": "Làm như thế nào"
+          },
+          {
+            "explanationVi": "睡了八个小时 nói ngủ tám tiếng; 八点 là tám giờ đồng hồ. Mẫu 学了两年汉语 đặt thời lượng trước tân ngữ 汉语; không áp dụng một thứ tự cho mọi tân ngữ.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "她昨天睡了八个小时。",
+              "modelAnswerMeaningVi": "Hôm qua cô ấy ngủ tám tiếng.",
+              "modelAnswerPinyin": "Tā zuótiān shuì le bā ge xiǎoshí.",
+              "promptVi": "Nêu thời lượng: Hôm qua cô ấy ngủ tám tiếng."
+            },
+            "modelExample": {
+              "hanzi": "我学了两年汉语。",
+              "meaningVi": "Tôi đã học tiếng Trung hai năm.",
+              "pinyin": "Wǒ xué le liǎng nián Hànyǔ."
+            },
+            "pattern": "Kéo dài bao lâu"
+          },
+          {
+            "explanationVi": "长一点儿 có thể yêu cầu dài hơn chút hoặc so với vật đã biết. Cần mốc so sánh; khác 有点儿长 là hơi dài, thường nói chưa vừa ý.",
+            "guidedPractice": {
+              "promptVi": "Chị hơn tôi hai tuổi. Dùng 比 + mốc và 大 + lượng chênh lệch.",
+              "modelAnswerHanzi": "姐姐比我大两岁。",
+              "modelAnswerPinyin": "Jiějie bǐ wǒ dà liǎng suì.",
+              "modelAnswerMeaningVi": "Chị lớn hơn tôi hai tuổi."
+            },
+            "modelExample": {
+              "hanzi": "这条裤子比那条长一点儿。",
+              "pinyin": "Zhè tiáo kùzi bǐ nà tiáo cháng yìdiǎnr.",
+              "meaningVi": "Chiếc quần này dài hơn chiếc kia một chút."
+            },
+            "pattern": "Hơn một chút"
+          },
+          {
+            "explanationVi": "别说话，请听老师说: nhắc đừng nói, hãy nghe. Khi cần lịch sự thêm 请 trong yêu cầu phù hợp, nhưng lịch sự còn phụ thuộc giọng và hoàn cảnh.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "别忘了写名字。",
+              "modelAnswerMeaningVi": "Đừng quên viết tên.",
+              "modelAnswerPinyin": "Bié wàng le xiě míngzi.",
+              "promptVi": "Tạo lời nhắc: Đừng quên viết tên."
+            },
+            "modelExample": {
+              "hanzi": "别说话，请听老师说。",
+              "meaningVi": "Đừng nói chuyện, hãy nghe giáo viên nói.",
+              "pinyin": "Bié shuōhuà, qǐng tīng lǎoshī shuō."
+            },
+            "pattern": "Lời nhắc phù hợp"
+          },
+          {
+            "explanationVi": "门口站着三位老师: nơi + tư thế + 着 + số lượng + người. Giới thiệu cảnh; không phải ba giáo viên đang thực hiện động tác đứng dậy.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "教室里坐着十名学生。",
+              "modelAnswerMeaningVi": "Trong lớp có mười học sinh đang ngồi.",
+              "modelAnswerPinyin": "Jiàoshì lǐ zuòzhe shí míng xuésheng.",
+              "promptVi": "Dùng mẫu tồn hiện: Trong lớp có mười học sinh đang ngồi."
+            },
+            "modelExample": {
+              "hanzi": "门口站着三位老师。",
+              "meaningVi": "Ở cửa có ba giáo viên đang đứng.",
+              "pinyin": "Ménkǒu zhànzhe sān wèi lǎoshī."
+            },
+            "pattern": "Có người/vật tại nơi đó"
+          },
+          {
+            "explanationVi": "坐着/站着/开着 nêu trạng thái đang giữ; không tự chứng minh người vừa ngồi xuống hay cửa vừa được mở.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他穿着红色衣服。",
+              "modelAnswerMeaningVi": "Anh ấy đang mặc quần áo màu đỏ.",
+              "modelAnswerPinyin": "Tā chuānzhe hóngsè yīfu.",
+              "promptVi": "Dùng 着 nêu trạng thái: Anh ấy đang mặc quần áo màu đỏ."
+            },
+            "modelExample": {
+              "hanzi": "门开着呢。",
+              "meaningVi": "Cửa đang mở đấy.",
+              "pinyin": "Mén kāizhe ne."
+            },
+            "pattern": "Tư thế và trạng thái"
+          },
+          {
+            "explanationVi": "听着歌写汉字: nghe nhạc làm nền cho viết chữ. Không nói nghe xong rồi mới viết; 一边听歌一边写汉字 (yìbiān tīng gē yìbiān xiě Hànzì) nhấn hai hành động cùng lúc.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "她笑着跟我说话。",
+              "modelAnswerMeaningVi": "Cô ấy cười và nói chuyện với tôi.",
+              "modelAnswerPinyin": "Tā xiàozhe gēn wǒ shuōhuà.",
+              "promptVi": "Dùng 着 cho hành động nền: Cô ấy cười và nói với tôi."
+            },
+            "modelExample": {
+              "hanzi": "他听着歌写汉字。",
+              "meaningVi": "Anh ấy vừa nghe nhạc vừa viết chữ Hán.",
+              "pinyin": "Tā tīngzhe gē xiě Hànzì."
+            },
+            "pattern": "Hành động làm nền"
+          },
+          {
+            "explanationVi": "吃过饺子 chỉ từng ăn, không cho biết ăn bao nhiêu lần hoặc có thích không. 经常吃 mới nói thường ăn.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我没看过那个电影。",
+              "modelAnswerMeaningVi": "Tôi chưa từng xem bộ phim đó.",
+              "modelAnswerPinyin": "Wǒ méi kànguo nàge diànyǐng.",
+              "promptVi": "Trả lời phủ định bằng 没…过: Tôi chưa từng xem bộ phim đó."
+            },
+            "modelExample": {
+              "hanzi": "你吃过中国饺子吗？",
+              "meaningVi": "Bạn đã từng ăn sủi cảo Trung Quốc chưa?",
+              "pinyin": "Nǐ chīguo Zhōngguó jiǎozi ma?"
+            },
+            "pattern": "Kinh nghiệm không phải thói quen"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tại câu lạc bộ, cửa đang mở, ba giáo viên đứng ở cửa. Mai vừa kể đã học hai năm, chạy không nhanh và từng ăn sủi cảo một lần. Một bạn nghe nhạc trong khi viết chữ. Những thông tin này không tự thành điểm năng lực.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "俱乐部 jùlèbù: câu lạc bộ · 一次 yí cì: một lần · 同时 tóngshí: đồng thời · 小时 xiǎoshí: tiếng đồng hồ.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:context",
+              "illustration": {
+                "alt": "Ba giáo viên đứng cạnh cửa câu lạc bộ đang mở",
+                "caption": "Cửa đang mở, ba giáo viên đứng ở cửa. Thời gian học và số lần trải nghiệm không tự là mức thành thạo.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-club-open-door-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Mô tả trạng thái và thời lượng, không suy năng lực từ trải nghiệm"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "门口站着几位老师？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có mấy giáo viên đứng ở cửa?",
+                  "pinyin": "Ménkǒu zhànzhe jǐ wèi lǎoshī?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "三位。门开着，我们进去吧。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ba người. Cửa đang mở, chúng ta vào nhé.",
+                  "pinyin": "Sān wèi. Mén kāizhe, wǒmen jìnqù ba.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你学了多长时间汉语？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đã học tiếng Trung bao lâu?",
+                  "pinyin": "Nǐ xué le duō cháng shíjiān Hànyǔ?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "两年了，但是还有很多不懂的地方。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai năm rồi nhưng vẫn còn nhiều chỗ chưa hiểu.",
+                  "pinyin": "Liǎng nián le, dànshì hái yǒu hěn duō bù dǒng de dìfang.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你吃过饺子吗？经常吃吗？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn từng ăn sủi cảo chưa? Có thường ăn không?",
+                  "pinyin": "Nǐ chīguo jiǎozi ma? Jīngcháng chī ma?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "吃过一次，不经常吃。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đã ăn một lần, không thường ăn.",
+                  "pinyin": "Chīguo yí cì, bù jīngcháng chī.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:dialogue",
+              "illustration": {
+                "alt": "Ba giáo viên đứng cạnh cửa câu lạc bộ đang mở",
+                "caption": "Cửa đang mở, ba giáo viên đứng ở cửa. Thời gian học và số lần trải nghiệm không tự là mức thành thạo.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk2-club-open-door-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện là căn cứ làm bài; hình nền chỉ trang trí. Điểm nhìn được nêu riêng khi chuyển động.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "着",
+                        "meaningVi": "Trạng thái",
+                        "note": "Cửa mở, ba giáo viên đứng.",
+                        "pinyin": "zhe",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "两年",
+                        "meaningVi": "Thời lượng",
+                        "note": "Không phải mốc giờ hoặc chứng nhận năng lực.",
+                        "pinyin": "liǎng nián",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "一次",
+                        "meaningVi": "Một lần trải nghiệm",
+                        "note": "Không chứng minh thường ăn hay thích ăn.",
+                        "pinyin": "yí cì",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Mô tả trạng thái và thời lượng, không suy năng lực từ trải nghiệm"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc cảnh trước khi chọn cấu trúc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "都十点了 nhấn đã muộn so kỳ vọng. 都 ở đây không nghĩa mọi người đều. Không suy thành chắc chắn quá muộn cho mọi hoàn cảnh.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-041:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "都十点了，你怎么还不睡？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-041:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?",
+                  "pinyin": "Dōu shí diǎn le, nǐ zěnme hái bù shuì?",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-041:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đã tới mốc đáng chú ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "都"
+                    ],
+                    "answerIds": [],
+                    "explanation": "都…了 nhấn mốc thời gian; 一起 không thể biểu thị mốc này.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Đã tới mốc đáng chú ý",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-041",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Nhấn đã 11 giờ mà vẫn chưa ngủ: ___十一点了，你怎么还不睡？ Chọn 都 hoặc 一起.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-041:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:041:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "都十一点了 trong lời nhắc đi ngủ có nghĩa nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Mọi người đều mười một giờ",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Đã tận mười một giờ rồi theo kỳ vọng người nói",
+                        "feedback": "都…了 nhấn đã tới mốc đáng chú ý; không phải phạm vi mọi người."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có đúng mười một người",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "都…了 nhấn đã tới mốc đáng chú ý; không phải phạm vi mọi người.",
+                    "learningTarget": {
+                      "objective": "都 ở mốc thời gian",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-041",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:041:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Bạn thấy đã tận mười hai giờ đêm mà người quen vẫn chưa ngủ. Viết một lời nhắc có 都…了 và 还不睡; không tự kết luận họ luôn ngủ muộn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n都十二点了，你怎么还不睡？\nDōu shíèr diǎn le, nǐ zěnme hái bù shuì?\nĐã tận mười hai giờ rồi, sao bạn vẫn chưa ngủ?\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "都…了 nhấn mốc 十二点.",
+                        "guidance": "都…了 nhấn mốc 十二点."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "还不睡 chỉ chưa ngủ lúc này, không biến thành thói quen mọi ngày.",
+                        "guidance": "还不睡 chỉ chưa ngủ lúc này, không biến thành thói quen mọi ngày."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "都 ở mốc thời gian",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-041",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-041:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Đã tới mốc đáng chú ý"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "跑得很快: chạy nhanh; 跑得不快: chạy không nhanh. 得 nối động từ với đánh giá cách/mức độ. 地 thường đứng trước động từ, không đổi chỗ với 得.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-049:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她汉语说得很好。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-049:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy nói tiếng Trung rất tốt.",
+                  "pinyin": "Tā Hànyǔ shuō de hěn hǎo.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-049:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Làm như thế nào"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "得"
+                    ],
+                    "answerIds": [],
+                    "explanation": "得 sau 跑 nối bổ ngữ 不快; 地 không đúng vị trí này.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Làm như thế nào",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-049",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Nói chạy không nhanh: 他跑___不快。 Chọn 得 hoặc 地.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-049:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:049:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "Muốn nói cô ấy chạy không nhanh: câu nào đúng vị trí bổ ngữ?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "她跑地不快。",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "她跑得不快。",
+                        "feedback": "得 sau 跑 nối bổ ngữ 不快; 地 không đứng ở vị trí này."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "她不快得跑。",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "得 sau 跑 nối bổ ngữ 不快; 地 không đứng ở vị trí này.",
+                    "learningTarget": {
+                      "objective": "得 sau động từ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-049",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:049:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Tình huống mới: người bạn viết chữ Hán rất đẹp (好看 hǎokàn), nhưng nói tiếng Trung chưa tốt (不好 bù hǎo). Viết hai nhận xét với 得, không suy từ một kỹ năng sang kỹ năng kia.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n他汉字写得很好看，但是汉语说得不好。\nTā Hànzì xiě de hěn hǎokàn, dànshì Hànyǔ shuō de bù hǎo.\nAnh ấy viết chữ Hán rất đẹp nhưng nói tiếng Trung chưa tốt.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "写得/说得 nối đúng bổ ngữ.",
+                        "guidance": "写得/说得 nối đúng bổ ngữ."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ đánh giá viết và nói riêng, không suy đẹp chữ là nói giỏi.",
+                        "guidance": "Giữ đánh giá viết và nói riêng, không suy đẹp chữ là nói giỏi."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "得 sau động từ",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-049",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-049:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Làm như thế nào"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "睡了八个小时 nói ngủ tám tiếng; 八点 là tám giờ đồng hồ. Mẫu 学了两年汉语 đặt thời lượng trước tân ngữ 汉语; không áp dụng một thứ tự cho mọi tân ngữ.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-050:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我学了两年汉语。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-050:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã học tiếng Trung hai năm.",
+                  "pinyin": "Wǒ xué le liǎng nián Hànyǔ.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-050:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kéo dài bao lâu"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "小时"
+                    ],
+                    "answerIds": [],
+                    "explanation": "八个小时 là thời lượng tám tiếng; 八点 là mốc giờ, không đi với 个 ở đây.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Kéo dài bao lâu",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-050",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Ngủ tám tiếng: 她睡了八个___。 Điền 小时 hoặc 点.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-050:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:050:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "睡了六个小时 nghĩa gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Ngủ lúc sáu giờ",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Ngủ sáu tiếng",
+                        "feedback": "六个小时 là thời lượng, khác 六点 là giờ đồng hồ."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Sáu người đã ngủ",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "六个小时 là thời lượng, khác 六点 là giờ đồng hồ.",
+                    "learningTarget": {
+                      "objective": "Thời lượng khác mốc giờ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-050",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:050:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: hôm qua bạn bắt đầu ngủ lúc mười giờ tối và ngủ bảy tiếng. Viết hai câu nêu mốc bắt đầu và thời lượng, không đổi bảy tiếng thành bảy giờ tối.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我昨天晚上十点睡觉，睡了七个小时。\nWǒ zuótiān wǎnshang shí diǎn shuìjiào, shuì le qī ge xiǎoshí.\nHôm qua tôi đi ngủ lúc mười giờ tối và ngủ bảy tiếng.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "十点 là mốc giờ; 七个小时 là thời lượng.",
+                        "guidance": "十点 là mốc giờ; 七个小时 là thời lượng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không dùng 个 với 点 trong mẫu đồng hồ.",
+                        "guidance": "Không dùng 个 với 点 trong mẫu đồng hồ."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Thời lượng khác mốc giờ",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-050",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-050:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Kéo dài bao lâu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "长一点儿 có thể yêu cầu dài hơn chút hoặc so với vật đã biết. Cần mốc so sánh; khác 有点儿长 là hơi dài, thường nói chưa vừa ý.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-051:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这条裤子比那条长一点儿。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-051:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc quần này dài hơn chiếc kia một chút.",
+                  "pinyin": "Zhè tiáo kùzi bǐ nà tiáo cháng yìdiǎnr.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-051:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hơn một chút"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "一点儿"
+                    ],
+                    "answerIds": [],
+                    "explanation": "一点儿 đứng sau 长 chỉ chênh lệch nhỏ; 有点儿 đứng trước tính từ.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Hơn một chút",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Muốn chiếc quần dài hơn một chút: 我想要长___的。 Điền 一点儿 hoặc 有点儿.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-051:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:051:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "这条裤子比那条长一点儿 cho biết gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chiếc này dài hơn chiếc kia một chút",
+                        "feedback": "比那条 nêu mốc; 长一点儿 nêu chênh lệch nhỏ, không tự thành quá dài."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Chiếc kia dài hơn chiếc này",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chiếc này chắc chắn quá dài để mặc",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "比那条 nêu mốc; 长一点儿 nêu chênh lệch nhỏ, không tự thành quá dài.",
+                    "learningTarget": {
+                      "objective": "So sánh phải có mốc",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:051:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: chị hơn bạn hai tuổi. Viết câu với 比 và 大两岁; không dùng 今年大一岁 của mẫu cũ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n姐姐比我大两岁。\nJiějie bǐ wǒ dà liǎng suì.\nChị lớn hơn tôi hai tuổi.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "姐姐 là người lớn tuổi hơn, 我 là mốc sau 比.",
+                        "guidance": "姐姐 là người lớn tuổi hơn, 我 là mốc sau 比."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "大两岁 giữ chênh lệch hai tuổi, không đổi thành tuổi tuyệt đối.",
+                        "guidance": "大两岁 giữ chênh lệch hai tuổi, không đổi thành tuổi tuyệt đối."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "So sánh phải có mốc",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-051:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Hơn một chút"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "别说话，请听老师说: nhắc đừng nói, hãy nghe. Khi cần lịch sự thêm 请 trong yêu cầu phù hợp, nhưng lịch sự còn phụ thuộc giọng và hoàn cảnh.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-054:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "别说话，请听老师说。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-054:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng nói chuyện, hãy nghe giáo viên nói.",
+                  "pinyin": "Bié shuōhuà, qǐng tīng lǎoshī shuō.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-054:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Lời nhắc phù hợp"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "别"
+                    ],
+                    "answerIds": [],
+                    "explanation": "别 chuyển câu thành lời nhắc không làm; 已经 nói đã, trái mục đích.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Lời nhắc phù hợp",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-054",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Yêu cầu giữ yên lặng: ___说话，请听。 Chọn 别 hoặc 已经.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-054:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:054:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "Câu nào nhắc đừng quên tên trên phiếu?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "你已经写了名字。",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "别忘了写名字。",
+                        "feedback": "别忘了写名字 là lời nhắc. Hai câu khác kể đã viết hoặc chưa viết."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "你没写名字。",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "别忘了写名字 là lời nhắc. Hai câu khác kể đã viết hoặc chưa viết.",
+                    "learningTarget": {
+                      "objective": "Nhắc và yêu cầu",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-054",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:054:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: giáo viên nhắc lớp đừng nói chuyện và mời các bạn xem bảng (黑板 hēibǎn). Viết lời nhắc và yêu cầu với 别/请.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n别说话，请看黑板。\nBié shuōhuà, qǐng kàn hēibǎn.\nĐừng nói chuyện, hãy nhìn bảng.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "别 phủ định hành động nói chuyện trong lời nhắc.",
+                        "guidance": "别 phủ định hành động nói chuyện trong lời nhắc."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "请 mở yêu cầu 看黑板; không kể thành đã xem.",
+                        "guidance": "请 mở yêu cầu 看黑板; không kể thành đã xem."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Nhắc và yêu cầu",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-054",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-054:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Lời nhắc phù hợp"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "门口站着三位老师: nơi + tư thế + 着 + số lượng + người. Giới thiệu cảnh; không phải ba giáo viên đang thực hiện động tác đứng dậy.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-057:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "门口站着三位老师。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-057:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ở cửa có ba giáo viên đang đứng.",
+                  "pinyin": "Ménkǒu zhànzhe sān wèi lǎoshī.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-057:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Có người/vật tại nơi đó"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "着"
+                    ],
+                    "answerIds": [],
+                    "explanation": "着 duy trì tư thế đứng trong câu tồn hiện; 得 cần phần bổ ngữ khác.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Có người/vật tại nơi đó",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-057",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Giới thiệu ba giáo viên đang đứng ở cửa: 门口站___三位老师。 Điền 着 hoặc 得.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-057:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:057:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "门口站着三位老师 có chứng minh giáo viên vừa đứng dậy không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, 着 nghĩa vừa đứng dậy",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, chỉ giới thiệu ba giáo viên đang đứng ở cửa",
+                        "feedback": "着 giữ tư thế, không kể động tác chuyển sang đứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, chắc chắn ba người đang đi",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "着 giữ tư thế, không kể động tác chuyển sang đứng.",
+                    "learningTarget": {
+                      "objective": "Tồn hiện có tư thế",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-057",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:057:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: trong lớp có hai học sinh đang ngồi. Viết nơi + tư thế + 着 + số lượng + người; không đổi thành hai người đang ngồi xuống.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n教室里坐着两个学生。\nJiàoshì lǐ zuòzhe liǎng ge xuésheng.\nTrong lớp có hai học sinh đang ngồi.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "教室里 đầu câu nêu nơi.",
+                        "guidance": "教室里 đầu câu nêu nơi."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "坐着 giữ tư thế, 两个学生 đúng số người.",
+                        "guidance": "坐着 giữ tư thế, 两个学生 đúng số người."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Tồn hiện có tư thế",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-057",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-057:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Có người/vật tại nơi đó"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "坐着/站着/开着 nêu trạng thái đang giữ; không tự chứng minh người vừa ngồi xuống hay cửa vừa được mở.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-069:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "门开着呢。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-069:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cửa đang mở đấy.",
+                  "pinyin": "Mén kāizhe ne.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-069:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tư thế và trạng thái"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "着"
+                    ],
+                    "answerIds": [],
+                    "explanation": "坐着 nêu tư thế; 完 không biểu thị tư thế được giữ.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Tư thế và trạng thái",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-069",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Mô tả đang ngồi: 他坐___呢。 Chọn 着 hoặc 完.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-069:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:069:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "他穿着红色衣服 có cho biết đang thực hiện mặc áo vào không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, nêu đang mặc trên người",
+                        "feedback": "穿着 nêu trạng thái quần áo trên người; không tự kể thao tác mặc vào."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, chắc đang mặc áo vào",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, chắc đã cởi áo",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "穿着 nêu trạng thái quần áo trên người; không tự kể thao tác mặc vào.",
+                    "learningTarget": {
+                      "objective": "Mặc ở trạng thái",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-069",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:069:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bạn đang mặc áo màu xanh (蓝色 lán sè) và đang ngồi. Viết hai trạng thái với 着, không tự kể vừa ngồi xuống.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我穿着蓝色衣服，坐着呢。\nWǒ chuānzhe lánsè yīfu, zuòzhe ne.\nTôi đang mặc quần áo màu xanh và đang ngồi đây.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "穿着 nêu quần áo đang mặc, giữ 蓝色.",
+                        "guidance": "穿着 nêu quần áo đang mặc, giữ 蓝色."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "坐着 nêu tư thế đang giữ, không đổi thành 坐下了.",
+                        "guidance": "坐着 nêu tư thế đang giữ, không đổi thành 坐下了."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Mặc ở trạng thái",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-069",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-069:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Tư thế và trạng thái"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "听着歌写汉字: nghe nhạc làm nền cho viết chữ. Không nói nghe xong rồi mới viết; 一边听歌一边写汉字 (yìbiān tīng gē yìbiān xiě Hànzì) nhấn hai hành động cùng lúc.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-070:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "他听着歌写汉字。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-070:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy vừa nghe nhạc vừa viết chữ Hán.",
+                  "pinyin": "Tā tīngzhe gē xiě Hànzì.",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-070:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hành động làm nền"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "着"
+                    ],
+                    "answerIds": [],
+                    "explanation": "着 giữ nghe đang diễn ra làm nền; 完 đổi thành nghe xong, sai quan hệ đồng thời.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Hành động làm nền",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-070",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Vừa nghe nhạc vừa viết: 他听___歌写汉字。 Chọn 着 hoặc 完.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-070:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:070:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "她笑着跟我说话 có nghĩa nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Cô ấy vừa cười vừa nói chuyện với tôi",
+                        "feedback": "笑着 là hành động làm nền đồng thời, không có trình tự xong rồi mới nói."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Cô ấy cười xong rồi mới nói",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Cô ấy chưa hề nói",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "笑着 là hành động làm nền đồng thời, không có trình tự xong rồi mới nói.",
+                    "learningTarget": {
+                      "objective": "Làm nền đồng thời",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-070",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:070:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bạn vừa đứng vừa nghe giáo viên nói. Viết câu với 站着…听…; không đổi thành đứng xong rồi ngồi nghe.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我站着听老师说话。\nWǒ zhànzhe tīng lǎoshī shuōhuà.\nTôi đứng nghe giáo viên nói.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "站着 giữ tư thế làm nền cho 听.",
+                        "guidance": "站着 giữ tư thế làm nền cho 听."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không thêm 完 hoặc 然后 làm mất quan hệ đồng thời.",
+                        "guidance": "Không thêm 完 hoặc 然后 làm mất quan hệ đồng thời."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Làm nền đồng thời",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-070",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-070:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Hành động làm nền"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "吃过饺子 chỉ từng ăn, không cho biết ăn bao nhiêu lần hoặc có thích không. 经常吃 mới nói thường ăn.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-071:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng và giới hạn"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你吃过中国饺子吗？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-071:example",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đã từng ăn sủi cảo Trung Quốc chưa?",
+                  "pinyin": "Nǐ chīguo Zhōngguó jiǎozi ma?",
+                  "provenance": "",
+                  "title": "Đọc mẫu trong ngữ cảnh"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-071:understand",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kinh nghiệm không phải thói quen"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "过"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没…过 phủ định kinh nghiệm. Không suy sở thích chỉ từ câu này.",
+                    "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                    "learningTarget": {
+                      "objective": "Kinh nghiệm không phải thói quen",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-071",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Chưa từng ăn món này: 我没吃___这个菜。 Điền 过 hoặc 着.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-071:activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ý nghĩa cần diễn đạt"
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:071:choice",
+                  "kind": "activity",
+                  "title": "Phân biệt trước khi vận dụng",
+                  "body": "我没吃过这个菜 cho biết gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Tôi ghét món này",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tôi chưa từng ăn món này",
+                        "feedback": "Câu chỉ phủ định trải nghiệm, không cho biết ghét hay thói quen."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Tôi ăn món này mỗi ngày",
+                        "feedback": "Đọc lại mốc, vai hoặc quan hệ đồng thời trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Câu chỉ phủ định trải nghiệm, không cho biết ghét hay thói quen.",
+                    "learningTarget": {
+                      "objective": "Trải nghiệm và sở thích",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-071",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk2-aspect-time-experience-lesson-02:r84:071:transfer",
+                  "kind": "activity",
+                  "title": "Vận dụng trong cảnh mới",
+                  "body": "Cảnh mới: bạn chưa từng xem bộ phim này nhưng muốn xem. Viết trải nghiệm phủ định và mong muốn; không suy phim hay hoặc dở.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我没看过这部电影，但是想看。\nWǒ méi kànguo zhè bù diànyǐng, dànshì xiǎng kàn.\nTôi chưa từng xem bộ phim này nhưng muốn xem.\nTự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "没看过 phủ định trải nghiệm.",
+                        "guidance": "没看过 phủ định trải nghiệm."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "想看 giữ mong muốn, không tự thêm đánh giá chất lượng phim.",
+                        "guidance": "想看 giữ mong muốn, không tự thêm đánh giá chất lượng phim."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Trải nghiệm và sở thích",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-grammar-row-071",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:grammar:hsk2-grammar-row-071:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự kiểm · Kinh nghiệm không phải thói quen"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đừng; chớ",
+                  "hanzi": "别动。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00311",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng cử động.",
+                  "pinyin": "Bié dòng.",
+                  "provenance": "",
+                  "title": "别 · bié"
+                },
+                {
+                  "alt": "",
+                  "body": "dài",
+                  "hanzi": "这条裤子有点儿长。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00314",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc quần này hơi dài.",
+                  "pinyin": "Zhè tiáo kùzi yǒudiǎnr cháng.",
+                  "provenance": "",
+                  "title": "长 · cháng"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ nối động từ với bổ ngữ",
+                  "hanzi": "他跑得不快。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00332",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy không nhanh.",
+                  "pinyin": "Tā pǎo de bú kuài.",
+                  "provenance": "",
+                  "title": "得 · de"
+                },
+                {
+                  "alt": "",
+                  "body": "chấm; điểm; gọi món",
+                  "hanzi": "我想点两个菜。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00336",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn gọi hai món ăn.",
+                  "pinyin": "Wǒ xiǎng diǎn liǎng ge cài.",
+                  "provenance": "",
+                  "title": "点 · diǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "với; theo; cùng",
+                  "hanzi": "你跟谁一起住？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00345",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống cùng ai?",
+                  "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+                  "provenance": "",
+                  "title": "跟 · gēn"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "qua; vượt qua",
+                  "hanzi": "过马路时要小心。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00347",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Khi qua đường cần cẩn thận.",
+                  "pinyin": "Guò mǎlù shí yào xiǎoxīn.",
+                  "provenance": "",
+                  "title": "过 · guò"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ chỉ trải nghiệm đã từng",
+                  "hanzi": "我没去过北京。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00351",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chưa từng đến Bắc Kinh.",
+                  "pinyin": "Wǒ méi qùguo Běijīng.",
+                  "provenance": "",
+                  "title": "过 · guo"
+                },
+                {
+                  "alt": "",
+                  "body": "màu đỏ",
+                  "hanzi": "他穿着红色衣服。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00355",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy đang mặc quần áo màu đỏ.",
+                  "pinyin": "Tā chuānzhe hóngsè yīfu.",
+                  "provenance": "",
+                  "title": "红色 · hóngsè"
+                },
+                {
+                  "alt": "",
+                  "body": "dạy",
+                  "hanzi": "老师教我们写汉字。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00367",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên dạy chúng tôi viết chữ Hán.",
+                  "pinyin": "Lǎoshī jiāo wǒmen xiě Hànzì.",
+                  "provenance": "",
+                  "title": "教 · jiāo"
+                },
+                {
+                  "alt": "",
+                  "body": "phòng học",
+                  "hanzi": "教室在五楼。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00368",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lớp học ở tầng năm.",
+                  "pinyin": "Jiàoshì zài wǔ lóu.",
+                  "provenance": "",
+                  "title": "教室 · jiàoshì"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "quần",
+                  "hanzi": "我要买一条裤子。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00383",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn mua một chiếc quần.",
+                  "pinyin": "Wǒ yào mǎi yì tiáo kùzi.",
+                  "provenance": "",
+                  "title": "裤子 · kùzi"
+                },
+                {
+                  "alt": "",
+                  "body": "nhanh; sắp",
+                  "hanzi": "他跑得不快。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00384",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy không nhanh.",
+                  "pinyin": "Tā pǎo de bú kuài.",
+                  "provenance": "",
+                  "title": "快 · kuài"
+                },
+                {
+                  "alt": "",
+                  "body": "cửa",
+                  "hanzi": "门开着。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00400",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cửa đang để mở.",
+                  "pinyin": "Mén kāizhe.",
+                  "provenance": "",
+                  "title": "门 · mén"
+                },
+                {
+                  "alt": "",
+                  "body": "cửa ra vào",
+                  "hanzi": "老师站在门口。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00401",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên đứng ở cửa ra vào.",
+                  "pinyin": "Lǎoshī zhàn zài ménkǒu.",
+                  "provenance": "",
+                  "title": "门口 · ménkǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "tên; vị trí trong bảng xếp hạng",
+                  "hanzi": "她在比赛中得了第一名。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00404",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy đạt hạng nhất trong cuộc thi.",
+                  "pinyin": "Tā zài bǐsài zhōng dé le dì yī míng.",
+                  "provenance": "",
+                  "title": "名 · míng"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "chạy",
+                  "hanzi": "他每天早上跑步。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00414",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy bộ mỗi sáng.",
+                  "pinyin": "Tā měitiān zǎoshang pǎobù.",
+                  "provenance": "",
+                  "title": "跑 · pǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "giờ; lúc",
+                  "hanzi": "上课时别说话。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00431",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong giờ học đừng nói chuyện.",
+                  "pinyin": "Shàngkè shí bié shuōhuà.",
+                  "provenance": "",
+                  "title": "时 · shí"
+                },
+                {
+                  "alt": "",
+                  "body": "lượng từ cho vật dài; điều hoặc khoản",
+                  "hanzi": "你要拿这条吗？",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00443",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn lấy chiếc này không?",
+                  "pinyin": "Nǐ yào ná zhè tiáo ma?",
+                  "provenance": "",
+                  "title": "条 · tiáo"
+                },
+                {
+                  "alt": "",
+                  "body": "quên",
+                  "hanzi": "别忘了拿机票。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00452",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng quên cầm vé máy bay.",
+                  "pinyin": "Bié wàng le ná jīpiào.",
+                  "provenance": "",
+                  "title": "忘 · wàng"
+                },
+                {
+                  "alt": "",
+                  "body": "vị; lượng từ lịch sự chỉ người",
+                  "hanzi": "这位老师姓王。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00453",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vị giáo viên này họ Vương.",
+                  "pinyin": "Zhè wèi lǎoshī xìng Wáng.",
+                  "provenance": "",
+                  "title": "位 · wèi"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-note-20",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cười",
+                  "hanzi": "她笑着跟我说话。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00463",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy cười và nói chuyện với tôi.",
+                  "pinyin": "Tā xiàozhe gēn wǒ shuōhuà.",
+                  "provenance": "",
+                  "title": "笑 · xiào"
+                },
+                {
+                  "alt": "",
+                  "body": "trạm; đứng",
+                  "hanzi": "老师站在门口。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00486",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên đứng ở cửa.",
+                  "pinyin": "Lǎoshī zhàn zài ménkǒu.",
+                  "provenance": "",
+                  "title": "站 · zhàn"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ chỉ trạng thái đang tiếp diễn",
+                  "hanzi": "她拿着一本书。",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:word-hsk-vocab-00490",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy đang cầm một quyển sách.",
+                  "pinyin": "Tā názhe yì běn shū.",
+                  "provenance": "",
+                  "title": "着 · zhe"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:words-20",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 5"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: trạng thái cửa và ba giáo viên được nêu rõ. Học hai năm không tự bằng nói tốt; đã ăn sủi cảo không có nghĩa thường ăn hoặc thích ăn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Mô tả trạng thái và thời lượng, không suy năng lực từ trải nghiệm",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-aspect-time-experience-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Thời lượng không chứng minh năng lực; người nói còn chỗ chưa hiểu.",
+                        "id": "option-0",
+                        "text": "她学了两年，所以汉语一定说得很好。"
+                      },
+                      {
+                        "feedback": "Một lần không phải thường xuyên.",
+                        "id": "option-1",
+                        "text": "她经常吃饺子。"
+                      },
+                      {
+                        "feedback": "Đúng: trạng thái cửa và ba giáo viên được nêu rõ.",
+                        "id": "option-2",
+                        "text": "门开着，门口站着三位老师。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Kết luận nào chỉ dựa vào thông tin đã có?",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Cảnh mới: cửa đóng, hai học sinh đứng ở cửa; bạn đã học sáu tháng, hôm qua luyện một tiếng; từng ăn sủi cảo hai lần, không thường ăn. Viết bốn câu; không kết luận trình độ từ thời lượng.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n门关着，门口站着两个学生。我学了六个月汉语。昨天我练习了一个小时。我吃过两次饺子，但是不经常吃。\nMén guānzhe, ménkǒu zhànzhe liǎng ge xuésheng. Wǒ xué le liù ge yuè Hànyǔ. Zuótiān wǒ liànxí le yí ge xiǎoshí. Wǒ chīguo liǎng cì jiǎozi, dànshì bù jīngcháng chī.\nCửa đóng, hai học sinh đứng ở cửa; đã học sáu tháng, hôm qua luyện một tiếng; từng ăn hai lần nhưng không thường ăn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Mô tả trạng thái và thời lượng, không suy năng lực từ trải nghiệm",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-sentence-chain-task:hsk2-aspect-time-experience-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Đổi trạng thái cửa sang đóng và số người sang hai.",
+                        "id": "criterion-0",
+                        "label": "Đổi trạng thái cửa sang đóng và số người sang hai."
+                      },
+                      {
+                        "guidance": "Sáu tháng khác một tiếng luyện hôm qua.",
+                        "id": "criterion-1",
+                        "label": "Sáu tháng khác một tiếng luyện hôm qua."
+                      },
+                      {
+                        "guidance": "Hai lần trải nghiệm không thành thường xuyên.",
+                        "id": "criterion-2",
+                        "label": "Hai lần trải nghiệm không thành thường xuyên."
+                      },
+                      {
+                        "guidance": "Không tự khẳng định trình độ.",
+                        "id": "criterion-3",
+                        "label": "Không tự khẳng định trình độ."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đổi trạng thái cửa sang đóng và số người sang hai.\nSáu tháng khác một tiếng luyện hôm qua.\nHai lần trải nghiệm không thành thường xuyên.\nKhông tự khẳng định trình độ.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-aspect-time-experience-lesson-02:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-aspect-time-experience-lesson-02:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/31-REVIEW-HSK2-GRAMMAR.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-aspect-time-experience-lesson-02",
+          "reviewedAt": "2026-09-20",
+          "scope": "Six HSK2 grammar lessons, 39 source-specific teaching decisions and contextual transfer.",
+          "sourceContentSha256": "sha256:161ac5f555900fd70e57530fa6a3b6ab81ef666d6f48fbfe1c8d8c6413bb74cb"
+        },
+        "objectiveVi": "Mô tả trạng thái và thời lượng, không suy năng lực từ trải nghiệm",
+        "pitfallVi": "Học hai năm không tự bằng nói tốt; đã ăn sủi cảo không có nghĩa thường ăn hoặc thích ăn.",
+        "prerequisites": [
+          "hsk2-aspect-time-experience-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "着 giữ trạng thái hoặc hành động làm nền; 得 nối cách thực hiện; thời lượng trả lời bao lâu, không phải lúc mấy giờ. 过 chỉ trải nghiệm từng có, không chứng minh tần suất hay giỏi. Đọc mẫu theo từng điểm ở các trang sau.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-grammar-row-041",
+          "hsk2-grammar-row-049",
+          "hsk2-grammar-row-050",
+          "hsk2-grammar-row-051",
+          "hsk2-grammar-row-054",
+          "hsk2-grammar-row-057",
+          "hsk2-grammar-row-069",
+          "hsk2-grammar-row-070",
+          "hsk2-grammar-row-071"
+        ],
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-sentence-chain-task:hsk2-aspect-time-experience-lesson-02"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00311",
+          "hsk-vocab-00314",
+          "hsk-vocab-00332",
+          "hsk-vocab-00336",
+          "hsk-vocab-00345",
+          "hsk-vocab-00347",
+          "hsk-vocab-00351",
+          "hsk-vocab-00355",
+          "hsk-vocab-00367",
+          "hsk-vocab-00368",
+          "hsk-vocab-00383",
+          "hsk-vocab-00384",
+          "hsk-vocab-00400",
+          "hsk-vocab-00401",
+          "hsk-vocab-00404",
+          "hsk-vocab-00414",
+          "hsk-vocab-00431",
+          "hsk-vocab-00443",
+          "hsk-vocab-00452",
+          "hsk-vocab-00453",
+          "hsk-vocab-00463",
+          "hsk-vocab-00486",
+          "hsk-vocab-00490"
+        ],
+        "targetLessonId": "hsk2-aspect-time-experience-lesson-02",
+        "titleZh": "HSK二级 · 26",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/82-REVIEW-HSK2-GRAMMAR-ART.md",
+          "humanReviewed": false,
+          "scope": "Time, clause links and motion viewpoint contextual illustrations.",
+          "sourceRevisionId": "54320e53-9215-4d54-85f8-63bc63bed830"
+        },
+        "vocabulary": [
+          "hsk-vocab-00311",
+          "hsk-vocab-00314",
+          "hsk-vocab-00332",
+          "hsk-vocab-00336",
+          "hsk-vocab-00345",
+          "hsk-vocab-00347",
+          "hsk-vocab-00351",
+          "hsk-vocab-00355",
+          "hsk-vocab-00367",
+          "hsk-vocab-00368",
+          "hsk-vocab-00383",
+          "hsk-vocab-00384",
+          "hsk-vocab-00400",
+          "hsk-vocab-00401",
+          "hsk-vocab-00404",
+          "hsk-vocab-00414",
+          "hsk-vocab-00431",
+          "hsk-vocab-00443",
+          "hsk-vocab-00452",
+          "hsk-vocab-00453",
+          "hsk-vocab-00463",
+          "hsk-vocab-00486",
+          "hsk-vocab-00490"
+        ]
+      },
+      "changes": [
+        {
+          "field": "meaningVi",
+          "before": "Cửa vẫn đang mở.",
+          "after": "Cửa đang mở đấy."
+        },
+        {
+          "field": "meaningVi",
+          "before": "Cửa vẫn đang mở.",
+          "after": "Cửa đang mở đấy."
+        },
+        {
+          "field": "meaningVi",
+          "before": "Anh ấy vừa nghe hát vừa viết chữ Hán.",
+          "after": "Anh ấy vừa nghe nhạc vừa viết chữ Hán."
+        },
+        {
+          "field": "meaningVi",
+          "before": "Anh ấy vừa nghe hát vừa viết chữ Hán.",
+          "after": "Anh ấy vừa nghe nhạc vừa viết chữ Hán."
+        },
+        {
+          "field": "explanationVi",
+          "before": "一边听歌一边写 chữ nhấn hai hành động cùng lúc.",
+          "after": "一边听歌一边写汉字 (yìbiān tīng gē yìbiān xiě Hànzì) nhấn hai hành động cùng lúc."
+        },
+        {
+          "field": "body",
+          "before": "一边听歌一边写 chữ nhấn hai hành động cùng lúc.",
+          "after": "一边听歌一边写汉字 (yìbiān tīng gē yìbiān xiě Hànzì) nhấn hai hành động cùng lúc."
+        },
+        {
+          "field": "comparison model/practice",
+          "scope": "Explicit comparison reference, natural age difference."
+        },
+        {
+          "grammar": "hsk2-grammar-row-041",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-049",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-050",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-051",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-054",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-057",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-069",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-070",
+          "newChoice": 1,
+          "newTransfer": 1
+        },
+        {
+          "grammar": "hsk2-grammar-row-071",
+          "newChoice": 1,
+          "newTransfer": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,8 @@
+import { JourneyLoading } from "./components/JourneyLoading";
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import { AppShell } from "./components/AppShell";
+import { CommerceProvider, PremiumRouteBoundary } from "./commerce/CommerceProvider";
 
 const recoverLocalLazyRoute = async (
   routeLabel: string,
@@ -61,6 +63,7 @@ const MockExamsPage = lazy(async () => {
 });
 const PathPage = lazy(async () => ({ default: (await import("./screens/PathPage")).PathPage }));
 const ProfilePage = lazy(async () => ({ default: (await import("./screens/ProfilePage")).ProfilePage }));
+const PremiumPage = lazy(async () => ({ default: (await import("./screens/PremiumPage")).PremiumPage }));
 const PronunciationPage = lazy(async () => ({ default: (await import("./screens/PronunciationQuestPage")).PronunciationQuestPage }));
 const ReaderPage = lazy(async () => ({ default: (await import("./screens/ReaderPage")).ReaderPage }));
 const ReaderSeriesPage = lazy(async () => ({ default: (await import("./screens/ReaderSeriesPage")).ReaderSeriesPage }));
@@ -76,9 +79,9 @@ const ReviewPage = lazy(async () => {
 
 export default function App() {
   return (
-    <AppShell>
-      <Suspense fallback={<div className="route-loader"><span /><strong>Đang đồng bộ cảnh giới...</strong></div>}>
-        <Routes>
+    <CommerceProvider><AppShell>
+      <Suspense fallback={<JourneyLoading message="Đang mở không gian học…" />}>
+        <PremiumRouteBoundary><Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/path" element={<PathPage />} />
           <Route path="/lesson/:lessonId" element={<LessonPage />} />
@@ -108,9 +111,10 @@ export default function App() {
           <Route path="/dictionary" element={<DictionaryPage />} />
           <Route path="/analytics" element={<AnalyticsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/premium" element={<PremiumPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        </Routes></PremiumRouteBoundary>
       </Suspense>
-    </AppShell>
+    </AppShell></CommerceProvider>
   );
 }

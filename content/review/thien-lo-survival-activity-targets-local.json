@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "Nine HSK1 survival lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/60-REVIEW-SURVIVAL-TARGETS.md",
+  "targetPlanSha256": "sha256:2db6af1f5850bad4c30a57ec8195f1d142e2531bde80c0b0ff49d93c052b3ab4",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "survival-1",
+      "parentRevisionId": "572c0976-232d-4cb5-ac7e-ce0085836be3",
+      "parentContentSha256": "sha256:640136a0a18a24d83f731ac660f0f6d9096afd24be63e54ebca675efa0d17af9",
+      "proposedContentSha256": "sha256:523fd878b4f3ba0a1e2f23428aa8d152ae2664b668bf75640735236aabd4bddd",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-2",
+      "parentRevisionId": "e69acf98-47f1-443b-a44b-14dc20f63c71",
+      "parentContentSha256": "sha256:190ddd0b9fa598984fd5c6385c695f7e523653553fc363868eb691a715c2b3e7",
+      "proposedContentSha256": "sha256:933b8ef02e56ac5f42dd44489777c5e4dd7ebc60dc219a394a941683ed8f20b4",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-3",
+      "parentRevisionId": "d27a7f2a-7f52-4194-97c4-eeefa3c87111",
+      "parentContentSha256": "sha256:523b714e18a8834437e0cdbd929d59438bcf00db717e5aeea5a0ec5cfeebffd7",
+      "proposedContentSha256": "sha256:832a227eacb0f6882e1e7e4d6b510442f13b1b036c899d03f8117036620f7b9b",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-4",
+      "parentRevisionId": "4337a859-3957-4540-b9cd-243593586148",
+      "parentContentSha256": "sha256:0ab46e0592c2946e3496630241bc9c2fd5297ba8f96c169ef1d3294b15c1af42",
+      "proposedContentSha256": "sha256:01a45cfc90cd9d984118dd5cc8333052e6de11d01a2f8cb64c2cf7b8c976fe47",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-5",
+      "parentRevisionId": "50943a3b-6cf5-4c2d-a3d4-0979ccf81dde",
+      "parentContentSha256": "sha256:0693028261d73c1f4b39dd893d1ad2f27af951726e43c9a0724b5fcbcc779d39",
+      "proposedContentSha256": "sha256:85f8862e840cc0050a1847ea9abd61620715eab248f2f7f0ca9f0f10ee71ce0b",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-6",
+      "parentRevisionId": "ab15228b-5fc6-4ef5-8e73-177e1d5aeb47",
+      "parentContentSha256": "sha256:dfad9f46ad3e6dbf085a68d89488f1a9e9065396c6f958dcb5c0129452028dbd",
+      "proposedContentSha256": "sha256:e1a41458962900cc4d65e80d341bb3459dda59d15300a9c07c935f8319d273a2",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-7",
+      "parentRevisionId": "af17efdd-fd59-4f61-a961-2e67e35da031",
+      "parentContentSha256": "sha256:33c1e5b3a1f98c636d62731ab6cd16f117ef51fed1cc716e1b379433d2662ad8",
+      "proposedContentSha256": "sha256:2a53e3c6ff90387e5269e85a68305d08c01c9005af2561c1040a27483d9004ff",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-8",
+      "parentRevisionId": "36328379-1f8d-46c6-8fd9-106a74e6816d",
+      "parentContentSha256": "sha256:0a4ed8e75586ab346376565ba79b2d29605f50114c2e62f57e8b1831a9e4c377",
+      "proposedContentSha256": "sha256:3c45432c43776fe70ad0cd7eeb97717ca1dfc263817ade0715de7557613ce774",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "survival-9",
+      "parentRevisionId": "2c3062f7-366b-4075-9e0a-143b064c61bd",
+      "parentContentSha256": "sha256:bf9675276ffd1ce76fd7161b7900b48fef2f72a8366b2ba0ef8441de8a108ec8",
+      "proposedContentSha256": "sha256:0e567b8ae0b85c62befba5bec024756c05f7a727d97d407cb73150f1d6b09625",
+      "targetCount": 3
+    }
+  ]
+}

@@ -10,6 +10,8 @@ export type RemediationObservatorySkill =
 export type RemediationObservatorySource = "lesson" | "reader" | "review";
 
 export type RemediationObservatoryItem = {
+  referenceWordId?: string;
+  referenceLessonId?: string;
   id: string;
   skill: RemediationObservatorySkill;
   skillLabel: string;

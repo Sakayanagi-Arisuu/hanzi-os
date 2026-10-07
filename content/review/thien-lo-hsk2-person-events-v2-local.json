@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-20",
+  "scope": "HSK2 personal descriptions, explicit comparisons and time-bound event reports with uncertainty.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/28-REVIEW-HSK2-PERSON-EVENTS.md",
+  "items": [
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "sourceContentSha256": "sha256:ad74cfccbcf05912a2a33845c7d5a1c2f3b3701e5fc22ae7a22b38e34f13b937",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "sourceContentSha256": "sha256:7469fc931dd024da475ed18804f9a08c8748817b3548397319d7e11050231d6b",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

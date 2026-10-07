@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { RELEASED_LESSONS } from "../data/curriculum";
+import { RELEASED_LESSONS, WORD_BY_ID } from "../data/curriculum";
 import {
   parsePublishedStudioVocabulary,
   type DictionaryWord,
@@ -52,6 +52,34 @@ const runtimeManifest = (items: unknown[]) => ({
 });
 
 describe("published Studio vocabulary projection", () => {
+  it("updates an imported curriculum word without duplicating its learning identity", () => {
+    const word = WORD_BY_ID.get(sourceLesson.wordIds[0])!;
+    const item = runtimeItem();
+    const stableKey = `curriculum-word-${word.id}`;
+    const content = {...item.content, hanzi:word.simplified, pinyin:word.pinyin,
+      sourceVocabularyIds:[word.id], sourceLessonIds:[sourceLesson.id]};
+    const [published] = parsePublishedStudioVocabulary(runtimeManifest([
+      {...item,stableKey,content},
+    ]));
+    const current:DictionaryWord = {...published,id:word.id,sourceVocabularyId:undefined,
+      sourceStableKey:undefined,isCore:true,traditional:word.traditional,classifiers:[],
+      example:'old example'};
+    const merged = mergePublishedStudioVocabulary([current],[published]);
+    expect(merged).toHaveLength(1);
+    expect(merged[0]).toMatchObject({id:word.id,isCore:true,sourceStableKey:stableKey,
+      example:content.examples[0].hanzi});
+    for(const invalid of [
+      {...content,sourceVocabularyIds:['unknown']},
+      {...content,hanzi:'不同'},
+      {...content,pinyin:'wrong'},
+    ]) expect(()=>parsePublishedStudioVocabulary(runtimeManifest([
+      {...item,stableKey,content:invalid},
+    ]))).toThrow(/invalid item/u);
+    const [independent] = parsePublishedStudioVocabulary(runtimeManifest([
+      {...item,stableKey:'independent-word',content},
+    ]));
+    expect(mergePublishedStudioVocabulary([current],[independent])).toHaveLength(2);
+  });
   it("maps a published vocabulary package into a learner-safe dictionary entry", () => {
     expect(parsePublishedStudioVocabulary(runtimeManifest([runtimeItem()])))
       .toEqual([expect.objectContaining({

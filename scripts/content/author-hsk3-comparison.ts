@@ -1,0 +1,27 @@
+import {buildGrammarNarrativeBatch,type GrammarDecision,type NarrativeVisual} from './build-grammar-narrative-batch';
+import {comparisonNarratives} from './hsk3-comparison-narratives';
+const rows:Array<[string,string,string,string,string,string,string]>=[
+ ['039','Thay đổi dần theo thời gian','Điền mẫu “ngày càng”: 天气___冷。','越来越','yuèláiyuè','ngày càng','越来越冷 là mức lạnh tăng dần, không trực tiếp so hai nơi.'],
+ ['040','Dự đoán từ dấu hiệu','Hoàn thành mẫu 看起来: 云黑了，看___快要下雨了。','起来','qǐlai','có vẻ (trong 看起来)','Dấu hiệu mây đen hỗ trợ dự đoán, chưa xác nhận mưa đã xảy ra.'],
+ ['041','Ấn tượng nhìn thấy','Hoàn thành mẫu 看上去: 山顶看___还很远。','上去','shangqu','trông có vẻ (trong 看上去)','Khoảng cách nhìn thấy là ấn tượng, không phải số đo.'],
+ ['043','Đánh giá không tốt lắm','Thời tiết không tốt lắm: 今天的天气___。','不怎么样','bù zěnmeyàng','không tốt lắm','不怎么样 vẫn là nhận xét tiêu cực, không có nghĩa không biết thời tiết.'],
+ ['049','Mức độ tăng cùng tiến trình','Mưa càng lúc càng lớn: 雨越下___大。','越','yuè','càng','越下越大 nối hành động với mức độ thay đổi.'],
+ ['053','Giới hạn theo phương diện','Về phương diện bảo vệ môi trường: 在保护环境___，这里有了进步。','上','shàng','về phương diện','在…上 ở đây không chỉ vị trí bên trên.'],
+ ['062','Nhấn mức độ với 得很','Rất trong lành theo nhận xét người dân: 空气清新___很。','得','de','rất (trong 得很)','Tính từ + 得很; không thêm 很 trước 清新 trong mẫu này.'],
+ ['063','Mức độ mạnh với 极了','Nóng vô cùng: 今天热___了。','极','jí','vô cùng','极了 đứng sau tính từ; nhấn mức độ mạnh.'],
+ ['073','So hơn ở cùng phương diện','Nhấn năm nay ấm hơn: 今年春天比去年春天___暖。（用“更”）','更','gèng','hơn nữa','更 nhấn mức cao hơn trên cùng trục nhiệt độ.'],
+ ['074','Giống về cách làm','Hai cách làm giống nhau: 这个办法跟那个办法___。','一样','yíyàng','giống nhau','一样 so đúng cách làm, không khẳng định mọi thứ giống nhau.'],
+ ['075','Giống về mức độ yên tĩnh','Giữ phương diện yên tĩnh: 新阅览室跟旧阅览室一样___。','安静','ānjìng','yên tĩnh','Tính từ gọi rõ mặt so sánh; không suy rộng phòng mới tốt mọi mặt.'],
+ ['076','Không chậm hơn','Điền phủ định so sánh: 现场服务___比网上服务慢。','不','bù','không','不比…慢 cho phép bằng hoặc nhanh hơn. Chỉ biết bằng khi có thêm dữ kiện.'],
+ ['077','Chênh lệch, không phải tổng','Đón thêm 200 người: 今年比去年___接待了两百人。','多','duō','thêm/nhiều hơn','两百人 là phần tăng thêm; chưa có tổng năm nay.'],
+];
+const decisions:GrammarDecision[]=rows.map(([row,title,prompt,answer,answerPinyin,answerVi,feedback])=>({row,title,prompt,answer,answerPinyin,answerVi,feedback}));
+Object.assign(decisions.find(d=>d.row==='043')!,{example:['今天的天气不怎么样，我们决定先休息。','Jīntiān de tiānqì bù zěnmeyàng, wǒmen juédìng xiān xiūxi.','Thời tiết hôm nay không tốt lắm, chúng tôi quyết định nghỉ trước.']});
+Object.assign(decisions.find(d=>d.row==='063')!,{example:['中午热极了。我们走了两个小时，都累坏了。','Zhōngwǔ rè jí le. Wǒmen zǒu le liǎng ge xiǎoshí, dōu lèi huài le.','Buổi trưa nóng vô cùng. Chúng tôi đi hai giờ, ai cũng mệt lả.']});
+Object.assign(decisions.find(d=>d.row==='076')!,{boundary:'不比 phủ định mức hơn ở đúng tính từ: A不比B慢 nghĩa A không chậm hơn, có thể bằng hoặc nhanh hơn. Không tự kết luận bằng nhau nếu thiếu dữ kiện; khác với A没有B那么慢, vốn nói A ít chậm hơn B.'});
+const visuals:Record<string,NarrativeVisual>={
+ 'lesson-01':{type:'timeline',title:'Dự đoán rồi đến sự việc',description:'Mây đen là dấu hiệu; mưa buổi chiều mới là sự việc đã được kể. So ngày hai với ngày đầu chỉ trên nhiệt độ.',nodes:[['cloud','看起来快要下雨','kànqǐlai kuàiyào xiàyǔ','có vẻ sắp mưa','Dự đoán từ mây.'],['rain','雨越下越大','yǔ yuè xià yuè dà','mưa càng lúc càng lớn','Mưa đã xảy ra buổi chiều.'],['next','第二天更暖','dì èr tiān gèng nuǎn','ngày thứ hai ấm hơn','So với ngày đầu.']]},
+ 'lesson-02':{type:'comparison',title:'Cải thiện và giới hạn',description:'Giữ đủ mốc một năm, cải thiện độ sạch và điều kiện mưa lớn vẫn có rác. Nhận xét về không khí là lời người dân.',nodes:[['before','以前做得不够','yǐqián zuò de bú gòu','trước đây làm chưa đủ','Phương diện bảo vệ môi trường.'],['after','一年以后更干净','yì nián yǐhòu gèng gānjìng','một năm sau sạch hơn','Cải thiện có phạm vi.'],['limit','下大雨时还有垃圾','xià dàyǔ shí hái yǒu lājī','mưa lớn vẫn còn rác','Hạn chế chưa được giải quyết hết.']]},
+ 'lesson-03':{type:'comparison',title:'Bằng nhau, chênh lệch và chưa biết',description:'Hai lần làm thủ tục đều mười phút. Số 200 là tăng thêm so cùng tháng năm trước; tổng số chưa có.',nodes:[['time','两次都是十分钟','liǎng cì dōu shì shí fēnzhōng','cả hai lần: mười phút','Có căn cứ bằng nhau trong hai lần này.'],['open','早开门半个小时','zǎo kāimén bàn ge xiǎoshí','mở sớm hơn nửa giờ','Chênh lệch giờ mở cửa.'],['people','多接待两百人','duō jiēdài liǎngbǎi rén','tiếp thêm 200 người','Chưa biết tổng số năm nay.']]},
+};
+buildGrammarNarrativeBatch({lessonPrefix:'hsk3-comparison-description-evaluation',level:'hsk3',sourcePack:'hsk3-comparison-description-evaluation-narration-grammar-2026.07',outputFile:'thien-lo-hsk3-comparison-v2',manuscripts:comparisonNarratives,decisions,visuals,answerReadings:{'lesson-01':['Xiàwǔ yǔ yuè xià yuè dà.','Chiều mưa càng lúc càng lớn.'],'lesson-02':['Hébiān bǐ yǐqián gānjìng, dàn xià dàyǔ shí hái huì yǒu lājī.','Ven sông sạch hơn trước, nhưng khi mưa lớn vẫn có rác.'],'lesson-03':['Bǐ qùnián jiǔ yuè duō jiēdài de rénshù.','Số người được tiếp thêm so tháng Chín năm trước.']},targets:{'lesson-01':{reading:['040','049'],guided:['049'],writing:['039','040','049']},'lesson-02':{reading:['053','073'],guided:['062'],writing:['053','073']},'lesson-03':{reading:['077'],guided:['076'],writing:['075','077']}}});

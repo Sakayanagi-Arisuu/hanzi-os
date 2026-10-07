@@ -1,0 +1,2925 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/103-REVIEW-HSK4-DEPTH-ROUND10.md",
+  "entries": [
+    {
+      "sourceRevisionId": "94e4173c-76d0-439a-bcf5-673f5b9339cc",
+      "sourceContentSha256": "sha256:242cb29b29dceaef0c40494117756e994cd9308647ce8d7d1c06a8f290c87a00",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "mảnh bóng/ánh sáng\ndiễn thử trẻ em\ntrễ tàu\nnguồn điện khác\nphạm vi thử mới",
+        "conceptVi": "Đọc hai văn bản HSK4 nhiều đoạn để theo dõi tiến trình, mốc thời gian và thay đổi trạng thái giữa các phần của văn bản; dẫn dòng nguồn cho mọi kết luận và chưa chấm mastery trước review.",
+        "dialogue": [
+          {
+            "hanzi": "林师傅准备一部关于海鸟的皮影戏。第一个月，他先观察鸟飞的功夫和速度，把动作画成一片片草图；随后选择能透光的皮料，并把翅膀关节切得很细。这个阶段只测试动作，不安排公开演出。",
+            "meaningVi": "Nghệ nhân Lâm chuẩn bị một vở múa bóng về chim biển. Tháng đầu ông quan sát công phu và tốc độ bay, vẽ động tác thành từng mảnh phác thảo; sau đó chọn da cho ánh sáng xuyên qua và cắt khớp cánh rất nhỏ. Giai đoạn này chỉ thử chuyển động, chưa xếp buổi diễn công khai.",
+            "pinyin": "Lín shīfù zhǔnbèi yī bù guānyú hǎi niǎo de píyǐngxì. Dì yī gè yuè, tā xiān guānchá niǎo fēi de gōngfū hé sùdù, bǎ dòngzuò huà chéng yīpiàn piàn cǎotú; suíhòu xuǎnzé néng tòu guāng de pí liào, bìng bǎ chìbǎng guānjié qiè dé hěn xì. Zhège jiēduàn zhǐ cèshì dòngzuò, bù ānpái gōngkāi yǎnchū.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "第二个月，灯光师发现蓝光使影子边缘不清，林师傅便放大片尺寸，减少过细的装饰。第三个月，音乐组按动作重新写节奏，学校观众参加小型试演。孩子看懂了飞行，却没看懂海鸟为什么离开家。",
+            "meaningVi": "Tháng hai, kỹ thuật ánh sáng thấy đèn xanh làm viền bóng không rõ; nghệ nhân tăng kích thước mảnh và giảm trang trí quá nhỏ. Tháng ba, nhóm nhạc viết lại nhịp theo động tác, học sinh dự diễn thử nhỏ. Trẻ hiểu cảnh bay nhưng chưa hiểu vì sao chim rời nhà.",
+            "pinyin": "Dì èr gè yuè, dēngguāng shī fāxiàn lánguāng shǐ yǐngzǐ biānyuán bù qīng, lín shīfù biàn fàngdà piàn chǐcùn, jiǎnshǎo guòxì de zhuāngshì. Dì sān gè yuè, yīnyuè zǔ àn dòngzuò chóngxīn xiě jiézòu, xuéxiào guānzhòng cānjiā xiǎoxíng shì yǎn. Háizǐ kàn dǒngle fēixíng, què méi kàn dǒng hǎi niǎo wèishéme líkāi jiā.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "最后一个月，团队增加两场短对话，并用不同光线区分白天和夜晚。正式演出后，动作理解率提高，故事理解也改善。这个过程显示创作不是直线：材料、光、观众反馈会让前一步反复修改。",
+            "meaningVi": "Tháng cuối, nhóm thêm hai đoạn thoại ngắn và dùng ánh sáng khác để phân biệt ngày đêm. Sau buổi diễn chính thức, mức hiểu động tác và cốt truyện đều tốt hơn. Quá trình cho thấy sáng tạo không đi thẳng: vật liệu, ánh sáng và phản hồi khán giả khiến bước trước phải sửa lại.",
+            "pinyin": "Zuìhòu yīgè yuè, tuánduì zēngjiā liǎng chǎng duǎn duìhuà, bìngyòng bùtóng guāngxiàn qūfēn báitiān hé yèwǎn. Zhèngshì yǎnchū hòu, dòngzuò lǐjiě lǜ tígāo, gùshì lǐjiě yě gǎishàn. Zhège guòchéng xiǎnshì chuàngzuò bùshì zhíxiàn: Cáiliào, guāng, guānzhòng fǎnkuì huì ràng qián yībù fǎnfù xiūgǎi.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "一个青年剧团安排四城巡回演出，每到一城还举办创作者聚会。团队对前两座城市很熟悉，便把装台和见面会放在同一天。首站火车晚点，演员赶到剧场后只剩三小时，聚会因此缩短。",
+            "meaningVi": "Một đoàn kịch trẻ sắp xếp lưu diễn bốn thành phố, mỗi nơi có thêm buổi gặp người sáng tạo. Nhóm quen hai thành phố đầu nên đặt dựng sân khấu và gặp mặt cùng ngày. Tàu chặng đầu muộn; diễn viên vội đến nhà hát chỉ còn ba giờ, nên buổi gặp bị rút ngắn.",
+            "pinyin": "Yīgè qīngnián jùtuán ānpái sì chéng xúnhuí yǎnchū, měi dào yī chéng hái jǔbàn chuàngzuò zhě jùhuì. Tuánduì duì qián liǎng zuò chéngshì hěn shúxī, biàn bǎ zhuāng tái hé jiànmiàn huì fàng zài tóngyī tiān. Shǒu zhàn huǒchē wǎndiǎn, yǎnyuán gǎn dào jùchǎng hòu zhǐ shèng sān xiǎoshí, jùhuì yīncǐ suōduǎn.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "第二站虽然准时，技术人员却发现当地电源不同。团队仔细检查后借到设备，演出没有延误，但原定讨论再次被压缩。负责人意识到“熟悉城市”不等于熟悉每个剧场，交通和技术都需要单独留时间。",
+            "meaningVi": "Chặng hai đúng giờ nhưng kỹ thuật phát hiện nguồn điện địa phương khác. Nhóm kiểm tra cẩn thận rồi mượn thiết bị, buổi diễn không chậm song thảo luận lại bị rút. Người phụ trách nhận ra quen thành phố không đồng nghĩa quen từng nhà hát; giao thông và kỹ thuật cần thời gian riêng.",
+            "pinyin": "Dì èr zhàn suīrán zhǔnshí, jìshù rényuán què fāxiàn dāngdì diànyuán bùtóng. Tuánduì zǐxì jiǎnchá hòu jiè dào shèbèi, yǎnchū mò yǒu yánwù, dàn yuán dìng tǎolùn zàicì bèi yāsuō. Fùzé rén yìshí dào “shúxī chéngshì” bù děngyú shúxī měi gè jùchǎng, jiāotōng hé jìshù dōu xūyào dāndú liú shíjiān.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "后两站把聚会改到第二天，并增加设备清单和两小时缓冲。演出与交流都按计划完成，不过样本只有两站，且没有遇到恶劣天气。新安排值得保留试用，不能据此保证任何巡演都不会延误。",
+            "meaningVi": "Hai chặng sau chuyển gặp mặt sang ngày thứ hai, thêm danh sách thiết bị và hai giờ dự phòng. Biểu diễn lẫn trao đổi hoàn thành đúng kế hoạch, nhưng mẫu chỉ hai chặng và không gặp thời tiết xấu. Lịch mới đáng tiếp tục thử, chưa bảo đảm mọi lưu diễn không trễ.",
+            "pinyin": "Hòu liǎng zhàn bǎ jùhuì gǎi dào dì èr tiān, bìng zēngjiā shèbèi qīngdān hé liǎng xiǎoshí huǎnchōng. Yǎnchū yú jiāoliú dōu àn jìhuà wánchéng, bùguò yàngběn zhǐyǒu liǎng zhàn, qiě méiyǒu yù dào èliè tiānqì. Xīn ānpái zhídé bǎoliú shìyòng, bùnéng jù cǐ bǎozhèng rènhé xúnyǎn dōu bù huì yánwù.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "林师傅准备一部关于海鸟的皮影戏。第一个月，他先观察鸟飞的功夫和速度，把动作画成一片片草图；随后选择能透光的皮料，并把翅膀关节切得很细。这个阶段只测试动作，不安排公开演出。",
+            "answerMeaningVi": "Nghệ nhân Lâm chuẩn bị một vở múa bóng về chim biển. Tháng đầu ông quan sát công phu và tốc độ bay, vẽ động tác thành từng mảnh phác thảo; sau đó chọn da cho ánh sáng xuyên qua và cắt khớp cánh rất nhỏ. Giai đoạn này chỉ thử chuyển động, chưa xếp buổi diễn công khai.",
+            "answerPinyin": "Lín shīfù zhǔnbèi yī bù guānyú hǎi niǎo de píyǐngxì. Dì yī gè yuè, tā xiān guānchá niǎo fēi de gōngfū hé sùdù, bǎ dòngzuò huà chéng yīpiàn piàn cǎotú; suíhòu xuǎnzé néng tòu guāng de pí liào, bìng bǎ chìbǎng guānjié qiè dé hěn xì. Zhège jiēduàn zhǐ cèshì dòngzuò, bù ānpái gōngkāi yǎnchū.",
+            "distractors": [
+              "第二个月，灯光师发现蓝光使影子边缘不清，林师傅便放大片尺寸，减少过细的装饰。第三个月，音乐组按动作重新写节奏，学校观众参加小型试演。孩子看懂了飞行，却没看懂海鸟为什么离开家。",
+              "最后一个月，团队增加两场短对话，并用不同光线区分白天和夜晚。正式演出后，动作理解率提高，故事理解也改善。这个过程显示创作不是直线：材料、光、观众反馈会让前一步反复修改。"
+            ],
+            "explanationVi": "Nguồn mô tả chu kỳ thử và sửa. Xem tiếp các câu hỏi theo nguồn trong bộ trang học.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi suy luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Tìm câu nguồn, nêu ý được hỗ trợ, sau đó nói rõ điều chưa thể kết luận.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "林师傅准备一部关于海鸟的皮影戏。第一个月，他先观察鸟飞的功夫和速度，把动作画成一片片草图；随后选择能透光的皮料，并把翅膀关节切得很细。这个阶段只测试动作，不安排公开演出。",
+              "modelAnswerMeaningVi": "Nghệ nhân Lâm chuẩn bị một vở múa bóng về chim biển. Tháng đầu ông quan sát công phu và tốc độ bay, vẽ động tác thành từng mảnh phác thảo; sau đó chọn da cho ánh sáng xuyên qua và cắt khớp cánh rất nhỏ. Giai đoạn này chỉ thử chuyển động, chưa xếp buổi diễn công khai.",
+              "modelAnswerPinyin": "Lín shīfù zhǔnbèi yī bù guānyú hǎi niǎo de píyǐngxì. Dì yī gè yuè, tā xiān guānchá niǎo fēi de gōngfū hé sùdù, bǎ dòngzuò huà chéng yīpiàn piàn cǎotú; suíhòu xuǎnzé néng tòu guāng de pí liào, bìng bǎ chìbǎng guānjié qiè dé hěn xì. Zhège jiēduàn zhǐ cèshì dòngzuò, bù ānpái gōngkāi yǎnchū.",
+              "promptVi": "Viết 120–220 chữ Hán tổng hợp hai quy trình sáng tạo và lưu diễn; nêu bước thử, phản hồi, thay đổi lịch và giới hạn khái quát."
+            },
+            "modelExample": {
+              "hanzi": "林师傅准备一部关于海鸟的皮影戏。第一个月，他先观察鸟飞的功夫和速度，把动作画成一片片草图；随后选择能透光的皮料，并把翅膀关节切得很细。这个阶段只测试动作，不安排公开演出。",
+              "meaningVi": "Nghệ nhân Lâm chuẩn bị một vở múa bóng về chim biển. Tháng đầu ông quan sát công phu và tốc độ bay, vẽ động tác thành từng mảnh phác thảo; sau đó chọn da cho ánh sáng xuyên qua và cắt khớp cánh rất nhỏ. Giai đoạn này chỉ thử chuyển động, chưa xếp buổi diễn công khai.",
+              "pinyin": "Lín shīfù zhǔnbèi yī bù guānyú hǎi niǎo de píyǐngxì. Dì yī gè yuè, tā xiān guānchá niǎo fēi de gōngfū hé sùdù, bǎ dòngzuò huà chéng yīpiàn piàn cǎotú; suíhòu xuǎnzé néng tòu guāng de pí liào, bìng bǎ chìbǎng guānjié qiè dé hěn xì. Zhège jiēduàn zhǐ cèshì dòngzuò, bù ānpái gōngkāi yǎnchū.",
+              "speaker": "Nguồn A · đoạn 1"
+            },
+            "pattern": "Dẫn chứng trước khi suy luận"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đọc hai văn bản HSK4 nhiều đoạn để theo dõi tiến trình, mốc thời gian và thay đổi trạng thái giữa các phần của văn bản; dẫn dòng nguồn cho mọi kết luận và chưa chấm mastery trước review.\nHai nguồn kể hai trường hợp cụ thể. Ghi đoạn làm bằng chứng trước khi so sánh hoặc kết luận.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ HSK4"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn thứ hai hiện có transcript và giọng đọc tổng hợp để luyện theo văn bản. Chưa có audio bản ngữ; các câu hỏi dưới đây là đọc hiểu, không được tính là bằng chứng nghe độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:audio-note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng nguồn thứ hai"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Nghệ thuật, thể thao và giao lưu: Quá trình, mốc thời gian và chuyển biến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "công phu; võ thuật. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "功夫 · gōngfu"
+                },
+                {
+                  "alt": "",
+                  "body": "ánh sáng. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "光 · guāng"
+                },
+                {
+                  "alt": "",
+                  "body": "mảnh; vùng. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "片 · piàn"
+                },
+                {
+                  "alt": "",
+                  "body": "mảnh; chi tiết. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "细 · xì"
+                },
+                {
+                  "alt": "",
+                  "body": "buổi diễn. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-4",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "演出 · yǎnchū"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:words:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ cần để đọc · 1–5"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "sắp xếp. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "安排 · ānpái"
+                },
+                {
+                  "alt": "",
+                  "body": "vội; kịp. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-6",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "赶 · gǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "tụ họp. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-7",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "聚会 · jùhuì"
+                },
+                {
+                  "alt": "",
+                  "body": "quen thuộc. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-8",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "熟悉 · shúxi"
+                },
+                {
+                  "alt": "",
+                  "body": "cẩn thận. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:word-9",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "仔细 · zǐxì"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:words:5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ cần để đọc · 6–10"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:source-0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc ba đoạn Nguồn A. Tìm ý chính, chi tiết và giới hạn. Ghi đoạn làm bằng chứng trước khi mở Pinyin/nghĩa.",
+                    "notePrompt": "Nguồn A: điều gì được nói rõ, điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "林师傅准备一部关于海鸟的皮影戏。第一个月，他先观察鸟飞的功夫和速度，把动作画成一片片草图；随后选择能透光的皮料，并把翅膀关节切得很细。这个阶段只测试动作，不安排公开演出。",
+                        "id": "hsk4-arts-sports-exchange-critique-process-timeline:source-0-0",
+                        "meaningVi": "Nghệ nhân Lâm chuẩn bị một vở múa bóng về chim biển. Tháng đầu ông quan sát công phu và tốc độ bay, vẽ động tác thành từng mảnh phác thảo; sau đó chọn da cho ánh sáng xuyên qua và cắt khớp cánh rất nhỏ. Giai đoạn này chỉ thử chuyển động, chưa xếp buổi diễn công khai.",
+                        "pinyin": "Lín shīfù zhǔnbèi yī bù guānyú hǎi niǎo de píyǐngxì. Dì yī gè yuè, tā xiān guānchá niǎo fēi de gōngfū hé sùdù, bǎ dòngzuò huà chéng yīpiàn piàn cǎotú; suíhòu xuǎnzé néng tòu guāng de pí liào, bìng bǎ chìbǎng guānjié qiè dé hěn xì. Zhège jiēduàn zhǐ cèshì dòngzuò, bù ānpái gōngkāi yǎnchū."
+                      },
+                      {
+                        "hanzi": "第二个月，灯光师发现蓝光使影子边缘不清，林师傅便放大片尺寸，减少过细的装饰。第三个月，音乐组按动作重新写节奏，学校观众参加小型试演。孩子看懂了飞行，却没看懂海鸟为什么离开家。",
+                        "id": "hsk4-arts-sports-exchange-critique-process-timeline:source-0-1",
+                        "meaningVi": "Tháng hai, kỹ thuật ánh sáng thấy đèn xanh làm viền bóng không rõ; nghệ nhân tăng kích thước mảnh và giảm trang trí quá nhỏ. Tháng ba, nhóm nhạc viết lại nhịp theo động tác, học sinh dự diễn thử nhỏ. Trẻ hiểu cảnh bay nhưng chưa hiểu vì sao chim rời nhà.",
+                        "pinyin": "Dì èr gè yuè, dēngguāng shī fāxiàn lánguāng shǐ yǐngzǐ biānyuán bù qīng, lín shīfù biàn fàngdà piàn chǐcùn, jiǎnshǎo guòxì de zhuāngshì. Dì sān gè yuè, yīnyuè zǔ àn dòngzuò chóngxīn xiě jiézòu, xuéxiào guānzhòng cānjiā xiǎoxíng shì yǎn. Háizǐ kàn dǒngle fēixíng, què méi kàn dǒng hǎi niǎo wèishéme líkāi jiā."
+                      },
+                      {
+                        "hanzi": "最后一个月，团队增加两场短对话，并用不同光线区分白天和夜晚。正式演出后，动作理解率提高，故事理解也改善。这个过程显示创作不是直线：材料、光、观众反馈会让前一步反复修改。",
+                        "id": "hsk4-arts-sports-exchange-critique-process-timeline:source-0-2",
+                        "meaningVi": "Tháng cuối, nhóm thêm hai đoạn thoại ngắn và dùng ánh sáng khác để phân biệt ngày đêm. Sau buổi diễn chính thức, mức hiểu động tác và cốt truyện đều tốt hơn. Quá trình cho thấy sáng tạo không đi thẳng: vật liệu, ánh sáng và phản hồi khán giả khiến bước trước phải sửa lại.",
+                        "pinyin": "Zuìhòu yīgè yuè, tuánduì zēngjiā liǎng chǎng duǎn duìhuà, bìngyòng bùtóng guāngxiàn qūfēn báitiān hé yèwǎn. Zhèngshì yǎnchū hòu, dòngzuò lǐjiě lǜ tígāo, gùshì lǐjiě yě gǎishàn. Zhège guòchéng xiǎnshì chuàngzuò bùshì zhíxiàn: Cáiliào, guāng, guānzhòng fǎnkuì huì ràng qián yībù fǎnfù xiūgǎi."
+                      }
+                    ]
+                  },
+                  "title": "Người sáng tạo múa bóng hoàn thành tác phẩm mới thế nào"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Người sáng tạo múa bóng hoàn thành tác phẩm mới thế nào"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Lập bản đồ thông tin trước khi trả lời; mỗi nút phải dẫn đoạn nguồn.",
+                    "nodes": [
+                      {
+                        "id": "observe",
+                        "label": "线索一",
+                        "meaningVi": "Ghi động tác và tạo các mảnh phác thảo.",
+                        "note": "Quan sát · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "material",
+                        "label": "线索二",
+                        "meaningVi": "Da xuyên sáng và khớp cánh nhỏ.",
+                        "note": "Vật liệu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "light",
+                        "label": "线索三",
+                        "meaningVi": "Làm lộ vấn đề đường viền.",
+                        "note": "Ánh sáng · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "audience",
+                        "label": "线索四",
+                        "meaningVi": "Tách hiểu động tác khỏi hiểu truyện.",
+                        "note": "Diễn thử · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "revision",
+                        "label": "线索五",
+                        "meaningVi": "Thêm thoại và phân biệt ngày đêm.",
+                        "note": "Sửa cuối · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:map-0",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dựng quan hệ trong Nguồn A"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:map:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sơ đồ bằng chứng · Nguồn A"
+            },
+            {
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:page:teach",
+              "stage": "understand",
+              "title": "Đã xác nhận hay mới giả định?",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:note",
+                  "kind": "explanation",
+                  "title": "既然",
+                  "body": "既然 (jìrán) dẫn tiền đề người nói xem là đã biết hoặc đã chấp nhận, rồi nêu suy luận/đề nghị: 既然 A，就 B. 如果 dẫn điều kiện giả định: 如果 A，就 B. Không đổi một khả năng chưa xác nhận thành sự thật chỉ bằng 既然. Kết luận vẫn cần hợp lý; dùng đúng liên từ không tự chứng minh kết luận. Các mẫu sau là tình huống tập luyện riêng, không bổ sung dữ kiện vào hai nguồn lưu diễn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "场地已经确认。既然周六可以使用礼堂，我们就把排练安排在周六吧。",
+                  "pinyin": "Chǎngdì yǐjīng quèrèn. Jìrán Zhōuliù kěyǐ shǐyòng lǐtáng, wǒmen jiù bǎ páiliàn ānpái zài Zhōuliù ba.",
+                  "meaningVi": "Địa điểm đã được xác nhận. Đã có thể dùng hội trường thứ Bảy thì chúng ta xếp buổi tập vào thứ Bảy nhé.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "场地还没确认。如果周六可以使用礼堂，我们就在那里排练；不行的话，再找别的地方。",
+                  "pinyin": "Chǎngdì hái méi quèrèn. Rúguǒ Zhōuliù kěyǐ shǐyòng lǐtáng, wǒmen jiù zài nàlǐ páiliàn; bù xíng de huà, zài zhǎo bié de dìfang.",
+                  "meaningVi": "Địa điểm chưa được xác nhận. Nếu có thể dùng hội trường thứ Bảy, chúng ta tập ở đó; nếu không được thì tìm nơi khác.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 既然",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Ban quản lý CHƯA trả lời về hội trường. Nhóm muốn nêu phương án có điều kiện, không coi lịch đã được chấp thuận. Câu nào phù hợp?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "既然周六可以使用礼堂，我们就在那里排练。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "如果周六可以使用礼堂，我们就在那里排练。",
+                        "feedback": "如果 giữ việc được dùng hội trường ở dạng điều kiện chưa xác nhận. 既然 trong câu đầu trình bày việc đó như tiền đề đã biết, trái dữ kiện của câu hỏi. 既然 hoàn toàn có thể dẫn đến một đề nghị khi tiền đề phù hợp."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "既然 chưa bao giờ dùng để đưa ra đề nghị.",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "如果 giữ việc được dùng hội trường ở dạng điều kiện chưa xác nhận. 既然 trong câu đầu trình bày việc đó như tiền đề đã biết, trái dữ kiện của câu hỏi. 既然 hoàn toàn có thể dẫn đến một đề nghị khi tiền đề phù hợp.",
+                    "learningTarget": {
+                      "objective": "Đã xác nhận hay mới giả định?",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-01330"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Nguồn mô tả chu kỳ thử và sửa.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dòng thời gian sáng tác cho thấy điều gì?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Nguồn mô tả chu kỳ thử và sửa.",
+                        "id": "o-0",
+                        "text": "Vật liệu, ánh sáng và phản hồi khiến các bước được lặp sửa"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn mô tả chu kỳ thử và sửa. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-1",
+                        "text": "Chỉ cần phác thảo đầu tiên"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn mô tả chu kỳ thử và sửa. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-2",
+                        "text": "Biểu diễn trước khi thử"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn mô tả chu kỳ thử và sửa. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-3",
+                        "text": "Chi tiết càng nhỏ càng tốt"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Dòng thời gian sáng tác cho thấy điều gì?\nTìm lại đoạn 1, 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-0-0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ý chính"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:0:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Ý chính"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Ánh sáng tạo ra lỗi quan sát.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Vì sao phải tăng kích thước mảnh?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Ánh sáng tạo ra lỗi quan sát.",
+                        "id": "o-0",
+                        "text": "Đèn xanh làm viền bóng không rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Ánh sáng tạo ra lỗi quan sát. Đối chiếu lại đoạn 2.",
+                        "id": "o-1",
+                        "text": "Nhạc quá nhanh"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Ánh sáng tạo ra lỗi quan sát. Đối chiếu lại đoạn 2.",
+                        "id": "o-2",
+                        "text": "Không có khán giả"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Ánh sáng tạo ra lỗi quan sát. Đối chiếu lại đoạn 2.",
+                        "id": "o-3",
+                        "text": "Da không xuyên sáng"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Vì sao phải tăng kích thước mảnh?\nTìm lại đoạn 2 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-0-1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chi tiết có căn cứ"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:0:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Chi tiết có căn cứ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Hai giai đoạn tách hai loại hiểu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chi tiết nào cho thấy hiểu động tác chưa đồng nghĩa hiểu truyện?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Hai giai đoạn tách hai loại hiểu.",
+                        "id": "o-0",
+                        "text": "Trẻ hiểu bay nhưng chưa hiểu lý do rời nhà, nên nhóm thêm thoại"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai giai đoạn tách hai loại hiểu. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-1",
+                        "text": "Cánh được cắt nhỏ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai giai đoạn tách hai loại hiểu. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-2",
+                        "text": "Có buổi diễn chính thức"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai giai đoạn tách hai loại hiểu. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-3",
+                        "text": "Nhạc viết theo động tác"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Chi tiết nào cho thấy hiểu động tác chưa đồng nghĩa hiểu truyện?\nTìm lại đoạn 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-0-2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nối bằng chứng nhiều đoạn"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:0:2",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Nối bằng chứng nhiều đoạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Phản hồi dẫn tới thay đổi nội dung. Giới hạn: Có thể suy ra chức năng chẩn đoán, chưa thể đại diện mọi nhóm khán giả.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Có thể suy ra vai trò của diễn thử trường học?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Phản hồi dẫn tới thay đổi nội dung.",
+                        "id": "o-0",
+                        "text": "Phát hiện khoảng trống nghĩa trước buổi chính thức"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra chức năng chẩn đoán, chưa thể đại diện mọi nhóm khán giả. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-1",
+                        "text": "Chứng minh mọi trẻ hiểu"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra chức năng chẩn đoán, chưa thể đại diện mọi nhóm khán giả. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-2",
+                        "text": "Thay thế nhóm sáng tác"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra chức năng chẩn đoán, chưa thể đại diện mọi nhóm khán giả. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-3",
+                        "text": "Xóa nhu cầu ánh sáng"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Có thể suy ra vai trò của diễn thử trường học?\nTìm lại đoạn 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-0-3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Suy luận có giới hạn"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:0:3",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Suy luận có giới hạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "explanation": "Nguồn chỉ mô tả một quy trình cụ thể.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nhận định nào quá rộng?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn chỉ mô tả một quy trình cụ thể. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-0",
+                        "text": "Tác phẩm này được sửa qua bốn tháng"
+                      },
+                      {
+                        "feedback": "Đúng: Nguồn chỉ mô tả một quy trình cụ thể.",
+                        "id": "o-1",
+                        "text": "Mọi tác phẩm múa bóng phải theo đúng bốn bước"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn chỉ mô tả một quy trình cụ thể. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-2",
+                        "text": "Ánh sáng ảnh hưởng viền bóng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn chỉ mô tả một quy trình cụ thể. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-3",
+                        "text": "Đối thoại giúp làm rõ truyện trong mẫu"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Nhận định nào quá rộng?\nTìm lại đoạn 1, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-0-4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn kết luận"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:0:4",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Giới hạn kết luận"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:source-1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc ba đoạn Nguồn B. Tìm ý chính, chi tiết và giới hạn. Ghi đoạn làm bằng chứng trước khi mở Pinyin/nghĩa.",
+                    "notePrompt": "Nguồn B: điều gì được nói rõ, điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "一个青年剧团安排四城巡回演出，每到一城还举办创作者聚会。团队对前两座城市很熟悉，便把装台和见面会放在同一天。首站火车晚点，演员赶到剧场后只剩三小时，聚会因此缩短。",
+                        "id": "hsk4-arts-sports-exchange-critique-process-timeline:source-1-0",
+                        "meaningVi": "Một đoàn kịch trẻ sắp xếp lưu diễn bốn thành phố, mỗi nơi có thêm buổi gặp người sáng tạo. Nhóm quen hai thành phố đầu nên đặt dựng sân khấu và gặp mặt cùng ngày. Tàu chặng đầu muộn; diễn viên vội đến nhà hát chỉ còn ba giờ, nên buổi gặp bị rút ngắn.",
+                        "pinyin": "Yīgè qīngnián jùtuán ānpái sì chéng xúnhuí yǎnchū, měi dào yī chéng hái jǔbàn chuàngzuò zhě jùhuì. Tuánduì duì qián liǎng zuò chéngshì hěn shúxī, biàn bǎ zhuāng tái hé jiànmiàn huì fàng zài tóngyī tiān. Shǒu zhàn huǒchē wǎndiǎn, yǎnyuán gǎn dào jùchǎng hòu zhǐ shèng sān xiǎoshí, jùhuì yīncǐ suōduǎn."
+                      },
+                      {
+                        "hanzi": "第二站虽然准时，技术人员却发现当地电源不同。团队仔细检查后借到设备，演出没有延误，但原定讨论再次被压缩。负责人意识到“熟悉城市”不等于熟悉每个剧场，交通和技术都需要单独留时间。",
+                        "id": "hsk4-arts-sports-exchange-critique-process-timeline:source-1-1",
+                        "meaningVi": "Chặng hai đúng giờ nhưng kỹ thuật phát hiện nguồn điện địa phương khác. Nhóm kiểm tra cẩn thận rồi mượn thiết bị, buổi diễn không chậm song thảo luận lại bị rút. Người phụ trách nhận ra quen thành phố không đồng nghĩa quen từng nhà hát; giao thông và kỹ thuật cần thời gian riêng.",
+                        "pinyin": "Dì èr zhàn suīrán zhǔnshí, jìshù rényuán què fāxiàn dāngdì diànyuán bùtóng. Tuánduì zǐxì jiǎnchá hòu jiè dào shèbèi, yǎnchū mò yǒu yánwù, dàn yuán dìng tǎolùn zàicì bèi yāsuō. Fùzé rén yìshí dào “shúxī chéngshì” bù děngyú shúxī měi gè jùchǎng, jiāotōng hé jìshù dōu xūyào dāndú liú shíjiān."
+                      },
+                      {
+                        "hanzi": "后两站把聚会改到第二天，并增加设备清单和两小时缓冲。演出与交流都按计划完成，不过样本只有两站，且没有遇到恶劣天气。新安排值得保留试用，不能据此保证任何巡演都不会延误。",
+                        "id": "hsk4-arts-sports-exchange-critique-process-timeline:source-1-2",
+                        "meaningVi": "Hai chặng sau chuyển gặp mặt sang ngày thứ hai, thêm danh sách thiết bị và hai giờ dự phòng. Biểu diễn lẫn trao đổi hoàn thành đúng kế hoạch, nhưng mẫu chỉ hai chặng và không gặp thời tiết xấu. Lịch mới đáng tiếp tục thử, chưa bảo đảm mọi lưu diễn không trễ.",
+                        "pinyin": "Hòu liǎng zhàn bǎ jùhuì gǎi dào dì èr tiān, bìng zēngjiā shèbèi qīngdān hé liǎng xiǎoshí huǎnchōng. Yǎnchū yú jiāoliú dōu àn jìhuà wánchéng, bùguò yàngběn zhǐyǒu liǎng zhàn, qiě méiyǒu yù dào èliè tiānqì. Xīn ānpái zhídé bǎoliú shìyòng, bùnéng jù cǐ bǎozhèng rènhé xúnyǎn dōu bù huì yánwù."
+                      }
+                    ]
+                  },
+                  "title": "Vì sao chuyến lưu diễn thay đổi lịch trình"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Vì sao chuyến lưu diễn thay đổi lịch trình"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Lập bản đồ thông tin trước khi trả lời; mỗi nút phải dẫn đoạn nguồn.",
+                    "nodes": [
+                      {
+                        "id": "plan",
+                        "label": "线索一",
+                        "meaningVi": "Dựng sân khấu và gặp mặt cùng ngày.",
+                        "note": "Kế hoạch đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "traffic",
+                        "label": "线索二",
+                        "meaningVi": "Tàu muộn làm giảm thời gian.",
+                        "note": "Giao thông · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "technical",
+                        "label": "线索三",
+                        "meaningVi": "Nguồn điện khác cần thiết bị mới.",
+                        "note": "Kỹ thuật · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "change",
+                        "label": "线索四",
+                        "meaningVi": "Tách ngày và thêm khoảng dự phòng.",
+                        "note": "Lịch mới · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "scope",
+                        "label": "线索五",
+                        "meaningVi": "Hai chặng không có thời tiết xấu.",
+                        "note": "Phạm vi · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:map-1",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dựng quan hệ trong Nguồn B"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:map:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sơ đồ bằng chứng · Nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Hai sự cố tạo lịch mới.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "văn bản nguồn B mô tả thay đổi quy trình nào?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Hai sự cố tạo lịch mới.",
+                        "id": "o-0",
+                        "text": "Tách ngày giao lưu và thêm kiểm tra cùng thời gian dự phòng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai sự cố tạo lịch mới. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-1",
+                        "text": "Bỏ mọi buổi gặp"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai sự cố tạo lịch mới. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-2",
+                        "text": "Chỉ chọn thành phố quen"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai sự cố tạo lịch mới. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-3",
+                        "text": "Không kiểm tra thiết bị"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "văn bản nguồn B mô tả thay đổi quy trình nào?\nTìm lại đoạn 1, 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-1-0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ý chính"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:1:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Ý chính"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đoạn hai nêu nguyên nhân trực tiếp.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sự cố kỹ thuật ở chặng hai là gì?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Đoạn hai nêu nguyên nhân trực tiếp.",
+                        "id": "o-0",
+                        "text": "Nguồn điện nhà hát khác"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn hai nêu nguyên nhân trực tiếp. Đối chiếu lại đoạn 2.",
+                        "id": "o-1",
+                        "text": "Không có diễn viên"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn hai nêu nguyên nhân trực tiếp. Đối chiếu lại đoạn 2.",
+                        "id": "o-2",
+                        "text": "Tàu bị hủy"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn hai nêu nguyên nhân trực tiếp. Đối chiếu lại đoạn 2.",
+                        "id": "o-3",
+                        "text": "Khán giả đến muộn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Sự cố kỹ thuật ở chặng hai là gì?\nTìm lại đoạn 2 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-1-1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chi tiết có căn cứ"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:1:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Chi tiết có căn cứ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Hai loại rủi ro độc lập xuất hiện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Vì sao 'quen thành phố' chưa đủ cho kế hoạch?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Hai loại rủi ro độc lập xuất hiện.",
+                        "id": "o-0",
+                        "text": "Chặng đầu có trễ tàu và chặng hai có nguồn điện khác"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai loại rủi ro độc lập xuất hiện. Đối chiếu lại đoạn 1, 2.",
+                        "id": "o-1",
+                        "text": "Đoàn đã có bốn thành phố"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai loại rủi ro độc lập xuất hiện. Đối chiếu lại đoạn 1, 2.",
+                        "id": "o-2",
+                        "text": "Có buổi gặp người sáng tạo"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai loại rủi ro độc lập xuất hiện. Đối chiếu lại đoạn 1, 2.",
+                        "id": "o-3",
+                        "text": "Hai chặng sau đúng giờ"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Vì sao 'quen thành phố' chưa đủ cho kế hoạch?\nTìm lại đoạn 1, 2 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-1-2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nối bằng chứng nhiều đoạn"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:1:2",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Nối bằng chứng nhiều đoạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Danh sách phản hồi sự cố nguồn điện. Giới hạn: Có thể suy ra mục tiêu phòng ngừa, chưa thể bảo đảm không còn lỗi thiết bị.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Có thể suy ra mục đích danh sách thiết bị?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Danh sách phản hồi sự cố nguồn điện.",
+                        "id": "o-0",
+                        "text": "Phát hiện khác biệt kỹ thuật trước giờ diễn"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu phòng ngừa, chưa thể bảo đảm không còn lỗi thiết bị. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-1",
+                        "text": "Thay thế mọi nhân viên"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu phòng ngừa, chưa thể bảo đảm không còn lỗi thiết bị. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-2",
+                        "text": "Bảo đảm thời tiết tốt"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu phòng ngừa, chưa thể bảo đảm không còn lỗi thiết bị. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-3",
+                        "text": "Làm buổi gặp ngắn hơn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Có thể suy ra mục đích danh sách thiết bị?\nTìm lại đoạn 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-1-3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Suy luận có giới hạn"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:1:3",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Suy luận có giới hạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Nguồn giới hạn số chặng và điều kiện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kết luận nào được phép?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Nguồn giới hạn số chặng và điều kiện.",
+                        "id": "o-0",
+                        "text": "Lịch mới thành công ở hai chặng thời tiết thuận lợi"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn giới hạn số chặng và điều kiện. Đối chiếu lại đoạn 3.",
+                        "id": "o-1",
+                        "text": "Lịch mới ngăn mọi trì hoãn"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn giới hạn số chặng và điều kiện. Đối chiếu lại đoạn 3.",
+                        "id": "o-2",
+                        "text": "Mọi nhà hát có nguồn điện giống nhau"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn giới hạn số chặng và điều kiện. Đối chiếu lại đoạn 3.",
+                        "id": "o-3",
+                        "text": "Thành phố quen không cần chuẩn bị"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Kết luận nào được phép?\nTìm lại đoạn 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:question-1-4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn kết luận"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:question:1:4",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Giới hạn kết luận"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n皮影作品先观察动作、选择材料，再用灯光和学校试演检查效果。蓝光让边缘不清，孩子只看懂飞行却不懂离家原因，因此团队放大影片并增加对话。巡回剧团也从晚点和电源差异中修改安排，把聚会移到第二天，增加设备清单与缓冲时间。两种过程都不是直线，而是由具体证据返回前一步。不过皮影反馈来自一所学校，新巡演安排只在两站和好天气下试过，所以经验可以继续验证，不能变成所有创作或巡演的固定答案。\nTác phẩm múa bóng quan sát động tác, chọn vật liệu rồi dùng ánh sáng và diễn thử trường học để kiểm tra. Đèn xanh làm viền mờ; trẻ hiểu bay nhưng chưa hiểu rời nhà, nên nhóm tăng mảnh và thêm thoại. Đoàn lưu diễn cũng sửa lịch từ trễ tàu và khác nguồn điện, chuyển gặp mặt sang ngày sau, thêm danh sách cùng dự phòng. Cả hai quy trình quay lại bước trước theo bằng chứng. Tuy vậy, phản hồi múa bóng chỉ từ một trường và lịch mới chỉ thử hai chặng thời tiết tốt, nên kinh nghiệm cần kiểm tiếp chứ không thành đáp án chung.\nTự soát và sửa; xem mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết 120–220 chữ Hán tổng hợp hai quy trình sáng tạo và lưu diễn; nêu bước thử, phản hồi, thay đổi lịch và giới hạn khái quát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "mảnh bóng/ánh sáng",
+                        "id": "criterion-0",
+                        "label": "mảnh bóng/ánh sáng"
+                      },
+                      {
+                        "guidance": "diễn thử trẻ em",
+                        "id": "criterion-1",
+                        "label": "diễn thử trẻ em"
+                      },
+                      {
+                        "guidance": "trễ tàu",
+                        "id": "criterion-2",
+                        "label": "trễ tàu"
+                      },
+                      {
+                        "guidance": "nguồn điện khác",
+                        "id": "criterion-3",
+                        "label": "nguồn điện khác"
+                      },
+                      {
+                        "guidance": "phạm vi thử mới",
+                        "id": "criterion-4",
+                        "label": "phạm vi thử mới"
+                      },
+                      {
+                        "guidance": "Mọi kết luận có đoạn nguồn; không khái quát quá hai trường hợp.",
+                        "id": "criterion-5",
+                        "label": "Mọi kết luận có đoạn nguồn; không khái quát quá hai trường hợp."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết 120–220 chữ Hán tổng hợp hai quy trình sáng tạo và lưu diễn; nêu bước thử, phản hồi, thay đổi lịch và giới hạn khái quát.\nĐánh dấu ít nhất hai dữ kiện ở mỗi nguồn; chỉ mở mẫu sau bản đầu.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tổng hợp hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "mảnh bóng/ánh sáng\ndiễn thử trẻ em\ntrễ tàu\nnguồn điện khác\nphạm vi thử mới\nGhi lại ít nhất một chỗ bạn đã sửa về dữ kiện, quan hệ hoặc phạm vi. Thử tóm lược khi che nguồn và mẫu; hoàn thành trang chưa có nghĩa đã thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự sửa trước khi tiếp tục"
+                }
+              ],
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Kiểm lại lập luận"
+            },
+            {
+              "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 既然 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-arts-sports-exchange-critique-process-timeline:vocab-context-r10:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Đổi sang chuyến đi: vé tàu đã mua, nhưng thời tiết ngày đến chưa biết. Viết 3–4 câu: dùng 既然…就… để nêu bước chuẩn bị từ việc đã có vé; dùng 如果…就… cho phương án nếu trời mưa. Không khẳng định trời sẽ mưa.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "既然 dựa trên vé/giờ khởi hành đã xác định.",
+                        "guidance": "既然 dựa trên vé/giờ khởi hành đã xác định."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "如果 giữ mưa là khả năng, không biến thành dữ kiện.",
+                        "guidance": "如果 giữ mưa là khả năng, không biến thành dữ kiện."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Hai đề nghị phù hợp từng tiền đề; diễn đạt khác mẫu vẫn được.",
+                        "guidance": "Hai đề nghị phù hợp từng tiền đề; diễn đạt khác mẫu vẫn được."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n车票已经买好了。既然出发时间已经确定，我们就开始收拾行李吧。如果到达那天下雨，我们就先参观室内展览，再考虑其他活动。\nChēpiào yǐjīng mǎi hǎo le. Jìrán chūfā shíjiān yǐjīng quèdìng, wǒmen jiù kāishǐ shōushi xíngli ba. Rúguǒ dàodá nà tiān xià yǔ, wǒmen jiù xiān cānguān shìnèi zhǎnlǎn, zài kǎolǜ qítā huódòng.\nVé đã mua xong. Đã xác định giờ khởi hành thì bắt đầu sắp hành lý nhé. Nếu ngày đến trời mưa, chúng ta xem triển lãm trong nhà trước rồi cân nhắc hoạt động khác.\n既然 dựa trên vé/giờ khởi hành đã xác định.\n如果 giữ mưa là khả năng, không biến thành dữ kiện.\nHai đề nghị phù hợp từng tiền đề; diễn đạt khác mẫu vẫn được.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Đã xác nhận hay mới giả định?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-01330"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/49-REVIEW-HSK4-ARTS-SPORTS.md",
+          "humanReviewed": false,
+          "lessonId": "hsk4-arts-sports-exchange-critique-process-timeline",
+          "reviewedAt": "2026-09-28",
+          "scope": "Six HSK4 arts/sports lessons: cross-role arts, iterative creation, multi-factor outcomes, conditional comparison, bounded claims, and equitable exchange. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check writing is not independent mastery.",
+          "sourceContentSha256": "sha256:b2a54e33020f8ad75386806dfa89bc48a4e462a36721b6e63185731a56216def"
+        },
+        "objectiveVi": "Đọc hai văn bản HSK4 nhiều đoạn để theo dõi tiến trình, mốc thời gian và thay đổi trạng thái giữa các phần của văn bản; dẫn dòng nguồn cho mọi kết luận và chưa chấm mastery trước review.",
+        "pitfallVi": "Dữ kiện của một nguồn không tự chuyển sang nguồn kia; giọng tổng hợp và transcript không tạo bằng chứng nghe độc lập.",
+        "prerequisites": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Nêu kết luận sau bằng chứng, giữ rõ nguồn và đoạn; giới hạn kết quả trong hai trường hợp đang đọc.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-pattern:hsk4-arts-sports-exchange-critique-process-timeline"
+        ],
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-process-timeline"
+        ],
+        "sourceTaskIds": [
+          "hsk4-local-task:hsk4-arts-sports-exchange-critique-process-timeline"
+        ],
+        "sourceTopicIds": [
+          "hsk4-topic-064"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01005",
+          "hsk-vocab-01022",
+          "hsk-vocab-01052",
+          "hsk-vocab-01113",
+          "hsk-vocab-01151",
+          "hsk-vocab-01165",
+          "hsk-vocab-01222",
+          "hsk-vocab-01251",
+          "hsk-vocab-01274",
+          "hsk-vocab-01330",
+          "hsk-vocab-01345",
+          "hsk-vocab-01402",
+          "hsk-vocab-01415",
+          "hsk-vocab-01476",
+          "hsk-vocab-01510",
+          "hsk-vocab-01522",
+          "hsk-vocab-01555",
+          "hsk-vocab-01592",
+          "hsk-vocab-01656",
+          "hsk-vocab-01689",
+          "hsk-vocab-01704",
+          "hsk-vocab-01754",
+          "hsk-vocab-01791",
+          "hsk-vocab-01837",
+          "hsk-vocab-01851",
+          "hsk-vocab-01890",
+          "hsk-vocab-01938",
+          "hsk-vocab-01979"
+        ],
+        "targetLessonId": "hsk4-arts-sports-exchange-critique-process-timeline",
+        "titleZh": "HSK四级 · 26",
+        "vocabulary": [
+          "hsk-vocab-01005",
+          "hsk-vocab-01022",
+          "hsk-vocab-01052",
+          "hsk-vocab-01113",
+          "hsk-vocab-01151",
+          "hsk-vocab-01165",
+          "hsk-vocab-01222",
+          "hsk-vocab-01251",
+          "hsk-vocab-01274",
+          "hsk-vocab-01330",
+          "hsk-vocab-01345",
+          "hsk-vocab-01402",
+          "hsk-vocab-01415",
+          "hsk-vocab-01476",
+          "hsk-vocab-01510",
+          "hsk-vocab-01522",
+          "hsk-vocab-01555",
+          "hsk-vocab-01592",
+          "hsk-vocab-01656",
+          "hsk-vocab-01689",
+          "hsk-vocab-01704",
+          "hsk-vocab-01754",
+          "hsk-vocab-01791",
+          "hsk-vocab-01837",
+          "hsk-vocab-01851",
+          "hsk-vocab-01890",
+          "hsk-vocab-01938",
+          "hsk-vocab-01979"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "57717092-d7a8-4239-8fe9-7072f0bfc3a1",
+      "sourceContentSha256": "sha256:a3e32c7b80d0afb4ebd5e39f99663ba4e578abe65d8ab2f982c8d34ab95352b5",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "hai loại cửa\nmùa/chỉ số/đánh đổi\nđổi dầu sang điện\nphạm vi địa phương/toàn hệ\ndữ liệu còn thiếu",
+        "conceptVi": "Đọc hai văn bản HSK4 nhiều đoạn để đối chiếu phương án hoặc hiện tượng và đánh dấu ngoại lệ thay vì khái quát quá mức; dẫn dòng nguồn cho mọi kết luận và chưa chấm mastery trước review.",
+        "dialogue": [
+          {
+            "hanzi": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+            "meaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+            "pinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "冬季数据中，双层窗减少热量流失的效果稳定；自动遮阳窗在晴天也不错，但阴天差异小。夏季时，遮阳窗使下午温度下降更多，却有居民觉得房间变暗。两种窗都有效，只是指标和季节不同。",
+            "meaningVi": "Dữ liệu đông: kính hai lớp giảm thất thoát ổn định; che tự động tốt ngày nắng nhưng ít khác ngày âm. Mùa hè, che làm chiều mát hơn nhưng có cư dân thấy tối. Cả hai hiệu quả theo chỉ số và mùa khác.",
+            "pinyin": "Dōngjì shùjù zhōng, shuāng céng chuāng jiǎnshǎo rèliàng liúshī de xiàoguǒ wěndìng; zìdòng zhēyáng chuāng zài qíngtiān yě bùcuò, dàn yīn tiān chāyì xiǎo. Xiàjì shí, zhēyáng chuāng shǐ xiàwǔ wēndù xiàjiàng gèng duō, què yǒu jūmín juédé fángjiān biàn àn. Liǎng zhǒng chuāng dōu yǒuxiào, zhǐshì zhǐbiāo hé jìjié bùtóng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "小组没有用全年平均数决定唯一优胜者，而是分别报告能耗、温度、亮度和满意度。下一步还要比较维护费用。研究说明“效果好”必须说明针对什么目标和条件，否则同一个结论会隐藏重要差异。",
+            "meaningVi": "Nhóm không dùng trung bình năm chọn một người thắng, mà báo năng lượng, nhiệt, sáng, hài lòng riêng. Bước sau so chi phí bảo trì. Nghiên cứu cho thấy “hiệu quả tốt” phải nói mục tiêu/điều kiện, nếu không kết luận che khác biệt quan trọng.",
+            "pinyin": "Xiǎozǔ méiyǒu yòng quán nián píngjūn shù juédìng wéiyī yōushèng zhě, ér shì fēnbié bàogào néng hào, wēndù, liàngdù hé mǎnyì dù. Xià yībù hái yào bǐjiào wéihù fèiyòng. Yánjiū shuōmíng “xiàoguǒ hǎo” bìxū shuōmíng zhēnduì shénme mùbiāo hé tiáojiàn, fǒuzé tóng yīgè jiélùn huì yǐncáng zhòngyào chāyì.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "一座工厂从上世纪起使用燃料油。去年停止用油，改成电加热。附近监测站发现黑烟变得少见，某种空气污染下降三成，于是有人说能源更换解决了全部环境问题。",
+            "meaningVi": "Một nhà máy dùng dầu từ thế kỷ trước. Năm ngoái ngừng dầu, chuyển điện. Trạm gần đó thấy khói đen hiếm và một chất ô nhiễm giảm ba phần mười, nên có người nói đổi năng lượng giải mọi vấn đề.",
+            "pinyin": "Yīzuò gōngchǎng cóng shàng shìjì qǐ shǐyòng ránliào yóu. Qùnián tíngzhǐ yòng yóu, gǎi chéng diàn jiārè. Fùjìn jiāncè zhàn fāxiàn hēi yān biàn dé shǎojiàn, mǒu zhǒng kōngqì wūrǎn xiàjiàng sānchéng, yúshì yǒurén shuō néngyuán gēnghuàn jiějuéle quánbù huánjìng wèntí.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "进一步比较显示，工厂本地排放确实下降，但用电在高峰期来自远处燃煤电站；同时生产量也减少了一成。若只看厂门口，效果明显；若计算整个电力来源和生产变化，解释就更复杂。",
+            "meaningVi": "So thêm cho thấy phát thải tại chỗ giảm, nhưng điện cao điểm từ nhà máy than xa; sản lượng cũng giảm một phần mười. Chỉ nhìn cổng thì hiệu quả rõ, tính nguồn điện và sản lượng thì phức tạp.",
+            "pinyin": "Jìnyībù bǐjiào xiǎnshì, gōngchǎng běndì páifàng quèshí xiàjiàng, dàn yòng diàn zài gāofēng qī láizì yuǎn chù rán méi diànzhàn; tóngshí shēngchǎn liàng yě jiǎnshǎole yī chéng. Ruò zhǐ kàn chǎng ménkǒu, xiàoguǒ míngxiǎn; ruò jìsuàn zhěnggè diànlì láiyuán hé shēngchǎn biànhuà, jiěshì jiù gèng fùzá.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "研究人员提出两种口径：本地空气质量和全系统排放。前者已有改善证据，后者仍需电力数据。停止用油是重要变化，却不能单独回答全球或全地区污染是否下降。报告将同时保留两种结果。",
+            "meaningVi": "Nhà nghiên cứu dùng hai phạm vi: chất lượng không khí địa phương và phát thải toàn hệ. Cái đầu có bằng chứng cải thiện, cái sau cần dữ liệu điện. Ngừng dầu quan trọng nhưng không tự trả lời ô nhiễm toàn vùng/toàn cầu; báo cáo giữ cả hai.",
+            "pinyin": "Yánjiū rényuán tíchū liǎng zhǒng kǒujìng: Běndì kōngqì zhí liàng hé quán xìtǒng páifàng. Qiánzhě yǐ yǒu gǎishàn zhèngjù, hòu zhě réng xū diànlì shùjù. Tíngzhǐ yòng yóu shì zhòngyào biànhuà, què bùnéng dāndú huídá quánqiú huò quán dìqū wūrǎn shìfǒu xiàjiàng. Bàogào jiāng tóngshí bǎoliú liǎng zhǒng jiéguǒ.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+            "answerMeaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+            "answerPinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù.",
+            "distractors": [
+              "冬季数据中，双层窗减少热量流失的效果稳定；自动遮阳窗在晴天也不错，但阴天差异小。夏季时，遮阳窗使下午温度下降更多，却有居民觉得房间变暗。两种窗都有效，只是指标和季节不同。",
+              "小组没有用全年平均数决定唯一优胜者，而是分别报告能耗、温度、亮度和满意度。下一步还要比较维护费用。研究说明“效果好”必须说明针对什么目标和条件，否则同一个结论会隐藏重要差异。"
+            ],
+            "explanationVi": "Nguồn đối chiếu kết quả theo điều kiện. Xem tiếp các câu hỏi theo nguồn trong bộ trang học.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi suy luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Tìm câu nguồn, nêu ý được hỗ trợ, sau đó nói rõ điều chưa thể kết luận.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+              "modelAnswerMeaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+              "modelAnswerPinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù.",
+              "promptVi": "Viết 120–220 chữ Hán so sánh cách phạm vi và chỉ số làm thay đổi kết luận về cửa sổ tiết kiệm và chuyển từ dầu sang điện."
+            },
+            "modelExample": {
+              "hanzi": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+              "meaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+              "pinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù.",
+              "speaker": "Nguồn A · đoạn 1"
+            },
+            "pattern": "Dẫn chứng trước khi suy luận"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đọc hai văn bản HSK4 nhiều đoạn để đối chiếu phương án hoặc hiện tượng và đánh dấu ngoại lệ thay vì khái quát quá mức; dẫn dòng nguồn cho mọi kết luận và chưa chấm mastery trước review.\nHai nguồn kể hai trường hợp cụ thể. Ghi đoạn làm bằng chứng trước khi so sánh hoặc kết luận.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ HSK4"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn thứ hai hiện có transcript và giọng đọc tổng hợp để luyện theo văn bản. Chưa có audio bản ngữ; các câu hỏi dưới đây là đọc hiểu, không được tính là bằng chứng nghe độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:audio-note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách dùng nguồn thứ hai"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Tự nhiên, môi trường và công nghệ: So sánh, khác biệt và ngoại lệ"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "cửa sổ. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "窗 · chuāng"
+                },
+                {
+                  "alt": "",
+                  "body": "quy định. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "规定 · guīdìng"
+                },
+                {
+                  "alt": "",
+                  "body": "cách nhìn. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "看法 · kànfǎ"
+                },
+                {
+                  "alt": "",
+                  "body": "hiệu quả. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "效果 · xiàoguǒ"
+                },
+                {
+                  "alt": "",
+                  "body": "nghiên cứu. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-4",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "研究 · yánjiū"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:words:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ cần để đọc · 1–5"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "hiếm gặp. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "少见 · shǎojiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "thế kỷ. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-6",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "世纪 · shìjì"
+                },
+                {
+                  "alt": "",
+                  "body": "dừng lại. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-7",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "停止 · tíngzhǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "ô nhiễm. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-8",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "污染 · wūrǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "dầu. Tìm từ này trong ngữ liệu rồi đọc lại cả câu; không kết luận biết dùng từ chỉ từ một lần nhìn.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:word-9",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "油 · yóu"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:words:5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ cần để đọc · 6–10"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:source-0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc ba đoạn Nguồn A. Tìm ý chính, chi tiết và giới hạn. Ghi đoạn làm bằng chứng trước khi mở Pinyin/nghĩa.",
+                    "notePrompt": "Nguồn A: điều gì được nói rõ, điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "研究小组在两栋相同年代的楼安装节能窗。一栋按规定使用双层玻璃，另一栋使用可自动遮阳的窗。居民看法不同：有人重视冬季保温，有人更关心夏季阳光和室内亮度。",
+                        "id": "hsk4-nature-technology-explanation-comparison-variation:source-0-0",
+                        "meaningVi": "Nhóm nghiên cứu lắp cửa tiết kiệm ở hai tòa cùng tuổi. Một dùng kính hai lớp theo quy định, một dùng che nắng tự động. Cư dân khác quan điểm: người coi trọng giữ ấm đông, người quan tâm nắng hè và ánh sáng.",
+                        "pinyin": "Yánjiū xiǎozǔ zài liǎng dòng xiāngtóng niándài de lóu ānzhuāng jiénéng chuāng. Yī dòng àn guīdìng shǐyòng shuāng céng bōlí, lìng yī dòng shǐyòng kě zìdòng zhēyáng de chuāng. Jūmín kànfǎ bùtóng: Yǒurén zhòngshì dōngjì bǎowēn, yǒurén gèng guānxīn xiàjì yángguāng hé shìnèi liàngdù."
+                      },
+                      {
+                        "hanzi": "冬季数据中，双层窗减少热量流失的效果稳定；自动遮阳窗在晴天也不错，但阴天差异小。夏季时，遮阳窗使下午温度下降更多，却有居民觉得房间变暗。两种窗都有效，只是指标和季节不同。",
+                        "id": "hsk4-nature-technology-explanation-comparison-variation:source-0-1",
+                        "meaningVi": "Dữ liệu đông: kính hai lớp giảm thất thoát ổn định; che tự động tốt ngày nắng nhưng ít khác ngày âm. Mùa hè, che làm chiều mát hơn nhưng có cư dân thấy tối. Cả hai hiệu quả theo chỉ số và mùa khác.",
+                        "pinyin": "Dōngjì shùjù zhōng, shuāng céng chuāng jiǎnshǎo rèliàng liúshī de xiàoguǒ wěndìng; zìdòng zhēyáng chuāng zài qíngtiān yě bùcuò, dàn yīn tiān chāyì xiǎo. Xiàjì shí, zhēyáng chuāng shǐ xiàwǔ wēndù xiàjiàng gèng duō, què yǒu jūmín juédé fángjiān biàn àn. Liǎng zhǒng chuāng dōu yǒuxiào, zhǐshì zhǐbiāo hé jìjié bùtóng."
+                      },
+                      {
+                        "hanzi": "小组没有用全年平均数决定唯一优胜者，而是分别报告能耗、温度、亮度和满意度。下一步还要比较维护费用。研究说明“效果好”必须说明针对什么目标和条件，否则同一个结论会隐藏重要差异。",
+                        "id": "hsk4-nature-technology-explanation-comparison-variation:source-0-2",
+                        "meaningVi": "Nhóm không dùng trung bình năm chọn một người thắng, mà báo năng lượng, nhiệt, sáng, hài lòng riêng. Bước sau so chi phí bảo trì. Nghiên cứu cho thấy “hiệu quả tốt” phải nói mục tiêu/điều kiện, nếu không kết luận che khác biệt quan trọng.",
+                        "pinyin": "Xiǎozǔ méiyǒu yòng quán nián píngjūn shù juédìng wéiyī yōushèng zhě, ér shì fēnbié bàogào néng hào, wēndù, liàngdù hé mǎnyì dù. Xià yībù hái yào bǐjiào wéihù fèiyòng. Yánjiū shuōmíng “xiàoguǒ hǎo” bìxū shuōmíng zhēnduì shénme mùbiāo hé tiáojiàn, fǒuzé tóng yīgè jiélùn huì yǐncáng zhòngyào chāyì."
+                      }
+                    ]
+                  },
+                  "title": "Hiệu quả khác nhau của hai loại cửa sổ tiết kiệm năng lượng"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Hiệu quả khác nhau của hai loại cửa sổ tiết kiệm năng lượng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Lập bản đồ thông tin trước khi trả lời; mỗi nút phải dẫn đoạn nguồn.",
+                    "nodes": [
+                      {
+                        "id": "double",
+                        "label": "线索一",
+                        "meaningVi": "Giữ nhiệt đông ổn định.",
+                        "note": "Kính hai lớp · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "shade",
+                        "label": "线索二",
+                        "meaningVi": "Giảm nóng hè nhưng có thể tối.",
+                        "note": "Che tự động · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "metrics",
+                        "label": "线索三",
+                        "meaningVi": "Năng lượng, nhiệt, sáng, hài lòng.",
+                        "note": "Chỉ số · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "conditions",
+                        "label": "线索四",
+                        "meaningVi": "Mùa và thời tiết.",
+                        "note": "Điều kiện · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "next",
+                        "label": "线索五",
+                        "meaningVi": "Chi phí bảo trì.",
+                        "note": "Thiếu · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:map-0",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dựng quan hệ trong Nguồn A"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:map:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sơ đồ bằng chứng · Nguồn A"
+            },
+            {
+              "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:page:teach",
+              "stage": "understand",
+              "title": "尽管: mặc dù hay cứ việc?",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:note",
+                  "kind": "explanation",
+                  "title": "尽管",
+                  "body": "尽管 (jǐnguǎn) có hai cách dùng thường gặp. 尽管 A，但是/还是 B thừa nhận A nhưng B vẫn đúng: “mặc dù”. Trong lời cho phép/khuyến khích như 有问题尽管问, 尽管 nghĩa là “cứ việc”, không cần vế 但是. Đọc cả câu để phân biệt. Không dùng 尽管 A，就 B như một mẫu nguyên nhân–kết quả. Mẫu đầu dưới đây dựa vào nguồn cửa sổ; mẫu thứ hai là tình huống trao đổi bổ sung.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "尽管自动遮阳窗让夏季的房间更凉快，但是有些居民觉得室内变暗了。",
+                  "pinyin": "Jǐnguǎn zìdòng zhēyáng chuāng ràng xiàjì de fángjiān gèng liángkuai, dànshì yǒuxiē jūmín juéde shìnèi biàn àn le.",
+                  "meaningVi": "Mặc dù cửa sổ che nắng tự động làm phòng mát hơn vào mùa hè, một số cư dân lại thấy trong nhà tối đi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "研究人员说：“有不清楚的地方，大家尽管问，我们会解释这些数据。”",
+                  "pinyin": "Yánjiū rényuán shuō: “Yǒu bù qīngchu de dìfang, dàjiā jǐnguǎn wèn, wǒmen huì jiěshì zhèxiē shùjù.”",
+                  "meaningVi": "Nhà nghiên cứu nói: “Có chỗ nào chưa rõ, mọi người cứ hỏi, chúng tôi sẽ giải thích số liệu này.”",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 尽管",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Trong lời “有不清楚的地方，大家尽管问”, người nói muốn làm gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Thừa nhận mọi người đã hỏi nhưng từ chối giải thích.",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Khẳng định dù hỏi cũng không thể hiểu.",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Khuyến khích mọi người cứ hỏi nếu chưa rõ.",
+                        "feedback": "尽管问 là lời khuyến khích “cứ hỏi”. Câu không có hai sự việc tương phản theo mẫu nhượng bộ; không dịch thành “mặc dù hỏi”."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "尽管问 là lời khuyến khích “cứ hỏi”. Câu không có hai sự việc tương phản theo mẫu nhượng bộ; không dịch thành “mặc dù hỏi”.",
+                    "learningTarget": {
+                      "objective": "尽管: mặc dù hay cứ việc?",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-01389"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Nguồn đối chiếu kết quả theo điều kiện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bài đọc dùng hai cửa sổ để chỉ ra điều gì?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Nguồn đối chiếu kết quả theo điều kiện.",
+                        "id": "o-0",
+                        "text": "Hiệu quả phụ thuộc mục tiêu, mùa và chỉ số"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn đối chiếu kết quả theo điều kiện. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-1",
+                        "text": "Một loại luôn tốt hơn"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn đối chiếu kết quả theo điều kiện. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-2",
+                        "text": "Cư dân không quan tâm ánh sáng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn đối chiếu kết quả theo điều kiện. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-3",
+                        "text": "Quy định cấm kính hai lớp"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bài đọc dùng hai cửa sổ để chỉ ra điều gì?\nTìm lại đoạn 1, 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-0-0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ý chính"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:0:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Ý chính"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đoạn 2 nêu cảm nhận ánh sáng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nhược điểm được cư dân nêu về che tự động là gì?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Đoạn 2 nêu cảm nhận ánh sáng.",
+                        "id": "o-0",
+                        "text": "Phòng có thể tối hơn"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn 2 nêu cảm nhận ánh sáng. Đối chiếu lại đoạn 2.",
+                        "id": "o-1",
+                        "text": "Mất nhiệt đông nhiều hơn chắc chắn"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn 2 nêu cảm nhận ánh sáng. Đối chiếu lại đoạn 2.",
+                        "id": "o-2",
+                        "text": "Không hoạt động ngày nắng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn 2 nêu cảm nhận ánh sáng. Đối chiếu lại đoạn 2.",
+                        "id": "o-3",
+                        "text": "Không có cửa"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Nhược điểm được cư dân nêu về che tự động là gì?\nTìm lại đoạn 2 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-0-1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chi tiết có căn cứ"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:0:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Chi tiết có căn cứ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Nhiều kết quả cần báo riêng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Vì sao không dùng một trung bình để chọn?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Nhiều kết quả cần báo riêng.",
+                        "id": "o-0",
+                        "text": "Mùa và chỉ số cho kết quả khác"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nhiều kết quả cần báo riêng. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-1",
+                        "text": "Hai tòa khác thế kỷ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nhiều kết quả cần báo riêng. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-2",
+                        "text": "Không có dữ liệu nhiệt"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nhiều kết quả cần báo riêng. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-3",
+                        "text": "Cư dân không trả lời"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Vì sao không dùng một trung bình để chọn?\nTìm lại đoạn 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-0-2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nối bằng chứng nhiều đoạn"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:0:2",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Nối bằng chứng nhiều đoạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Chi phí là chiều đánh giá còn thiếu. Giới hạn: Có thể suy ra mục tiêu mở rộng so sánh, chưa biết loại nào rẻ hơn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Có thể suy ra vai trò của chi phí bảo trì trong bước sau?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Chi phí là chiều đánh giá còn thiếu.",
+                        "id": "o-0",
+                        "text": "Bổ sung một tiêu chí chưa có vào đánh giá"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu mở rộng so sánh, chưa biết loại nào rẻ hơn. Đối chiếu lại đoạn 3.",
+                        "id": "o-1",
+                        "text": "Thay mọi chỉ số hiệu quả"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu mở rộng so sánh, chưa biết loại nào rẻ hơn. Đối chiếu lại đoạn 3.",
+                        "id": "o-2",
+                        "text": "Chứng minh một cửa thắng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu mở rộng so sánh, chưa biết loại nào rẻ hơn. Đối chiếu lại đoạn 3.",
+                        "id": "o-3",
+                        "text": "Bỏ ý kiến cư dân"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Có thể suy ra vai trò của chi phí bảo trì trong bước sau?\nTìm lại đoạn 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-0-3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Suy luận có giới hạn"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:0:3",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Suy luận có giới hạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "explanation": "Bằng chứng có lợi ích và đánh đổi.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nhận định nào quá rộng?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Bằng chứng có lợi ích và đánh đổi. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-0",
+                        "text": "Kính hai lớp ổn định trong dữ liệu đông"
+                      },
+                      {
+                        "feedback": "Đúng: Bằng chứng có lợi ích và đánh đổi.",
+                        "id": "o-1",
+                        "text": "Che tự động tốt hơn mọi mặt quanh năm"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Bằng chứng có lợi ích và đánh đổi. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-2",
+                        "text": "Che giảm nhiệt chiều hè nhiều hơn"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Bằng chứng có lợi ích và đánh đổi. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-3",
+                        "text": "Cần nói rõ mục tiêu"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Nhận định nào quá rộng?\nTìm lại đoạn 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-0-4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn kết luận"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:0:4",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn A · Giới hạn kết luận"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:source-1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc ba đoạn Nguồn B. Tìm ý chính, chi tiết và giới hạn. Ghi đoạn làm bằng chứng trước khi mở Pinyin/nghĩa.",
+                    "notePrompt": "Nguồn B: điều gì được nói rõ, điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "一座工厂从上世纪起使用燃料油。去年停止用油，改成电加热。附近监测站发现黑烟变得少见，某种空气污染下降三成，于是有人说能源更换解决了全部环境问题。",
+                        "id": "hsk4-nature-technology-explanation-comparison-variation:source-1-0",
+                        "meaningVi": "Một nhà máy dùng dầu từ thế kỷ trước. Năm ngoái ngừng dầu, chuyển điện. Trạm gần đó thấy khói đen hiếm và một chất ô nhiễm giảm ba phần mười, nên có người nói đổi năng lượng giải mọi vấn đề.",
+                        "pinyin": "Yīzuò gōngchǎng cóng shàng shìjì qǐ shǐyòng ránliào yóu. Qùnián tíngzhǐ yòng yóu, gǎi chéng diàn jiārè. Fùjìn jiāncè zhàn fāxiàn hēi yān biàn dé shǎojiàn, mǒu zhǒng kōngqì wūrǎn xiàjiàng sānchéng, yúshì yǒurén shuō néngyuán gēnghuàn jiějuéle quánbù huánjìng wèntí."
+                      },
+                      {
+                        "hanzi": "进一步比较显示，工厂本地排放确实下降，但用电在高峰期来自远处燃煤电站；同时生产量也减少了一成。若只看厂门口，效果明显；若计算整个电力来源和生产变化，解释就更复杂。",
+                        "id": "hsk4-nature-technology-explanation-comparison-variation:source-1-1",
+                        "meaningVi": "So thêm cho thấy phát thải tại chỗ giảm, nhưng điện cao điểm từ nhà máy than xa; sản lượng cũng giảm một phần mười. Chỉ nhìn cổng thì hiệu quả rõ, tính nguồn điện và sản lượng thì phức tạp.",
+                        "pinyin": "Jìnyībù bǐjiào xiǎnshì, gōngchǎng běndì páifàng quèshí xiàjiàng, dàn yòng diàn zài gāofēng qī láizì yuǎn chù rán méi diànzhàn; tóngshí shēngchǎn liàng yě jiǎnshǎole yī chéng. Ruò zhǐ kàn chǎng ménkǒu, xiàoguǒ míngxiǎn; ruò jìsuàn zhěnggè diànlì láiyuán hé shēngchǎn biànhuà, jiěshì jiù gèng fùzá."
+                      },
+                      {
+                        "hanzi": "研究人员提出两种口径：本地空气质量和全系统排放。前者已有改善证据，后者仍需电力数据。停止用油是重要变化，却不能单独回答全球或全地区污染是否下降。报告将同时保留两种结果。",
+                        "id": "hsk4-nature-technology-explanation-comparison-variation:source-1-2",
+                        "meaningVi": "Nhà nghiên cứu dùng hai phạm vi: chất lượng không khí địa phương và phát thải toàn hệ. Cái đầu có bằng chứng cải thiện, cái sau cần dữ liệu điện. Ngừng dầu quan trọng nhưng không tự trả lời ô nhiễm toàn vùng/toàn cầu; báo cáo giữ cả hai.",
+                        "pinyin": "Yánjiū rényuán tíchū liǎng zhǒng kǒujìng: Běndì kōngqì zhí liàng hé quán xìtǒng páifàng. Qiánzhě yǐ yǒu gǎishàn zhèngjù, hòu zhě réng xū diànlì shùjù. Tíngzhǐ yòng yóu shì zhòngyào biànhuà, què bùnéng dāndú huídá quánqiú huò quán dìqū wūrǎn shìfǒu xiàjiàng. Bàogào jiāng tóngshí bǎoliú liǎng zhǒng jiéguǒ."
+                      }
+                    ]
+                  },
+                  "title": "Sau khi ngừng dùng dầu, ô nhiễm có giảm không"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Sau khi ngừng dùng dầu, ô nhiễm có giảm không"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Lập bản đồ thông tin trước khi trả lời; mỗi nút phải dẫn đoạn nguồn.",
+                    "nodes": [
+                      {
+                        "id": "change",
+                        "label": "线索一",
+                        "meaningVi": "Dầu sang điện.",
+                        "note": "Thay đổi · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "local",
+                        "label": "线索二",
+                        "meaningVi": "Khói hiếm và một chất giảm.",
+                        "note": "Kết quả địa phương · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "confound",
+                        "label": "线索三",
+                        "meaningVi": "Sản lượng giảm.",
+                        "note": "Biến khác · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "upstream",
+                        "label": "线索四",
+                        "meaningVi": "Điện than ở xa.",
+                        "note": "Nguồn ngoài · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "scopes",
+                        "label": "线索五",
+                        "meaningVi": "Địa phương và toàn hệ.",
+                        "note": "Hai phạm vi · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:map-1",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dựng quan hệ trong Nguồn B"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:map:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sơ đồ bằng chứng · Nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Nguồn sửa claim toàn bộ bằng hai phạm vi.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "văn bản nguồn B phân biệt hai phạm vi nào?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Nguồn sửa claim toàn bộ bằng hai phạm vi.",
+                        "id": "o-0",
+                        "text": "Ô nhiễm địa phương và phát thải toàn hệ thống"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn sửa claim toàn bộ bằng hai phạm vi. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-1",
+                        "text": "Mùa đông và mùa hè"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn sửa claim toàn bộ bằng hai phạm vi. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-2",
+                        "text": "Công nhân và cư dân"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn sửa claim toàn bộ bằng hai phạm vi. Đối chiếu lại đoạn 1, 2, 3.",
+                        "id": "o-3",
+                        "text": "Dầu và nước"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "văn bản nguồn B phân biệt hai phạm vi nào?\nTìm lại đoạn 1, 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-1-0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ý chính"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:1:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Ý chính"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đây là biến cạnh tranh.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Yếu tố nào ngoài đổi nhiên liệu cũng thay đổi?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Đây là biến cạnh tranh.",
+                        "id": "o-0",
+                        "text": "Sản lượng giảm một phần mười"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đây là biến cạnh tranh. Đối chiếu lại đoạn 2.",
+                        "id": "o-1",
+                        "text": "Nhà máy chuyển địa điểm"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đây là biến cạnh tranh. Đối chiếu lại đoạn 2.",
+                        "id": "o-2",
+                        "text": "Trạm ngừng đo"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đây là biến cạnh tranh. Đối chiếu lại đoạn 2.",
+                        "id": "o-3",
+                        "text": "Không còn dùng điện"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Yếu tố nào ngoài đổi nhiên liệu cũng thay đổi?\nTìm lại đoạn 2 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-1-1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chi tiết có căn cứ"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:1:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Chi tiết có căn cứ"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đo địa phương hỗ trợ claim hẹp.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bằng chứng nào hỗ trợ cải thiện địa phương nhưng chưa đủ cho toàn hệ?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Đo địa phương hỗ trợ claim hẹp.",
+                        "id": "o-0",
+                        "text": "Khói đen ít và chất ô nhiễm gần nhà máy giảm"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đo địa phương hỗ trợ claim hẹp. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-1",
+                        "text": "Điện đến từ xa"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đo địa phương hỗ trợ claim hẹp. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-2",
+                        "text": "Nhà máy tồn tại lâu"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đo địa phương hỗ trợ claim hẹp. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-3",
+                        "text": "Báo cáo có hai mục"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bằng chứng nào hỗ trợ cải thiện địa phương nhưng chưa đủ cho toàn hệ?\nTìm lại đoạn 1, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-1-2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nối bằng chứng nhiều đoạn"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:1:2",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Nối bằng chứng nhiều đoạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Điện xa có thể mang phát thải ngoài phạm vi đo gần. Giới hạn: Có thể suy ra mục tiêu tính toàn hệ, chưa biết tổng phát thải tăng hay giảm.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Có thể suy ra vì sao cần dữ liệu nguồn điện?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Điện xa có thể mang phát thải ngoài phạm vi đo gần.",
+                        "id": "o-0",
+                        "text": "Để tính phát thải chuyển ra ngoài địa điểm"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu tính toàn hệ, chưa biết tổng phát thải tăng hay giảm. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-1",
+                        "text": "Để tăng sản lượng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu tính toàn hệ, chưa biết tổng phát thải tăng hay giảm. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-2",
+                        "text": "Để đo khói tại cổng"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Có thể suy ra mục tiêu tính toàn hệ, chưa biết tổng phát thải tăng hay giảm. Đối chiếu lại đoạn 2, 3.",
+                        "id": "o-3",
+                        "text": "Để quay lại dùng dầu"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Có thể suy ra vì sao cần dữ liệu nguồn điện?\nTìm lại đoạn 2, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-1-3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Suy luận có giới hạn"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:1:3",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Suy luận có giới hạn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Claim hẹp có dữ liệu, claim rộng còn thiếu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kết luận nào được phép?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: Claim hẹp có dữ liệu, claim rộng còn thiếu.",
+                        "id": "o-0",
+                        "text": "Không khí gần nhà máy có dấu hiệu cải thiện"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Claim hẹp có dữ liệu, claim rộng còn thiếu. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-1",
+                        "text": "Mọi ô nhiễm toàn cầu đã được giải quyết"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Claim hẹp có dữ liệu, claim rộng còn thiếu. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-2",
+                        "text": "Điện không có phát thải"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Claim hẹp có dữ liệu, claim rộng còn thiếu. Đối chiếu lại đoạn 1, 3.",
+                        "id": "o-3",
+                        "text": "Sản lượng không thay đổi"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Kết luận nào được phép?\nTìm lại đoạn 1, 3 trước khi quyết định.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:question-1-4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn kết luận"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:question:1:4",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Nguồn B · Giới hạn kết luận"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n双层窗在冬季保温较稳定，自动遮阳窗在夏季降温更多，却可能降低亮度；如果只用全年平均数，就会隐藏季节、目标和满意度差异。工厂停止用油后，厂门口黑烟和一种污染下降，但生产量也变少，电力还可能来自远处燃煤电站。两份材料都表明范围决定结论：局部指标可以支持局部改善，不能自动扩大为全年最佳或全系统减排；维护费用和电力来源仍需补充。\nKính hai lớp giữ nhiệt đông ổn định, che tự động giảm nóng hè nhiều hơn nhưng có thể giảm sáng; trung bình năm sẽ che mùa, mục tiêu, hài lòng. Sau khi ngừng dầu, khói và một chất tại cổng giảm nhưng sản lượng cũng giảm, điện có thể từ than xa. Hai nguồn cho thấy phạm vi quyết định kết luận: chỉ số cục bộ hỗ trợ cải thiện cục bộ, không tự mở rộng thành tốt nhất quanh năm hay giảm phát thải toàn hệ; chi phí bảo trì và nguồn điện còn thiếu.\nTự soát và sửa; xem mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết 120–220 chữ Hán so sánh cách phạm vi và chỉ số làm thay đổi kết luận về cửa sổ tiết kiệm và chuyển từ dầu sang điện.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "hai loại cửa",
+                        "id": "criterion-0",
+                        "label": "hai loại cửa"
+                      },
+                      {
+                        "guidance": "mùa/chỉ số/đánh đổi",
+                        "id": "criterion-1",
+                        "label": "mùa/chỉ số/đánh đổi"
+                      },
+                      {
+                        "guidance": "đổi dầu sang điện",
+                        "id": "criterion-2",
+                        "label": "đổi dầu sang điện"
+                      },
+                      {
+                        "guidance": "phạm vi địa phương/toàn hệ",
+                        "id": "criterion-3",
+                        "label": "phạm vi địa phương/toàn hệ"
+                      },
+                      {
+                        "guidance": "dữ liệu còn thiếu",
+                        "id": "criterion-4",
+                        "label": "dữ liệu còn thiếu"
+                      },
+                      {
+                        "guidance": "Mọi kết luận có đoạn nguồn; không khái quát quá hai trường hợp.",
+                        "id": "criterion-5",
+                        "label": "Mọi kết luận có đoạn nguồn; không khái quát quá hai trường hợp."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết 120–220 chữ Hán so sánh cách phạm vi và chỉ số làm thay đổi kết luận về cửa sổ tiết kiệm và chuyển từ dầu sang điện.\nĐánh dấu ít nhất hai dữ kiện ở mỗi nguồn; chỉ mở mẫu sau bản đầu.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tổng hợp hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "hai loại cửa\nmùa/chỉ số/đánh đổi\nđổi dầu sang điện\nphạm vi địa phương/toàn hệ\ndữ liệu còn thiếu\nGhi lại ít nhất một chỗ bạn đã sửa về dữ kiện, quan hệ hoặc phạm vi. Thử tóm lược khi che nguồn và mẫu; hoàn thành trang chưa có nghĩa đã thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự sửa trước khi tiếp tục"
+                }
+              ],
+              "id": "hsk4-nature-technology-explanation-comparison-variation:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Kiểm lại lập luận"
+            },
+            {
+              "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 尽管 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-nature-technology-explanation-comparison-variation:vocab-context-r10:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Đổi sang học sửa xe đạp: trời lạnh nhưng lớp vẫn diễn ra; giáo viên mời học viên hỏi khi chưa hiểu. Viết 3–4 câu, dùng 尽管 một lần với nghĩa “mặc dù” và một lần với nghĩa “cứ việc”. Làm rõ hai chức năng, không nối thành quan hệ nguyên nhân.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "尽管…还是… nêu lạnh nhưng lớp vẫn diễn ra.",
+                        "guidance": "尽管…还是… nêu lạnh nhưng lớp vẫn diễn ra."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "尽管问 khuyến khích hỏi, không phải một vế mặc dù.",
+                        "guidance": "尽管问 khuyến khích hỏi, không phải một vế mặc dù."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy rằng trời lạnh là nguyên nhân tổ chức lớp.",
+                        "guidance": "Không suy rằng trời lạnh là nguyên nhân tổ chức lớp."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n尽管今天天气很冷，修自行车的课还是照常进行。老师先介绍工具，再示范怎么检查车轮。他对大家说：“有不明白的地方，尽管问。”\nJǐnguǎn jīntiān tiānqì hěn lěng, xiū zìxíngchē de kè háishi zhàocháng jìnxíng. Lǎoshī xiān jièshào gōngjù, zài shìfàn zěnme jiǎnchá chēlún. Tā duì dàjiā shuō: “Yǒu bù míngbai de dìfang, jǐnguǎn wèn.”\nMặc dù hôm nay trời rất lạnh, lớp sửa xe đạp vẫn diễn ra bình thường. Giáo viên giới thiệu dụng cụ rồi làm mẫu cách kiểm tra bánh xe. Thầy nói: “Có chỗ nào chưa hiểu thì cứ hỏi.”\n尽管…还是… nêu lạnh nhưng lớp vẫn diễn ra.\n尽管问 khuyến khích hỏi, không phải một vế mặc dù.\nKhông suy rằng trời lạnh là nguyên nhân tổ chức lớp.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "尽管: mặc dù hay cứ việc?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-01389"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/47-REVIEW-HSK4-NATURE-TECHNOLOGY.md",
+          "humanReviewed": false,
+          "lessonId": "hsk4-nature-technology-explanation-comparison-variation",
+          "reviewedAt": "2026-09-28",
+          "scope": "Six HSK4 nature/technology long-form reading lessons; distinct sources, evidence-bound inference, causal limits and cross-source synthesis. Local AI-assisted review only. Source B is transcript reading, not native listening evidence; self-check writing is not independent mastery.",
+          "sourceContentSha256": "sha256:3e1c7913d3ce93d2dcaae863222e18d73d4c1f7a80d9200540a732f5c9a0c6d4"
+        },
+        "objectiveVi": "Đọc hai văn bản HSK4 nhiều đoạn để đối chiếu phương án hoặc hiện tượng và đánh dấu ngoại lệ thay vì khái quát quá mức; dẫn dòng nguồn cho mọi kết luận và chưa chấm mastery trước review.",
+        "pitfallVi": "Dữ kiện của một nguồn không tự chuyển sang nguồn kia; giọng tổng hợp và transcript không tạo bằng chứng nghe độc lập.",
+        "prerequisites": [
+          "hsk4-nature-technology-explanation-cause-condition-result"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Nêu kết luận sau bằng chứng, giữ rõ nguồn và đoạn; giới hạn kết quả trong hai trường hợp đang đọc.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-pattern:hsk4-nature-technology-explanation-comparison-variation"
+        ],
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-comparison-variation"
+        ],
+        "sourceTaskIds": [
+          "hsk4-local-task:hsk4-nature-technology-explanation-comparison-variation"
+        ],
+        "sourceTopicIds": [
+          "hsk4-topic-049",
+          "hsk4-topic-050"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01030",
+          "hsk-vocab-01060",
+          "hsk-vocab-01095",
+          "hsk-vocab-01131",
+          "hsk-vocab-01168",
+          "hsk-vocab-01201",
+          "hsk-vocab-01242",
+          "hsk-vocab-01278",
+          "hsk-vocab-01315",
+          "hsk-vocab-01353",
+          "hsk-vocab-01389",
+          "hsk-vocab-01420",
+          "hsk-vocab-01457",
+          "hsk-vocab-01493",
+          "hsk-vocab-01531",
+          "hsk-vocab-01563",
+          "hsk-vocab-01602",
+          "hsk-vocab-01635",
+          "hsk-vocab-01672",
+          "hsk-vocab-01709",
+          "hsk-vocab-01742",
+          "hsk-vocab-01780",
+          "hsk-vocab-01816",
+          "hsk-vocab-01846",
+          "hsk-vocab-01885",
+          "hsk-vocab-01922",
+          "hsk-vocab-01960",
+          "hsk-vocab-01997"
+        ],
+        "targetLessonId": "hsk4-nature-technology-explanation-comparison-variation",
+        "titleZh": "HSK四级 · 16",
+        "vocabulary": [
+          "hsk-vocab-01030",
+          "hsk-vocab-01060",
+          "hsk-vocab-01095",
+          "hsk-vocab-01131",
+          "hsk-vocab-01168",
+          "hsk-vocab-01201",
+          "hsk-vocab-01242",
+          "hsk-vocab-01278",
+          "hsk-vocab-01315",
+          "hsk-vocab-01353",
+          "hsk-vocab-01389",
+          "hsk-vocab-01420",
+          "hsk-vocab-01457",
+          "hsk-vocab-01493",
+          "hsk-vocab-01531",
+          "hsk-vocab-01563",
+          "hsk-vocab-01602",
+          "hsk-vocab-01635",
+          "hsk-vocab-01672",
+          "hsk-vocab-01709",
+          "hsk-vocab-01742",
+          "hsk-vocab-01780",
+          "hsk-vocab-01816",
+          "hsk-vocab-01846",
+          "hsk-vocab-01885",
+          "hsk-vocab-01922",
+          "hsk-vocab-01960",
+          "hsk-vocab-01997"
+        ]
+      }
+    }
+  ]
+}

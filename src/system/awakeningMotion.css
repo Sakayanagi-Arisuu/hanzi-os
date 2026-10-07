@@ -1,0 +1,94 @@
+/* Art direction varies by module; only the scheduling budget is shared.
+   No fixed overlays, continuous particles, or permanently promoted layers. */
+.awakening-seal { position: relative; display: block; flex: 0 0 auto; }
+.awakening-seal-halo { position: absolute; inset: -3px; width: calc(100% + 6px); height: calc(100% + 6px); color: #b7d99c; opacity: .65; pointer-events: none; transform-origin: center; }
+.awakening-seal-halo path { opacity: .35; }
+.awakening-vignette { position: absolute; inset: 0; margin: auto; width: min(100%, 180px); height: min(100%, 180px); color: #a5efcf; pointer-events: none; z-index: 2; overflow: visible; }
+.awakening-vignette g[data-effect] { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.awakening-vignette-trial, .awakening-vignette-premium { color: #f1d891; }
+.awakening-vignette-path { width: min(55%, 240px); height: min(90%, 140px); inset-inline: auto 5%; }
+.app-frame[data-awakening-family="voice"] .awakening-seal-halo { color: #8ae7df; }
+.app-frame[data-awakening-family="trial"] .awakening-seal-halo,
+.app-frame[data-awakening-family="premium"] .awakening-seal-halo { color: #edcd88; }
+.app-frame[data-system-motion="reduced"] .awakening-seal-halo { opacity: .35; }
+.app-frame[data-awakening-family][data-system-motion] .content-page,
+.app-frame[data-awakening-family][data-system-motion] .dashboard-page {
+  /* Replace the old generic whole-page 3D entrance with local choreography. */
+  animation: none;
+}
+
+.app-frame[data-awakening-family] :is(.side-rail, .core-orbit,
+  .sound-orb > span, .result-sigil span, .confirm-sigil span, .clear-shield span,
+  .sys-holo-scanline, .sys-holo-online > svg,
+  .sys-holo-orbital-field i, .sys-holo-rank-orbit i, .sys-holo-rank-orbit b,
+  .sys-promotion-sigil i),
+.app-frame[data-awakening-family] :is(.side-rail, .hero-core-meter, .sys-holo-orbital-field,
+  .mission-primary, .lesson-result-screen, .assessment-result)::before,
+.app-frame[data-awakening-family] :is(.side-rail, .hero-core-meter, .sys-holo-orbital-field,
+  .mission-primary, .lesson-result-screen, .assessment-result)::after {
+  animation-iteration-count: 1;
+}
+
+/* Weak devices retain artwork and action feedback without repeated blur passes. */
+.app-frame[data-motion-quality="light"] *,
+.app-frame[data-motion-quality="light"] *::before,
+.app-frame[data-motion-quality="light"] *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.app-frame[data-motion-quality="light"] :is(.sys-holo-scanline, .hero-scan) { display: none; }
+.app-frame[data-motion-quality="light"] .side-rail::after { animation: none; }
+.app-frame[data-motion-quality="light"] :is(.path-level-art, .spirit-beast-seal, .path-route-art, .jade-seal, .core-orbit) { filter: none; }
+.app-frame[data-motion-idle="true"] *,
+.app-frame[data-motion-idle="true"] *::before,
+.app-frame[data-motion-idle="true"] *::after { animation-play-state: paused !important; }
+.app-frame [data-motion-visible="false"],
+.app-frame [data-motion-visible="false"] *,
+.app-frame [data-motion-visible="false"]::before,
+.app-frame [data-motion-visible="false"]::after { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .app-frame *, .app-frame *::before, .app-frame *::after {
+    animation: none !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Finite realm ceremonies: bold silhouettes, compositor transforms, no blur. */
+.app-frame .awakening-vignette { width: min(100%, 280px); height: min(100%, 280px); inset: 0; color: #8fffd2; }
+.awakening-vignette g[data-act] { transform-box: view-box; transform-origin: 100px 100px; opacity: .55; }
+.awakening-vignette .realm-art-gold { color: #ffe2a0; }
+.awakening-vignette g[data-act="shock"], .awakening-vignette g[data-act="sparks"] { opacity: 0; }
+.awakening-vignette-path { stroke-width: 1.8; }
+.awakening-seal[type="button"] { border: 0; padding: 0; background: transparent; color: inherit; cursor: pointer; min-width: 44px; min-height: 44px; }
+.awakening-seal[type="button"]:focus-visible { outline: 2px solid #ffe2a0; outline-offset: 4px; }
+
+.app-frame .lesson-node-icon { position: relative; }
+.app-frame .lesson-node.current .lesson-node-icon > .awakening-vignette { inset: 50% auto auto 50%; width: 64px; height: 64px; max-width: none; transform: translate(-50%, -50%); opacity: .75; }
+
+/* Dedicated art space keeps glyphs off headings, controls and learning text. */
+.realm-emblem { position: relative; float: right; width: 132px; height: 132px; margin: 0 0 12px 18px; flex: 0 0 132px; pointer-events: none; }
+@media (max-width: 760px) { .realm-emblem { width: 88px; height: 88px; flex-basis: 88px; margin-left: 10px; } }
+
+.realm-emblem.realm-emblem-compact { width: 44px; height: 44px; flex-basis: 44px; margin: 0 8px; }
+.jade-lesson-heading > .jade-seal { position: relative; }
+/* The lobby ceremony sits beside its copy, without adding a tall extra row. */
+.memory-lobby-hero { display: grid; grid-template-columns: minmax(0, 1fr) 132px; column-gap: 16px; }
+.memory-lobby-hero > .realm-emblem { grid-column: 2; grid-row: 1 / span 4; margin: 0; align-self: center; }
+.memory-lobby-hero > :not(.realm-emblem) { grid-column: 1; }
+@media (max-width: 760px) { .memory-lobby-hero { grid-template-columns: minmax(0, 1fr) 88px; gap: 8px; } }
+
+.sys-guild .profile-hero > div:first-child { width: 100%; }
+.app-frame .rem-session-emblem { position: relative; }
+
+/* Keep the microphone, weakness count and caption above the peripheral ceremony. */
+.app-frame .rem-atlas-core > :not(.awakening-vignette),
+.app-frame .jade-instrument-caption { position: relative; z-index: 3; }
+/* Dictionary art occupies the header's existing space, never a new flow row. */
+.lex-experience .lex-heading { position: relative; padding-inline-end: 100px; }
+.lex-experience .lex-heading .realm-emblem { position: absolute; top: 0; right: 0; width: 88px; height: 88px; margin: 0; float: none; contain: paint; }
+@media (max-width: 760px) {
+  .lex-experience .lex-heading { padding-inline-end: 72px; }
+  .lex-experience .lex-heading .realm-emblem { width: 64px; height: 64px; }
+}

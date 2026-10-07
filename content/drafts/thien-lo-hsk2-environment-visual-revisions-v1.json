@@ -1,0 +1,3584 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "baseRevisionId": "a6702a95-3d26-4812-a340-0371ec07ed31",
+      "baseContentSha256": "sha256:be1489114235017615a59ccc7ef221ea0f650bb40061a5cef6d476fc14edbc0e",
+      "changedPageIds": [
+        "hsk2-person-events-environment-lesson-01:v2:context",
+        "hsk2-person-events-environment-lesson-01:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Dùng hồ sơ mới: Trần Minh (陈明 Chén Míng) tóc ngắn, cao hơn Lý Hoa (李华 Lǐ Huá), nhưng Trương Hải (张海 Zhāng Hǎi) cao nhất trong nhóm ba người. Trần Minh hồi nhỏ sống ở Thượng Hải, hiện sống ở Thành Đô, thích bơi nhất và bơi cùng bạn vào chủ nhật. Viết ít nhất sáu lượt để nhận diện, so sánh và hỏi tiếp về lai lịch/thói quen; không suy Trần Minh cao nhất.",
+        "conceptVi": "Nhận đúng người rồi hỏi tiếp về thói quen",
+        "dialogue": [
+          {
+            "hanzi": "左边头发很长的人是李梅吗？",
+            "meaningVi": "Người tóc dài bên trái là Lý Mai phải không?",
+            "pinyin": "Zuǒbian tóufa hěn cháng de rén shì Lǐ Méi ma?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "对。中间是王兰，她比李梅高。",
+            "meaningVi": "Đúng. Ở giữa là Vương Lan, cô ấy cao hơn Lý Mai.",
+            "pinyin": "Duì. Zhōngjiān shì Wáng Lán, tā bǐ Lǐ Méi gāo.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "这三个人里，谁最高？",
+            "meaningVi": "Trong ba người này, ai cao nhất?",
+            "pinyin": "Zhè sān ge rén lǐ, shéi zuì gāo?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "右边的刘芳最高。",
+            "meaningVi": "Lưu Phương ở bên phải cao nhất.",
+            "pinyin": "Yòubian de Liú Fāng zuì gāo.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "李梅来自哪儿？",
+            "meaningVi": "Lý Mai đến từ đâu?",
+            "pinyin": "Lǐ Méi láizì nǎr?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "她来自成都，小时候住在成都，现在住在北京。",
+            "meaningVi": "Cô ấy đến từ Thành Đô, hồi nhỏ sống ở Thành Đô, hiện sống ở Bắc Kinh.",
+            "pinyin": "Tā láizì Chéngdū, xiǎoshíhou zhù zài Chéngdū, xiànzài zhù zài Běijīng.",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "她有什么爱好？常跟谁一起运动？",
+            "meaningVi": "Cô ấy có sở thích gì? Thường chơi thể thao cùng ai?",
+            "pinyin": "Tā yǒu shénme àihào? Cháng gēn shéi yìqǐ yùndòng?",
+            "speaker": "Lượt 7"
+          },
+          {
+            "hanzi": "她最喜欢踢足球，每周六都跟同学一起踢。",
+            "meaningVi": "Cô ấy thích đá bóng nhất, thứ bảy hằng tuần đều đá cùng bạn học.",
+            "pinyin": "Tā zuì xǐhuan tī zúqiú, měi zhōu liù dōu gēn tóngxué yìqǐ tī.",
+            "speaker": "Lượt 8"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "李梅头发很长，刘芳是这三个人里最高的。",
+            "answerMeaningVi": "Lý Mai tóc dài, Lưu Phương cao nhất trong ba người.",
+            "answerPinyin": "Lǐ Méi tóufa hěn cháng, Liú Fāng shì zhè sān ge rén lǐ zuì gāo de.",
+            "distractors": [
+              "王兰比李梅高，所以王兰最高。",
+              "李梅现在住在成都。"
+            ],
+            "explanationVi": "Đúng: giữ đúng người tóc dài và người cao nhất trong phạm vi ba người.",
+            "promptVi": "Theo đúng nhóm ba người trong bài, câu nào chính xác?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "A比B高 chỉ A cao hơn B; chưa đủ kết luận A cao nhất. 最 cần phạm vi so sánh: 这三个人里，刘芳最高 là Lưu Phương cao nhất trong ba người đang xét. Không suy sở thích hoặc tính cách từ chiều cao.\n头发很长 mô tả tóc dài; 长 đọc cháng trong nghĩa này. 个子高 nói vóc người cao. 小时候 đặt thông tin vào thời thơ ấu, không nhất thiết đúng ở hiện tại. 她小时候住在成都，现在住在北京 tách rõ hai mốc.\n有什么爱好？ hỏi sở thích. 最喜欢… nói thích nhất; 经常/每周… nói thói quen thực tế. Hỏi tiếp bằng 跟谁/什么时候/在哪儿 giúp nối thông tin, thay vì chuyển chủ đề đột ngột. Mọi tên và lai lịch ở đây là vai giả định, không cần khai thông tin cá nhân thật.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：头发很短的人是陈明吗？ B：对，他比李华高。 A：这三个人里，谁最高？ B：张海最高。 A：陈明小时候住在哪儿？现在呢？ B：小时候住在上海，现在住在成都。 A：他最喜欢什么运动？跟谁一起去？ B：他最喜欢游泳，每周日跟朋友一起去。",
+              "modelAnswerMeaningVi": "Trần Minh tóc ngắn và cao hơn Lý Hoa; Trương Hải cao nhất nhóm. Trần Minh từng sống ở Thượng Hải, hiện ở Thành Đô; thích bơi và đi cùng bạn mỗi chủ nhật.",
+              "modelAnswerPinyin": "A: Tóufa hěn duǎn de rén shì Chén Míng ma? B: Duì, tā bǐ Lǐ Huá gāo. A: Zhè sān ge rén lǐ, shéi zuì gāo? B: Zhāng Hǎi zuì gāo. A: Chén Míng xiǎoshíhou zhù zài nǎr? Xiànzài ne? B: Xiǎoshíhou zhù zài Shànghǎi, xiànzài zhù zài Chéngdū. A: Tā zuì xǐhuan shénme yùndòng? Gēn shéi yìqǐ qù? B: Tā zuì xǐhuan yóuyǒng, měi zhōu rì gēn péngyou yìqǐ qù.",
+              "promptVi": "Dùng hồ sơ mới: Trần Minh (陈明 Chén Míng) tóc ngắn, cao hơn Lý Hoa (李华 Lǐ Huá), nhưng Trương Hải (张海 Zhāng Hǎi) cao nhất trong nhóm ba người. Trần Minh hồi nhỏ sống ở Thượng Hải, hiện sống ở Thành Đô, thích bơi nhất và bơi cùng bạn vào chủ nhật. Viết ít nhất sáu lượt để nhận diện, so sánh và hỏi tiếp về lai lịch/thói quen; không suy Trần Minh cao nhất."
+            },
+            "modelExample": {
+              "hanzi": "王兰比李梅高。",
+              "meaningVi": "Vương Lan cao hơn Lý Mai.",
+              "pinyin": "Wáng Lán bǐ Lǐ Méi gāo."
+            },
+            "pattern": "A 比 B + tính từ"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hai bạn đọc ba thẻ hồ sơ mô tả một ảnh câu lạc bộ hư cấu: Lý Mai đứng trái, tóc dài; Vương Lan đứng giữa, tóc ngắn và cao hơn Lý Mai; Lưu Phương đứng phải và cao nhất nhóm. Thẻ thông tin ở trang kế tiếp là căn cứ làm bài, ảnh nền chỉ trang trí. Bài mô tả trung tính để nhận diện, không đánh giá ngoại hình đẹp/xấu.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "照片 zhàopiàn: ảnh · 左边 zuǒbian: bên trái · 中间 zhōngjiān: ở giữa · 右边 yòubian: bên phải · 头发 tóufa: tóc · 短 duǎn: ngắn · 来自 láizì: đến từ · 成都 Chéngdū: Thành Đô · 经常 jīngcháng: thường xuyên.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nhận đúng người rồi hỏi tiếp về thói quen",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-club-portrait-v1.webp",
+                "alt": "Ba phụ nữ từ trái sang phải cao dần; người bên trái tóc dài, người giữa tóc ngắn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Từ trái: Lý Mai, Vương Lan, Lưu Phương. Thẻ hồ sơ là dữ kiện chính; không đo chiều cao từ tranh."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "左边头发很长的人是李梅吗？",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người tóc dài bên trái là Lý Mai phải không?",
+                  "pinyin": "Zuǒbian tóufa hěn cháng de rén shì Lǐ Méi ma?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "对。中间是王兰，她比李梅高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng. Ở giữa là Vương Lan, cô ấy cao hơn Lý Mai.",
+                  "pinyin": "Duì. Zhōngjiān shì Wáng Lán, tā bǐ Lǐ Méi gāo.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这三个人里，谁最高？",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong ba người này, ai cao nhất?",
+                  "pinyin": "Zhè sān ge rén lǐ, shéi zuì gāo?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "右边的刘芳最高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lưu Phương ở bên phải cao nhất.",
+                  "pinyin": "Yòubian de Liú Fāng zuì gāo.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "李梅来自哪儿？",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lý Mai đến từ đâu?",
+                  "pinyin": "Lǐ Méi láizì nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她来自成都，小时候住在成都，现在住在北京。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy đến từ Thành Đô, hồi nhỏ sống ở Thành Đô, hiện sống ở Bắc Kinh.",
+                  "pinyin": "Tā láizì Chéngdū, xiǎoshíhou zhù zài Chéngdū, xiànzài zhù zài Běijīng.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她有什么爱好？常跟谁一起运动？",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy có sở thích gì? Thường chơi thể thao cùng ai?",
+                  "pinyin": "Tā yǒu shénme àihào? Cháng gēn shéi yìqǐ yùndòng?",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她最喜欢踢足球，每周六都跟同学一起踢。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:turn-7",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy thích đá bóng nhất, thứ bảy hằng tuần đều đá cùng bạn học.",
+                  "pinyin": "Tā zuì xǐhuan tī zúqiú, měi zhōu liù dōu gēn tóngxué yìqǐ tī.",
+                  "provenance": "",
+                  "title": "Lượt 8"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-club-portrait-v1.webp",
+                "alt": "Ba phụ nữ từ trái sang phải cao dần; người bên trái tóc dài, người giữa tóc ngắn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Từ trái: Lý Mai, Vương Lan, Lưu Phương. Thẻ hồ sơ là dữ kiện chính; không đo chiều cao từ tranh."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ hồ sơ thay ảnh: mọi dữ kiện cần để nhận diện đều được ghi rõ.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "李梅",
+                        "meaningVi": "Bên trái · tóc dài",
+                        "note": "Thấp hơn Vương Lan; hồi nhỏ ở Thành Đô, hiện ở Bắc Kinh.",
+                        "pinyin": "Lǐ Méi",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "王兰",
+                        "meaningVi": "Ở giữa · tóc ngắn",
+                        "note": "Cao hơn Lý Mai, nhưng không phải cao nhất.",
+                        "pinyin": "Wáng Lán",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "刘芳",
+                        "meaningVi": "Bên phải · cao nhất",
+                        "note": "Cao nhất chỉ trong nhóm ba người này.",
+                        "pinyin": "Liú Fāng",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "So sánh trong nhóm đã cho"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Ba hồ sơ, không đổi đối tượng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "A比B高 chỉ A cao hơn B; chưa đủ kết luận A cao nhất. 最 cần phạm vi so sánh: 这三个人里，刘芳最高 là Lưu Phương cao nhất trong ba người đang xét. Không suy sở thích hoặc tính cách từ chiều cao.\n头发很长 mô tả tóc dài; 长 đọc cháng trong nghĩa này. 个子高 nói vóc người cao. 小时候 đặt thông tin vào thời thơ ấu, không nhất thiết đúng ở hiện tại. 她小时候住在成都，现在住在北京 tách rõ hai mốc.\n有什么爱好？ hỏi sở thích. 最喜欢… nói thích nhất; 经常/每周… nói thói quen thực tế. Hỏi tiếp bằng 跟谁/什么时候/在哪儿 giúp nối thông tin, thay vì chuyển chủ đề đột ngột. Mọi tên và lai lịch ở đây là vai giả định, không cần khai thông tin cá nhân thật.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "王兰比李梅高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vương Lan cao hơn Lý Mai.",
+                  "pinyin": "Wáng Lán bǐ Lǐ Méi gāo.",
+                  "provenance": "",
+                  "title": "A 比 B + tính từ"
+                },
+                {
+                  "alt": "",
+                  "body": "Cao hơn một người không có nghĩa cao nhất cả nhóm. Người tóc dài bên trái không phải người tóc ngắn ở giữa; không gán lai lịch của người này cho người khác.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nhận đúng người rồi hỏi tiếp về thói quen"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "yêu thích; sở thích",
+                  "hanzi": "你有什么爱好？",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00302",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn có sở thích gì?",
+                  "pinyin": "Nǐ yǒu shénme àihào?",
+                  "provenance": "",
+                  "title": "爱好 · àihào"
+                },
+                {
+                  "alt": "",
+                  "body": "so với; hơn",
+                  "hanzi": "今天比昨天冷。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00309",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay lạnh hơn hôm qua.",
+                  "pinyin": "Jīntiān bǐ zuótiān lěng.",
+                  "provenance": "",
+                  "title": "比 · bǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "dài",
+                  "hanzi": "她的头发很长。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00314",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tóc của cô ấy rất dài.",
+                  "pinyin": "Tā de tóufa hěn cháng.",
+                  "provenance": "",
+                  "title": "长 · cháng"
+                },
+                {
+                  "alt": "",
+                  "body": "cao",
+                  "hanzi": "王兰比李梅高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00341",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vương Lan cao hơn Lý Mai.",
+                  "pinyin": "Wáng Lán bǐ Lǐ Méi gāo.",
+                  "provenance": "",
+                  "title": "高 · gāo"
+                },
+                {
+                  "alt": "",
+                  "body": "vóc dáng; chiều cao",
+                  "hanzi": "我小时候个子不高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00344",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hồi nhỏ tôi không cao.",
+                  "pinyin": "Wǒ xiǎoshíhou gèzi bù gāo.",
+                  "provenance": "",
+                  "title": "个子 · gèzi"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bé trai",
+                  "hanzi": "这个男孩儿有一米五高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00410",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cậu bé này cao một mét rưỡi.",
+                  "pinyin": "Zhège nánháir yǒu yì mǐ wǔ gāo.",
+                  "provenance": "",
+                  "title": "男孩儿 · nánháir"
+                },
+                {
+                  "alt": "",
+                  "body": "bé gái",
+                  "hanzi": "这个女孩儿有一米高。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00412",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô bé này cao một mét.",
+                  "pinyin": "Zhège nǚháir yǒu yì mǐ gāo.",
+                  "provenance": "",
+                  "title": "女孩儿 · nǚháir"
+                },
+                {
+                  "alt": "",
+                  "body": "hồi nhỏ",
+                  "hanzi": "她小时候住在成都。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00462",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hồi nhỏ cô ấy sống ở Thành Đô.",
+                  "pinyin": "Tā xiǎoshíhou zhù zài Chéngdū.",
+                  "provenance": "",
+                  "title": "小时候 · xiǎoshíhou"
+                },
+                {
+                  "alt": "",
+                  "body": "nhất",
+                  "hanzi": "他想买最便宜的。",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:word-hsk-vocab-00498",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy muốn mua chiếc rẻ nhất.",
+                  "pinyin": "Tā xiǎng mǎi zuì piányi de.",
+                  "provenance": "",
+                  "title": "最 · zuì"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: giữ đúng người tóc dài và người cao nhất trong phạm vi ba người. Cao hơn một người không có nghĩa cao nhất cả nhóm. Người tóc dài bên trái không phải người tóc ngắn ở giữa; không gán lai lịch của người này cho người khác.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giữ đúng đối tượng, so sánh và hỏi tiếp lai lịch/thói quen.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Cao hơn Lý Mai chưa đủ để cao nhất; đề đã nói Lưu Phương cao nhất.",
+                        "id": "option-0",
+                        "text": "王兰比李梅高，所以王兰最高。"
+                      },
+                      {
+                        "feedback": "Đúng: giữ đúng người tóc dài và người cao nhất trong phạm vi ba người.",
+                        "id": "option-1",
+                        "text": "李梅头发很长，刘芳是这三个人里最高的。"
+                      },
+                      {
+                        "feedback": "Thành Đô là nơi sống hồi nhỏ; hiện Lý Mai sống ở Bắc Kinh.",
+                        "id": "option-2",
+                        "text": "李梅现在住在成都。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo đúng nhóm ba người trong bài, câu nào chính xác?",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "比"
+                    ],
+                    "answerIds": [],
+                    "explanation": "比 nối hai đối tượng so sánh A và B. 最 đứng trước tính từ trong phạm vi đã biết, không đặt giữa hai tên ở mẫu này.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "So sánh hai người bằng 比.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-person-events-environment-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Nói Vương Lan cao hơn Lý Mai: 王兰___李梅高。 Điền 比 hoặc 最.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng hồ sơ mới: Trần Minh (陈明 Chén Míng) tóc ngắn, cao hơn Lý Hoa (李华 Lǐ Huá), nhưng Trương Hải (张海 Zhāng Hǎi) cao nhất trong nhóm ba người. Trần Minh hồi nhỏ sống ở Thượng Hải, hiện sống ở Thành Đô, thích bơi nhất và bơi cùng bạn vào chủ nhật. Viết ít nhất sáu lượt để nhận diện, so sánh và hỏi tiếp về lai lịch/thói quen; không suy Trần Minh cao nhất.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：头发很短的人是陈明吗？ B：对，他比李华高。 A：这三个人里，谁最高？ B：张海最高。 A：陈明小时候住在哪儿？现在呢？ B：小时候住在上海，现在住在成都。 A：他最喜欢什么运动？跟谁一起去？ B：他最喜欢游泳，每周日跟朋友一起去。\nA: Tóufa hěn duǎn de rén shì Chén Míng ma? B: Duì, tā bǐ Lǐ Huá gāo. A: Zhè sān ge rén lǐ, shéi zuì gāo? B: Zhāng Hǎi zuì gāo. A: Chén Míng xiǎoshíhou zhù zài nǎr? Xiànzài ne? B: Xiǎoshíhou zhù zài Shànghǎi, xiànzài zhù zài Chéngdū. A: Tā zuì xǐhuan shénme yùndòng? Gēn shéi yìqǐ qù? B: Tā zuì xǐhuan yóuyǒng, měi zhōu rì gēn péngyou yìqǐ qù.\nTrần Minh tóc ngắn và cao hơn Lý Hoa; Trương Hải cao nhất nhóm. Trần Minh từng sống ở Thượng Hải, hiện ở Thành Đô; thích bơi và đi cùng bạn mỗi chủ nhật.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giữ đúng đối tượng, so sánh và hỏi tiếp lai lịch/thói quen.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Nhận đúng Trần Minh, không đổi người giữa các câu.",
+                        "id": "criterion-0",
+                        "label": "Nhận đúng Trần Minh, không đổi người giữa các câu."
+                      },
+                      {
+                        "guidance": "Phân biệt 比 với 最 trong phạm vi ba người.",
+                        "id": "criterion-1",
+                        "label": "Phân biệt 比 với 最 trong phạm vi ba người."
+                      },
+                      {
+                        "guidance": "Tách nơi sống hồi nhỏ và hiện tại.",
+                        "id": "criterion-2",
+                        "label": "Tách nơi sống hồi nhỏ và hiện tại."
+                      },
+                      {
+                        "guidance": "Nêu môn yêu thích, ngày thường đi và người đi cùng; ít nhất sáu lượt.",
+                        "id": "criterion-3",
+                        "label": "Nêu môn yêu thích, ngày thường đi và người đi cùng; ít nhất sáu lượt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Nhận đúng Trần Minh, không đổi người giữa các câu.\nPhân biệt 比 với 最 trong phạm vi ba người.\nTách nơi sống hồi nhỏ và hiện tại.\nNêu môn yêu thích, ngày thường đi và người đi cùng; ít nhất sáu lượt.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-01:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-01:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/28-REVIEW-HSK2-PERSON-EVENTS.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-person-events-environment-lesson-01",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 personal descriptions, explicit comparisons and time-bound event reports with uncertainty.",
+          "sourceContentSha256": "sha256:ad74cfccbcf05912a2a33845c7d5a1c2f3b3701e5fc22ae7a22b38e34f13b937"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về ngoại hình, thói quen và lai lịch bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Cao hơn một người không có nghĩa cao nhất cả nhóm. Người tóc dài bên trái không phải người tóc ngắn ở giữa; không gán lai lịch của người này cho người khác.",
+        "prerequisites": [
+          "characters-15"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "A比B高 chỉ A cao hơn B; chưa đủ kết luận A cao nhất. 最 cần phạm vi so sánh: 这三个人里，刘芳最高 là Lưu Phương cao nhất trong ba người đang xét. Không suy sở thích hoặc tính cách từ chiều cao.\n头发很长 mô tả tóc dài; 长 đọc cháng trong nghĩa này. 个子高 nói vóc người cao. 小时候 đặt thông tin vào thời thơ ấu, không nhất thiết đúng ở hiện tại. 她小时候住在成都，现在住在北京 tách rõ hai mốc.\n有什么爱好？ hỏi sở thích. 最喜欢… nói thích nhất; 经常/每周… nói thói quen thực tế. Hỏi tiếp bằng 跟谁/什么时候/在哪儿 giúp nối thông tin, thay vì chuyển chủ đề đột ngột. Mọi tên và lai lịch ở đây là vai giả định, không cần khai thông tin cá nhân thật.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-person-events-environment-lesson-01"
+        ],
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-01"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-01"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-001",
+          "hsk2-topic-002"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00302",
+          "hsk-vocab-00309",
+          "hsk-vocab-00314",
+          "hsk-vocab-00341",
+          "hsk-vocab-00344",
+          "hsk-vocab-00410",
+          "hsk-vocab-00412",
+          "hsk-vocab-00462",
+          "hsk-vocab-00498"
+        ],
+        "targetLessonId": "hsk2-person-events-environment-lesson-01",
+        "titleZh": "HSK二级 · 01",
+        "vocabulary": [
+          "hsk-vocab-00302",
+          "hsk-vocab-00309",
+          "hsk-vocab-00314",
+          "hsk-vocab-00341",
+          "hsk-vocab-00344",
+          "hsk-vocab-00410",
+          "hsk-vocab-00412",
+          "hsk-vocab-00462",
+          "hsk-vocab-00498"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "baseRevisionId": "54a16ec2-1844-4dbb-8af7-2377dc6bedf0",
+      "baseContentSha256": "sha256:d8531b7913ec33562594178dadc8f5c01caa8a4751626ec8d321ea8a579fccc6",
+      "changedPageIds": [
+        "hsk2-person-events-environment-lesson-02:v2:context",
+        "hsk2-person-events-environment-lesson-02:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Tình huống mới: hẹn 14:00, đến trạm 13:20, đợi tới 13:40 rồi đi taxi, đến điểm hẹn 14:05. Không biết vì sao xe buýt chậm; chỉ đoán có thể tắc đường. Viết ít nhất sáu lượt hỏi/đáp, nói đúng hai mươi phút đợi và năm phút muộn, rồi đề xuất phương án lần tới mà không hứa chắc sẽ đúng giờ.",
+        "conceptVi": "Kể sự việc theo thời gian, nguyên nhân và mức chắc chắn",
+        "dialogue": [
+          {
+            "hanzi": "你今天为什么迟到了？",
+            "meaningVi": "Hôm nay vì sao bạn đến muộn?",
+            "pinyin": "Nǐ jīntiān wèishénme chídào le?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我八点二十到车站，等到八点五十，公交车还没来。",
+            "meaningVi": "Tôi đến trạm lúc 8:20, đợi đến 8:50 mà xe buýt vẫn chưa đến.",
+            "pinyin": "Wǒ bā diǎn èrshí dào chēzhàn, děng dào bā diǎn wǔshí, gōngjiāochē hái méi lái.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你等了半个小时？后来怎么来的？",
+            "meaningVi": "Bạn đợi nửa giờ à? Sau đó đến bằng cách nào?",
+            "pinyin": "Nǐ děngle bàn ge xiǎoshí? Hòulái zěnme lái de?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "对，后来我打车来，九点十分到学校。",
+            "meaningVi": "Đúng, sau đó tôi đi taxi, 9:10 đến trường.",
+            "pinyin": "Duì, hòulái wǒ dǎchē lái, jiǔ diǎn shí fēn dào xuéxiào.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "公交车为什么没来？",
+            "meaningVi": "Vì sao xe buýt không đến?",
+            "pinyin": "Gōngjiāochē wèishénme méi lái?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "我不知道，可能堵车了。虽然我出门很早，但是还是迟到了。",
+            "meaningVi": "Tôi không biết, có thể tắc đường. Tuy ra khỏi nhà sớm nhưng tôi vẫn đến muộn.",
+            "pinyin": "Wǒ bù zhīdào, kěnéng dǔchē le. Suīrán wǒ chūmén hěn zǎo, dànshì háishi chídào le.",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "下次你准备怎么来？",
+            "meaningVi": "Lần sau bạn định đến bằng cách nào?",
+            "pinyin": "Xià cì nǐ zhǔnbèi zěnme lái?",
+            "speaker": "Lượt 7"
+          },
+          {
+            "hanzi": "我准备提前出门，坐地铁来，希望能准时到。",
+            "meaningVi": "Tôi định ra khỏi nhà sớm hơn, đi tàu điện ngầm, mong có thể đến đúng giờ.",
+            "pinyin": "Wǒ zhǔnbèi tíqián chūmén, zuò dìtiě lái, xīwàng néng zhǔnshí dào.",
+            "speaker": "Lượt 8"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他等了半个小时，迟到了十分钟；公交车可能堵车了。",
+            "answerMeaningVi": "Anh ấy đợi nửa giờ và muộn mười phút; xe buýt có thể bị tắc đường.",
+            "answerPinyin": "Tā děngle bàn ge xiǎoshí, chídàole shí fēnzhōng; gōngjiāochē kěnéng dǔchē le.",
+            "distractors": [
+              "他等了十分钟，迟到了半个小时。",
+              "公交车一定堵车了。"
+            ],
+            "explanationVi": "Đúng: đợi 30 phút, muộn 10 phút; tắc đường chỉ là phỏng đoán.",
+            "promptVi": "Câu nào phân biệt đúng thời gian đợi, thời gian muộn và nguyên nhân chưa chắc chắn?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "几点 hỏi giờ đồng hồ, 多长时间 hỏi khoảng thời gian. 从八点二十到八点五十 là ba mươi phút, không phải tám giờ năm mươi phút chờ. 等了半个小时 kể thời lượng đã đợi.\n因为…所以… nối nguyên nhân và kết quả; 虽然…但是… nối điều trái kỳ vọng. 虽然我出门很早，但是还是迟到了: ra sớm nhưng vẫn đến muộn. 但 có thể dùng như dạng ngắn của 但是 trong mẫu này.\n可能 chỉ khả năng/phỏng đoán, không biến điều chưa biết thành chắc chắn. 车可能堵在路上了 là đoán; 我不知道 là thừa nhận chưa biết. Lần sau chọn phương tiện khác không đảm bảo tuyệt đối sẽ đúng giờ.\n快要…了 nói sắp xảy ra; 先…再… kể thứ tự. 他跑得很快 dùng 得 sau động từ để bổ sung mức độ; 慢慢地走 dùng 地 trước động từ để mô tả cách làm. Cả 得/地 ở hai mẫu này đọc nhẹ de, vị trí không hoán đổi.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你为什么来晚了？ B：我从一点二十等到一点四十，公交车还没来。 A：你等了二十分钟？后来呢？ B：对，后来我打车来，两点零五分到，迟到了五分钟。 A：车为什么没来？ B：我不知道，可能堵车了。 A：下次怎么办？ B：我准备提前出门，希望能准时到。",
+              "modelAnswerMeaningVi": "Đợi từ 13:20 tới 13:40, đi taxi và tới lúc 14:05; chưa rõ nguyên nhân xe chậm, có thể tắc đường; lần sau định ra sớm hơn và mong đúng giờ. Đến muộn năm phút so với hẹn 14:00.",
+              "modelAnswerPinyin": "A: Nǐ wèishénme lái wǎn le? B: Wǒ cóng yī diǎn èrshí děng dào yī diǎn sìshí, gōngjiāochē hái méi lái. A: Nǐ děngle èrshí fēnzhōng? Hòulái ne? B: Duì, hòulái wǒ dǎchē lái, liǎng diǎn líng wǔ fēn dào, chídào le wǔ fēnzhōng. A: Chē wèishénme méi lái? B: Wǒ bù zhīdào, kěnéng dǔchē le. A: Xià cì zěnme bàn? B: Wǒ zhǔnbèi tíqián chūmén, xīwàng néng zhǔnshí dào.",
+              "promptVi": "Tình huống mới: hẹn 14:00, đến trạm 13:20, đợi tới 13:40 rồi đi taxi, đến điểm hẹn 14:05. Không biết vì sao xe buýt chậm; chỉ đoán có thể tắc đường. Viết ít nhất sáu lượt hỏi/đáp, nói đúng hai mươi phút đợi và năm phút muộn, rồi đề xuất phương án lần tới mà không hứa chắc sẽ đúng giờ."
+            },
+            "modelExample": {
+              "hanzi": "我从八点二十等到八点五十。",
+              "meaningVi": "Tôi đợi từ 8:20 đến 8:50.",
+              "pinyin": "Wǒ cóng bā diǎn èrshí děng dào bā diǎn wǔshí."
+            },
+            "pattern": "Khoảng thời gian: 从…到…"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lớp học bắt đầu lúc 9:00. B đến lúc 9:10. B đã đợi xe buýt từ 8:20 đến 8:50 rồi chuyển sang taxi. Hai bạn phân biệt dữ kiện đã xảy ra với phỏng đoán về xe và phương án cho lần tới.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "迟到 chídào: đến muộn · 堵车 dǔchē: tắc đường · 准时 zhǔnshí: đúng giờ · 提前 tíqián: sớm hơn · 半个小时 bàn ge xiǎoshí: nửa giờ · 原因 yuányīn: nguyên nhân. Giờ đến và khoảng đợi là hai loại thông tin khác nhau.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Kể sự việc theo thời gian, nguyên nhân và mức chắc chắn",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-bus-delay-v1.webp",
+                "alt": "Người học đợi xe buýt chưa tới, có taxi trên đường",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Đợi xe 08:20–08:50, đến lớp 09:10 bằng taxi. Chưa biết vì sao xe buýt không đến."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你今天为什么迟到了？",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay vì sao bạn đến muộn?",
+                  "pinyin": "Nǐ jīntiān wèishénme chídào le?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我八点二十到车站，等到八点五十，公交车还没来。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đến trạm lúc 8:20, đợi đến 8:50 mà xe buýt vẫn chưa đến.",
+                  "pinyin": "Wǒ bā diǎn èrshí dào chēzhàn, děng dào bā diǎn wǔshí, gōngjiāochē hái méi lái.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你等了半个小时？后来怎么来的？",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đợi nửa giờ à? Sau đó đến bằng cách nào?",
+                  "pinyin": "Nǐ děngle bàn ge xiǎoshí? Hòulái zěnme lái de?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "对，后来我打车来，九点十分到学校。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, sau đó tôi đi taxi, 9:10 đến trường.",
+                  "pinyin": "Duì, hòulái wǒ dǎchē lái, jiǔ diǎn shí fēn dào xuéxiào.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "公交车为什么没来？",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì sao xe buýt không đến?",
+                  "pinyin": "Gōngjiāochē wèishénme méi lái?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我不知道，可能堵车了。虽然我出门很早，但是还是迟到了。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi không biết, có thể tắc đường. Tuy ra khỏi nhà sớm nhưng tôi vẫn đến muộn.",
+                  "pinyin": "Wǒ bù zhīdào, kěnéng dǔchē le. Suīrán wǒ chūmén hěn zǎo, dànshì háishi chídào le.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "下次你准备怎么来？",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lần sau bạn định đến bằng cách nào?",
+                  "pinyin": "Xià cì nǐ zhǔnbèi zěnme lái?",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我准备提前出门，坐地铁来，希望能准时到。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:turn-7",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi định ra khỏi nhà sớm hơn, đi tàu điện ngầm, mong có thể đến đúng giờ.",
+                  "pinyin": "Wǒ zhǔnbèi tíqián chūmén, zuò dìtiě lái, xīwàng néng zhǔnshí dào.",
+                  "provenance": "",
+                  "title": "Lượt 8"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-bus-delay-v1.webp",
+                "alt": "Người học đợi xe buýt chưa tới, có taxi trên đường",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Đợi xe 08:20–08:50, đến lớp 09:10 bằng taxi. Chưa biết vì sao xe buýt không đến."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Hai khoảng thời gian có mốc riêng; dòng cuối là mức chắc chắn, không phải một mốc giờ.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "8:20 → 8:50",
+                        "meaningVi": "Đợi 30 phút",
+                        "note": "Dữ kiện đã biết, sau đó đi taxi.",
+                        "pinyin": "bā diǎn èrshí → bā diǎn wǔshí",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "9:00 → 9:10",
+                        "meaningVi": "Muộn 10 phút",
+                        "note": "So giờ bắt đầu lớp với giờ đến trường.",
+                        "pinyin": "jiǔ diǎn → jiǔ diǎn shí fēn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "可能堵车了",
+                        "meaningVi": "Có thể tắc đường",
+                        "note": "Phỏng đoán; nguyên nhân thực tế chưa biết.",
+                        "pinyin": "kěnéng dǔchē le",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện và phỏng đoán"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Thời lượng không phải giờ đồng hồ"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "几点 hỏi giờ đồng hồ, 多长时间 hỏi khoảng thời gian. 从八点二十到八点五十 là ba mươi phút, không phải tám giờ năm mươi phút chờ. 等了半个小时 kể thời lượng đã đợi.\n因为…所以… nối nguyên nhân và kết quả; 虽然…但是… nối điều trái kỳ vọng. 虽然我出门很早，但是还是迟到了: ra sớm nhưng vẫn đến muộn. 但 có thể dùng như dạng ngắn của 但是 trong mẫu này.\n可能 chỉ khả năng/phỏng đoán, không biến điều chưa biết thành chắc chắn. 车可能堵在路上了 là đoán; 我不知道 là thừa nhận chưa biết. Lần sau chọn phương tiện khác không đảm bảo tuyệt đối sẽ đúng giờ.\n快要…了 nói sắp xảy ra; 先…再… kể thứ tự. 他跑得很快 dùng 得 sau động từ để bổ sung mức độ; 慢慢地走 dùng 地 trước động từ để mô tả cách làm. Cả 得/地 ở hai mẫu này đọc nhẹ de, vị trí không hoán đổi.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我从八点二十等到八点五十。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đợi từ 8:20 đến 8:50.",
+                  "pinyin": "Wǒ cóng bā diǎn èrshí děng dào bā diǎn wǔshí.",
+                  "provenance": "",
+                  "title": "Khoảng thời gian: 从…到…"
+                },
+                {
+                  "alt": "",
+                  "body": "Đợi nửa giờ không có nghĩa đến muộn nửa giờ: lớp bắt đầu 9:00, B đến 9:10 nên muộn mười phút. Không bỏ 可能 rồi kể tắc đường như nguyên nhân đã được xác minh.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kể sự việc theo thời gian, nguyên nhân và mức chắc chắn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "lần; lượt",
+                  "hanzi": "我去过两次。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00323",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã đi hai lần.",
+                  "pinyin": "Wǒ qùguo liǎng cì.",
+                  "provenance": "",
+                  "title": "次 · cì"
+                },
+                {
+                  "alt": "",
+                  "body": "nhưng; chỉ",
+                  "hanzi": "我出门很早，但还是迟到了。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00330",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ra khỏi nhà sớm nhưng vẫn đến muộn.",
+                  "pinyin": "Wǒ chūmén hěn zǎo, dàn háishi chídào le.",
+                  "provenance": "",
+                  "title": "但 · dàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nhưng; tuy nhiên",
+                  "hanzi": "但是我今天很忙。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00331",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhưng hôm nay tôi rất bận.",
+                  "pinyin": "Dànshì wǒ jīntiān hěn máng.",
+                  "provenance": "",
+                  "title": "但是 · dànshì"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ nối động từ với bổ ngữ",
+                  "hanzi": "他跑得不快。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00332",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy không nhanh.",
+                  "pinyin": "Tā pǎo de bú kuài.",
+                  "provenance": "",
+                  "title": "得 · de"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ nối trạng ngữ với động từ",
+                  "hanzi": "请慢慢地走。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00333",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hãy đi chậm thôi.",
+                  "pinyin": "Qǐng mànmàn de zǒu.",
+                  "provenance": "",
+                  "title": "地 · de"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đợi; vân vân",
+                  "hanzi": "我在车站等公交车。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00334",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đợi xe buýt ở trạm.",
+                  "pinyin": "Wǒ zài chēzhàn děng gōngjiāochē.",
+                  "provenance": "",
+                  "title": "等 · děng"
+                },
+                {
+                  "alt": "",
+                  "body": "chấm; điểm; gọi món",
+                  "hanzi": "都十点了。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00336",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đã mười giờ rồi.",
+                  "pinyin": "Dōu shí diǎn le.",
+                  "provenance": "",
+                  "title": "点 · diǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "liền; thì; chỉ",
+                  "hanzi": "前面就是学校。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00376",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Phía trước chính là trường học.",
+                  "pinyin": "Qiánmiàn jiù shì xuéxiào.",
+                  "provenance": "",
+                  "title": "就 · jiù"
+                },
+                {
+                  "alt": "",
+                  "body": "có thể; khả năng",
+                  "hanzi": "明天可能下雨。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00382",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai có thể trời mưa.",
+                  "pinyin": "Míngtiān kěnéng xiàyǔ.",
+                  "provenance": "",
+                  "title": "可能 · kěnéng"
+                },
+                {
+                  "alt": "",
+                  "body": "nhanh; sắp",
+                  "hanzi": "他跑得不快。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00384",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy không nhanh.",
+                  "pinyin": "Tā pǎo de bú kuài.",
+                  "provenance": "",
+                  "title": "快 · kuài"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "sắp; sắp sửa",
+                  "hanzi": "火车快要开了。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00386",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tàu hỏa sắp chạy rồi.",
+                  "pinyin": "Huǒchē kuàiyào kāi le.",
+                  "provenance": "",
+                  "title": "快要 · kuàiyào"
+                },
+                {
+                  "alt": "",
+                  "body": "mỗi",
+                  "hanzi": "我每天跑步。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00399",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chạy bộ mỗi ngày.",
+                  "pinyin": "Wǒ měitiān pǎobù.",
+                  "provenance": "",
+                  "title": "每 · měi"
+                },
+                {
+                  "alt": "",
+                  "body": "giờ; lúc",
+                  "hanzi": "上课时，请不要说话。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00431",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong giờ học, xin đừng nói chuyện.",
+                  "pinyin": "Shàngkè shí, qǐng bú yào shuōhuà.",
+                  "provenance": "",
+                  "title": "时 · shí"
+                },
+                {
+                  "alt": "",
+                  "body": "mặc dù",
+                  "hanzi": "虽然很累，但是他还在工作。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00438",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc.",
+                  "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò.",
+                  "provenance": "",
+                  "title": "虽然 · suīrán"
+                },
+                {
+                  "alt": "",
+                  "body": "vì vậy; cho nên",
+                  "hanzi": "公交车没来，所以我打车去了。",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00439",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xe buýt không đến nên tôi đã đi taxi.",
+                  "pinyin": "Gōngjiāochē méi lái, suǒyǐ wǒ dǎchē qù le.",
+                  "provenance": "",
+                  "title": "所以 · suǒyǐ"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "tại sao",
+                  "hanzi": "你为什么迟到了？",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:word-hsk-vocab-00454",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì sao bạn đến muộn?",
+                  "pinyin": "Nǐ wèishénme chídào le?",
+                  "provenance": "",
+                  "title": "为什么 · wèishénme"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: đợi 30 phút, muộn 10 phút; tắc đường chỉ là phỏng đoán. Đợi nửa giờ không có nghĩa đến muộn nửa giờ: lớp bắt đầu 9:00, B đến 9:10 nên muộn mười phút. Không bỏ 可能 rồi kể tắc đường như nguyên nhân đã được xác minh.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể sự việc theo thứ tự, tách thời lượng và mức chắc chắn.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đã đảo thời lượng: đợi ba mươi phút, muộn mười phút.",
+                        "id": "option-0",
+                        "text": "他等了十分钟，迟到了半个小时。"
+                      },
+                      {
+                        "feedback": "一定 khẳng định chắc chắn, trong khi người nói chỉ đoán có thể tắc đường.",
+                        "id": "option-1",
+                        "text": "公交车一定堵车了。"
+                      },
+                      {
+                        "feedback": "Đúng: đợi 30 phút, muộn 10 phút; tắc đường chỉ là phỏng đoán.",
+                        "id": "option-2",
+                        "text": "他等了半个小时，迟到了十分钟；公交车可能堵车了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào phân biệt đúng thời gian đợi, thời gian muộn và nguyên nhân chưa chắc chắn?",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "三十"
+                    ],
+                    "answerIds": [],
+                    "explanation": "8:50 trừ 8:20 là 30 phút. 十 là số phút đến muộn so với giờ học 9:00, không phải thời gian đợi.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Tính đúng thời lượng đợi từ mốc giờ.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-person-events-environment-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Từ 8:20 đến 8:50: 我等了___分钟。 Điền số phút bằng chữ Hán.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tình huống mới: hẹn 14:00, đến trạm 13:20, đợi tới 13:40 rồi đi taxi, đến điểm hẹn 14:05. Không biết vì sao xe buýt chậm; chỉ đoán có thể tắc đường. Viết ít nhất sáu lượt hỏi/đáp, nói đúng hai mươi phút đợi và năm phút muộn, rồi đề xuất phương án lần tới mà không hứa chắc sẽ đúng giờ.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你为什么来晚了？ B：我从一点二十等到一点四十，公交车还没来。 A：你等了二十分钟？后来呢？ B：对，后来我打车来，两点零五分到，迟到了五分钟。 A：车为什么没来？ B：我不知道，可能堵车了。 A：下次怎么办？ B：我准备提前出门，希望能准时到。\nA: Nǐ wèishénme lái wǎn le? B: Wǒ cóng yī diǎn èrshí děng dào yī diǎn sìshí, gōngjiāochē hái méi lái. A: Nǐ děngle èrshí fēnzhōng? Hòulái ne? B: Duì, hòulái wǒ dǎchē lái, liǎng diǎn líng wǔ fēn dào, chídào le wǔ fēnzhōng. A: Chē wèishénme méi lái? B: Wǒ bù zhīdào, kěnéng dǔchē le. A: Xià cì zěnme bàn? B: Wǒ zhǔnbèi tíqián chūmén, xīwàng néng zhǔnshí dào.\nĐợi từ 13:20 tới 13:40, đi taxi và tới lúc 14:05; chưa rõ nguyên nhân xe chậm, có thể tắc đường; lần sau định ra sớm hơn và mong đúng giờ. Đến muộn năm phút so với hẹn 14:00.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể sự việc theo thứ tự, tách thời lượng và mức chắc chắn.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Kể đúng thứ tự đợi xe rồi đi taxi.",
+                        "id": "criterion-0",
+                        "label": "Kể đúng thứ tự đợi xe rồi đi taxi."
+                      },
+                      {
+                        "guidance": "Nêu 20 phút đợi và 5 phút muộn, không đổi thành giờ đồng hồ.",
+                        "id": "criterion-1",
+                        "label": "Nêu 20 phút đợi và 5 phút muộn, không đổi thành giờ đồng hồ."
+                      },
+                      {
+                        "guidance": "Giữ phỏng đoán với 可能, không khẳng định nguyên nhân chưa biết.",
+                        "id": "criterion-2",
+                        "label": "Giữ phỏng đoán với 可能, không khẳng định nguyên nhân chưa biết."
+                      },
+                      {
+                        "guidance": "Có hỏi tiếp và phương án lần sau; ít nhất sáu lượt.",
+                        "id": "criterion-3",
+                        "label": "Có hỏi tiếp và phương án lần sau; ít nhất sáu lượt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Kể đúng thứ tự đợi xe rồi đi taxi.\nNêu 20 phút đợi và 5 phút muộn, không đổi thành giờ đồng hồ.\nGiữ phỏng đoán với 可能, không khẳng định nguyên nhân chưa biết.\nCó hỏi tiếp và phương án lần sau; ít nhất sáu lượt.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-02:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-02:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/28-REVIEW-HSK2-PERSON-EVENTS.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-person-events-environment-lesson-02",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 personal descriptions, explicit comparisons and time-bound event reports with uncertainty.",
+          "sourceContentSha256": "sha256:7469fc931dd024da475ed18804f9a08c8748817b3548397319d7e11050231d6b"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về chi tiết sự kiện và nguyên nhân bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Đợi nửa giờ không có nghĩa đến muộn nửa giờ: lớp bắt đầu 9:00, B đến 9:10 nên muộn mười phút. Không bỏ 可能 rồi kể tắc đường như nguyên nhân đã được xác minh.",
+        "prerequisites": [
+          "hsk2-person-events-environment-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "几点 hỏi giờ đồng hồ, 多长时间 hỏi khoảng thời gian. 从八点二十到八点五十 là ba mươi phút, không phải tám giờ năm mươi phút chờ. 等了半个小时 kể thời lượng đã đợi.\n因为…所以… nối nguyên nhân và kết quả; 虽然…但是… nối điều trái kỳ vọng. 虽然我出门很早，但是还是迟到了: ra sớm nhưng vẫn đến muộn. 但 có thể dùng như dạng ngắn của 但是 trong mẫu này.\n可能 chỉ khả năng/phỏng đoán, không biến điều chưa biết thành chắc chắn. 车可能堵在路上了 là đoán; 我不知道 là thừa nhận chưa biết. Lần sau chọn phương tiện khác không đảm bảo tuyệt đối sẽ đúng giờ.\n快要…了 nói sắp xảy ra; 先…再… kể thứ tự. 他跑得很快 dùng 得 sau động từ để bổ sung mức độ; 慢慢地走 dùng 地 trước động từ để mô tả cách làm. Cả 得/地 ở hai mẫu này đọc nhẹ de, vị trí không hoán đổi.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-person-events-environment-lesson-02"
+        ],
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-02"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-003"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00323",
+          "hsk-vocab-00330",
+          "hsk-vocab-00331",
+          "hsk-vocab-00332",
+          "hsk-vocab-00333",
+          "hsk-vocab-00334",
+          "hsk-vocab-00336",
+          "hsk-vocab-00376",
+          "hsk-vocab-00382",
+          "hsk-vocab-00384",
+          "hsk-vocab-00386",
+          "hsk-vocab-00399",
+          "hsk-vocab-00431",
+          "hsk-vocab-00438",
+          "hsk-vocab-00439",
+          "hsk-vocab-00454"
+        ],
+        "targetLessonId": "hsk2-person-events-environment-lesson-02",
+        "titleZh": "HSK二级 · 02",
+        "vocabulary": [
+          "hsk-vocab-00323",
+          "hsk-vocab-00330",
+          "hsk-vocab-00331",
+          "hsk-vocab-00332",
+          "hsk-vocab-00333",
+          "hsk-vocab-00334",
+          "hsk-vocab-00336",
+          "hsk-vocab-00376",
+          "hsk-vocab-00382",
+          "hsk-vocab-00384",
+          "hsk-vocab-00386",
+          "hsk-vocab-00399",
+          "hsk-vocab-00431",
+          "hsk-vocab-00438",
+          "hsk-vocab-00439",
+          "hsk-vocab-00454"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "baseRevisionId": "d80d296e-11c2-4b25-875e-0d069eb3176b",
+      "baseContentSha256": "sha256:77d64fa4b267b8b90ce39b699186887acac8cefeb1e8ff43f658555c466c4ec7",
+      "changedPageIds": [
+        "hsk2-person-events-environment-lesson-03:v2:context",
+        "hsk2-person-events-environment-lesson-03:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Đổi quầy: áo trắng 60 cm/90 tệ; áo đen 68 cm/80 tệ. Cần không quá 62 cm và 95 tệ. Viết ít nhất sáu lượt hỏi màu, so độ dài/giá rồi xác nhận mua. Không lấy món rẻ nhất nếu không vừa chiều dài.",
+        "conceptVi": "So sánh đồ vật rồi xác nhận lựa chọn",
+        "dialogue": [
+          {
+            "hanzi": "这两件衣服有什么不同？",
+            "meaningVi": "Hai chiếc áo này khác nhau ở điểm nào?",
+            "pinyin": "Zhè liǎng jiàn yīfu yǒu shénme bùtóng?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "红色的长七十厘米，绿色的长六十五厘米。",
+            "meaningVi": "Áo đỏ dài 70 cm, áo xanh lá dài 65 cm.",
+            "pinyin": "Hóngsè de cháng qīshí límǐ, lǜsè de cháng liùshíwǔ límǐ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "红色的比绿色的贵吗？",
+            "meaningVi": "Áo đỏ đắt hơn áo xanh lá không?",
+            "pinyin": "Hóngsè de bǐ lǜsè de guì ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "对，红色的一百二十元，绿色的一百元。",
+            "meaningVi": "Đúng, áo đỏ 120 tệ, áo xanh lá 100 tệ.",
+            "pinyin": "Duì, hóngsè de yì bǎi èrshí yuán, lǜsè de yì bǎi yuán.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "我喜欢红色，但是不要那么长的。绿色的更合适。",
+            "meaningVi": "Tôi thích màu đỏ nhưng không muốn áo dài đến thế. Áo xanh lá phù hợp hơn.",
+            "pinyin": "Wǒ xǐhuan hóngsè, dànshì bú yào nàme cháng de. Lǜsè de gèng héshì.",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "你要绿色的，对吗？",
+            "meaningVi": "Bạn lấy áo xanh lá, đúng không?",
+            "pinyin": "Nǐ yào lǜsè de, duì ma?",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "对，我要这件绿色的，一百元。",
+            "meaningVi": "Đúng, tôi lấy chiếc xanh lá này, 100 tệ.",
+            "pinyin": "Duì, wǒ yào zhè jiàn lǜsè de, yì bǎi yuán.",
+            "speaker": "Lượt 7"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "绿色的合适，长度和价格都可以。",
+            "answerMeaningVi": "Áo xanh lá phù hợp về cả chiều dài và giá.",
+            "answerPinyin": "Lǜsè de héshì, chángdù hé jiàgé dōu kěyǐ.",
+            "distractors": [
+              "红色的合适，因为我喜欢红色。",
+              "两件都一样长。"
+            ],
+            "explanationVi": "Áo xanh lá dài 65 cm, giá 100 tệ nên đáp ứng cả hai điều kiện.",
+            "promptVi": "Cần áo dài tối đa 65 cm và giá tối đa 110 tệ. Chọn kết luận phù hợp."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "颜色 hỏi màu. 红色的 có thể thay 红色的衣服 khi hai người đã biết đang nói áo; 的 không tự chỉ một món cụ thể nếu chưa có ngữ cảnh. A比B长 so chiều dài; A比B贵 so giá. Chiều dài và giá là hai tiêu chí khác nhau.\n我觉得…好看 là nhận xét cá nhân; không tự chứng minh món đó phù hợp ngân sách. 那么长 nói dài đến mức đã chỉ; 那样 nói kiểu/cách như thế. Muốn mua rõ ràng cần chốt màu, món và giá, không chỉ nói 那个 khi có nhiều món.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：白色的和黑色的，哪件长？ B：黑色的长六十八厘米，白色的长六十厘米。 A：哪件便宜？ B：黑色的八十元，白色的九十元。 A：我要白色的，长度和价格都合适。 B：白色的，九十元，对吗？ A：对。",
+              "modelAnswerMeaningVi": "Áo đen dài hơn và rẻ hơn; chọn áo trắng 60 cm/90 tệ vì đáp ứng cả hai giới hạn.",
+              "modelAnswerPinyin": "A: Báisè de hé hēisè de, nǎ jiàn cháng? B: Hēisè de cháng liùshíbā límǐ, báisè de cháng liùshí límǐ. A: Nǎ jiàn piányi? B: Hēisè de bāshí yuán, báisè de jiǔshí yuán. A: Wǒ yào báisè de, chángdù hé jiàgé dōu héshì. B: Báisè de, jiǔshí yuán, duì ma? A: Duì.",
+              "promptVi": "Đổi quầy: áo trắng 60 cm/90 tệ; áo đen 68 cm/80 tệ. Cần không quá 62 cm và 95 tệ. Viết ít nhất sáu lượt hỏi màu, so độ dài/giá rồi xác nhận mua. Không lấy món rẻ nhất nếu không vừa chiều dài."
+            },
+            "modelExample": {
+              "hanzi": "红色的比绿色的长。",
+              "meaningVi": "Áo đỏ dài hơn áo xanh lá.",
+              "pinyin": "Hóngsè de bǐ lǜsè de cháng."
+            },
+            "pattern": "A 比 B + tính từ"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Quầy có hai áo cùng cỡ: áo đỏ dài 70 cm giá 120 tệ; áo xanh lá dài 65 cm giá 100 tệ. Bạn cần áo không quá 65 cm và không quá 110 tệ. Dữ kiện nằm trong thẻ so sánh, không suy kích thước từ ảnh trang trí.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "厘米 límǐ: centimet · 价格 jiàgé: giá · 合适 héshì: phù hợp · 超过 chāoguò: vượt quá. 件 jiàn đếm áo; 元 yuán là tệ.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "So sánh đồ vật rồi xác nhận lựa chọn",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-red-green-shirts-v1.webp",
+                "alt": "Áo đỏ dài hơn áo xanh lá treo cạnh nhau trong cửa hàng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Thẻ so sánh: áo đỏ 70 cm/120 tệ; áo xanh 65 cm/100 tệ. Tranh không phải thước đo."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这两件衣服有什么不同？",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai chiếc áo này khác nhau ở điểm nào?",
+                  "pinyin": "Zhè liǎng jiàn yīfu yǒu shénme bùtóng?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "红色的长七十厘米，绿色的长六十五厘米。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Áo đỏ dài 70 cm, áo xanh lá dài 65 cm.",
+                  "pinyin": "Hóngsè de cháng qīshí límǐ, lǜsè de cháng liùshíwǔ límǐ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "红色的比绿色的贵吗？",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Áo đỏ đắt hơn áo xanh lá không?",
+                  "pinyin": "Hóngsè de bǐ lǜsè de guì ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "对，红色的一百二十元，绿色的一百元。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, áo đỏ 120 tệ, áo xanh lá 100 tệ.",
+                  "pinyin": "Duì, hóngsè de yì bǎi èrshí yuán, lǜsè de yì bǎi yuán.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我喜欢红色，但是不要那么长的。绿色的更合适。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thích màu đỏ nhưng không muốn áo dài đến thế. Áo xanh lá phù hợp hơn.",
+                  "pinyin": "Wǒ xǐhuan hóngsè, dànshì bú yào nàme cháng de. Lǜsè de gèng héshì.",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你要绿色的，对吗？",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn lấy áo xanh lá, đúng không?",
+                  "pinyin": "Nǐ yào lǜsè de, duì ma?",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "对，我要这件绿色的，一百元。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, tôi lấy chiếc xanh lá này, 100 tệ.",
+                  "pinyin": "Duì, wǒ yào zhè jiàn lǜsè de, yì bǎi yuán.",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-red-green-shirts-v1.webp",
+                "alt": "Áo đỏ dài hơn áo xanh lá treo cạnh nhau trong cửa hàng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Thẻ so sánh: áo đỏ 70 cm/120 tệ; áo xanh 65 cm/100 tệ. Tranh không phải thước đo."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện biên tập được. Ảnh nền chỉ trang trí, không cung cấp dữ kiện khác.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "红色",
+                        "meaningVi": "70 cm · 120 tệ",
+                        "note": "Vượt cả hai giới hạn.",
+                        "pinyin": "hóngsè",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "绿色",
+                        "meaningVi": "65 cm · 100 tệ",
+                        "note": "Đáp ứng chiều dài tối đa 65 cm, giá tối đa 110 tệ.",
+                        "pinyin": "lǜsè",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hai món, hai tiêu chí"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đối chiếu dữ kiện trước khi quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "颜色 hỏi màu. 红色的 có thể thay 红色的衣服 khi hai người đã biết đang nói áo; 的 không tự chỉ một món cụ thể nếu chưa có ngữ cảnh. A比B长 so chiều dài; A比B贵 so giá. Chiều dài và giá là hai tiêu chí khác nhau.\n我觉得…好看 là nhận xét cá nhân; không tự chứng minh món đó phù hợp ngân sách. 那么长 nói dài đến mức đã chỉ; 那样 nói kiểu/cách như thế. Muốn mua rõ ràng cần chốt màu, món và giá, không chỉ nói 那个 khi có nhiều món.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "红色的比绿色的长。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Áo đỏ dài hơn áo xanh lá.",
+                  "pinyin": "Hóngsè de bǐ lǜsè de cháng.",
+                  "provenance": "",
+                  "title": "A 比 B + tính từ"
+                },
+                {
+                  "alt": "",
+                  "body": "Thích màu đỏ không làm áo đỏ ngắn hơn hoặc rẻ hơn. Chọn theo cả hai giới hạn, không chỉ một tiêu chí.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "So sánh đồ vật rồi xác nhận lựa chọn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "màu trắng",
+                  "hanzi": "我想买一件白色的衣服。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00303",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn mua một bộ quần áo màu trắng.",
+                  "pinyin": "Wǒ xiǎng mǎi yí jiàn báisè de yīfu.",
+                  "provenance": "",
+                  "title": "白色 · báisè"
+                },
+                {
+                  "alt": "",
+                  "body": "màu đen",
+                  "hanzi": "请帮我拿黑色的。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00353",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hãy lấy giúp tôi chiếc màu đen.",
+                  "pinyin": "Qǐng bāng wǒ ná hēisè de.",
+                  "provenance": "",
+                  "title": "黑色 · hēisè"
+                },
+                {
+                  "alt": "",
+                  "body": "màu đỏ",
+                  "hanzi": "他穿着红色衣服。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00355",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy đang mặc quần áo màu đỏ.",
+                  "pinyin": "Tā chuānzhe hóngsè yīfu.",
+                  "provenance": "",
+                  "title": "红色 · hóngsè"
+                },
+                {
+                  "alt": "",
+                  "body": "hoa",
+                  "hanzi": "这朵花很好看。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00358",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bông hoa này rất đẹp.",
+                  "pinyin": "Zhè duǒ huā hěn hǎokàn.",
+                  "provenance": "",
+                  "title": "花 · huā"
+                },
+                {
+                  "alt": "",
+                  "body": "màu xanh lá",
+                  "hanzi": "红色的比绿色的好看。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00396",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ màu đỏ đẹp hơn bộ màu xanh lá.",
+                  "pinyin": "Hóngsè de bǐ lǜsè de hǎokàn.",
+                  "provenance": "",
+                  "title": "绿色 · lǜsè"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "như vậy; thế thì",
+                  "hanzi": "就要红色的，不要那么长的。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00406",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế.",
+                  "pinyin": "Jiù yào hóngsè de, bú yào nàme cháng de.",
+                  "provenance": "",
+                  "title": "那么 · nàme"
+                },
+                {
+                  "alt": "",
+                  "body": "kiểu đó; như thế",
+                  "hanzi": "我不想买那样的衣服。",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00407",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi không muốn mua kiểu áo như thế.",
+                  "pinyin": "Wǒ bù xiǎng mǎi nàyàng de yīfu.",
+                  "provenance": "",
+                  "title": "那样 · nàyàng"
+                },
+                {
+                  "alt": "",
+                  "body": "màu sắc",
+                  "hanzi": "这个颜色还有吗？",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:word-hsk-vocab-00466",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Màu này còn không?",
+                  "pinyin": "Zhège yánsè hái yǒu ma?",
+                  "provenance": "",
+                  "title": "颜色 · yánsè"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Áo xanh lá dài 65 cm, giá 100 tệ nên đáp ứng cả hai điều kiện. Thích màu đỏ không làm áo đỏ ngắn hơn hoặc rẻ hơn. Chọn theo cả hai giới hạn, không chỉ một tiêu chí.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "So sánh đồ vật rồi xác nhận lựa chọn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Sở thích không đáp ứng hai giới hạn: áo đỏ dài 70 cm và giá 120 tệ.",
+                        "id": "option-0",
+                        "text": "红色的合适，因为我喜欢红色。"
+                      },
+                      {
+                        "feedback": "Áo xanh lá dài 65 cm, giá 100 tệ nên đáp ứng cả hai điều kiện.",
+                        "id": "option-1",
+                        "text": "绿色的合适，长度和价格都可以。"
+                      },
+                      {
+                        "feedback": "70 cm khác 65 cm; không cùng chiều dài.",
+                        "id": "option-2",
+                        "text": "两件都一样长。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Cần áo dài tối đa 65 cm và giá tối đa 110 tệ. Chọn kết luận phù hợp.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "长"
+                    ],
+                    "answerIds": [],
+                    "explanation": "70 cm lớn hơn 65 cm nên áo đỏ dài hơn. 短 sẽ đảo quan hệ.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "70 cm lớn hơn 65 cm nên áo đỏ dài hơn. 短 sẽ đảo quan hệ.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-person-events-environment-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Áo đỏ 70 cm, áo xanh lá 65 cm. 红色的比绿色的___。 Điền 长 hoặc 短.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đổi quầy: áo trắng 60 cm/90 tệ; áo đen 68 cm/80 tệ. Cần không quá 62 cm và 95 tệ. Viết ít nhất sáu lượt hỏi màu, so độ dài/giá rồi xác nhận mua. Không lấy món rẻ nhất nếu không vừa chiều dài.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：白色的和黑色的，哪件长？ B：黑色的长六十八厘米，白色的长六十厘米。 A：哪件便宜？ B：黑色的八十元，白色的九十元。 A：我要白色的，长度和价格都合适。 B：白色的，九十元，对吗？ A：对。\nA: Báisè de hé hēisè de, nǎ jiàn cháng? B: Hēisè de cháng liùshíbā límǐ, báisè de cháng liùshí límǐ. A: Nǎ jiàn piányi? B: Hēisè de bāshí yuán, báisè de jiǔshí yuán. A: Wǒ yào báisè de, chángdù hé jiàgé dōu héshì. B: Báisè de, jiǔshí yuán, duì ma? A: Duì.\nÁo đen dài hơn và rẻ hơn; chọn áo trắng 60 cm/90 tệ vì đáp ứng cả hai giới hạn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "So sánh đồ vật rồi xác nhận lựa chọn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ đúng màu, chiều dài và giá của từng áo.",
+                        "id": "criterion-0",
+                        "label": "Giữ đúng màu, chiều dài và giá của từng áo."
+                      },
+                      {
+                        "guidance": "So sánh đúng hai tiêu chí, không đồng nhất rẻ với phù hợp.",
+                        "id": "criterion-1",
+                        "label": "So sánh đúng hai tiêu chí, không đồng nhất rẻ với phù hợp."
+                      },
+                      {
+                        "guidance": "Chọn áo trắng theo cả hai giới hạn.",
+                        "id": "criterion-2",
+                        "label": "Chọn áo trắng theo cả hai giới hạn."
+                      },
+                      {
+                        "guidance": "Có hỏi tiếp và xác nhận món/giá trong ít nhất sáu lượt.",
+                        "id": "criterion-3",
+                        "label": "Có hỏi tiếp và xác nhận món/giá trong ít nhất sáu lượt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giữ đúng màu, chiều dài và giá của từng áo.\nSo sánh đúng hai tiêu chí, không đồng nhất rẻ với phù hợp.\nChọn áo trắng theo cả hai giới hạn.\nCó hỏi tiếp và xác nhận món/giá trong ít nhất sáu lượt.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-03:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-03:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/29-REVIEW-HSK2-ENVIRONMENT.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-person-events-environment-lesson-03",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 object selection under two constraints, weather-dependent plans and explicit spatial reference points.",
+          "sourceContentSha256": "sha256:80fcc716162f96593a5b636d23c77c71371cb7216db903fef3da8ee56baed36b"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về đồ vật, màu sắc và so sánh bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Thích màu đỏ không làm áo đỏ ngắn hơn hoặc rẻ hơn. Chọn theo cả hai giới hạn, không chỉ một tiêu chí.",
+        "prerequisites": [
+          "hsk2-person-events-environment-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "颜色 hỏi màu. 红色的 có thể thay 红色的衣服 khi hai người đã biết đang nói áo; 的 không tự chỉ một món cụ thể nếu chưa có ngữ cảnh. A比B长 so chiều dài; A比B贵 so giá. Chiều dài và giá là hai tiêu chí khác nhau.\n我觉得…好看 là nhận xét cá nhân; không tự chứng minh món đó phù hợp ngân sách. 那么长 nói dài đến mức đã chỉ; 那样 nói kiểu/cách như thế. Muốn mua rõ ràng cần chốt màu, món và giá, không chỉ nói 那个 khi có nhiều món.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-person-events-environment-lesson-03"
+        ],
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-03"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-03"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-004"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00303",
+          "hsk-vocab-00353",
+          "hsk-vocab-00355",
+          "hsk-vocab-00358",
+          "hsk-vocab-00396",
+          "hsk-vocab-00406",
+          "hsk-vocab-00407",
+          "hsk-vocab-00466"
+        ],
+        "targetLessonId": "hsk2-person-events-environment-lesson-03",
+        "titleZh": "HSK二级 · 03",
+        "vocabulary": [
+          "hsk-vocab-00303",
+          "hsk-vocab-00353",
+          "hsk-vocab-00355",
+          "hsk-vocab-00358",
+          "hsk-vocab-00396",
+          "hsk-vocab-00406",
+          "hsk-vocab-00407",
+          "hsk-vocab-00466"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "baseRevisionId": "ffc5ced7-e470-4cf5-adc0-1719a1b667e9",
+      "baseContentSha256": "sha256:aab904ad33559fdcbfa97be9b63b2a9e0a1b8ce03cd12c573edee1ec070f982c",
+      "changedPageIds": [
+        "hsk2-person-events-environment-lesson-04:v2:context",
+        "hsk2-person-events-environment-lesson-04:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Hôm nay nắng. Dự báo sáng chủ nhật có thể mưa, chiều quang. Hai bạn định đá bóng lúc 15:00; nếu mưa sẽ học tiếng Trung ở nhà. Viết ít nhất sáu lượt, có câu xác nhận thời gian, phương án thay thế và nguồn dự báo.",
+        "conceptVi": "Đọc dự báo và thống nhất kế hoạch có điều kiện",
+        "dialogue": [
+          {
+            "hanzi": "今天天气怎么样？",
+            "meaningVi": "Hôm nay thời tiết thế nào?",
+            "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "今天是阴天，有点儿冷。",
+            "meaningVi": "Hôm nay trời âm u, hơi lạnh.",
+            "pinyin": "Jīntiān shì yīntiān, yǒudiǎnr lěng.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "明天呢？我们还能去公园吗？",
+            "meaningVi": "Ngày mai thì sao? Chúng ta vẫn có thể ra công viên không?",
+            "pinyin": "Míngtiān ne? Wǒmen hái néng qù gōngyuán ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "天气预报说明天上午晴，下午可能下雨。",
+            "meaningVi": "Dự báo nói sáng mai nắng, chiều có thể mưa.",
+            "pinyin": "Tiānqì yùbào shuō míngtiān shàngwǔ qíng, xiàwǔ kěnéng xiàyǔ.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "那我们上午九点去，好吗？",
+            "meaningVi": "Vậy 9 giờ sáng chúng ta đi nhé?",
+            "pinyin": "Nà wǒmen shàngwǔ jiǔ diǎn qù, hǎo ma?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "好。如果下雨，我们就去图书馆。",
+            "meaningVi": "Được. Nếu mưa thì chúng ta đến thư viện.",
+            "pinyin": "Hǎo. Rúguǒ xiàyǔ, wǒmen jiù qù túshūguǎn.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "明天下午可能下雨；如果下雨，我们就去图书馆。",
+            "answerMeaningVi": "Chiều mai có thể mưa; nếu mưa chúng ta đến thư viện.",
+            "answerPinyin": "Míngtiān xiàwǔ kěnéng xiàyǔ; rúguǒ xiàyǔ, wǒmen jiù qù túshūguǎn.",
+            "distractors": [
+              "明天下午一定下雨。",
+              "今天是阴天，所以现在一定在下雨。"
+            ],
+            "explanationVi": "Giữ mức có thể và kế hoạch thay thế khi mưa.",
+            "promptVi": "Câu nào thuật đúng dự báo và giữ phương án dự phòng?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "晴 nói trời quang/nắng; 阴 nói nhiều mây, không đồng nghĩa đang mưa. 今天是阴天 nêu hiện trạng. 天气预报说明天上午晴 nêu nguồn dự báo, chưa khẳng định ngày mai đã xảy ra.\n可能下雨 là có thể mưa; không bỏ 可能 khi thuật lại. 如果下雨，我们就去图书馆 là kế hoạch có điều kiện. Phải nói rõ thời điểm và phương án thay thế, rồi hỏi người cùng đi có đồng ý không.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：今天天气怎么样？ B：今天是晴天。 A：星期日呢？ B：天气预报说上午可能下雨，下午晴。 A：那我们下午三点去踢足球，好吗？ B：好。如果下雨，我们就在家学汉语。",
+              "modelAnswerMeaningVi": "Hôm nay nắng; dự báo chủ nhật sáng có thể mưa, chiều quang. Hẹn đá bóng 15 giờ; nếu mưa thì học tiếng Trung ở nhà.",
+              "modelAnswerPinyin": "A: Jīntiān tiānqì zěnmeyàng? B: Jīntiān shì qíngtiān. A: Xīngqīrì ne? B: Tiānqì yùbào shuō shàngwǔ kěnéng xiàyǔ, xiàwǔ qíng. A: Nà wǒmen xiàwǔ sān diǎn qù tī zúqiú, hǎo ma? B: Hǎo. Rúguǒ xiàyǔ, wǒmen jiù zài jiā xué Hànyǔ.",
+              "promptVi": "Hôm nay nắng. Dự báo sáng chủ nhật có thể mưa, chiều quang. Hai bạn định đá bóng lúc 15:00; nếu mưa sẽ học tiếng Trung ở nhà. Viết ít nhất sáu lượt, có câu xác nhận thời gian, phương án thay thế và nguồn dự báo."
+            },
+            "modelExample": {
+              "hanzi": "如果下雨，我们就去图书馆。",
+              "meaningVi": "Nếu mưa thì chúng ta đến thư viện.",
+              "pinyin": "Rúguǒ xiàyǔ, wǒmen jiù qù túshūguǎn."
+            },
+            "pattern": "如果…就…"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hôm nay trời âm u, hơi lạnh. Dự báo sáng mai nắng, chiều có thể mưa. Nhóm muốn ra công viên sáng mai, nhưng sẽ học ở thư viện nếu trời mưa. Dự báo không phải sự kiện đã xảy ra.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "天气预报 tiānqì yùbào: dự báo thời tiết · 如果 rúguǒ: nếu · 就 jiù: thì · 改 gǎi: đổi · 公园 gōngyuán: công viên · 图书馆 túshūguǎn: thư viện.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Đọc dự báo và thống nhất kế hoạch có điều kiện",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-weather-plan-v1.webp",
+                "alt": "Hai bạn xem dự báo ngày mai; trời hiện tại âm u, ô còn đóng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Dự báo sáng mai nắng, chiều có thể mưa. Nếu mưa, đổi công viên thành thư viện."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天天气怎么样？",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay thời tiết thế nào?",
+                  "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天是阴天，有点儿冷。",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay trời âm u, hơi lạnh.",
+                  "pinyin": "Jīntiān shì yīntiān, yǒudiǎnr lěng.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "明天呢？我们还能去公园吗？",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai thì sao? Chúng ta vẫn có thể ra công viên không?",
+                  "pinyin": "Míngtiān ne? Wǒmen hái néng qù gōngyuán ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "天气预报说明天上午晴，下午可能下雨。",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Dự báo nói sáng mai nắng, chiều có thể mưa.",
+                  "pinyin": "Tiānqì yùbào shuō míngtiān shàngwǔ qíng, xiàwǔ kěnéng xiàyǔ.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "那我们上午九点去，好吗？",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vậy 9 giờ sáng chúng ta đi nhé?",
+                  "pinyin": "Nà wǒmen shàngwǔ jiǔ diǎn qù, hǎo ma?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好。如果下雨，我们就去图书馆。",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được. Nếu mưa thì chúng ta đến thư viện.",
+                  "pinyin": "Hǎo. Rúguǒ xiàyǔ, wǒmen jiù qù túshūguǎn.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-weather-plan-v1.webp",
+                "alt": "Hai bạn xem dự báo ngày mai; trời hiện tại âm u, ô còn đóng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Dự báo sáng mai nắng, chiều có thể mưa. Nếu mưa, đổi công viên thành thư viện."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện biên tập được. Ảnh nền chỉ trang trí, không cung cấp dữ kiện khác.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "今天",
+                        "meaningVi": "Âm u, hơi lạnh",
+                        "note": "Hiện trạng quan sát.",
+                        "pinyin": "jīntiān",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "明天上午",
+                        "meaningVi": "Dự báo quang/nắng",
+                        "note": "Hẹn ra công viên lúc 9:00.",
+                        "pinyin": "míngtiān shàngwǔ",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "明天下午",
+                        "meaningVi": "Có thể mưa",
+                        "note": "Nếu mưa: đến thư viện; không coi dự báo là chắc chắn.",
+                        "pinyin": "míngtiān xiàwǔ",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiện trạng và dự báo"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đối chiếu dữ kiện trước khi quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "晴 nói trời quang/nắng; 阴 nói nhiều mây, không đồng nghĩa đang mưa. 今天是阴天 nêu hiện trạng. 天气预报说明天上午晴 nêu nguồn dự báo, chưa khẳng định ngày mai đã xảy ra.\n可能下雨 là có thể mưa; không bỏ 可能 khi thuật lại. 如果下雨，我们就去图书馆 là kế hoạch có điều kiện. Phải nói rõ thời điểm và phương án thay thế, rồi hỏi người cùng đi có đồng ý không.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "如果下雨，我们就去图书馆。",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nếu mưa thì chúng ta đến thư viện.",
+                  "pinyin": "Rúguǒ xiàyǔ, wǒmen jiù qù túshūguǎn.",
+                  "provenance": "",
+                  "title": "如果…就…"
+                },
+                {
+                  "alt": "",
+                  "body": "Trời âm u chưa chắc đang mưa; dự báo chiều có thể mưa không có nghĩa chắc chắn mưa cả ngày.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc dự báo và thống nhất kế hoạch có điều kiện"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "trời quang; trời nắng",
+                  "hanzi": "明天是晴天。",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:word-hsk-vocab-00420",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai trời nắng.",
+                  "pinyin": "Míngtiān shì qíngtiān.",
+                  "provenance": "",
+                  "title": "晴 · qíng"
+                },
+                {
+                  "alt": "",
+                  "body": "âm u; nhiều mây",
+                  "hanzi": "今天是阴天。",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:word-hsk-vocab-00475",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay trời âm u.",
+                  "pinyin": "Jīntiān shì yīntiān.",
+                  "provenance": "",
+                  "title": "阴 · yīn"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Giữ mức có thể và kế hoạch thay thế khi mưa. Trời âm u chưa chắc đang mưa; dự báo chiều có thể mưa không có nghĩa chắc chắn mưa cả ngày.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đọc dự báo và thống nhất kế hoạch có điều kiện",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đề chỉ nói có thể; 一定 biến dự báo thành chắc chắn.",
+                        "id": "option-0",
+                        "text": "明天下午一定下雨。"
+                      },
+                      {
+                        "feedback": "Âm u không chứng minh đang mưa.",
+                        "id": "option-1",
+                        "text": "今天是阴天，所以现在一定在下雨。"
+                      },
+                      {
+                        "feedback": "Giữ mức có thể và kế hoạch thay thế khi mưa.",
+                        "id": "option-2",
+                        "text": "明天下午可能下雨；如果下雨，我们就去图书馆。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào thuật đúng dự báo và giữ phương án dự phòng?",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "可能"
+                    ],
+                    "answerIds": [],
+                    "explanation": "可能 giữ mức chưa chắc chắn của dự báo; 一定 làm tăng mức khẳng định sai thông tin.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "可能 giữ mức chưa chắc chắn của dự báo; 一定 làm tăng mức khẳng định sai thông tin.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-person-events-environment-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Giữ ý “có thể mưa”, chưa chắc chắn: 明天下午___下雨。 Điền 可能 hoặc 一定.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hôm nay nắng. Dự báo sáng chủ nhật có thể mưa, chiều quang. Hai bạn định đá bóng lúc 15:00; nếu mưa sẽ học tiếng Trung ở nhà. Viết ít nhất sáu lượt, có câu xác nhận thời gian, phương án thay thế và nguồn dự báo.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：今天天气怎么样？ B：今天是晴天。 A：星期日呢？ B：天气预报说上午可能下雨，下午晴。 A：那我们下午三点去踢足球，好吗？ B：好。如果下雨，我们就在家学汉语。\nA: Jīntiān tiānqì zěnmeyàng? B: Jīntiān shì qíngtiān. A: Xīngqīrì ne? B: Tiānqì yùbào shuō shàngwǔ kěnéng xiàyǔ, xiàwǔ qíng. A: Nà wǒmen xiàwǔ sān diǎn qù tī zúqiú, hǎo ma? B: Hǎo. Rúguǒ xiàyǔ, wǒmen jiù zài jiā xué Hànyǔ.\nHôm nay nắng; dự báo chủ nhật sáng có thể mưa, chiều quang. Hẹn đá bóng 15 giờ; nếu mưa thì học tiếng Trung ở nhà.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đọc dự báo và thống nhất kế hoạch có điều kiện",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Tách hôm nay với dự báo chủ nhật.",
+                        "id": "criterion-0",
+                        "label": "Tách hôm nay với dự báo chủ nhật."
+                      },
+                      {
+                        "guidance": "Giữ 可能 và nguồn dự báo.",
+                        "id": "criterion-1",
+                        "label": "Giữ 可能 và nguồn dự báo."
+                      },
+                      {
+                        "guidance": "Chốt 15:00, không đổi sang buổi sáng.",
+                        "id": "criterion-2",
+                        "label": "Chốt 15:00, không đổi sang buổi sáng."
+                      },
+                      {
+                        "guidance": "Nêu phương án ở nhà khi mưa và có lượt đồng ý.",
+                        "id": "criterion-3",
+                        "label": "Nêu phương án ở nhà khi mưa và có lượt đồng ý."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tách hôm nay với dự báo chủ nhật.\nGiữ 可能 và nguồn dự báo.\nChốt 15:00, không đổi sang buổi sáng.\nNêu phương án ở nhà khi mưa và có lượt đồng ý.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-04:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-04:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/29-REVIEW-HSK2-ENVIRONMENT.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-person-events-environment-lesson-04",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 object selection under two constraints, weather-dependent plans and explicit spatial reference points.",
+          "sourceContentSha256": "sha256:b28a94eccc7ad7299c273c7c57a78a3bd3fe439a028de50b04d83b1e126276d1"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về thời tiết và thay đổi kế hoạch bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Trời âm u chưa chắc đang mưa; dự báo chiều có thể mưa không có nghĩa chắc chắn mưa cả ngày.",
+        "prerequisites": [
+          "hsk2-person-events-environment-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "晴 nói trời quang/nắng; 阴 nói nhiều mây, không đồng nghĩa đang mưa. 今天是阴天 nêu hiện trạng. 天气预报说明天上午晴 nêu nguồn dự báo, chưa khẳng định ngày mai đã xảy ra.\n可能下雨 là có thể mưa; không bỏ 可能 khi thuật lại. 如果下雨，我们就去图书馆 là kế hoạch có điều kiện. Phải nói rõ thời điểm và phương án thay thế, rồi hỏi người cùng đi có đồng ý không.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-person-events-environment-lesson-04"
+        ],
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-04"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-04"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-005"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00420",
+          "hsk-vocab-00475"
+        ],
+        "targetLessonId": "hsk2-person-events-environment-lesson-04",
+        "titleZh": "HSK二级 · 04",
+        "vocabulary": [
+          "hsk-vocab-00420",
+          "hsk-vocab-00475"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "baseRevisionId": "2a68a386-30e3-47a0-ac82-6c7c5ccc7565",
+      "baseContentSha256": "sha256:057100edcf86ef47f36e1b839e613579e4bfb270b1baa2152fb5f74b1c300f7a",
+      "changedPageIds": [
+        "hsk2-person-events-environment-lesson-05:v2:context",
+        "hsk2-person-events-environment-lesson-05:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Địa điểm mới: nhà cạnh thư viện; hiệu sách đối diện nhà. Trong phòng có hai giường và một bàn; bàn cạnh cửa ra vào. Viết ít nhất sáu lượt hỏi vị trí nhà, đồ trong phòng và vị trí hiệu sách. Không giữ mốc trường của mẫu cũ.",
+        "conceptVi": "Mô tả địa điểm với mốc không gian rõ ràng",
+        "dialogue": [
+          {
+            "hanzi": "你住在哪儿？",
+            "meaningVi": "Bạn sống ở đâu?",
+            "pinyin": "Nǐ zhù zài nǎr?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我住在学校对面的房子里。",
+            "meaningVi": "Tôi sống trong ngôi nhà đối diện trường.",
+            "pinyin": "Wǒ zhù zài xuéxiào duìmiàn de fángzi lǐ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "房间里有什么？",
+            "meaningVi": "Trong phòng có gì?",
+            "pinyin": "Fángjiān lǐ yǒu shénme?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "有一张床和一张桌子。桌子在窗户旁边。",
+            "meaningVi": "Có một giường và một bàn. Bàn ở cạnh cửa sổ.",
+            "pinyin": "Yǒu yì zhāng chuáng hé yì zhāng zhuōzi. Zhuōzi zài chuānghu pángbiān.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "附近有商店吗？",
+            "meaningVi": "Gần đó có cửa hàng không?",
+            "pinyin": "Fùjìn yǒu shāngdiàn ma?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "有，商店就在房子旁边。",
+            "meaningVi": "Có, cửa hàng ở ngay cạnh nhà.",
+            "pinyin": "Yǒu, shāngdiàn jiù zài fángzi pángbiān.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "桌子在窗户旁边，商店在房子旁边。",
+            "answerMeaningVi": "Bàn cạnh cửa sổ, cửa hàng cạnh nhà.",
+            "answerPinyin": "Zhuōzi zài chuānghu pángbiān, shāngdiàn zài fángzi pángbiān.",
+            "distractors": [
+              "商店在房间里。",
+              "房间里有一间床。"
+            ],
+            "explanationVi": "Đúng: bàn cạnh cửa sổ, cửa hàng cạnh nhà.",
+            "promptVi": "Câu nào giữ đúng đồ vật, vị trí và mốc trong tình huống?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Địa điểm + 有 + vật giới thiệu có gì: 房间里有一张床. Vật + 在 + vị trí xác định vật ở đâu: 桌子在窗户旁边. Không đổi 有 thành 在 mà giữ nguyên trật tự câu.\n对面 cần mốc: 房子在学校对面. 旁边 là bên cạnh, không tự bằng đối diện. 里/外面 phân biệt trong và ngoài. 一间房 dùng 间 đếm phòng; 一张床 dùng 张 đếm giường. 面 trong 对面/外面 là thành tố chỉ phía, không phải lượng từ giường.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：房子在哪儿？ B：在图书馆旁边。 A：房间里有什么？ B：有两张床和一张桌子。桌子在门旁边。 A：书店在房子旁边吗？ B：不是，在房子对面。",
+              "modelAnswerMeaningVi": "Nhà cạnh thư viện; trong phòng có hai giường, một bàn cạnh cửa; hiệu sách đối diện nhà.",
+              "modelAnswerPinyin": "A: Fángzi zài nǎr? B: Zài túshūguǎn pángbiān. A: Fángjiān lǐ yǒu shénme? B: Yǒu liǎng zhāng chuáng hé yì zhāng zhuōzi. Zhuōzi zài mén pángbiān. A: Shūdiàn zài fángzi pángbiān ma? B: Bú shì, zài fángzi duìmiàn.",
+              "promptVi": "Địa điểm mới: nhà cạnh thư viện; hiệu sách đối diện nhà. Trong phòng có hai giường và một bàn; bàn cạnh cửa ra vào. Viết ít nhất sáu lượt hỏi vị trí nhà, đồ trong phòng và vị trí hiệu sách. Không giữ mốc trường của mẫu cũ."
+            },
+            "modelExample": {
+              "hanzi": "房间里有一张床。",
+              "meaningVi": "Trong phòng có một giường.",
+              "pinyin": "Fángjiān lǐ yǒu yì zhāng chuáng."
+            },
+            "pattern": "Nơi + 有 + vật; vật + 在 + nơi"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một nhà ở đối diện trường, hai bên đường. Cửa hàng ở cạnh nhà cùng phía đường. Trong phòng có một giường và một bàn; bàn ở cạnh cửa sổ. Mọi vị trí được nêu bằng mốc cụ thể, không dùng ảnh nền để suy đoán.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "房子 fángzi: ngôi nhà · 窗户 chuānghu: cửa sổ · 旁边 pángbiān: bên cạnh · 对面 duìmiàn: đối diện · 张 zhāng: lượng từ bàn/giường.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Mô tả địa điểm với mốc không gian rõ ràng",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-bedroom-window-v1.webp",
+                "alt": "Một giường và bàn học cạnh cửa sổ trong phòng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Trong phòng: một giường, một bàn cạnh cửa sổ. Vị trí nhà–trường–cửa hàng xem sơ đồ và lời thoại."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你住在哪儿？",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống ở đâu?",
+                  "pinyin": "Nǐ zhù zài nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我住在学校对面的房子里。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống trong ngôi nhà đối diện trường.",
+                  "pinyin": "Wǒ zhù zài xuéxiào duìmiàn de fángzi lǐ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "房间里有什么？",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong phòng có gì?",
+                  "pinyin": "Fángjiān lǐ yǒu shénme?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "有一张床和一张桌子。桌子在窗户旁边。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có một giường và một bàn. Bàn ở cạnh cửa sổ.",
+                  "pinyin": "Yǒu yì zhāng chuáng hé yì zhāng zhuōzi. Zhuōzi zài chuānghu pángbiān.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "附近有商店吗？",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Gần đó có cửa hàng không?",
+                  "pinyin": "Fùjìn yǒu shāngdiàn ma?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "有，商店就在房子旁边。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có, cửa hàng ở ngay cạnh nhà.",
+                  "pinyin": "Yǒu, shāngdiàn jiù zài fángzi pángbiān.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-bedroom-window-v1.webp",
+                "alt": "Một giường và bàn học cạnh cửa sổ trong phòng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Trong phòng: một giường, một bàn cạnh cửa sổ. Vị trí nhà–trường–cửa hàng xem sơ đồ và lời thoại."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thẻ dữ kiện biên tập được. Ảnh nền chỉ trang trí, không cung cấp dữ kiện khác.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "房子／学校",
+                        "meaningVi": "Nhà đối diện trường",
+                        "note": "Hai bên đường.",
+                        "pinyin": "fángzi / xuéxiào",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "商店／房子",
+                        "meaningVi": "Cửa hàng cạnh nhà",
+                        "note": "Cùng phía đường, không nằm trong phòng.",
+                        "pinyin": "shāngdiàn / fángzi",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "桌子／窗户",
+                        "meaningVi": "Bàn cạnh cửa sổ",
+                        "note": "Bên trong phòng có thêm một giường.",
+                        "pinyin": "zhuōzi / chuānghu",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Mỗi quan hệ có mốc riêng"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đối chiếu dữ kiện trước khi quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Địa điểm + 有 + vật giới thiệu có gì: 房间里有一张床. Vật + 在 + vị trí xác định vật ở đâu: 桌子在窗户旁边. Không đổi 有 thành 在 mà giữ nguyên trật tự câu.\n对面 cần mốc: 房子在学校对面. 旁边 là bên cạnh, không tự bằng đối diện. 里/外面 phân biệt trong và ngoài. 一间房 dùng 间 đếm phòng; 一张床 dùng 张 đếm giường. 面 trong 对面/外面 là thành tố chỉ phía, không phải lượng từ giường.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "房间里有一张床。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong phòng có một giường.",
+                  "pinyin": "Fángjiān lǐ yǒu yì zhāng chuáng.",
+                  "provenance": "",
+                  "title": "Nơi + 有 + vật; vật + 在 + nơi"
+                },
+                {
+                  "alt": "",
+                  "body": "Không lấy nhà làm phòng: cửa hàng cạnh nhà không có nghĩa cửa hàng nằm trong phòng. Giữ đúng mốc trường, nhà và cửa sổ.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Mô tả địa điểm với mốc không gian rõ ràng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "giường",
+                  "hanzi": "房间里有两张床。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:word-hsk-vocab-00321",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong phòng có hai giường.",
+                  "pinyin": "Fángjiān lǐ yǒu liǎng zhāng chuáng.",
+                  "provenance": "",
+                  "title": "床 · chuáng"
+                },
+                {
+                  "alt": "",
+                  "body": "gian; phòng; khoảng",
+                  "hanzi": "我想租一间房。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:word-hsk-vocab-00366",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn thuê một phòng.",
+                  "pinyin": "Wǒ xiǎng zū yì jiān fáng.",
+                  "provenance": "",
+                  "title": "间 · jiān"
+                },
+                {
+                  "alt": "",
+                  "body": "mặt; phía",
+                  "hanzi": "房子对面有一所学校。",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:word-hsk-vocab-00403",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đối diện nhà có một trường học.",
+                  "pinyin": "Fángzi duìmiàn yǒu yì suǒ xuéxiào.",
+                  "provenance": "",
+                  "title": "面 · miàn"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: bàn cạnh cửa sổ, cửa hàng cạnh nhà. Không lấy nhà làm phòng: cửa hàng cạnh nhà không có nghĩa cửa hàng nằm trong phòng. Giữ đúng mốc trường, nhà và cửa sổ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Mô tả địa điểm với mốc không gian rõ ràng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: bàn cạnh cửa sổ, cửa hàng cạnh nhà.",
+                        "id": "option-0",
+                        "text": "桌子在窗户旁边，商店在房子旁边。"
+                      },
+                      {
+                        "feedback": "Đã đưa cửa hàng ngoài nhà vào trong phòng.",
+                        "id": "option-1",
+                        "text": "商店在房间里。"
+                      },
+                      {
+                        "feedback": "Giường dùng 张 trong mẫu này, không dùng 间.",
+                        "id": "option-2",
+                        "text": "房间里有一间床。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào giữ đúng đồ vật, vị trí và mốc trong tình huống?",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "有"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Nơi + 有 + vật giới thiệu sự tồn tại. Muốn dùng 在 phải đổi trật tự: 床在房间里.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Nơi + 有 + vật giới thiệu sự tồn tại. Muốn dùng 在 phải đổi trật tự: 床在房间里.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-person-events-environment-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Giới thiệu đồ trong phòng: 房间里___一张床。 Điền 有 hoặc 在.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Địa điểm mới: nhà cạnh thư viện; hiệu sách đối diện nhà. Trong phòng có hai giường và một bàn; bàn cạnh cửa ra vào. Viết ít nhất sáu lượt hỏi vị trí nhà, đồ trong phòng và vị trí hiệu sách. Không giữ mốc trường của mẫu cũ.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：房子在哪儿？ B：在图书馆旁边。 A：房间里有什么？ B：有两张床和一张桌子。桌子在门旁边。 A：书店在房子旁边吗？ B：不是，在房子对面。\nA: Fángzi zài nǎr? B: Zài túshūguǎn pángbiān. A: Fángjiān lǐ yǒu shénme? B: Yǒu liǎng zhāng chuáng hé yì zhāng zhuōzi. Zhuōzi zài mén pángbiān. A: Shūdiàn zài fángzi pángbiān ma? B: Bú shì, zài fángzi duìmiàn.\nNhà cạnh thư viện; trong phòng có hai giường, một bàn cạnh cửa; hiệu sách đối diện nhà.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Mô tả địa điểm với mốc không gian rõ ràng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng thư viện làm mốc nhà, không giữ trường.",
+                        "id": "criterion-0",
+                        "label": "Dùng thư viện làm mốc nhà, không giữ trường."
+                      },
+                      {
+                        "guidance": "Nêu đủ hai giường/một bàn với 张.",
+                        "id": "criterion-1",
+                        "label": "Nêu đủ hai giường/một bàn với 张."
+                      },
+                      {
+                        "guidance": "Bàn cạnh cửa, không cạnh cửa sổ như mẫu cũ.",
+                        "id": "criterion-2",
+                        "label": "Bàn cạnh cửa, không cạnh cửa sổ như mẫu cũ."
+                      },
+                      {
+                        "guidance": "Phân biệt hiệu sách đối diện với bên cạnh qua lượt xác nhận.",
+                        "id": "criterion-3",
+                        "label": "Phân biệt hiệu sách đối diện với bên cạnh qua lượt xác nhận."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng thư viện làm mốc nhà, không giữ trường.\nNêu đủ hai giường/một bàn với 张.\nBàn cạnh cửa, không cạnh cửa sổ như mẫu cũ.\nPhân biệt hiệu sách đối diện với bên cạnh qua lượt xác nhận.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-person-events-environment-lesson-05:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-person-events-environment-lesson-05:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/29-REVIEW-HSK2-ENVIRONMENT.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-person-events-environment-lesson-05",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 object selection under two constraints, weather-dependent plans and explicit spatial reference points.",
+          "sourceContentSha256": "sha256:f9fd2a5c369fa6265b6cce3afa75594e92fbee3bc296cb3371d71164dcd4e61a"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về địa điểm và đặc điểm môi trường bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Không lấy nhà làm phòng: cửa hàng cạnh nhà không có nghĩa cửa hàng nằm trong phòng. Giữ đúng mốc trường, nhà và cửa sổ.",
+        "prerequisites": [
+          "hsk2-person-events-environment-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Địa điểm + 有 + vật giới thiệu có gì: 房间里有一张床. Vật + 在 + vị trí xác định vật ở đâu: 桌子在窗户旁边. Không đổi 有 thành 在 mà giữ nguyên trật tự câu.\n对面 cần mốc: 房子在学校对面. 旁边 là bên cạnh, không tự bằng đối diện. 里/外面 phân biệt trong và ngoài. 一间房 dùng 间 đếm phòng; 一张床 dùng 张 đếm giường. 面 trong 对面/外面 là thành tố chỉ phía, không phải lượng từ giường.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-person-events-environment-lesson-05"
+        ],
+        "sourceLessonIds": [
+          "hsk2-person-events-environment-lesson-05"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-05"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-006"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00321",
+          "hsk-vocab-00366",
+          "hsk-vocab-00403"
+        ],
+        "targetLessonId": "hsk2-person-events-environment-lesson-05",
+        "titleZh": "HSK二级 · 05",
+        "vocabulary": [
+          "hsk-vocab-00321",
+          "hsk-vocab-00366",
+          "hsk-vocab-00403"
+        ]
+      }
+    }
+  ]
+}

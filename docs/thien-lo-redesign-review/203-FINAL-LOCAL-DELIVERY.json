@@ -1,0 +1,885 @@
+{
+  "scope": "Final release/consumer consistency and known editorial triage; this scan is not semantic review of every string or proof of HSK mastery.",
+  "humanReviewed": false,
+  "lessonHeads": 217,
+  "missingLessonIds": [],
+  "duplicateLessonIds": 0,
+  "syllabusWords": 2000,
+  "wordTupleIssues": [],
+  "lexicalCatalog": "lexical-editorial-2026.10.5",
+  "pendingReleaseJobs": 0,
+  "familyRevision": "17163f13-f76a-4a72-845a-581e729e255e",
+  "familyAddedPages": 3,
+  "familyMatchesReceipt": true,
+  "foreignKeyViolations": 0,
+  "lessonHeadsById": [
+    {
+      "lessonId": "boot-1",
+      "revisionId": "bb00ddd9-db9b-410d-a2b6-7a6899b72e93"
+    },
+    {
+      "lessonId": "boot-2",
+      "revisionId": "f4083d87-b69f-432d-afe6-22491c1f5bc3"
+    },
+    {
+      "lessonId": "boot-3",
+      "revisionId": "7e57e0f9-1be6-4797-b138-7910ee151d26"
+    },
+    {
+      "lessonId": "boot-4",
+      "revisionId": "df632f8b-9c3f-499c-b63b-069df90d8a2a"
+    },
+    {
+      "lessonId": "characters-1",
+      "revisionId": "7cb365aa-38dd-425e-8908-6cdfa4bbb0bd"
+    },
+    {
+      "lessonId": "characters-10",
+      "revisionId": "8c91cecb-71eb-4b15-9e35-c063706d127f"
+    },
+    {
+      "lessonId": "characters-11",
+      "revisionId": "6c4dec9e-f1a6-4f5e-991d-542505a8220b"
+    },
+    {
+      "lessonId": "characters-12",
+      "revisionId": "c7af3a26-1d27-41e1-8988-e631edd67c9d"
+    },
+    {
+      "lessonId": "characters-13",
+      "revisionId": "1e447f67-6cc3-4697-ab1d-6244ffa6b045"
+    },
+    {
+      "lessonId": "characters-14",
+      "revisionId": "2fd1e6db-ed07-423b-8c94-cc7b7b83d70c"
+    },
+    {
+      "lessonId": "characters-15",
+      "revisionId": "ec3e6656-87af-4f03-afd4-982f01659957"
+    },
+    {
+      "lessonId": "characters-2",
+      "revisionId": "e3683efb-6889-48d5-a15c-78842e875190"
+    },
+    {
+      "lessonId": "characters-3",
+      "revisionId": "b82e3ccb-6f36-457d-a0af-8e932e54bf36"
+    },
+    {
+      "lessonId": "characters-4",
+      "revisionId": "e4073db0-93a8-4607-9723-2953761c193f"
+    },
+    {
+      "lessonId": "characters-5",
+      "revisionId": "19494ae9-10b8-4d3a-8aeb-5eada2ca229d"
+    },
+    {
+      "lessonId": "characters-6",
+      "revisionId": "526198f8-1e8b-4f2b-a5ae-0b6c7e83f783"
+    },
+    {
+      "lessonId": "characters-7",
+      "revisionId": "f1d323f4-95a7-4cfb-9290-2ed087270f4c"
+    },
+    {
+      "lessonId": "characters-8",
+      "revisionId": "eb99071d-4ee6-43a4-b167-5b3dfc22031c"
+    },
+    {
+      "lessonId": "characters-9",
+      "revisionId": "f0b719c1-3c18-4b62-8b3f-5dff52f3b645"
+    },
+    {
+      "lessonId": "daily-1",
+      "revisionId": "47aaee39-33e7-4ea3-8bd6-9949ff301416"
+    },
+    {
+      "lessonId": "daily-2",
+      "revisionId": "9242bf26-c33e-452c-8bba-23a9f904c110"
+    },
+    {
+      "lessonId": "daily-3",
+      "revisionId": "f7526e75-a2fa-482a-a53c-4c0e0de2a18e"
+    },
+    {
+      "lessonId": "daily-4",
+      "revisionId": "b790b811-3953-4958-8935-6b36f64ffc70"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-01-numbers",
+      "revisionId": "5344713f-0605-4d9e-8e43-db040a7d45a9"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-02-calendar",
+      "revisionId": "e666b97a-77be-422f-9110-715a7f14be3b"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
+      "revisionId": "a3953817-62b0-4122-9c9d-585aaedada4f"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-04-clock-and-duration",
+      "revisionId": "367cacc8-4229-481b-8a0a-6d0f109bec63"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-05-location",
+      "revisionId": "bb58a360-2d17-4dea-87a8-92d23dfa65b9"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "revisionId": "cf372d0e-2ffa-4d9d-91e0-9fde6fb7e664"
+    },
+    {
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "revisionId": "d3c7e999-8f27-4f69-9f37-81c348d955c4"
+    },
+    {
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "revisionId": "95812701-b8dd-4ef3-a363-fea0daec5d88"
+    },
+    {
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "revisionId": "09e32fab-0f23-46ef-9175-42d55537b40d"
+    },
+    {
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "revisionId": "536bd789-f29a-4894-aeea-78966ebe12ee"
+    },
+    {
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "revisionId": "65127e4f-c9b6-48fc-98b9-ac44117cd204"
+    },
+    {
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "revisionId": "99e342fb-d5a5-4dd1-b07d-7bcb8b8472c6"
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "revisionId": "3d43be60-dc12-4aa7-a1b3-c8d1ea0b5b47"
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "revisionId": "dc509e3d-722f-4e00-9008-eef872975ca6"
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "revisionId": "858b505c-74ed-4285-9bb4-da6da91450c9"
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "revisionId": "7ee14c22-db7f-4dad-bd07-275e1da80cda"
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "revisionId": "31f80f98-b295-47bc-bc4f-10f7c88d106f"
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-01",
+      "revisionId": "f31f1a0f-9aba-469a-9ac1-f29a4e2af769"
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-02",
+      "revisionId": "924673b6-0f71-495f-9dec-0b9885b1592b"
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-03",
+      "revisionId": "c519612b-bca9-42f1-b262-0df2a1de1621"
+    },
+    {
+      "lessonId": "hsk2-guided-message-lesson-01",
+      "revisionId": "1c0c97c7-5267-4630-8c84-849136b150d2"
+    },
+    {
+      "lessonId": "hsk2-guided-message-lesson-02",
+      "revisionId": "0ce21c46-afb1-44a4-9a7f-324bbd982937"
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "revisionId": "2f6ee7cb-0cab-4466-9039-908269ff4e9f"
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "revisionId": "96732ced-56fd-4a1c-a510-9d58207e621c"
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "revisionId": "b32a8df6-cb2f-4db6-8822-27ce4a7ea7d7"
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "revisionId": "dfe4e5b3-a73d-45eb-aacd-ef0c81a38bf3"
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "revisionId": "4b4aa0c4-e5ae-43cf-9dc7-5304fe897505"
+    },
+    {
+      "lessonId": "hsk2-picture-description-lesson-01",
+      "revisionId": "81182817-d179-4d09-9762-c57fb94422b7"
+    },
+    {
+      "lessonId": "hsk2-picture-description-lesson-02",
+      "revisionId": "7b277878-57a5-465b-8651-fa69bfd65086"
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "revisionId": "eb98aa51-65b9-4b00-be8a-f0db2c03ed55"
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "revisionId": "3b9afda4-3039-4c8a-943c-76c048caae74"
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "revisionId": "c66176db-f173-4ae1-945e-5674483ed077"
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "revisionId": "d42e7294-dfb3-4498-b36e-faec26a59def"
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-01",
+      "revisionId": "491afcff-25e7-45ab-8626-7e31957b1130"
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-02",
+      "revisionId": "798857e8-0f60-429a-adb7-c1041bd55f16"
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-03",
+      "revisionId": "fc56235f-b00c-4e89-b202-98f640aa71d7"
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "revisionId": "fba6a312-827c-4de8-8545-6100dd666cd5"
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "revisionId": "767b2407-9c53-47ce-ac8a-af1c38f8b365"
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "revisionId": "b9e26044-9f08-4b9e-bb45-744cb7ea62f5"
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "revisionId": "7d598d2a-c56f-437f-b02d-445e8437506d"
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "revisionId": "fbf691bd-d228-475f-817d-18857c73fbaa"
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "revisionId": "056335b3-1957-4439-9008-36da47b659f5"
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-02",
+      "revisionId": "b258d218-fa0f-4be0-9a3b-8525fc87bc38"
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "revisionId": "d206a95e-9358-4626-9d74-9503aebd9512"
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "revisionId": "b17e68e1-94c2-450a-ac18-86fc36f6c7d2"
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-05",
+      "revisionId": "6bca5870-1171-4f80-8d48-33f519e88445"
+    },
+    {
+      "lessonId": "hsk3-cohesion-reconstruction-lesson-01",
+      "revisionId": "5877275e-5fa9-4ab0-ac53-6ae3068343ae"
+    },
+    {
+      "lessonId": "hsk3-cohesion-reconstruction-lesson-02",
+      "revisionId": "91ba9c8f-bbbe-4177-8976-49893cc8c8e0"
+    },
+    {
+      "lessonId": "hsk3-cohesion-reconstruction-lesson-03",
+      "revisionId": "8486e723-5d6c-401d-958c-d50de4000120"
+    },
+    {
+      "lessonId": "hsk3-comparison-description-evaluation-lesson-01",
+      "revisionId": "14d4c956-2e2e-47d3-8691-5f46efaeb0ae"
+    },
+    {
+      "lessonId": "hsk3-comparison-description-evaluation-lesson-02",
+      "revisionId": "74358664-cb79-4587-9cc3-4240c593a40e"
+    },
+    {
+      "lessonId": "hsk3-comparison-description-evaluation-lesson-03",
+      "revisionId": "d8319d5d-8eb3-4e3d-9de6-aa05e7c37889"
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-customs-comparison",
+      "revisionId": "02682446-14f0-4d76-b62b-2f538b9abb89"
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
+      "revisionId": "f44bffa6-3f61-4c20-a007-c33d048a4664"
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-regional-cuisine",
+      "revisionId": "ea4b98de-91e2-4d31-8254-d93f5c82f035"
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-regional-differences",
+      "revisionId": "91ea22f9-207d-4edf-be21-3d2fdc887b9a"
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-tableware-etiquette",
+      "revisionId": "52de24f3-684f-4cc0-8000-dd5ee16fda5b"
+    },
+    {
+      "lessonId": "hsk3-discourse-linking-lesson-01",
+      "revisionId": "01ecece2-ba8b-4e68-9bd0-c46d8d012fa3"
+    },
+    {
+      "lessonId": "hsk3-discourse-linking-lesson-02",
+      "revisionId": "ce7891ac-91ac-4bda-a8ff-63c38484ff98"
+    },
+    {
+      "lessonId": "hsk3-discourse-linking-lesson-03",
+      "revisionId": "cbe2a58b-508a-436e-9340-12750aa2422f"
+    },
+    {
+      "lessonId": "hsk3-event-complements-voice-lesson-01",
+      "revisionId": "88466c79-129b-44c1-949b-05fe87ea5d91"
+    },
+    {
+      "lessonId": "hsk3-event-complements-voice-lesson-02",
+      "revisionId": "4a36dec8-b998-4aa1-af37-e79499ef06c0"
+    },
+    {
+      "lessonId": "hsk3-event-complements-voice-lesson-03",
+      "revisionId": "6e75f254-354e-4ef2-9a6e-bafdcbf6f56b"
+    },
+    {
+      "lessonId": "hsk3-event-retelling-lesson-01",
+      "revisionId": "03b89d6b-ad0b-473a-92aa-f648de0a1fc6"
+    },
+    {
+      "lessonId": "hsk3-event-retelling-lesson-02",
+      "revisionId": "5d912080-f1ab-4477-9206-41523a18ffb1"
+    },
+    {
+      "lessonId": "hsk3-event-retelling-lesson-03",
+      "revisionId": "65f3b381-e812-44ea-9a5b-97e0486a1076"
+    },
+    {
+      "lessonId": "hsk3-guided-paragraph-lesson-01",
+      "revisionId": "8524e281-0c2b-4582-9eac-5263748fe575"
+    },
+    {
+      "lessonId": "hsk3-guided-paragraph-lesson-02",
+      "revisionId": "014ace24-767e-4983-8c69-24b4ae9b77fb"
+    },
+    {
+      "lessonId": "hsk3-guided-paragraph-lesson-03",
+      "revisionId": "518edefa-231b-4b41-9b2b-5a6a83949564"
+    },
+    {
+      "lessonId": "hsk3-main-idea-detail-notes-lesson-01",
+      "revisionId": "a63e030c-b87c-4f3d-9ba6-dfd91bcebcba"
+    },
+    {
+      "lessonId": "hsk3-main-idea-detail-notes-lesson-02",
+      "revisionId": "6ace2bba-5f35-4a10-be1e-16b94b33cb8f"
+    },
+    {
+      "lessonId": "hsk3-main-idea-detail-notes-lesson-03",
+      "revisionId": "ebb80bde-2df8-4669-b264-df63fecb2142"
+    },
+    {
+      "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-01",
+      "revisionId": "18b69830-7184-47c7-b0e0-965f09d23165"
+    },
+    {
+      "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-02",
+      "revisionId": "9e9a2147-16be-4dff-a698-75315e94df19"
+    },
+    {
+      "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-03",
+      "revisionId": "c24804ee-2d4a-47a4-aadc-15385c7f0f0e"
+    },
+    {
+      "lessonId": "hsk3-nature-environment-explanations-climate-seasons",
+      "revisionId": "dc3f1668-7afc-4c64-aa4e-f4236b1ae40e"
+    },
+    {
+      "lessonId": "hsk3-nature-environment-explanations-environment-protection",
+      "revisionId": "55c8e580-9ab0-49d8-a7df-49c47c7f729e"
+    },
+    {
+      "lessonId": "hsk3-nature-environment-explanations-environment-state",
+      "revisionId": "57efb9dd-ccb0-478f-881d-2651b2f7c192"
+    },
+    {
+      "lessonId": "hsk3-nature-environment-explanations-landscape-place",
+      "revisionId": "bb770a25-aaef-4f54-bf13-b25a8774c76b"
+    },
+    {
+      "lessonId": "hsk3-nature-environment-explanations-plants-animals",
+      "revisionId": "ea17b97a-e62b-411a-adf9-d6f60e5425d4"
+    },
+    {
+      "lessonId": "hsk3-personal-life-narratives-food-shopping",
+      "revisionId": "a2094314-c652-47f2-a080-57df1e1124e1"
+    },
+    {
+      "lessonId": "hsk3-personal-life-narratives-health-care",
+      "revisionId": "4cbc9f52-3eea-46a3-bce3-929b42914707"
+    },
+    {
+      "lessonId": "hsk3-personal-life-narratives-home-family-leisure",
+      "revisionId": "8499e228-a89a-4377-a2b0-e64c1c231e47"
+    },
+    {
+      "lessonId": "hsk3-personal-life-narratives-identity-transactions",
+      "revisionId": "710d0cf4-de17-4129-a629-7c0337b9abf7"
+    },
+    {
+      "lessonId": "hsk3-personal-life-narratives-travel-transport",
+      "revisionId": "6112da2f-c301-4e3f-92ae-af4851e2a7db"
+    },
+    {
+      "lessonId": "hsk3-reference-quantity-phrase-building-lesson-01",
+      "revisionId": "2eaf0e97-39a3-4f6e-b446-382f813cacea"
+    },
+    {
+      "lessonId": "hsk3-reference-quantity-phrase-building-lesson-02",
+      "revisionId": "f875bb64-f136-4419-a379-d016fb1396a3"
+    },
+    {
+      "lessonId": "hsk3-reference-quantity-phrase-building-lesson-03",
+      "revisionId": "56a14ff4-7541-466c-bff7-a74d94a883b5"
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-arts-activities",
+      "revisionId": "864d1f6d-b2e7-40ad-b431-3cdbcf1a976a"
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-city-development",
+      "revisionId": "818617e2-455e-4fbe-8794-cb6fb8d156de"
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-competition-report",
+      "revisionId": "f7ac55ad-3be2-4e30-bbbd-6f1f59f49602"
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-modern-life",
+      "revisionId": "f1e1dfb5-9215-4b73-a6a7-8e235e1f0a90"
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-sports-introduction",
+      "revisionId": "364fac3c-881b-423c-9b18-20db48d8c23d"
+    },
+    {
+      "lessonId": "hsk3-structured-explanation-lesson-01",
+      "revisionId": "c796d225-91c2-4b72-8182-082f2fea8a55"
+    },
+    {
+      "lessonId": "hsk3-structured-explanation-lesson-02",
+      "revisionId": "cb8ae041-a47d-4350-ab17-c143271c7c6e"
+    },
+    {
+      "lessonId": "hsk3-structured-explanation-lesson-03",
+      "revisionId": "33f5a494-68b8-4309-b3c7-9c9985edf427"
+    },
+    {
+      "lessonId": "hsk3-study-work-accounts-campus-education",
+      "revisionId": "17163f13-f76a-4a72-845a-581e729e255e"
+    },
+    {
+      "lessonId": "hsk3-study-work-accounts-career-experience",
+      "revisionId": "0c2ac8e3-cc6e-4f0e-8d24-28a498737152"
+    },
+    {
+      "lessonId": "hsk3-study-work-accounts-colleague-workplace",
+      "revisionId": "8f510f6a-1c19-49cc-b62a-96313ddd5a5f"
+    },
+    {
+      "lessonId": "hsk3-study-work-accounts-courses-learning",
+      "revisionId": "026a809c-97a9-4878-ae61-ac39ac75e96e"
+    },
+    {
+      "lessonId": "hsk3-study-work-accounts-office-tasks",
+      "revisionId": "e1059eb9-d735-44a9-ad15-d4c023d8c70c"
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-01",
+      "revisionId": "7c85f353-6004-426e-9fc9-200a1f204f39"
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-02",
+      "revisionId": "63bbcbb2-80d3-4cc0-9a5e-0f4426e8f5b2"
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-03",
+      "revisionId": "10c34f08-63da-4bcd-902d-3aa69aed5b84"
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-04",
+      "revisionId": "42dab160-0514-4e01-86f4-53d55993c92f"
+    },
+    {
+      "lessonId": "hsk4-arts-sports-exchange-critique-cause-condition-result",
+      "revisionId": "17822b8b-73f9-4cb1-87d0-9efe2d4f0a36"
+    },
+    {
+      "lessonId": "hsk4-arts-sports-exchange-critique-claim-evidence-inference",
+      "revisionId": "92ad905f-637b-4ada-8ca6-a2b9e0309370"
+    },
+    {
+      "lessonId": "hsk4-arts-sports-exchange-critique-comparison-variation",
+      "revisionId": "8a523e93-29d9-4733-b5ba-6be0be900a6d"
+    },
+    {
+      "lessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "revisionId": "1caa955e-c1a7-4b3d-bf9f-ffd66e0bd2e3"
+    },
+    {
+      "lessonId": "hsk4-arts-sports-exchange-critique-process-timeline",
+      "revisionId": "d4606d6a-d480-4c62-98af-7241932c911f"
+    },
+    {
+      "lessonId": "hsk4-arts-sports-exchange-critique-viewpoint-synthesis",
+      "revisionId": "6bf18430-5b83-4a4f-9c81-6eae8bdb1af9"
+    },
+    {
+      "lessonId": "hsk4-cross-text-synthesis-lesson-01",
+      "revisionId": "2e2a37a7-dc28-40b6-bf32-dc3a59ac2496"
+    },
+    {
+      "lessonId": "hsk4-cross-text-synthesis-lesson-02",
+      "revisionId": "606db18d-bcc6-4ca4-abbd-096cecadd8d4"
+    },
+    {
+      "lessonId": "hsk4-cross-text-synthesis-lesson-03",
+      "revisionId": "c73116fa-b65f-4212-b3c3-cb6d73259f38"
+    },
+    {
+      "lessonId": "hsk4-culture-history-interpretation-cause-condition-result",
+      "revisionId": "3bb9c692-528e-4f9e-9431-672508e02ddd"
+    },
+    {
+      "lessonId": "hsk4-culture-history-interpretation-claim-evidence-inference",
+      "revisionId": "5f938189-76ce-43a0-a937-97544559d7a5"
+    },
+    {
+      "lessonId": "hsk4-culture-history-interpretation-comparison-variation",
+      "revisionId": "16d99281-c4b8-4ccf-b0d6-3142c3dd615e"
+    },
+    {
+      "lessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "revisionId": "887994d6-61e5-451e-adef-468aa70a6153"
+    },
+    {
+      "lessonId": "hsk4-culture-history-interpretation-process-timeline",
+      "revisionId": "cef3ca91-ad80-43e1-a90b-ad2a401d924c"
+    },
+    {
+      "lessonId": "hsk4-culture-history-interpretation-viewpoint-synthesis",
+      "revisionId": "5e2e27ab-c496-4379-9ae5-ce553c5989cd"
+    },
+    {
+      "lessonId": "hsk4-education-work-evaluation-cause-condition-result",
+      "revisionId": "1fdfe94f-3891-454a-a059-acae7b931143"
+    },
+    {
+      "lessonId": "hsk4-education-work-evaluation-claim-evidence-inference",
+      "revisionId": "c23ef6ed-876b-45f6-93b9-c1e589f5e125"
+    },
+    {
+      "lessonId": "hsk4-education-work-evaluation-comparison-variation",
+      "revisionId": "60be4cf2-9ec3-4881-b856-2d1a94e06996"
+    },
+    {
+      "lessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "revisionId": "d83ee2d3-9fd6-4063-9966-3c54aef55ad9"
+    },
+    {
+      "lessonId": "hsk4-education-work-evaluation-process-timeline",
+      "revisionId": "f1e6e20b-6405-4bff-9134-96bacdee9b7e"
+    },
+    {
+      "lessonId": "hsk4-education-work-evaluation-viewpoint-synthesis",
+      "revisionId": "8e821cb0-05bd-439a-890a-7fc9f3eb3c4f"
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-01",
+      "revisionId": "eca07fb1-452b-4bb0-be57-7e99043e17f2"
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-02",
+      "revisionId": "73b7ea4d-b36d-4216-9379-b69a52cf70e5"
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-03",
+      "revisionId": "abb1d793-9e9f-412c-a6d7-6461dd44faeb"
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-04",
+      "revisionId": "7e390a66-f4e6-4ea3-b7e1-0709a28a4572"
+    },
+    {
+      "lessonId": "hsk4-inference-evidence-check-lesson-01",
+      "revisionId": "5b057d82-b18c-4449-9232-b79e8ce3e9bd"
+    },
+    {
+      "lessonId": "hsk4-inference-evidence-check-lesson-02",
+      "revisionId": "28f2ab26-a36f-413f-a80d-7f28b182a962"
+    },
+    {
+      "lessonId": "hsk4-inference-evidence-check-lesson-03",
+      "revisionId": "e1f8bafd-0cfe-4d5e-ac60-7c99a4bd26bf"
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-01",
+      "revisionId": "fbdaac73-7cc1-4c99-aa2d-5b7d6e9c853a"
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-02",
+      "revisionId": "b592fb08-6718-4771-b851-fd05da1542f7"
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-03",
+      "revisionId": "437b3159-ed71-4b11-bda2-f667d2e22eff"
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-04",
+      "revisionId": "b35b30d3-3716-48f1-adce-44cd15a8fb4d"
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-05",
+      "revisionId": "d2b2b040-9e0d-4f75-9d32-09858165a447"
+    },
+    {
+      "lessonId": "hsk4-long-input-structure-map-lesson-01",
+      "revisionId": "d7ce09bd-fc7c-4b68-b3b3-d8a064a093c4"
+    },
+    {
+      "lessonId": "hsk4-long-input-structure-map-lesson-02",
+      "revisionId": "415bfac7-d7c6-4862-a073-50f72d88830c"
+    },
+    {
+      "lessonId": "hsk4-long-input-structure-map-lesson-03",
+      "revisionId": "86ce5da6-7cb3-4969-9459-b3e8116b9d75"
+    },
+    {
+      "lessonId": "hsk4-nature-technology-explanation-cause-condition-result",
+      "revisionId": "30fcecf0-5674-4997-9599-af4de498a922"
+    },
+    {
+      "lessonId": "hsk4-nature-technology-explanation-claim-evidence-inference",
+      "revisionId": "20cc4b98-e638-4b07-97dc-ba49f02ca041"
+    },
+    {
+      "lessonId": "hsk4-nature-technology-explanation-comparison-variation",
+      "revisionId": "46cb1b72-99ae-4708-ac80-84021346e16d"
+    },
+    {
+      "lessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "revisionId": "c0ab6f05-a0a2-4c51-9ee7-35482ad0c58a"
+    },
+    {
+      "lessonId": "hsk4-nature-technology-explanation-process-timeline",
+      "revisionId": "ce0e4a57-f6fd-46bd-89a3-735fd5d4dd41"
+    },
+    {
+      "lessonId": "hsk4-nature-technology-explanation-viewpoint-synthesis",
+      "revisionId": "806a3c6f-4f62-4b13-9558-593e6f06e11c"
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-cause-condition-result",
+      "revisionId": "1758ecbe-4896-434c-995d-a7e8c31c4ce8"
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-claim-evidence-inference",
+      "revisionId": "c791ed20-d276-402d-bd04-c50373aec523"
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-comparison-variation",
+      "revisionId": "3401a7bc-d3a1-4851-967c-794f705cfcca"
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "revisionId": "87d82cb0-ab8f-4b07-aca3-98f2d67d85d7"
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-process-timeline",
+      "revisionId": "f3e35aca-27d4-4581-a601-f1c43a599f55"
+    },
+    {
+      "lessonId": "hsk4-personal-community-analysis-viewpoint-synthesis",
+      "revisionId": "9e539b83-e9f2-4cae-90c5-6917ad629674"
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-01",
+      "revisionId": "8b64da69-0ef8-4341-ba34-b6c7f79a63bf"
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-02",
+      "revisionId": "ab497bf3-e9bd-433b-ae2a-c6c0e437dca7"
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-03",
+      "revisionId": "b5ef6d04-9b44-49ae-8ff4-108e5feb4f3b"
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-04",
+      "revisionId": "9dd78058-5131-4ddf-8125-0694cdf675ae"
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-05",
+      "revisionId": "b2f18e3b-eef0-46a4-80cc-5533cca90330"
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-06",
+      "revisionId": "7aa5fca4-8e1d-4da3-969f-9e1d2e099f03"
+    },
+    {
+      "lessonId": "hsk4-society-economy-argument-cause-condition-result",
+      "revisionId": "bc1d3d8c-1b0e-4414-a1df-15e299dc05d8"
+    },
+    {
+      "lessonId": "hsk4-society-economy-argument-claim-evidence-inference",
+      "revisionId": "9e259796-5c7b-4515-904f-d6e69721fc14"
+    },
+    {
+      "lessonId": "hsk4-society-economy-argument-comparison-variation",
+      "revisionId": "581b0374-4bfe-4edd-9020-212b8df9592b"
+    },
+    {
+      "lessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "revisionId": "80ad4a3c-4fec-4c15-a439-1aa1f1265ae4"
+    },
+    {
+      "lessonId": "hsk4-society-economy-argument-process-timeline",
+      "revisionId": "8cf7688a-d8ec-44d5-b65c-533b4ab6bd84"
+    },
+    {
+      "lessonId": "hsk4-society-economy-argument-viewpoint-synthesis",
+      "revisionId": "4d2babc3-7eb2-4d5c-a773-3f8befc4e446"
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-01",
+      "revisionId": "12c0ba5e-1a2d-4d5e-b3fd-6360f96cd3e3"
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-02",
+      "revisionId": "c81d1b9c-154d-414e-ac36-4a14bddd969d"
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-03",
+      "revisionId": "08d9d6f3-86bc-4d34-8475-a1bb66c6404f"
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-04",
+      "revisionId": "344b3b4e-e4cb-4fee-91b9-3ab103ea88c2"
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-05",
+      "revisionId": "6b430e67-4a4c-40a3-b557-d8da39e28593"
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-01",
+      "revisionId": "7ff432a4-d613-4ca4-8faa-ef28d03d02ac"
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-02",
+      "revisionId": "f088f331-bb37-425f-9aad-c1eedc78391f"
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-03",
+      "revisionId": "8a2d968c-0caa-409b-95e4-7931ebb66d10"
+    },
+    {
+      "lessonId": "hsk4-structured-written-argument-lesson-01",
+      "revisionId": "0a286aa8-0a56-4aa1-9d89-5503fa230763"
+    },
+    {
+      "lessonId": "hsk4-structured-written-argument-lesson-02",
+      "revisionId": "72a179b9-bdb0-4b8e-a5bc-b38a56867a7e"
+    },
+    {
+      "lessonId": "hsk4-structured-written-argument-lesson-03",
+      "revisionId": "cb392d86-af10-42a5-a115-4e210eace823"
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-01",
+      "revisionId": "a5901dbb-2b50-41b9-aeed-37ed17c69f3b"
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-02",
+      "revisionId": "a9a38e88-789f-422b-b51e-72f23b7048f5"
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-03",
+      "revisionId": "a516f5e1-c5b9-434b-9f24-0c165ac7be13"
+    },
+    {
+      "lessonId": "journey-1",
+      "revisionId": "3128287d-9e6d-4411-a7b6-b44c6d982954"
+    },
+    {
+      "lessonId": "journey-2",
+      "revisionId": "197c88e2-060a-4c44-aa87-71f6b9179298"
+    },
+    {
+      "lessonId": "professional-1",
+      "revisionId": "554afb20-318c-4ee7-b9ae-3ff9ea5c8b9d"
+    },
+    {
+      "lessonId": "professional-2",
+      "revisionId": "055e88e7-7588-49cd-897e-9cce0d03f844"
+    },
+    {
+      "lessonId": "professional-3",
+      "revisionId": "8ca42eb2-93d7-41c7-9bb9-10f85f88d76c"
+    },
+    {
+      "lessonId": "professional-4",
+      "revisionId": "30c5c7e1-b510-41c8-9df4-c4c790e98c74"
+    },
+    {
+      "lessonId": "survival-1",
+      "revisionId": "a993d673-0292-4254-88ca-51704cb95225"
+    },
+    {
+      "lessonId": "survival-2",
+      "revisionId": "211a2395-b7e1-4b32-a6db-ce4a6d9964be"
+    },
+    {
+      "lessonId": "survival-3",
+      "revisionId": "1ef1737a-798f-4bed-bb58-cdab8a4c3d6f"
+    },
+    {
+      "lessonId": "survival-4",
+      "revisionId": "be54e208-701b-4d50-a28b-47469b8656ed"
+    },
+    {
+      "lessonId": "survival-5",
+      "revisionId": "44fe5ca2-f723-4b91-bc2a-0b0b7b533d27"
+    },
+    {
+      "lessonId": "survival-6",
+      "revisionId": "5b53a3ff-d88e-4d51-b385-f5e4df11ce21"
+    },
+    {
+      "lessonId": "survival-7",
+      "revisionId": "9dd0b169-816f-4280-8cc3-1002149ff5f2"
+    },
+    {
+      "lessonId": "survival-8",
+      "revisionId": "1ce2bcd2-e8e8-4791-972a-568578c7b934"
+    },
+    {
+      "lessonId": "survival-9",
+      "revisionId": "d21b563f-fe7e-4cd1-b7fe-89e864086b77"
+    }
+  ]
+}

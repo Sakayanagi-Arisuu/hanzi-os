@@ -1,0 +1,38 @@
+const lessonId='hsk4-precision-reference-quantity-lesson-01';
+const models={
+ 'paraphrase:0':[
+ '社区中心把服务、负责人和联系方式列成表。实际工作由工作人员、志愿者等多方合作完成。三个月后，中心又增加紧急程度和上门需求两栏，并安排电话确认，让判断、处理和跟进的责任更清楚。',
+ 'Shèqū zhōngxīn bǎ fúwù, fùzérén hé liánxì fāngshì liè chéng biǎo. Shíjì gōngzuò yóu gōngzuò rényuán, zhìyuànzhě děng duō fāng hézuò wánchéng. Sān ge yuè hòu, zhōngxīn yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú liǎng lán, bìng ānpái diànhuà quèrèn, ràng pànduàn, chǔlǐ hé gēnjìn de zérèn gèng qīngchu.',
+ 'Trung tâm liệt kê dịch vụ, người phụ trách và cách liên hệ thành bảng. Công việc thực tế do nhân viên, tình nguyện viên và các bên phối hợp. Ba tháng sau, trung tâm thêm hai cột mức khẩn cấp và nhu cầu đến tận nhà, đồng thời gọi xác nhận để rõ trách nhiệm đánh giá, xử lý và theo dõi.'
+ ],
+ 'paraphrase:1':[
+ '过去，长途车站的套餐不能满足所有旅客的需要。旅客代表、厨师和卫生人员讨论后，车站设置小份窗口，并公布材料、重量和制作时间。试行后浪费减少了，但调查只覆盖工作日中午，还没有记录口味偏好，所以不能说方案已经完美。',
+ 'Guòqù, chángtú chēzhàn de tàocān bù néng mǎnzú suǒyǒu lǚkè de xūyào. Lǚkè dàibiǎo, chúshī hé wèishēng rényuán tǎolùn hòu, chēzhàn shèzhì xiǎo fèn chuāngkǒu, bìng gōngbù cáiliào, zhòngliàng hé zhìzuò shíjiān. Shìxíng hòu làngfèi jiǎnshǎo le, dàn diàochá zhǐ fùgài gōngzuòrì zhōngwǔ, hái méiyǒu jìlù kǒuwèi piānhào, suǒyǐ bù néng shuō fāng’àn yǐjīng wánměi.',
+ 'Trước đây suất ăn ở bến xe đường dài chưa đáp ứng mọi hành khách. Sau thảo luận giữa đại diện hành khách, đầu bếp và nhân sự vệ sinh, bến xe mở quầy phần nhỏ, công bố nguyên liệu, trọng lượng và giờ chế biến. Thử nghiệm giúp giảm lãng phí, nhưng khảo sát chỉ ở trưa ngày thường và chưa ghi sở thích hương vị nên chưa thể nói phương án hoàn hảo.'
+ ],
+ summary:[
+ '明河社区列出服务和负责人，由工作人员、志愿者等合作处理问题，三个月后又增加紧急程度和上门需求。长途车站听取旅客、厨师和卫生人员的意见，开设小份窗口并公布食品信息。两处都按不同需要调整服务，但社区的经验不能直接推广，车站也缺少周末和口味偏好的资料。',
+ 'Mínghé shèqū liè chū fúwù hé fùzérén, yóu gōngzuò rényuán, zhìyuànzhě děng hézuò chǔlǐ wèntí, sān ge yuè hòu yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú. Chángtú chēzhàn tīngqǔ lǚkè, chúshī hé wèishēng rényuán de yìjiàn, kāishè xiǎo fèn chuāngkǒu bìng gōngbù shípǐn xìnxī. Liǎng chù dōu àn bùtóng xūyào tiáozhěng fúwù, dàn shèqū de jīngyàn bù néng zhíjiē tuīguǎng, chēzhàn yě quēshǎo zhōumò hé kǒuwèi piānhào de zīliào.',
+ 'Khu Minh Hà ghi dịch vụ và người phụ trách, các bên phối hợp xử lý; ba tháng sau thêm mức khẩn cấp và nhu cầu đến tận nhà. Bến xe nghe hành khách, đầu bếp và nhân sự vệ sinh, mở quầy phần nhỏ, công bố thông tin thức ăn. Cả hai điều chỉnh theo nhu cầu khác nhau; kinh nghiệm cộng đồng chưa thể áp dụng thẳng nơi khác, còn bến xe thiếu dữ liệu cuối tuần và sở thích hương vị.'
+ ],
+ argument:[
+ '我认为服务可以有共同要求，也需要回应不同需求。社区中心统一列出服务和联系方式，但普通咨询与道路安全问题交给不同的人处理。车站也没有只看速度和价格，而是听取旅客、厨师与卫生人员的意见，设置小份窗口。统一标准确实便于管理，例如食品安全要求不能随意降低。不过，份量和上门服务可以按需要调整。试行后食品浪费减少，并不说明所有旅客都满意，因为调查还缺少周末和口味方面的记录。因此，我建议保留共同要求，同时明确不同选择和负责人员，再继续收集意见。这个建议基于两个具体场所，推广前还需要更多资料。',
+ 'Wǒ rènwéi fúwù kěyǐ yǒu gòngtóng yāoqiú, yě xūyào huíyìng bùtóng xūqiú. Shèqū zhōngxīn tǒngyī liè chū fúwù hé liánxì fāngshì, dàn pǔtōng zīxún yǔ dàolù ānquán wèntí jiāo gěi bùtóng de rén chǔlǐ. Chēzhàn yě méiyǒu zhǐ kàn sùdù hé jiàgé, ér shì tīngqǔ lǚkè, chúshī yǔ wèishēng rényuán de yìjiàn, shèzhì xiǎo fèn chuāngkǒu. Tǒngyī biāozhǔn quèshí biànyú guǎnlǐ, lìrú shípǐn ānquán yāoqiú bù néng suíyì jiàngdī. Búguò, fènliàng hé shàngmén fúwù kěyǐ àn xūyào tiáozhěng. Shìxíng hòu shípǐn làngfèi jiǎnshǎo, bìng bù shuōmíng suǒyǒu lǚkè dōu mǎnyì, yīnwèi diàochá hái quēshǎo zhōumò hé kǒuwèi fāngmiàn de jìlù. Yīncǐ, wǒ jiànyì bǎoliú gòngtóng yāoqiú, tóngshí míngquè bùtóng xuǎnzé hé fùzé rényuán, zài jìxù shōují yìjiàn. Zhège jiànyì jīyú liǎng ge jùtǐ chǎngsuǒ, tuīguǎng qián hái xūyào gèng duō zīliào.',
+ 'Tôi cho rằng dịch vụ có thể có yêu cầu chung và vẫn đáp ứng nhu cầu khác nhau. Trung tâm thống nhất bảng liên hệ nhưng chuyển tư vấn thường và an toàn đường bộ cho người khác nhau. Bến xe không chỉ xét tốc độ, giá mà còn nghe ba nhóm để mở quầy phần nhỏ. Chuẩn chung giúp quản lý, chẳng hạn không tùy tiện hạ yêu cầu an toàn thực phẩm. Tuy nhiên khẩu phần và dịch vụ tại nhà có thể tùy nhu cầu. Giảm lãng phí chưa có nghĩa mọi khách hài lòng vì còn thiếu ghi nhận cuối tuần và khẩu vị. Tôi đề nghị giữ yêu cầu chung, nêu rõ lựa chọn và người phụ trách, rồi lấy thêm ý kiến. Đề nghị dựa vào hai địa điểm cụ thể, cần thêm tài liệu trước khi áp dụng rộng.'
+ ],
+ defense:[
+ '我的建议是保留共同要求，同时说明不同选择由谁负责。社区把普通咨询和道路安全问题分别处理；车站兼顾时间、价格、份量和食品安全。统一要求不等于所有人只能选同一份套餐。两个案例范围有限，尤其不能把浪费减少当成所有旅客满意。',
+ 'Wǒ de jiànyì shì bǎoliú gòngtóng yāoqiú, tóngshí shuōmíng bùtóng xuǎnzé yóu shéi fùzé. Shèqū bǎ pǔtōng zīxún hé dàolù ānquán wèntí fēnbié chǔlǐ; chēzhàn jiāngù shíjiān, jiàgé, fènliàng hé shípǐn ānquán. Tǒngyī yāoqiú bù děngyú suǒyǒu rén zhǐ néng xuǎn tóng yí fèn tàocān. Liǎng ge ànlì fànwéi yǒuxiàn, yóuqí bù néng bǎ làngfèi jiǎnshǎo dàng chéng suǒyǒu lǚkè mǎnyì.',
+ 'Tôi đề nghị giữ yêu cầu chung và nói rõ ai phụ trách mỗi lựa chọn. Cộng đồng tách xử lý tư vấn thường với an toàn đường bộ; bến xe xét thời gian, giá, khẩu phần và an toàn thức ăn. Chuẩn chung không có nghĩa mọi người chỉ được chọn một suất giống nhau. Hai trường hợp có phạm vi hẹp, nhất là không coi giảm lãng phí là tất cả khách hài lòng.'
+ ]
+};
+export function correctServiceFidelity29(source){
+ const content=structuredClone(source),changes=[];if(content.targetLessonId!==lessonId)return {content,changes};
+ const blocks=content.lessonPages.pages.flatMap(p=>p.blocks);
+ if(!blocks.some(b=>b.reading?.paragraphs?.some(p=>p.hanzi.includes('长途车站过去只有两家快餐店'))))throw Error('Source changed');
+ const edit=(key,fn)=>{const b=blocks.find(b=>b.id===`${lessonId}:${key}`);if(!b?.activity)throw Error('Missing activity');const before=structuredClone(b);fn(b);changes.push({blockId:b.id,before,after:structuredClone(b)});};
+ for(const [key,triple] of Object.entries(models))edit(key,b=>{b.activity.explanation=`Một cách diễn đạt để đối chiếu sau khi tự làm:\n${triple.join('\n')}\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.`;if(key==='paraphrase:0'){b.activity.rubric[0].label=b.activity.rubric[0].guidance='Phân biệt các mục trên bảng với công việc thực tế của các bên.';}if(key==='paraphrase:1'){b.body='Viết lại quá trình bến xe mở quầy phần nhỏ, giữ nhu cầu, vai trò, kết quả thử nghiệm và giới hạn dữ liệu.\nDẫn chứng: Nguồn B · đoạn1–3. Viết trước khi mở mẫu.';b.activity.learningTarget.objective='Diễn đạt lại cải tiến quầy ăn tại bến xe, giữ kết quả và giới hạn dữ liệu.';}if(key==='summary'){b.activity.rubric[0].label=b.activity.rubric[0].guidance='Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà.';b.activity.rubric[1].label=b.activity.rubric[1].guidance='Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn.';}});
+ edit('audit:0',b=>{const vi='Bảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.';b.body=`服务表在每项服务后写明负责人的姓名和联系方式。\n${vi}\nĐối chiếu Nguồn A · đoạn1.`;b.activity.learningTarget.objective=vi;b.activity.explanation='Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.';for(const o of b.activity.options)o.feedback=(o.id==='fact'?'Đúng. ':'Chưa đúng. ')+b.activity.explanation;});
+ edit('audit:1',b=>{const vi='Lãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.';b.body=`食品浪费减少，证明所有旅客都喜欢小份窗口的饭菜。\n${vi}\nĐối chiếu Nguồn B · đoạn3.`;b.activity.learningTarget.objective=vi;b.activity.explanation='Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.';for(const o of b.activity.options)o.feedback=(o.id==='interpretation'?'Đúng. ':'Chưa đúng. ')+b.activity.explanation;});
+ return {content,changes};
+}

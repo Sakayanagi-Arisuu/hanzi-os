@@ -10,7 +10,7 @@ import {
   REVIEW_MODALITY,
   REVIEW_PROTOCOL_VERSION,
   REVIEW_SCHEDULER_VERSION,
-  reviewWordVersion,
+  isSupportedReviewWordVersion,
   type GradeReviewCommandV1,
   type GradeReviewReceiptV1,
 } from "../learning/reviewProtocol";
@@ -841,7 +841,7 @@ export class ReviewRepository {
       || card.wordId !== command.wordId
       || card.wordVersion !== command.wordVersion
       || !RELEASED_WORD_BY_ID.has(card.wordId)
-      || card.wordVersion !== reviewWordVersion(card.wordId)
+      || !isSupportedReviewWordVersion(card.wordId, card.wordVersion)
       || card.modality !== REVIEW_MODALITY
       || card.schedulerVersion !== REVIEW_SCHEDULER_VERSION
       || card.dueAt > timestamp

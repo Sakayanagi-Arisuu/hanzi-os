@@ -1,0 +1,13 @@
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {loadAssessment93} from './hsk12-assessment-editorial-round93.mjs';
+import {getHskMockExamDefinition} from '../../src/server/hskMockExamBank.ts';
+import {studioStarterContent,validateStudioContent} from '../../src/content/studioContent.ts';
+const path='content/drafts/thien-lo-hsk12-assessment-editorial-round93.json';if(existsSync(path))throw Error('Preserve pinned plan');
+const review={humanReviewed:false,aiSelfReview:{accuracy:true,levelFit:true,pedagogy:true,answerIntegrity:true,originality:true}};
+const entries=loadAssessment93().map(x=>({stableKey:x.level+'-assessment-r93-'+x.id.replaceAll(':','-'),itemType:'exam_item',title:x.level.toUpperCase()+' · '+x.id.split(':').slice(-2).join(' · '),level:x.level,sourceItemVersion:x.sourceItemVersion,content:{...studioStarterContent('exam_item',x.level),skill:x.skill,promptVi:x.promptVi,hanzi:x.stimulusText,options:x.options.map(o=>o.text),answerIndex:x.options.findIndex(o=>o.optionId===x.correctOptionId),explanationVi:x.explanationVi,sourceLessonIds:[x.sourceLessonId],review,editorialOrigin:{sourceItemId:x.id,sourceItemVersion:x.sourceItemVersion,humanReviewed:false,evidenceDocument:'docs/thien-lo-redesign-review/187-REVIEW-HSK12-ASSESSMENT-ROUND93.md'}}}));
+for(const e of entries){const v=await validateStudioContent(e.itemType,e.content);if(!v.result.valid)throw Error(JSON.stringify({key:e.stableKey,...v.result}));}
+const forms=['hsk1','hsk2'].map(level=>({level,stableKey:level+'-assessment-reviewed-round93-g',selected:getHskMockExamDefinition(level,'a').bank.map(x=>x.sourceItemVersion),timeLimitMinutes:level==='hsk1'?40:55,coverage:level==='hsk1'?{listening:20,reading:20,writing:0}:{listening:35,reading:25,writing:0}}));
+for(const f of forms)if(new Set(f.selected).size!==f.selected.length||f.selected.some(v=>!entries.some(e=>e.level===f.level&&e.sourceItemVersion===v)))throw Error('Missing reviewed form source');
+const sourceFiles=['content/drafts/hsk1-level-check-items-2026.07.json','content/runtime/hsk2-level-check-local.json','src/data/hsk1LevelCheck.ts','src/data/hsk2LevelCheck.ts','scripts/content/hsk12-assessment-editorial-round93.mjs'].map(path=>({path,sha256:createHash('sha256').update(readFileSync(path)).digest('hex')}));
+writeFileSync(path,JSON.stringify({humanReviewed:false,sourceFiles,entries,forms,evidenceDocument:'docs/thien-lo-redesign-review/187-REVIEW-HSK12-ASSESSMENT-ROUND93.md'},null,2)+'\n');console.log({items:entries.length,forms:forms.map(f=>({level:f.level,items:f.selected.length})),path});

@@ -1,8 +1,10 @@
 import { useEffect, type CSSProperties, type RefObject } from "react";
 import { Lightbulb, Volume2 } from "lucide-react";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
+import { PublishedVocabularyReference } from "./PublishedVocabularyReference";
 
 type ReviewMemoryArenaProps = {
+  wordId?: string;
   audioSourceId: string;
   character: string;
   example: string;
@@ -20,6 +22,7 @@ type ReviewMemoryArenaProps = {
 };
 
 export function ReviewMemoryArena({
+  wordId,
   audioSourceId,
   character,
   example,
@@ -67,6 +70,7 @@ export function ReviewMemoryArena({
     <section
       className={`memory-card memory-arena ${revealed ? "revealed" : ""}`}
       data-audio-active={audioActive}
+      data-motion-scene={`${audioSourceId}:${revealed ? "reveal" : "recall"}`}
       data-audio-phase={audioPhase}
       aria-labelledby={titleId}
     >
@@ -150,6 +154,7 @@ export function ReviewMemoryArena({
           <div className="memory-tags" aria-label="Nhãn từ vựng">
             {tags.map((tag) => <span key={tag}>{tag}</span>)}
           </div>
+          {wordId && <PublishedVocabularyReference key={wordId} wordId={wordId} />}
         </div>
       )}
     </section>

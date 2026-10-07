@@ -96,6 +96,7 @@ const toObservatoryItem = (
   item: MistakeQueueItemV1,
 ): RemediationObservatoryItem => ({
   id: item.remediationId,
+  referenceLessonId: item.originSource === "lesson" ? item.activityId.split(":")[0] : undefined,
   skill: item.skill,
   skillLabel: skillLabels[item.skill],
   kindLabel: kindLabels[item.kind],

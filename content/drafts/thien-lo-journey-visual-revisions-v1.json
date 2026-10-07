@@ -1,0 +1,2195 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "journey-1",
+      "baseRevisionId": "be32083e-3546-4c93-9acc-5cf2033b517a",
+      "baseContentSha256": "sha256:8161f21ca983679fc3b94b242a7b38b3194706dc63f1e829252ef59b28b8a155",
+      "changedPageIds": [
+        "journey-1:v2:dialogue",
+        "journey-1:v2:visual"
+      ],
+      "content": {
+        "checkpointVi": "Tình huống mới: bạn đang ở nhà, sẽ đi tàu hỏa đến Bắc Kinh (北京 Běijīng), rồi đi máy bay về nhà. Nói đủ hai chặng với tư cách hành khách, không tự nhận lái.",
+        "conceptVi": "Chọn phương tiện và nói hướng đi theo điểm nhìn",
+        "dialogue": [
+          {
+            "hanzi": "你怎么来学校？",
+            "meaningVi": "Bạn đến trường bằng cách nào? (Người hỏi ở trường.)",
+            "pinyin": "Nǐ zěnme lái xuéxiào?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我坐出租车去学校。",
+            "meaningVi": "Tôi đi taxi đến trường. (Người trả lời đang ở nhà.)",
+            "pinyin": "Wǒ zuò chūzūchē qù xuéxiào.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你开车吗？",
+            "meaningVi": "Bạn lái xe à?",
+            "pinyin": "Nǐ kāichē ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "不，我坐出租车。",
+            "meaningVi": "Không, tôi đi taxi.",
+            "pinyin": "Bù, wǒ zuò chūzūchē.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我坐飞机去。",
+            "answerMeaningVi": "Tôi đi máy bay đến đó.",
+            "answerPinyin": "Wǒ zuò fēijī qù.",
+            "distractors": [
+              "我开飞机去。",
+              "我坐火车去。"
+            ],
+            "explanationVi": "Đúng: 坐飞机 diễn đạt đi máy bay với vai hành khách.",
+            "promptVi": "Vai của bạn là hành khách đi máy bay. Chọn câu đúng thông tin."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "坐 + phương tiện diễn đạt đi bằng khi làm hành khách: 坐出租车、坐火车、坐飞机. 开车 là lái xe, không thay cho đi xe khi chưa biết ai lái. 来 thường hướng về người nói hoặc điểm nhìn đã xác định; 去 hướng tới nơi khác. 回 nói quay về; 回家 về nhà, 回来/回去 kết hợp điểm nhìn. 车 là xe nói chung. 开 có nhiều cách dùng: 开车 lái xe, 开门 mở cửa; nghĩa phụ thuộc từ đi kèm.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我坐火车去北京，坐飞机回家。",
+              "modelAnswerMeaningVi": "Tôi đi tàu hỏa đến Bắc Kinh, đi máy bay về nhà.",
+              "modelAnswerPinyin": "Wǒ zuò huǒchē qù Běijīng, zuò fēijī huí jiā.",
+              "promptVi": "Tình huống mới: bạn đang ở nhà, sẽ đi tàu hỏa đến Bắc Kinh (北京 Běijīng), rồi đi máy bay về nhà. Nói đủ hai chặng với tư cách hành khách, không tự nhận lái."
+            },
+            "modelExample": {
+              "hanzi": "我坐火车去北京。",
+              "meaningVi": "Tôi đi tàu hỏa đến Bắc Kinh.",
+              "pinyin": "Wǒ zuò huǒchē qù Běijīng."
+            },
+            "pattern": "坐 + phương tiện + 去 + nơi；坐 + phương tiện + 回家。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn đang ở nhà, gọi cho bạn học đang ở trường. Bạn sẽ đến trường bằng taxi và sau đó về nhà. Nêu rõ ai đang ở đâu trước khi dùng 来 hoặc 去.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "学校 (xuéxiào) — trường học; 家 (jiā) — nhà; 怎么 (zěnme) — bằng cách nào; 今天 (jīntiān) — hôm nay; 你/我 (nǐ/wǒ) — bạn/tôi; 不 (bù) — không.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "journey-1:v2:context",
+              "illustration": {
+                "alt": "Một học viên gọi từ nhà, taxi chờ ngoài cửa và bạn học nghe máy ở trường",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/home-school-taxi-call-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Chọn phương tiện và nói hướng đi theo điểm nhìn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Người trả lời ở nhà đi taxi đến trường. Người hỏi ở trường dùng 来; người ở nhà nói 去 theo điểm nhìn của mình.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "家",
+                        "meaningVi": "Nhà · người trả lời đang ở đây",
+                        "note": "",
+                        "pinyin": "Jiā",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "出租车",
+                        "meaningVi": "Taxi · phương tiện của người trả lời",
+                        "note": "",
+                        "pinyin": "Chūzūchē",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "学校",
+                        "meaningVi": "Trường · người hỏi đang ở đây",
+                        "note": "",
+                        "pinyin": "Xuéxiào",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "sequence"
+                  },
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc sơ đồ tình huống"
+                }
+              ],
+              "id": "journey-1:v2:visual",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Xác định điểm nhìn trước khi nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你怎么来学校？",
+                  "id": "journey-1:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đến trường bằng cách nào? (Người hỏi ở trường.)",
+                  "pinyin": "Nǐ zěnme lái xuéxiào?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我坐出租车去学校。",
+                  "id": "journey-1:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi taxi đến trường. (Người trả lời đang ở nhà.)",
+                  "pinyin": "Wǒ zuò chūzūchē qù xuéxiào.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你开车吗？",
+                  "id": "journey-1:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn lái xe à?",
+                  "pinyin": "Nǐ kāichē ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "不，我坐出租车。",
+                  "id": "journey-1:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không, tôi đi taxi.",
+                  "pinyin": "Bù, wǒ zuò chūzūchē.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "journey-1:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/home-school-taxi-call-v1.webp",
+                "alt": "Một học viên gọi từ nhà, taxi chờ ngoài cửa và bạn học nghe máy ở trường",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false",
+                "caption": "Người hỏi ở trường dùng 来; người trả lời ở nhà dùng 去."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "坐 + phương tiện diễn đạt đi bằng khi làm hành khách: 坐出租车、坐火车、坐飞机. 开车 là lái xe, không thay cho đi xe khi chưa biết ai lái. 来 thường hướng về người nói hoặc điểm nhìn đã xác định; 去 hướng tới nơi khác. 回 nói quay về; 回家 về nhà, 回来/回去 kết hợp điểm nhìn. 车 là xe nói chung. 开 có nhiều cách dùng: 开车 lái xe, 开门 mở cửa; nghĩa phụ thuộc từ đi kèm.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我坐火车去北京。",
+                  "id": "journey-1:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi tàu hỏa đến Bắc Kinh.",
+                  "pinyin": "Wǒ zuò huǒchē qù Běijīng.",
+                  "provenance": "",
+                  "title": "坐 + phương tiện + 去 + nơi；坐 + phương tiện + 回家。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dùng 开飞机 để nói hành khách đi máy bay. Với 来/去 cần giữ điểm nhìn, không chỉ dịch cả hai thành “đến”. Một câu riêng thiếu ngữ cảnh có thể có hơn một cách hiểu.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "journey-1:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Chọn phương tiện và nói hướng đi theo điểm nhìn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "xe",
+                  "hanzi": "他开车去公司。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00020",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy lái xe đến công ty.",
+                  "pinyin": "Tā kāichē qù gōngsī.",
+                  "provenance": "",
+                  "title": "车 · chē"
+                },
+                {
+                  "alt": "",
+                  "body": "taxi",
+                  "hanzi": "我坐出租车去。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00022",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi taxi đến đó.",
+                  "pinyin": "Wǒ zuò chūzūchē qù.",
+                  "provenance": "",
+                  "title": "出租车 · chūzūchē"
+                },
+                {
+                  "alt": "",
+                  "body": "máy bay",
+                  "hanzi": "不，我坐飞机回来。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00054",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không, tôi đi máy bay về.",
+                  "pinyin": "Bù, wǒ zuò fēijī huílai.",
+                  "provenance": "",
+                  "title": "飞机 · fēijī"
+                },
+                {
+                  "alt": "",
+                  "body": "về; quay lại",
+                  "hanzi": "你几点回来？",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00081",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn mấy giờ về?",
+                  "pinyin": "Nǐ jǐ diǎn huílai?",
+                  "provenance": "",
+                  "title": "回 · huí"
+                },
+                {
+                  "alt": "",
+                  "body": "tàu hỏa",
+                  "hanzi": "你坐火车回来吗？",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00083",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đi tàu hỏa về phải không?",
+                  "pinyin": "Nǐ zuò huǒchē huílai ma?",
+                  "provenance": "",
+                  "title": "火车 · huǒchē"
+                }
+              ],
+              "id": "journey-1:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "mở; lái",
+                  "hanzi": "他开车去公司。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00097",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy lái xe đến công ty.",
+                  "pinyin": "Tā kāichē qù gōngsī.",
+                  "provenance": "",
+                  "title": "开 · kāi"
+                },
+                {
+                  "alt": "",
+                  "body": "lái xe",
+                  "hanzi": "他开车去公司。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00098",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy lái xe đến công ty.",
+                  "pinyin": "Tā kāichē qù gōngsī.",
+                  "provenance": "",
+                  "title": "开车 · kāichē"
+                },
+                {
+                  "alt": "",
+                  "body": "đến",
+                  "hanzi": "他能来。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00106",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy có thể đến.",
+                  "pinyin": "Tā néng lái.",
+                  "provenance": "",
+                  "title": "来 · lái"
+                },
+                {
+                  "alt": "",
+                  "body": "đi",
+                  "hanzi": "我去学校。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00167",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi đến trường.",
+                  "pinyin": "Wǒ qù xuéxiào.",
+                  "provenance": "",
+                  "title": "去 · qù"
+                },
+                {
+                  "alt": "",
+                  "body": "ngồi; đi bằng",
+                  "hanzi": "我坐出租车去学校。",
+                  "id": "journey-1:v2:block:word-hsk-vocab-00298",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi taxi đến trường.",
+                  "pinyin": "Wǒ zuò chūzūchē qù xuéxiào.",
+                  "provenance": "",
+                  "title": "坐 · zuò"
+                }
+              ],
+              "id": "journey-1:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: 坐飞机 diễn đạt đi máy bay với vai hành khách. Không dùng 开飞机 để nói hành khách đi máy bay. Với 来/去 cần giữ điểm nhìn, không chỉ dịch cả hai thành “đến”. Một câu riêng thiếu ngữ cảnh có thể có hơn một cách hiểu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 我坐飞机去 theo vai hành khách đi máy bay, không nhận vai người lái. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00298",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Nói mình lái máy bay, khác vai hành khách.",
+                        "id": "option-0",
+                        "text": "我开飞机去。"
+                      },
+                      {
+                        "feedback": "Đúng: 坐飞机 diễn đạt đi máy bay với vai hành khách.",
+                        "id": "option-1",
+                        "text": "我坐飞机去。"
+                      },
+                      {
+                        "feedback": "Đây là đi tàu hỏa, sai phương tiện.",
+                        "id": "option-2",
+                        "text": "我坐火车去。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Vai của bạn là hành khách đi máy bay. Chọn câu đúng thông tin.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "journey-1:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "坐"
+                    ],
+                    "answerIds": [],
+                    "explanation": "坐飞机 là đi máy bay với vai hành khách. 开飞机 nói điều khiển/lái máy bay, không đúng vai trong đề.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 坐 khi hành khách đi máy bay, không dùng 开 chỉ điều khiển phương tiện. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00298",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 坐 hoặc 开: bạn là hành khách đi máy bay, 我____飞机去北京。",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "journey-1:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tình huống mới: bạn đang ở nhà, sẽ đi tàu hỏa đến Bắc Kinh (北京 Běijīng), rồi đi máy bay về nhà. Nói đủ hai chặng với tư cách hành khách, không tự nhận lái.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我坐火车去北京，坐飞机回家。\nWǒ zuò huǒchē qù Běijīng, zuò fēijī huí jiā.\nTôi đi tàu hỏa đến Bắc Kinh, đi máy bay về nhà.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết hành trình mới với phương tiện, hướng đi và lượt về rõ điểm nhìn. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-08",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "坐 đi với hai phương tiện vì là hành khách.",
+                        "id": "criterion-0",
+                        "label": "坐 đi với hai phương tiện vì là hành khách."
+                      },
+                      {
+                        "guidance": "Chặng đi là tàu hỏa, chặng về là máy bay.",
+                        "id": "criterion-1",
+                        "label": "Chặng đi là tàu hỏa, chặng về là máy bay."
+                      },
+                      {
+                        "guidance": "去北京 và 回家 giữ đúng đích đến.",
+                        "id": "criterion-2",
+                        "label": "去北京 và 回家 giữ đúng đích đến."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "journey-1:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "坐 đi với hai phương tiện vì là hành khách.\nChặng đi là tàu hỏa, chặng về là máy bay.\n去北京 và 回家 giữ đúng đích đến.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "journey-1:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "journey-1:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "df747e36-8595-407f-9306-353d2f56cfa6",
+          "reviewedAt": "2026-09-29",
+          "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+          "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181"
+        },
+        "objectiveVi": "Nói cách đi, phương tiện và hành động đến hoặc quay về.",
+        "pitfallVi": "Không dùng 开飞机 để nói hành khách đi máy bay. Với 来/去 cần giữ điểm nhìn, không chỉ dịch cả hai thành “đến”. Một câu riêng thiếu ngữ cảnh có thể có hơn một cách hiểu.",
+        "prerequisites": [
+          "daily-4"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "坐 + phương tiện diễn đạt đi bằng khi làm hành khách: 坐出租车、坐火车、坐飞机. 开车 là lái xe, không thay cho đi xe khi chưa biết ai lái. 来 thường hướng về người nói hoặc điểm nhìn đã xác định; 去 hướng tới nơi khác. 回 nói quay về; 回家 về nhà, 回来/回去 kết hợp điểm nhìn. 车 là xe nói chung. 开 có nhiều cách dùng: 开车 lái xe, 开门 mở cửa; nghĩa phụ thuộc từ đi kèm.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-053",
+          "hsk1-grammar-row-054"
+        ],
+        "sourceLessonIds": [
+          "journey-1"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-08"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-013",
+          "hsk1-topic-014",
+          "hsk1-topic-015"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00020",
+          "hsk-vocab-00022",
+          "hsk-vocab-00054",
+          "hsk-vocab-00081",
+          "hsk-vocab-00083",
+          "hsk-vocab-00097",
+          "hsk-vocab-00098",
+          "hsk-vocab-00106",
+          "hsk-vocab-00167",
+          "hsk-vocab-00298"
+        ],
+        "targetLessonId": "journey-1",
+        "titleZh": "交通和出行",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/64-REVIEW-HSK1-SCENES.md",
+          "humanReviewed": false,
+          "scope": "Single lesson scene illustration only; original generated art.",
+          "sourceRevisionId": "47ac4630-a8ed-4388-ba33-8a051847e67c"
+        },
+        "vocabulary": [
+          "hsk-vocab-00020",
+          "hsk-vocab-00022",
+          "hsk-vocab-00054",
+          "hsk-vocab-00081",
+          "hsk-vocab-00083",
+          "hsk-vocab-00097",
+          "hsk-vocab-00098",
+          "hsk-vocab-00106",
+          "hsk-vocab-00167",
+          "hsk-vocab-00298"
+        ]
+      }
+    },
+    {
+      "lessonId": "journey-2",
+      "baseRevisionId": "53514641-a22f-4fd8-840e-2596b18c2255",
+      "baseContentSha256": "sha256:52a33c35c3fc289066b8f1856b05c41c1da68f2eb5ca7b9a763f6068e920a67c",
+      "changedPageIds": [
+        "journey-2:v2:context",
+        "journey-2:v2:dialogue",
+        "journey-2:v2:visual"
+      ],
+      "content": {
+        "checkpointVi": "Vai mới hôm nay ở nhà xem tivi và hát, không đi rạp. Bạn cũng chưa nghe thấy người bạn nói. Viết các thông tin, phân biệt 听见 với 听歌.",
+        "conceptVi": "Nói hoạt động giải trí và phân biệt thấy–nghe thấy",
+        "dialogue": [
+          {
+            "hanzi": "你今天做什么？",
+            "meaningVi": "Hôm nay bạn làm gì?",
+            "pinyin": "Nǐ jīntiān zuò shénme?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我去电影院看电影。你呢？",
+            "meaningVi": "Tôi đến rạp xem phim. Còn bạn?",
+            "pinyin": "Wǒ qù diànyǐngyuàn kàn diànyǐng. Nǐ ne?",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "我在家休息，听歌。",
+            "meaningVi": "Tôi nghỉ ở nhà, nghe nhạc.",
+            "pinyin": "Wǒ zài jiā xiūxi, tīng gē.",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "你喜欢唱歌吗？",
+            "meaningVi": "Bạn thích hát không?",
+            "pinyin": "Nǐ xǐhuan chàng gē ma?",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我听见他说话了。",
+            "answerMeaningVi": "Tôi đã nghe thấy người đó nói.",
+            "answerPinyin": "Wǒ tīngjiàn tā shuōhuà le.",
+            "distractors": [
+              "我没听见他说话。",
+              "我去电影院。"
+            ],
+            "explanationVi": "Đúng: nói đã nghe thấy người đó nói.",
+            "promptVi": "Theo tình huống, bạn muốn nói mình đã nghe thấy người đó nói. Câu nào khớp kết quả?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "看电视 xem tivi, 看电影 xem phim; 电影院 là rạp, không phải bộ phim. 听歌 nghe nhạc/bài hát, 唱歌 hát. 玩 là chơi; 好玩儿 nhận xét vui/thú vị. 休息 nghỉ; 做什么 hỏi làm gì. 看/听 nêu hoạt động, 看见/听见 nhấn đã nhìn/nghe thấy trong mẫu: 我听见他说话了. 没听见 nghĩa chưa/không nghe thấy, khác 不听 là không nghe theo/không muốn nghe tùy câu.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我今天在家看电视、唱歌。我没听见他说话。",
+              "modelAnswerMeaningVi": "Hôm nay tôi ở nhà xem tivi, hát. Tôi chưa nghe thấy anh ấy nói.",
+              "modelAnswerPinyin": "Wǒ jīntiān zài jiā kàn diànshì, chàng gē. Wǒ méi tīngjiàn tā shuōhuà.",
+              "promptVi": "Vai mới hôm nay ở nhà xem tivi và hát, không đi rạp. Bạn cũng chưa nghe thấy người bạn nói. Viết các thông tin, phân biệt 听见 với 听歌."
+            },
+            "modelExample": {
+              "hanzi": "我听见他说话了。",
+              "meaningVi": "Tôi đã nghe thấy anh ấy nói.",
+              "pinyin": "Wǒ tīngjiàn tā shuōhuà le."
+            },
+            "pattern": "听 + nội dung；听见 + điều nghe thấy。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ngày nghỉ, bạn chọn xem phim ở rạp hoặc nghe nhạc ở nhà. Một người đang nói nhỏ; nghe là hoạt động, nghe thấy là kết quả có thể đạt hoặc chưa đạt.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "今天 (jīntiān) — hôm nay; 在家 (zài jiā) — ở nhà; 什么 (shénme) — gì; 说话 (shuōhuà) — nói chuyện; 了 (le) — trợ từ trong mẫu; 没 (méi) — chưa/không trong mẫu phủ định kết quả.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "journey-2:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nói hoạt động giải trí và phân biệt thấy–nghe thấy",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/cinema-home-music-v1.webp",
+                "alt": "Một người xem phim ở rạp, người khác nghe nhạc tại nhà",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Hai người chọn khác nhau: đến rạp xem phim; ở nhà nghe nhạc."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Hai người chọn hai hoạt động khác nhau. Cột rạp là 看电影, cột ở nhà là 听歌; không đổi hoạt động giữa hai người.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "电影院：看电影",
+                        "meaningVi": "Ở rạp: xem phim",
+                        "note": "",
+                        "pinyin": "Diànyǐngyuàn: kàn diànyǐng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "在家：听歌",
+                        "meaningVi": "Ở nhà: nghe nhạc",
+                        "note": "",
+                        "pinyin": "Zài jiā: tīng gē",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc sơ đồ tình huống"
+                }
+              ],
+              "id": "journey-2:v2:visual",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Chọn hoạt động và nơi thực hiện"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你今天做什么？",
+                  "id": "journey-2:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay bạn làm gì?",
+                  "pinyin": "Nǐ jīntiān zuò shénme?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我去电影院看电影。你呢？",
+                  "id": "journey-2:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đến rạp xem phim. Còn bạn?",
+                  "pinyin": "Wǒ qù diànyǐngyuàn kàn diànyǐng. Nǐ ne?",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在家休息，听歌。",
+                  "id": "journey-2:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi nghỉ ở nhà, nghe nhạc.",
+                  "pinyin": "Wǒ zài jiā xiūxi, tīng gē.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你喜欢唱歌吗？",
+                  "id": "journey-2:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn thích hát không?",
+                  "pinyin": "Nǐ xǐhuan chàng gē ma?",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "journey-2:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/cinema-home-music-v1.webp",
+                "alt": "Một người xem phim ở rạp, người khác nghe nhạc tại nhà",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Hai người chọn khác nhau: đến rạp xem phim; ở nhà nghe nhạc."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "看电视 xem tivi, 看电影 xem phim; 电影院 là rạp, không phải bộ phim. 听歌 nghe nhạc/bài hát, 唱歌 hát. 玩 là chơi; 好玩儿 nhận xét vui/thú vị. 休息 nghỉ; 做什么 hỏi làm gì. 看/听 nêu hoạt động, 看见/听见 nhấn đã nhìn/nghe thấy trong mẫu: 我听见他说话了. 没听见 nghĩa chưa/không nghe thấy, khác 不听 là không nghe theo/không muốn nghe tùy câu.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我听见他说话了。",
+                  "id": "journey-2:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã nghe thấy anh ấy nói.",
+                  "pinyin": "Wǒ tīngjiàn tā shuōhuà le.",
+                  "provenance": "",
+                  "title": "听 + nội dung；听见 + điều nghe thấy。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không lấy transcript hoặc tự nói đã 听见 làm điểm kỹ năng nghe. Bài này luyện hiểu mẫu bằng chữ; âm tổng hợp nếu bật chỉ hỗ trợ nghe, chưa là assessment độc lập.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "journey-2:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói hoạt động giải trí và phân biệt thấy–nghe thấy"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "hát",
+                  "hanzi": "她喜欢唱中文歌。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00018",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy thích hát bài hát tiếng Trung.",
+                  "pinyin": "Tā xǐhuan chàng Zhōngwén gē.",
+                  "provenance": "",
+                  "title": "唱 · chàng"
+                },
+                {
+                  "alt": "",
+                  "body": "tivi; truyền hình",
+                  "hanzi": "我休息，也看电视。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00037",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi nghỉ ngơi và xem tivi.",
+                  "pinyin": "Wǒ xiūxi, yě kàn diànshì.",
+                  "provenance": "",
+                  "title": "电视 · diànshì"
+                },
+                {
+                  "alt": "",
+                  "body": "phim",
+                  "hanzi": "我看电影。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00038",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi xem phim.",
+                  "pinyin": "Wǒ kàn diànyǐng.",
+                  "provenance": "",
+                  "title": "电影 · diànyǐng"
+                },
+                {
+                  "alt": "",
+                  "body": "rạp chiếu phim",
+                  "hanzi": "电影院在学校旁边。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00039",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Rạp chiếu phim ở cạnh trường học.",
+                  "pinyin": "Diànyǐngyuàn zài xuéxiào pángbiān.",
+                  "provenance": "",
+                  "title": "电影院 · diànyǐngyuàn"
+                },
+                {
+                  "alt": "",
+                  "body": "bài hát",
+                  "hanzi": "你也听歌吗？",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00058",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn cũng nghe nhạc không?",
+                  "pinyin": "Nǐ yě tīng gē ma?",
+                  "provenance": "",
+                  "title": "歌 · gē"
+                }
+              ],
+              "id": "journey-2:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "vui; thú vị",
+                  "hanzi": "这个游戏很好玩儿。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00075",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trò chơi này rất vui.",
+                  "pinyin": "Zhège yóuxì hěn hǎowánr.",
+                  "provenance": "",
+                  "title": "好玩儿 · hǎowánr"
+                },
+                {
+                  "alt": "",
+                  "body": "xem; nhìn",
+                  "hanzi": "我在家看电视。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00099",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi xem tivi ở nhà.",
+                  "pinyin": "Wǒ zài jiā kàn diànshì.",
+                  "provenance": "",
+                  "title": "看 · kàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nhìn thấy",
+                  "hanzi": "我看见老师了。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00101",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã nhìn thấy giáo viên.",
+                  "pinyin": "Wǒ kànjiàn lǎoshī le.",
+                  "provenance": "",
+                  "title": "看见 · kànjiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nghe",
+                  "hanzi": "你也听歌吗？",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00209",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn cũng nghe nhạc không?",
+                  "pinyin": "Nǐ yě tīng gē ma?",
+                  "provenance": "",
+                  "title": "听 · tīng"
+                },
+                {
+                  "alt": "",
+                  "body": "nghe thấy",
+                  "hanzi": "我听见他说话了。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00210",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã nghe thấy anh ấy nói.",
+                  "pinyin": "Wǒ tīngjiàn tā shuōhuà le.",
+                  "provenance": "",
+                  "title": "听见 · tīngjiàn"
+                }
+              ],
+              "id": "journey-2:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "chơi",
+                  "hanzi": "孩子们在外边玩。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00214",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bọn trẻ đang chơi ở bên ngoài.",
+                  "pinyin": "Háizimen zài wàibian wán.",
+                  "provenance": "",
+                  "title": "玩 · wán"
+                },
+                {
+                  "alt": "",
+                  "body": "nghỉ ngơi",
+                  "hanzi": "我休息，也看电视。",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00246",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi nghỉ ngơi và xem tivi.",
+                  "pinyin": "Wǒ xiūxi, yě kàn diànshì.",
+                  "provenance": "",
+                  "title": "休息 · xiūxi"
+                },
+                {
+                  "alt": "",
+                  "body": "làm",
+                  "hanzi": "你今天做什么？",
+                  "id": "journey-2:v2:block:word-hsk-vocab-00299",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay bạn làm gì?",
+                  "pinyin": "Nǐ jīntiān zuò shénme?",
+                  "provenance": "",
+                  "title": "做 · zuò"
+                }
+              ],
+              "id": "journey-2:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: nói đã nghe thấy người đó nói. Không lấy transcript hoặc tự nói đã 听见 làm điểm kỹ năng nghe. Bài này luyện hiểu mẫu bằng chữ; âm tổng hợp nếu bật chỉ hỗ trợ nghe, chưa là assessment độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu nói đã nghe thấy người kia nói; đây là đọc mẫu bằng chữ, không phải bài đo nghe. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00210",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Nói không nghe thấy, trái kết quả đã nghe thấy.",
+                        "id": "option-0",
+                        "text": "我没听见他说话。"
+                      },
+                      {
+                        "feedback": "Nói đi rạp, không nói nghe thấy.",
+                        "id": "option-1",
+                        "text": "我去电影院。"
+                      },
+                      {
+                        "feedback": "Đúng: nói đã nghe thấy người đó nói.",
+                        "id": "option-2",
+                        "text": "我听见他说话了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo tình huống, bạn muốn nói mình đã nghe thấy người đó nói. Câu nào khớp kết quả?",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "journey-2:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "电影院"
+                    ],
+                    "answerIds": [],
+                    "explanation": "电影院 là rạp chiếu phim; 电影 là bộ phim. 去 ở câu này cần nơi đến.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 电影院 là nơi đến xem phim, phân biệt với 电影 là tác phẩm. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00039",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 电影 hoặc 电影院: nơi đến xem phim là 我去____看电影。",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "journey-2:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới hôm nay ở nhà xem tivi và hát, không đi rạp. Bạn cũng chưa nghe thấy người bạn nói. Viết các thông tin, phân biệt 听见 với 听歌.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我今天在家看电视、唱歌。我没听见他说话。\nWǒ jīntiān zài jiā kàn diànshì, chàng gē. Wǒ méi tīngjiàn tā shuōhuà.\nHôm nay tôi ở nhà xem tivi, hát. Tôi chưa nghe thấy anh ấy nói.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết hoạt động ở nhà hoặc rạp và kết quả nhìn/nghe theo tình huống mới; không suy thành điểm nghe. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-11",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "看电视 và 唱歌 đúng hoạt động mới.",
+                        "id": "criterion-0",
+                        "label": "看电视 và 唱歌 đúng hoạt động mới."
+                      },
+                      {
+                        "guidance": "Không tự thêm đi rạp.",
+                        "id": "criterion-1",
+                        "label": "Không tự thêm đi rạp."
+                      },
+                      {
+                        "guidance": "没听见 giữ thông tin chưa nghe thấy.",
+                        "id": "criterion-2",
+                        "label": "没听见 giữ thông tin chưa nghe thấy."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "journey-2:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "看电视 và 唱歌 đúng hoạt động mới.\nKhông tự thêm đi rạp.\n没听见 giữ thông tin chưa nghe thấy.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "journey-2:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "journey-2:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "bfdda6c7-7fea-411a-8acb-af92e327e82d",
+          "reviewedAt": "2026-09-29",
+          "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+          "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181"
+        },
+        "objectiveVi": "Nói hoạt động xem, nghe, hát, chơi và nghỉ ngơi.",
+        "pitfallVi": "Không lấy transcript hoặc tự nói đã 听见 làm điểm kỹ năng nghe. Bài này luyện hiểu mẫu bằng chữ; âm tổng hợp nếu bật chỉ hỗ trợ nghe, chưa là assessment độc lập.",
+        "prerequisites": [
+          "journey-1"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "看电视 xem tivi, 看电影 xem phim; 电影院 là rạp, không phải bộ phim. 听歌 nghe nhạc/bài hát, 唱歌 hát. 玩 là chơi; 好玩儿 nhận xét vui/thú vị. 休息 nghỉ; 做什么 hỏi làm gì. 看/听 nêu hoạt động, 看见/听见 nhấn đã nhìn/nghe thấy trong mẫu: 我听见他说话了. 没听见 nghĩa chưa/không nghe thấy, khác 不听 là không nghe theo/không muốn nghe tùy câu.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-041"
+        ],
+        "sourceLessonIds": [
+          "journey-2"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-11"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-020"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00018",
+          "hsk-vocab-00037",
+          "hsk-vocab-00038",
+          "hsk-vocab-00039",
+          "hsk-vocab-00058",
+          "hsk-vocab-00075",
+          "hsk-vocab-00099",
+          "hsk-vocab-00101",
+          "hsk-vocab-00209",
+          "hsk-vocab-00210",
+          "hsk-vocab-00214",
+          "hsk-vocab-00246",
+          "hsk-vocab-00299"
+        ],
+        "targetLessonId": "journey-2",
+        "titleZh": "媒体和休闲",
+        "vocabulary": [
+          "hsk-vocab-00018",
+          "hsk-vocab-00037",
+          "hsk-vocab-00038",
+          "hsk-vocab-00039",
+          "hsk-vocab-00058",
+          "hsk-vocab-00075",
+          "hsk-vocab-00099",
+          "hsk-vocab-00101",
+          "hsk-vocab-00209",
+          "hsk-vocab-00210",
+          "hsk-vocab-00214",
+          "hsk-vocab-00246",
+          "hsk-vocab-00299"
+        ]
+      }
+    },
+    {
+      "lessonId": "professional-1",
+      "baseRevisionId": "f8a7c98a-fee0-45fe-91e5-4e5a691216ce",
+      "baseContentSha256": "sha256:59269474f1ef24dcde8ef477c8fa5c2023c2a78791ded98f384e3fec19ff0d56",
+      "changedPageIds": [
+        "professional-1:v2:listen"
+      ],
+      "content": {
+        "checkpointVi": "Không nhìn mẫu: đóng vai một sinh viên học tiếng Trung, giới thiệu vai trò và nội dung học rồi hỏi lại người bạn mới.",
+        "conceptVi": "Phân biệt nơi học (学校、小学、中学、大学), người học (学生、小学生、中学生、大学生) và hoạt động 上学.",
+        "dialogue": [
+          {
+            "hanzi": "你在哪个学校上学？",
+            "meaningVi": "Bạn học ở trường nào?",
+            "pinyin": "Nǐ zài nǎ ge xuéxiào shàngxué?",
+            "speaker": "A"
+          },
+          {
+            "hanzi": "我在中学上学。",
+            "meaningVi": "Tôi học ở trường trung học.",
+            "pinyin": "Wǒ zài zhōngxué shàngxué.",
+            "speaker": "B"
+          },
+          {
+            "hanzi": "你是中学生吗？",
+            "meaningVi": "Bạn là học sinh trung học phải không?",
+            "pinyin": "Nǐ shì zhōngxuéshēng ma?",
+            "speaker": "A"
+          },
+          {
+            "hanzi": "是，我是中学生。",
+            "meaningVi": "Vâng, tôi là học sinh trung học.",
+            "pinyin": "Shì, wǒ shì zhōngxuéshēng.",
+            "speaker": "B"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我是大学生。",
+            "answerMeaningVi": "Tôi là sinh viên đại học.",
+            "answerPinyin": "Wǒ shì dàxuéshēng.",
+            "distractors": [
+              "我是大学。",
+              "我是小学生。"
+            ],
+            "explanationVi": "大学生 là sinh viên; 大学 là trường; 小学生 là học sinh tiểu học, không đúng vai được giao.",
+            "promptVi": "Bạn là sinh viên đại học. Chọn câu giới thiệu đúng vai trò."
+          },
+          {
+            "answer": "我在中学上学。",
+            "answerMeaningVi": "Tôi học ở trường trung học.",
+            "answerPinyin": "Wǒ zài zhōngxué shàngxué.",
+            "distractors": [
+              "我是中学上学。",
+              "我在大学上学。"
+            ],
+            "explanationVi": "Dùng 在 + nơi học + 上学. 是 không thay 在 trong cấu trúc này; 大学 đổi nơi học thành đại học.",
+            "promptVi": "Nói rằng bạn học ở trường trung học."
+          },
+          {
+            "answer": "你在哪个学校上学？",
+            "answerMeaningVi": "Bạn học ở trường nào?",
+            "answerPinyin": "Nǐ zài nǎ ge xuéxiào shàngxué?",
+            "distractors": [
+              "你是大学生吗？",
+              "你学习什么？"
+            ],
+            "explanationVi": "哪个学校 hỏi trường nào. Hai câu còn lại hỏi vai trò hoặc nội dung học, chưa trả lời câu hỏi về trường.",
+            "promptVi": "Bạn chưa biết người bạn mới học ở trường nào. Chọn câu hỏi để biết trường."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "是 giới thiệu vai trò; 在 + nơi học đặt trước 上学. 大学 là trường; 大学生 là sinh viên.",
+            "pattern": "我是 + 身份 / 我在 + 学校 + 上学"
+          },
+          {
+            "explanationVi": "哪个 hỏi trường nào; 吗 hỏi xác nhận đúng/sai. Không thêm 吗 vào câu đã dùng 哪个 để hỏi trong bài này.",
+            "pattern": "你在哪个学校上学？ / 你是大学生吗？"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Trong buổi làm quen, hãy nói bạn là học sinh hay sinh viên, học ở đâu và đang học gì. Sau đó hỏi lại người bạn mới bằng một câu ngắn.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:mission",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Bạn cần nói được gì?"
+                },
+                {
+                  "alt": "",
+                  "body": "Bạn đã gặp 我 (wǒ, tôi), 你 (nǐ, bạn), 是 (shì, là), 吗 (ma, trợ từ hỏi). Bài này phân biệt tên nơi học với tên người học. Nếu chưa nhớ, mở Tàng Tự Khố của bài và nghe lại từ cần dùng.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:prior",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chuẩn bị trước khi nghe"
+                },
+                {
+                  "alt": "",
+                  "body": "学校 (xuéxiào) — trường học; 学生 (xuésheng) — học sinh/người học; 上学 (shàngxué) — đi học, theo học. 学校 là nơi; 学生 là người; 上学 là hoạt động. 学生 khi đứng riêng thường đọc nhẹ âm 生; trong 小学生、中学生、大学生 dùng shēng.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:common-words",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ba từ dùng chung cho mọi cấp học"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我是学生。",
+                  "id": "professional-1:v2:general-student",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi là học sinh.",
+                  "pinyin": "Wǒ shì xuésheng.",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在学校上学。",
+                  "id": "professional-1:v2:general-school",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi học ở trường.",
+                  "pinyin": "Wǒ zài xuéxiào shàngxué.",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                }
+              ],
+              "id": "professional-1:v2:arrival",
+              "illustration": {
+                "alt": "Hai học sinh làm quen trước trường trung học",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/secondary-school-introduction-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Làm quen với bạn học mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你在哪个学校上学？",
+                  "id": "professional-1:v2:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn học ở trường nào?",
+                  "pinyin": "Nǐ zài nǎ ge xuéxiào shàngxué?",
+                  "provenance": "",
+                  "speaker": "A",
+                  "title": "A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在中学上学。",
+                  "id": "professional-1:v2:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học ở trường trung học.",
+                  "pinyin": "Wǒ zài zhōngxué shàngxué.",
+                  "provenance": "",
+                  "speaker": "B",
+                  "title": "B"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你是中学生吗？",
+                  "id": "professional-1:v2:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn là học sinh trung học phải không?",
+                  "pinyin": "Nǐ shì zhōngxuéshēng ma?",
+                  "provenance": "",
+                  "speaker": "A",
+                  "title": "A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是，我是中学生。",
+                  "id": "professional-1:v2:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vâng, tôi là học sinh trung học.",
+                  "pinyin": "Shì, wǒ shì zhōngxuéshēng.",
+                  "provenance": "",
+                  "speaker": "B",
+                  "title": "B"
+                }
+              ],
+              "id": "professional-1:v2:listen",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Nghe hai người làm quen",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/secondary-school-introduction-v1.webp",
+                "alt": "Hai học sinh làm quen trước trường trung học",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false",
+                "caption": "Hai học sinh hỏi và trả lời về trường đang học."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "小学, 中学, 大学 gọi cấp trường. Thêm 生 để gọi người đang học ở cấp đó. 学校 gọi trường học nói chung, 学生 gọi học sinh hoặc người học nói chung.",
+                    "nodes": [
+                      {
+                        "id": "primary",
+                        "label": "小学 → 小学生",
+                        "meaningVi": "tiểu học → học sinh tiểu học",
+                        "note": "小学生 là người, không phải tòa nhà.",
+                        "pinyin": "xiǎoxué → xiǎoxuéshēng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "secondary",
+                        "label": "中学 → 中学生",
+                        "meaningVi": "trung học → học sinh trung học",
+                        "note": "中学 dùng chung cho trường trung học; không tự giới hạn là một cấp lớp cụ thể.",
+                        "pinyin": "zhōngxué → zhōngxuéshēng",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "university",
+                        "label": "大学 → 大学生",
+                        "meaningVi": "đại học → sinh viên đại học",
+                        "note": "大学生 dùng để giới thiệu vai trò của một người.",
+                        "pinyin": "dàxué → dàxuéshēng",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "professional-1:v2:compare",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhìn phần thêm vào cuối từ"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "student"
+                    ],
+                    "explanation": "大学 gọi trường đại học; 大学生 gọi sinh viên. Ở bài này, nhớ cặp nơi học và người học trước khi ghép câu.",
+                    "hint": "Quan sát từ có thêm 生.",
+                    "learningTarget": {
+                      "objective": "Chọn 大学生 chỉ người học ở đại học, phân biệt với 大学 chỉ nơi/bậc học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00028",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "大学 chỉ trường hoặc bậc đại học. Câu hỏi cần tên người học.",
+                        "id": "school",
+                        "text": "大学"
+                      },
+                      {
+                        "feedback": "Đúng. 生 trong 大学生 giúp gọi người học ở đại học.",
+                        "id": "student",
+                        "text": "大学生"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Chọn từ có nghĩa là sinh viên đại học.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:classification",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ nào gọi một người?"
+                }
+              ],
+              "id": "professional-1:v2:people-places",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Trường học và người học là hai nhóm khác nhau"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我是大学生。",
+                  "id": "professional-1:v2:identity",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi là sinh viên đại học.",
+                  "pinyin": "Wǒ shì dàxuéshēng.",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在大学上学。",
+                  "id": "professional-1:v2:location",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học ở trường đại học.",
+                  "pinyin": "Wǒ zài dàxué shàngxué.",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "我 + 是 + tên người học: giới thiệu mình là ai.\n我 + 在 + nơi học + 上学: nói mình học ở đâu.\nKhông nói 我是大学 nếu muốn nói mình là sinh viên: 大学 là trường, cần dùng 大学生.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn cấu trúc theo điều muốn nói"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "person"
+                    ],
+                    "explanation": "Nói vai trò: 我是中学生。 Nói nơi học: 我在中学上学。Hai câu gần ý nhưng có cấu trúc khác nhau.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 我是中学生 để giới thiệu vai học sinh trung học, không gọi bản thân là ngôi trường. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00293",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Câu này ghép “tôi là” với tên trường. Thêm 生 để gọi người học.",
+                        "id": "place",
+                        "text": "我是中学。"
+                      },
+                      {
+                        "feedback": "Đúng. 中学生 là học sinh trung học.",
+                        "id": "person",
+                        "text": "我是中学生。"
+                      },
+                      {
+                        "feedback": "中学生 là người; 在 trong mẫu nơi học cần đi với một địa điểm.",
+                        "id": "wrongverb",
+                        "text": "我在中学生。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn muốn nói “Tôi là học sinh trung học”. Chọn câu phù hợp.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:repair",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sửa đúng ý định của người nói"
+                }
+              ],
+              "id": "professional-1:v2:patterns",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Dùng 是 cho vai trò, 在 cho nơi học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你在哪个学校上学？",
+                  "id": "professional-1:v2:question-place",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn học ở trường nào?",
+                  "pinyin": "Nǐ zài nǎ ge xuéxiào shàngxué?",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你是大学生吗？",
+                  "id": "professional-1:v2:question-person",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn là sinh viên đại học phải không?",
+                  "pinyin": "Nǐ shì dàxuéshēng ma?",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "学习 (xuéxí) — học; 汉语 (Hànyǔ) — tiếng Trung. Hai từ này được giới thiệu ngay tại đây để bạn nói mình đang học gì; không giả định bạn đã học chúng ở bài trước. 上学 nói việc đi học/theo học ở trường; 学习 + nội dung học nói bạn học môn hay ngôn ngữ nào.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:subject-support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hai từ hỗ trợ cho cuộc làm quen"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我学习汉语。",
+                  "id": "professional-1:v2:subject",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học tiếng Trung.",
+                  "pinyin": "Wǒ xuéxí Hànyǔ.",
+                  "provenance": "",
+                  "title": "Câu trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "哪个 đã hỏi “nào”: trong mẫu 你在哪个学校上学？ không thêm 吗. Với câu hỏi đúng/sai, thêm 吗 cuối câu: 你是大学生吗？\nĐể hỏi nội dung đang học: 你学习什么？ (Nǐ xuéxí shénme?) — Bạn học gì?",
+                  "hanzi": "",
+                  "id": "professional-1:v2:question-note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Câu hỏi nào cần 吗?"
+                }
+              ],
+              "id": "professional-1:v2:ask",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Hỏi tiếp để cuộc nói chuyện không dừng lại"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "subject",
+                      "at",
+                      "place",
+                      "verb"
+                    ],
+                    "explanation": "我在中学上学。 (Wǒ zài zhōngxué shàngxué.) Đặt 在 + nơi học trước hoạt động 上学.",
+                    "hint": "Chủ ngữ + 在 + nơi học + 上学.",
+                    "learningTarget": {
+                      "objective": "Sắp xếp 我在中学上学 với 在 + nơi học trước hoạt động 上学. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-pattern:hsk1-study-work:01-school-levels",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "verb",
+                        "text": "上学"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "place",
+                        "text": "中学"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "subject",
+                        "text": "我"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "at",
+                        "text": "在"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Nói “Tôi học ở trường trung học”. Dùng đủ các mảnh.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:order",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sắp xếp câu"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "大学生"
+                    ],
+                    "answerIds": [],
+                    "explanation": "大学生 (dàxuéshēng) là sinh viên đại học. Đại học là 大学; người học đại học là 大学生.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Điền 大学生 để nói bản thân là sinh viên đại học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00028",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền từ còn thiếu để nói “Tôi là sinh viên đại học”: 我是___。",
+                  "hanzi": "",
+                  "id": "professional-1:v2:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự nhớ từ cần dùng"
+                }
+              ],
+              "id": "professional-1:v2:independent",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự ghép câu theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn đóng vai một sinh viên đại học đang học tiếng Trung. Người bạn mới chưa biết điều đó. Viết hai hoặc ba câu để giới thiệu vai trò, nơi học hoặc nội dung học; kết thúc bằng một câu hỏi về người bạn mới. Không cần dùng thông tin cá nhân thật.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:role",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án: 我是大学生。我学习汉语。你学习什么？ (Wǒ shì dàxuéshēng. Wǒ xuéxí Hànyǔ. Nǐ xuéxí shénme?) Tôi là sinh viên đại học. Tôi học tiếng Trung. Bạn học gì? Đây chỉ là một phương án; hãy đối chiếu ý và cấu trúc, không bắt buộc viết giống từng chữ.",
+                    "hint": "Chọn một câu giới thiệu vai trò, một câu về học tập, rồi hỏi lại.",
+                    "learningTarget": {
+                      "objective": "Viết lời giới thiệu trường/bậc học và một câu hỏi mới, tự kiểm phân biệt người học với nơi học. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-12",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 大学生 để gọi sinh viên, không dùng 大学 sau 我是.",
+                        "id": "role",
+                        "label": "Nói đúng người học"
+                      },
+                      {
+                        "guidance": "Dùng 我在大学上学 hoặc 我学习汉语 đúng với thông tin vai.",
+                        "id": "study",
+                        "label": "Thêm thông tin học tập"
+                      },
+                      {
+                        "guidance": "Câu hỏi có thể hỏi trường, vai trò hoặc nội dung học; dùng 吗 chỉ cho câu hỏi đúng/sai.",
+                        "id": "ask",
+                        "label": "Hỏi lại người đối diện"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lời giới thiệu và câu hỏi của bạn trước khi đối chiếu.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:writing",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự tạo lượt nói"
+                }
+              ],
+              "id": "professional-1:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Đổi vai trong một cuộc làm quen mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "1. Trường học và người học khác nhau: 大学 / 大学生.\n2. Vai trò dùng 是; nơi học dùng 在…上学.\n3. Hỏi đúng/sai dùng 吗; câu có 哪个 hoặc 什么 đã có từ hỏi.\nHãy tự nói một lượt giới thiệu ngắn, rồi chuyển sang Thử Luyện. Kết quả tự luyện phía trên không tự có nghĩa là đã thành thạo.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:summary",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự nhắc mà không nhìn mẫu"
+                },
+                {
+                  "alt": "",
+                  "body": "Tra các từ của bài trong Tàng Tự Khố khi chưa chắc nghĩa. Các câu Thử Luyện tiếp theo dùng cơ chế ghi kết quả và ôn hiện có. Khi gặp lại từ trong Ký Ức Trận, thử nhớ trước khi mở đáp án; nếu nhầm vai trò với nơi học, quay lại trang “Dùng 是 cho vai trò, 在 cho nơi học”.",
+                  "hanzi": "",
+                  "id": "professional-1:v2:review",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ôn lại sau bài"
+                }
+              ],
+              "id": "professional-1:v2:wrap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Nhớ ba điều trước khi Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "eb7f4164-2c78-4dcc-b4dc-15c4e1f96862",
+          "reviewedAt": "2026-09-29",
+          "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+          "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181"
+        },
+        "objectiveVi": "Giới thiệu trường, cấp học và vai trò học sinh, sinh viên.",
+        "pitfallVi": "Không dùng 我是大学 để giới thiệu sinh viên. Câu có 哪个 hoặc 什么 trong mẫu đang học không thêm 吗. 学生 gọi người học nói chung, không tự xác định cấp học.",
+        "prerequisites": [
+          "journey-2"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Dùng 我是 + vai trò để nói mình là ai; dùng 我在 + nơi học + 上学 để nói học ở đâu. Hỏi trường bằng 你在哪个学校上学？; hỏi đúng/sai bằng 你是大学生吗？",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-pattern:hsk1-study-work:01-school-levels"
+        ],
+        "sourceLessonIds": [
+          "professional-1"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-12"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-023"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00027",
+          "hsk-vocab-00028",
+          "hsk-vocab-00179",
+          "hsk-vocab-00237",
+          "hsk-vocab-00238",
+          "hsk-vocab-00248",
+          "hsk-vocab-00250",
+          "hsk-vocab-00292",
+          "hsk-vocab-00293"
+        ],
+        "targetLessonId": "professional-1",
+        "titleZh": "学校和学段",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/64-REVIEW-HSK1-SCENES.md",
+          "humanReviewed": false,
+          "scope": "Single lesson scene illustration only; original generated art.",
+          "sourceRevisionId": "b873e043-c585-486f-a67a-268ba4f8a31f"
+        },
+        "vocabulary": [
+          "hsk-vocab-00027",
+          "hsk-vocab-00028",
+          "hsk-vocab-00179",
+          "hsk-vocab-00237",
+          "hsk-vocab-00238",
+          "hsk-vocab-00248",
+          "hsk-vocab-00250",
+          "hsk-vocab-00292",
+          "hsk-vocab-00293"
+        ]
+      }
+    }
+  ]
+}

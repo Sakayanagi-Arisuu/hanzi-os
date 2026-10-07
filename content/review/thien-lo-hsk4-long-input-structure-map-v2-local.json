@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Three HSK4 long-input-structure-map integrated-study lessons; multiple bound source texts, evidence-limited task models, editable rubrics and untimed guided practice. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check and clock do not grant mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/56-REVIEW-HSK4-INTEGRATION.md",
+  "items": [
+    {
+      "lessonId": "hsk4-long-input-structure-map-lesson-01",
+      "sourceContentSha256": "sha256:75a48de677a61234eb10bd9d6f6df0e6c5ac362e5fa78c572bab1b7573e103f2",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-long-input-structure-map-lesson-02",
+      "sourceContentSha256": "sha256:6a7c2361938bbcfa0e925c6b7b63f22a90afc247c9611fbb64f03ec52b4b5540",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-long-input-structure-map-lesson-03",
+      "sourceContentSha256": "sha256:f4b720f63625d22967229a07f576b7f0851185990401c53e15a02f5190938913",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

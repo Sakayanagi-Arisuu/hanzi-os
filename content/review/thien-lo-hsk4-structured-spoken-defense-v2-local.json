@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Three HSK4 structured-spoken-defense integrated-study lessons; multiple bound source texts, evidence-limited task models, editable rubrics and self-paced countdown rehearsal. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check and clock do not grant mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/56-REVIEW-HSK4-INTEGRATION.md",
+  "items": [
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-01",
+      "sourceContentSha256": "sha256:fc311583489e85cacd4a3a56e14574c6ed09799d9931542987aecc8067d3cf78",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-02",
+      "sourceContentSha256": "sha256:6624f89e00b6d82c91e5127dc3f955e6c54c783d84e690c238d9be3bf1e51f00",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-03",
+      "sourceContentSha256": "sha256:ade071dbbec2a7faa36569d2a7efe2b91e09553d77cec60c0423610cffb1fdca",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

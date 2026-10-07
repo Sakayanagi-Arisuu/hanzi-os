@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { RELEASED_RICH_LESSONS } from "../learning/richLessonContent";
+import { listPremiumRichLessons } from "../server/premiumRichLesson";
 import { learnerGrammarLabel } from "../learning/lessonTeachingFlow";
 import {
   buildTheorySteps,
@@ -32,7 +33,7 @@ describe("LessonTheoryPanel learning sequence", () => {
   });
 
   it("turns every source taxonomy label into a learner-readable heading", () => {
-    const grammarPoints = RELEASED_RICH_LESSONS.flatMap((lesson) => lesson.grammar);
+    const grammarPoints = [...RELEASED_RICH_LESSONS, ...listPremiumRichLessons()].flatMap((lesson) => lesson.grammar);
     expect(grammarPoints).toHaveLength(476);
     for (const point of grammarPoints) {
       const label = learnerGrammarLabel(point);

@@ -5,10 +5,42 @@ import { readLessonResume, writeLessonResume, type OwnerScopedCacheScope } from 
 import { ownerScopedResumeCacheScope, resolveLearningResumeOwnerScope } from '../sync/learningResumeStore';
 import { emptyReadingPosition, lessonReadingEntryKey, parseLessonReadingSession, type LessonReadingSession, type ReadingPosition } from '../learning/lessonReadingSession';
 import { LessonPageReader } from './LessonPageReader';
+import { LessonContentLoading } from './LessonContentLoading';
 import {matchLessonPageBindings,type LessonPageBinding} from '../learning/lessonPageBinding';
 import {queueReadingPageAttempts} from '../sync/queueReadingPageAttempts';
 
 type Props = React.ComponentProps<typeof LessonPageReader> & { lessonId: string; sourceStatus?: 'loading'|'ready'|'fallback' };
+type SavedProps = Omit<Props, 'document'> & { fallback: React.ReactNode };
+
+// A published-only lesson may have no bundled document during an API outage.
+// Resolve the same owner-scoped snapshot before choosing the legacy reader.
+export function SavedLessonReader(props: SavedProps) {
+  const { sync } = useLearning();
+  return <OwnerSavedLessonReader key={JSON.stringify([sync.ownerKey, props.lessonId])} {...props} ownerKey={sync.ownerKey} />;
+}
+
+function OwnerSavedLessonReader({ ownerKey, fallback, ...props }: SavedProps & { ownerKey: string }) {
+  const [saved, setSaved] = useState<LessonReadingSession | null | undefined>(undefined);
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const scope = ownerScopedResumeCacheScope(await resolveLearningResumeOwnerScope(ownerKey), lessonReadingEntryKey(props.lessonId));
+        const record = await readLessonResume<unknown>(scope);
+        const session = parseLessonReadingSession(record?.value, props.lessonId);
+        if (!cancelled) setSaved(session ?? null);
+      } catch {
+        if (!cancelled) setSaved(null);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [ownerKey, props.lessonId]);
+  if (saved === undefined) return <LessonContentLoading title={props.title} restoring />;
+  // Missing, invalid and future-version records are never written by this probe.
+  if (!saved) return fallback;
+  return <ResumableLessonReader {...props} sourceStatus="fallback" document={saved.document} title={saved.title} objective={saved.objective} />;
+}
+
 export function ResumableLessonReader(props: Props) {
   const { sync } = useLearning();
   // An owner change unmounts all draft state before another learner can see it.
@@ -112,7 +144,7 @@ function OwnerLessonReader({ ownerKey, sourceStatus = 'ready', ...props }: Props
     } catch { setSaveFailed(true); }
     finally { setSwitching(false); }
   };
-  if (!loaded) return <section className="lesson-page-reader jade-lesson" aria-busy="true"><p role="status">Đang mở phần lĩnh hội…</p></section>;
+  if (!loaded) return <LessonContentLoading title={props.title} restoring />;
   return <>
     {sourceStatus === 'ready' && JSON.stringify([props.document, props.title, props.objective]) !== JSON.stringify([loaded.session.document, loaded.session.title, loaded.session.objective]) && <p role="status">Bài có nội dung cập nhật. Bạn đang tiếp tục phần đã học. <button type="button" disabled={switching || !loaded.scope} onClick={()=>void startUpdatedContent()}>Bắt đầu bản cập nhật</button> <small>Bản nháp cũ được giữ riêng trên thiết bị.</small></p>}
     <LessonPageReader key={JSON.stringify([loaded.session.document,loaded.session.title,loaded.session.objective])} {...props} inputDisabled={switching} document={loaded.session.document} title={loaded.session.title} objective={loaded.session.objective} initialPosition={loaded.session} onPositionChange={save} />

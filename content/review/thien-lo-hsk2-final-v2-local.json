@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-22",
+  "scope": "Four HSK2 message and picture-description lessons; source-bound reading practice and writing self-review.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/35-REVIEW-HSK2-FINAL.md",
+  "items": [
+    {
+      "lessonId": "hsk2-guided-message-lesson-01",
+      "sourceContentSha256": "sha256:b3e8060b87ce0425a5e8520523357ae25ad0d1c547cfb78006ec19d03b1b5319",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-guided-message-lesson-02",
+      "sourceContentSha256": "sha256:7927d1274b9e3fcdf24b6d69c462956abc2812e7456369c18b34ac991af3d737",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-picture-description-lesson-01",
+      "sourceContentSha256": "sha256:0964bd1a3a1854e71582014bbae9f76c18f72455fcc19bfc904a6132ffe05e55",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-picture-description-lesson-02",
+      "sourceContentSha256": "sha256:1d33b00e79c564f4b5517cef875ebc75a357062204ff4ce2291c5a56fac1447a",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

@@ -32,6 +32,7 @@ import {
   noStoreJsonHeaders,
   type SyncApiError,
 } from "../../../../src/sync/protocol";
+import { requirePremiumLesson } from "../../../../src/server/premiumAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -138,6 +139,11 @@ export async function POST(request: Request) {
         parsed.reason,
         requestId,
       );
+    }
+    if (parsed.command.source === "lesson") {
+      const lessonId = parsed.command.activityId.split(":", 1)[0];
+      const premiumGate = await requirePremiumLesson(request, lessonId);
+      if (premiumGate) return premiumGate;
     }
     const score = scoreObjectiveAttempt(parsed.command);
     const receipt: LearningAttemptReceiptV1 =

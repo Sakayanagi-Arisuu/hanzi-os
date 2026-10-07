@@ -48,6 +48,7 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
   "/reader": { code: "READ-08", title: "Vạn Quyển Các", plain: "Luyện đọc" },
   "/dictionary": { code: "LEX-09", title: "Tàng Tự Khố", plain: "Tra cứu từ" },
   "/analytics": { code: "MIRROR-10", title: "Thiên Cơ Kính", plain: "Chỉ số quan sát và tiến độ" },
+  "/profile/premium": { code: "PREMIUM-12", title: "Premium HSK4", plain: "Gói học Thiên Lộ" },
   "/profile": { code: "USER-11", title: "Bảng Thuộc Tính", plain: "Hồ sơ Hành Giả" },
 };
 

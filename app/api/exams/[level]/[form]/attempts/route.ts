@@ -37,6 +37,8 @@ export async function POST(request: Request, context: Context) {
         database,
         userId,
         command.sessionId,
+        level,
+        form,
       ),
     execute: (repository, userId, command) =>
       repository.recordAttempt(userId, command),

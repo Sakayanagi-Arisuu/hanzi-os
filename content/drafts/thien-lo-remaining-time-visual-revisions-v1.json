@@ -1,0 +1,2380 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "hsk1-time-place-events-02-calendar",
+      "baseRevisionId": "820d0002-14c0-4247-9542-b3400b4ad1d8",
+      "baseContentSha256": "sha256:6756ff5aaf194daea825505094b463b33a9062b0a21e6571301931f635ea6773",
+      "changedPageIds": [
+        "hsk1-time-place-events-02-calendar:v2:context",
+        "hsk1-time-place-events-02-calendar:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Lịch mới ghi hôm nay ngày 10 tháng 6, hẹn ngày mai. Hỏi ngày hôm nay và nói đầy đủ ngày hẹn mới bằng 号 hoặc 日.",
+        "conceptVi": "Đọc lịch và hẹn đúng ngày",
+        "dialogue": [
+          {
+            "hanzi": "今天几月几号？",
+            "meaningVi": "Hôm nay là ngày mấy tháng mấy?",
+            "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "今天五月八号。",
+            "meaningVi": "Hôm nay ngày 8 tháng 5.",
+            "pinyin": "Jīntiān wǔ yuè bā hào.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "我们明天见，好吗？",
+            "meaningVi": "Ngày mai chúng ta gặp nhé?",
+            "pinyin": "Wǒmen míngtiān jiàn, hǎo ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "好，五月九号见。",
+            "meaningVi": "Được, ngày 9 tháng 5 gặp.",
+            "pinyin": "Hǎo, wǔ yuè jiǔ hào jiàn.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "五月九号",
+            "answerMeaningVi": "ngày 9 tháng 5",
+            "answerPinyin": "wǔ yuè jiǔ hào",
+            "distractors": [
+              "八月五号",
+              "五月八号"
+            ],
+            "explanationVi": "Đúng: ngày mai là 9 tháng 5.",
+            "promptVi": "Theo lịch giả định, ngày hẹn là ngày nào?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Ngày tháng xếp năm → tháng → ngày. 五月八号 là ngày 8 tháng 5; 日 thường dùng trong văn viết, 号 thông dụng trong lời nói. 今天 hôm nay, 昨天 hôm qua, 明天 ngày mai; 今年 năm nay, 去年 năm ngoái, 明年 năm sau, đều tính theo mốc đang nói. 第 trước số nêu thứ tự: 第一课 bài thứ nhất. 天 còn có thể chỉ ngày như 两天, không đồng nghĩa mọi chữ 日/号/年.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "今天几月几号？今天六月十号。我们六月十一号见。",
+              "modelAnswerMeaningVi": "Hôm nay ngày mấy tháng mấy? Hôm nay 10 tháng 6. Chúng ta gặp ngày 11 tháng 6.",
+              "modelAnswerPinyin": "Jīntiān jǐ yuè jǐ hào? Jīntiān liù yuè shí hào. Wǒmen liù yuè shíyī hào jiàn.",
+              "promptVi": "Lịch mới ghi hôm nay ngày 10 tháng 6, hẹn ngày mai. Hỏi ngày hôm nay và nói đầy đủ ngày hẹn mới bằng 号 hoặc 日."
+            },
+            "modelExample": {
+              "hanzi": "六月十号，六月十一号。",
+              "meaningVi": "Ngày 10 tháng 6, ngày 11 tháng 6.",
+              "pinyin": "Liù yuè shí hào, liù yuè shíyī hào."
+            },
+            "pattern": "月 → 号／日；今天 → 明天。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lịch giả định ghi hôm nay là ngày 8 tháng 5; ngày hẹn là ngày 9 tháng 5. Không lấy ngày thật trên máy làm đáp án.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "五月 (wǔ yuè) — tháng năm; 八 (bā) — tám; 九 (jiǔ) — chín; 见 (jiàn) — gặp; 课 (kè) — bài/tiết; 是 (shì) — là.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Đọc lịch và hẹn đúng ngày",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/calendar-meeting-plan-v1.webp",
+                "alt": "Hai người đối chiếu sổ lịch để hẹn ngày gặp",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Lịch giả định: hôm nay 8/5, hẹn gặp ngày mai 9/5."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Lịch giả định tháng 5: hôm qua ngày 7, hôm nay ngày 8, hẹn ngày mai ngày 9. Không dùng ngày thật.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "昨天：五月七号",
+                        "meaningVi": "Hôm qua: 7/5",
+                        "note": "",
+                        "pinyin": "Zuótiān: wǔ yuè qī hào",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "今天：五月八号",
+                        "meaningVi": "Hôm nay: 8/5",
+                        "note": "",
+                        "pinyin": "Jīntiān: wǔ yuè bā hào",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "明天：五月九号",
+                        "meaningVi": "Ngày hẹn: 9/5",
+                        "note": "",
+                        "pinyin": "Míngtiān: wǔ yuè jiǔ hào",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天几月几号？",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày mấy tháng mấy?",
+                  "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天五月八号。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay ngày 8 tháng 5.",
+                  "pinyin": "Jīntiān wǔ yuè bā hào.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我们明天见，好吗？",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai chúng ta gặp nhé?",
+                  "pinyin": "Wǒmen míngtiān jiàn, hǎo ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好，五月九号见。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được, ngày 9 tháng 5 gặp.",
+                  "pinyin": "Hǎo, wǔ yuè jiǔ hào jiàn.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/calendar-meeting-plan-v1.webp",
+                "alt": "Hai người đối chiếu sổ lịch để hẹn ngày gặp",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Lịch giả định: hôm nay 8/5, hẹn gặp ngày mai 9/5."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ngày tháng xếp năm → tháng → ngày. 五月八号 là ngày 8 tháng 5; 日 thường dùng trong văn viết, 号 thông dụng trong lời nói. 今天 hôm nay, 昨天 hôm qua, 明天 ngày mai; 今年 năm nay, 去年 năm ngoái, 明年 năm sau, đều tính theo mốc đang nói. 第 trước số nêu thứ tự: 第一课 bài thứ nhất. 天 còn có thể chỉ ngày như 两天, không đồng nghĩa mọi chữ 日/号/年.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "六月十号，六月十一号。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày 10 tháng 6, ngày 11 tháng 6.",
+                  "pinyin": "Liù yuè shí hào, liù yuè shíyī hào.",
+                  "provenance": "",
+                  "title": "月 → 号／日；今天 → 明天。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không đảo 五月八号 thành 八月五号: đó là ngày 5 tháng 8. Trong bài phải dùng lịch giả định, không tự thay bằng hôm nay thật.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc lịch và hẹn đúng ngày"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "thứ (số thứ tự)",
+                  "hanzi": "这是第一课。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00031",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là bài thứ nhất.",
+                  "pinyin": "Zhè shì dì yī kè.",
+                  "provenance": "",
+                  "title": "第 · dì"
+                },
+                {
+                  "alt": "",
+                  "body": "ngày; số",
+                  "hanzi": "今天几月几号？",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00076",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày mấy tháng mấy?",
+                  "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+                  "provenance": "",
+                  "title": "号 · hào"
+                },
+                {
+                  "alt": "",
+                  "body": "năm nay",
+                  "hanzi": "我今年二十岁。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00093",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Năm nay tôi hai mươi tuổi.",
+                  "pinyin": "Wǒ jīnnián èrshí suì.",
+                  "provenance": "",
+                  "title": "今年 · jīnnián"
+                },
+                {
+                  "alt": "",
+                  "body": "hôm nay",
+                  "hanzi": "今天几月几号？",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00094",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày mấy tháng mấy?",
+                  "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+                  "provenance": "",
+                  "title": "今天 · jīntiān"
+                },
+                {
+                  "alt": "",
+                  "body": "năm sau",
+                  "hanzi": "我明年去中国。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00128",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Năm sau tôi đi Trung Quốc.",
+                  "pinyin": "Wǒ míngnián qù Zhōngguó.",
+                  "provenance": "",
+                  "title": "明年 · míngnián"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ngày mai",
+                  "hanzi": "明天是几号？",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00129",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai là ngày mấy?",
+                  "pinyin": "Míngtiān shì jǐ hào?",
+                  "provenance": "",
+                  "title": "明天 · míngtiān"
+                },
+                {
+                  "alt": "",
+                  "body": "năm",
+                  "hanzi": "我学了一年汉语。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00149",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã học tiếng Trung một năm.",
+                  "pinyin": "Wǒ xué le yì nián Hànyǔ.",
+                  "provenance": "",
+                  "title": "年 · nián"
+                },
+                {
+                  "alt": "",
+                  "body": "năm ngoái",
+                  "hanzi": "我去年开始学汉语。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00168",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Năm ngoái tôi bắt đầu học tiếng Trung.",
+                  "pinyin": "Wǒ qùnián kāishǐ xué Hànyǔ.",
+                  "provenance": "",
+                  "title": "去年 · qùnián"
+                },
+                {
+                  "alt": "",
+                  "body": "ngày",
+                  "hanzi": "今天是十月一日。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00172",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày 1 tháng 10.",
+                  "pinyin": "Jīntiān shì shí yuè yī rì.",
+                  "provenance": "",
+                  "title": "日 · rì"
+                },
+                {
+                  "alt": "",
+                  "body": "ngày; trời",
+                  "hanzi": "三天以后我回家。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00207",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ba ngày sau tôi về nhà.",
+                  "pinyin": "Sān tiān yǐhòu wǒ huí jiā.",
+                  "provenance": "",
+                  "title": "天 · tiān"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "tháng",
+                  "hanzi": "今天几月几号？",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00269",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày mấy tháng mấy?",
+                  "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+                  "provenance": "",
+                  "title": "月 · yuè"
+                },
+                {
+                  "alt": "",
+                  "body": "hôm qua",
+                  "hanzi": "我昨天在学校。",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:word-hsk-vocab-00297",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm qua tôi ở trường.",
+                  "pinyin": "Wǒ zuótiān zài xuéxiào.",
+                  "provenance": "",
+                  "title": "昨天 · zuótiān"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: ngày mai là 9 tháng 5. Không đảo 五月八号 thành 八月五号: đó là ngày 5 tháng 8. Trong bài phải dùng lịch giả định, không tự thay bằng hôm nay thật.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đọc lịch giả định để chọn ngày hẹn 9 tháng 5, không đảo ngày/tháng hay thay bằng ngày thật. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Ngày 5 tháng 8, đã đảo ngày/tháng.",
+                        "id": "option-0",
+                        "text": "八月五号"
+                      },
+                      {
+                        "feedback": "Đây là hôm nay, chưa phải ngày hẹn.",
+                        "id": "option-1",
+                        "text": "五月八号"
+                      },
+                      {
+                        "feedback": "Đúng: ngày mai là 9 tháng 5.",
+                        "id": "option-2",
+                        "text": "五月九号"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo lịch giả định, ngày hẹn là ngày nào?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "月"
+                    ],
+                    "answerIds": [],
+                    "explanation": "五月 là tháng năm; 八号 là ngày tám. 月 và 号 không hoán đổi vị trí.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 月 vào 五月八号 để tách tháng năm và ngày tám. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00269",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 月 hoặc 号: ngày 8 tháng 5 là 五____八号。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lịch mới ghi hôm nay ngày 10 tháng 6, hẹn ngày mai. Hỏi ngày hôm nay và nói đầy đủ ngày hẹn mới bằng 号 hoặc 日.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n今天几月几号？今天六月十号。我们六月十一号见。\nJīntiān jǐ yuè jǐ hào? Jīntiān liù yuè shí hào. Wǒmen liù yuè shíyī hào jiàn.\nHôm nay ngày mấy tháng mấy? Hôm nay 10 tháng 6. Chúng ta gặp ngày 11 tháng 6.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lời xác nhận ngày hẹn từ lịch giả định, giữ đúng thứ tự năm/tháng/ngày. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Tháng trước ngày trong câu Trung.",
+                        "id": "criterion-0",
+                        "label": "Tháng trước ngày trong câu Trung."
+                      },
+                      {
+                        "guidance": "Ngày hẹn 11 tháng 6, không chép ngày cũ.",
+                        "id": "criterion-1",
+                        "label": "Ngày hẹn 11 tháng 6, không chép ngày cũ."
+                      },
+                      {
+                        "guidance": "Không bỏ thông tin 明天 khi suy ngày hẹn.",
+                        "id": "criterion-2",
+                        "label": "Không bỏ thông tin 明天 khi suy ngày hẹn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tháng trước ngày trong câu Trung.\nNgày hẹn 11 tháng 6, không chép ngày cũ.\nKhông bỏ thông tin 明天 khi suy ngày hẹn.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-02-calendar:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-02-calendar:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "9f2bc0c1-aa2b-4fc4-88d4-38fcf6d050a4",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi, trả lời ngày tháng và xác định năm trước, năm nay, năm sau.",
+        "pitfallVi": "Không đảo 五月八号 thành 八月五号: đó là ngày 5 tháng 8. Trong bài phải dùng lịch giả định, không tự thay bằng hôm nay thật.",
+        "prerequisites": [
+          "hsk1-time-place-events-01-numbers"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Ngày tháng xếp năm → tháng → ngày. 五月八号 là ngày 8 tháng 5; 日 thường dùng trong văn viết, 号 thông dụng trong lời nói. 今天 hôm nay, 昨天 hôm qua, 明天 ngày mai; 今年 năm nay, 去年 năm ngoái, 明年 năm sau, đều tính theo mốc đang nói. 第 trước số nêu thứ tự: 第一课 bài thứ nhất. 天 còn có thể chỉ ngày như 两天, không đồng nghĩa mọi chữ 日/号/年.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-001",
+          "hsk1-grammar-row-014",
+          "hsk1-grammar-row-064",
+          "hsk1-grammar-row-065"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-02-calendar"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-02"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-003"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00031",
+          "hsk-vocab-00076",
+          "hsk-vocab-00093",
+          "hsk-vocab-00094",
+          "hsk-vocab-00128",
+          "hsk-vocab-00129",
+          "hsk-vocab-00149",
+          "hsk-vocab-00168",
+          "hsk-vocab-00172",
+          "hsk-vocab-00207",
+          "hsk-vocab-00269",
+          "hsk-vocab-00297"
+        ],
+        "targetLessonId": "hsk1-time-place-events-02-calendar",
+        "titleZh": "日期和年份",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/69-REVIEW-TIME-PLACE-DIAGRAMS.md",
+          "humanReviewed": false,
+          "scope": "Full-width instructional diagrams; learning content unchanged.",
+          "sourceRevisionId": "1498f18a-ed2a-4fec-8eaf-f99fe6c2ed1e"
+        },
+        "vocabulary": [
+          "hsk-vocab-00031",
+          "hsk-vocab-00076",
+          "hsk-vocab-00093",
+          "hsk-vocab-00094",
+          "hsk-vocab-00128",
+          "hsk-vocab-00129",
+          "hsk-vocab-00149",
+          "hsk-vocab-00168",
+          "hsk-vocab-00172",
+          "hsk-vocab-00207",
+          "hsk-vocab-00269",
+          "hsk-vocab-00297"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk1-time-place-events-04-clock-and-duration",
+      "baseRevisionId": "eb3a78ce-df64-4153-8ea2-05db0120c6bf",
+      "baseContentSha256": "sha256:86b8a2259c25ebcc151c5f0938f63df719cbce8a6e8811f801590df2a7dc29cf",
+      "changedPageIds": [
+        "hsk1-time-place-events-04-clock-and-duration:v2:context",
+        "hsk1-time-place-events-04-clock-and-duration:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Lịch mới học từ 3 giờ chiều đến 4 giờ chiều. Nói giờ bắt đầu/kết thúc và thời lượng; hẹn đến trước 3 giờ.",
+        "conceptVi": "Hỏi mấy giờ và học trong bao lâu",
+        "dialogue": [
+          {
+            "hanzi": "现在几点？",
+            "meaningVi": "Bây giờ mấy giờ?",
+            "pinyin": "Xiànzài jǐ diǎn?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "八点。我们从八点到九点学习汉语。",
+            "meaningVi": "Tám giờ. Chúng ta học tiếng Trung từ tám đến chín giờ.",
+            "pinyin": "Bā diǎn. Wǒmen cóng bā diǎn dào jiǔ diǎn xuéxí Hànyǔ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "学习一个小时。",
+            "meaningVi": "Học một giờ.",
+            "pinyin": "Xuéxí yí ge xiǎoshí.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "一个小时",
+            "answerMeaningVi": "một giờ",
+            "answerPinyin": "yí ge xiǎoshí",
+            "distractors": [
+              "九点",
+              "八分钟"
+            ],
+            "explanationVi": "Đúng: thời lượng một giờ.",
+            "promptVi": "Khoảng học từ 8:00 đến 9:00 dài bao lâu?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "几点 hỏi mấy giờ; 点 dùng cho giờ đồng hồ. 小时 là đơn vị khoảng thời gian; 一小时 là một giờ đồng hồ về độ dài. 八点十分 = 8:10, 十分钟 = mười phút. 从八点到九点 = từ 8 đến 9 giờ. 前/后 nói trước/sau theo mốc: 八点前/九点后. 什么时候 hỏi thời điểm rộng hơn 几点; 现在 bây giờ, 时间 thời gian.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我们从下午三点到四点学习汉语，学习一个小时。请三点前来。",
+              "modelAnswerMeaningVi": "Chúng ta học tiếng Trung từ 3 đến 4 giờ chiều, học một giờ. Hãy đến trước 3 giờ.",
+              "modelAnswerPinyin": "Wǒmen cóng xiàwǔ sān diǎn dào sì diǎn xuéxí Hànyǔ, xuéxí yí ge xiǎoshí. Qǐng sān diǎn qián lái.",
+              "promptVi": "Lịch mới học từ 3 giờ chiều đến 4 giờ chiều. Nói giờ bắt đầu/kết thúc và thời lượng; hẹn đến trước 3 giờ."
+            },
+            "modelExample": {
+              "hanzi": "从八点到九点，一个小时。",
+              "meaningVi": "Từ tám đến chín giờ, một giờ.",
+              "pinyin": "Cóng bā diǎn dào jiǔ diǎn, yí ge xiǎoshí."
+            },
+            "pattern": "从 + giờ + 到 + giờ；一个小时。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một lớp bắt đầu lúc 8 giờ, kết thúc lúc 9 giờ. Bạn đọc giờ bắt đầu, giờ kết thúc và thời lượng một giờ; sau đó đổi sang lịch mới.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "来 (lái) — đến; 从 (cóng) — từ; 学习 (xuéxí) — học; 汉语 (Hànyǔ) — tiếng Trung; 八 (bā) — tám; 九 (jiǔ) — chín; 半 (bàn) — nửa.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Hỏi mấy giờ và học trong bao lâu",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/class-start-eight-v1.webp",
+                "alt": "Lớp bắt đầu buổi sáng, đồng hồ chỉ 8 giờ",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Bắt đầu 8:00 → kết thúc 9:00. Thời lượng: một giờ."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "现在几点？",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ mấy giờ?",
+                  "pinyin": "Xiànzài jǐ diǎn?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "八点。我们从八点到九点学习汉语。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tám giờ. Chúng ta học tiếng Trung từ tám đến chín giờ.",
+                  "pinyin": "Bā diǎn. Wǒmen cóng bā diǎn dào jiǔ diǎn xuéxí Hànyǔ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "学习一个小时。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Học một giờ.",
+                  "pinyin": "Xuéxí yí ge xiǎoshí.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/class-start-eight-v1.webp",
+                "alt": "Lớp bắt đầu buổi sáng, đồng hồ chỉ 8 giờ",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Bắt đầu 8:00 → kết thúc 9:00. Thời lượng: một giờ."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "几点 hỏi mấy giờ; 点 dùng cho giờ đồng hồ. 小时 là đơn vị khoảng thời gian; 一小时 là một giờ đồng hồ về độ dài. 八点十分 = 8:10, 十分钟 = mười phút. 从八点到九点 = từ 8 đến 9 giờ. 前/后 nói trước/sau theo mốc: 八点前/九点后. 什么时候 hỏi thời điểm rộng hơn 几点; 现在 bây giờ, 时间 thời gian.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "从八点到九点，一个小时。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Từ tám đến chín giờ, một giờ.",
+                  "pinyin": "Cóng bā diǎn dào jiǔ diǎn, yí ge xiǎoshí.",
+                  "provenance": "",
+                  "title": "从 + giờ + 到 + giờ；一个小时。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dùng 我学习一点 để diễn đạt học một giờ; 一点 có thể là một giờ trên đồng hồ hoặc một ít tùy câu. Dùng 一个小时/一小时 cho thời lượng.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hỏi mấy giờ và học trong bao lâu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Lớp bắt đầu 8:00, kết thúc 9:00; thời lượng 60 phút hay một giờ. Hai mốc không phải hai giờ học.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "八点",
+                        "meaningVi": "8:00 · bắt đầu",
+                        "note": "",
+                        "pinyin": "Bā diǎn",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "九点",
+                        "meaningVi": "9:00 · kết thúc",
+                        "note": "",
+                        "pinyin": "Jiǔ diǎn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "一个小时",
+                        "meaningVi": "Thời lượng: một giờ",
+                        "note": "",
+                        "pinyin": "Yí ge xiǎoshí",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đến; tới",
+                  "hanzi": "我八点到学校。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00029",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đến trường lúc tám giờ.",
+                  "pinyin": "Wǒ bā diǎn dào xuéxiào.",
+                  "provenance": "",
+                  "title": "到 · dào"
+                },
+                {
+                  "alt": "",
+                  "body": "giờ; điểm",
+                  "hanzi": "现在八点。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00033",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ tám giờ.",
+                  "pinyin": "Xiànzài bā diǎn.",
+                  "provenance": "",
+                  "title": "点 · diǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "phút; chia",
+                  "hanzi": "现在八点十分。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00055",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ tám giờ mười.",
+                  "pinyin": "Xiànzài bā diǎn shí fēn.",
+                  "provenance": "",
+                  "title": "分 · fēn"
+                },
+                {
+                  "alt": "",
+                  "body": "phút (khoảng thời gian)",
+                  "hanzi": "学习十分钟。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00056",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Học mười phút.",
+                  "pinyin": "Xuéxí shí fēnzhōng.",
+                  "provenance": "",
+                  "title": "分钟 · fēnzhōng"
+                },
+                {
+                  "alt": "",
+                  "body": "sau; phía sau",
+                  "hanzi": "我九点后有时间。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00080",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau chín giờ tôi có thời gian.",
+                  "pinyin": "Wǒ jiǔ diǎn hòu yǒu shíjiān.",
+                  "provenance": "",
+                  "title": "后 · hòu"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "trước; phía trước",
+                  "hanzi": "请八点前来。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00163",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hãy đến trước tám giờ.",
+                  "pinyin": "Qǐng bā diǎn qián lái.",
+                  "provenance": "",
+                  "title": "前 · qián"
+                },
+                {
+                  "alt": "",
+                  "body": "lúc; khi",
+                  "hanzi": "你什么时候回家？",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00185",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Khi nào bạn về nhà?",
+                  "pinyin": "Nǐ shénme shíhou huí jiā?",
+                  "provenance": "",
+                  "title": "时候 · shíhou"
+                },
+                {
+                  "alt": "",
+                  "body": "thời gian",
+                  "hanzi": "你有时间吗？",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00186",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn có thời gian không?",
+                  "pinyin": "Nǐ yǒu shíjiān ma?",
+                  "provenance": "",
+                  "title": "时间 · shíjiān"
+                },
+                {
+                  "alt": "",
+                  "body": "bây giờ",
+                  "hanzi": "现在几点？",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00232",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ là mấy giờ?",
+                  "pinyin": "Xiànzài jǐ diǎn?",
+                  "provenance": "",
+                  "title": "现在 · xiànzài"
+                },
+                {
+                  "alt": "",
+                  "body": "giờ (khoảng thời gian)",
+                  "hanzi": "学习一个小时。",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:word-hsk-vocab-00236",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Học một giờ.",
+                  "pinyin": "Xuéxí yí ge xiǎoshí.",
+                  "provenance": "",
+                  "title": "小时 · xiǎoshí"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: thời lượng một giờ. Không dùng 我学习一点 để diễn đạt học một giờ; 一点 có thể là một giờ trên đồng hồ hoặc một ít tùy câu. Dùng 一个小时/一小时 cho thời lượng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tính khoảng 8:00–9:00 là 一个小时, phân biệt giờ đồng hồ với thời lượng. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00236",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là giờ kết thúc, không phải độ dài.",
+                        "id": "option-0",
+                        "text": "九点"
+                      },
+                      {
+                        "feedback": "Đúng: thời lượng một giờ.",
+                        "id": "option-1",
+                        "text": "一个小时"
+                      },
+                      {
+                        "feedback": "Tám phút không khớp lịch.",
+                        "id": "option-2",
+                        "text": "八分钟"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Khoảng học từ 8:00 đến 9:00 dài bao lâu?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "小时"
+                    ],
+                    "answerIds": [],
+                    "explanation": "小时 là đơn vị thời lượng. 点 dùng với giờ đồng hồ như 八点.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 小时 cho thời lượng một giờ sau 一个, không dùng 点 là giờ trên đồng hồ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00236",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 点 hoặc 小时: thời lượng một giờ viết 一个____。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lịch mới học từ 3 giờ chiều đến 4 giờ chiều. Nói giờ bắt đầu/kết thúc và thời lượng; hẹn đến trước 3 giờ.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我们从下午三点到四点学习汉语，学习一个小时。请三点前来。\nWǒmen cóng xiàwǔ sān diǎn dào sì diǎn xuéxí Hànyǔ, xuéxí yí ge xiǎoshí. Qǐng sān diǎn qián lái.\nChúng ta học tiếng Trung từ 3 đến 4 giờ chiều, học một giờ. Hãy đến trước 3 giờ.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lịch bắt đầu/kết thúc mới và thời lượng tương ứng, kiểm đơn vị giờ/phút. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-time-place-events:04-clock-and-duration",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "点 nói giờ, 小时 nói thời lượng.",
+                        "id": "criterion-0",
+                        "label": "点 nói giờ, 小时 nói thời lượng."
+                      },
+                      {
+                        "guidance": "Giữ lịch chiều 3–4 giờ.",
+                        "id": "criterion-1",
+                        "label": "Giữ lịch chiều 3–4 giờ."
+                      },
+                      {
+                        "guidance": "前 nói trước giờ hẹn.",
+                        "id": "criterion-2",
+                        "label": "前 nói trước giờ hẹn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "点 nói giờ, 小时 nói thời lượng.\nGiữ lịch chiều 3–4 giờ.\n前 nói trước giờ hẹn.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-04-clock-and-duration:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-04-clock-and-duration:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "0384ca3c-7a2c-44e5-a9e2-ed1e87f648c7",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi giờ, nói thời điểm và mô tả khoảng thời gian ngắn.",
+        "pitfallVi": "Không dùng 我学习一点 để diễn đạt học một giờ; 一点 có thể là một giờ trên đồng hồ hoặc một ít tùy câu. Dùng 一个小时/一小时 cho thời lượng.",
+        "prerequisites": [
+          "hsk1-time-place-events-03-week-and-day-parts"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "几点 hỏi mấy giờ; 点 dùng cho giờ đồng hồ. 小时 là đơn vị khoảng thời gian; 一小时 là một giờ đồng hồ về độ dài. 八点十分 = 8:10, 十分钟 = mười phút. 从八点到九点 = từ 8 đến 9 giờ. 前/后 nói trước/sau theo mốc: 八点前/九点后. 什么时候 hỏi thời điểm rộng hơn 几点; 现在 bây giờ, 时间 thời gian.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-017",
+          "hsk1-grammar-row-018",
+          "hsk1-grammar-row-058",
+          "hsk1-grammar-row-059",
+          "hsk1-grammar-row-060",
+          "hsk1-grammar-row-061",
+          "hsk1-grammar-row-062"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-04-clock-and-duration"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-time-place-events:04-clock-and-duration"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00029",
+          "hsk-vocab-00033",
+          "hsk-vocab-00055",
+          "hsk-vocab-00056",
+          "hsk-vocab-00080",
+          "hsk-vocab-00163",
+          "hsk-vocab-00185",
+          "hsk-vocab-00186",
+          "hsk-vocab-00232",
+          "hsk-vocab-00236"
+        ],
+        "targetLessonId": "hsk1-time-place-events-04-clock-and-duration",
+        "titleZh": "钟点和时长",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/69-REVIEW-TIME-PLACE-DIAGRAMS.md",
+          "humanReviewed": false,
+          "scope": "Full-width instructional diagrams; learning content unchanged.",
+          "sourceRevisionId": "63ddca05-8eaa-45d2-a09d-298fe21cd69e"
+        },
+        "vocabulary": [
+          "hsk-vocab-00029",
+          "hsk-vocab-00033",
+          "hsk-vocab-00055",
+          "hsk-vocab-00056",
+          "hsk-vocab-00080",
+          "hsk-vocab-00163",
+          "hsk-vocab-00185",
+          "hsk-vocab-00186",
+          "hsk-vocab-00232",
+          "hsk-vocab-00236"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk1-time-place-events-05-location",
+      "baseRevisionId": "6acc2900-03ce-4897-9353-33336eede900",
+      "baseContentSha256": "sha256:3e92f14471ef7b7076d0bee5389b97ac77d7b415c9a6ee1527c52dd25626fde4",
+      "changedPageIds": [
+        "hsk1-time-place-events-05-location:v2:context"
+      ],
+      "content": {
+        "checkpointVi": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个.",
+        "conceptVi": "Tìm đồ vật và phân biệt đây–kia",
+        "dialogue": [
+          {
+            "hanzi": "书在哪儿？",
+            "meaningVi": "Sách ở đâu?",
+            "pinyin": "Shū zài nǎr?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "书在桌子上。",
+            "meaningVi": "Sách ở trên bàn.",
+            "pinyin": "Shū zài zhuōzi shàng.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "猫呢？",
+            "meaningVi": "Còn mèo?",
+            "pinyin": "Māo ne?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "猫在桌子下。",
+            "meaningVi": "Mèo ở dưới bàn.",
+            "pinyin": "Māo zài zhuōzi xià.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "猫在桌子下。",
+            "answerMeaningVi": "Mèo ở dưới bàn.",
+            "answerPinyin": "Māo zài zhuōzi xià.",
+            "distractors": [
+              "猫在桌子上。",
+              "书在桌子下。"
+            ],
+            "explanationVi": "Đúng: mèo ở dưới bàn.",
+            "promptVi": "Theo tình huống, câu nào xác định đúng vị trí con mèo?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "书在哪儿？书在房间里。这个杯子在桌子上。",
+              "modelAnswerMeaningVi": "Sách ở đâu? Sách ở trong phòng. Cái cốc này ở trên bàn.",
+              "modelAnswerPinyin": "Shū zài nǎr? Shū zài fángjiān lǐ. Zhège bēizi zài zhuōzi shàng.",
+              "promptVi": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个."
+            },
+            "modelExample": {
+              "hanzi": "杯子在桌子上。",
+              "meaningVi": "Cốc ở trên bàn.",
+              "pinyin": "Bēizi zài zhuōzi shàng."
+            },
+            "pattern": "Đồ vật + 在 + nơi + 上／下／里。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Trong sơ đồ bàn học giả định, sách ở trên bàn, mèo ở dưới bàn và cốc ở trong phòng. Người nói chỉ chiếc cốc gần mình rồi hỏi một chiếc ở xa hơn.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "书 (shū) — sách; 桌子 (zhuōzi) — bàn; 猫 (māo) — mèo; 杯子 (bēizi) — cốc; 房间 (fángjiān) — phòng; 在 (zài) — ở.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tìm đồ vật và phân biệt đây–kia",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/near-far-cups-location-v1.webp",
+                "alt": "Người chỉ cốc gần mình, cốc thứ hai ở xa; sách trên bàn và mèo dưới bàn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Cốc gần người nói và cốc ở xa; sách trên bàn, mèo dưới bàn."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Sơ đồ theo chiều dọc: sách ở trên bàn, bàn làm mốc giữa, mèo ở dưới bàn. Mỗi mục có nghĩa bằng chữ.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "书",
+                        "meaningVi": "Sách · trên bàn",
+                        "note": "",
+                        "pinyin": "Shū",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "桌子",
+                        "meaningVi": "Bàn · vật làm mốc",
+                        "note": "",
+                        "pinyin": "Zhuōzi",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "猫",
+                        "meaningVi": "Mèo · dưới bàn",
+                        "note": "",
+                        "pinyin": "Māo",
+                        "x": 1,
+                        "y": 2
+                      }
+                    ],
+                    "type": "map"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书在哪儿？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở đâu?",
+                  "pinyin": "Shū zài nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "猫呢？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Còn mèo?",
+                  "pinyin": "Māo ne?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "猫在桌子下。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới bàn.",
+                  "pinyin": "Māo zài zhuōzi xià.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:dialogue",
+              "illustration": {
+                "alt": "Sách trên mặt bàn, mèo ngồi dưới cùng chiếc bàn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/book-desk-cat-location-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "杯子在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cốc ở trên bàn.",
+                  "pinyin": "Bēizi zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "Đồ vật + 在 + nơi + 上／下／里。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tìm đồ vật và phân biệt đây–kia"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bên; phía",
+                  "hanzi": "我坐在桌子边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00011",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ngồi cạnh bàn.",
+                  "pinyin": "Wǒ zuò zài zhuōzi biān.",
+                  "provenance": "",
+                  "title": "边 · biān"
+                },
+                {
+                  "alt": "",
+                  "body": "trong; bên trong",
+                  "hanzi": "人在房间里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00110",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người ở trong phòng.",
+                  "pinyin": "Rén zài fángjiān lǐ.",
+                  "provenance": "",
+                  "title": "里 · lǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "nào",
+                  "hanzi": "你要哪本书？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00131",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn quyển sách nào?",
+                  "pinyin": "Nǐ yào nǎ běn shū?",
+                  "provenance": "",
+                  "title": "哪 · nǎ"
+                },
+                {
+                  "alt": "",
+                  "body": "cái nào",
+                  "hanzi": "你要哪个杯子？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00132",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn cái cốc nào?",
+                  "pinyin": "Nǐ yào nǎge bēizi?",
+                  "provenance": "",
+                  "title": "哪个 · nǎge"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đâu; nơi nào",
+                  "hanzi": "你在哪里？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00133",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đang ở đâu?",
+                  "pinyin": "Nǐ zài nǎlǐ?",
+                  "provenance": "",
+                  "title": "哪里 · nǎlǐ"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đâu",
+                  "hanzi": "你住在哪儿？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00134",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống ở đâu?",
+                  "pinyin": "Nǐ zhù zài nǎr?",
+                  "provenance": "",
+                  "title": "哪儿 · nǎr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái nào",
+                  "hanzi": "哪些书是你的？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00135",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những quyển sách nào là của bạn?",
+                  "pinyin": "Nǎxiē shū shì nǐ de?",
+                  "provenance": "",
+                  "title": "哪些 · nǎxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "kia; đó",
+                  "hanzi": "那是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00136",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Kia là sách của tôi.",
+                  "pinyin": "Nà shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "那 · nà"
+                },
+                {
+                  "alt": "",
+                  "body": "bên kia",
+                  "hanzi": "他在那边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00137",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy ở bên kia.",
+                  "pinyin": "Tā zài nàbiān.",
+                  "provenance": "",
+                  "title": "那边 · nàbiān"
+                },
+                {
+                  "alt": "",
+                  "body": "cái kia",
+                  "hanzi": "那个人是我老师。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00138",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người kia là giáo viên của tôi.",
+                  "pinyin": "Nàge rén shì wǒ lǎoshī.",
+                  "provenance": "",
+                  "title": "那个 · nàge"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đó",
+                  "hanzi": "我的书在那里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00139",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách của tôi ở đó.",
+                  "pinyin": "Wǒ de shū zài nàlǐ.",
+                  "provenance": "",
+                  "title": "那里 · nàlǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "chỗ kia",
+                  "hanzi": "他住在那儿。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00140",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy sống ở chỗ kia.",
+                  "pinyin": "Tā zhù zài nàr.",
+                  "provenance": "",
+                  "title": "那儿 · nàr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái kia",
+                  "hanzi": "那些学生在教室里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00141",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những học sinh kia ở trong lớp học.",
+                  "pinyin": "Nàxiē xuésheng zài jiàoshì lǐ.",
+                  "provenance": "",
+                  "title": "那些 · nàxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "trên; lên",
+                  "hanzi": "书在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00175",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "上 · shàng"
+                },
+                {
+                  "alt": "",
+                  "body": "ngoài",
+                  "hanzi": "门外有人。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00212",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngoài cửa có người.",
+                  "pinyin": "Mén wài yǒu rén.",
+                  "provenance": "",
+                  "title": "外 · wài"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bên ngoài",
+                  "hanzi": "外边正在下雨。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00213",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bên ngoài đang mưa.",
+                  "pinyin": "Wàibian zhèngzài xià yǔ.",
+                  "provenance": "",
+                  "title": "外边 · wàibian"
+                },
+                {
+                  "alt": "",
+                  "body": "dưới; xuống",
+                  "hanzi": "猫在桌子下。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00226",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới bàn.",
+                  "pinyin": "Māo zài zhuōzi xià.",
+                  "provenance": "",
+                  "title": "下 · xià"
+                },
+                {
+                  "alt": "",
+                  "body": "một vài",
+                  "hanzi": "我买了一些水果。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00239",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua một ít trái cây.",
+                  "pinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+                  "provenance": "",
+                  "title": "些 · xiē"
+                },
+                {
+                  "alt": "",
+                  "body": "đây; này",
+                  "hanzi": "这是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00279",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là sách của tôi.",
+                  "pinyin": "Zhè shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "这 · zhè"
+                },
+                {
+                  "alt": "",
+                  "body": "bên này",
+                  "hanzi": "请来这边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00280",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời đến bên này.",
+                  "pinyin": "Qǐng lái zhèbiān.",
+                  "provenance": "",
+                  "title": "这边 · zhèbiān"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-20",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cái này",
+                  "hanzi": "这个人是我朋友。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00281",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người này là bạn của tôi.",
+                  "pinyin": "Zhège rén shì wǒ péngyou.",
+                  "provenance": "",
+                  "title": "这个 · zhège"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đây",
+                  "hanzi": "我在这里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00282",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đang ở đây.",
+                  "pinyin": "Wǒ zài zhèlǐ.",
+                  "provenance": "",
+                  "title": "这里 · zhèlǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "chỗ này",
+                  "hanzi": "请坐这儿。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00283",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời ngồi chỗ này.",
+                  "pinyin": "Qǐng zuò zhèr.",
+                  "provenance": "",
+                  "title": "这儿 · zhèr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái này",
+                  "hanzi": "这些都是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00284",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những quyển này đều là sách của tôi.",
+                  "pinyin": "Zhèxiē dōu shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "这些 · zhèxiē"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-20",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 5"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: mèo ở dưới bàn. Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu mèo ở dưới bàn theo cảnh giả định, giữ đúng đối tượng và mốc trên/dưới. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-003",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là vị trí sách, không phải mèo.",
+                        "id": "option-0",
+                        "text": "猫在桌子上。"
+                      },
+                      {
+                        "feedback": "Sai đối tượng và vị trí trong đề.",
+                        "id": "option-1",
+                        "text": "书在桌子下。"
+                      },
+                      {
+                        "feedback": "Đúng: mèo ở dưới bàn.",
+                        "id": "option-2",
+                        "text": "猫在桌子下。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo tình huống, câu nào xác định đúng vị trí con mèo?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "在"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Câu đang xác định vị trí của sách nên dùng 在. Muốn nói trên bàn có sách thì đổi cấu trúc: 桌子上有书.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 在 để định vị sách trên bàn; 在 không có exact vocabulary source trong bài nên nối mẫu nơi chốn đã học. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-021",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 在 hoặc 有: 书____桌子上。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n书在哪儿？书在房间里。这个杯子在桌子上。\nShū zài nǎr? Shū zài fángjiān lǐ. Zhège bēizi zài zhuōzi shàng.\nSách ở đâu? Sách ở trong phòng. Cái cốc này ở trên bàn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu xác định vị trí đồ vật mới, phân biệt câu có vật ở đâu với câu ở đâu có vật. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "在 theo sau đối tượng cần định vị.",
+                        "id": "criterion-0",
+                        "label": "在 theo sau đối tượng cần định vị."
+                      },
+                      {
+                        "guidance": "Giữ cốc trên bàn và sách trong phòng.",
+                        "id": "criterion-1",
+                        "label": "Giữ cốc trên bàn và sách trong phòng."
+                      },
+                      {
+                        "guidance": "这 gần người nói, 哪 để hỏi.",
+                        "id": "criterion-2",
+                        "label": "这 gần người nói, 哪 để hỏi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "在 theo sau đối tượng cần định vị.\nGiữ cốc trên bàn và sách trong phòng.\n这 gần người nói, 哪 để hỏi.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "7f2a1498-563b-4132-aba0-981700829be7",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi và chỉ vị trí bằng từ để hỏi, từ chỉ định và phương vị.",
+        "pitfallVi": "Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+        "prerequisites": [
+          "hsk1-time-place-events-04-clock-and-duration"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-002",
+          "hsk1-grammar-row-003",
+          "hsk1-grammar-row-010",
+          "hsk1-grammar-row-021",
+          "hsk1-grammar-row-033",
+          "hsk1-grammar-row-034",
+          "hsk1-grammar-row-040",
+          "hsk1-grammar-row-051",
+          "hsk1-grammar-row-052"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-05-location"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-05"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-007"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284"
+        ],
+        "targetLessonId": "hsk1-time-place-events-05-location",
+        "titleZh": "位置和指示",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/70-REVIEW-LOCATION-ART.md",
+          "humanReviewed": false,
+          "scope": "Location dialogue art; learning content unchanged.",
+          "sourceRevisionId": "36824db5-6202-4960-a930-7b748ad043ec"
+        },
+        "vocabulary": [
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284"
+        ]
+      }
+    }
+  ]
+}

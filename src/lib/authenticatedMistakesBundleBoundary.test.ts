@@ -62,14 +62,22 @@ describe("authenticated remediation bundle boundary", () => {
     expect(specifiers).not.toContain("../store/LearningStore");
     expect(specifiers).not.toContain("../data/curriculum");
     expect(specifiers).not.toContain("./LocalMistakesPage");
-    expect(source).not.toMatch(/\bcorrectAnswer\b/u);
+    // Post-answer receipts may carry correctAnswer. The boundary concerns
+    // importing the answer bank before submission, not rendering that receipt.
     expect(source).not.toMatch(/\bresolveMistake\b/u);
     expect(source).toContain("/api/learning/mistakes");
     expect(source).toContain('source: "mistake"');
   });
 
   it("cannot transitively reach local remediation answers or curriculum", () => {
-    const forbidden = new Set([localEntry, curriculum]);
+    const forbidden = new Set([
+      localEntry,
+      curriculum,
+      realpathSync(resolve(repositorySource, "store/LearningStore.tsx")),
+      realpathSync(resolve(repositorySource, "lib/exerciseGeneration.ts")),
+      realpathSync(resolve(repositorySource, "server/authoritativeItemBank.ts")),
+      realpathSync(resolve(repositorySource, "server/remediationAttemptFeedback.ts")),
+    ]);
     const pending = [authenticatedEntry];
     const visited = new Set<string>();
 

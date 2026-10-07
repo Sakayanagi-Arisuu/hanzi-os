@@ -13,10 +13,10 @@ import { MemoryReviewLobby } from "../components/MemoryReviewLobby";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
-  RELEASED_WORD_BY_ID,
 } from "../data/curriculum";
 import {
   REVIEW_PROTOCOL_VERSION,
+  reviewPresentationWord,
   type ReviewQueueCardV1,
   type ReviewQueueV1,
   type ReviewRating,
@@ -234,6 +234,7 @@ function AuthenticatedReviewPageScope() {
 
   const [queue, setQueue] = useState<ReviewQueueV1 | null>(null);
   const queueRef = useRef<ReviewQueueV1 | null>(null);
+  const [verifyingQueue, setVerifyingQueue] = useState(true);
   const [queuePhase, setQueuePhase] = useState<QueuePhase>("loading");
   const [queueNotice, setQueueNotice] = useState<string | null>(null);
   const [retryAfterMs, setRetryAfterMs] = useState<number | null>(null);
@@ -338,6 +339,7 @@ function AuthenticatedReviewPageScope() {
     }
 
     void (async () => {
+      setVerifyingQueue(true);
       let hasUsableQueue = queueRef.current !== null;
       if (!hasUsableQueue) setQueuePhase("loading");
       setQueueNotice(null);
@@ -400,6 +402,8 @@ function AuthenticatedReviewPageScope() {
           "Owner generation hoặc reset epoch đã đổi trong lúc đọc hàng đợi.",
         );
         authority.refresh();
+      } finally {
+        if (active) setVerifyingQueue(false);
       }
     })();
 
@@ -451,7 +455,7 @@ function AuthenticatedReviewPageScope() {
     (record) => record.status === "quarantined",
   );
   const current = availableCards[0] ?? null;
-  const word = current ? RELEASED_WORD_BY_ID.get(current.wordId) : undefined;
+  const word = current ? reviewPresentationWord(current.wordId, current.wordVersion) : undefined;
   const currentOfferKey = current ? offerKey(current) : null;
 
   useEffect(() => {
@@ -479,6 +483,7 @@ function AuthenticatedReviewPageScope() {
   }, [currentOfferKey]);
 
   const retryEverything = () => {
+    setVerifyingQueue(true);
     setActionError(null);
     setRecordsError(null);
     setQueuePhase(queue ? "ready" : "loading");
@@ -710,17 +715,25 @@ function AuthenticatedReviewPageScope() {
 
   if (!networkVerified) {
     return (
-      <div className="lesson-state-screen" role="status" aria-live="polite">
-        <span className="memory-state-symbol" aria-hidden="true">断</span>
-          <span>ĐANG KHÔI PHỤC THẺ ÔN</span>
-          <h1>Đang kiểm tra lượt ôn</h1>
-        <p>Thẻ ôn đã được khôi phục trên thiết bị. Hệ thống đang xác nhận lại dữ liệu trước khi cho phép đánh giá.</p>
-        <button className="primary-button" type="button" onClick={retryEverything}>
-          <span aria-hidden="true">↻</span> Xác minh qua mạng
-        </button>
-        <Link className="secondary-button" to="/path">
-          Trở về Thiên Lộ
-        </Link>
+      <div className="lesson-state-screen review-verification" role="status" aria-live="polite" aria-busy={verifyingQueue}>
+        <span className="memory-state-symbol" aria-hidden="true">{verifyingQueue ? "↻" : "!"}</span>
+        <span className="review-verification__label">KÝ ỨC TRẬN · KHÔI PHỤC LƯỢT ÔN</span>
+        <h1>{verifyingQueue ? "Đang xác minh thẻ ôn…" : "Chưa xác minh được lượt ôn"}</h1>
+        <p>{verifyingQueue
+          ? "Thẻ đã có trên thiết bị. Đang kiểm tra bản mới nhất; lượt ôn sẽ tự mở khi xác minh thành công."
+          : online
+            ? "Kết nối chưa xác nhận được thẻ ôn mới nhất. Bạn có thể thử lại; tiến độ đã lưu vẫn được giữ nguyên."
+            : "Thiết bị đang ngoại tuyến. Hãy kết nối mạng rồi thử lại để tiếp tục ôn."}</p>
+        <ol className="review-verification__steps">
+          <li><span aria-hidden="true">✓</span><div><strong>Đã khôi phục thẻ trên thiết bị</strong><small>Dữ liệu đã lưu được giữ nguyên</small></div></li>
+          <li><span aria-hidden="true">{verifyingQueue ? "…" : "!"}</span><div><strong>{verifyingQueue ? "Đang xác minh qua mạng" : "Xác minh chưa thành công"}</strong><small>{verifyingQueue ? "Hoàn tất sẽ tự chuyển vào lượt ôn" : "Chưa thể bắt đầu đánh giá thẻ"}</small></div></li>
+        </ol>
+        <div className="review-verification__actions">
+          <button className="primary-button" type="button" onClick={retryEverything} disabled={verifyingQueue || !online}>
+            {verifyingQueue ? "Đang xác minh…" : online ? "Thử xác minh lại" : "Đang ngoại tuyến"}
+          </button>
+          <Link className="secondary-button" to="/path">Trở về Thiên Lộ</Link>
+        </div>
       </div>
     );
   }
@@ -831,6 +844,7 @@ function AuthenticatedReviewPageScope() {
 
       <div className="review-card-scroll">
         <ReviewMemoryArena
+          wordId={word.id}
           audioSourceId={`review:account:${word.id}`}
           character={character}
           example={word.example}

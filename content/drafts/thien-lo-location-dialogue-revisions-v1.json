@@ -1,0 +1,953 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "hsk1-time-place-events-05-location",
+      "baseRevisionId": "36824db5-6202-4960-a930-7b748ad043ec",
+      "baseContentSha256": "sha256:f20523b5180af85437ebd0a3c0fcc369ae3e10a68a79dd2f781355a0bdd078e7",
+      "changedPageIds": [
+        "hsk1-time-place-events-05-location:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个.",
+        "conceptVi": "Tìm đồ vật và phân biệt đây–kia",
+        "dialogue": [
+          {
+            "hanzi": "书在哪儿？",
+            "meaningVi": "Sách ở đâu?",
+            "pinyin": "Shū zài nǎr?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "书在桌子上。",
+            "meaningVi": "Sách ở trên bàn.",
+            "pinyin": "Shū zài zhuōzi shàng.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "猫呢？",
+            "meaningVi": "Còn mèo?",
+            "pinyin": "Māo ne?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "猫在桌子下。",
+            "meaningVi": "Mèo ở dưới bàn.",
+            "pinyin": "Māo zài zhuōzi xià.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "猫在桌子下。",
+            "answerMeaningVi": "Mèo ở dưới bàn.",
+            "answerPinyin": "Māo zài zhuōzi xià.",
+            "distractors": [
+              "猫在桌子上。",
+              "书在桌子下。"
+            ],
+            "explanationVi": "Đúng: mèo ở dưới bàn.",
+            "promptVi": "Theo tình huống, câu nào xác định đúng vị trí con mèo?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "书在哪儿？书在房间里。这个杯子在桌子上。",
+              "modelAnswerMeaningVi": "Sách ở đâu? Sách ở trong phòng. Cái cốc này ở trên bàn.",
+              "modelAnswerPinyin": "Shū zài nǎr? Shū zài fángjiān lǐ. Zhège bēizi zài zhuōzi shàng.",
+              "promptVi": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个."
+            },
+            "modelExample": {
+              "hanzi": "杯子在桌子上。",
+              "meaningVi": "Cốc ở trên bàn.",
+              "pinyin": "Bēizi zài zhuōzi shàng."
+            },
+            "pattern": "Đồ vật + 在 + nơi + 上／下／里。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Trong sơ đồ bàn học giả định, sách ở trên bàn, mèo ở dưới bàn và cốc ở trong phòng. Người nói chỉ chiếc cốc gần mình rồi hỏi một chiếc ở xa hơn.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "书 (shū) — sách; 桌子 (zhuōzi) — bàn; 猫 (māo) — mèo; 杯子 (bēizi) — cốc; 房间 (fángjiān) — phòng; 在 (zài) — ở.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tìm đồ vật và phân biệt đây–kia"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Sơ đồ theo chiều dọc: sách ở trên bàn, bàn làm mốc giữa, mèo ở dưới bàn. Mỗi mục có nghĩa bằng chữ.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "书",
+                        "meaningVi": "Sách · trên bàn",
+                        "note": "",
+                        "pinyin": "Shū",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "桌子",
+                        "meaningVi": "Bàn · vật làm mốc",
+                        "note": "",
+                        "pinyin": "Zhuōzi",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "猫",
+                        "meaningVi": "Mèo · dưới bàn",
+                        "note": "",
+                        "pinyin": "Māo",
+                        "x": 1,
+                        "y": 2
+                      }
+                    ],
+                    "type": "map"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书在哪儿？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở đâu?",
+                  "pinyin": "Shū zài nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "猫呢？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Còn mèo?",
+                  "pinyin": "Māo ne?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "猫在桌子下。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới bàn.",
+                  "pinyin": "Māo zài zhuōzi xià.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/book-desk-cat-location-v1.webp",
+                "alt": "Sách trên mặt bàn, mèo ngồi dưới cùng chiếc bàn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "杯子在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cốc ở trên bàn.",
+                  "pinyin": "Bēizi zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "Đồ vật + 在 + nơi + 上／下／里。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tìm đồ vật và phân biệt đây–kia"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bên; phía",
+                  "hanzi": "我坐在桌子边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00011",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ngồi cạnh bàn.",
+                  "pinyin": "Wǒ zuò zài zhuōzi biān.",
+                  "provenance": "",
+                  "title": "边 · biān"
+                },
+                {
+                  "alt": "",
+                  "body": "trong; bên trong",
+                  "hanzi": "人在房间里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00110",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người ở trong phòng.",
+                  "pinyin": "Rén zài fángjiān lǐ.",
+                  "provenance": "",
+                  "title": "里 · lǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "nào",
+                  "hanzi": "你要哪本书？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00131",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn quyển sách nào?",
+                  "pinyin": "Nǐ yào nǎ běn shū?",
+                  "provenance": "",
+                  "title": "哪 · nǎ"
+                },
+                {
+                  "alt": "",
+                  "body": "cái nào",
+                  "hanzi": "你要哪个杯子？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00132",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn cái cốc nào?",
+                  "pinyin": "Nǐ yào nǎge bēizi?",
+                  "provenance": "",
+                  "title": "哪个 · nǎge"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đâu; nơi nào",
+                  "hanzi": "你在哪里？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00133",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đang ở đâu?",
+                  "pinyin": "Nǐ zài nǎlǐ?",
+                  "provenance": "",
+                  "title": "哪里 · nǎlǐ"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đâu",
+                  "hanzi": "你住在哪儿？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00134",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống ở đâu?",
+                  "pinyin": "Nǐ zhù zài nǎr?",
+                  "provenance": "",
+                  "title": "哪儿 · nǎr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái nào",
+                  "hanzi": "哪些书是你的？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00135",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những quyển sách nào là của bạn?",
+                  "pinyin": "Nǎxiē shū shì nǐ de?",
+                  "provenance": "",
+                  "title": "哪些 · nǎxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "kia; đó",
+                  "hanzi": "那是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00136",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Kia là sách của tôi.",
+                  "pinyin": "Nà shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "那 · nà"
+                },
+                {
+                  "alt": "",
+                  "body": "bên kia",
+                  "hanzi": "他在那边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00137",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy ở bên kia.",
+                  "pinyin": "Tā zài nàbiān.",
+                  "provenance": "",
+                  "title": "那边 · nàbiān"
+                },
+                {
+                  "alt": "",
+                  "body": "cái kia",
+                  "hanzi": "那个人是我老师。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00138",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người kia là giáo viên của tôi.",
+                  "pinyin": "Nàge rén shì wǒ lǎoshī.",
+                  "provenance": "",
+                  "title": "那个 · nàge"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đó",
+                  "hanzi": "我的书在那里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00139",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách của tôi ở đó.",
+                  "pinyin": "Wǒ de shū zài nàlǐ.",
+                  "provenance": "",
+                  "title": "那里 · nàlǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "chỗ kia",
+                  "hanzi": "他住在那儿。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00140",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy sống ở chỗ kia.",
+                  "pinyin": "Tā zhù zài nàr.",
+                  "provenance": "",
+                  "title": "那儿 · nàr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái kia",
+                  "hanzi": "那些学生在教室里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00141",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những học sinh kia ở trong lớp học.",
+                  "pinyin": "Nàxiē xuésheng zài jiàoshì lǐ.",
+                  "provenance": "",
+                  "title": "那些 · nàxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "trên; lên",
+                  "hanzi": "书在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00175",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "上 · shàng"
+                },
+                {
+                  "alt": "",
+                  "body": "ngoài",
+                  "hanzi": "门外有人。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00212",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngoài cửa có người.",
+                  "pinyin": "Mén wài yǒu rén.",
+                  "provenance": "",
+                  "title": "外 · wài"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bên ngoài",
+                  "hanzi": "外边正在下雨。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00213",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bên ngoài đang mưa.",
+                  "pinyin": "Wàibian zhèngzài xià yǔ.",
+                  "provenance": "",
+                  "title": "外边 · wàibian"
+                },
+                {
+                  "alt": "",
+                  "body": "dưới; xuống",
+                  "hanzi": "猫在桌子下。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00226",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới bàn.",
+                  "pinyin": "Māo zài zhuōzi xià.",
+                  "provenance": "",
+                  "title": "下 · xià"
+                },
+                {
+                  "alt": "",
+                  "body": "một vài",
+                  "hanzi": "我买了一些水果。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00239",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua một ít trái cây.",
+                  "pinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+                  "provenance": "",
+                  "title": "些 · xiē"
+                },
+                {
+                  "alt": "",
+                  "body": "đây; này",
+                  "hanzi": "这是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00279",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là sách của tôi.",
+                  "pinyin": "Zhè shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "这 · zhè"
+                },
+                {
+                  "alt": "",
+                  "body": "bên này",
+                  "hanzi": "请来这边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00280",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời đến bên này.",
+                  "pinyin": "Qǐng lái zhèbiān.",
+                  "provenance": "",
+                  "title": "这边 · zhèbiān"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-20",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cái này",
+                  "hanzi": "这个人是我朋友。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00281",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người này là bạn của tôi.",
+                  "pinyin": "Zhège rén shì wǒ péngyou.",
+                  "provenance": "",
+                  "title": "这个 · zhège"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đây",
+                  "hanzi": "我在这里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00282",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đang ở đây.",
+                  "pinyin": "Wǒ zài zhèlǐ.",
+                  "provenance": "",
+                  "title": "这里 · zhèlǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "chỗ này",
+                  "hanzi": "请坐这儿。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00283",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời ngồi chỗ này.",
+                  "pinyin": "Qǐng zuò zhèr.",
+                  "provenance": "",
+                  "title": "这儿 · zhèr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái này",
+                  "hanzi": "这些都是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00284",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những quyển này đều là sách của tôi.",
+                  "pinyin": "Zhèxiē dōu shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "这些 · zhèxiē"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-20",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 5"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: mèo ở dưới bàn. Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu mèo ở dưới bàn theo cảnh giả định, giữ đúng đối tượng và mốc trên/dưới. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-003",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là vị trí sách, không phải mèo.",
+                        "id": "option-0",
+                        "text": "猫在桌子上。"
+                      },
+                      {
+                        "feedback": "Sai đối tượng và vị trí trong đề.",
+                        "id": "option-1",
+                        "text": "书在桌子下。"
+                      },
+                      {
+                        "feedback": "Đúng: mèo ở dưới bàn.",
+                        "id": "option-2",
+                        "text": "猫在桌子下。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo tình huống, câu nào xác định đúng vị trí con mèo?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "在"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Câu đang xác định vị trí của sách nên dùng 在. Muốn nói trên bàn có sách thì đổi cấu trúc: 桌子上有书.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 在 để định vị sách trên bàn; 在 không có exact vocabulary source trong bài nên nối mẫu nơi chốn đã học. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-021",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 在 hoặc 有: 书____桌子上。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n书在哪儿？书在房间里。这个杯子在桌子上。\nShū zài nǎr? Shū zài fángjiān lǐ. Zhège bēizi zài zhuōzi shàng.\nSách ở đâu? Sách ở trong phòng. Cái cốc này ở trên bàn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu xác định vị trí đồ vật mới, phân biệt câu có vật ở đâu với câu ở đâu có vật. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "在 theo sau đối tượng cần định vị.",
+                        "id": "criterion-0",
+                        "label": "在 theo sau đối tượng cần định vị."
+                      },
+                      {
+                        "guidance": "Giữ cốc trên bàn và sách trong phòng.",
+                        "id": "criterion-1",
+                        "label": "Giữ cốc trên bàn và sách trong phòng."
+                      },
+                      {
+                        "guidance": "这 gần người nói, 哪 để hỏi.",
+                        "id": "criterion-2",
+                        "label": "这 gần người nói, 哪 để hỏi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "在 theo sau đối tượng cần định vị.\nGiữ cốc trên bàn và sách trong phòng.\n这 gần người nói, 哪 để hỏi.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "7f2a1498-563b-4132-aba0-981700829be7",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi và chỉ vị trí bằng từ để hỏi, từ chỉ định và phương vị.",
+        "pitfallVi": "Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+        "prerequisites": [
+          "hsk1-time-place-events-04-clock-and-duration"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-002",
+          "hsk1-grammar-row-003",
+          "hsk1-grammar-row-010",
+          "hsk1-grammar-row-021",
+          "hsk1-grammar-row-033",
+          "hsk1-grammar-row-034",
+          "hsk1-grammar-row-040",
+          "hsk1-grammar-row-051",
+          "hsk1-grammar-row-052"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-05-location"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-05"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-007"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284"
+        ],
+        "targetLessonId": "hsk1-time-place-events-05-location",
+        "titleZh": "位置和指示",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/69-REVIEW-TIME-PLACE-DIAGRAMS.md",
+          "humanReviewed": false,
+          "scope": "Full-width instructional diagrams; learning content unchanged.",
+          "sourceRevisionId": "a35e0ddd-82fc-4db7-a504-bf2a401611bc"
+        },
+        "vocabulary": [
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284"
+        ]
+      }
+    }
+  ]
+}

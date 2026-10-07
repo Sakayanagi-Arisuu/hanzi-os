@@ -1,0 +1,1074 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/202-REVIEW-HSK3-FAMILY-EDUCATION-ROUND108.md",
+  "entries": [
+    {
+      "sourceRevisionId": "0929ee6d-c392-4d1c-8262-e7a753a4769e",
+      "sourceContentSha256": "sha256:17ae1914f46d18b71ad18305723f8fa8c1f51bdf99eaf591aa6350b62dd61f5e",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện.\nNam hỏi, giáo viên trả lời, bố ghi.\nKhông thêm kết quả đăng ký.",
+        "conceptVi": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+        "dialogue": [
+          {
+            "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+            "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+            "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+            "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+            "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "小雨想问图书馆几点关门，却不好意思开口。妈妈没有代替她问，而是鼓励她自己向老师提问。老师回答说，下午五点关门。",
+            "meaningVi": "Tiểu Vũ muốn hỏi giờ đóng cửa nhưng ngại mở lời. Mẹ không hỏi hộ mà khuyến khích em tự hỏi giáo viên. Giáo viên trả lời đóng cửa lúc 5 giờ chiều.",
+            "pinyin": "Xiǎo Yǔ xiǎng wèn túshūguǎn jǐ diǎn guān mén, què bù hǎoyìsi kāikǒu. Māma méiyǒu dàitì tā wèn, ér shì gǔlì tā zìjǐ xiàng lǎoshī tíwèn. Lǎoshī huídá shuō, xiàwǔ wǔ diǎn guān mén.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "参观结束后，小雨清楚了图书馆的开放时间，妈妈也放心了。她们决定开学后再了解其他活动，今天没有报名。",
+            "meaningVi": "Sau tham quan, Tiểu Vũ hiểu rõ giờ mở cửa thư viện, mẹ cũng yên tâm. Họ định sau khai giảng tìm hiểu hoạt động khác; hôm nay chưa đăng ký.",
+            "pinyin": "Cānguān jiéshù hòu, Xiǎo Yǔ qīngchu le túshūguǎn de kāifàng shíjiān, māma yě fàngxīn le. Tāmen juédìng kāixué hòu zài liǎojiě qítā huódòng, jīntiān méiyǒu bàomíng.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:7e992213963e956449ac826dcea4f86f87751c3cc10777ce97885834dbb72765",
+          "evidenceDocument": "docs/thien-lo-redesign-review/199-REVIEW-HSK3-DICTIONARY-CONTEXT-ROUND105.md",
+          "humanReviewed": false,
+          "scope": "Correct eleven residual HSK3 dictionary examples after checking current lesson sources; update linked word blocks and preserve old scored catalogs.",
+          "sourceContentSha256": "sha256:8d75c9ef12a42e8ed8ad499f6b5cda1ce062fc2bc39271957bb1df73c53e42d8",
+          "sourceRevisionId": "019e71aa-2300-4954-8142-4750f6388d2c"
+        },
+        "exercises": [
+          {
+            "answer": "她鼓励小雨自己向老师提问。",
+            "answerMeaningVi": "Mẹ khuyến khích Tiểu Vũ tự hỏi giáo viên.",
+            "answerPinyin": "Tā gǔlì Xiǎo Yǔ zìjǐ xiàng lǎoshī tíwèn.",
+            "distractors": [
+              "她代替小雨问了所有问题。",
+              "她已经给小雨报名了。"
+            ],
+            "explanationVi": "Đúng: mẹ giúp con tự mở lời.",
+            "promptVi": "Mẹ hỗ trợ Tiểu Vũ bằng cách nào?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Theo dõi người làm từng việc: hiệu trưởng giới thiệu; mẹ khuyến khích; Tiểu Vũ hỏi; giáo viên trả lời. 没有…而是… phân biệt hỏi hộ với hỗ trợ con tự hỏi. 才 ở 下个月才… đánh dấu việc chưa xảy ra; 开学后再… là bước tương lai.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "小南和爸爸参观学校。小南自己问老师体育场几点关门。老师说下午六点关门，爸爸帮他记下时间。他们还没有报名参加活动。",
+              "modelAnswerMeaningVi": "Nam cùng bố tham quan trường. Nam tự hỏi giờ sân thể thao đóng cửa. Giáo viên nói 6 giờ chiều, bố giúp ghi giờ. Họ chưa đăng ký hoạt động.",
+              "modelAnswerPinyin": "Xiǎo Nán hé bàba cānguān xuéxiào. Xiǎo Nán zìjǐ wèn lǎoshī tǐyùchǎng jǐ diǎn guān mén. Lǎoshī shuō xiàwǔ liù diǎn guān mén, bàba bāng tā jì xià shíjiān. Tāmen hái méiyǒu bàomíng cānjiā huódòng.",
+              "promptVi": "Nam tham quan trường với bố. Nam tự hỏi giờ sân thể thao đóng cửa; giáo viên nói 6 giờ chiều. Bố giúp ghi giờ, chưa đăng ký hoạt động. Viết 4 câu đúng vai trò từng người."
+            },
+            "modelExample": {
+              "hanzi": "小雨想问图书馆几点关门，却不好意思开口。妈妈没有代替她问，而是鼓励她自己向老师提问。老师回答说，下午五点关门。",
+              "meaningVi": "Tiểu Vũ muốn hỏi giờ đóng cửa nhưng ngại mở lời. Mẹ không hỏi hộ mà khuyến khích em tự hỏi giáo viên. Giáo viên trả lời đóng cửa lúc 5 giờ chiều.",
+              "pinyin": "Xiǎo Yǔ xiǎng wèn túshūguǎn jǐ diǎn guān mén, què bù hǎoyìsi kāikǒu. Māma méiyǒu dàitì tā wèn, ér shì gǔlì tā zìjǐ xiàng lǎoshī tíwèn. Lǎoshī huídá shuō, xiàwǔ wǔ diǎn guān mén.",
+              "speaker": "Đoạn 3"
+            },
+            "pattern": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình. Đọc các đoạn, đánh dấu bằng chứng rồi viết lại theo dữ kiện mới. Ảnh chỉ minh họa bối cảnh, không cung cấp thêm sự kiện.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ đọc của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "家长 jiāzhǎng — phụ huynh; 参观 cānguān — tham quan; 鼓励 gǔlì — khuyến khích; 代替 dàitì — thay thế; 提问 tíwèn — đặt câu hỏi.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:context",
+              "illustration": {
+                "alt": "Bối cảnh: Môi trường học, hoạt động trường và giáo dục gia đình",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk3-campus-visit-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc bốn đoạn. Chọn câu/đoạn làm bằng chứng cho ghi chú; có thể mở Pinyin và nghĩa khi cần.",
+                    "notePrompt": "Ghi người, việc thay đổi, lý do và kết quả. Điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-0",
+                        "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                        "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ."
+                      },
+                      {
+                        "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-1",
+                        "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                        "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū."
+                      },
+                      {
+                        "hanzi": "小雨想问图书馆几点关门，却不好意思开口。妈妈没有代替她问，而是鼓励她自己向老师提问。老师回答说，下午五点关门。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-2",
+                        "meaningVi": "Tiểu Vũ muốn hỏi giờ đóng cửa nhưng ngại mở lời. Mẹ không hỏi hộ mà khuyến khích em tự hỏi giáo viên. Giáo viên trả lời đóng cửa lúc 5 giờ chiều.",
+                        "pinyin": "Xiǎo Yǔ xiǎng wèn túshūguǎn jǐ diǎn guān mén, què bù hǎoyìsi kāikǒu. Māma méiyǒu dàitì tā wèn, ér shì gǔlì tā zìjǐ xiàng lǎoshī tíwèn. Lǎoshī huídá shuō, xiàwǔ wǔ diǎn guān mén."
+                      },
+                      {
+                        "hanzi": "参观结束后，小雨清楚了图书馆的开放时间，妈妈也放心了。她们决定开学后再了解其他活动，今天没有报名。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-3",
+                        "meaningVi": "Sau tham quan, Tiểu Vũ hiểu rõ giờ mở cửa thư viện, mẹ cũng yên tâm. Họ định sau khai giảng tìm hiểu hoạt động khác; hôm nay chưa đăng ký.",
+                        "pinyin": "Cānguān jiéshù hòu, Xiǎo Yǔ qīngchu le túshūguǎn de kāifàng shíjiān, māma yě fàngxīn le. Tāmen juédìng kāixué hòu zài liǎojiě qítā huódòng, jīntiān méiyǒu bàomíng."
+                      }
+                    ]
+                  },
+                  "title": "Môi trường học, hoạt động trường và giáo dục gia đình"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc và giữ bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Theo dõi người làm từng việc: hiệu trưởng giới thiệu; mẹ khuyến khích; Tiểu Vũ hỏi; giáo viên trả lời. 没有…而是… phân biệt hỏi hộ với hỗ trợ con tự hỏi. 才 ở 下个月才… đánh dấu việc chưa xảy ra; 开学后再… là bước tương lai.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách nối ý và giới hạn của thông tin"
+                },
+                {
+                  "alt": "",
+                  "body": "Được phép tham gia hoạt động không có nghĩa đã đăng ký. Biết giờ thư viện không có nghĩa đã biết mọi hoạt động của trường.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không suy quá bằng chứng"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:connections",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hiểu quan hệ giữa các câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "thư viện\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "我每周六去图书馆借书。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00863",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy hằng tuần tôi đến thư viện mượn sách.",
+                  "pinyin": "Wǒ měi zhōu liù qù túshūguǎn jiè shū.",
+                  "provenance": "",
+                  "title": "图书馆 · túshūguǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "gặp mặt\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "我们明天下午在图书馆门口见面。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00702",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiều mai chúng ta gặp nhau ở cửa thư viện.",
+                  "pinyin": "Wǒmen míngtiān xiàwǔ zài túshūguǎn ménkǒu jiànmiàn.",
+                  "provenance": "",
+                  "title": "见面 · jiànmiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "khuôn viên trường\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00899",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                  "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+                  "provenance": "",
+                  "title": "校园 · xiàoyuán"
+                },
+                {
+                  "alt": "",
+                  "body": "trung học cơ sở; cấp hai\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00565",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                  "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+                  "provenance": "",
+                  "title": "初中 · chūzhōng"
+                },
+                {
+                  "alt": "",
+                  "body": "hiệu trưởng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00900",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                  "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+                  "provenance": "",
+                  "title": "校长 · xiàozhǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "bảng đen\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "老师把今天的作业写在黑板上。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00669",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên viết bài tập hôm nay lên bảng đen.",
+                  "pinyin": "Lǎoshī bǎ jīntiān de zuòyè xiě zài hēibǎn shàng.",
+                  "provenance": "",
+                  "title": "黑板 · hēibǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "thể dục; thể thao\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00853",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                  "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+                  "provenance": "",
+                  "title": "体育 · tǐyù"
+                },
+                {
+                  "alt": "",
+                  "body": "rõ ràng; hiểu rõ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "请说慢一点儿，我没听清楚。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00807",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin nói chậm hơn một chút, tôi chưa nghe rõ.",
+                  "pinyin": "Qǐng shuō màn yìdiǎnr, wǒ méi tīng qīngchu.",
+                  "provenance": "",
+                  "title": "清楚 · qīngchu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:core-words",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ trọng tâm trong văn bản"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tình huống bổ sung sau buổi tham quan trường: học sinh hỏi về sinh hoạt ký túc xá. 冰箱 (bīngxiāng) là tủ lạnh; 方便面 (fāngbiànmiàn) là mì ăn liền, không phải tên chung của mọi món tiện lợi. Một gói mì: 一包方便面; một bát mì đã nấu: 一碗方便面. Ví dụ mô tả việc nhân vật làm, không đặt quy định chung về bảo quản mọi loại thực phẩm.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "冰箱／方便面"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "宿舍里有一个冰箱，我们把牛奶放在里面。",
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:example-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong ký túc xá có một tủ lạnh, chúng tôi để sữa bên trong.",
+                  "pinyin": "Sùshè lǐ yǒu yí ge bīngxiāng, wǒmen bǎ niúnǎi fàng zài lǐmiàn.",
+                  "provenance": "",
+                  "title": "Mẫu 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天来不及做饭，我煮了一碗方便面。",
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:example-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay không kịp nấu cơm, tôi nấu một bát mì ăn liền.",
+                  "pinyin": "Jīntiān lái bu jí zuò fàn, wǒ zhǔ le yì wǎn fāngbiànmiàn.",
+                  "provenance": "",
+                  "title": "Mẫu 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "学生问：“牛奶放在哪里？”老师说：“放在冰箱里。方便面还没煮，先放在柜子里。”",
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:example-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Học sinh hỏi: “Để sữa ở đâu ạ?” Giáo viên nói: “Trong tủ lạnh. Mì ăn liền chưa nấu, tạm để trong tủ đồ.”",
+                  "pinyin": "Xuésheng wèn: “Niúnǎi fàng zài nǎlǐ?” Lǎoshī shuō: “Fàng zài bīngxiāng lǐ. Fāngbiànmiàn hái méi zhǔ, xiān fàng zài guìzi lǐ.”",
+                  "provenance": "",
+                  "title": "Mẫu 3"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:page:teach",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Đời sống ở trường: hỏi chỗ để đồ ăn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Lời đáp phân biệt sữa trong tủ lạnh và mì chưa nấu trong tủ đồ. Không có căn cứ nói cả hai đều phải để lạnh.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đời sống ở trường: hỏi chỗ để đồ ăn",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00536",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00620",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Lời đáp phân biệt sữa trong tủ lạnh và mì chưa nấu trong tủ đồ. Không có căn cứ nói cả hai đều phải để lạnh.",
+                        "id": "o-0",
+                        "text": "牛奶放在冰箱里，方便面先放在柜子里。"
+                      },
+                      {
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu.",
+                        "id": "o-1",
+                        "text": "牛奶和方便面都放在冰箱里。"
+                      },
+                      {
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu.",
+                        "id": "o-2",
+                        "text": "牛奶放在柜子里，方便面放在冰箱里。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo lời giáo viên trong tình huống này, hai đồ vật được để ở đâu?",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn theo ngữ cảnh"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:page:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 冰箱／方便面"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đúng: mẹ giúp con tự mở lời.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: mẹ giúp con tự mở lời.",
+                        "id": "o-0",
+                        "text": "她鼓励小雨自己向老师提问。"
+                      },
+                      {
+                        "feedback": "Sai: mẹ không hỏi thay.",
+                        "id": "o-1",
+                        "text": "她代替小雨问了所有问题。"
+                      },
+                      {
+                        "feedback": "Sai: hôm nay chưa đăng ký.",
+                        "id": "o-2",
+                        "text": "她已经给小雨报名了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Mẹ hỗ trợ Tiểu Vũ bằng cách nào?",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn kết luận có căn cứ"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Đọc để quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "而是"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没有…而是… phủ định cách thứ nhất rồi nêu cách thực tế.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền theo quan hệ thay thế: 妈妈没有代替她问，___鼓励她自己问。",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền theo quan hệ được yêu cầu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự nối lại ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n小南和爸爸参观学校。小南自己问老师体育场几点关门。老师说下午六点关门，爸爸帮他记下时间。他们还没有报名参加活动。\nXiǎo Nán hé bàba cānguān xuéxiào. Xiǎo Nán zìjǐ wèn lǎoshī tǐyùchǎng jǐ diǎn guān mén. Lǎoshī shuō xiàwǔ liù diǎn guān mén, bàba bāng tā jì xià shíjiān. Tāmen hái méiyǒu bàomíng cānjiā huódòng.\nNam cùng bố tham quan trường. Nam tự hỏi giờ sân thể thao đóng cửa. Giáo viên nói 6 giờ chiều, bố giúp ghi giờ. Họ chưa đăng ký hoạt động.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Tự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện.",
+                        "id": "criterion-0",
+                        "label": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện."
+                      },
+                      {
+                        "guidance": "Nam hỏi, giáo viên trả lời, bố ghi.",
+                        "id": "criterion-1",
+                        "label": "Nam hỏi, giáo viên trả lời, bố ghi."
+                      },
+                      {
+                        "guidance": "Không thêm kết quả đăng ký.",
+                        "id": "criterion-2",
+                        "label": "Không thêm kết quả đăng ký."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Nam tham quan trường với bố. Nam tự hỏi giờ sân thể thao đóng cửa; giáo viên nói 6 giờ chiều. Bố giúp ghi giờ, chưa đăng ký hoạt động. Viết 4 câu đúng vai trò từng người.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Viết với dữ kiện mới"
+            },
+            {
+              "id": "hsk3-study-work-accounts-campus-education:family-r108:understand",
+              "title": "Giáo dục gia đình · hỗ trợ con tự học",
+              "stage": "understand",
+              "layout": "focus",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:context",
+                  "kind": "explanation",
+                  "title": "Từ tham quan trường đến học ở nhà",
+                  "body": "Trong bài trước, mẹ khuyến khích con tự hỏi giáo viên. Ở nhà, người lớn và con cũng có thể trao đổi giờ học, cách xin giúp đỡ và cách sửa lỗi. Hai gia đình dưới đây là tình huống giả định để luyện lời nói, không đại diện mọi gia đình. 替 tì: làm thay; 方法 fāngfǎ: cách làm; 检查 jiǎnchá: kiểm tra; 交作业 jiāo zuòyè: nộp bài tập.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:dialogue-0",
+                  "kind": "dialogue",
+                  "title": "Thỏa thuận giờ học và cách giúp đỡ",
+                  "body": "",
+                  "hanzi": "孩子：我想先休息二十分钟，再做作业。妈妈：可以。七点开始，八点以前做完，好吗？孩子：好。如果有不会的题，我先自己想，再请你帮忙。妈妈：我们一起看方法，我不替你写答案。",
+                  "pinyin": "Háizi: Wǒ xiǎng xiān xiūxi èrshí fēnzhōng, zài zuò zuòyè. Māma: Kěyǐ. Qī diǎn kāishǐ, bā diǎn yǐqián zuò wán, hǎo ma? Háizi: Hǎo. Rúguǒ yǒu bú huì de tí, wǒ xiān zìjǐ xiǎng, zài qǐng nǐ bāngmáng. Māma: Wǒmen yìqǐ kàn fāngfǎ, wǒ bù tì nǐ xiě dá’àn.",
+                  "meaningVi": "Con: Con muốn nghỉ hai mươi phút rồi làm bài tập. Mẹ: Được. Bắt đầu lúc bảy giờ, làm xong trước tám giờ nhé? Con: Vâng. Nếu có bài con chưa biết làm, con sẽ tự nghĩ trước rồi nhờ mẹ giúp. Mẹ: Mẹ con mình cùng xem cách làm; mẹ không viết đáp án thay con.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:dialogue-1",
+                  "kind": "dialogue",
+                  "title": "Ghi nhận tiến bộ và cùng sửa lỗi",
+                  "body": "",
+                  "hanzi": "爸爸：这次你检查了每一道题，比上次认真。孩子：可是还有两个错误。爸爸：我们看看错在哪里。下次先检查，再交作业。孩子：好，我把这两个错误记下来。",
+                  "pinyin": "Bàba: Zhè cì nǐ jiǎnchá le měi yí dào tí, bǐ shàng cì rènzhēn. Háizi: Kěshì hái yǒu liǎng ge cuòwù. Bàba: Wǒmen kànkan cuò zài nǎlǐ. Xià cì xiān jiǎnchá, zài jiāo zuòyè. Háizi: Hǎo, wǒ bǎ zhè liǎng ge cuòwù jì xiàlái.",
+                  "meaningVi": "Bố: Lần này con đã kiểm tra từng câu, cẩn thận hơn lần trước. Con: Nhưng vẫn còn hai lỗi. Bố: Mình cùng xem sai ở đâu. Lần sau kiểm tra trước rồi nộp bài. Con: Vâng, con ghi lại hai lỗi này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:rule",
+                  "kind": "explanation",
+                  "title": "Nêu việc cụ thể trước khi nhận xét",
+                  "body": "先…再… nêu thứ tự; 如果… nêu điều kiện. 不替你写答案 chỉ từ chối làm thay, không có nghĩa từ chối giúp. 比上次认真 là nhận xét về lần làm bài này, không chứng minh mọi điểm số đã tăng. Khi trao đổi cách dạy con, mô tả việc đã làm, rồi nêu ý kiến hoặc đề nghị; tránh biến ý kiến của một người thành quy tắc cho mọi gia đình.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-study-work-accounts-campus-education:family-r108:practice",
+              "title": "Khảo Luyện · hỗ trợ khác làm thay",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo hai hội thoại",
+                  "body": "Nhận xét nào được cả hai hội thoại hỗ trợ?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "learningTarget": {
+                      "objective": "Trao đổi cách cha mẹ hỗ trợ con học và thỏa thuận việc học ở nhà",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education"
+                        }
+                      ]
+                    },
+                    "hint": "",
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "help"
+                    ],
+                    "options": [
+                      {
+                        "id": "help",
+                        "text": "家长帮助孩子找方法，但让孩子自己做。",
+                        "feedback": "Đúng: mẹ cùng xem phương pháp nhưng không viết đáp án thay; bố cùng tìm chỗ sai và hướng dẫn kiểm tra."
+                      },
+                      {
+                        "id": "refuse",
+                        "text": "家长不替孩子写，所以不愿意帮助孩子。",
+                        "feedback": "Sai: không làm thay khác không giúp. Cả mẹ và bố đều nói sẽ cùng xem cách làm hoặc chỗ sai."
+                      },
+                      {
+                        "id": "score",
+                        "text": "孩子认真了，所以这次考试一定得了满分。",
+                        "feedback": "Sai: hội thoại không đưa điểm thi; còn hai lỗi trong lần làm bài được nhắc đến."
+                      }
+                    ],
+                    "explanation": "Lời hỗ trợ có thể là tìm phương pháp và cùng xem lỗi, trong khi con vẫn tự làm. Không suy ra điểm thi hoặc thái độ từ chối giúp khi nguồn không nói.",
+                    "rubric": []
+                  }
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:guided",
+                  "kind": "dialogue",
+                  "title": "Luyện lời đề nghị có hướng dẫn",
+                  "body": "Con muốn nghỉ rồi học; hãy nói rõ thứ tự. Người lớn muốn giúp mà không làm thay; hãy nêu cụ thể việc có thể làm. Tự nói trước khi đọc mẫu.",
+                  "hanzi": "我想先休息，再做作业。你可以教我方法，我自己写答案。",
+                  "pinyin": "Wǒ xiǎng xiān xiūxi, zài zuò zuòyè. Nǐ kěyǐ jiāo wǒ fāngfǎ, wǒ zìjǐ xiě dá’àn.",
+                  "meaningVi": "Con muốn nghỉ trước rồi làm bài. Mẹ/bố có thể chỉ cách làm; con tự viết đáp án.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:friends",
+                  "kind": "dialogue",
+                  "title": "Hỏi và trả lời về cách gia đình hỗ trợ",
+                  "body": "Đổi vai với bạn học. Hỏi về một cách giúp đỡ cụ thể, nghe câu trả lời rồi nêu lại ý kiến của người nói. Có thể đọc trước; TTS là giọng tổng hợp.",
+                  "hanzi": "朋友：你做作业遇到问题时，家里人怎么帮助你？小雨：妈妈让我先自己想，再和我一起看方法。我觉得这样很好。",
+                  "pinyin": "Péngyou: Nǐ zuò zuòyè yùdào wèntí shí, jiālǐ rén zěnme bāngzhù nǐ? Xiǎo Yǔ: Māma ràng wǒ xiān zìjǐ xiǎng, zài hé wǒ yìqǐ kàn fāngfǎ. Wǒ juéde zhèyàng hěn hǎo.",
+                  "meaningVi": "Bạn: Khi gặp vấn đề lúc làm bài, người nhà giúp bạn thế nào? Tiểu Vũ: Mẹ để tôi tự nghĩ trước rồi cùng xem cách làm. Tôi thấy cách này rất tốt.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:short-text",
+                  "kind": "reading",
+                  "title": "Đọc một lời giới thiệu ngắn",
+                  "body": "",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lời kể, chỉ ra việc của con, việc của mẹ và câu nêu ý kiến. Có thể mở Pinyin/nghĩa khi cần.",
+                    "notePrompt": "Người kể học thế nào? Mẹ làm gì? Đâu là nhận xét riêng của người kể?",
+                    "paragraphs": [
+                      {
+                        "id": "hsk3-study-work-accounts-campus-education:family-r108:short-text:paragraph",
+                        "hanzi": "我每天做完作业以后，先自己检查。妈妈会和我一起看不会的题，但不会替我写。我喜欢这种方法，因为我可以自己试一试。",
+                        "pinyin": "Wǒ měi tiān zuò wán zuòyè yǐhòu, xiān zìjǐ jiǎnchá. Māma huì hé wǒ yìqǐ kàn bú huì de tí, dàn bú huì tì wǒ xiě. Wǒ xǐhuan zhè zhǒng fāngfǎ, yīnwèi wǒ kěyǐ zìjǐ shì yi shì.",
+                        "meaningVi": "Mỗi ngày sau khi làm bài, tôi tự kiểm tra trước. Mẹ cùng tôi xem câu chưa biết làm nhưng không viết thay. Tôi thích cách này vì có thể tự thử."
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk3-study-work-accounts-campus-education:family-r108:transfer",
+              "title": "Vận dụng · thỏa thuận luyện viết chữ",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:family-r108:block:transfer",
+                  "kind": "activity",
+                  "title": "Đổi vai và đổi nhiệm vụ",
+                  "body": "Tình huống mới: con muốn nghe nhạc mười phút rồi luyện viết chữ. Bố đồng ý bắt đầu lúc 6 giờ 30 và xong trước 7 giờ. Chữ chưa biết viết: con tra từ điển trước rồi hỏi bố. Bố chỉ cách làm, không viết thay. Viết hoặc nói bốn lượt, sau đó tự chỉ ra sự khác nhau giữa giúp đỡ và làm thay. Sau bốn lượt, viết hai câu giới thiệu cách giúp đỡ và ý kiến của con trong tình huống này.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "learningTarget": {
+                      "objective": "Trao đổi cách cha mẹ hỗ trợ con học và thỏa thuận việc học ở nhà",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education"
+                        }
+                      ]
+                    },
+                    "hint": "",
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "options": [],
+                    "explanation": "Một phương án để tự đối chiếu:\n孩子：我想先听十分钟音乐，再练习写字。爸爸：可以。六点半开始，七点以前写完，好吗？孩子：好。如果有不会写的字，我先查字典，再问你。爸爸：我可以教你方法，但不替你写。\nHáizi: Wǒ xiǎng xiān tīng shí fēnzhōng yīnyuè, zài liànxí xiě zì. Bàba: Kěyǐ. Liù diǎn bàn kāishǐ, qī diǎn yǐqián xiě wán, hǎo ma? Háizi: Hǎo. Rúguǒ yǒu bú huì xiě de zì, wǒ xiān chá zìdiǎn, zài wèn nǐ. Bàba: Wǒ kěyǐ jiāo nǐ fāngfǎ, dàn bù tì nǐ xiě.\nCon: Con muốn nghe nhạc mười phút rồi luyện viết chữ. Bố: Được. Bắt đầu lúc sáu giờ rưỡi, viết xong trước bảy giờ nhé? Con: Vâng. Nếu có chữ chưa biết viết, con sẽ tra từ điển trước rồi hỏi bố. Bố: Bố có thể chỉ cách làm nhưng không viết thay con.\nCách diễn đạt khác đúng dữ kiện vẫn phù hợp. Đây là vận dụng tự đối chiếu, không tạo điểm viết/nói độc lập.\nMẫu giới thiệu hai câu:\n爸爸教我方法，让我自己写。我觉得这样可以帮助我学习。\nBàba jiāo wǒ fāngfǎ, ràng wǒ zìjǐ xiě. Wǒ juéde zhèyàng kěyǐ bāngzhù wǒ xuéxí.\nBố chỉ cách làm và để con tự viết. Con thấy cách này có thể giúp mình học.",
+                    "rubric": [
+                      {
+                        "id": "order",
+                        "label": "Thứ tự và thời gian",
+                        "guidance": "Nghe nhạc mười phút rồi luyện viết; bắt đầu6:30, hoàn thành trước7:00. Không chép giờ của mẫu làm bài tập."
+                      },
+                      {
+                        "id": "roles",
+                        "label": "Đúng vai và cách giúp",
+                        "guidance": "Con tra từ điển trước; bố có thể giải thích phương pháp và không viết thay."
+                      },
+                      {
+                        "id": "language",
+                        "label": "Lời nói rõ và phù hợp",
+                        "guidance": "Nêu lời đề nghị, lời đồng ý và điều kiện; dùng 先…再…/如果… khi phù hợp."
+                      },
+                      {
+                        "id": "scope",
+                        "label": "Không suy rộng",
+                        "guidance": "Giải thích cách giúp trong tình huống này; không tự thêm điểm thi hoặc nói mọi cha mẹ đều làm như vậy."
+                      },
+                      {
+                        "id": "view",
+                        "label": "Giới thiệu cách giúp và nêu ý kiến",
+                        "guidance": "Hai câu tách việc bố làm khỏi nhận xét của con; dùng 我觉得 cho ý kiến, không tự bịa điểm số."
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện.\nNam hỏi, giáo viên trả lời, bố ghi.\nKhông thêm kết quả đăng ký.\nSửa ít nhất một điểm chưa rõ trong bản viết, rồi thử kể lại khi không nhìn mẫu. Dùng Tra từ trong bài để ôn từ liên quan; xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bài viết"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự sửa trước khi tiếp tục"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我把牛奶放在冰箱里了，还煮了一碗方便面。\nWǒ bǎ niúnǎi fàng zài bīngxiāng lǐ le, hái zhǔ le yì wǎn fāngbiànmiàn.\nTôi đã để sữa vào tủ lạnh và nấu một bát mì ăn liền.\nNêu đúng nơi để sữa bằng 冰箱里.\nDùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đời sống ở trường: hỏi chỗ để đồ ăn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00536",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00620",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Nêu đúng nơi để sữa bằng 冰箱里.",
+                        "id": "r-0",
+                        "label": "Nêu đúng nơi để sữa bằng 冰箱里."
+                      },
+                      {
+                        "guidance": "Dùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì.",
+                        "id": "r-1",
+                        "label": "Dùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Sang căn hộ mới: bạn đã để sữa trong tủ lạnh, vừa nấu một bát mì ăn liền. Nhắn cho bạn cùng nhà hai thông tin này, dùng 冰箱 và 方便面 cùng lượng từ phù hợp.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:write",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:page:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Vận dụng 冰箱／方便面 trong tình huống mới"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/37-REVIEW-HSK3-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-study-work-accounts-campus-education",
+          "reviewedAt": "2026-09-22",
+          "scope": "Five HSK3 study and work narratives: evidence reading and guided writing; no independent mastery claim.",
+          "sourceContentSha256": "sha256:7c51708ae82f57fed8e070df422bf214561d637f17a5b96ef7e5f71314f60b48"
+        },
+        "objectiveVi": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+        "pitfallVi": "Được phép tham gia hoạt động không có nghĩa đã đăng ký. Biết giờ thư viện không có nghĩa đã biết mọi hoạt động của trường.",
+        "prerequisites": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Theo dõi người làm từng việc: hiệu trưởng giới thiệu; mẹ khuyến khích; Tiểu Vũ hỏi; giáo viên trả lời. 没有…而是… phân biệt hỏi hộ với hỗ trợ con tự hỏi. 才 ở 下个月才… đánh dấu việc chưa xảy ra; 开学后再… là bước tương lai.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceTaskIds": [
+          "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceTopicIds": [
+          "hsk3-topic-029",
+          "hsk3-topic-031",
+          "hsk3-topic-032",
+          "hsk3-topic-033"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00536",
+          "hsk-vocab-00563",
+          "hsk-vocab-00565",
+          "hsk-vocab-00620",
+          "hsk-vocab-00647",
+          "hsk-vocab-00669",
+          "hsk-vocab-00702",
+          "hsk-vocab-00714",
+          "hsk-vocab-00770",
+          "hsk-vocab-00783",
+          "hsk-vocab-00807",
+          "hsk-vocab-00831",
+          "hsk-vocab-00840",
+          "hsk-vocab-00853",
+          "hsk-vocab-00863",
+          "hsk-vocab-00899",
+          "hsk-vocab-00900",
+          "hsk-vocab-00978",
+          "hsk-vocab-00998",
+          "hsk-vocab-00545",
+          "hsk-vocab-00801",
+          "hsk-vocab-00966",
+          "hsk-vocab-00583",
+          "hsk-vocab-00506",
+          "hsk-vocab-00517",
+          "hsk-vocab-00614",
+          "hsk-vocab-00828",
+          "hsk-vocab-00941",
+          "hsk-vocab-00678",
+          "hsk-vocab-00587",
+          "hsk-vocab-00626",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00813",
+          "hsk-vocab-00544",
+          "hsk-vocab-00622",
+          "hsk-vocab-00745",
+          "hsk-vocab-00534",
+          "hsk-vocab-00716",
+          "hsk-vocab-00955",
+          "hsk-vocab-00968",
+          "hsk-vocab-00518",
+          "hsk-vocab-00589",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00774",
+          "hsk-vocab-00776",
+          "hsk-vocab-00554",
+          "hsk-vocab-00679",
+          "hsk-vocab-00757",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00817",
+          "hsk-vocab-00617",
+          "hsk-vocab-00712",
+          "hsk-vocab-00926",
+          "hsk-vocab-00641",
+          "hsk-vocab-00619",
+          "hsk-vocab-00894",
+          "hsk-vocab-00578",
+          "hsk-vocab-00981",
+          "hsk-vocab-00655",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865"
+        ],
+        "targetLessonId": "hsk3-study-work-accounts-campus-education",
+        "titleZh": "HSK三级 · 07",
+        "vocabulary": [
+          "hsk-vocab-00536",
+          "hsk-vocab-00563",
+          "hsk-vocab-00565",
+          "hsk-vocab-00620",
+          "hsk-vocab-00647",
+          "hsk-vocab-00669",
+          "hsk-vocab-00702",
+          "hsk-vocab-00714",
+          "hsk-vocab-00770",
+          "hsk-vocab-00783",
+          "hsk-vocab-00807",
+          "hsk-vocab-00831",
+          "hsk-vocab-00840",
+          "hsk-vocab-00853",
+          "hsk-vocab-00863",
+          "hsk-vocab-00899",
+          "hsk-vocab-00900",
+          "hsk-vocab-00978",
+          "hsk-vocab-00998",
+          "hsk-vocab-00545",
+          "hsk-vocab-00801",
+          "hsk-vocab-00966",
+          "hsk-vocab-00583",
+          "hsk-vocab-00506",
+          "hsk-vocab-00517",
+          "hsk-vocab-00614",
+          "hsk-vocab-00828",
+          "hsk-vocab-00941",
+          "hsk-vocab-00678",
+          "hsk-vocab-00587",
+          "hsk-vocab-00626",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00813",
+          "hsk-vocab-00544",
+          "hsk-vocab-00622",
+          "hsk-vocab-00745",
+          "hsk-vocab-00534",
+          "hsk-vocab-00716",
+          "hsk-vocab-00955",
+          "hsk-vocab-00968",
+          "hsk-vocab-00518",
+          "hsk-vocab-00589",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00774",
+          "hsk-vocab-00776",
+          "hsk-vocab-00554",
+          "hsk-vocab-00679",
+          "hsk-vocab-00757",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00817",
+          "hsk-vocab-00617",
+          "hsk-vocab-00712",
+          "hsk-vocab-00926",
+          "hsk-vocab-00641",
+          "hsk-vocab-00619",
+          "hsk-vocab-00894",
+          "hsk-vocab-00578",
+          "hsk-vocab-00981",
+          "hsk-vocab-00655",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865"
+        ]
+      },
+      "changes": [
+        {
+          "lessonId": "hsk3-study-work-accounts-campus-education",
+          "pages": 3,
+          "models": 7,
+          "guidedChoices": 1,
+          "transfers": 1
+        }
+      ]
+    }
+  ]
+}

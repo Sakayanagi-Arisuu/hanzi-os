@@ -22,6 +22,32 @@ tạo được và phải giữ `.wrangler/`, `docs/reports/`, `output/`, `conte
 
 ## 2. Chu trình nghiệm thu một module
 
+Theo yêu cầu ưu tiên Thiên Lộ/Xưởng ngày 20/09/2026, tổng JS/CSS toàn ứng dụng
+cộng hero vượt 1 MiB chỉ là cảnh báo theo dõi trong `check-bundle-budget.mjs`.
+Phép đo vẫn bao gồm các lazy route và không đại diện cho một lượt mở bài.
+Không dùng cảnh báo này để chặn phát triển; đánh giá hiệu năng bằng hành trình
+browser/network thực tế. Thiếu build assets hoặc lỗi đọc tệp vẫn làm lệnh lỗi.
+Build còn chạy `check-premium-client-bundle.mjs`: quét JS công khai sau build để
+chặn việc import lại marker nội dung rich bài Thiên Lộ HSK4 vào client. Đây là
+regression gate cho biên phân phối, không thay thế audit toàn bộ nội dung/asset.
+
+`npm run test:restore` tạo database tạm, áp dụng 28 migration qua 0027,
+sao lưu bằng `VACUUM INTO` và kiểm lại 46 bảng. Ngoài phiên/evidence/outbox,
+fixture Thiên Lộ kiểm ba ngày truy cập theo owner, ảnh hai chunk với hash/byte
+chính xác, metadata và ba lượt làm bài có cùng idempotency key nhưng khác
+owner/reset epoch. Kiểm lại các ràng buộc JSON, outcome, epoch, FK và khóa duy
+nhất sau restore. Lệnh này không đọc hoặc ghi D1 trong `.wrangler/`.
+
+Nếu validator exact-byte báo stale sau checkout trên Windows, kiểm tra
+`git ls-files --eol content` trước khi regenerate nội dung/review. Chạy
+`node scripts/content/normalize-content-checkout.mjs` để lập danh sách và thêm
+`--apply` để khôi phục các tệp có thuộc tính `eol=lf`. Script chỉ viết khi kết
+quả bằng từng byte với Git index; snapshot còn phải khớp hash manifest. Nó từ
+chối thay đổi nội dung hoặc sửa đồng thời, không thay review/approval và không
+đụng D1/browser state. Các nguồn được pin CRLF có ngoại lệ rõ trong
+`.gitattributes`; không chuyển chúng hàng loạt sang LF. Mâu thuẫn binding giữa
+consumer cũ/mới cần audit riêng, không sửa hash để che nội dung chưa review.
+
 Dữ liệu cho ba tài khoản demo có sẵn: xem [DEMO_WORKSPACE.md](DEMO_WORKSPACE.md).
 Script chỉ chạy trên D1 local, có backup, rehearsal và kiểm tra chống trùng;
 không thay mật khẩu hoặc tạo thành tích học tập giả.

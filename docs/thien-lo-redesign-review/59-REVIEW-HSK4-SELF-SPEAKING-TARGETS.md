@@ -1,0 +1,7 @@
+# Mục tiêu rubric tự luyện trình bày HSK4 · 29/09/2026
+
+Phạm vi: 35 rubric còn thiếu target trong 30 bài HSK4 thuộc bảy nhóm: chính xác nguồn/số lượng (6), so sánh lập trường (5), tác nhân sự kiện (4), trật tự thông tin (5), lập luận nhượng bộ (4), bảo vệ có cấu trúc (8) và diễn tập có giờ (3). Kế hoạch exact lesson/block/source ở `content/drafts/thien-lo-hsk4-self-speaking-targets.json`. Đây là AI tự rà, `humanReviewed:false`.
+
+Đã đối chiếu từng yêu cầu đầu rubric với nhiệm vụ trình bày/phản hồi tương ứng, xác nhận khối là `rubric`, có tiêu chí và lời giải thích, rồi nối với `hsk4-local-task:<lessonId>` thuộc đúng bài. `skill:'speaking'` trong target mô tả ý định sư phạm của bài tự tập; người học có thể ghi dàn ý để tự đối chiếu. Bài không thu âm, không đánh giá phát âm, thanh điệu, độ trôi chảy hoặc năng lực nói độc lập. Rubric tự đánh giá và đồng hồ không được đưa vào evidence/mastery nói. Source B ở các bài này là văn bản/transcript với TTS tổng hợp, không thành bằng chứng nghe độc lập.
+
+Script chỉ điền đúng 35 chỗ trống, giữ nguyên target đã có, văn bản, đáp án, rubric, ID và revision cha. Unit test kiểm toàn bộ 30 bài, xác nhận bản copy trừ target bằng bản gốc và map thiếu không qua gate. Khi phát hành, review hash và parent head được khóa; rehearsal rollback, backup D1, bảo vệ bảng người học, các release head khác và khóa ngoại. Người học đang ở revision cũ vẫn dùng revision cũ. Để có mastery nói thật cần thêm thu âm, item độc lập, tiêu chí đánh giá có độ tin cậy và evidence theo thời gian; đó chưa thuộc phát hành metadata này.

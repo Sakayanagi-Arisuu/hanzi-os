@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Four HSK4 argument/concession lessons, preserving evidence limits in cultural change and historical interpretation. AI-assisted local review only. Source B is transcript reading, not native listening evidence; writing/speaking self-check is not independent mastery. Grammar examples are labeled hypothetical unless the learner finds support in the source.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/55-REVIEW-HSK4-LOGIC.md",
+  "items": [
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-01",
+      "sourceContentSha256": "sha256:09793153b5b14ca81d03efb661dcd267f5315649b79d4d4647c11a350587f1dd",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-02",
+      "sourceContentSha256": "sha256:55a6f01db627c4f0204dea179d63d0b6348949827e08f584ad450eea091e40d9",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-03",
+      "sourceContentSha256": "sha256:cf180f7b8dc413043d2a1cbf3805230fba9aa6d4a374be1361dfd7f642035a30",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-04",
+      "sourceContentSha256": "sha256:9f7e59dd66da24e1394c913b1eb27af0c79e94ef1368006a8d122dbedd50f9a2",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

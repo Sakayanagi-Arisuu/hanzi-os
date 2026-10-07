@@ -1,0 +1,3057 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/66-REVIEW-DAILY-VISUALS.md",
+  "items": [
+    {
+      "lessonId": "daily-1",
+      "baseRevisionId": "a3371362-c006-4fd0-bcaa-c2776149b46c",
+      "baseContentSha256": "sha256:a5c33053defbca52ad3c8318c02cb4153584dff3c0a9e59d8ed0332ab67e1317",
+      "changedPageIds": [
+        "daily-1:v2:context",
+        "daily-1:v2:dialogue",
+        "daily-1:v2:visual"
+      ],
+      "content": {
+        "checkpointVi": "Ở quầy mới, một quả táo giá bốn tệ, hai quả giá tám tệ. Viết câu hỏi giá hai quả và trả lời; sau đó hỏi số người trong gia đình một nhân vật giả định.",
+        "conceptVi": "Hỏi số lượng và đọc giá tiền",
+        "dialogue": [
+          {
+            "hanzi": "两个苹果多少钱？",
+            "meaningVi": "Hai quả táo bao nhiêu tiền?",
+            "pinyin": "Liǎng ge píngguǒ duōshao qián?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "六块钱。",
+            "meaningVi": "Sáu tệ.",
+            "pinyin": "Liù kuài qián.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "一个呢？",
+            "meaningVi": "Còn một quả?",
+            "pinyin": "Yí ge ne?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "三块钱。",
+            "meaningVi": "Ba tệ.",
+            "pinyin": "Sān kuài qián.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "六块钱。",
+            "answerMeaningVi": "Sáu tệ.",
+            "answerPinyin": "Liù kuài qián.",
+            "distractors": [
+              "三块钱。",
+              "两个。"
+            ],
+            "explanationVi": "Đúng: hai quả giá sáu tệ.",
+            "promptVi": "Theo giá trong hội thoại, hai quả táo giá bao nhiêu?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "多少钱 hỏi bao nhiêu tiền. 几 thường hỏi số lượng dự kiến nhỏ, 多少 dùng rộng hơn; không có ranh giới tuyệt đối “dưới mười/trên mười”. Số + lượng từ + danh từ: 两个苹果. 元 là đơn vị tiền; 块 là cách nói thông dụng tương ứng trong giá tiền. 一半 là một nửa; 一点儿 một ít, 一些 một số. 多/少 so nhiều/ít cần ngữ cảnh. Hỏi số người gia đình có thể dùng 你家有几口人？, không dùng 口 đếm mọi nhóm người.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "两个苹果多少钱？八块钱。你家有几口人？",
+              "modelAnswerMeaningVi": "Hai quả táo bao nhiêu tiền? Tám tệ. Gia đình bạn có mấy người?",
+              "modelAnswerPinyin": "Liǎng ge píngguǒ duōshao qián? Bā kuài qián. Nǐ jiā yǒu jǐ kǒu rén?",
+              "promptVi": "Ở quầy mới, một quả táo giá bốn tệ, hai quả giá tám tệ. Viết câu hỏi giá hai quả và trả lời; sau đó hỏi số người trong gia đình một nhân vật giả định."
+            },
+            "modelExample": {
+              "hanzi": "两个苹果六块钱。",
+              "meaningVi": "Hai quả táo giá sáu tệ.",
+              "pinyin": "Liǎng ge píngguǒ liù kuài qián."
+            },
+            "pattern": "Số + 个 + 苹果；多少钱？→ Số + 块钱。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Quầy bán táo ghi giá hai quả là sáu tệ. Bạn hỏi giá và số lượng trước khi quyết định mua. Tiền trong bài là nhân dân tệ, không quy đổi sang tiền Việt.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "苹果 (píngguǒ) — táo; 两 (liǎng) — hai; 六 (liù) — sáu; 三 (sān) — ba; 人 (rén) — người; 家 (jiā) — gia đình.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "daily-1:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Hỏi số lượng và đọc giá tiền",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/apple-market-prices-v1.webp",
+                "alt": "Khách hỏi người bán về táo tại quầy trái cây, không có giá ghi trên tranh",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "两个苹果多少钱？",
+                  "id": "daily-1:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai quả táo bao nhiêu tiền?",
+                  "pinyin": "Liǎng ge píngguǒ duōshao qián?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "六块钱。",
+                  "id": "daily-1:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sáu tệ.",
+                  "pinyin": "Liù kuài qián.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "一个呢？",
+                  "id": "daily-1:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Còn một quả?",
+                  "pinyin": "Yí ge ne?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "三块钱。",
+                  "id": "daily-1:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ba tệ.",
+                  "pinyin": "Sān kuài qián.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "daily-1:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/apple-market-prices-v1.webp",
+                "alt": "Khách hỏi người bán về táo tại quầy trái cây, không có giá ghi trên tranh",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "多少钱 hỏi bao nhiêu tiền. 几 thường hỏi số lượng dự kiến nhỏ, 多少 dùng rộng hơn; không có ranh giới tuyệt đối “dưới mười/trên mười”. Số + lượng từ + danh từ: 两个苹果. 元 là đơn vị tiền; 块 là cách nói thông dụng tương ứng trong giá tiền. 一半 là một nửa; 一点儿 một ít, 一些 một số. 多/少 so nhiều/ít cần ngữ cảnh. Hỏi số người gia đình có thể dùng 你家有几口人？, không dùng 口 đếm mọi nhóm người.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "两个苹果六块钱。",
+                  "id": "daily-1:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai quả táo giá sáu tệ.",
+                  "pinyin": "Liǎng ge píngguǒ liù kuài qián.",
+                  "provenance": "",
+                  "title": "Số + 个 + 苹果；多少钱？→ Số + 块钱。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không cộng hai lần đơn vị thành 六块元. 两个苹果 là hai quả; 二十元 là hai mươi tệ, không thay 二十 bằng 两十.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "daily-1:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hỏi số lượng và đọc giá tiền"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Hai mức giá giả định của cùng quầy: một quả ba tệ, hai quả sáu tệ.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "一个苹果，三块钱",
+                        "meaningVi": "Một quả táo: ba tệ",
+                        "note": "",
+                        "pinyin": "Yí ge píngguǒ, sān kuài qián",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "两个苹果，六块钱",
+                        "meaningVi": "Hai quả táo: sáu tệ",
+                        "note": "",
+                        "pinyin": "Liǎng ge píngguǒ, liù kuài qián",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "daily-1:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "nhiều; bao nhiêu",
+                  "hanzi": "这里人很多。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00046",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ở đây có rất nhiều người.",
+                  "pinyin": "Zhèlǐ rén hěn duō.",
+                  "provenance": "",
+                  "title": "多 · duō"
+                },
+                {
+                  "alt": "",
+                  "body": "bao nhiêu",
+                  "hanzi": "这个多少钱？",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00047",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cái này bao nhiêu tiền?",
+                  "pinyin": "Zhège duōshao qián?",
+                  "provenance": "",
+                  "title": "多少 · duōshao"
+                },
+                {
+                  "alt": "",
+                  "body": "cái; người (lượng từ phổ biến)",
+                  "hanzi": "我买三个苹果。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00060",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi mua ba quả táo.",
+                  "pinyin": "Wǒ mǎi sān ge píngguǒ.",
+                  "provenance": "",
+                  "title": "个 · gè"
+                },
+                {
+                  "alt": "",
+                  "body": "mấy; bao nhiêu",
+                  "hanzi": "你要几个？",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00085",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn mấy cái?",
+                  "pinyin": "Nǐ yào jǐ ge?",
+                  "provenance": "",
+                  "title": "几 · jǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "miệng; người (lượng từ cho gia đình)",
+                  "hanzi": "你家有几口人？",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00104",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Gia đình bạn có mấy người?",
+                  "pinyin": "Nǐ jiā yǒu jǐ kǒu rén?",
+                  "provenance": "",
+                  "title": "口 · kǒu"
+                }
+              ],
+              "id": "daily-1:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đồng; tệ; miếng",
+                  "hanzi": "这本书五块钱。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00105",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Quyển sách này giá năm tệ.",
+                  "pinyin": "Zhè běn shū wǔ kuài qián.",
+                  "provenance": "",
+                  "title": "块 · kuài"
+                },
+                {
+                  "alt": "",
+                  "body": "tiền",
+                  "hanzi": "我没有钱。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00164",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi không có tiền.",
+                  "pinyin": "Wǒ méiyǒu qián.",
+                  "provenance": "",
+                  "title": "钱 · qián"
+                },
+                {
+                  "alt": "",
+                  "body": "ít",
+                  "hanzi": "今天人很少。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00180",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay có rất ít người.",
+                  "pinyin": "Jīntiān rén hěn shǎo.",
+                  "provenance": "",
+                  "title": "少 · shǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "một nửa",
+                  "hanzi": "这是一个苹果的一半。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00258",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là một nửa của một quả táo.",
+                  "pinyin": "Zhè shì yí ge píngguǒ de yíbàn.",
+                  "provenance": "",
+                  "title": "一半 · yíbàn"
+                },
+                {
+                  "alt": "",
+                  "body": "một chút",
+                  "hanzi": "我想喝一点儿水。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00261",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn uống một ít nước.",
+                  "pinyin": "Wǒ xiǎng hē yìdiǎnr shuǐ.",
+                  "provenance": "",
+                  "title": "一点儿 · yìdiǎnr"
+                }
+              ],
+              "id": "daily-1:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "một số; một ít",
+                  "hanzi": "我买了一些水果。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00262",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua một ít hoa quả.",
+                  "pinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+                  "provenance": "",
+                  "title": "一些 · yìxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "đồng; tệ",
+                  "hanzi": "两个苹果六元。",
+                  "id": "daily-1:v2:block:word-hsk-vocab-00268",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai quả táo giá sáu tệ.",
+                  "pinyin": "Liǎng ge píngguǒ liù yuán.",
+                  "provenance": "",
+                  "title": "元 · yuán"
+                }
+              ],
+              "id": "daily-1:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: hai quả giá sáu tệ. Không cộng hai lần đơn vị thành 六块元. 两个苹果 là hai quả; 二十元 là hai mươi tệ, không thay 二十 bằng 两十.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tính đúng giá hai quả táo từ giá một quả trong hội thoại, phân biệt số lượng và số tiền. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-063",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là giá một quả.",
+                        "id": "option-0",
+                        "text": "三块钱。"
+                      },
+                      {
+                        "feedback": "Đúng: hai quả giá sáu tệ.",
+                        "id": "option-1",
+                        "text": "六块钱。"
+                      },
+                      {
+                        "feedback": "Đây là số lượng, chưa trả lời giá.",
+                        "id": "option-2",
+                        "text": "两个。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo giá trong hội thoại, hai quả táo giá bao nhiêu?",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "daily-1:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "个"
+                    ],
+                    "answerIds": [],
+                    "explanation": "个 đếm táo trong mẫu này; 元 đứng sau số tiền, không đứng giữa 两 và 苹果.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền lượng từ 个 để đếm táo sau 两, không đặt đơn vị tiền ở vị trí lượng từ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00060",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 元 hoặc 个: 两____苹果六元。",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "daily-1:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ở quầy mới, một quả táo giá bốn tệ, hai quả giá tám tệ. Viết câu hỏi giá hai quả và trả lời; sau đó hỏi số người trong gia đình một nhân vật giả định.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n两个苹果多少钱？八块钱。你家有几口人？\nLiǎng ge píngguǒ duōshao qián? Bā kuài qián. Nǐ jiā yǒu jǐ kǒu rén?\nHai quả táo bao nhiêu tiền? Tám tệ. Gia đình bạn có mấy người?\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tạo lượt hỏi giá và mua số lượng mới; tự kiểm phép tính, lượng từ và đơn vị tiền. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-09",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Hỏi giá bằng 多少钱.",
+                        "id": "criterion-0",
+                        "label": "Hỏi giá bằng 多少钱."
+                      },
+                      {
+                        "guidance": "Giữ đúng giá mới tám tệ và lượng từ 个.",
+                        "id": "criterion-1",
+                        "label": "Giữ đúng giá mới tám tệ và lượng từ 个."
+                      },
+                      {
+                        "guidance": "口人 trong câu hỏi gia đình, không coi là lượng từ mọi người.",
+                        "id": "criterion-2",
+                        "label": "口人 trong câu hỏi gia đình, không coi là lượng từ mọi người."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "daily-1:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hỏi giá bằng 多少钱.\nGiữ đúng giá mới tám tệ và lượng từ 个.\n口人 trong câu hỏi gia đình, không coi là lượng từ mọi người.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "daily-1:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "daily-1:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "cdb3a24f-02f6-404c-b6b6-1f8f98800271",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi số lượng, giá tiền và dùng lượng từ trong trao đổi ngắn.",
+        "pitfallVi": "Không cộng hai lần đơn vị thành 六块元. 两个苹果 là hai quả; 二十元 là hai mươi tệ, không thay 二十 bằng 两十.",
+        "prerequisites": [
+          "hsk1-time-place-events-06-weather-and-residence"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "多少钱 hỏi bao nhiêu tiền. 几 thường hỏi số lượng dự kiến nhỏ, 多少 dùng rộng hơn; không có ranh giới tuyệt đối “dưới mười/trên mười”. Số + lượng từ + danh từ: 两个苹果. 元 là đơn vị tiền; 块 là cách nói thông dụng tương ứng trong giá tiền. 一半 là một nửa; 一点儿 một ít, 一些 một số. 多/少 so nhiều/ít cần ngữ cảnh. Hỏi số người gia đình có thể dùng 你家有几口人？, không dùng 口 đếm mọi nhóm người.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-012",
+          "hsk1-grammar-row-013",
+          "hsk1-grammar-row-063"
+        ],
+        "sourceLessonIds": [
+          "daily-1"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-09"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-017"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00046",
+          "hsk-vocab-00047",
+          "hsk-vocab-00060",
+          "hsk-vocab-00085",
+          "hsk-vocab-00104",
+          "hsk-vocab-00105",
+          "hsk-vocab-00164",
+          "hsk-vocab-00180",
+          "hsk-vocab-00258",
+          "hsk-vocab-00261",
+          "hsk-vocab-00262",
+          "hsk-vocab-00268"
+        ],
+        "targetLessonId": "daily-1",
+        "titleZh": "数量和价格",
+        "vocabulary": [
+          "hsk-vocab-00046",
+          "hsk-vocab-00047",
+          "hsk-vocab-00060",
+          "hsk-vocab-00085",
+          "hsk-vocab-00104",
+          "hsk-vocab-00105",
+          "hsk-vocab-00164",
+          "hsk-vocab-00180",
+          "hsk-vocab-00258",
+          "hsk-vocab-00261",
+          "hsk-vocab-00262",
+          "hsk-vocab-00268"
+        ]
+      }
+    },
+    {
+      "lessonId": "daily-2",
+      "baseRevisionId": "b7a2df3c-8cf1-4c98-9a08-1c756d5b6aaf",
+      "baseContentSha256": "sha256:5bc712612555c4967cc54bde5e1818c0dbea255a2b8abc49c4229f54964156a4",
+      "changedPageIds": [
+        "daily-2:v2:dialogue",
+        "daily-2:v2:visual"
+      ],
+      "content": {
+        "checkpointVi": "Vai mới muốn ăn một quả trứng và uống sữa vào bữa sáng, không muốn trà. Gọi món và nói rõ đồ uống; không dùng lại đơn hai bánh bao.",
+        "conceptVi": "Gọi món và đồ uống theo nhu cầu",
+        "dialogue": [
+          {
+            "hanzi": "早饭你想吃什么？",
+            "meaningVi": "Bữa sáng bạn muốn ăn gì?",
+            "pinyin": "Zǎofàn nǐ xiǎng chī shénme?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我要两个包子和一个鸡蛋。",
+            "meaningVi": "Tôi lấy hai bánh bao và một quả trứng.",
+            "pinyin": "Wǒ yào liǎng ge bāozi hé yí ge jīdàn.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你喝茶吗？",
+            "meaningVi": "Bạn uống trà không?",
+            "pinyin": "Nǐ hē chá ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我不喝茶，我要一杯水。",
+            "meaningVi": "Tôi không uống trà, tôi lấy một cốc nước.",
+            "pinyin": "Wǒ bù hē chá, wǒ yào yì bēi shuǐ.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "一杯水",
+            "answerMeaningVi": "một cốc nước",
+            "answerPinyin": "yì bēi shuǐ",
+            "distractors": [
+              "一杯茶",
+              "一个杯子"
+            ],
+            "explanationVi": "Đúng: một cốc nước.",
+            "promptVi": "Khách nói không uống trà và muốn một cốc nước. Đơn nào đúng?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "吃 đi với thức ăn, 喝 với đồ uống: 吃米饭、喝水. 早饭/午饭/晚饭 là bữa sáng/trưa/tối; 饭 có thể là cơm hoặc bữa ăn. 菜 có thể là rau hoặc món ăn; 做饭 là nấu ăn, không chỉ nấu cơm. 要 trong gọi món nêu món muốn lấy. 杯子 là vật chứa, 一杯茶 là lượng đồ uống; không ghép 一杯子茶 theo mẫu đang học. 好吃 khen thức ăn ngon.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "早饭我要一个鸡蛋。我喝牛奶，不喝茶。",
+              "modelAnswerMeaningVi": "Bữa sáng tôi lấy một quả trứng. Tôi uống sữa, không uống trà.",
+              "modelAnswerPinyin": "Zǎofàn wǒ yào yí ge jīdàn. Wǒ hē niúnǎi, bù hē chá.",
+              "promptVi": "Vai mới muốn ăn một quả trứng và uống sữa vào bữa sáng, không muốn trà. Gọi món và nói rõ đồ uống; không dùng lại đơn hai bánh bao."
+            },
+            "modelExample": {
+              "hanzi": "我要一个鸡蛋和一杯水。",
+              "meaningVi": "Tôi lấy một quả trứng và một cốc nước.",
+              "pinyin": "Wǒ yào yí ge jīdàn hé yì bēi shuǐ."
+            },
+            "pattern": "我要 + món；我喝 + đồ uống。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn ăn sáng ở một quán nhỏ. Bảng món có bánh bao, trứng và mì; đồ uống có nước, trà, sữa. Bạn gọi đúng món của vai giả định và xác nhận đồ uống.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "要 (yào) — muốn/lấy trong gọi món; 两 (liǎng) — hai; 个 (ge) — lượng từ trong mẫu; 一杯 (yì bēi) — một cốc; 不 (bù) — không.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "daily-2:v2:context",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/breakfast-water-order-v1.webp",
+                "alt": "Ở quán ăn sáng, khách gọi hai bánh bao, một quả trứng và nước thay trà",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Gọi món và đồ uống theo nhu cầu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "早饭你想吃什么？",
+                  "id": "daily-2:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bữa sáng bạn muốn ăn gì?",
+                  "pinyin": "Zǎofàn nǐ xiǎng chī shénme?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我要两个包子和一个鸡蛋。",
+                  "id": "daily-2:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi lấy hai bánh bao và một quả trứng.",
+                  "pinyin": "Wǒ yào liǎng ge bāozi hé yí ge jīdàn.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你喝茶吗？",
+                  "id": "daily-2:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn uống trà không?",
+                  "pinyin": "Nǐ hē chá ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我不喝茶，我要一杯水。",
+                  "id": "daily-2:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi không uống trà, tôi lấy một cốc nước.",
+                  "pinyin": "Wǒ bù hē chá, wǒ yào yì bēi shuǐ.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "daily-2:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/breakfast-water-order-v1.webp",
+                "alt": "Ở quán ăn sáng, khách gọi hai bánh bao, một quả trứng và nước thay trà",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "吃 đi với thức ăn, 喝 với đồ uống: 吃米饭、喝水. 早饭/午饭/晚饭 là bữa sáng/trưa/tối; 饭 có thể là cơm hoặc bữa ăn. 菜 có thể là rau hoặc món ăn; 做饭 là nấu ăn, không chỉ nấu cơm. 要 trong gọi món nêu món muốn lấy. 杯子 là vật chứa, 一杯茶 là lượng đồ uống; không ghép 一杯子茶 theo mẫu đang học. 好吃 khen thức ăn ngon.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我要一个鸡蛋和一杯水。",
+                  "id": "daily-2:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi lấy một quả trứng và một cốc nước.",
+                  "pinyin": "Wǒ yào yí ge jīdàn hé yì bēi shuǐ.",
+                  "provenance": "",
+                  "title": "我要 + món；我喝 + đồ uống。"
+                },
+                {
+                  "alt": "",
+                  "body": "Thực đơn trong bài không có thông tin dị ứng hay thành phần đầy đủ. Không suy 包子 hoặc 饺子 luôn có một loại nhân; hỏi thêm nếu cần biết thành phần.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "daily-2:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Gọi món và đồ uống theo nhu cầu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Phân biệt món ăn và đồ uống trên thực đơn luyện tập. Không có giá hoặc thông tin thành phần trong bảng này.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "吃包子",
+                        "meaningVi": "Ăn bánh bao",
+                        "note": "",
+                        "pinyin": "Chī bāozi",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "吃鸡蛋",
+                        "meaningVi": "Ăn trứng",
+                        "note": "",
+                        "pinyin": "Chī jīdàn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "喝水",
+                        "meaningVi": "Uống nước",
+                        "note": "",
+                        "pinyin": "Hē shuǐ",
+                        "x": 2,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-3",
+                        "label": "喝牛奶",
+                        "meaningVi": "Uống sữa",
+                        "note": "",
+                        "pinyin": "Hē niúnǎi",
+                        "x": 3,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "daily-2:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bánh bao",
+                  "hanzi": "我想吃包子。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00008",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn ăn bánh bao.",
+                  "pinyin": "Wǒ xiǎng chī bāozi.",
+                  "provenance": "",
+                  "title": "包子 · bāozi"
+                },
+                {
+                  "alt": "",
+                  "body": "cốc; ly",
+                  "hanzi": "这是我的杯子。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00009",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là cốc của tôi.",
+                  "pinyin": "Zhè shì wǒ de bēizi.",
+                  "provenance": "",
+                  "title": "杯子 · bēizi"
+                },
+                {
+                  "alt": "",
+                  "body": "món ăn; rau",
+                  "hanzi": "这个菜很好吃。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00016",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Món này ngon.",
+                  "pinyin": "Zhège cài hěn hǎochī.",
+                  "provenance": "",
+                  "title": "菜 · cài"
+                },
+                {
+                  "alt": "",
+                  "body": "trà",
+                  "hanzi": "请喝茶。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00017",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời uống trà.",
+                  "pinyin": "Qǐng hē chá.",
+                  "provenance": "",
+                  "title": "茶 · chá"
+                },
+                {
+                  "alt": "",
+                  "body": "ăn",
+                  "hanzi": "我吃米饭。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00021",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ăn cơm.",
+                  "pinyin": "Wǒ chī mǐfàn.",
+                  "provenance": "",
+                  "title": "吃 · chī"
+                }
+              ],
+              "id": "daily-2:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cơm; bữa ăn",
+                  "hanzi": "我们吃饭吧。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00050",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng ta ăn cơm nhé.",
+                  "pinyin": "Wǒmen chīfàn ba.",
+                  "provenance": "",
+                  "title": "饭 · fàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nhà hàng",
+                  "hanzi": "饭店在那边。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00051",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhà hàng ở phía bên kia.",
+                  "pinyin": "Fàndiàn zài nàbian.",
+                  "provenance": "",
+                  "title": "饭店 · fàndiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "ngon",
+                  "hanzi": "饺子很好吃。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00072",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bánh chẻo rất ngon.",
+                  "pinyin": "Jiǎozi hěn hǎochī.",
+                  "provenance": "",
+                  "title": "好吃 · hǎochī"
+                },
+                {
+                  "alt": "",
+                  "body": "uống",
+                  "hanzi": "我喝牛奶。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00077",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi uống sữa.",
+                  "pinyin": "Wǒ hē niúnǎi.",
+                  "provenance": "",
+                  "title": "喝 · hē"
+                },
+                {
+                  "alt": "",
+                  "body": "trứng gà",
+                  "hanzi": "我早饭吃鸡蛋。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00084",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bữa sáng tôi ăn trứng gà.",
+                  "pinyin": "Wǒ zǎofàn chī jīdàn.",
+                  "provenance": "",
+                  "title": "鸡蛋 · jīdàn"
+                }
+              ],
+              "id": "daily-2:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bánh chẻo",
+                  "hanzi": "我喜欢吃饺子。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00090",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thích ăn bánh chẻo.",
+                  "pinyin": "Wǒ xǐhuan chī jiǎozi.",
+                  "provenance": "",
+                  "title": "饺子 · jiǎozi"
+                },
+                {
+                  "alt": "",
+                  "body": "cơm",
+                  "hanzi": "我午饭吃米饭。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00125",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bữa trưa tôi ăn cơm.",
+                  "pinyin": "Wǒ wǔfàn chī mǐfàn.",
+                  "provenance": "",
+                  "title": "米饭 · mǐfàn"
+                },
+                {
+                  "alt": "",
+                  "body": "bánh mì",
+                  "hanzi": "我早饭吃面包。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00126",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bữa sáng tôi ăn bánh mì.",
+                  "pinyin": "Wǒ zǎofàn chī miànbāo.",
+                  "provenance": "",
+                  "title": "面包 · miànbāo"
+                },
+                {
+                  "alt": "",
+                  "body": "mì sợi",
+                  "hanzi": "我想吃面条儿。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00127",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn ăn mì sợi.",
+                  "pinyin": "Wǒ xiǎng chī miàntiáor.",
+                  "provenance": "",
+                  "title": "面条儿 · miàntiáor"
+                },
+                {
+                  "alt": "",
+                  "body": "sữa bò",
+                  "hanzi": "她每天喝牛奶。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00151",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy uống sữa mỗi ngày.",
+                  "pinyin": "Tā měitiān hē niúnǎi.",
+                  "provenance": "",
+                  "title": "牛奶 · niúnǎi"
+                }
+              ],
+              "id": "daily-2:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "táo",
+                  "hanzi": "我买了三个苹果。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00159",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua ba quả táo.",
+                  "pinyin": "Wǒ mǎi le sān ge píngguǒ.",
+                  "provenance": "",
+                  "title": "苹果 · píngguǒ"
+                },
+                {
+                  "alt": "",
+                  "body": "nước",
+                  "hanzi": "请给我一杯水。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00192",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vui lòng cho tôi một cốc nước.",
+                  "pinyin": "Qǐng gěi wǒ yì bēi shuǐ.",
+                  "provenance": "",
+                  "title": "水 · shuǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "hoa quả",
+                  "hanzi": "我喜欢吃水果。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00193",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thích ăn hoa quả.",
+                  "pinyin": "Wǒ xǐhuan chī shuǐguǒ.",
+                  "provenance": "",
+                  "title": "水果 · shuǐguǒ"
+                },
+                {
+                  "alt": "",
+                  "body": "bữa tối",
+                  "hanzi": "我们六点吃晚饭。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00216",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng tôi ăn tối lúc sáu giờ.",
+                  "pinyin": "Wǒmen liù diǎn chī wǎnfàn.",
+                  "provenance": "",
+                  "title": "晚饭 · wǎnfàn"
+                },
+                {
+                  "alt": "",
+                  "body": "bữa trưa",
+                  "hanzi": "你午饭吃什么？",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00224",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bữa trưa bạn ăn gì?",
+                  "pinyin": "Nǐ wǔfàn chī shénme?",
+                  "provenance": "",
+                  "title": "午饭 · wǔfàn"
+                }
+              ],
+              "id": "daily-2:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:word-note-20",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bữa sáng",
+                  "hanzi": "我七点吃早饭。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00274",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ăn sáng lúc bảy giờ.",
+                  "pinyin": "Wǒ qī diǎn chī zǎofàn.",
+                  "provenance": "",
+                  "title": "早饭 · zǎofàn"
+                },
+                {
+                  "alt": "",
+                  "body": "nấu cơm",
+                  "hanzi": "我妈妈在做饭。",
+                  "id": "daily-2:v2:block:word-hsk-vocab-00300",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mẹ tôi đang nấu cơm.",
+                  "pinyin": "Wǒ māma zài zuòfàn.",
+                  "provenance": "",
+                  "title": "做饭 · zuòfàn"
+                }
+              ],
+              "id": "daily-2:v2:words-20",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 5"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: một cốc nước. Thực đơn trong bài không có thông tin dị ứng hay thành phần đầy đủ. Không suy 包子 hoặc 饺子 luôn có một loại nhân; hỏi thêm nếu cần biết thành phần.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn đơn một cốc nước theo yêu cầu không uống trà; không suy thêm thông tin thành phần không có trong thực đơn. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-07",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là trà mà khách không muốn.",
+                        "id": "option-0",
+                        "text": "一杯茶"
+                      },
+                      {
+                        "feedback": "Đây là một cái cốc, chưa gọi nước.",
+                        "id": "option-1",
+                        "text": "一个杯子"
+                      },
+                      {
+                        "feedback": "Đúng: một cốc nước.",
+                        "id": "option-2",
+                        "text": "一杯水"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Khách nói không uống trà và muốn một cốc nước. Đơn nào đúng?",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "daily-2:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "喝"
+                    ],
+                    "answerIds": [],
+                    "explanation": "牛奶 là đồ uống nên dùng 喝 trong câu này. 吃 dùng với thức ăn như 鸡蛋、米饭.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 喝 cho hành động uống sữa, phân biệt với 吃 dùng cho thức ăn. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00077",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 吃 hoặc 喝: 我____牛奶。",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "daily-2:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới muốn ăn một quả trứng và uống sữa vào bữa sáng, không muốn trà. Gọi món và nói rõ đồ uống; không dùng lại đơn hai bánh bao.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n早饭我要一个鸡蛋。我喝牛奶，不喝茶。\nZǎofàn wǒ yào yí ge jīdàn. Wǒ hē niúnǎi, bù hē chá.\nBữa sáng tôi lấy một quả trứng. Tôi uống sữa, không uống trà.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tạo đơn gọi món và lượt xác nhận phù hợp yêu cầu đồ uống/thức ăn của khách. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-07",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "吃/喝 khớp thức ăn và đồ uống.",
+                        "id": "criterion-0",
+                        "label": "吃/喝 khớp thức ăn và đồ uống."
+                      },
+                      {
+                        "guidance": "Giữ đúng một quả trứng và sữa.",
+                        "id": "criterion-1",
+                        "label": "Giữ đúng một quả trứng và sữa."
+                      },
+                      {
+                        "guidance": "Phủ định trà, không tự thêm món.",
+                        "id": "criterion-2",
+                        "label": "Phủ định trà, không tự thêm món."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "daily-2:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "吃/喝 khớp thức ăn và đồ uống.\nGiữ đúng một quả trứng và sữa.\nPhủ định trà, không tự thêm món.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "daily-2:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "daily-2:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "6767144b-3bde-4dbc-8147-dfa97778ffb3",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Gọi món và nói lựa chọn ăn uống trong các bữa hằng ngày.",
+        "pitfallVi": "Thực đơn trong bài không có thông tin dị ứng hay thành phần đầy đủ. Không suy 包子 hoặc 饺子 luôn có một loại nhân; hỏi thêm nếu cần biết thành phần.",
+        "prerequisites": [
+          "daily-1"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "吃 đi với thức ăn, 喝 với đồ uống: 吃米饭、喝水. 早饭/午饭/晚饭 là bữa sáng/trưa/tối; 饭 có thể là cơm hoặc bữa ăn. 菜 có thể là rau hoặc món ăn; 做饭 là nấu ăn, không chỉ nấu cơm. 要 trong gọi món nêu món muốn lấy. 杯子 là vật chứa, 一杯茶 là lượng đồ uống; không ghép 一杯子茶 theo mẫu đang học. 好吃 khen thức ăn ngon.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-007",
+          "hsk1-grammar-row-025"
+        ],
+        "sourceLessonIds": [
+          "daily-2"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-07",
+          "hsk1-task-15"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-011",
+          "hsk1-topic-012",
+          "hsk1-topic-029",
+          "hsk1-topic-030"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00008",
+          "hsk-vocab-00009",
+          "hsk-vocab-00016",
+          "hsk-vocab-00017",
+          "hsk-vocab-00021",
+          "hsk-vocab-00050",
+          "hsk-vocab-00051",
+          "hsk-vocab-00072",
+          "hsk-vocab-00077",
+          "hsk-vocab-00084",
+          "hsk-vocab-00090",
+          "hsk-vocab-00125",
+          "hsk-vocab-00126",
+          "hsk-vocab-00127",
+          "hsk-vocab-00151",
+          "hsk-vocab-00159",
+          "hsk-vocab-00192",
+          "hsk-vocab-00193",
+          "hsk-vocab-00216",
+          "hsk-vocab-00224",
+          "hsk-vocab-00274",
+          "hsk-vocab-00300"
+        ],
+        "targetLessonId": "daily-2",
+        "titleZh": "饮食选择",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/64-REVIEW-HSK1-SCENES.md",
+          "humanReviewed": false,
+          "scope": "Single lesson scene illustration only; original generated art.",
+          "sourceRevisionId": "aa6624fb-2154-41df-a709-4ac16654f8e5"
+        },
+        "vocabulary": [
+          "hsk-vocab-00008",
+          "hsk-vocab-00009",
+          "hsk-vocab-00016",
+          "hsk-vocab-00017",
+          "hsk-vocab-00021",
+          "hsk-vocab-00050",
+          "hsk-vocab-00051",
+          "hsk-vocab-00072",
+          "hsk-vocab-00077",
+          "hsk-vocab-00084",
+          "hsk-vocab-00090",
+          "hsk-vocab-00125",
+          "hsk-vocab-00126",
+          "hsk-vocab-00127",
+          "hsk-vocab-00151",
+          "hsk-vocab-00159",
+          "hsk-vocab-00192",
+          "hsk-vocab-00193",
+          "hsk-vocab-00216",
+          "hsk-vocab-00224",
+          "hsk-vocab-00274",
+          "hsk-vocab-00300"
+        ]
+      }
+    },
+    {
+      "lessonId": "daily-3",
+      "baseRevisionId": "a5d047a1-313a-4acb-a9ea-885a974c6d36",
+      "baseContentSha256": "sha256:1b46684f20043da1d039103ac6f09e0068dd705519865d7081070a48fb2a41bb",
+      "changedPageIds": [
+        "daily-3:v2:context",
+        "daily-3:v2:dialogue",
+        "daily-3:v2:visual"
+      ],
+      "content": {
+        "checkpointVi": "Cửa hàng mới bán áo giá mười tệ. Bạn đưa hai mươi; người bán trả mười. Viết lời khách chọn mua và lời người bán trả lại tiền.",
+        "conceptVi": "Chọn đồ, hỏi giá và nhận tiền thừa",
+        "dialogue": [
+          {
+            "hanzi": "这件衣服多少钱？",
+            "meaningVi": "Chiếc áo này bao nhiêu tiền?",
+            "pinyin": "Zhè jiàn yīfu duōshao qián?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "二十块。",
+            "meaningVi": "Hai mươi tệ.",
+            "pinyin": "Èrshí kuài.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "我买这件。给你三十块。",
+            "meaningVi": "Tôi mua chiếc này. Đưa bạn ba mươi tệ.",
+            "pinyin": "Wǒ mǎi zhè jiàn. Gěi nǐ sānshí kuài.",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "找你十块。",
+            "meaningVi": "Trả lại bạn mười tệ.",
+            "pinyin": "Zhǎo nǐ shí kuài.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "找你十块。",
+            "answerMeaningVi": "Trả lại bạn mười tệ.",
+            "answerPinyin": "Zhǎo nǐ shí kuài.",
+            "distractors": [
+              "给你三十块。",
+              "找你二十块。"
+            ],
+            "explanationVi": "Đúng: trả mười tệ tiền thừa.",
+            "promptVi": "Áo giá hai mươi tệ, khách đưa ba mươi. Người bán nói câu nào để trả lại đúng tiền thừa?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "买 là mua từ phía khách, 卖 là bán từ phía cửa hàng. 件 đếm áo/quần áo trong mẫu 一件衣服. 穿 là mặc, không phải mua. 贵/便宜 nhận xét giá đắt/rẻ. 商店/店 là cửa hàng, 超市 là siêu thị. 东西 trong bài đọc dōngxi là đồ/vật. 找 có thể tìm; 找你十块 trong thanh toán là trả lại mười tệ tiền thừa, không phải tìm bạn.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我买这件衣服。给你二十块。找你十块。",
+              "modelAnswerMeaningVi": "Tôi mua chiếc áo này. Đưa bạn hai mươi tệ. Trả lại bạn mười tệ.",
+              "modelAnswerPinyin": "Wǒ mǎi zhè jiàn yīfu. Gěi nǐ èrshí kuài. Zhǎo nǐ shí kuài.",
+              "promptVi": "Cửa hàng mới bán áo giá mười tệ. Bạn đưa hai mươi; người bán trả mười. Viết lời khách chọn mua và lời người bán trả lại tiền."
+            },
+            "modelExample": {
+              "hanzi": "这件衣服很便宜。",
+              "meaningVi": "Chiếc áo này rẻ.",
+              "pinyin": "Zhè jiàn yīfu hěn piányi."
+            },
+            "pattern": "我买 + đồ；找你 + số tiền。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn mua một chiếc áo trong cửa hàng. Áo giá hai mươi tệ; bạn đưa ba mươi tệ và xác nhận được trả lại mười tệ. Các con số là tình huống luyện ngôn ngữ.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "二十 (èrshí) — hai mươi; 三十 (sānshí) — ba mươi; 十 (shí) — mười; 这 (zhè) — này; 那 (nà) — kia; 块 (kuài) — tệ trong lời nói.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "daily-3:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Chọn đồ, hỏi giá và nhận tiền thừa",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/shirt-shop-change-v1.webp",
+                "alt": "Khách chọn áo và người bán trả tiền thừa tại cửa hàng, không thể đọc mệnh giá từ tranh",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这件衣服多少钱？",
+                  "id": "daily-3:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này bao nhiêu tiền?",
+                  "pinyin": "Zhè jiàn yīfu duōshao qián?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "二十块。",
+                  "id": "daily-3:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai mươi tệ.",
+                  "pinyin": "Èrshí kuài.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我买这件。给你三十块。",
+                  "id": "daily-3:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi mua chiếc này. Đưa bạn ba mươi tệ.",
+                  "pinyin": "Wǒ mǎi zhè jiàn. Gěi nǐ sānshí kuài.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "找你十块。",
+                  "id": "daily-3:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trả lại bạn mười tệ.",
+                  "pinyin": "Zhǎo nǐ shí kuài.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "daily-3:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/shirt-shop-change-v1.webp",
+                "alt": "Khách chọn áo và người bán trả tiền thừa tại cửa hàng, không thể đọc mệnh giá từ tranh",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "买 là mua từ phía khách, 卖 là bán từ phía cửa hàng. 件 đếm áo/quần áo trong mẫu 一件衣服. 穿 là mặc, không phải mua. 贵/便宜 nhận xét giá đắt/rẻ. 商店/店 là cửa hàng, 超市 là siêu thị. 东西 trong bài đọc dōngxi là đồ/vật. 找 có thể tìm; 找你十块 trong thanh toán là trả lại mười tệ tiền thừa, không phải tìm bạn.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这件衣服很便宜。",
+                  "id": "daily-3:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này rẻ.",
+                  "pinyin": "Zhè jiàn yīfu hěn piányi.",
+                  "provenance": "",
+                  "title": "我买 + đồ；找你 + số tiền。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dùng 我卖 để nói mình mua. 找 trong câu phải đọc cùng tân ngữ/ngữ cảnh; không dịch mọi 找 thành tìm kiếm.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "daily-3:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Chọn đồ, hỏi giá và nhận tiền thừa"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Giá áo hai mươi; khách đưa ba mươi; người bán trả mười. Đọc từng bước theo vai.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "二十块",
+                        "meaningVi": "Giá áo: 20 tệ",
+                        "note": "",
+                        "pinyin": "Èrshí kuài",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "给你三十块",
+                        "meaningVi": "Khách đưa 30 tệ",
+                        "note": "",
+                        "pinyin": "Gěi nǐ sānshí kuài",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "找你十块",
+                        "meaningVi": "Người bán trả 10 tệ",
+                        "note": "",
+                        "pinyin": "Zhǎo nǐ shí kuài",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "sequence"
+                  },
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "daily-3:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "siêu thị",
+                  "hanzi": "我去超市买东西。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00019",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi siêu thị mua đồ.",
+                  "pinyin": "Wǒ qù chāoshì mǎi dōngxi.",
+                  "provenance": "",
+                  "title": "超市 · chāoshì"
+                },
+                {
+                  "alt": "",
+                  "body": "mặc",
+                  "hanzi": "她穿红衣服。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00023",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy mặc quần áo màu đỏ.",
+                  "pinyin": "Tā chuān hóng yīfu.",
+                  "provenance": "",
+                  "title": "穿 · chuān"
+                },
+                {
+                  "alt": "",
+                  "body": "cửa hàng",
+                  "hanzi": "这家店很大。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00034",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cửa hàng này rất lớn.",
+                  "pinyin": "Zhè jiā diàn hěn dà.",
+                  "provenance": "",
+                  "title": "店 · diàn"
+                },
+                {
+                  "alt": "",
+                  "body": "đồ; vật; thứ",
+                  "hanzi": "我买了一些东西。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00040",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua một ít đồ.",
+                  "pinyin": "Wǒ mǎi le yìxiē dōngxi.",
+                  "provenance": "",
+                  "title": "东西 · dōngxi"
+                },
+                {
+                  "alt": "",
+                  "body": "đắt",
+                  "hanzi": "这件衣服太贵了。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00065",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này đắt quá.",
+                  "pinyin": "Zhè jiàn yīfu tài guì le.",
+                  "provenance": "",
+                  "title": "贵 · guì"
+                }
+              ],
+              "id": "daily-3:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "chiếc; bộ (lượng từ cho quần áo, đồ vật)",
+                  "hanzi": "我买一件衣服。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00089",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi mua một chiếc áo.",
+                  "pinyin": "Wǒ mǎi yí jiàn yīfu.",
+                  "provenance": "",
+                  "title": "件 · jiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "mua",
+                  "hanzi": "我想买苹果。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00116",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn mua táo.",
+                  "pinyin": "Wǒ xiǎng mǎi píngguǒ.",
+                  "provenance": "",
+                  "title": "买 · mǎi"
+                },
+                {
+                  "alt": "",
+                  "body": "bán",
+                  "hanzi": "这家店卖水果。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00117",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cửa hàng này bán hoa quả.",
+                  "pinyin": "Zhè jiā diàn mài shuǐguǒ.",
+                  "provenance": "",
+                  "title": "卖 · mài"
+                },
+                {
+                  "alt": "",
+                  "body": "rẻ",
+                  "hanzi": "这件衣服很便宜。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00157",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này rẻ.",
+                  "pinyin": "Zhè jiàn yīfu hěn piányi.",
+                  "provenance": "",
+                  "title": "便宜 · piányi"
+                },
+                {
+                  "alt": "",
+                  "body": "cửa hàng",
+                  "hanzi": "商店几点开门？",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00174",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cửa hàng mở cửa lúc mấy giờ?",
+                  "pinyin": "Shāngdiàn jǐ diǎn kāimén?",
+                  "provenance": "",
+                  "title": "商店 · shāngdiàn"
+                }
+              ],
+              "id": "daily-3:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "quần áo",
+                  "hanzi": "这件衣服很好看。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00255",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này đẹp.",
+                  "pinyin": "Zhè jiàn yīfu hěn hǎokàn.",
+                  "provenance": "",
+                  "title": "衣服 · yīfu"
+                },
+                {
+                  "alt": "",
+                  "body": "tìm; tìm tiền thừa",
+                  "hanzi": "找你十块。",
+                  "id": "daily-3:v2:block:word-hsk-vocab-00278",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trả lại bạn mười tệ.",
+                  "pinyin": "Zhǎo nǐ shí kuài.",
+                  "provenance": "",
+                  "title": "找 · zhǎo"
+                }
+              ],
+              "id": "daily-3:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: trả mười tệ tiền thừa. Không dùng 我卖 để nói mình mua. 找 trong câu phải đọc cùng tân ngữ/ngữ cảnh; không dịch mọi 找 thành tìm kiếm.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu trả mười tệ tiền thừa khi áo 20 tệ và khách đưa 30 tệ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00278",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: trả mười tệ tiền thừa.",
+                        "id": "option-0",
+                        "text": "找你十块。"
+                      },
+                      {
+                        "feedback": "Đây là lời đưa ba mươi tệ, không phải trả mười tệ tiền thừa.",
+                        "id": "option-1",
+                        "text": "给你三十块。"
+                      },
+                      {
+                        "feedback": "Trả hai mươi là sai số tiền thừa trong đề.",
+                        "id": "option-2",
+                        "text": "找你二十块。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Áo giá hai mươi tệ, khách đưa ba mươi. Người bán nói câu nào để trả lại đúng tiền thừa?",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "daily-3:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "买"
+                    ],
+                    "answerIds": [],
+                    "explanation": "买 là mua. 卖 là bán; hai chữ và hai thanh khác nhau: mǎi / mài.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 买 từ vai khách mua áo, phân biệt với 卖 từ vai người bán. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00116",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 买 hoặc 卖: bạn là khách đang mua áo, 我____这件衣服。",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "daily-3:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Cửa hàng mới bán áo giá mười tệ. Bạn đưa hai mươi; người bán trả mười. Viết lời khách chọn mua và lời người bán trả lại tiền.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我买这件衣服。给你二十块。找你十块。\nWǒ mǎi zhè jiàn yīfu. Gěi nǐ èrshí kuài. Zhǎo nǐ shí kuài.\nTôi mua chiếc áo này. Đưa bạn hai mươi tệ. Trả lại bạn mười tệ.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lượt mua bán mới, giữ đúng vai mua/bán, giá và số tiền thừa. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Khách dùng 买, không đổi vai thành 卖.",
+                        "id": "criterion-0",
+                        "label": "Khách dùng 买, không đổi vai thành 卖."
+                      },
+                      {
+                        "guidance": "件 đứng với 衣服.",
+                        "id": "criterion-1",
+                        "label": "件 đứng với 衣服."
+                      },
+                      {
+                        "guidance": "Tiền thừa mười tệ khớp giá và tiền đưa.",
+                        "id": "criterion-2",
+                        "label": "Tiền thừa mười tệ khớp giá và tiền đưa."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "daily-3:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Khách dùng 买, không đổi vai thành 卖.\n件 đứng với 衣服.\nTiền thừa mười tệ khớp giá và tiền đưa.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "daily-3:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "daily-3:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "5c0da247-d362-417f-bea7-4654c606caff",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi giá, đánh giá đắt rẻ và trao đổi khi mua quần áo.",
+        "pitfallVi": "Không dùng 我卖 để nói mình mua. 找 trong câu phải đọc cùng tân ngữ/ngữ cảnh; không dịch mọi 找 thành tìm kiếm.",
+        "prerequisites": [
+          "daily-2"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "买 là mua từ phía khách, 卖 là bán từ phía cửa hàng. 件 đếm áo/quần áo trong mẫu 一件衣服. 穿 là mặc, không phải mua. 贵/便宜 nhận xét giá đắt/rẻ. 商店/店 là cửa hàng, 超市 là siêu thị. 东西 trong bài đọc dōngxi là đồ/vật. 找 có thể tìm; 找你十块 trong thanh toán là trả lại mười tệ tiền thừa, không phải tìm bạn.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-pattern:hsk1-daily-life:03-shopping-and-clothing"
+        ],
+        "sourceLessonIds": [
+          "daily-3"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-03"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-004",
+          "hsk1-topic-005",
+          "hsk1-topic-016",
+          "hsk1-topic-018"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00019",
+          "hsk-vocab-00023",
+          "hsk-vocab-00034",
+          "hsk-vocab-00040",
+          "hsk-vocab-00065",
+          "hsk-vocab-00089",
+          "hsk-vocab-00116",
+          "hsk-vocab-00117",
+          "hsk-vocab-00157",
+          "hsk-vocab-00174",
+          "hsk-vocab-00255",
+          "hsk-vocab-00278"
+        ],
+        "targetLessonId": "daily-3",
+        "titleZh": "购物和衣服",
+        "vocabulary": [
+          "hsk-vocab-00019",
+          "hsk-vocab-00023",
+          "hsk-vocab-00034",
+          "hsk-vocab-00040",
+          "hsk-vocab-00065",
+          "hsk-vocab-00089",
+          "hsk-vocab-00116",
+          "hsk-vocab-00117",
+          "hsk-vocab-00157",
+          "hsk-vocab-00174",
+          "hsk-vocab-00255",
+          "hsk-vocab-00278"
+        ]
+      }
+    },
+    {
+      "lessonId": "daily-4",
+      "baseRevisionId": "7f6b4633-caab-42ee-9f93-7f35aec0cb90",
+      "baseContentSha256": "sha256:a1e8d7ce05f00997d44888ea0ce4da9872ab22bf857b91d23a2e92b50e5e12dd",
+      "changedPageIds": [
+        "daily-4:v2:context",
+        "daily-4:v2:dialogue",
+        "daily-4:v2:visual"
+      ],
+      "content": {
+        "checkpointVi": "Nhân vật mới là người đi khám, không phải bác sĩ. Nói người đó đến bệnh viện; mô tả trong phòng có bàn và ghế.",
+        "conceptVi": "Nói mình bị bệnh và tìm chỗ ngồi",
+        "dialogue": [
+          {
+            "hanzi": "你去哪儿？",
+            "meaningVi": "Bạn đi đâu?",
+            "pinyin": "Nǐ qù nǎr?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我生病了，去医院看病。",
+            "meaningVi": "Tôi bị bệnh, đi bệnh viện khám.",
+            "pinyin": "Wǒ shēngbìng le, qù yīyuàn kànbìng.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "那是医生吗？",
+            "meaningVi": "Đó là bác sĩ phải không?",
+            "pinyin": "Nà shì yīshēng ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "是。房间里有椅子。",
+            "meaningVi": "Đúng. Trong phòng có ghế.",
+            "pinyin": "Shì. Fángjiān lǐ yǒu yǐzi.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我去医院看病。",
+            "answerMeaningVi": "Tôi đi bệnh viện khám bệnh.",
+            "answerPinyin": "Wǒ qù yīyuàn kànbìng.",
+            "distractors": [
+              "我是医生。",
+              "这是桌子。"
+            ],
+            "explanationVi": "Đúng: nói đi khám ở bệnh viện.",
+            "promptVi": "Bạn muốn nói “đi bệnh viện khám bệnh”. Câu nào phù hợp?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "生病 là bị bệnh/ốm; 病 là bệnh trong ngữ cảnh danh từ. 医生 là bác sĩ, 医院 là bệnh viện. 我去医院看病 là tôi đi bệnh viện khám bệnh, không phải tôi là bác sĩ chữa bệnh. 房间 là phòng. 桌子 là bàn, 椅子 là ghế; 房间里有桌子和椅子 nêu trong phòng có bàn ghế.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "他去医院看病。房间里有桌子和椅子。",
+              "modelAnswerMeaningVi": "Anh ấy đi bệnh viện khám. Trong phòng có bàn và ghế.",
+              "modelAnswerPinyin": "Tā qù yīyuàn kànbìng. Fángjiān lǐ yǒu zhuōzi hé yǐzi.",
+              "promptVi": "Nhân vật mới là người đi khám, không phải bác sĩ. Nói người đó đến bệnh viện; mô tả trong phòng có bàn và ghế."
+            },
+            "modelExample": {
+              "hanzi": "房间里有桌子和椅子。",
+              "meaningVi": "Trong phòng có bàn và ghế.",
+              "pinyin": "Fángjiān lǐ yǒu zhuōzi hé yǐzi."
+            },
+            "pattern": "我去医院看病。／房间里有 + đồ vật。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một nhân vật giả định bị bệnh và đến bệnh viện khám. Ở phòng chờ có bàn và ghế. Bạn luyện báo tình trạng và xác định đồ vật; bài không hướng dẫn chẩn đoán hoặc dùng thuốc.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "去 (qù) — đi; 这 (zhè) — đây; 那 (nà) — kia; 在 (zài) — ở; 里 (lǐ) — trong; 有 (yǒu) — có; 看 (kàn) — xem/gặp trong mẫu.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "daily-4:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nói mình bị bệnh và tìm chỗ ngồi",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/clinic-waiting-room-v1.webp",
+                "alt": "Khách đến phòng chờ khám có bác sĩ, bàn và ghế",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你去哪儿？",
+                  "id": "daily-4:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đi đâu?",
+                  "pinyin": "Nǐ qù nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我生病了，去医院看病。",
+                  "id": "daily-4:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi bị bệnh, đi bệnh viện khám.",
+                  "pinyin": "Wǒ shēngbìng le, qù yīyuàn kànbìng.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "那是医生吗？",
+                  "id": "daily-4:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đó là bác sĩ phải không?",
+                  "pinyin": "Nà shì yīshēng ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是。房间里有椅子。",
+                  "id": "daily-4:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng. Trong phòng có ghế.",
+                  "pinyin": "Shì. Fángjiān lǐ yǒu yǐzi.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "daily-4:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/clinic-waiting-room-v1.webp",
+                "alt": "Khách đến phòng chờ khám có bác sĩ, bàn và ghế",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-29 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "生病 là bị bệnh/ốm; 病 là bệnh trong ngữ cảnh danh từ. 医生 là bác sĩ, 医院 là bệnh viện. 我去医院看病 là tôi đi bệnh viện khám bệnh, không phải tôi là bác sĩ chữa bệnh. 房间 là phòng. 桌子 là bàn, 椅子 là ghế; 房间里有桌子和椅子 nêu trong phòng có bàn ghế.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "房间里有桌子和椅子。",
+                  "id": "daily-4:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong phòng có bàn và ghế.",
+                  "pinyin": "Fángjiān lǐ yǒu zhuōzi hé yǐzi.",
+                  "provenance": "",
+                  "title": "我去医院看病。／房间里有 + đồ vật。"
+                },
+                {
+                  "alt": "",
+                  "body": "看病 có cách hiểu theo vai; trong câu 我去医院看病, chủ thể là người đi khám. Không biến việc hoàn thành bài thành lời khuyên y tế hoặc tự chẩn đoán.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "daily-4:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói mình bị bệnh và tìm chỗ ngồi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Bác sĩ là người; bệnh viện là nơi; bàn và ghế là đồ vật trong phòng chờ.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "医生",
+                        "meaningVi": "Bác sĩ · người",
+                        "note": "",
+                        "pinyin": "Yīshēng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "医院",
+                        "meaningVi": "Bệnh viện · nơi",
+                        "note": "",
+                        "pinyin": "Yīyuàn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "桌子和椅子",
+                        "meaningVi": "Bàn và ghế · đồ vật",
+                        "note": "",
+                        "pinyin": "Zhuōzi hé yǐzi",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "daily-4:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bệnh; ốm",
+                  "hanzi": "他的病好了。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00012",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bệnh của anh ấy đã khỏi.",
+                  "pinyin": "Tā de bìng hǎo le.",
+                  "provenance": "",
+                  "title": "病 · bìng"
+                },
+                {
+                  "alt": "",
+                  "body": "phòng",
+                  "hanzi": "房间里有两把椅子。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00052",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trong phòng có hai chiếc ghế.",
+                  "pinyin": "Fángjiān lǐ yǒu liǎng bǎ yǐzi.",
+                  "provenance": "",
+                  "title": "房间 · fángjiān"
+                },
+                {
+                  "alt": "",
+                  "body": "đi khám bệnh",
+                  "hanzi": "我去医院看病。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00100",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đến bệnh viện khám bệnh.",
+                  "pinyin": "Wǒ qù yīyuàn kànbìng.",
+                  "provenance": "",
+                  "title": "看病 · kànbìng"
+                },
+                {
+                  "alt": "",
+                  "body": "bị ốm",
+                  "hanzi": "他生病了。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00183",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy bị ốm rồi.",
+                  "pinyin": "Tā shēngbìng le.",
+                  "provenance": "",
+                  "title": "生病 · shēngbìng"
+                },
+                {
+                  "alt": "",
+                  "body": "bác sĩ",
+                  "hanzi": "她是医生。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00256",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy là bác sĩ.",
+                  "pinyin": "Tā shì yīshēng.",
+                  "provenance": "",
+                  "title": "医生 · yīshēng"
+                }
+              ],
+              "id": "daily-4:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bệnh viện",
+                  "hanzi": "医院在学校旁边。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00257",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bệnh viện ở cạnh trường học.",
+                  "pinyin": "Yīyuàn zài xuéxiào pángbiān.",
+                  "provenance": "",
+                  "title": "医院 · yīyuàn"
+                },
+                {
+                  "alt": "",
+                  "body": "ghế",
+                  "hanzi": "椅子在桌子旁边。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00260",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ghế ở cạnh bàn.",
+                  "pinyin": "Yǐzi zài zhuōzi pángbiān.",
+                  "provenance": "",
+                  "title": "椅子 · yǐzi"
+                },
+                {
+                  "alt": "",
+                  "body": "bàn",
+                  "hanzi": "书在桌子上。",
+                  "id": "daily-4:v2:block:word-hsk-vocab-00295",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "桌子 · zhuōzi"
+                }
+              ],
+              "id": "daily-4:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: nói đi khám ở bệnh viện. 看病 có cách hiểu theo vai; trong câu 我去医院看病, chủ thể là người đi khám. Không biến việc hoàn thành bài thành lời khuyên y tế hoặc tự chẩn đoán.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu đi bệnh viện khám bệnh, phân biệt nơi khám với nghề bác sĩ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00100",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: nói đi khám ở bệnh viện.",
+                        "id": "option-0",
+                        "text": "我去医院看病。"
+                      },
+                      {
+                        "feedback": "Nói mình là bác sĩ, không phải đi khám.",
+                        "id": "option-1",
+                        "text": "我是医生。"
+                      },
+                      {
+                        "feedback": "Giới thiệu cái bàn, chưa nói đi khám.",
+                        "id": "option-2",
+                        "text": "这是桌子。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn muốn nói “đi bệnh viện khám bệnh”. Câu nào phù hợp?",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "daily-4:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "医院"
+                    ],
+                    "answerIds": [],
+                    "explanation": "医院 là nơi đi khám. 医生 là người bác sĩ; không thay trực tiếp vào mẫu nơi chốn này.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 医院 là nơi đến để khám bệnh, không thay bằng 医生 là người. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00257",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 医生 hoặc 医院: 我去____看病。",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "daily-4:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Nhân vật mới là người đi khám, không phải bác sĩ. Nói người đó đến bệnh viện; mô tả trong phòng có bàn và ghế.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n他去医院看病。房间里有桌子和椅子。\nTā qù yīyuàn kànbìng. Fángjiān lǐ yǒu zhuōzi hé yǐzi.\nAnh ấy đi bệnh viện khám. Trong phòng có bàn và ghế.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lời báo ốm và hỏi thăm trong cảnh giả định, không tự chẩn đoán bệnh. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-10",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ đúng vai người đi khám.",
+                        "id": "criterion-0",
+                        "label": "Giữ đúng vai người đi khám."
+                      },
+                      {
+                        "guidance": "Phân biệt 医院 và 医生.",
+                        "id": "criterion-1",
+                        "label": "Phân biệt 医院 và 医生."
+                      },
+                      {
+                        "guidance": "有 mô tả đồ vật trong phòng.",
+                        "id": "criterion-2",
+                        "label": "有 mô tả đồ vật trong phòng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "daily-4:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giữ đúng vai người đi khám.\nPhân biệt 医院 và 医生.\n有 mô tả đồ vật trong phòng.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "daily-4:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "daily-4:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "472fcf2f-0fa5-4dcc-9a25-462147db67f5",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Nói tình trạng sức khỏe và xác định đồ vật cơ bản trong phòng.",
+        "pitfallVi": "看病 có cách hiểu theo vai; trong câu 我去医院看病, chủ thể là người đi khám. Không biến việc hoàn thành bài thành lời khuyên y tế hoặc tự chẩn đoán.",
+        "prerequisites": [
+          "daily-3"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "生病 là bị bệnh/ốm; 病 là bệnh trong ngữ cảnh danh từ. 医生 là bác sĩ, 医院 là bệnh viện. 我去医院看病 là tôi đi bệnh viện khám bệnh, không phải tôi là bác sĩ chữa bệnh. 房间 là phòng. 桌子 là bàn, 椅子 là ghế; 房间里有桌子和椅子 nêu trong phòng có bàn ghế.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-pattern:hsk1-daily-life:04-health-and-home"
+        ],
+        "sourceLessonIds": [
+          "daily-4"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-10"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-019"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00012",
+          "hsk-vocab-00052",
+          "hsk-vocab-00100",
+          "hsk-vocab-00183",
+          "hsk-vocab-00256",
+          "hsk-vocab-00257",
+          "hsk-vocab-00260",
+          "hsk-vocab-00295"
+        ],
+        "targetLessonId": "daily-4",
+        "titleZh": "健康和房间",
+        "vocabulary": [
+          "hsk-vocab-00012",
+          "hsk-vocab-00052",
+          "hsk-vocab-00100",
+          "hsk-vocab-00183",
+          "hsk-vocab-00256",
+          "hsk-vocab-00257",
+          "hsk-vocab-00260",
+          "hsk-vocab-00295"
+        ]
+      }
+    }
+  ]
+}

@@ -141,11 +141,9 @@ export default async function StudioPage({
     const canAdminister = hasPermission(account.authorization, "content:approve");
     const canBulkValidate = hasPermission(account.authorization, "content:validation:run");
     const canBulkSubmit = hasPermission(account.authorization, "content:submit");
-    const examFormSuggestions = createType === "exam_form"
-      ? (await import("../../src/server/hskMockExamBank")).hskMockExamEditorialSuggestions((await repository.publishedRuntime({
-        itemType: "exam_item",
-      })).items)
-      : undefined;
+    // The authorized client form loads exam metadata separately; HTML never imports the private bank.
+    const examFormSuggestions = undefined;
+    const examQuestionChoices = undefined;
     const pageHref = (targetPage: number) => {
       const params = new URLSearchParams();
       if (createType) params.set("create", createType);
@@ -162,7 +160,7 @@ export default async function StudioPage({
     return <main className="studio-page"><div className="studio-shell">
       <nav className="studio-topbar" aria-label="Điều hướng Biên Tập Viện">
         <a className="studio-brand" href="/studio"><span><Sparkles size={21} /></span><span><strong>HANZI.OS · BIÊN TẬP VIỆN</strong><small>TRẠM SOẠN NỘI DUNG CÓ KIỂM ĐỊNH</small></span></a>
-        <div className="studio-nav"><a href="/account/security"><UserRoundCheck size={17} /><span>Tài khoản</span></a>{hasPermission(account.authorization, "admin:users:read") && <a href="/admin"><ShieldCheck size={17} /><span>Cổng Quản Trị</span></a>}</div>
+        <div className="studio-nav"><a href="/studio/exams"><ListPlus size={17} /><span>Bộ đề và quyền truy cập</span></a><a href="/account/security"><UserRoundCheck size={17} /><span>Tài khoản</span></a>{hasPermission(account.authorization, "admin:users:read") && <a href="/admin"><ShieldCheck size={17} /><span>Cổng Quản Trị</span></a>}</div>
       </nav>
 
       {(query.notice || query.error) && <div className="studio-notices">
@@ -186,7 +184,7 @@ export default async function StudioPage({
         <section className="studio-section studio-compose-section" id="new-draft" aria-labelledby="new-draft-title">
           <header className="studio-section-heading"><div><span className="studio-kicker">BẢN NHÁP MỚI</span><h2 id="new-draft-title">Nội dung bài</h2></div></header>
           {canDraft
-            ? <StudioStructuredEditor mode="create" draftSeed={crypto.randomUUID().slice(0, 8)} initialItemType={createType} initialLevel={level ?? "hsk1"} examFormSuggestions={examFormSuggestions} />
+            ? <StudioStructuredEditor mode="create" draftSeed={crypto.randomUUID().slice(0, 8)} initialItemType={createType} initialLevel={level ?? "hsk1"} examFormSuggestions={examFormSuggestions} examQuestionChoices={examQuestionChoices} />
             : <div className="studio-permission-note" role="status"><LockKeyhole size={20} /><strong>{canAdminister ? "Chế độ quản trị · chỉ xem" : "Chế độ chỉ xem"}</strong></div>}
         </section>
       </> : <>

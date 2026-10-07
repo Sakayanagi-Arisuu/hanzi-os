@@ -1,0 +1,3373 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/95-REVIEW-VOCABULARY-CONTEXT-ROUND2.md",
+  "entries": [
+    {
+      "sourceRevisionId": "c929a782-8431-400c-b12f-85dfd30d79e0",
+      "sourceContentSha256": "sha256:035778497a3cc8f9f844f59addfdcd6b064f07ff11832b7d6a698e72c3d6cd0c",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện.\nNam hỏi, giáo viên trả lời, bố ghi.\nKhông thêm kết quả đăng ký.",
+        "conceptVi": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+        "dialogue": [
+          {
+            "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+            "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+            "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+            "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+            "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "小雨想问图书馆几点关门，却不好意思开口。妈妈没有代替她问，而是鼓励她自己向老师提问。老师回答说，下午五点关门。",
+            "meaningVi": "Tiểu Vũ muốn hỏi giờ đóng cửa nhưng ngại mở lời. Mẹ không hỏi hộ mà khuyến khích em tự hỏi giáo viên. Giáo viên trả lời đóng cửa lúc 5 giờ chiều.",
+            "pinyin": "Xiǎo Yǔ xiǎng wèn túshūguǎn jǐ diǎn guān mén, què bù hǎoyìsi kāikǒu. Māma méiyǒu dàitì tā wèn, ér shì gǔlì tā zìjǐ xiàng lǎoshī tíwèn. Lǎoshī huídá shuō, xiàwǔ wǔ diǎn guān mén.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "参观结束后，小雨清楚了图书馆的开放时间，妈妈也放心了。她们决定开学后再了解其他活动，今天没有报名。",
+            "meaningVi": "Sau tham quan, Tiểu Vũ hiểu rõ giờ mở cửa thư viện, mẹ cũng yên tâm. Họ định sau khai giảng tìm hiểu hoạt động khác; hôm nay chưa đăng ký.",
+            "pinyin": "Cānguān jiéshù hòu, Xiǎo Yǔ qīngchu le túshūguǎn de kāifàng shíjiān, māma yě fàngxīn le. Tāmen juédìng kāixué hòu zài liǎojiě qítā huódòng, jīntiān méiyǒu bàomíng.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "她鼓励小雨自己向老师提问。",
+            "answerMeaningVi": "Mẹ khuyến khích Tiểu Vũ tự hỏi giáo viên.",
+            "answerPinyin": "Tā gǔlì Xiǎo Yǔ zìjǐ xiàng lǎoshī tíwèn.",
+            "distractors": [
+              "她代替小雨问了所有问题。",
+              "她已经给小雨报名了。"
+            ],
+            "explanationVi": "Đúng: mẹ giúp con tự mở lời.",
+            "promptVi": "Mẹ hỗ trợ Tiểu Vũ bằng cách nào?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Theo dõi người làm từng việc: hiệu trưởng giới thiệu; mẹ khuyến khích; Tiểu Vũ hỏi; giáo viên trả lời. 没有…而是… phân biệt hỏi hộ với hỗ trợ con tự hỏi. 才 ở 下个月才… đánh dấu việc chưa xảy ra; 开学后再… là bước tương lai.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "小南和爸爸参观学校。小南自己问老师体育场几点关门。老师说下午六点关门，爸爸帮他记下时间。他们还没有报名参加活动。",
+              "modelAnswerMeaningVi": "Nam cùng bố tham quan trường. Nam tự hỏi giờ sân thể thao đóng cửa. Giáo viên nói 6 giờ chiều, bố giúp ghi giờ. Họ chưa đăng ký hoạt động.",
+              "modelAnswerPinyin": "Xiǎo Nán hé bàba cānguān xuéxiào. Xiǎo Nán zìjǐ wèn lǎoshī tǐyùchǎng jǐ diǎn guān mén. Lǎoshī shuō xiàwǔ liù diǎn guān mén, bàba bāng tā jì xià shíjiān. Tāmen hái méiyǒu bàomíng cānjiā huódòng.",
+              "promptVi": "Nam tham quan trường với bố. Nam tự hỏi giờ sân thể thao đóng cửa; giáo viên nói 6 giờ chiều. Bố giúp ghi giờ, chưa đăng ký hoạt động. Viết 4 câu đúng vai trò từng người."
+            },
+            "modelExample": {
+              "hanzi": "小雨想问图书馆几点关门，却不好意思开口。妈妈没有代替她问，而是鼓励她自己向老师提问。老师回答说，下午五点关门。",
+              "meaningVi": "Tiểu Vũ muốn hỏi giờ đóng cửa nhưng ngại mở lời. Mẹ không hỏi hộ mà khuyến khích em tự hỏi giáo viên. Giáo viên trả lời đóng cửa lúc 5 giờ chiều.",
+              "pinyin": "Xiǎo Yǔ xiǎng wèn túshūguǎn jǐ diǎn guān mén, què bù hǎoyìsi kāikǒu. Māma méiyǒu dàitì tā wèn, ér shì gǔlì tā zìjǐ xiàng lǎoshī tíwèn. Lǎoshī huídá shuō, xiàwǔ wǔ diǎn guān mén.",
+              "speaker": "Đoạn 3"
+            },
+            "pattern": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình. Đọc các đoạn, đánh dấu bằng chứng rồi viết lại theo dữ kiện mới. Ảnh chỉ minh họa bối cảnh, không cung cấp thêm sự kiện.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ đọc của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "家长 jiāzhǎng — phụ huynh; 参观 cānguān — tham quan; 鼓励 gǔlì — khuyến khích; 代替 dàitì — thay thế; 提问 tíwèn — đặt câu hỏi.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:context",
+              "illustration": {
+                "alt": "Bối cảnh: Môi trường học, hoạt động trường và giáo dục gia đình",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk3-campus-visit-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc bốn đoạn. Chọn câu/đoạn làm bằng chứng cho ghi chú; có thể mở Pinyin và nghĩa khi cần.",
+                    "notePrompt": "Ghi người, việc thay đổi, lý do và kết quả. Điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-0",
+                        "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                        "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ."
+                      },
+                      {
+                        "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-1",
+                        "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                        "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū."
+                      },
+                      {
+                        "hanzi": "小雨想问图书馆几点关门，却不好意思开口。妈妈没有代替她问，而是鼓励她自己向老师提问。老师回答说，下午五点关门。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-2",
+                        "meaningVi": "Tiểu Vũ muốn hỏi giờ đóng cửa nhưng ngại mở lời. Mẹ không hỏi hộ mà khuyến khích em tự hỏi giáo viên. Giáo viên trả lời đóng cửa lúc 5 giờ chiều.",
+                        "pinyin": "Xiǎo Yǔ xiǎng wèn túshūguǎn jǐ diǎn guān mén, què bù hǎoyìsi kāikǒu. Māma méiyǒu dàitì tā wèn, ér shì gǔlì tā zìjǐ xiàng lǎoshī tíwèn. Lǎoshī huídá shuō, xiàwǔ wǔ diǎn guān mén."
+                      },
+                      {
+                        "hanzi": "参观结束后，小雨清楚了图书馆的开放时间，妈妈也放心了。她们决定开学后再了解其他活动，今天没有报名。",
+                        "id": "hsk3-study-work-accounts-campus-education:paragraph-3",
+                        "meaningVi": "Sau tham quan, Tiểu Vũ hiểu rõ giờ mở cửa thư viện, mẹ cũng yên tâm. Họ định sau khai giảng tìm hiểu hoạt động khác; hôm nay chưa đăng ký.",
+                        "pinyin": "Cānguān jiéshù hòu, Xiǎo Yǔ qīngchu le túshūguǎn de kāifàng shíjiān, māma yě fàngxīn le. Tāmen juédìng kāixué hòu zài liǎojiě qítā huódòng, jīntiān méiyǒu bàomíng."
+                      }
+                    ]
+                  },
+                  "title": "Môi trường học, hoạt động trường và giáo dục gia đình"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc và giữ bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Theo dõi người làm từng việc: hiệu trưởng giới thiệu; mẹ khuyến khích; Tiểu Vũ hỏi; giáo viên trả lời. 没有…而是… phân biệt hỏi hộ với hỗ trợ con tự hỏi. 才 ở 下个月才… đánh dấu việc chưa xảy ra; 开学后再… là bước tương lai.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách nối ý và giới hạn của thông tin"
+                },
+                {
+                  "alt": "",
+                  "body": "Được phép tham gia hoạt động không có nghĩa đã đăng ký. Biết giờ thư viện không có nghĩa đã biết mọi hoạt động của trường.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không suy quá bằng chứng"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:connections",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hiểu quan hệ giữa các câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "thư viện\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00863",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                  "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+                  "provenance": "",
+                  "title": "图书馆 · túshūguǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "gặp mặt\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00702",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                  "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+                  "provenance": "",
+                  "title": "见面 · jiànmiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "khuôn viên trường\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00899",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                  "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+                  "provenance": "",
+                  "title": "校园 · xiàoyuán"
+                },
+                {
+                  "alt": "",
+                  "body": "trung học cơ sở; cấp hai\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六，小雨和妈妈在图书馆前见面，一起参观新校园。小雨下个月才上初中，现在还不熟悉这里。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00565",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy, Tiểu Vũ và mẹ gặp trước thư viện rồi tham quan trường mới. Tháng sau em mới lên cấp hai, hiện chưa quen nơi này.",
+                  "pinyin": "Zhōuliù, Xiǎo Yǔ hé māma zài túshūguǎn qián jiànmiàn, yìqǐ cānguān xīn xiàoyuán. Xiǎo Yǔ xià ge yuè cái shàng chūzhōng, xiànzài hái bù shúxī zhèlǐ.",
+                  "provenance": "",
+                  "title": "初中 · chūzhōng"
+                },
+                {
+                  "alt": "",
+                  "body": "hiệu trưởng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00900",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                  "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+                  "provenance": "",
+                  "title": "校长 · xiàozhǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "bảng đen\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00669",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                  "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+                  "provenance": "",
+                  "title": "黑板 · hēibǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "thể dục; thể thao\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "校长站在黑板旁边，介绍学校的安排。学生上午上课，下午可以参加体育活动，也可以去图书馆看书。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00853",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiệu trưởng đứng cạnh bảng giới thiệu lịch của trường. Học sinh học buổi sáng; chiều có thể tham gia thể thao hoặc đọc ở thư viện.",
+                  "pinyin": "Xiàozhǎng zhàn zài hēibǎn pángbiān, jièshào xuéxiào de ānpái. Xuéshēng shàngwǔ shàng kè, xiàwǔ kěyǐ cānjiā tǐyù huódòng, yě kěyǐ qù túshūguǎn kàn shū.",
+                  "provenance": "",
+                  "title": "体育 · tǐyù"
+                },
+                {
+                  "alt": "",
+                  "body": "rõ ràng; hiểu rõ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "参观结束后，小雨清楚了图书馆的开放时间，妈妈也放心了。她们决定开学后再了解其他活动，今天没有报名。",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:word-hsk-vocab-00807",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau tham quan, Tiểu Vũ hiểu rõ giờ mở cửa thư viện, mẹ cũng yên tâm. Họ định sau khai giảng tìm hiểu hoạt động khác; hôm nay chưa đăng ký.",
+                  "pinyin": "Cānguān jiéshù hòu, Xiǎo Yǔ qīngchu le túshūguǎn de kāifàng shíjiān, māma yě fàngxīn le. Tāmen juédìng kāixué hòu zài liǎojiě qítā huódòng, jīntiān méiyǒu bàomíng.",
+                  "provenance": "",
+                  "title": "清楚 · qīngchu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:core-words",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ trọng tâm trong văn bản"
+            },
+            {
+              "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:page:teach",
+              "stage": "understand",
+              "title": "Đời sống ở trường: hỏi chỗ để đồ ăn",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:note",
+                  "kind": "explanation",
+                  "title": "冰箱／方便面",
+                  "body": "Tình huống bổ sung sau buổi tham quan trường: học sinh hỏi về sinh hoạt ký túc xá. 冰箱 (bīngxiāng) là tủ lạnh; 方便面 (fāngbiànmiàn) là mì ăn liền, không phải tên chung của mọi món tiện lợi. Một gói mì: 一包方便面; một bát mì đã nấu: 一碗方便面. Ví dụ mô tả việc nhân vật làm, không đặt quy định chung về bảo quản mọi loại thực phẩm.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "宿舍里有一个冰箱，我们把牛奶放在里面。",
+                  "pinyin": "Sùshè lǐ yǒu yí ge bīngxiāng, wǒmen bǎ niúnǎi fàng zài lǐmiàn.",
+                  "meaningVi": "Trong ký túc xá có một tủ lạnh, chúng tôi để sữa bên trong.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "今天来不及做饭，我煮了一碗方便面。",
+                  "pinyin": "Jīntiān lái bu jí zuò fàn, wǒ zhǔ le yì wǎn fāngbiànmiàn.",
+                  "meaningVi": "Hôm nay không kịp nấu cơm, tôi nấu một bát mì ăn liền.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:example-2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "学生问：“牛奶放在哪里？”老师说：“放在冰箱里。方便面还没煮，先放在柜子里。”",
+                  "pinyin": "Xuésheng wèn: “Niúnǎi fàng zài nǎlǐ?” Lǎoshī shuō: “Fàng zài bīngxiāng lǐ. Fāngbiànmiàn hái méi zhǔ, xiān fàng zài guìzi lǐ.”",
+                  "meaningVi": "Học sinh hỏi: “Để sữa ở đâu ạ?” Giáo viên nói: “Trong tủ lạnh. Mì ăn liền chưa nấu, tạm để trong tủ đồ.”",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 冰箱／方便面",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Theo lời giáo viên trong tình huống này, hai đồ vật được để ở đâu?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "牛奶放在冰箱里，方便面先放在柜子里。",
+                        "feedback": "Lời đáp phân biệt sữa trong tủ lạnh và mì chưa nấu trong tủ đồ. Không có căn cứ nói cả hai đều phải để lạnh."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "牛奶和方便面都放在冰箱里。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "牛奶放在柜子里，方便面放在冰箱里。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Lời đáp phân biệt sữa trong tủ lạnh và mì chưa nấu trong tủ đồ. Không có căn cứ nói cả hai đều phải để lạnh.",
+                    "learningTarget": {
+                      "objective": "Đời sống ở trường: hỏi chỗ để đồ ăn",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00536"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00620"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đúng: mẹ giúp con tự mở lời.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: mẹ giúp con tự mở lời.",
+                        "id": "o-0",
+                        "text": "她鼓励小雨自己向老师提问。"
+                      },
+                      {
+                        "feedback": "Sai: mẹ không hỏi thay.",
+                        "id": "o-1",
+                        "text": "她代替小雨问了所有问题。"
+                      },
+                      {
+                        "feedback": "Sai: hôm nay chưa đăng ký.",
+                        "id": "o-2",
+                        "text": "她已经给小雨报名了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Mẹ hỗ trợ Tiểu Vũ bằng cách nào?",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn kết luận có căn cứ"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Đọc để quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "而是"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没有…而是… phủ định cách thứ nhất rồi nêu cách thực tế.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền theo quan hệ thay thế: 妈妈没有代替她问，___鼓励她自己问。",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền theo quan hệ được yêu cầu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự nối lại ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n小南和爸爸参观学校。小南自己问老师体育场几点关门。老师说下午六点关门，爸爸帮他记下时间。他们还没有报名参加活动。\nXiǎo Nán hé bàba cānguān xuéxiào. Xiǎo Nán zìjǐ wèn lǎoshī tǐyùchǎng jǐ diǎn guān mén. Lǎoshī shuō xiàwǔ liù diǎn guān mén, bàba bāng tā jì xià shíjiān. Tāmen hái méiyǒu bàomíng cānjiā huódòng.\nNam cùng bố tham quan trường. Nam tự hỏi giờ sân thể thao đóng cửa. Giáo viên nói 6 giờ chiều, bố giúp ghi giờ. Họ chưa đăng ký hoạt động.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Tự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện.",
+                        "id": "criterion-0",
+                        "label": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện."
+                      },
+                      {
+                        "guidance": "Nam hỏi, giáo viên trả lời, bố ghi.",
+                        "id": "criterion-1",
+                        "label": "Nam hỏi, giáo viên trả lời, bố ghi."
+                      },
+                      {
+                        "guidance": "Không thêm kết quả đăng ký.",
+                        "id": "criterion-2",
+                        "label": "Không thêm kết quả đăng ký."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Nam tham quan trường với bố. Nam tự hỏi giờ sân thể thao đóng cửa; giáo viên nói 6 giờ chiều. Bố giúp ghi giờ, chưa đăng ký hoạt động. Viết 4 câu đúng vai trò từng người.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Viết với dữ kiện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đúng sân thể thao và 6 giờ, không chép giờ thư viện.\nNam hỏi, giáo viên trả lời, bố ghi.\nKhông thêm kết quả đăng ký.\nSửa ít nhất một điểm chưa rõ trong bản viết, rồi thử kể lại khi không nhìn mẫu. Dùng Tra từ trong bài để ôn từ liên quan; xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-campus-education:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bài viết"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-campus-education:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự sửa trước khi tiếp tục"
+            },
+            {
+              "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 冰箱／方便面 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-campus-education:vocab-context-r2:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Sang căn hộ mới: bạn đã để sữa trong tủ lạnh, vừa nấu một bát mì ăn liền. Nhắn cho bạn cùng nhà hai thông tin này, dùng 冰箱 và 方便面 cùng lượng từ phù hợp.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu đúng nơi để sữa bằng 冰箱里.",
+                        "guidance": "Nêu đúng nơi để sữa bằng 冰箱里."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Dùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì.",
+                        "guidance": "Dùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n我把牛奶放在冰箱里了，还煮了一碗方便面。\nWǒ bǎ niúnǎi fàng zài bīngxiāng lǐ le, hái zhǔ le yì wǎn fāngbiànmiàn.\nTôi đã để sữa vào tủ lạnh và nấu một bát mì ăn liền.\nNêu đúng nơi để sữa bằng 冰箱里.\nDùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Đời sống ở trường: hỏi chỗ để đồ ăn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00536"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00620"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/37-REVIEW-HSK3-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-study-work-accounts-campus-education",
+          "reviewedAt": "2026-09-22",
+          "scope": "Five HSK3 study and work narratives: evidence reading and guided writing; no independent mastery claim.",
+          "sourceContentSha256": "sha256:7c51708ae82f57fed8e070df422bf214561d637f17a5b96ef7e5f71314f60b48"
+        },
+        "objectiveVi": "Tóm tắt buổi tham quan và phân biệt vai trò nhà trường, gia đình",
+        "pitfallVi": "Được phép tham gia hoạt động không có nghĩa đã đăng ký. Biết giờ thư viện không có nghĩa đã biết mọi hoạt động của trường.",
+        "prerequisites": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Theo dõi người làm từng việc: hiệu trưởng giới thiệu; mẹ khuyến khích; Tiểu Vũ hỏi; giáo viên trả lời. 没有…而是… phân biệt hỏi hộ với hỗ trợ con tự hỏi. 才 ở 下个月才… đánh dấu việc chưa xảy ra; 开学后再… là bước tương lai.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceTaskIds": [
+          "hsk3-paragraph-task:hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceTopicIds": [
+          "hsk3-topic-029",
+          "hsk3-topic-031",
+          "hsk3-topic-032",
+          "hsk3-topic-033"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00536",
+          "hsk-vocab-00563",
+          "hsk-vocab-00565",
+          "hsk-vocab-00620",
+          "hsk-vocab-00647",
+          "hsk-vocab-00669",
+          "hsk-vocab-00702",
+          "hsk-vocab-00714",
+          "hsk-vocab-00770",
+          "hsk-vocab-00783",
+          "hsk-vocab-00807",
+          "hsk-vocab-00831",
+          "hsk-vocab-00840",
+          "hsk-vocab-00853",
+          "hsk-vocab-00863",
+          "hsk-vocab-00899",
+          "hsk-vocab-00900",
+          "hsk-vocab-00978",
+          "hsk-vocab-00998",
+          "hsk-vocab-00545",
+          "hsk-vocab-00801",
+          "hsk-vocab-00966",
+          "hsk-vocab-00583",
+          "hsk-vocab-00506",
+          "hsk-vocab-00517",
+          "hsk-vocab-00614",
+          "hsk-vocab-00828",
+          "hsk-vocab-00941",
+          "hsk-vocab-00678",
+          "hsk-vocab-00587",
+          "hsk-vocab-00626",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00813",
+          "hsk-vocab-00544",
+          "hsk-vocab-00622",
+          "hsk-vocab-00745",
+          "hsk-vocab-00534",
+          "hsk-vocab-00716",
+          "hsk-vocab-00955",
+          "hsk-vocab-00968",
+          "hsk-vocab-00518",
+          "hsk-vocab-00589",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00774",
+          "hsk-vocab-00776",
+          "hsk-vocab-00554",
+          "hsk-vocab-00679",
+          "hsk-vocab-00757",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00817",
+          "hsk-vocab-00617",
+          "hsk-vocab-00712",
+          "hsk-vocab-00926",
+          "hsk-vocab-00641",
+          "hsk-vocab-00619",
+          "hsk-vocab-00894",
+          "hsk-vocab-00578",
+          "hsk-vocab-00981",
+          "hsk-vocab-00655",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865"
+        ],
+        "targetLessonId": "hsk3-study-work-accounts-campus-education",
+        "titleZh": "HSK三级 · 07",
+        "vocabulary": [
+          "hsk-vocab-00536",
+          "hsk-vocab-00563",
+          "hsk-vocab-00565",
+          "hsk-vocab-00620",
+          "hsk-vocab-00647",
+          "hsk-vocab-00669",
+          "hsk-vocab-00702",
+          "hsk-vocab-00714",
+          "hsk-vocab-00770",
+          "hsk-vocab-00783",
+          "hsk-vocab-00807",
+          "hsk-vocab-00831",
+          "hsk-vocab-00840",
+          "hsk-vocab-00853",
+          "hsk-vocab-00863",
+          "hsk-vocab-00899",
+          "hsk-vocab-00900",
+          "hsk-vocab-00978",
+          "hsk-vocab-00998",
+          "hsk-vocab-00545",
+          "hsk-vocab-00801",
+          "hsk-vocab-00966",
+          "hsk-vocab-00583",
+          "hsk-vocab-00506",
+          "hsk-vocab-00517",
+          "hsk-vocab-00614",
+          "hsk-vocab-00828",
+          "hsk-vocab-00941",
+          "hsk-vocab-00678",
+          "hsk-vocab-00587",
+          "hsk-vocab-00626",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00813",
+          "hsk-vocab-00544",
+          "hsk-vocab-00622",
+          "hsk-vocab-00745",
+          "hsk-vocab-00534",
+          "hsk-vocab-00716",
+          "hsk-vocab-00955",
+          "hsk-vocab-00968",
+          "hsk-vocab-00518",
+          "hsk-vocab-00589",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00774",
+          "hsk-vocab-00776",
+          "hsk-vocab-00554",
+          "hsk-vocab-00679",
+          "hsk-vocab-00757",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00817",
+          "hsk-vocab-00617",
+          "hsk-vocab-00712",
+          "hsk-vocab-00926",
+          "hsk-vocab-00641",
+          "hsk-vocab-00619",
+          "hsk-vocab-00894",
+          "hsk-vocab-00578",
+          "hsk-vocab-00981",
+          "hsk-vocab-00655",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "5b4fefa9-25a1-4a64-9157-461c7a79ebfe",
+      "sourceContentSha256": "sha256:518a33eb2b9dbff432dbe1ee9caa455d39ef1b9676a0eb085d5384cfaa2bce40",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Khôi phục câu chuyện trồng cây, giải thích điểm nối 第二天 và phân biệt lời dự định lần sau với hoạt động đã hoàn thành.",
+        "conceptVi": "Mốc thời gian giúp nối các sự kiện; mỗi mốc cần được hiểu dựa vào sự kiện và thời điểm đã nêu. Dự định chưa phải sự kiện đã xảy ra.",
+        "dialogue": [
+          {
+            "hanzi": "以前，爷爷每天早上都看报纸。他不太喜欢用手机看新闻。",
+            "id": "past",
+            "meaningVi": "Trước đây, sáng nào ông cũng đọc báo. Ông không thích lắm việc dùng điện thoại xem tin tức.",
+            "pinyin": "Yǐqián, yéye měitiān zǎoshang dōu kàn bàozhǐ. Tā bú tài xǐhuan yòng shǒujī kàn xīnwén.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "后来，爷爷常看的报纸改成每周出版一次。为了每天了解新闻，他开始学习使用手机。",
+            "id": "change",
+            "meaningVi": "Sau đó, tờ báo ông thường đọc chuyển sang xuất bản mỗi tuần một lần. Để biết tin tức hằng ngày, ông bắt đầu học dùng điện thoại.",
+            "pinyin": "Hòulái, yéye cháng kàn de bàozhǐ gǎi chéng měi zhōu chūbǎn yí cì. Wèile měitiān liǎojiě xīnwén, tā kāishǐ xuéxí shǐyòng shǒujī.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "刚开始，他觉得手机上的字太小，看起来很累。孙女教他把字放大，还陪他一起练习。",
+            "id": "difficulty",
+            "meaningVi": "Lúc mới bắt đầu, ông thấy chữ trên điện thoại quá nhỏ, đọc rất mệt. Cháu gái dạy ông phóng to chữ và còn cùng ông luyện tập.",
+            "pinyin": "Gāng kāishǐ, tā juéde shǒujī shàng de zì tài xiǎo, kàn qǐlái hěn lèi. Sūnnǚ jiāo tā bǎ zì fàng dà, hái péi tā yìqǐ liànxí.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "现在，爷爷已经会用手机看新闻了，不过周末仍然喜欢读报。对他来说，新方法并没有代替旧习惯，而是多了一种选择。",
+            "id": "now",
+            "meaningVi": "Bây giờ ông đã biết dùng điện thoại xem tin tức, nhưng cuối tuần vẫn thích đọc báo. Với ông, cách mới không thay thế thói quen cũ mà mang lại thêm một lựa chọn.",
+            "pinyin": "Xiànzài, yéye yǐjīng huì yòng shǒujī kàn xīnwén le, búguò zhōumò réngrán xǐhuan dú bào. Duì tā lái shuō, xīn fāngfǎ bìng méiyǒu dàitì jiù xíguàn, ér shì duō le yì zhǒng xuǎnzé.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "为了每天了解新闻。",
+            "answerMeaningVi": "Để biết tin tức mỗi ngày.",
+            "answerPinyin": "Wèile měitiān liǎojiě xīnwén.",
+            "distractors": [
+              "为了再也不看报纸。",
+              "为了教孙女使用手机。"
+            ],
+            "explanationVi": "Đoạn hai nêu 为了每天了解新闻. Ông vẫn đọc báo cuối tuần; cháu dạy ông, không phải ngược lại.",
+            "promptVi": "Ông học dùng điện thoại với mục đích gì được nêu trong bài?"
+          },
+          {
+            "answer": "活动当天。",
+            "answerMeaningVi": "Ngày diễn ra hoạt động.",
+            "answerPinyin": "Huódòng dāngtiān.",
+            "distractors": [
+              "活动前一天。",
+              "活动结束后的第二天。"
+            ],
+            "explanationVi": "Đoạn trước nói 活动前一天. Ngày tiếp theo là ngày hoạt động, được xác nhận bằng việc đến địa điểm và trồng cây.",
+            "promptVi": "第二天 trong câu chuyện trồng cây là ngày nào?"
+          },
+          {
+            "answer": "下次还想参加这样的活动。",
+            "answerMeaningVi": "Lần sau vẫn muốn tham gia hoạt động như vậy.",
+            "answerPinyin": "Xià cì hái xiǎng cānjiā zhèyàng de huódòng.",
+            "distractors": [
+              "已经参加了第二次活动。",
+              "已经给家人发了照片。"
+            ],
+            "explanationVi": "想 nêu mong muốn cho 下次. Văn bản không nói đã tham gia lần thứ hai; gửi ảnh là sự kiện đã xảy ra.",
+            "promptVi": "Sau hoạt động, điều gì mới chỉ là mong muốn của Tiểu Lâm?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Nối thói quen cũ, giai đoạn thay đổi và hiện trạng. 后来 chỉ trình tự, chưa tự giải thích nguyên nhân.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "以前爷爷不太喜欢用手机看新闻，后来他开始学习使用手机。",
+              "modelAnswerMeaningVi": "Trước đây ông không thích lắm việc dùng điện thoại xem tin tức, sau đó ông bắt đầu học dùng điện thoại.",
+              "modelAnswerPinyin": "Yǐqián yéye bú tài xǐhuan yòng shǒujī kàn xīnwén, hòulái tā kāishǐ xuéxí shǐyòng shǒujī.",
+              "promptVi": "Nói rằng trước đây ông không thích dùng điện thoại xem tin tức, sau đó ông bắt đầu học dùng điện thoại."
+            },
+            "modelExample": {
+              "hanzi": "以前爷爷看报纸，现在他也会用手机看新闻了。",
+              "meaningVi": "Trước đây ông đọc báo, bây giờ ông cũng biết dùng điện thoại xem tin tức.",
+              "pinyin": "Yǐqián yéye kàn bàozhǐ, xiànzài tā yě huì yòng shǒujī kàn xīnwén le."
+            },
+            "pattern": "以前…后来…现在…"
+          },
+          {
+            "explanationVi": "第二天 ở đây nối với ngày chuẩn bị ngay trước hoạt động. 结束后 đặt sự kiện sau khi hoạt động kết thúc.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "活动结束后，小林把照片发给了家人。",
+              "modelAnswerMeaningVi": "Sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình.",
+              "modelAnswerPinyin": "Huódòng jiéshù hòu, Xiǎo Lín bǎ zhàopiàn fā gěi le jiārén.",
+              "promptVi": "Nói rằng sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình."
+            },
+            "modelExample": {
+              "hanzi": "活动前一天，小林准备好了东西。第二天，他按时到了活动地点。",
+              "meaningVi": "Ngày trước hoạt động, Tiểu Lâm chuẩn bị đồ xong. Ngày hôm sau, anh đến địa điểm hoạt động đúng giờ.",
+              "pinyin": "Huódòng qián yì tiān, Xiǎo Lín zhǔnbèi hǎo le dōngxi. Dì èr tiān, tā ànshí dào le huódòng dìdiǎn."
+            },
+            "pattern": "…前一天…第二天…结束后…"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn sẽ tìm các mốc thời gian, phân biệt nguyên nhân với diễn biến và giải thích vì sao các đoạn cần đứng theo một thứ tự. Sau cùng, viết bản tóm tắt ba câu không thêm thông tin ngoài văn bản.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc để làm gì?"
+                },
+                {
+                  "alt": "",
+                  "body": "出版 (chūbǎn) — xuất bản; 使用 (shǐyòng) — sử dụng; 放大 (fàng dà) — phóng to; 代替 (dàitì) — thay thế; 仍然 (réngrán) — vẫn. Đây là hỗ trợ đọc; mở lại khi cần, không phải bài kiểm tra nhớ độc lập những từ này.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi đọc"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:mission",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Theo dõi một thói quen thay đổi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Lượt đầu tìm thay đổi chính. Lượt hai chọn đoạn giải thích vì sao ông bắt đầu học dùng điện thoại. Không cần dịch từng chữ ngay.",
+                    "notePrompt": "Thay đổi chính là gì? Đoạn bạn chọn giải thích nguyên nhân như thế nào?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "以前，爷爷每天早上都看报纸。他不太喜欢用手机看新闻。",
+                        "id": "past",
+                        "meaningVi": "Trước đây, sáng nào ông cũng đọc báo. Ông không thích lắm việc dùng điện thoại xem tin tức.",
+                        "pinyin": "Yǐqián, yéye měitiān zǎoshang dōu kàn bàozhǐ. Tā bú tài xǐhuan yòng shǒujī kàn xīnwén."
+                      },
+                      {
+                        "hanzi": "后来，爷爷常看的报纸改成每周出版一次。为了每天了解新闻，他开始学习使用手机。",
+                        "id": "change",
+                        "meaningVi": "Sau đó, tờ báo ông thường đọc chuyển sang xuất bản mỗi tuần một lần. Để biết tin tức hằng ngày, ông bắt đầu học dùng điện thoại.",
+                        "pinyin": "Hòulái, yéye cháng kàn de bàozhǐ gǎi chéng měi zhōu chūbǎn yí cì. Wèile měitiān liǎojiě xīnwén, tā kāishǐ xuéxí shǐyòng shǒujī."
+                      },
+                      {
+                        "hanzi": "刚开始，他觉得手机上的字太小，看起来很累。孙女教他把字放大，还陪他一起练习。",
+                        "id": "difficulty",
+                        "meaningVi": "Lúc mới bắt đầu, ông thấy chữ trên điện thoại quá nhỏ, đọc rất mệt. Cháu gái dạy ông phóng to chữ và còn cùng ông luyện tập.",
+                        "pinyin": "Gāng kāishǐ, tā juéde shǒujī shàng de zì tài xiǎo, kàn qǐlái hěn lèi. Sūnnǚ jiāo tā bǎ zì fàng dà, hái péi tā yìqǐ liànxí."
+                      },
+                      {
+                        "hanzi": "现在，爷爷已经会用手机看新闻了，不过周末仍然喜欢读报。对他来说，新方法并没有代替旧习惯，而是多了一种选择。",
+                        "id": "now",
+                        "meaningVi": "Bây giờ ông đã biết dùng điện thoại xem tin tức, nhưng cuối tuần vẫn thích đọc báo. Với ông, cách mới không thay thế thói quen cũ mà mang lại thêm một lựa chọn.",
+                        "pinyin": "Xiànzài, yéye yǐjīng huì yòng shǒujī kàn xīnwén le, búguò zhōumò réngrán xǐhuan dú bào. Duì tā lái shuō, xīn fāngfǎ bìng méiyǒu dàitì jiù xíguàn, ér shì duō le yì zhǒng xuǎnzé."
+                      }
+                    ]
+                  },
+                  "title": "Đọc trọn văn bản"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:read",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Một tờ báo và một chiếc điện thoại"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "以前 giới thiệu thói quen cũ; 后来 mở thay đổi; 刚开始 nhìn vào đầu quá trình học dùng điện thoại; 现在 nêu kết quả hiện tại. 刚开始 ở đây không phải đầu toàn bộ cuộc đời nhân vật.",
+                    "nodes": [
+                      {
+                        "id": "past",
+                        "label": "以前",
+                        "meaningVi": "trước đây",
+                        "note": "Thói quen đọc báo.",
+                        "pinyin": "yǐqián",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "change",
+                        "label": "后来",
+                        "meaningVi": "sau đó",
+                        "note": "Báo đổi lịch xuất bản; ông học dùng điện thoại.",
+                        "pinyin": "hòulái",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "difficulty",
+                        "label": "刚开始",
+                        "meaningVi": "lúc mới bắt đầu",
+                        "note": "Khó khăn ban đầu và sự giúp đỡ.",
+                        "pinyin": "gāng kāishǐ",
+                        "x": 0,
+                        "y": 2
+                      },
+                      {
+                        "id": "now",
+                        "label": "现在",
+                        "meaningVi": "bây giờ",
+                        "note": "Thêm cách đọc tin; vẫn giữ thói quen cũ.",
+                        "pinyin": "xiànzài",
+                        "x": 0,
+                        "y": 3
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:timeline-figure",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Bốn chặng của câu chuyện"
+                },
+                {
+                  "alt": "",
+                  "body": "后来 cho biết bước xảy ra sau, không tự giải thích vì sao. 为了每天了解新闻 nói mục đích học dùng điện thoại. Muốn giải thích lựa chọn thứ tự, hãy chỉ cả mốc thời gian lẫn nội dung nối giữa hai đoạn.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:reason",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thời gian khác nguyên nhân"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:timeline",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Mốc thời gian cần một điểm xuất phát"
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:page:teach",
+              "stage": "understand",
+              "title": "Nghe rõ chưa chắc đã hiểu",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:note",
+                  "kind": "explanation",
+                  "title": "耳朵／耳机／懂得",
+                  "body": "Tiếp tình huống đổi cách theo dõi tin: 耳朵 (ěrduo, 朵 thanh nhẹ) là tai; 耳机 (ěrjī) là thiết bị tai nghe. 听清楚 chỉ nghe rõ âm, 听懂 chỉ hiểu nội dung nghe. 懂得 (dǒngde) thường nói hiểu/biết một nguyên tắc hoặc cách ứng xử, như 懂得尊重别人. Không nói “chỉ động tai” để diễn đạt nghe mà không hiểu; không coi đeo tai nghe là bằng chứng hiểu tin.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "爷爷戴上耳机以后，能听清楚录音了，可是有几个词还没听懂。",
+                  "pinyin": "Yéye dài shàng ěrjī yǐhòu, néng tīng qīngchu lùyīn le, kěshì yǒu jǐ ge cí hái méi tīng dǒng.",
+                  "meaningVi": "Sau khi đeo tai nghe, ông nghe rõ bản ghi âm rồi, nhưng vẫn chưa hiểu vài từ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "戴了很久的耳机，我的耳朵有点儿不舒服。",
+                  "pinyin": "Dài le hěn jiǔ de ěrjī, wǒ de ěrduo yǒudiǎnr bù shūfu.",
+                  "meaningVi": "Đeo tai nghe lâu, tai tôi hơi khó chịu.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:example-2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "她懂得尊重别人的选择，不会要求大家都和她一样。",
+                  "pinyin": "Tā dǒngde zūnzhòng biérén de xuǎnzé, bú huì yāoqiú dàjiā dōu hé tā yíyàng.",
+                  "meaningVi": "Cô ấy biết tôn trọng lựa chọn của người khác, không yêu cầu mọi người đều giống mình.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 耳朵／耳机／懂得",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Kết luận nào giữ đúng sự khác nhau giữa tai, tai nghe và hiểu nội dung?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "戴上耳机就一定能听懂所有的词。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "耳机是耳朵的另一种说法。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "戴耳机可能帮助听清楚，但听清楚不等于听懂。",
+                        "feedback": "耳机 là thiết bị, 耳朵 là bộ phận cơ thể. Có thể nghe rõ âm nhưng chưa hiểu từ; 懂得 dùng với sự hiểu biết, không phải động tác của tai."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "耳机 là thiết bị, 耳朵 là bộ phận cơ thể. Có thể nghe rõ âm nhưng chưa hiểu từ; 懂得 dùng với sự hiểu biết, không phải động tác của tai.",
+                    "learningTarget": {
+                      "objective": "Nghe rõ chưa chắc đã hiểu",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00602"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00612"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00613"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "habit",
+                      "reason",
+                      "help",
+                      "result"
+                    ],
+                    "explanation": "Thói quen cũ → thay đổi tạo nhu cầu → quá trình học và được giúp → kết quả. Nếu đặt sự giúp đỡ trước lúc bắt đầu học, quan hệ giữa các đoạn sẽ thiếu điểm nối.",
+                    "hint": "Xác định thói quen ở đầu và kết quả ở cuối trước.",
+                    "learningTarget": {
+                      "objective": "Sắp xếp thói quen cũ, nguyên nhân thay đổi, quá trình học có người giúp và kết quả; có thể trở lại văn bản nên đây là đọc nối ý có hỗ trợ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-pattern:hsk3-cohesion-reconstruction-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "help",
+                        "text": "Cháu giúp ông vượt khó khăn ban đầu."
+                      },
+                      {
+                        "feedback": "",
+                        "id": "habit",
+                        "text": "Ông đọc báo mỗi sáng."
+                      },
+                      {
+                        "feedback": "",
+                        "id": "result",
+                        "text": "Ông có thêm cách xem tin và vẫn đọc báo."
+                      },
+                      {
+                        "feedback": "",
+                        "id": "reason",
+                        "text": "Báo đổi lịch; ông bắt đầu học dùng điện thoại."
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Ghép bốn ý theo trình tự của câu chuyện. Có thể quay lại văn bản khi cần.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:order",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sắp xếp bốn ý"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "choice"
+                    ],
+                    "explanation": "Bám vào đoạn cuối. Không biến câu chuyện của một người thành kết luận về cả nhóm; cũng không suy “biết cách mới” thành “bỏ cách cũ”.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn nhận định ông có thêm một cách xem tin và vẫn đọc báo; không suy một người thành mọi người cao tuổi.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-cohesion-reconstruction-lesson-01:prompt-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đoạn cuối nói ông vẫn thích đọc báo vào cuối tuần.",
+                        "id": "replace",
+                        "text": "Ông đã bỏ hẳn việc đọc báo."
+                      },
+                      {
+                        "feedback": "Đúng: đoạn cuối nói 多了一种选择, đồng thời giữ thói quen đọc báo.",
+                        "id": "choice",
+                        "text": "Ông có thêm một lựa chọn để xem tin."
+                      },
+                      {
+                        "feedback": "Văn bản kể về một người; không đủ bằng chứng để kết luận về mọi người cao tuổi.",
+                        "id": "all",
+                        "text": "Mọi người cao tuổi đều thích xem tin bằng điện thoại."
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Chọn nhận định được văn bản hỗ trợ.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:claim",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Có thể kết luận điều nào?"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Khôi phục diễn biến và kiểm điều văn bản nói"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một dàn ý để đối chiếu: 以前…看报纸；后来…每周出版一次…学习使用手机；现在…会…不过…仍然…。Bản tóm tắt không cần chép nguyên văn, nhưng phải giữ lý do thay đổi và kết quả có cả cách cũ lẫn cách mới.",
+                    "hint": "Đặt 以前 / 后来 / 现在 ở ba điểm của dàn ý.",
+                    "learningTarget": {
+                      "objective": "Viết ba câu tóm tắt thói quen, lý do/cách thay đổi và kết quả theo văn bản; dùng từ hỗ trợ và rubric tự đối chiếu, chưa chấm viết độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-cohesion-reconstruction-lesson-01:prompt-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Có thói quen đọc báo trước đây, không chỉ kể việc dùng điện thoại.",
+                        "id": "before",
+                        "label": "Nêu điểm xuất phát"
+                      },
+                      {
+                        "guidance": "Lịch xuất bản thay đổi tạo nhu cầu xem tin hằng ngày; cháu giúp ông học cách dùng điện thoại.",
+                        "id": "reason",
+                        "label": "Giữ nguyên nhân và diễn biến"
+                      },
+                      {
+                        "guidance": "Ông vẫn đọc báo; không viết rằng ông bỏ hẳn báo hoặc mọi người già đều đổi thói quen.",
+                        "id": "result",
+                        "label": "Không suy diễn quá văn bản"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết ba câu tiếng Trung: thói quen trước đây; lý do và cách thay đổi; kết quả hiện nay. Có thể dùng từ hỗ trợ. Tự kiểm trước khi mở gợi ý.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:write",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giữ quan hệ giữa các ý"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt bằng ba câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "种树 (zhòng shù) — trồng cây; 报名 (bàomíng) — đăng ký; 负责人 (fùzérén) — người phụ trách; 雨衣 (yǔyī) — áo mưa. Không cần nhớ độc lập các từ được cung cấp để thực hiện nhiệm vụ về trình tự.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-text-reading",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Bốn đoạn kể về cùng một hoạt động nhưng đang xếp sai thứ tự. Đọc hết, chọn các đoạn chứa mốc giúp bạn quyết định, rồi ghi thứ tự dự kiến trước khi sang trang sắp xếp.",
+                    "notePrompt": "Thứ tự dự kiến của bạn là gì? Giải thích “第二天” lấy ngày nào làm điểm xuất phát.",
+                    "paragraphs": [
+                      {
+                        "hanzi": "第二天，虽然下雨了，小林还是按时到了活动地点。他和新认识的朋友一起种了几棵树。",
+                        "id": "event",
+                        "meaningVi": "Ngày hôm sau, dù trời mưa, Tiểu Lâm vẫn đến địa điểm hoạt động đúng giờ. Anh cùng những người bạn mới quen trồng vài cây.",
+                        "pinyin": "Dì èr tiān, suīrán xià yǔ le, Xiǎo Lín háishi ànshí dào le huódòng dìdiǎn. Tā hé xīn rènshi de péngyou yìqǐ zhòng le jǐ kē shù."
+                      },
+                      {
+                        "hanzi": "上周，小林在网上看到一个周末种树活动。他觉得很有意思，就报名参加了。",
+                        "id": "signup",
+                        "meaningVi": "Tuần trước, Tiểu Lâm thấy trên mạng một hoạt động trồng cây cuối tuần. Anh thấy rất thú vị nên đăng ký tham gia.",
+                        "pinyin": "Shàng zhōu, Xiǎo Lín zài wǎngshàng kàn dào yí ge zhōumò zhòng shù huódòng. Tā juéde hěn yǒu yìsi, jiù bàomíng cānjiā le."
+                      },
+                      {
+                        "hanzi": "活动结束后，小林把照片发给了家人。他说，下次还想参加这样的活动。",
+                        "id": "after",
+                        "meaningVi": "Sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình. Anh nói lần sau vẫn muốn tham gia hoạt động như vậy.",
+                        "pinyin": "Huódòng jiéshù hòu, Xiǎo Lín bǎ zhàopiàn fā gěi le jiārén. Tā shuō, xià cì hái xiǎng cānjiā zhèyàng de huódòng."
+                      },
+                      {
+                        "hanzi": "活动前一天，负责人发来消息，提醒大家带水和雨衣。小林按照要求准备好了东西。",
+                        "id": "prepare",
+                        "meaningVi": "Một ngày trước hoạt động, người phụ trách gửi tin nhắc mọi người mang nước và áo mưa. Tiểu Lâm chuẩn bị đồ theo yêu cầu.",
+                        "pinyin": "Huódòng qián yì tiān, fùzérén fā lái xiāoxi, tíxǐng dàjiā dài shuǐ hé yǔyī. Xiǎo Lín ànzhào yāoqiú zhǔnbèi hǎo le dōngxi."
+                      }
+                    ]
+                  },
+                  "title": "Bốn đoạn đang bị đảo vị trí"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-text",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Thử với một câu chuyện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "signup",
+                      "prepare",
+                      "event",
+                      "after"
+                    ],
+                    "explanation": "上周 đăng ký → 活动前一天 chuẩn bị → 第二天 đến tham gia → 活动结束后 gửi ảnh. 第二天 nối với “một ngày trước hoạt động”, vì vậy đó là ngày hoạt động diễn ra. Câu 下次 còn muốn tham gia nằm trong lời kể sau hoạt động, không phải một sự kiện mới đã xảy ra.",
+                    "hint": "Tìm bước đăng ký trước khi chuẩn bị và mốc kết thúc trước lời dự định lần sau.",
+                    "learningTarget": {
+                      "objective": "Sắp xếp đăng ký, chuẩn bị, ngày trồng cây và gửi ảnh theo mốc 上周, 活动前一天, 第二天, 活动结束后.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-pattern:hsk3-cohesion-reconstruction-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "event",
+                        "text": "第二天，虽然下雨了，小林还是按时到了活动地点。他和新认识的朋友一起种了几棵树。"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "signup",
+                        "text": "上周，小林在网上看到一个周末种树活动。他觉得很有意思，就报名参加了。"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "after",
+                        "text": "活动结束后，小林把照片发给了家人。他说，下次还想参加这样的活动。"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "prepare",
+                        "text": "活动前一天，负责人发来消息，提醒大家带水和雨衣。小林按照要求准备好了东西。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Sắp xếp bốn khối theo diễn biến của câu chuyện trồng cây.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-order-activity",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Khôi phục thứ tự"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Đối chiếu mốc thời gian và nội dung sự kiện cùng lúc. Không chỉ đoán thứ tự theo từ đầu câu; nêu rõ hai đoạn nối với nhau ở chi tiết nào.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giải thích bằng bằng chứng thời gian vì sao 第二天 nằm giữa chuẩn bị và gửi ảnh; được dùng tiếng Việt, nên không coi là điểm viết tiếng Trung.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-cohesion-reconstruction-lesson-01:prompt-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "第二天 được hiểu dựa vào 活动前一天 ở đoạn chuẩn bị.",
+                        "id": "anchor",
+                        "label": "Xác định ngày làm mốc"
+                      },
+                      {
+                        "guidance": "Trồng cây xảy ra trong hoạt động; gửi ảnh xảy ra sau khi hoạt động kết thúc.",
+                        "id": "event",
+                        "label": "Giữ đúng sự kiện"
+                      },
+                      {
+                        "guidance": "下次还想参加 nói mong muốn cho lần sau, không chứng minh đã tham gia lần thứ hai.",
+                        "id": "future",
+                        "label": "Không biến dự định thành sự kiện đã xảy ra"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Giải thích vì sao đoạn “第二天” đứng sau đoạn chuẩn bị và trước đoạn gửi ảnh. Có thể dùng tiếng Việt nếu chưa đủ từ tiếng Trung để giải thích.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-explain",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự giải thích một điểm nối"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-order",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Ghép lại câu chuyện và giải thích"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "1. Tìm mốc và xác định mốc đó dựa vào thời điểm nào.\n2. Dùng nội dung sự kiện để kiểm lại thứ tự; không suy từ “sau đó” ra nguyên nhân.\n3. Khi tóm tắt, giữ điều văn bản nói và phân biệt sự kiện với dự định.\nNếu còn nhầm, quay lại hai đoạn liền nhau và giải thích mối nối. Những lượt tự luyện này chưa tự chứng minh đọc hiểu bền vững; tiếp tục Thử Luyện và ôn theo cơ chế hiện có.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:v2:recap-points",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ba việc cần tự làm được"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Mang cách đọc này sang bài tiếp theo"
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 耳朵／耳机／懂得 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-01:vocab-context-r2:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Ở lớp ngoại ngữ, bạn nghe rõ bản ghi qua tai nghe nhưng chưa hiểu một câu. Viết lời xin giáo viên giải thích. Sau đó viết một câu riêng dùng 懂得 để nói biết tôn trọng lựa chọn khác mình.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Không nhầm thiết bị 耳机 với bộ phận 耳朵.",
+                        "guidance": "Không nhầm thiết bị 耳机 với bộ phận 耳朵."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Phân biệt nghe rõ và hiểu câu; có lời hỏi lại.",
+                        "guidance": "Phân biệt nghe rõ và hiểu câu; có lời hỏi lại."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Dùng 懂得 với nguyên tắc ứng xử phù hợp.",
+                        "guidance": "Dùng 懂得 với nguyên tắc ứng xử phù hợp."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n我戴着耳机，能听清楚，但是没听懂这句话。请您解释一下。我们要懂得尊重别人的选择。\nWǒ dài zhe ěrjī, néng tīng qīngchu, dànshì méi tīng dǒng zhè jù huà. Qǐng nín jiěshì yíxià. Wǒmen yào dǒngde zūnzhòng biérén de xuǎnzé.\nTôi đeo tai nghe, nghe rõ nhưng chưa hiểu câu này. Xin thầy/cô giải thích một chút. Chúng ta cần biết tôn trọng lựa chọn của người khác.\nKhông nhầm thiết bị 耳机 với bộ phận 耳朵.\nPhân biệt nghe rõ và hiểu câu; có lời hỏi lại.\nDùng 懂得 với nguyên tắc ứng xử phù hợp.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Nghe rõ chưa chắc đã hiểu",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00602"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00612"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00613"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/63-REVIEW-HSK3-COHESION-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "7fc29486-e680-4e3e-94c1-a0fb46eb9040",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK3 cohesion timeline reading and self-review writing target links; no unsupported writing mastery.",
+          "targetPlanSha256": "sha256:506a187bc5eb405daf3f74f57665c0077485360596025dc42a643f50f8d5d35b"
+        },
+        "objectiveVi": "Đọc và khôi phục trình tự thời gian, giải thích bằng chứng và tóm tắt đúng ý văn bản.",
+        "pitfallVi": "Không coi 后来 là từ chỉ nguyên nhân; không hiểu 第二天 nếu chưa xác định ngày làm mốc; không suy biết cách mới thành bỏ hẳn cách cũ.",
+        "prerequisites": [
+          "hsk3-main-idea-detail-notes-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tìm điểm xuất phát, nối từng đoạn bằng thời gian và nội dung, rồi kiểm kết quả cuối. Khi tóm tắt, giữ nguyên nhân và diễn biến được văn bản hỗ trợ.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-cohesion-reconstruction-lesson-01"
+        ],
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01"
+        ],
+        "sourceTaskIds": [
+          "hsk3-cohesion-reconstruction-lesson-01:prompt-01"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00510",
+          "hsk-vocab-00547",
+          "hsk-vocab-00621",
+          "hsk-vocab-00632",
+          "hsk-vocab-00724",
+          "hsk-vocab-00737",
+          "hsk-vocab-00836",
+          "hsk-vocab-00970",
+          "hsk-vocab-00976",
+          "hsk-vocab-00579",
+          "hsk-vocab-00721",
+          "hsk-vocab-00801",
+          "hsk-vocab-00832",
+          "hsk-vocab-00971",
+          "hsk-vocab-00645",
+          "hsk-vocab-00671",
+          "hsk-vocab-00908",
+          "hsk-vocab-00583",
+          "hsk-vocab-00751",
+          "hsk-vocab-00633",
+          "hsk-vocab-00746",
+          "hsk-vocab-00829",
+          "hsk-vocab-00986",
+          "hsk-vocab-00506",
+          "hsk-vocab-00614",
+          "hsk-vocab-00692",
+          "hsk-vocab-00768",
+          "hsk-vocab-00828",
+          "hsk-vocab-00885",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00984",
+          "hsk-vocab-00807",
+          "hsk-vocab-00831",
+          "hsk-vocab-00853",
+          "hsk-vocab-00678",
+          "hsk-vocab-00710",
+          "hsk-vocab-00912",
+          "hsk-vocab-00934",
+          "hsk-vocab-00514",
+          "hsk-vocab-00587",
+          "hsk-vocab-00654",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00771",
+          "hsk-vocab-00957",
+          "hsk-vocab-00544",
+          "hsk-vocab-00650",
+          "hsk-vocab-00745",
+          "hsk-vocab-00629",
+          "hsk-vocab-00988",
+          "hsk-vocab-00707",
+          "hsk-vocab-00764",
+          "hsk-vocab-00766",
+          "hsk-vocab-00589",
+          "hsk-vocab-00591",
+          "hsk-vocab-00616",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00823",
+          "hsk-vocab-00554",
+          "hsk-vocab-00560",
+          "hsk-vocab-00586",
+          "hsk-vocab-00593",
+          "hsk-vocab-00775",
+          "hsk-vocab-00992",
+          "hsk-vocab-00511",
+          "hsk-vocab-00686",
+          "hsk-vocab-00695",
+          "hsk-vocab-00755",
+          "hsk-vocab-00516",
+          "hsk-vocab-00526",
+          "hsk-vocab-00528",
+          "hsk-vocab-00529",
+          "hsk-vocab-00613",
+          "hsk-vocab-00657",
+          "hsk-vocab-00680",
+          "hsk-vocab-00732",
+          "hsk-vocab-00757",
+          "hsk-vocab-00777",
+          "hsk-vocab-00805",
+          "hsk-vocab-00822",
+          "hsk-vocab-00860",
+          "hsk-vocab-00886",
+          "hsk-vocab-00904",
+          "hsk-vocab-00927",
+          "hsk-vocab-00950",
+          "hsk-vocab-00977",
+          "hsk-vocab-00997",
+          "hsk-vocab-00532",
+          "hsk-vocab-00549",
+          "hsk-vocab-00580",
+          "hsk-vocab-00611",
+          "hsk-vocab-00618",
+          "hsk-vocab-00623",
+          "hsk-vocab-00691",
+          "hsk-vocab-00725",
+          "hsk-vocab-00756",
+          "hsk-vocab-00784",
+          "hsk-vocab-00800",
+          "hsk-vocab-00824",
+          "hsk-vocab-00846",
+          "hsk-vocab-00875",
+          "hsk-vocab-00906",
+          "hsk-vocab-00925",
+          "hsk-vocab-00949",
+          "hsk-vocab-00975",
+          "hsk-vocab-00995",
+          "hsk-vocab-00530",
+          "hsk-vocab-00546",
+          "hsk-vocab-00559",
+          "hsk-vocab-00610",
+          "hsk-vocab-00628",
+          "hsk-vocab-00653",
+          "hsk-vocab-00690",
+          "hsk-vocab-00703",
+          "hsk-vocab-00731",
+          "hsk-vocab-00747",
+          "hsk-vocab-00799",
+          "hsk-vocab-00817",
+          "hsk-vocab-00851",
+          "hsk-vocab-00871",
+          "hsk-vocab-00901",
+          "hsk-vocab-00902",
+          "hsk-vocab-00929",
+          "hsk-vocab-00935",
+          "hsk-vocab-00972",
+          "hsk-vocab-00973",
+          "hsk-vocab-00646",
+          "hsk-vocab-00596",
+          "hsk-vocab-00720",
+          "hsk-vocab-00926",
+          "hsk-vocab-00504",
+          "hsk-vocab-00548",
+          "hsk-vocab-00572",
+          "hsk-vocab-00595",
+          "hsk-vocab-00641",
+          "hsk-vocab-00660",
+          "hsk-vocab-00681",
+          "hsk-vocab-00715",
+          "hsk-vocab-00740",
+          "hsk-vocab-00769",
+          "hsk-vocab-00791",
+          "hsk-vocab-00815",
+          "hsk-vocab-00850",
+          "hsk-vocab-00855",
+          "hsk-vocab-00891",
+          "hsk-vocab-00914",
+          "hsk-vocab-00937",
+          "hsk-vocab-00964",
+          "hsk-vocab-00985",
+          "hsk-vocab-00520",
+          "hsk-vocab-00551",
+          "hsk-vocab-00573",
+          "hsk-vocab-00602",
+          "hsk-vocab-00612",
+          "hsk-vocab-00619",
+          "hsk-vocab-00635",
+          "hsk-vocab-00668",
+          "hsk-vocab-00741",
+          "hsk-vocab-00778",
+          "hsk-vocab-00794",
+          "hsk-vocab-00818",
+          "hsk-vocab-00825",
+          "hsk-vocab-00869",
+          "hsk-vocab-00894",
+          "hsk-vocab-00916",
+          "hsk-vocab-00940",
+          "hsk-vocab-00965",
+          "hsk-vocab-00987",
+          "hsk-vocab-00503",
+          "hsk-vocab-00542",
+          "hsk-vocab-00570",
+          "hsk-vocab-00594",
+          "hsk-vocab-00625",
+          "hsk-vocab-00656",
+          "hsk-vocab-00659",
+          "hsk-vocab-00708",
+          "hsk-vocab-00709",
+          "hsk-vocab-00711",
+          "hsk-vocab-00748",
+          "hsk-vocab-00814",
+          "hsk-vocab-00843",
+          "hsk-vocab-00867",
+          "hsk-vocab-00890",
+          "hsk-vocab-00903",
+          "hsk-vocab-00911",
+          "hsk-vocab-00959",
+          "hsk-vocab-00983",
+          "hsk-vocab-00505",
+          "hsk-vocab-00521",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00642",
+          "hsk-vocab-00661",
+          "hsk-vocab-00685",
+          "hsk-vocab-00719",
+          "hsk-vocab-00750",
+          "hsk-vocab-00773",
+          "hsk-vocab-00793",
+          "hsk-vocab-00816",
+          "hsk-vocab-00854",
+          "hsk-vocab-00868",
+          "hsk-vocab-00892",
+          "hsk-vocab-00915",
+          "hsk-vocab-00939",
+          "hsk-vocab-00962",
+          "hsk-vocab-00981",
+          "hsk-vocab-00592",
+          "hsk-vocab-00655",
+          "hsk-vocab-00704",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865",
+          "hsk-vocab-00913",
+          "hsk-vocab-00936"
+        ],
+        "targetLessonId": "hsk3-cohesion-reconstruction-lesson-01",
+        "titleZh": "HSK三级 · 44",
+        "vocabulary": [
+          "hsk-vocab-00510",
+          "hsk-vocab-00547",
+          "hsk-vocab-00621",
+          "hsk-vocab-00632",
+          "hsk-vocab-00724",
+          "hsk-vocab-00737",
+          "hsk-vocab-00836",
+          "hsk-vocab-00970",
+          "hsk-vocab-00976",
+          "hsk-vocab-00579",
+          "hsk-vocab-00721",
+          "hsk-vocab-00801",
+          "hsk-vocab-00832",
+          "hsk-vocab-00971",
+          "hsk-vocab-00645",
+          "hsk-vocab-00671",
+          "hsk-vocab-00908",
+          "hsk-vocab-00583",
+          "hsk-vocab-00751",
+          "hsk-vocab-00633",
+          "hsk-vocab-00746",
+          "hsk-vocab-00829",
+          "hsk-vocab-00986",
+          "hsk-vocab-00506",
+          "hsk-vocab-00614",
+          "hsk-vocab-00692",
+          "hsk-vocab-00768",
+          "hsk-vocab-00828",
+          "hsk-vocab-00885",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00984",
+          "hsk-vocab-00807",
+          "hsk-vocab-00831",
+          "hsk-vocab-00853",
+          "hsk-vocab-00678",
+          "hsk-vocab-00710",
+          "hsk-vocab-00912",
+          "hsk-vocab-00934",
+          "hsk-vocab-00514",
+          "hsk-vocab-00587",
+          "hsk-vocab-00654",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00771",
+          "hsk-vocab-00957",
+          "hsk-vocab-00544",
+          "hsk-vocab-00650",
+          "hsk-vocab-00745",
+          "hsk-vocab-00629",
+          "hsk-vocab-00988",
+          "hsk-vocab-00707",
+          "hsk-vocab-00764",
+          "hsk-vocab-00766",
+          "hsk-vocab-00589",
+          "hsk-vocab-00591",
+          "hsk-vocab-00616",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00823",
+          "hsk-vocab-00554",
+          "hsk-vocab-00560",
+          "hsk-vocab-00586",
+          "hsk-vocab-00593",
+          "hsk-vocab-00775",
+          "hsk-vocab-00992",
+          "hsk-vocab-00511",
+          "hsk-vocab-00686",
+          "hsk-vocab-00695",
+          "hsk-vocab-00755",
+          "hsk-vocab-00516",
+          "hsk-vocab-00526",
+          "hsk-vocab-00528",
+          "hsk-vocab-00529",
+          "hsk-vocab-00613",
+          "hsk-vocab-00657",
+          "hsk-vocab-00680",
+          "hsk-vocab-00732",
+          "hsk-vocab-00757",
+          "hsk-vocab-00777",
+          "hsk-vocab-00805",
+          "hsk-vocab-00822",
+          "hsk-vocab-00860",
+          "hsk-vocab-00886",
+          "hsk-vocab-00904",
+          "hsk-vocab-00927",
+          "hsk-vocab-00950",
+          "hsk-vocab-00977",
+          "hsk-vocab-00997",
+          "hsk-vocab-00532",
+          "hsk-vocab-00549",
+          "hsk-vocab-00580",
+          "hsk-vocab-00611",
+          "hsk-vocab-00618",
+          "hsk-vocab-00623",
+          "hsk-vocab-00691",
+          "hsk-vocab-00725",
+          "hsk-vocab-00756",
+          "hsk-vocab-00784",
+          "hsk-vocab-00800",
+          "hsk-vocab-00824",
+          "hsk-vocab-00846",
+          "hsk-vocab-00875",
+          "hsk-vocab-00906",
+          "hsk-vocab-00925",
+          "hsk-vocab-00949",
+          "hsk-vocab-00975",
+          "hsk-vocab-00995",
+          "hsk-vocab-00530",
+          "hsk-vocab-00546",
+          "hsk-vocab-00559",
+          "hsk-vocab-00610",
+          "hsk-vocab-00628",
+          "hsk-vocab-00653",
+          "hsk-vocab-00690",
+          "hsk-vocab-00703",
+          "hsk-vocab-00731",
+          "hsk-vocab-00747",
+          "hsk-vocab-00799",
+          "hsk-vocab-00817",
+          "hsk-vocab-00851",
+          "hsk-vocab-00871",
+          "hsk-vocab-00901",
+          "hsk-vocab-00902",
+          "hsk-vocab-00929",
+          "hsk-vocab-00935",
+          "hsk-vocab-00972",
+          "hsk-vocab-00973",
+          "hsk-vocab-00646",
+          "hsk-vocab-00596",
+          "hsk-vocab-00720",
+          "hsk-vocab-00926",
+          "hsk-vocab-00504",
+          "hsk-vocab-00548",
+          "hsk-vocab-00572",
+          "hsk-vocab-00595",
+          "hsk-vocab-00641",
+          "hsk-vocab-00660",
+          "hsk-vocab-00681",
+          "hsk-vocab-00715",
+          "hsk-vocab-00740",
+          "hsk-vocab-00769",
+          "hsk-vocab-00791",
+          "hsk-vocab-00815",
+          "hsk-vocab-00850",
+          "hsk-vocab-00855",
+          "hsk-vocab-00891",
+          "hsk-vocab-00914",
+          "hsk-vocab-00937",
+          "hsk-vocab-00964",
+          "hsk-vocab-00985",
+          "hsk-vocab-00520",
+          "hsk-vocab-00551",
+          "hsk-vocab-00573",
+          "hsk-vocab-00602",
+          "hsk-vocab-00612",
+          "hsk-vocab-00619",
+          "hsk-vocab-00635",
+          "hsk-vocab-00668",
+          "hsk-vocab-00741",
+          "hsk-vocab-00778",
+          "hsk-vocab-00794",
+          "hsk-vocab-00818",
+          "hsk-vocab-00825",
+          "hsk-vocab-00869",
+          "hsk-vocab-00894",
+          "hsk-vocab-00916",
+          "hsk-vocab-00940",
+          "hsk-vocab-00965",
+          "hsk-vocab-00987",
+          "hsk-vocab-00503",
+          "hsk-vocab-00542",
+          "hsk-vocab-00570",
+          "hsk-vocab-00594",
+          "hsk-vocab-00625",
+          "hsk-vocab-00656",
+          "hsk-vocab-00659",
+          "hsk-vocab-00708",
+          "hsk-vocab-00709",
+          "hsk-vocab-00711",
+          "hsk-vocab-00748",
+          "hsk-vocab-00814",
+          "hsk-vocab-00843",
+          "hsk-vocab-00867",
+          "hsk-vocab-00890",
+          "hsk-vocab-00903",
+          "hsk-vocab-00911",
+          "hsk-vocab-00959",
+          "hsk-vocab-00983",
+          "hsk-vocab-00505",
+          "hsk-vocab-00521",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00642",
+          "hsk-vocab-00661",
+          "hsk-vocab-00685",
+          "hsk-vocab-00719",
+          "hsk-vocab-00750",
+          "hsk-vocab-00773",
+          "hsk-vocab-00793",
+          "hsk-vocab-00816",
+          "hsk-vocab-00854",
+          "hsk-vocab-00868",
+          "hsk-vocab-00892",
+          "hsk-vocab-00915",
+          "hsk-vocab-00939",
+          "hsk-vocab-00962",
+          "hsk-vocab-00981",
+          "hsk-vocab-00592",
+          "hsk-vocab-00655",
+          "hsk-vocab-00704",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865",
+          "hsk-vocab-00913",
+          "hsk-vocab-00936"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "0e21d72a-16a7-4eb5-b08d-3e0fdf2adfe0",
+      "sourceContentSha256": "sha256:4a5b6cbcfb2d18fdeb0b0e358337ce4b4f9e3d64210aa906b54691a35301d265",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "4+2=6, thời gian một tuần.\nChưa biết nguyên nhân, không tự chẩn đoán.\nKế hoạch ghi thêm chưa được thực hiện.",
+        "conceptVi": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát",
+        "dialogue": [
+          {
+            "hanzi": "假期开始时，社区准备把一块空地变成学习花园。大人先搬走旧东西，孩子们画图，标出种树和种花的地方。",
+            "meaningVi": "Đầu kỳ nghỉ, cộng đồng định biến đất trống thành vườn học tập. Người lớn dọn đồ cũ, trẻ vẽ sơ đồ đánh dấu nơi trồng cây và hoa.",
+            "pinyin": "Jiàqī kāishǐ shí, shèqū zhǔnbèi bǎ yí kuài kòngdì biànchéng xuéxí huāyuán. Dàrén xiān bān zǒu jiù dōngxi, háizimen huà tú, biāo chū zhòng shù hé zhòng huā de dìfang.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "大家查了植物需要的阳光和水，再决定种在哪里。有人以为每天多浇水就好，老师解释，不同植物需要的水不一样。",
+            "meaningVi": "Mọi người tra nhu cầu nắng và nước của cây rồi chọn chỗ trồng. Có người tưởng cứ tưới nhiều mỗi ngày là tốt; giáo viên giải thích mỗi loại cần lượng nước khác nhau.",
+            "pinyin": "Dàjiā chá le zhíwù xūyào de yángguāng hé shuǐ, zài juédìng zhòng zài nǎlǐ. Yǒu rén yǐwéi měi tiān duō jiāo shuǐ jiù hǎo, lǎoshī jiěshì, bùtóng zhíwù xūyào de shuǐ bù yíyàng.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "种好以后，孩子们每周记下植物的变化，也观察树边的小动物。他们只在旁边看，不随便移动动物，让它们留在原来的地方。",
+            "meaningVi": "Trồng xong, trẻ ghi thay đổi mỗi tuần và quan sát động vật nhỏ cạnh cây. Các em chỉ xem bên cạnh, không tùy tiện di chuyển, để chúng ở nơi ban đầu.",
+            "pinyin": "Zhòng hǎo yǐhòu, háizimen měi zhōu jì xià zhíwù de biànhuà, yě guānchá shù biān de xiǎo dòngwù. Tāmen zhǐ zài pángbiān kàn, bù suíbiàn yídòng dòngwù, ràng tāmen liú zài yuánlái de dìfang.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "两周后，有些花开了，有些还没有开。孩子们发现，花园不是种完就不用管。他们还要继续记录，不能只看一天就说哪种办法最好。",
+            "meaningVi": "Sau hai tuần, một số hoa nở, một số chưa. Trẻ nhận ra trồng xong vẫn cần chăm. Các em phải tiếp tục ghi nhận, không chỉ xem một ngày rồi kết luận cách nào tốt nhất.",
+            "pinyin": "Liǎng zhōu hòu, yǒuxiē huā kāi le, yǒuxiē hái méiyǒu kāi. Háizimen fāxiàn, huāyuán bú shì zhòng wán jiù bú yòng guǎn. Tāmen hái yào jìxù jìlù, bù néng zhǐ kàn yì tiān jiù shuō nǎ zhǒng bànfǎ zuì hǎo.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "有些花开了，有些还没有开。",
+            "answerMeaningVi": "Một số hoa nở, một số chưa nở.",
+            "answerPinyin": "Yǒuxiē huā kāi le, yǒuxiē hái méiyǒu kāi.",
+            "distractors": [
+              "所有的花都开了。",
+              "以后完全不用照顾花园了。"
+            ],
+            "explanationVi": "Đúng: kết quả khác nhau giữa các cây.",
+            "promptVi": "Điều gì đã được quan sát sau hai tuần?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "先…再… tổ chức chuẩn bị trước quyết định. 以为 nói nhận định cần sửa, không phải sự thật được xác nhận. 有些…有些… giữ khác biệt trong nhóm. 种好/种完 biểu thị hoàn thành trồng, không hoàn thành mọi chăm sóc.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "小组种了六棵植物。一周后，四棵长出了新叶，两棵还没有。大家还不知道原因。他们准备再记录一周的阳光和水量，不给所有植物都增加水。",
+              "modelAnswerMeaningVi": "Nhóm trồng sáu cây. Sau một tuần, bốn có lá mới, hai chưa. Mọi người chưa biết lý do. Họ định ghi nắng và lượng nước thêm một tuần, không tăng nước đồng loạt.",
+              "modelAnswerPinyin": "Xiǎozǔ zhòng le liù kē zhíwù. Yì zhōu hòu, sì kē zhǎng chū le xīn yè, liǎng kē hái méiyǒu. Dàjiā hái bù zhīdào yuányīn. Tāmen zhǔnbèi zài jìlù yì zhōu de yángguāng hé shuǐliàng, bù gěi suǒyǒu zhíwù dōu zēngjiā shuǐ.",
+              "promptVi": "Nhóm mới trồng 6 cây. Sau một tuần, 4 cây có lá mới, 2 cây chưa; nhóm chưa biết lý do. Họ định ghi ánh sáng và nước thêm một tuần, không tự tăng nước cho mọi cây. Viết 4 câu."
+            },
+            "modelExample": {
+              "hanzi": "种好以后，孩子们每周记下植物的变化，也观察树边的小动物。他们只在旁边看，不随便移动动物，让它们留在原来的地方。",
+              "meaningVi": "Trồng xong, trẻ ghi thay đổi mỗi tuần và quan sát động vật nhỏ cạnh cây. Các em chỉ xem bên cạnh, không tùy tiện di chuyển, để chúng ở nơi ban đầu.",
+              "pinyin": "Zhòng hǎo yǐhòu, háizimen měi zhōu jì xià zhíwù de biànhuà, yě guānchá shù biān de xiǎo dòngwù. Tāmen zhǐ zài pángbiān kàn, bù suíbiàn yídòng dòngwù, ràng tāmen liú zài yuánlái de dìfang.",
+              "speaker": "Đoạn 3"
+            },
+            "pattern": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát. Đọc các đoạn, đánh dấu bằng chứng rồi viết lại theo dữ kiện mới. Ảnh chỉ minh họa bối cảnh, không cung cấp thêm sự kiện.",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ đọc của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "种植 zhòngzhí — trồng; 浇水 jiāo shuǐ — tưới; 泥土 nítǔ — đất; 昆虫 kūnchóng — côn trùng; 观察 guānchá — quan sát; 移动 yídòng — di chuyển.",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:context",
+              "illustration": {
+                "alt": "Bối cảnh: Động thực vật và môi trường sống",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-23 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk3-community-garden-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc bốn đoạn. Chọn câu/đoạn làm bằng chứng cho ghi chú; có thể mở Pinyin và nghĩa khi cần.",
+                    "notePrompt": "Ghi người, việc thay đổi, lý do và kết quả. Điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "假期开始时，社区准备把一块空地变成学习花园。大人先搬走旧东西，孩子们画图，标出种树和种花的地方。",
+                        "id": "hsk3-nature-environment-explanations-plants-animals:paragraph-0",
+                        "meaningVi": "Đầu kỳ nghỉ, cộng đồng định biến đất trống thành vườn học tập. Người lớn dọn đồ cũ, trẻ vẽ sơ đồ đánh dấu nơi trồng cây và hoa.",
+                        "pinyin": "Jiàqī kāishǐ shí, shèqū zhǔnbèi bǎ yí kuài kòngdì biànchéng xuéxí huāyuán. Dàrén xiān bān zǒu jiù dōngxi, háizimen huà tú, biāo chū zhòng shù hé zhòng huā de dìfang."
+                      },
+                      {
+                        "hanzi": "大家查了植物需要的阳光和水，再决定种在哪里。有人以为每天多浇水就好，老师解释，不同植物需要的水不一样。",
+                        "id": "hsk3-nature-environment-explanations-plants-animals:paragraph-1",
+                        "meaningVi": "Mọi người tra nhu cầu nắng và nước của cây rồi chọn chỗ trồng. Có người tưởng cứ tưới nhiều mỗi ngày là tốt; giáo viên giải thích mỗi loại cần lượng nước khác nhau.",
+                        "pinyin": "Dàjiā chá le zhíwù xūyào de yángguāng hé shuǐ, zài juédìng zhòng zài nǎlǐ. Yǒu rén yǐwéi měi tiān duō jiāo shuǐ jiù hǎo, lǎoshī jiěshì, bùtóng zhíwù xūyào de shuǐ bù yíyàng."
+                      },
+                      {
+                        "hanzi": "种好以后，孩子们每周记下植物的变化，也观察树边的小动物。他们只在旁边看，不随便移动动物，让它们留在原来的地方。",
+                        "id": "hsk3-nature-environment-explanations-plants-animals:paragraph-2",
+                        "meaningVi": "Trồng xong, trẻ ghi thay đổi mỗi tuần và quan sát động vật nhỏ cạnh cây. Các em chỉ xem bên cạnh, không tùy tiện di chuyển, để chúng ở nơi ban đầu.",
+                        "pinyin": "Zhòng hǎo yǐhòu, háizimen měi zhōu jì xià zhíwù de biànhuà, yě guānchá shù biān de xiǎo dòngwù. Tāmen zhǐ zài pángbiān kàn, bù suíbiàn yídòng dòngwù, ràng tāmen liú zài yuánlái de dìfang."
+                      },
+                      {
+                        "hanzi": "两周后，有些花开了，有些还没有开。孩子们发现，花园不是种完就不用管。他们还要继续记录，不能只看一天就说哪种办法最好。",
+                        "id": "hsk3-nature-environment-explanations-plants-animals:paragraph-3",
+                        "meaningVi": "Sau hai tuần, một số hoa nở, một số chưa. Trẻ nhận ra trồng xong vẫn cần chăm. Các em phải tiếp tục ghi nhận, không chỉ xem một ngày rồi kết luận cách nào tốt nhất.",
+                        "pinyin": "Liǎng zhōu hòu, yǒuxiē huā kāi le, yǒuxiē hái méiyǒu kāi. Háizimen fāxiàn, huāyuán bú shì zhòng wán jiù bú yòng guǎn. Tāmen hái yào jìxù jìlù, bù néng zhǐ kàn yì tiān jiù shuō nǎ zhǒng bànfǎ zuì hǎo."
+                      }
+                    ]
+                  },
+                  "title": "Động thực vật và môi trường sống"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc và giữ bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "先…再… tổ chức chuẩn bị trước quyết định. 以为 nói nhận định cần sửa, không phải sự thật được xác nhận. 有些…有些… giữ khác biệt trong nhóm. 种好/种完 biểu thị hoàn thành trồng, không hoàn thành mọi chăm sóc.",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách nối ý và giới hạn của thông tin"
+                },
+                {
+                  "alt": "",
+                  "body": "Không nói tất cả hoa đều nở hoặc tưới càng nhiều càng tốt. Hai tuần quan sát không chứng minh một cách chăm phù hợp mọi loài.",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không suy quá bằng chứng"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:connections",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hiểu quan hệ giữa các câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "kỳ nghỉ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "假期开始时，社区准备把一块空地变成学习花园。大人先搬走旧东西，孩子们画图，标出种树和种花的地方。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00696",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đầu kỳ nghỉ, cộng đồng định biến đất trống thành vườn học tập. Người lớn dọn đồ cũ, trẻ vẽ sơ đồ đánh dấu nơi trồng cây và hoa.",
+                  "pinyin": "Jiàqī kāishǐ shí, shèqū zhǔnbèi bǎ yí kuài kòngdì biànchéng xuéxí huāyuán. Dàrén xiān bān zǒu jiù dōngxi, háizimen huà tú, biāo chū zhòng shù hé zhòng huā de dìfang.",
+                  "provenance": "",
+                  "title": "假期 · jiàqī"
+                },
+                {
+                  "alt": "",
+                  "body": "người lớn\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "假期开始时，社区准备把一块空地变成学习花园。大人先搬走旧东西，孩子们画图，标出种树和种花的地方。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00574",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đầu kỳ nghỉ, cộng đồng định biến đất trống thành vườn học tập. Người lớn dọn đồ cũ, trẻ vẽ sơ đồ đánh dấu nơi trồng cây và hoa.",
+                  "pinyin": "Jiàqī kāishǐ shí, shèqū zhǔnbèi bǎ yí kuài kòngdì biànchéng xuéxí huāyuán. Dàrén xiān bān zǒu jiù dōngxi, háizimen huà tú, biāo chū zhòng shù hé zhòng huā de dìfang.",
+                  "provenance": "",
+                  "title": "大人 · dàren"
+                },
+                {
+                  "alt": "",
+                  "body": "chuyển; dọn; khuân\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "假期开始时，社区准备把一块空地变成学习花园。大人先搬走旧东西，孩子们画图，标出种树和种花的地方。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00507",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đầu kỳ nghỉ, cộng đồng định biến đất trống thành vườn học tập. Người lớn dọn đồ cũ, trẻ vẽ sơ đồ đánh dấu nơi trồng cây và hoa.",
+                  "pinyin": "Jiàqī kāishǐ shí, shèqū zhǔnbèi bǎ yí kuài kòngdì biànchéng xuéxí huāyuán. Dàrén xiān bān zǒu jiù dōngxi, háizimen huà tú, biāo chū zhòng shù hé zhòng huā de dìfang.",
+                  "provenance": "",
+                  "title": "搬 · bān"
+                },
+                {
+                  "alt": "",
+                  "body": "cây; trồng cây\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "假期开始时，社区准备把一块空地变成学习花园。大人先搬走旧东西，孩子们画图，标出种树和种花的地方。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00842",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đầu kỳ nghỉ, cộng đồng định biến đất trống thành vườn học tập. Người lớn dọn đồ cũ, trẻ vẽ sơ đồ đánh dấu nơi trồng cây và hoa.",
+                  "pinyin": "Jiàqī kāishǐ shí, shèqū zhǔnbèi bǎ yí kuài kòngdì biànchéng xuéxí huāyuán. Dàrén xiān bān zǒu jiù dōngxi, háizimen huà tú, biāo chū zhòng shù hé zhòng huā de dìfang.",
+                  "provenance": "",
+                  "title": "树 · shù"
+                },
+                {
+                  "alt": "",
+                  "body": "tưởng rằng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "大家查了植物需要的阳光和水，再决定种在哪里。有人以为每天多浇水就好，老师解释，不同植物需要的水不一样。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00930",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mọi người tra nhu cầu nắng và nước của cây rồi chọn chỗ trồng. Có người tưởng cứ tưới nhiều mỗi ngày là tốt; giáo viên giải thích mỗi loại cần lượng nước khác nhau.",
+                  "pinyin": "Dàjiā chá le zhíwù xūyào de yángguāng hé shuǐ, zài juédìng zhòng zài nǎlǐ. Yǒu rén yǐwéi měi tiān duō jiāo shuǐ jiù hǎo, lǎoshī jiěshì, bùtóng zhíwù xūyào de shuǐ bù yíyàng.",
+                  "provenance": "",
+                  "title": "以为 · yǐwéi"
+                },
+                {
+                  "alt": "",
+                  "body": "khác nhau\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "大家查了植物需要的阳光和水，再决定种在哪里。有人以为每天多浇水就好，老师解释，不同植物需要的水不一样。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00541",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mọi người tra nhu cầu nắng và nước của cây rồi chọn chỗ trồng. Có người tưởng cứ tưới nhiều mỗi ngày là tốt; giáo viên giải thích mỗi loại cần lượng nước khác nhau.",
+                  "pinyin": "Dàjiā chá le zhíwù xūyào de yángguāng hé shuǐ, zài juédìng zhòng zài nǎlǐ. Yǒu rén yǐwéi měi tiān duō jiāo shuǐ jiù hǎo, lǎoshī jiěshì, bùtóng zhíwù xūyào de shuǐ bù yíyàng.",
+                  "provenance": "",
+                  "title": "不同 · bùtóng"
+                },
+                {
+                  "alt": "",
+                  "body": "động vật\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "种好以后，孩子们每周记下植物的变化，也观察树边的小动物。他们只在旁边看，不随便移动动物，让它们留在原来的地方。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00603",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trồng xong, trẻ ghi thay đổi mỗi tuần và quan sát động vật nhỏ cạnh cây. Các em chỉ xem bên cạnh, không tùy tiện di chuyển, để chúng ở nơi ban đầu.",
+                  "pinyin": "Zhòng hǎo yǐhòu, háizimen měi zhōu jì xià zhíwù de biànhuà, yě guānchá shù biān de xiǎo dòngwù. Tāmen zhǐ zài pángbiān kàn, bù suíbiàn yídòng dòngwù, ràng tāmen liú zài yuánlái de dìfang.",
+                  "provenance": "",
+                  "title": "动物 · dòngwù"
+                },
+                {
+                  "alt": "",
+                  "body": "phát hiện\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "两周后，有些花开了，有些还没有开。孩子们发现，花园不是种完就不用管。他们还要继续记录，不能只看一天就说哪种办法最好。",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:word-hsk-vocab-00617",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau hai tuần, một số hoa nở, một số chưa. Trẻ nhận ra trồng xong vẫn cần chăm. Các em phải tiếp tục ghi nhận, không chỉ xem một ngày rồi kết luận cách nào tốt nhất.",
+                  "pinyin": "Liǎng zhōu hòu, yǒuxiē huā kāi le, yǒuxiē hái méiyǒu kāi. Háizimen fāxiàn, huāyuán bú shì zhòng wán jiù bú yòng guǎn. Tāmen hái yào jìxù jìlù, bù néng zhǐ kàn yì tiān jiù shuō nǎ zhǒng bànfǎ zuì hǎo.",
+                  "provenance": "",
+                  "title": "发现 · fāxiàn"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:core-words",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ trọng tâm trong văn bản"
+            },
+            {
+              "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:page:teach",
+              "stage": "understand",
+              "title": "Đọc yêu cầu ghi chép: tối thiểu bao nhiêu?",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:note",
+                  "kind": "explanation",
+                  "title": "常用／以上",
+                  "body": "常用 (chángyòng) là thường dùng: 常用的词, 常用的方法. Không có nghĩa mọi người đều dùng hay luôn hiệu quả. 以上 (yǐshàng) chỉ từ một mốc trở lên; trong quy định số lượng thường tính cả mốc. Trong lời nói ước lượng, ranh giới đôi khi không chặt: nếu cần chính xác, nói 包括… (gồm cả…) hoặc 至少… (ít nhất…). Đừng tự dịch mọi trường hợp 以上 thành “hơn” và loại mốc.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "老师列出十个常用的植物名称，帮助大家做观察记录。",
+                  "pinyin": "Lǎoshī liè chū shí ge chángyòng de zhíwù míngchēng, bāngzhù dàjiā zuò guānchá jìlù.",
+                  "meaningVi": "Giáo viên liệt kê mười tên thực vật thường dùng để giúp mọi người ghi chép quan sát.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这次活动要求记录十种以上的植物，包括正好十种的情况。",
+                  "pinyin": "Zhè cì huódòng yāoqiú jìlù shí zhǒng yǐshàng de zhíwù, bāokuò zhènghǎo shí zhǒng de qíngkuàng.",
+                  "meaningVi": "Hoạt động lần này yêu cầu ghi chép từ mười loài thực vật trở lên, kể cả đúng mười loài.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 常用／以上",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Theo yêu cầu đã nói rõ “包括正好十种”, nhóm nào đạt số lượng tối thiểu?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chỉ nhóm ghi 11 loài; nhóm 10 loài không đạt.",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Nhóm ghi 10 loài và nhóm ghi 11 loài đều đạt về số lượng.",
+                        "feedback": "Trong quy định này mốc 10 đã được xác nhận là tính cả. Đạt số lượng không chứng minh ghi chép đúng; vẫn cần đọc nội dung. 常用 chỉ tần suất dùng, không phải mọi tên cây."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Nhóm ghi 9 loài đạt vì 以上 không có mốc.",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Trong quy định này mốc 10 đã được xác nhận là tính cả. Đạt số lượng không chứng minh ghi chép đúng; vẫn cần đọc nội dung. 常用 chỉ tần suất dùng, không phải mọi tên cây.",
+                    "learningTarget": {
+                      "objective": "Đọc yêu cầu ghi chép: tối thiểu bao nhiêu?",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00556"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00928"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "explanation": "Đúng: kết quả khác nhau giữa các cây.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-nature-environment-explanations-plants-animals",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Sai: một số chưa nở.",
+                        "id": "o-0",
+                        "text": "所有的花都开了。"
+                      },
+                      {
+                        "feedback": "Đúng: kết quả khác nhau giữa các cây.",
+                        "id": "o-1",
+                        "text": "有些花开了，有些还没有开。"
+                      },
+                      {
+                        "feedback": "Sai: cần tiếp tục chăm và ghi nhận.",
+                        "id": "o-2",
+                        "text": "以后完全不用照顾花园了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Điều gì đã được quan sát sau hai tuần?",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn kết luận có căn cứ"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Đọc để quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "以为"
+                    ],
+                    "answerIds": [],
+                    "explanation": "以为 đặt niềm tin ban đầu trước thông tin sửa lại về nhu cầu từng cây.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-nature-environment-explanations-plants-animals",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền từ thể hiện nhận định trước đây chưa đúng: 他___每天多浇水就好，后来才知道要看植物的需要。",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền theo quan hệ được yêu cầu"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự nối lại ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n小组种了六棵植物。一周后，四棵长出了新叶，两棵还没有。大家还不知道原因。他们准备再记录一周的阳光和水量，不给所有植物都增加水。\nXiǎozǔ zhòng le liù kē zhíwù. Yì zhōu hòu, sì kē zhǎng chū le xīn yè, liǎng kē hái méiyǒu. Dàjiā hái bù zhīdào yuányīn. Tāmen zhǔnbèi zài jìlù yì zhōu de yángguāng hé shuǐliàng, bù gěi suǒyǒu zhíwù dōu zēngjiā shuǐ.\nNhóm trồng sáu cây. Sau một tuần, bốn có lá mới, hai chưa. Mọi người chưa biết lý do. Họ định ghi nắng và lượng nước thêm một tuần, không tăng nước đồng loạt.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Tự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-nature-environment-explanations-plants-animals",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "4+2=6, thời gian một tuần.",
+                        "id": "criterion-0",
+                        "label": "4+2=6, thời gian một tuần."
+                      },
+                      {
+                        "guidance": "Chưa biết nguyên nhân, không tự chẩn đoán.",
+                        "id": "criterion-1",
+                        "label": "Chưa biết nguyên nhân, không tự chẩn đoán."
+                      },
+                      {
+                        "guidance": "Kế hoạch ghi thêm chưa được thực hiện.",
+                        "id": "criterion-2",
+                        "label": "Kế hoạch ghi thêm chưa được thực hiện."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Nhóm mới trồng 6 cây. Sau một tuần, 4 cây có lá mới, 2 cây chưa; nhóm chưa biết lý do. Họ định ghi ánh sáng và nước thêm một tuần, không tự tăng nước cho mọi cây. Viết 4 câu.",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Viết với dữ kiện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "4+2=6, thời gian một tuần.\nChưa biết nguyên nhân, không tự chẩn đoán.\nKế hoạch ghi thêm chưa được thực hiện.\nSửa ít nhất một điểm chưa rõ trong bản viết, rồi thử kể lại khi không nhìn mẫu. Dùng Tra từ trong bài để ôn từ liên quan; xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-nature-environment-explanations-plants-animals:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bài viết"
+                }
+              ],
+              "id": "hsk3-nature-environment-explanations-plants-animals:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự sửa trước khi tiếp tục"
+            },
+            {
+              "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 常用／以上 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-nature-environment-explanations-plants-animals:vocab-context-r2:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Bạn viết hướng dẫn ôn tập: chọn từ 5 từ thường dùng trở lên, có tính đúng 5 từ; mỗi từ viết một câu. Dùng 常用 và 以上 rồi diễn đạt lại bằng 至少 để làm rõ mốc.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "常用 bổ nghĩa cho từ được chọn.",
+                        "guidance": "常用 bổ nghĩa cho từ được chọn."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "以上/至少 đều giữ mốc 5, không đổi thành bắt buộc 6.",
+                        "guidance": "以上/至少 đều giữ mốc 5, không đổi thành bắt buộc 6."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Yêu cầu mỗi từ một câu vẫn rõ.",
+                        "guidance": "Yêu cầu mỗi từ một câu vẫn rõ."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n请选择五个以上常用的词，每个词写一个句子。也就是说，至少选五个词。\nQǐng xuǎnzé wǔ ge yǐshàng chángyòng de cí, měi ge cí xiě yí ge jùzi. Yě jiù shì shuō, zhìshǎo xuǎn wǔ ge cí.\nHãy chọn từ năm từ thường dùng trở lên, mỗi từ viết một câu. Nghĩa là chọn ít nhất năm từ.\n常用 bổ nghĩa cho từ được chọn.\n以上/至少 đều giữ mốc 5, không đổi thành bắt buộc 6.\nYêu cầu mỗi từ một câu vẫn rõ.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Đọc yêu cầu ghi chép: tối thiểu bao nhiêu?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00556"
+                        },
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00928"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/38-REVIEW-HSK3-NATURE.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-nature-environment-explanations-plants-animals",
+          "reviewedAt": "2026-09-23",
+          "scope": "Five HSK3 nature and environment narratives: evidence reading and guided writing; no independent mastery claim.",
+          "sourceContentSha256": "sha256:95437751c96b1fd2b0730f91ba65c2591e0b2dfc8d3a2b973757536f0848c32f"
+        },
+        "objectiveVi": "Theo dõi cách tạo vườn học tập và giới hạn của quan sát",
+        "pitfallVi": "Không nói tất cả hoa đều nở hoặc tưới càng nhiều càng tốt. Hai tuần quan sát không chứng minh một cách chăm phù hợp mọi loài.",
+        "prerequisites": [
+          "hsk3-nature-environment-explanations-climate-seasons"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "先…再… tổ chức chuẩn bị trước quyết định. 以为 nói nhận định cần sửa, không phải sự thật được xác nhận. 有些…有些… giữ khác biệt trong nhóm. 种好/种完 biểu thị hoàn thành trồng, không hoàn thành mọi chăm sóc.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-nature-environment-explanations-plants-animals"
+        ],
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-plants-animals"
+        ],
+        "sourceTaskIds": [
+          "hsk3-paragraph-task:hsk3-nature-environment-explanations-plants-animals"
+        ],
+        "sourceTopicIds": [
+          "hsk3-topic-042"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00507",
+          "hsk-vocab-00556",
+          "hsk-vocab-00574",
+          "hsk-vocab-00603",
+          "hsk-vocab-00604",
+          "hsk-vocab-00640",
+          "hsk-vocab-00687",
+          "hsk-vocab-00696",
+          "hsk-vocab-00699",
+          "hsk-vocab-00707",
+          "hsk-vocab-00716",
+          "hsk-vocab-00744",
+          "hsk-vocab-00764",
+          "hsk-vocab-00766",
+          "hsk-vocab-00842",
+          "hsk-vocab-00921",
+          "hsk-vocab-00928",
+          "hsk-vocab-00930",
+          "hsk-vocab-00955",
+          "hsk-vocab-00968",
+          "hsk-vocab-00510",
+          "hsk-vocab-00970",
+          "hsk-vocab-00721",
+          "hsk-vocab-00801",
+          "hsk-vocab-00971",
+          "hsk-vocab-00943",
+          "hsk-vocab-00583",
+          "hsk-vocab-00506",
+          "hsk-vocab-00550",
+          "hsk-vocab-00614",
+          "hsk-vocab-00698",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00807",
+          "hsk-vocab-00998",
+          "hsk-vocab-00678",
+          "hsk-vocab-00912",
+          "hsk-vocab-00587",
+          "hsk-vocab-00771",
+          "hsk-vocab-00923",
+          "hsk-vocab-00957",
+          "hsk-vocab-00589",
+          "hsk-vocab-00591",
+          "hsk-vocab-00597",
+          "hsk-vocab-00675",
+          "hsk-vocab-00880",
+          "hsk-vocab-00554",
+          "hsk-vocab-00775",
+          "hsk-vocab-00992",
+          "hsk-vocab-00511",
+          "hsk-vocab-00695",
+          "hsk-vocab-00526",
+          "hsk-vocab-00977",
+          "hsk-vocab-00800",
+          "hsk-vocab-00875",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00799",
+          "hsk-vocab-00617",
+          "hsk-vocab-00926",
+          "hsk-vocab-00635",
+          "hsk-vocab-00965",
+          "hsk-vocab-00890",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00939"
+        ],
+        "targetLessonId": "hsk3-nature-environment-explanations-plants-animals",
+        "titleZh": "HSK三级 · 12",
+        "vocabulary": [
+          "hsk-vocab-00507",
+          "hsk-vocab-00556",
+          "hsk-vocab-00574",
+          "hsk-vocab-00603",
+          "hsk-vocab-00604",
+          "hsk-vocab-00640",
+          "hsk-vocab-00687",
+          "hsk-vocab-00696",
+          "hsk-vocab-00699",
+          "hsk-vocab-00707",
+          "hsk-vocab-00716",
+          "hsk-vocab-00744",
+          "hsk-vocab-00764",
+          "hsk-vocab-00766",
+          "hsk-vocab-00842",
+          "hsk-vocab-00921",
+          "hsk-vocab-00928",
+          "hsk-vocab-00930",
+          "hsk-vocab-00955",
+          "hsk-vocab-00968",
+          "hsk-vocab-00510",
+          "hsk-vocab-00970",
+          "hsk-vocab-00721",
+          "hsk-vocab-00801",
+          "hsk-vocab-00971",
+          "hsk-vocab-00943",
+          "hsk-vocab-00583",
+          "hsk-vocab-00506",
+          "hsk-vocab-00550",
+          "hsk-vocab-00614",
+          "hsk-vocab-00698",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00807",
+          "hsk-vocab-00998",
+          "hsk-vocab-00678",
+          "hsk-vocab-00912",
+          "hsk-vocab-00587",
+          "hsk-vocab-00771",
+          "hsk-vocab-00923",
+          "hsk-vocab-00957",
+          "hsk-vocab-00589",
+          "hsk-vocab-00591",
+          "hsk-vocab-00597",
+          "hsk-vocab-00675",
+          "hsk-vocab-00880",
+          "hsk-vocab-00554",
+          "hsk-vocab-00775",
+          "hsk-vocab-00992",
+          "hsk-vocab-00511",
+          "hsk-vocab-00695",
+          "hsk-vocab-00526",
+          "hsk-vocab-00977",
+          "hsk-vocab-00800",
+          "hsk-vocab-00875",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00799",
+          "hsk-vocab-00617",
+          "hsk-vocab-00926",
+          "hsk-vocab-00635",
+          "hsk-vocab-00965",
+          "hsk-vocab-00890",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00939"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "9d2b0c1d-f502-4c1c-8525-c7293daa6910",
+      "sourceContentSha256": "sha256:e5e71727a541df0b22f911166190e5c54f7aa8a2c9eed03f938543aaf8d9d891",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "宿舍里有一个冰箱，我们把牛奶放在里面。",
+            "pinyin": "Sùshè lǐ yǒu yí ge bīngxiāng, wǒmen bǎ niúnǎi fàng zài lǐmiàn.",
+            "meaningVi": "Trong ký túc xá có một tủ lạnh, chúng tôi để sữa bên trong."
+          }
+        ],
+        "hanzi": "冰箱",
+        "meaningVi": "tủ lạnh",
+        "pinyin": "bīngxiāng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-event-retelling-lesson-01",
+          "hsk3-main-idea-detail-notes-lesson-01",
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00536"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "8fd1fb27-c363-4c12-8bbf-e2dd5d11f201",
+      "sourceContentSha256": "sha256:a672744e17ec4d52108fcc1dcd157e37ded5f861aaa96a009ddce39a30304a1a",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "今天来不及做饭，我煮了一碗方便面。",
+            "pinyin": "Jīntiān lái bu jí zuò fàn, wǒ zhǔ le yì wǎn fāngbiànmiàn.",
+            "meaningVi": "Hôm nay không kịp nấu cơm, tôi nấu một bát mì ăn liền."
+          }
+        ],
+        "hanzi": "方便面",
+        "meaningVi": "mì ăn liền",
+        "pinyin": "fāngbiànmiàn",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-event-retelling-lesson-01",
+          "hsk3-main-idea-detail-notes-lesson-01",
+          "hsk3-study-work-accounts-campus-education"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00620"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "7ba19047-13d2-4394-880d-76ed61c28826",
+      "sourceContentSha256": "sha256:c4965a5bca96c73faf65689cb894e22d86158f84809d76f8a21e7c43274f02ac",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "她懂得尊重别人的选择，不会要求大家都和她一样。",
+            "pinyin": "Tā dǒngde zūnzhòng biérén de xuǎnzé, bú huì yāoqiú dàjiā dōu hé tā yíyàng.",
+            "meaningVi": "Cô ấy biết tôn trọng lựa chọn của người khác, không yêu cầu mọi người đều giống mình."
+          }
+        ],
+        "hanzi": "懂得",
+        "meaningVi": "hiểu; biết cách",
+        "pinyin": "dǒngde",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01",
+          "hsk3-culture-tradition-descriptions-regional-cuisine",
+          "hsk3-culture-tradition-descriptions-tableware-etiquette",
+          "hsk3-event-retelling-lesson-03",
+          "hsk3-guided-paragraph-lesson-01",
+          "hsk3-structured-explanation-lesson-02",
+          "hsk3-structured-explanation-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00602"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "4ee7d899-1f18-43cb-8201-3c851e108daa",
+      "sourceContentSha256": "sha256:53d83a5a309e70ad4f2d50370f6520fe6a4d8bdf4f3f03535d2cdbeb283340c3",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "戴了很久的耳机，我的耳朵有点儿不舒服。",
+            "pinyin": "Dài le hěn jiǔ de ěrjī, wǒ de ěrduo yǒudiǎnr bù shūfu.",
+            "meaningVi": "Đeo tai nghe lâu, tai tôi hơi khó chịu."
+          }
+        ],
+        "hanzi": "耳朵",
+        "meaningVi": "tai",
+        "pinyin": "ěrduo",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01",
+          "hsk3-culture-tradition-descriptions-tableware-etiquette",
+          "hsk3-event-retelling-lesson-03",
+          "hsk3-guided-paragraph-lesson-01",
+          "hsk3-structured-explanation-lesson-02",
+          "hsk3-structured-explanation-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00612"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "9dbe161d-a4a0-435d-8f33-59008721ee2d",
+      "sourceContentSha256": "sha256:27a4fe8a6f50b583bc3ad18ad4bf5b8c38b69bd013a3012e3fa787bd1339e759",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "在图书馆听录音时，请戴上耳机。",
+            "pinyin": "Zài túshūguǎn tīng lùyīn shí, qǐng dài shàng ěrjī.",
+            "meaningVi": "Khi nghe bản ghi âm trong thư viện, vui lòng đeo tai nghe."
+          }
+        ],
+        "hanzi": "耳机",
+        "meaningVi": "tai nghe",
+        "pinyin": "ěrjī",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01",
+          "hsk3-event-retelling-lesson-02",
+          "hsk3-main-idea-detail-notes-lesson-03",
+          "hsk3-society-arts-sports-reports-modern-life",
+          "hsk3-structured-explanation-lesson-01"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00613"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "f94312cf-871d-492d-a469-760e4cdc64ee",
+      "sourceContentSha256": "sha256:31dccd1bc0f0e2b9864ffc7f6d4f7ed1c77891ad5f3af2b65901daf204e5f7fc",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "这本书介绍了十种常用的学习方法。",
+            "pinyin": "Zhè běn shū jièshào le shí zhǒng chángyòng de xuéxí fāngfǎ.",
+            "meaningVi": "Cuốn sách này giới thiệu mười phương pháp học thường dùng."
+          }
+        ],
+        "hanzi": "常用",
+        "meaningVi": "thường dùng",
+        "pinyin": "chángyòng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-event-retelling-lesson-01",
+          "hsk3-event-retelling-lesson-02",
+          "hsk3-main-idea-detail-notes-lesson-02",
+          "hsk3-main-idea-detail-notes-lesson-03",
+          "hsk3-nature-environment-explanations-climate-seasons",
+          "hsk3-nature-environment-explanations-landscape-place",
+          "hsk3-nature-environment-explanations-plants-animals",
+          "hsk3-structured-explanation-lesson-01"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00556"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "9921da4b-1bbb-4d8a-b766-db74700ea08b",
+      "sourceContentSha256": "sha256:092564faa4883a86042be513778f83c6a942e033bb52b7f0ea3207a40f21bbd9",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "通知写着：十八岁以上可以报名，包括正好十八岁的人。",
+            "pinyin": "Tōngzhī xiě zhe: shíbā suì yǐshàng kěyǐ bàomíng, bāokuò zhènghǎo shíbā suì de rén.",
+            "meaningVi": "Thông báo ghi: từ mười tám tuổi trở lên có thể đăng ký, kể cả người đúng mười tám tuổi."
+          }
+        ],
+        "hanzi": "以上",
+        "meaningVi": "trở lên; nêu trên",
+        "pinyin": "yǐshàng",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-03",
+          "hsk3-event-retelling-lesson-01",
+          "hsk3-guided-paragraph-lesson-02",
+          "hsk3-main-idea-detail-notes-lesson-02",
+          "hsk3-nature-environment-explanations-plants-animals",
+          "hsk3-structured-explanation-lesson-01",
+          "hsk3-study-work-accounts-colleague-workplace"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00928"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "8d5f4b83-16dd-497a-adb0-0cf335ea735a",
+      "sourceContentSha256": "sha256:3a9b1299f905df9ac012a9efe1c32effae3b17ddae3ab9752fe1313adb1ac890",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "虽然多年没见面，我还认得照片里的王老师。",
+            "pinyin": "Suīrán duō nián méi jiànmiàn, wǒ hái rènde zhàopiàn lǐ de Wáng lǎoshī.",
+            "meaningVi": "Dù nhiều năm chưa gặp, tôi vẫn nhận ra thầy Vương trong ảnh."
+          }
+        ],
+        "hanzi": "认得",
+        "meaningVi": "nhận ra; biết",
+        "pinyin": "rènde",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01",
+          "hsk3-culture-tradition-descriptions-regional-cuisine",
+          "hsk3-event-retelling-lesson-03",
+          "hsk3-guided-paragraph-lesson-01",
+          "hsk3-structured-explanation-lesson-02"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00815"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "75952f34-ad26-41d1-a296-c9cea761c647",
+      "sourceContentSha256": "sha256:0fad4b2c7aefa894be9ced69e58c4b691e3f5cd4711a55c3d390711a187b8cb3",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "我的牙有点儿疼，准备明天去看牙医。",
+            "pinyin": "Wǒ de yá yǒudiǎnr téng, zhǔnbèi míngtiān qù kàn yáyī.",
+            "meaningVi": "Răng tôi hơi đau, tôi định ngày mai đi khám nha sĩ."
+          }
+        ],
+        "hanzi": "牙",
+        "meaningVi": "răng",
+        "pinyin": "yá",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01",
+          "hsk3-culture-tradition-descriptions-tableware-etiquette",
+          "hsk3-event-retelling-lesson-01",
+          "hsk3-event-retelling-lesson-03",
+          "hsk3-guided-paragraph-lesson-01",
+          "hsk3-main-idea-detail-notes-lesson-02",
+          "hsk3-nature-environment-explanations-climate-seasons",
+          "hsk3-structured-explanation-lesson-01",
+          "hsk3-structured-explanation-lesson-02",
+          "hsk3-structured-explanation-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00916"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "6bd10686-db0a-4006-b814-440b8c0b59ec",
+      "sourceContentSha256": "sha256:6ff27caa336f5e769ea356b808e8fc7d803c4c77781602f9999281b4cef7f91b",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "他摔倒时，手里的瓶子摔坏了。他的腿也受了伤，需要去医院。",
+            "pinyin": "Tā shuāidǎo shí, shǒu lǐ de píngzi shuāi huài le. Tā de tuǐ yě shòu le shāng, xūyào qù yīyuàn.",
+            "meaningVi": "Khi anh ấy ngã, chai trong tay bị vỡ. Chân anh cũng bị thương, cần tới bệnh viện."
+          }
+        ],
+        "hanzi": "瓶子",
+        "meaningVi": "chai; lọ",
+        "pinyin": "píngzi",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-02",
+          "hsk3-guided-paragraph-lesson-01",
+          "hsk3-guided-paragraph-lesson-02",
+          "hsk3-personal-life-narratives-health-care",
+          "hsk3-structured-explanation-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00796"
+        ]
+      }
+    }
+  ]
+}

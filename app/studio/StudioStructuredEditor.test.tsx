@@ -4,6 +4,14 @@ import { studioStarterContent } from "../../src/content/studioContent";
 import { StudioStructuredEditor } from "./StudioStructuredEditor";
 
 describe("Biên Tập Viện structured editor", () => {
+  it('lets an editor choose Premium or free and choose questions by readable content',()=>{
+    const content: Record<string,unknown>=studioStarterContent('exam_form','hsk1');
+    content.accessTier='free';
+    const first=(content.itemStableKeys as string[])[0]!;
+    const html=renderToStaticMarkup(<StudioStructuredEditor mode="update" draftSeed="exam" initialItemType="exam_form" initialContent={content} examQuestionChoices={[{key:first,level:'hsk1',skill:'listening',label:'你好 · Nghe lời chào'}]}/>);
+    expect(html).toContain('name="accessTier"');expect(html).toContain('value="free" selected');expect(html).toContain('Nội dung câu 1');expect(html).toContain('你好 · Nghe lời chào');
+    expect(html).toContain('type="hidden" name="itemStableKeys"');
+  });
   it("renders a non-technical vocabulary form and packages JSON only in a hidden field", () => {
     const html = renderToStaticMarkup(
       <StudioStructuredEditor

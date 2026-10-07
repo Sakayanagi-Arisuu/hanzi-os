@@ -1,4 +1,5 @@
 import type { LearningState, StartingLevel } from "../types";
+import { hasLearningProgress } from "../assessment/placementSafety";
 
 const clampObservedAccuracy = (value: number) =>
   Math.max(0, Math.min(100, Math.round(value)));
@@ -53,12 +54,12 @@ export const applySkippedDiagnostic = (
   ...state,
   profile: {
     ...state.profile,
-    startingLevel: "zero",
+    startingLevel: hasLearningProgress(state) ? state.profile.startingLevel : "zero",
   },
   diagnostic: {
     completed: true,
     score: 0,
-    recommendedLessonId: "boot-1",
+    recommendedLessonId: hasLearningProgress(state) ? state.diagnostic.recommendedLessonId : "boot-1",
     completedAt,
   },
   activityLog: [
@@ -79,10 +80,13 @@ export const applyAcceptedDiagnosticPlacement = (
   score: number,
   completedAt = new Date().toISOString(),
   activityId = `diagnostic-placement:${completedAt}`,
-): LearningState => applyObservedDiagnosticCompletion({
-  ...state,
-  profile: {
-    ...state.profile,
-    startingLevel,
-  },
-}, score, completedAt, activityId);
+  preservePath = false,
+): LearningState => {
+  const keepPath = preservePath || hasLearningProgress(state);
+  const result = applyObservedDiagnosticCompletion({
+    ...state,
+    profile: { ...state.profile, startingLevel: keepPath ? state.profile.startingLevel : startingLevel },
+  }, score, completedAt, activityId);
+  // A screening score must not replace the currently recommended lesson either.
+  return keepPath ? { ...result, diagnostic: { ...result.diagnostic, recommendedLessonId: state.diagnostic.recommendedLessonId } } : result;
+};

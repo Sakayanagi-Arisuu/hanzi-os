@@ -1,0 +1,2264 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/172-REVIEW-HSK1-WEEK-LOCATION-ROUND79.md",
+  "entries": [
+    {
+      "sourceRevisionId": "3d4d2247-5e85-4077-8242-cf56a62d6b3b",
+      "sourceContentSha256": "sha256:c0d1c532d3c600690bfbdfce4ddb6f2c401eb02640bffb2ece095d7008b1e90d",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Lịch mới có lớp sáng thứ ba, nghỉ buổi chiều và gặp bạn tối chủ nhật. Nói ba mốc, dùng 星期日 hoặc 星期天 cho chủ nhật.",
+        "conceptVi": "Phân biệt thứ trong tuần và buổi trong ngày",
+        "dialogue": [
+          {
+            "hanzi": "你星期一上午上课吗？",
+            "meaningVi": "Sáng thứ hai bạn có lớp không?",
+            "pinyin": "Nǐ xīngqīyī shàngwǔ shàngkè ma?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "上课，下午休息。",
+            "meaningVi": "Có lớp, chiều nghỉ.",
+            "pinyin": "Shàngkè, xiàwǔ xiūxi.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "我们星期天见吧。",
+            "meaningVi": "Chủ nhật chúng ta gặp nhé.",
+            "pinyin": "Wǒmen xīngqītiān jiàn ba.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:a4537b2a12ef9441504d10ececd68a1644d0dbcdcbca11bfbf37c3b286b57756",
+          "evidenceDocument": "docs/thien-lo-redesign-review/171-REVIEW-HSK1-GRAMMAR-SOURCE-ROUND78.md",
+          "humanReviewed": false,
+          "scope": "Align grammar source references with taught numerals, dates, clock time and weather descriptions; links are not full coverage claims, IDs and activities unchanged.",
+          "sourceContentSha256": "sha256:5a71e59be68bf9da42db6a3586535492e54508b22bbd76e146b51734f2ad4f76",
+          "sourceRevisionId": "d66fb953-169a-488a-999a-80b77435d696"
+        },
+        "exercises": [
+          {
+            "answer": "星期一下午",
+            "answerMeaningVi": "chiều thứ hai",
+            "answerPinyin": "xīngqīyī xiàwǔ",
+            "distractors": [
+              "星期二上午",
+              "星期天晚上"
+            ],
+            "explanationVi": "Đúng: 星期一 là thứ hai, 下午 là chiều.",
+            "promptVi": "Cách nào nói đúng “chiều thứ hai”?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "星期一 đến 星期六 là thứ hai đến thứ bảy; 星期日 và 星期天 đều là chủ nhật. 早上 buổi sáng sớm, 上午 buổi sáng/trước trưa, 中午 trưa, 下午 chiều, 晚上 tối; ranh giới giờ phụ thuộc ngữ cảnh. 白天 là ban ngày. 早/晚 có thể nói sớm/muộn, không luôn thay cả danh từ buổi. Thứ trước buổi: 星期一上午.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我星期二上午上课，下午休息。我们星期天晚上见。",
+              "modelAnswerMeaningVi": "Sáng thứ ba tôi có lớp, chiều nghỉ. Chúng ta gặp tối chủ nhật.",
+              "modelAnswerPinyin": "Wǒ xīngqīèr shàngwǔ shàngkè, xiàwǔ xiūxi. Wǒmen xīngqītiān wǎnshang jiàn.",
+              "promptVi": "Lịch mới có lớp sáng thứ ba, nghỉ buổi chiều và gặp bạn tối chủ nhật. Nói ba mốc, dùng 星期日 hoặc 星期天 cho chủ nhật."
+            },
+            "modelExample": {
+              "hanzi": "星期二上午。",
+              "meaningVi": "Sáng thứ ba.",
+              "pinyin": "Xīngqīèr shàngwǔ."
+            },
+            "pattern": "星期 + số → buổi trong ngày。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lịch học giả định: sáng thứ hai có lớp; chiều thứ hai nghỉ; chủ nhật gặp bạn. Bạn cần xác nhận đúng cả thứ lẫn buổi.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "一 (yī) — một; 二 (èr) — hai; 上课 (shàngkè) — có/vào tiết; 休息 (xiūxi) — nghỉ; 见 (jiàn) — gặp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:context",
+              "illustration": {
+                "alt": "Ba cảnh đi học, nghỉ ở nhà và gặp bạn trong công viên",
+                "caption": "Từ trái sang phải: sáng thứ hai học; chiều thứ hai nghỉ; chủ nhật gặp bạn.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/weekly-study-rest-meeting-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Phân biệt thứ trong tuần và buổi trong ngày"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你星期一上午上课吗？",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sáng thứ hai bạn có lớp không?",
+                  "pinyin": "Nǐ xīngqīyī shàngwǔ shàngkè ma?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "上课，下午休息。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có lớp, chiều nghỉ.",
+                  "pinyin": "Shàngkè, xiàwǔ xiūxi.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我们星期天见吧。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chủ nhật chúng ta gặp nhé.",
+                  "pinyin": "Wǒmen xīngqītiān jiàn ba.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:dialogue",
+              "illustration": {
+                "alt": "Ba cảnh đi học, nghỉ ở nhà và gặp bạn trong công viên",
+                "caption": "Từ trái sang phải: sáng thứ hai học; chiều thứ hai nghỉ; chủ nhật gặp bạn.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/weekly-study-rest-meeting-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "星期一 đến 星期六 là thứ hai đến thứ bảy; 星期日 và 星期天 đều là chủ nhật. 早上 buổi sáng sớm, 上午 buổi sáng/trước trưa, 中午 trưa, 下午 chiều, 晚上 tối; ranh giới giờ phụ thuộc ngữ cảnh. 白天 là ban ngày. 早/晚 có thể nói sớm/muộn, không luôn thay cả danh từ buổi. Thứ trước buổi: 星期一上午.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "星期二上午。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sáng thứ ba.",
+                  "pinyin": "Xīngqīèr shàngwǔ.",
+                  "provenance": "",
+                  "title": "星期 + số → buổi trong ngày。"
+                },
+                {
+                  "alt": "",
+                  "body": "星期一 là thứ hai theo cách gọi tiếng Việt, không phải chủ nhật. 晚了 nói muộn rồi, không tự nghĩa là buổi tối.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Phân biệt thứ trong tuần và buổi trong ngày"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Các mốc lịch riêng trong bài: sáng thứ hai học, chiều thứ hai nghỉ, chủ nhật gặp bạn.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "星期一上午上课",
+                        "meaningVi": "Sáng thứ hai: có lớp",
+                        "note": "",
+                        "pinyin": "Xīngqīyī shàngwǔ shàngkè",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "星期一下午休息",
+                        "meaningVi": "Chiều thứ hai: nghỉ",
+                        "note": "",
+                        "pinyin": "Xīngqīyī xiàwǔ xiūxi",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "星期天见",
+                        "meaningVi": "Chủ nhật: gặp",
+                        "note": "",
+                        "pinyin": "Xīngqītiān jiàn",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ban ngày",
+                  "hanzi": "我白天上班。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00005",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ban ngày tôi đi làm.",
+                  "pinyin": "Wǒ báitiān shàngbān.",
+                  "provenance": "",
+                  "title": "白天 · báitiān"
+                },
+                {
+                  "alt": "",
+                  "body": "buổi sáng",
+                  "hanzi": "我上午有课。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00178",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Buổi sáng tôi có giờ học.",
+                  "pinyin": "Wǒ shàngwǔ yǒu kè.",
+                  "provenance": "",
+                  "title": "上午 · shàngwǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "muộn; tối",
+                  "hanzi": "现在太晚了。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00215",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ muộn quá rồi.",
+                  "pinyin": "Xiànzài tài wǎn le.",
+                  "provenance": "",
+                  "title": "晚 · wǎn"
+                },
+                {
+                  "alt": "",
+                  "body": "buổi tối",
+                  "hanzi": "我晚上八点学习。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00217",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học lúc tám giờ tối.",
+                  "pinyin": "Wǒ wǎnshang bā diǎn xuéxí.",
+                  "provenance": "",
+                  "title": "晚上 · wǎnshang"
+                },
+                {
+                  "alt": "",
+                  "body": "buổi chiều",
+                  "hanzi": "我上午不忙，下午很忙。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00230",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Buổi sáng tôi không bận, buổi chiều tôi bận.",
+                  "pinyin": "Wǒ shàngwǔ bù máng, xiàwǔ hěn máng.",
+                  "provenance": "",
+                  "title": "下午 · xiàwǔ"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "tuần; thứ",
+                  "hanzi": "今天星期几？",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00243",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là thứ mấy?",
+                  "pinyin": "Jīntiān xīngqī jǐ?",
+                  "provenance": "",
+                  "title": "星期 · xīngqī"
+                },
+                {
+                  "alt": "",
+                  "body": "Chủ nhật",
+                  "hanzi": "星期日我不上班。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00244",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chủ nhật tôi không đi làm.",
+                  "pinyin": "Xīngqīrì wǒ bù shàngbān.",
+                  "provenance": "",
+                  "title": "星期日 · xīngqīrì"
+                },
+                {
+                  "alt": "",
+                  "body": "Chủ nhật",
+                  "hanzi": "我们星期天去公园。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00245",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chủ nhật chúng tôi đi công viên.",
+                  "pinyin": "Wǒmen xīngqītiān qù gōngyuán.",
+                  "provenance": "",
+                  "title": "星期天 · xīngqītiān"
+                },
+                {
+                  "alt": "",
+                  "body": "sớm",
+                  "hanzi": "现在还早。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00273",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ vẫn còn sớm.",
+                  "pinyin": "Xiànzài hái zǎo.",
+                  "provenance": "",
+                  "title": "早 · zǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "buổi sáng",
+                  "hanzi": "你早上忙吗？",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00275",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Buổi sáng bạn có bận không?",
+                  "pinyin": "Nǐ zǎoshang máng ma?",
+                  "provenance": "",
+                  "title": "早上 · zǎoshang"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "buổi trưa",
+                  "hanzi": "我们中午十二点吃饭。",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00291",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng tôi ăn trưa lúc mười hai giờ.",
+                  "pinyin": "Wǒmen zhōngwǔ shí'èr diǎn chīfàn.",
+                  "provenance": "",
+                  "title": "中午 · zhōngwǔ"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "id": "hsk1-time-place-events-03-week-and-day-parts:r79:page:teach",
+              "title": "今天星期几？: câu không cần 是",
+              "stage": "understand",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:note",
+                  "kind": "explanation",
+                  "title": "Danh từ làm vị ngữ",
+                  "body": "Để nói thứ hoặc ngày tháng trong câu ngắn, tiếng Trung có thể đặt cụm danh từ/số trực tiếp sau chủ ngữ: 今天星期一. Không phải mọi câu đều cần 是. 今天是星期一 cũng đúng; khác biệt không phải có 是 là sai. Khi phủ định thông tin về thứ, dùng 不是: 今天不是星期天. Không suy từ mẫu này rằng có thể bỏ 是 trong mọi câu nhận diện: 我是老师 vẫn cần 是 trong mẫu cơ bản.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:example:0",
+                  "kind": "dialogue",
+                  "title": "Lịch giả định: thứ hai",
+                  "body": "",
+                  "hanzi": "今天星期几？今天星期一。",
+                  "pinyin": "Jīntiān xīngqī jǐ? Jīntiān xīngqīyī.",
+                  "meaningVi": "Hôm nay thứ mấy? Hôm nay thứ hai.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:example:1",
+                  "kind": "dialogue",
+                  "title": "Phủ định và sửa lại",
+                  "body": "",
+                  "hanzi": "今天不是星期天，是星期一。",
+                  "pinyin": "Jīntiān bú shì xīngqītiān, shì xīngqīyī.",
+                  "meaningVi": "Hôm nay không phải chủ nhật, mà là thứ hai.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-03-week-and-day-parts:r79:page:practice",
+              "title": "Đọc thứ và phủ định đúng",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Lịch giả định ghi thứ hai. Cặp nào đều nói đúng thông tin?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "今天星期一。／今天是星期一。",
+                        "feedback": "Hai cách nói có/không có 是 đều đúng ở mẫu ngày/thứ này. 星期一 là thứ hai."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "今天星期天。／今天是星期一。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "今天星期二。／今天星期天。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Hai cách nói có/không có 是 đều đúng ở mẫu ngày/thứ này. 星期一 là thứ hai.",
+                    "learningTarget": {
+                      "objective": "Hỏi và trả lời thứ trong tuần bằng vị ngữ danh từ; phủ định với 不是.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-044",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Hôm nay không phải chủ nhật: chọn mẫu cơ bản đúng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "今天不星期天。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "今天不是星期天。",
+                        "feedback": "Dùng 不是 để phủ định thông tin về thứ. Không lấy việc câu khẳng định bỏ 是 để bỏ 是 cả trong phủ định."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "今天没星期天。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Dùng 不是 để phủ định thông tin về thứ. Không lấy việc câu khẳng định bỏ 是 để bỏ 是 cả trong phủ định.",
+                    "learningTarget": {
+                      "objective": "Hỏi và trả lời thứ trong tuần bằng vị ngữ danh từ; phủ định với 不是.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-044",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:q:2",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 3",
+                  "body": "Bạn muốn hỏi hôm nay thứ mấy, không hỏi số cốc.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "今天星期几？",
+                        "feedback": "星期几 hỏi thứ trong tuần; 几个杯子 hỏi số cốc, 哪儿 hỏi nơi chốn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "今天有几个杯子？",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "你在哪儿？",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "星期几 hỏi thứ trong tuần; 几个杯子 hỏi số cốc, 哪儿 hỏi nơi chốn.",
+                    "learningTarget": {
+                      "objective": "Hỏi và trả lời thứ trong tuần bằng vị ngữ danh từ; phủ định với 不是.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-044",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-03-week-and-day-parts:r79:page:transfer",
+              "title": "Sửa một cuộc hẹn nhầm thứ",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:r79:produce",
+                  "kind": "activity",
+                  "title": "Tự viết rồi đối chiếu",
+                  "body": "Lịch mới ghi hôm nay thứ sáu. Bạn nhầm tưởng hôm nay chủ nhật. Viết câu sửa lại và nói chiều thứ sáu mình có lớp; không tự chuyển cuộc hẹn sang ngày mai.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "星期五 là thứ sáu; không lấy ngày thật làm đáp án.",
+                        "guidance": "星期五 là thứ sáu; không lấy ngày thật làm đáp án."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Phủ định bằng 不是; có thể tách thành 今天不是星期天。今天星期五。",
+                        "guidance": "Phủ định bằng 不是; có thể tách thành 今天不是星期天。今天星期五。"
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Giữ 星期五下午上课, không thêm đổi ngày hẹn.",
+                        "guidance": "Giữ 星期五下午上课, không thêm đổi ngày hẹn."
+                      }
+                    ],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n今天不是星期天，是星期五。我星期五下午上课。\nJīntiān bú shì xīngqītiān, shì xīngqīwǔ. Wǒ xīngqīwǔ xiàwǔ shàngkè.\nHôm nay không phải chủ nhật, mà là thứ sáu. Chiều thứ sáu tôi có lớp.\nCó thể dùng cách nói khác giữ đúng dữ kiện. Tự đối chiếu chưa phải đánh giá viết/nói độc lập.",
+                    "learningTarget": {
+                      "objective": "Hỏi và trả lời thứ trong tuần bằng vị ngữ danh từ; phủ định với 不是.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-044",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: 星期一 là thứ hai, 下午 là chiều. 星期一 là thứ hai theo cách gọi tiếng Việt, không phải chủ nhật. 晚了 nói muộn rồi, không tự nghĩa là buổi tối.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 星期一下午 để nói chiều thứ hai, phân biệt ngày trong tuần và buổi trong ngày. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00230",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: 星期一 là thứ hai, 下午 là chiều.",
+                        "id": "option-0",
+                        "text": "星期一下午"
+                      },
+                      {
+                        "feedback": "Đây là sáng thứ ba.",
+                        "id": "option-1",
+                        "text": "星期二上午"
+                      },
+                      {
+                        "feedback": "Đây là tối chủ nhật.",
+                        "id": "option-2",
+                        "text": "星期天晚上"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Cách nào nói đúng “chiều thứ hai”?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "日"
+                    ],
+                    "answerIds": [],
+                    "explanation": "星期日 và 星期天 đều là chủ nhật. 星期一 là thứ hai.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Hoàn thành 星期日 là Chủ nhật, tương đương 星期天 trong ngữ cảnh này. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00244",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 日 hoặc 一: 星期____ có thể nghĩa chủ nhật giống 星期天。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lịch mới có lớp sáng thứ ba, nghỉ buổi chiều và gặp bạn tối chủ nhật. Nói ba mốc, dùng 星期日 hoặc 星期天 cho chủ nhật.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我星期二上午上课，下午休息。我们星期天晚上见。\nWǒ xīngqīèr shàngwǔ shàngkè, xiàwǔ xiūxi. Wǒmen xīngqītiān wǎnshang jiàn.\nSáng thứ ba tôi có lớp, chiều nghỉ. Chúng ta gặp tối chủ nhật.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết thời điểm hẹn mới gồm ngày trong tuần và buổi, tự kiểm không nhầm thứ hai/chủ nhật. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-time-place-events:03-week-and-day-parts",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "星期二 khớp thứ ba.",
+                        "id": "criterion-0",
+                        "label": "星期二 khớp thứ ba."
+                      },
+                      {
+                        "guidance": "Giữ sáng học, chiều nghỉ.",
+                        "id": "criterion-1",
+                        "label": "Giữ sáng học, chiều nghỉ."
+                      },
+                      {
+                        "guidance": "Chủ nhật tối có cả thứ và buổi.",
+                        "id": "criterion-2",
+                        "label": "Chủ nhật tối có cả thứ và buổi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "星期二 khớp thứ ba.\nGiữ sáng học, chiều nghỉ.\nChủ nhật tối có cả thứ và buổi.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-03-week-and-day-parts:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-03-week-and-day-parts:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "1181c24b-3012-45b8-8dc7-79b33f726823",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Xác định thứ trong tuần và các khoảng sáng, trưa, chiều, tối.",
+        "pitfallVi": "星期一 là thứ hai theo cách gọi tiếng Việt, không phải chủ nhật. 晚了 nói muộn rồi, không tự nghĩa là buổi tối.",
+        "prerequisites": [
+          "hsk1-time-place-events-02-calendar"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "星期一 đến 星期六 là thứ hai đến thứ bảy; 星期日 và 星期天 đều là chủ nhật. 早上 buổi sáng sớm, 上午 buổi sáng/trước trưa, 中午 trưa, 下午 chiều, 晚上 tối; ranh giới giờ phụ thuộc ngữ cảnh. 白天 là ban ngày. 早/晚 có thể nói sớm/muộn, không luôn thay cả danh từ buổi. Thứ trước buổi: 星期一上午.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-036",
+          "hsk1-grammar-row-044",
+          "hsk1-grammar-row-065"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-03-week-and-day-parts"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-time-place-events:03-week-and-day-parts"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00005",
+          "hsk-vocab-00178",
+          "hsk-vocab-00215",
+          "hsk-vocab-00217",
+          "hsk-vocab-00230",
+          "hsk-vocab-00243",
+          "hsk-vocab-00244",
+          "hsk-vocab-00245",
+          "hsk-vocab-00273",
+          "hsk-vocab-00275",
+          "hsk-vocab-00291"
+        ],
+        "targetLessonId": "hsk1-time-place-events-03-week-and-day-parts",
+        "titleZh": "星期和时段",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/72-REVIEW-NUMBERS-WEEK-ART.md",
+          "humanReviewed": false,
+          "scope": "Numbers and weekly schedule context/dialogue original art with captions.",
+          "sourceRevisionId": "6714e2fc-e428-443c-ba45-a2e6d171a905"
+        },
+        "vocabulary": [
+          "hsk-vocab-00005",
+          "hsk-vocab-00178",
+          "hsk-vocab-00215",
+          "hsk-vocab-00217",
+          "hsk-vocab-00230",
+          "hsk-vocab-00243",
+          "hsk-vocab-00244",
+          "hsk-vocab-00245",
+          "hsk-vocab-00273",
+          "hsk-vocab-00275",
+          "hsk-vocab-00291"
+        ]
+      },
+      "changes": [
+        {
+          "field": "hsk1-time-place-events-03-week-and-day-parts:v2:block:word-hsk-vocab-00230",
+          "scope": "Replace orphaned reply with self-contained afternoon contrast."
+        },
+        {
+          "netPages": 3
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "3da4f144-0d1a-4ac0-a946-a46c1ae61756",
+      "sourceContentSha256": "sha256:8ba6ebb4dc0946a195ff7b841a3e5f5dbc06eadb9efabd28653a868fab76088f",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个.",
+        "conceptVi": "Tìm đồ vật và phân biệt đây–kia",
+        "dialogue": [
+          {
+            "hanzi": "书在哪儿？",
+            "meaningVi": "Sách ở đâu?",
+            "pinyin": "Shū zài nǎr?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "书在桌子上。",
+            "meaningVi": "Sách ở trên bàn.",
+            "pinyin": "Shū zài zhuōzi shàng.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "猫呢？",
+            "meaningVi": "Còn mèo?",
+            "pinyin": "Māo ne?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "猫在桌子下。",
+            "meaningVi": "Mèo ở dưới bàn.",
+            "pinyin": "Māo zài zhuōzi xià.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "猫在桌子下。",
+            "answerMeaningVi": "Mèo ở dưới bàn.",
+            "answerPinyin": "Māo zài zhuōzi xià.",
+            "distractors": [
+              "猫在桌子上。",
+              "书在桌子下。"
+            ],
+            "explanationVi": "Đúng: mèo ở dưới bàn.",
+            "promptVi": "Theo tình huống, câu nào xác định đúng vị trí con mèo?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "书在哪儿？书在房间里。这个杯子在桌子上。",
+              "modelAnswerMeaningVi": "Sách ở đâu? Sách ở trong phòng. Cái cốc này ở trên bàn.",
+              "modelAnswerPinyin": "Shū zài nǎr? Shū zài fángjiān lǐ. Zhège bēizi zài zhuōzi shàng.",
+              "promptVi": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个."
+            },
+            "modelExample": {
+              "hanzi": "杯子在桌子上。",
+              "meaningVi": "Cốc ở trên bàn.",
+              "pinyin": "Bēizi zài zhuōzi shàng."
+            },
+            "pattern": "Đồ vật + 在 + nơi + 上／下／里。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Trong sơ đồ bàn học giả định, sách ở trên bàn, mèo ở dưới bàn và cốc ở trong phòng. Người nói chỉ chiếc cốc gần mình rồi hỏi một chiếc ở xa hơn.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "书 (shū) — sách; 桌子 (zhuōzi) — bàn; 猫 (māo) — mèo; 杯子 (bēizi) — cốc; 房间 (fángjiān) — phòng; 在 (zài) — ở.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:context",
+              "illustration": {
+                "alt": "Người chỉ cốc gần mình, cốc thứ hai ở xa; sách trên bàn và mèo dưới bàn",
+                "caption": "Cốc gần người nói và cốc ở xa; sách trên bàn, mèo dưới bàn.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/near-far-cups-location-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tìm đồ vật và phân biệt đây–kia"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Sơ đồ theo chiều dọc: sách ở trên bàn, bàn làm mốc giữa, mèo ở dưới bàn. Mỗi mục có nghĩa bằng chữ.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "书",
+                        "meaningVi": "Sách · trên bàn",
+                        "note": "",
+                        "pinyin": "Shū",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "桌子",
+                        "meaningVi": "Bàn · vật làm mốc",
+                        "note": "",
+                        "pinyin": "Zhuōzi",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "猫",
+                        "meaningVi": "Mèo · dưới bàn",
+                        "note": "",
+                        "pinyin": "Māo",
+                        "x": 1,
+                        "y": 2
+                      }
+                    ],
+                    "type": "map"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书在哪儿？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở đâu?",
+                  "pinyin": "Shū zài nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "猫呢？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Còn mèo?",
+                  "pinyin": "Māo ne?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "猫在桌子下。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới bàn.",
+                  "pinyin": "Māo zài zhuōzi xià.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:dialogue",
+              "illustration": {
+                "alt": "Sách trên mặt bàn, mèo ngồi dưới cùng chiếc bàn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/book-desk-cat-location-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "杯子在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cốc ở trên bàn.",
+                  "pinyin": "Bēizi zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "Đồ vật + 在 + nơi + 上／下／里。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tìm đồ vật và phân biệt đây–kia"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bên; phía",
+                  "hanzi": "我坐在桌子边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00011",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ngồi cạnh bàn.",
+                  "pinyin": "Wǒ zuò zài zhuōzi biān.",
+                  "provenance": "",
+                  "title": "边 · biān"
+                },
+                {
+                  "alt": "",
+                  "body": "trong; bên trong",
+                  "hanzi": "人在房间里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00110",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người ở trong phòng.",
+                  "pinyin": "Rén zài fángjiān lǐ.",
+                  "provenance": "",
+                  "title": "里 · lǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "nào",
+                  "hanzi": "你要哪本书？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00131",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn quyển sách nào?",
+                  "pinyin": "Nǐ yào nǎ běn shū?",
+                  "provenance": "",
+                  "title": "哪 · nǎ"
+                },
+                {
+                  "alt": "",
+                  "body": "cái nào",
+                  "hanzi": "你要哪个杯子？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00132",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn muốn cái cốc nào?",
+                  "pinyin": "Nǐ yào nǎge bēizi?",
+                  "provenance": "",
+                  "title": "哪个 · nǎge"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đâu; nơi nào",
+                  "hanzi": "你在哪里？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00133",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đang ở đâu?",
+                  "pinyin": "Nǐ zài nǎlǐ?",
+                  "provenance": "",
+                  "title": "哪里 · nǎlǐ"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đâu",
+                  "hanzi": "你住在哪儿？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00134",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống ở đâu?",
+                  "pinyin": "Nǐ zhù zài nǎr?",
+                  "provenance": "",
+                  "title": "哪儿 · nǎr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái nào",
+                  "hanzi": "哪些书是你的？",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00135",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những quyển sách nào là của bạn?",
+                  "pinyin": "Nǎxiē shū shì nǐ de?",
+                  "provenance": "",
+                  "title": "哪些 · nǎxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "kia; đó",
+                  "hanzi": "那是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00136",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Kia là sách của tôi.",
+                  "pinyin": "Nà shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "那 · nà"
+                },
+                {
+                  "alt": "",
+                  "body": "bên kia",
+                  "hanzi": "他在那边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00137",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy ở bên kia.",
+                  "pinyin": "Tā zài nàbiān.",
+                  "provenance": "",
+                  "title": "那边 · nàbiān"
+                },
+                {
+                  "alt": "",
+                  "body": "cái kia",
+                  "hanzi": "那个人是我老师。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00138",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người kia là giáo viên của tôi.",
+                  "pinyin": "Nàge rén shì wǒ lǎoshī.",
+                  "provenance": "",
+                  "title": "那个 · nàge"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đó",
+                  "hanzi": "我的书在那里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00139",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách của tôi ở đó.",
+                  "pinyin": "Wǒ de shū zài nàlǐ.",
+                  "provenance": "",
+                  "title": "那里 · nàlǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "chỗ kia",
+                  "hanzi": "他住在那儿。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00140",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy sống ở chỗ kia.",
+                  "pinyin": "Tā zhù zài nàr.",
+                  "provenance": "",
+                  "title": "那儿 · nàr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái kia",
+                  "hanzi": "那些学生在教室里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00141",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những học sinh kia ở trong lớp học.",
+                  "pinyin": "Nàxiē xuésheng zài jiàoshì lǐ.",
+                  "provenance": "",
+                  "title": "那些 · nàxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "trên; lên",
+                  "hanzi": "书在桌子上。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00175",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "provenance": "",
+                  "title": "上 · shàng"
+                },
+                {
+                  "alt": "",
+                  "body": "ngoài",
+                  "hanzi": "门外有人。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00212",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngoài cửa có người.",
+                  "pinyin": "Mén wài yǒu rén.",
+                  "provenance": "",
+                  "title": "外 · wài"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bên ngoài",
+                  "hanzi": "外边正在下雨。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00213",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bên ngoài đang mưa.",
+                  "pinyin": "Wàibian zhèngzài xià yǔ.",
+                  "provenance": "",
+                  "title": "外边 · wàibian"
+                },
+                {
+                  "alt": "",
+                  "body": "dưới; xuống",
+                  "hanzi": "猫在桌子下。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00226",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mèo ở dưới bàn.",
+                  "pinyin": "Māo zài zhuōzi xià.",
+                  "provenance": "",
+                  "title": "下 · xià"
+                },
+                {
+                  "alt": "",
+                  "body": "một vài",
+                  "hanzi": "我买了一些水果。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00239",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua một ít trái cây.",
+                  "pinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+                  "provenance": "",
+                  "title": "些 · xiē"
+                },
+                {
+                  "alt": "",
+                  "body": "đây; này",
+                  "hanzi": "这是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00279",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là sách của tôi.",
+                  "pinyin": "Zhè shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "这 · zhè"
+                },
+                {
+                  "alt": "",
+                  "body": "bên này",
+                  "hanzi": "请来这边。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00280",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời đến bên này.",
+                  "pinyin": "Qǐng lái zhèbiān.",
+                  "provenance": "",
+                  "title": "这边 · zhèbiān"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-note-20",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cái này",
+                  "hanzi": "这个人是我朋友。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00281",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người này là bạn của tôi.",
+                  "pinyin": "Zhège rén shì wǒ péngyou.",
+                  "provenance": "",
+                  "title": "这个 · zhège"
+                },
+                {
+                  "alt": "",
+                  "body": "ở đây",
+                  "hanzi": "我在这里。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00282",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đang ở đây.",
+                  "pinyin": "Wǒ zài zhèlǐ.",
+                  "provenance": "",
+                  "title": "这里 · zhèlǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "chỗ này",
+                  "hanzi": "请坐这儿。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00283",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mời ngồi chỗ này.",
+                  "pinyin": "Qǐng zuò zhèr.",
+                  "provenance": "",
+                  "title": "这儿 · zhèr"
+                },
+                {
+                  "alt": "",
+                  "body": "những cái này",
+                  "hanzi": "这些都是我的书。",
+                  "id": "hsk1-time-place-events-05-location:v2:block:word-hsk-vocab-00284",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Những quyển này đều là sách của tôi.",
+                  "pinyin": "Zhèxiē dōu shì wǒ de shū.",
+                  "provenance": "",
+                  "title": "这些 · zhèxiē"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:words-20",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 5"
+            },
+            {
+              "id": "hsk1-time-place-events-05-location:r79:page:teach",
+              "title": "在 · 是 · 有: ba câu hỏi khác nhau",
+              "stage": "understand",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:note",
+                  "kind": "explanation",
+                  "title": "Xác định hay giới thiệu?",
+                  "body": "书在桌子上 trả lời sách ở đâu: đồ vật đã biết đứng trước 在. 桌子上是我的书 xác định đồ trên bàn là sách của tôi: nơi chốn đứng trước 是, rồi đến vật được nhận diện. 桌子上有两本书 giới thiệu ở nơi đó có hai quyển sách, chưa nói là sách của ai. Số lượng gồm số + lượng từ + danh từ: 两本书, 三个杯子. Không đổi mọi 有 thành 是: muốn báo có bao nhiêu vật, dùng 有. Phủ định có/không có dùng 没有, không dùng 不有.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:support",
+                  "kind": "explanation",
+                  "title": "Từ hỗ trợ",
+                  "body": "桌子 zhuōzi: bàn; 书 shū: sách; 本 běn: lượng từ cho sách; 杯子 bēizi: cốc; 个 ge: lượng từ dùng cho cốc trong bài; 两 liǎng: hai trước lượng từ; 三 sān: ba; 我的 wǒ de: của tôi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:example:0",
+                  "kind": "dialogue",
+                  "title": "Tìm sách",
+                  "body": "",
+                  "hanzi": "书在桌子上。",
+                  "pinyin": "Shū zài zhuōzi shàng.",
+                  "meaningVi": "Sách ở trên bàn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:example:1",
+                  "kind": "dialogue",
+                  "title": "Nhận diện đồ trên bàn",
+                  "body": "",
+                  "hanzi": "桌子上是我的书。",
+                  "pinyin": "Zhuōzi shàng shì wǒ de shū.",
+                  "meaningVi": "Trên bàn là sách của tôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:example:2",
+                  "kind": "dialogue",
+                  "title": "Báo số lượng",
+                  "body": "",
+                  "hanzi": "桌子上有两本书，没有杯子。",
+                  "pinyin": "Zhuōzi shàng yǒu liǎng běn shū, méiyǒu bēizi.",
+                  "meaningVi": "Trên bàn có hai quyển sách, không có cốc.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-05-location:r79:page:practice",
+              "title": "Chọn theo mục đích nói",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Bạn được hỏi sách ở đâu. Chọn câu định vị sách.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "书在桌子上。",
+                        "feedback": "书 đứng trước 在: xác định vị trí của sách, không chuyển sang báo số lượng hoặc chủ sở hữu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "桌子上有两本书。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "桌子上是我的书。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "书 đứng trước 在: xác định vị trí của sách, không chuyển sang báo số lượng hoặc chủ sở hữu.",
+                    "learningTarget": {
+                      "objective": "Phân biệt vị trí của vật, xác định vật ở một nơi và giới thiệu số lượng vật tại nơi đó.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Người nghe chỉ vào đồ trên bàn hỏi đó là gì. Bạn xác định đó là sách của mình.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "桌子上是我的书。",
+                        "feedback": "Nơi chốn + 是 + vật được nhận diện: đồ trên bàn là sách của tôi."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "桌子上有三个杯子。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我在桌子上。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Nơi chốn + 是 + vật được nhận diện: đồ trên bàn là sách của tôi.",
+                    "learningTarget": {
+                      "objective": "Phân biệt vị trí của vật, xác định vật ở một nơi và giới thiệu số lượng vật tại nơi đó.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:q:2",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 3",
+                  "body": "Phiếu kiểm đồ chỉ ghi trên bàn có hai quyển sách, chưa ghi chủ sở hữu. Chọn câu giữ đúng thông tin.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "桌子上是我的书。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "桌子上有两本书。",
+                        "feedback": "有 giới thiệu sự tồn tại và số lượng. 不 được tự thêm sách là của tôi."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "书有桌子上。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "有 giới thiệu sự tồn tại và số lượng. 不 được tự thêm sách là của tôi.",
+                    "learningTarget": {
+                      "objective": "Phân biệt vị trí của vật, xác định vật ở một nơi và giới thiệu số lượng vật tại nơi đó.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:q:3",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 4",
+                  "body": "Trên bàn không có cốc: chọn câu đúng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "桌子上不有杯子。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "桌子上没有杯子。",
+                        "feedback": "Phủ định 有 bằng 没有. Câu này không xác định vật là gì."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "桌子上没是杯子。",
+                        "feedback": "Đối chiếu yêu cầu của câu với mẫu vừa học."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Phủ định 有 bằng 没有. Câu này không xác định vật là gì.",
+                    "learningTarget": {
+                      "objective": "Phân biệt vị trí của vật, xác định vật ở một nơi và giới thiệu số lượng vật tại nơi đó.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-05-location:r79:page:transfer",
+              "title": "Kiểm đồ trong phòng mới",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-05-location:r79:produce",
+                  "kind": "activity",
+                  "title": "Tự viết rồi đối chiếu",
+                  "body": "Phòng mới: trên bàn có ba cái cốc; sách của bạn ở trong phòng. Viết một câu báo số lượng cốc và một câu xác định vị trí sách. Không tự thêm số sách hoặc chủ sở hữu cốc.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nơi chốn + 有 + 三个杯子 để báo số lượng.",
+                        "guidance": "Nơi chốn + 有 + 三个杯子 để báo số lượng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "我的书 đứng trước 在 để xác định vị trí sách.",
+                        "guidance": "我的书 đứng trước 在 để xác định vị trí sách."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm số sách hoặc nói cốc là của mình.",
+                        "guidance": "Không thêm số sách hoặc nói cốc là của mình."
+                      }
+                    ],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n桌子上有三个杯子。我的书在房间里。\nZhuōzi shàng yǒu sān ge bēizi. Wǒ de shū zài fángjiān lǐ.\nTrên bàn có ba cái cốc. Sách của tôi ở trong phòng.\nCó thể dùng cách nói khác giữ đúng dữ kiện. Tự đối chiếu chưa phải đánh giá viết/nói độc lập.",
+                    "learningTarget": {
+                      "objective": "Phân biệt vị trí của vật, xác định vật ở một nơi và giới thiệu số lượng vật tại nơi đó.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-051",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: mèo ở dưới bàn. Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu mèo ở dưới bàn theo cảnh giả định, giữ đúng đối tượng và mốc trên/dưới. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-003",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là vị trí sách, không phải mèo.",
+                        "id": "option-0",
+                        "text": "猫在桌子上。"
+                      },
+                      {
+                        "feedback": "Sai đối tượng và vị trí trong đề.",
+                        "id": "option-1",
+                        "text": "书在桌子下。"
+                      },
+                      {
+                        "feedback": "Đúng: mèo ở dưới bàn.",
+                        "id": "option-2",
+                        "text": "猫在桌子下。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Theo tình huống, câu nào xác định đúng vị trí con mèo?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "在"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Câu đang xác định vị trí của sách nên dùng 在. Muốn nói trên bàn có sách thì đổi cấu trúc: 桌子上有书.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 在 để định vị sách trên bàn; 在 không có exact vocabulary source trong bài nên nối mẫu nơi chốn đã học. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk1-grammar-row-021",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 在 hoặc 有: 书____桌子上。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Sơ đồ mới có cốc trên bàn, sách trong phòng. Hỏi sách ở đâu và trả lời; giới thiệu cốc này bằng 这个, không biến thành 那个.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n书在哪儿？书在房间里。这个杯子在桌子上。\nShū zài nǎr? Shū zài fángjiān lǐ. Zhège bēizi zài zhuōzi shàng.\nSách ở đâu? Sách ở trong phòng. Cái cốc này ở trên bàn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu xác định vị trí đồ vật mới, phân biệt câu có vật ở đâu với câu ở đâu có vật. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "在 theo sau đối tượng cần định vị.",
+                        "id": "criterion-0",
+                        "label": "在 theo sau đối tượng cần định vị."
+                      },
+                      {
+                        "guidance": "Giữ cốc trên bàn và sách trong phòng.",
+                        "id": "criterion-1",
+                        "label": "Giữ cốc trên bàn và sách trong phòng."
+                      },
+                      {
+                        "guidance": "这 gần người nói, 哪 để hỏi.",
+                        "id": "criterion-2",
+                        "label": "这 gần người nói, 哪 để hỏi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "在 theo sau đối tượng cần định vị.\nGiữ cốc trên bàn và sách trong phòng.\n这 gần người nói, 哪 để hỏi.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-05-location:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-05-location:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "7f2a1498-563b-4132-aba0-981700829be7",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Hỏi và chỉ vị trí bằng từ để hỏi, từ chỉ định và phương vị.",
+        "pitfallVi": "Không dịch 哪个 thành cái đó: 哪 là nghi vấn, 那 là chỉ định. Trên/dưới trong bài lấy bàn làm mốc, không lấy vị trí màn hình làm mốc.",
+        "prerequisites": [
+          "hsk1-time-place-events-04-clock-and-duration"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Đồ vật + 在 + vị trí: 书在桌子上. Địa điểm + 有 + đồ vật: 房间里有杯子. 上/下/里/外 là trên/dưới/trong/ngoài trong ngữ cảnh vị trí. 这 gần người nói, 那 xa hơn theo điểm nhìn. 这个/那个 hỏi/chỉ một đối tượng; 这些/那些 số nhiều. 哪个 hỏi cái nào; 哪些 hỏi những cái nào. 哪里/哪儿 đều hỏi ở đâu; 这里/这儿 và 那里/那儿 chỉ đây/kia. 这边/那边 là phía này/phía kia.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-002",
+          "hsk1-grammar-row-003",
+          "hsk1-grammar-row-010",
+          "hsk1-grammar-row-021",
+          "hsk1-grammar-row-033",
+          "hsk1-grammar-row-034",
+          "hsk1-grammar-row-040",
+          "hsk1-grammar-row-051",
+          "hsk1-grammar-row-052"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-05-location"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-05"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-007"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284"
+        ],
+        "targetLessonId": "hsk1-time-place-events-05-location",
+        "titleZh": "位置和指示",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/73-REVIEW-REMAINING-TIME-ART.md",
+          "humanReviewed": false,
+          "scope": "Calendar, clock and near/far location original art with captions.",
+          "sourceRevisionId": "6acc2900-03ce-4897-9353-33336eede900"
+        },
+        "vocabulary": [
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284"
+        ]
+      },
+      "changes": [
+        {
+          "netPages": 3
+        }
+      ]
+    }
+  ]
+}

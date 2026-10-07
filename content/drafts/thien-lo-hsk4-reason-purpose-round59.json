@@ -1,0 +1,3466 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/152-REVIEW-HSK4-REASON-PURPOSE-ROUND59.md",
+  "entries": [
+    {
+      "sourceRevisionId": "8f33bc2b-2d39-4ec9-ba15-36e9602d68a1",
+      "sourceContentSha256": "sha256:e5e77a93bde9cf70210c6d67b728d90a794c918a3c8414dc4484b5404cf7e4b4",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "phân biệt chức năng hai loại nguồn\nbằng chứng phương pháp khảo cổ\ngiá trị và giới hạn du ký\nphản biện về khả năng thu hút công chúng\nđề xuất cách ghi nhãn mức chắc chắn",
+        "conceptVi": "Sắp xếp bằng chứng theo sức nặng: Xây lập luận chuyển ý, giả thiết, điều kiện, nhân quả, mục đích và nhượng bộ với quan hệ logic có thể kiểm chứng.",
+        "dialogue": [
+          {
+            "hanzi": "考古队按照土层位置、木材样本和旧地图判断古城遗址年代。第一份报告估计主城墙有九百年，因为底层砖样式相似。地方宣传随后把“估计”写成确定知识，并扩大到整个遗址。",
+            "meaningVi": "Đội khảo cổ căn cứ lớp đất, mẫu gỗ và bản đồ cũ để phán đoán niên đại thành cổ. Báo cáo đầu ước tính tường chính khoảng 900 năm vì kiểu gạch lớp đáy tương tự. Truyền thông địa phương sau đó biến 'ước tính' thành kiến thức chắc chắn và mở ra toàn di tích.",
+            "pinyin": "Kǎogǔ duì ànzhào tǔ céng wèizhì, mùcái yàngběn hé jiù dìtú pànduàn gǔchéng yízhǐ niándài. Dì yī fèn bàogào gūjì zhǔ chéngqiáng yǒu jiǔbǎi nián, yīnwèi dǐcéng zhuān yàngshì xiāngsì. Dìfāng xuānchuán suíhòu bǎ “gūjì” xiěchéng quèdìng zhīshì, bìng kuòdà dào zhěnggè yízhǐ.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "新测量发现，不同区域砖的数量和材料不一样：主墙木材约八百六十年，东门多次重建，市场区更晚。旧地图只标出城墙，不记录修复日期。证据支持城市长期存在，却不支持所有建筑同一年完成。",
+            "meaningVi": "Đo mới thấy số lượng và vật liệu gạch khác theo khu: gỗ tường chính khoảng 860 năm, cổng đông xây lại nhiều lần, khu chợ muộn hơn. Bản đồ cũ chỉ ghi tường, không ghi ngày sửa. Bằng chứng hỗ trợ thành phố tồn tại lâu nhưng không hỗ trợ mọi công trình hoàn thành cùng năm.",
+            "pinyin": "Xīn cèliáng fāxiàn, bùtóng qūyù zhuān de shùliàng hé cáiliào bù yīyàng: Zhǔ qiáng mùcái yuē bābǎi liùshí nián, dōng mén duō cì chóngjiàn, shìchǎng qū gèng wǎn. Jiù dìtú zhǐ biāo chū chéngqiáng, bù jìlù xiūfù rìqí. Zhèngjù zhīchí chéngshì chángqí cúnzài, què bù zhīchí suǒyǒu jiànzhú tóngyī nián wánchéng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "修订报告为每个区域给出范围、证据类型和不确定度，并解释取样位置。九百年成为主墙的近似说法，不再是全城标签。更精确的判断来自增加证据，不是把估计写得更肯定。",
+            "meaningVi": "Báo cáo sửa cho mỗi khu một khoảng, loại bằng chứng và độ bất định, giải thích vị trí lấy mẫu. '900 năm' thành cách nói gần đúng của tường chính, không còn nhãn toàn thành. Phán đoán chính xác hơn đến từ thêm bằng chứng, không phải viết ước tính chắc hơn.",
+            "pinyin": "Xiūdìng bàogào wèi měi gè qūyù gěi chū fànwéi, zhèngjù lèixíng hé bù quèdìng dù, bìng jiěshì qǔyàng wèizhì. Jiǔbǎi nián cheng wéi zhǔ qiáng de jìnsì shuōfǎ, bù zài shì quán chéng biāoqiān. Gèng jīngquè de pànduàn láizì zēngjiā zhèngjù, bùshì bǎ gūjì xiě dé gèng kěndìng.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "一位教师带学生阅读百年前的寺庙游记。作者写钟声往往让人感觉平静，也描述院子非常宽。学生开始把游记当成当时情况的直接记录，并按文字画出完整平面图。",
+            "meaningVi": "Một giáo viên cho học sinh đọc du ký ngôi chùa trăm năm trước. Tác giả viết tiếng chuông thường làm người ta cảm giác yên tĩnh và tả sân rất rộng. Học sinh bắt đầu coi du ký là ghi chép trực tiếp tình hình thời đó, vẽ sơ đồ đầy đủ theo chữ.",
+            "pinyin": "Yī wèi jiàoshī dài xuéshēng yuèdú bǎinián qián de sìmiào yóujì. Zuòzhě xiě zhōng shēng wǎngwǎng ràng rén gǎnjué píngjìng, yě miáoshù yuànzǐ fēicháng kuān. Xuéshēng kāishǐ bǎ yóujì dàngchéng dāngshí qíngkuàng de zhíjiē jìlù, bìng àn wénzì huà chū wánzhěng píngmiàntú.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "教师提醒，游记选择作者注意的事，也可能夸张感受。同期维修清单证明院子存在，却没有尺寸；另一位游客说节日当天很拥挤。不同来源共同支持某些空间和活动，但对大小与气氛并不一致。",
+            "meaningVi": "Giáo viên nhắc du ký chọn điều tác giả chú ý và có thể phóng đại cảm nhận. Danh sách sửa chữa cùng thời chứng minh sân tồn tại nhưng không có kích thước; du khách khác nói ngày lễ rất đông. Nguồn khác cùng hỗ trợ một số không gian/hoạt động nhưng không thống nhất về độ lớn và không khí.",
+            "pinyin": "Jiàoshī tíxǐng, yóujì xuǎnzé zuòzhě zhùyì de shì, yě kěnéng kuāzhāng gǎnshòu. Tóngqí wéixiū qīngdān zhèngmíng yuànzǐ cúnzài, què méiyǒu chǐcùn; lìng yī wèi yóukè shuō jiérì dàngtiān hěn yōngjǐ. Bùtóng láiyuán gòngtóng zhīchí mǒu xiē kōngjiān hé huódòng, dàn duì dàxiǎo yǔ qìfēn bìng bùyīzhì.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "学生修改作品，把确定、可能和个人感受分成三层，并在每条后写来源。阅读旧游记能提供视角，不能单独重建完整古迹。比较文本和档案使知识更丰富，也让空白更清楚。",
+            "meaningVi": "Học sinh sửa sản phẩm, chia ba tầng chắc chắn, có thể và cảm nhận cá nhân, ghi nguồn sau mỗi ý. Đọc du ký cũ cho góc nhìn, không thể một mình dựng lại cổ tích đầy đủ. So văn bản với hồ sơ làm kiến thức phong phú hơn và khoảng trống rõ hơn.",
+            "pinyin": "Xuéshēng xiūgǎi zuòpǐn, bǎ quèdìng, kěnéng hé gèrén gǎnshòu fēnchéng sān céng, bìng zài měi tiáo hòu xiě láiyuán. Yuèdú jiù yóujì néng tígōng shìjiǎo, bùnéng dāndú chóngjiàn wánzhěng gǔjì. Bǐjiào wénběn hé dǎng'àn shǐ zhīshì gèng fēngfù, yě ràng kòngbái gèng qīngchǔ.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:174e588bbea26b20d24fd8a3ea861fa5db5d851f9b39acf5bcec178a0061437e",
+          "evidenceDocument": "docs/thien-lo-redesign-review/151-REVIEW-HSK4-HISTORY-ROUND58.md",
+          "humanReviewed": false,
+          "scope": "Correct fourteen source-fidelity activities about archaeological evidence, travel writing, exhibition and street memory; preserve IDs and distinguish proposals from facts.",
+          "sourceContentSha256": "sha256:984186197916ba6b536705b52ec7f273aac3e848e3692486b818e7f1707efbb4",
+          "sourceRevisionId": "33fb4230-2d13-4d86-8e38-b61fd98c0105"
+        },
+        "exercises": [
+          {
+            "answer": "考古队按照土层位置、木材样本和旧地图判断古城遗址年代。第一份报告估计主城墙有九百年，因为底层砖样式相似。地方宣传随后把“估计”写成确定知识，并扩大到整个遗址。",
+            "answerMeaningVi": "Đội khảo cổ căn cứ lớp đất, mẫu gỗ và bản đồ cũ để phán đoán niên đại thành cổ. Báo cáo đầu ước tính tường chính khoảng 900 năm vì kiểu gạch lớp đáy tương tự. Truyền thông địa phương sau đó biến 'ước tính' thành kiến thức chắc chắn và mở ra toàn di tích.",
+            "answerPinyin": "Kǎogǔ duì ànzhào tǔ céng wèizhì, mùcái yàngběn hé jiù dìtú pànduàn gǔchéng yízhǐ niándài. Dì yī fèn bàogào gūjì zhǔ chéngqiáng yǒu jiǔbǎi nián, yīnwèi dǐcéng zhuān yàngshì xiāngsì. Dìfāng xuānchuán suíhòu bǎ “gūjì” xiěchéng quèdìng zhīshì, bìng kuòdà dào zhěnggè yízhǐ.",
+            "distractors": [
+              "新测量发现，不同区域砖的数量和材料不一样：主墙木材约八百六十年，东门多次重建，市场区更晚。旧地图只标出城墙，不记录修复日期。证据支持城市长期存在，却不支持所有建筑同一年完成。",
+              "修订报告为每个区域给出范围、证据类型和不确定度，并解释取样位置。九百年成为主墙的近似说法，不再是全城标签。更精确的判断来自增加证据，不是把估计写得更肯定。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "无论 wúlùn gần 不管, thường trang trọng hơn. Đi với 谁、什么、怎么 hoặc A还是B, vế sau dùng 都/也: 无论坐车还是走路，我都能准时到. Cùng kết quả qua các khả năng không có nghĩa mọi khả năng là cùng một dữ kiện. Không ghép 无论 với một khẳng định đơn lẻ để thay 因为.",
+            "guidedPractice": {
+              "promptVi": "Dù đến thứ bảy hay chủ nhật, khách thư viện mới đều cần mang thẻ. Viết 无论…还是…都… trong phạm vi hai ngày.",
+              "modelAnswerHanzi": "无论星期六还是星期日来，都要带上借书证。",
+              "modelAnswerPinyin": "Wúlùn xīngqīliù háishi xīngqīrì lái, dōu yào dài shàng jièshūzhèng.",
+              "modelAnswerMeaningVi": "Dù đến thứ bảy hay chủ nhật đều phải mang thẻ thư viện."
+            },
+            "modelExample": {
+              "hanzi": "无论谁来，都要登记。",
+              "pinyin": "Wúlùn shéi lái, dōu yào dēngjì.",
+              "meaningVi": "Bất kể ai đến đều phải đăng ký.",
+              "speaker": "A"
+            },
+            "pattern": "无论……，都/也……"
+          },
+          {
+            "explanationVi": "既然 jìrán nêu điều người nói coi đã biết/đã chấp nhận; 就 đưa kết luận hoặc đề nghị. 既然你已经到了，我们就开始吧. Khác 如果/要是 đặt giả thiết chưa chắc. Không dùng 既然 biến điều chưa có trong nguồn thành thật: du ký nguồn không cho biết số chuyến thăm, nên không khẳng định “chỉ một chuyến”.",
+            "guidedPractice": {
+              "promptVi": "Thông báo mới xác nhận bảo tàng đóng cửa hôm nay. Đề nghị chuyển chuyến đi sang ngày mai với 既然…就…",
+              "modelAnswerHanzi": "既然博物馆今天不开门，我们就明天去吧。",
+              "modelAnswerPinyin": "Jìrán bówùguǎn jīntiān bù kāi mén, wǒmen jiù míngtiān qù ba.",
+              "modelAnswerMeaningVi": "Đã là bảo tàng hôm nay không mở thì mai chúng ta đi nhé."
+            },
+            "modelExample": {
+              "hanzi": "既然你已经到了，我们就开始吧。",
+              "pinyin": "Jìrán nǐ yǐjīng dào le, wǒmen jiù kāishǐ ba.",
+              "meaningVi": "Bạn đã tới rồi thì chúng ta bắt đầu thôi.",
+              "speaker": "A"
+            },
+            "pattern": "既然……，就……"
+          },
+          {
+            "explanationVi": "由于 yóuyú nêu nguyên nhân, 因此 yīncǐ nối kết quả, thường dùng văn viết. Có thể dùng cả cặp hoặc chỉ 因此 khi nguyên nhân ở câu trước. Không viết “由于…的原因” một cách máy móc. Nhân quả phải đúng nội dung; cấu trúc không chứng minh tương quan là nguyên nhân duy nhất. Nguồn khảo cổ không nêu đúng hai mẫu, nên không thêm con số đó.",
+            "guidedPractice": {
+              "promptVi": "Trong thông báo mới, mưa lớn làm trận đấu hoãn. Viết câu 由于…因此…; chưa biết ngày tổ chức lại.",
+              "modelAnswerHanzi": "由于下大雨，因此比赛推迟了。",
+              "modelAnswerPinyin": "Yóuyú xià dà yǔ, yīncǐ bǐsài tuīchí le.",
+              "modelAnswerMeaningVi": "Do mưa lớn nên trận đấu hoãn rồi."
+            },
+            "modelExample": {
+              "hanzi": "由于道路维修，因此公交车改走另一条路。",
+              "pinyin": "Yóuyú dàolù wéixiū, yīncǐ gōngjiāochē gǎi zǒu lìng yì tiáo lù.",
+              "meaningVi": "Do sửa đường nên xe buýt đổi sang đường khác.",
+              "speaker": "A"
+            },
+            "pattern": "（由于）……，因此……"
+          },
+          {
+            "explanationVi": "好 hǎo ở đây nối mục đích, gần “để/có thể”: 请写清楚地址，好让快递员找到你. Vế trước là hành động tạo điều kiện, vế sau thường 好 + động từ hoặc 好让 + người + động từ. Khác 好 tính từ tốt trong 这本书很好. Mục đích không chứng minh việc sau đã thành công.",
+            "guidedPractice": {
+              "promptVi": "Bạn ghi giờ hẹn để khỏi quên. Viết hành động trước và mục đích sau 好.",
+              "modelAnswerHanzi": "我把约定的时间记下来，好提醒自己。",
+              "modelAnswerPinyin": "Wǒ bǎ yuēdìng de shíjiān jì xià lái, hǎo tíxǐng zìjǐ.",
+              "modelAnswerMeaningVi": "Tôi ghi lại giờ đã hẹn để nhắc mình."
+            },
+            "modelExample": {
+              "hanzi": "请写清楚地址，好让快递员找到你。",
+              "pinyin": "Qǐng xiě qīngchu dìzhǐ, hǎo ràng kuàidìyuán zhǎo dào nǐ.",
+              "meaningVi": "Hãy viết địa chỉ rõ để nhân viên giao hàng tìm được bạn.",
+              "speaker": "A"
+            },
+            "pattern": "……，好……"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng sắp xếp bằng chứng theo sức nặng để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Sắp xếp bằng chứng theo sức nặng: Xây lập luận chuyển ý, giả thiết, điều kiện, nhân quả, mục đích và nhượng bộ với quan hệ logic có thể kiểm chứng."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "考古队按照土层位置、木材样本和旧地图判断古城遗址年代。第一份报告估计主城墙有九百年，因为底层砖样式相似。地方宣传随后把“估计”写成确定知识，并扩大到整个遗址。",
+                        "id": "hsk4-argument-logic-concession-lesson-03:source-0-0",
+                        "meaningVi": "Đội khảo cổ căn cứ lớp đất, mẫu gỗ và bản đồ cũ để phán đoán niên đại thành cổ. Báo cáo đầu ước tính tường chính khoảng 900 năm vì kiểu gạch lớp đáy tương tự. Truyền thông địa phương sau đó biến 'ước tính' thành kiến thức chắc chắn và mở ra toàn di tích.",
+                        "pinyin": "Kǎogǔ duì ànzhào tǔ céng wèizhì, mùcái yàngběn hé jiù dìtú pànduàn gǔchéng yízhǐ niándài. Dì yī fèn bàogào gūjì zhǔ chéngqiáng yǒu jiǔbǎi nián, yīnwèi dǐcéng zhuān yàngshì xiāngsì. Dìfāng xuānchuán suíhòu bǎ “gūjì” xiěchéng quèdìng zhīshì, bìng kuòdà dào zhěnggè yízhǐ."
+                      },
+                      {
+                        "hanzi": "新测量发现，不同区域砖的数量和材料不一样：主墙木材约八百六十年，东门多次重建，市场区更晚。旧地图只标出城墙，不记录修复日期。证据支持城市长期存在，却不支持所有建筑同一年完成。",
+                        "id": "hsk4-argument-logic-concession-lesson-03:source-0-1",
+                        "meaningVi": "Đo mới thấy số lượng và vật liệu gạch khác theo khu: gỗ tường chính khoảng 860 năm, cổng đông xây lại nhiều lần, khu chợ muộn hơn. Bản đồ cũ chỉ ghi tường, không ghi ngày sửa. Bằng chứng hỗ trợ thành phố tồn tại lâu nhưng không hỗ trợ mọi công trình hoàn thành cùng năm.",
+                        "pinyin": "Xīn cèliáng fāxiàn, bùtóng qūyù zhuān de shùliàng hé cáiliào bù yīyàng: Zhǔ qiáng mùcái yuē bābǎi liùshí nián, dōng mén duō cì chóngjiàn, shìchǎng qū gèng wǎn. Jiù dìtú zhǐ biāo chū chéngqiáng, bù jìlù xiūfù rìqí. Zhèngjù zhīchí chéngshì chángqí cúnzài, què bù zhīchí suǒyǒu jiànzhú tóngyī nián wánchéng."
+                      },
+                      {
+                        "hanzi": "修订报告为每个区域给出范围、证据类型和不确定度，并解释取样位置。九百年成为主墙的近似说法，不再是全城标签。更精确的判断来自增加证据，不是把估计写得更肯定。",
+                        "id": "hsk4-argument-logic-concession-lesson-03:source-0-2",
+                        "meaningVi": "Báo cáo sửa cho mỗi khu một khoảng, loại bằng chứng và độ bất định, giải thích vị trí lấy mẫu. '900 năm' thành cách nói gần đúng của tường chính, không còn nhãn toàn thành. Phán đoán chính xác hơn đến từ thêm bằng chứng, không phải viết ước tính chắc hơn.",
+                        "pinyin": "Xiūdìng bàogào wèi měi gè qūyù gěi chū fànwéi, zhèngjù lèixíng hé bù quèdìng dù, bìng jiěshì qǔyàng wèizhì. Jiǔbǎi nián cheng wéi zhǔ qiáng de jìnsì shuōfǎ, bù zài shì quán chéng biāoqiān. Gèng jīngquè de pànduàn láizì zēngjiā zhèngjù, bùshì bǎ gūjì xiě dé gèng kěndìng."
+                      }
+                    ]
+                  },
+                  "title": "Niên đại di tích thành cổ được phán đoán thế nào"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Niên đại di tích thành cổ được phán đoán thế nào"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "一位教师带学生阅读百年前的寺庙游记。作者写钟声往往让人感觉平静，也描述院子非常宽。学生开始把游记当成当时情况的直接记录，并按文字画出完整平面图。",
+                        "id": "hsk4-argument-logic-concession-lesson-03:source-1-0",
+                        "meaningVi": "Một giáo viên cho học sinh đọc du ký ngôi chùa trăm năm trước. Tác giả viết tiếng chuông thường làm người ta cảm giác yên tĩnh và tả sân rất rộng. Học sinh bắt đầu coi du ký là ghi chép trực tiếp tình hình thời đó, vẽ sơ đồ đầy đủ theo chữ.",
+                        "pinyin": "Yī wèi jiàoshī dài xuéshēng yuèdú bǎinián qián de sìmiào yóujì. Zuòzhě xiě zhōng shēng wǎngwǎng ràng rén gǎnjué píngjìng, yě miáoshù yuànzǐ fēicháng kuān. Xuéshēng kāishǐ bǎ yóujì dàngchéng dāngshí qíngkuàng de zhíjiē jìlù, bìng àn wénzì huà chū wánzhěng píngmiàntú."
+                      },
+                      {
+                        "hanzi": "教师提醒，游记选择作者注意的事，也可能夸张感受。同期维修清单证明院子存在，却没有尺寸；另一位游客说节日当天很拥挤。不同来源共同支持某些空间和活动，但对大小与气氛并不一致。",
+                        "id": "hsk4-argument-logic-concession-lesson-03:source-1-1",
+                        "meaningVi": "Giáo viên nhắc du ký chọn điều tác giả chú ý và có thể phóng đại cảm nhận. Danh sách sửa chữa cùng thời chứng minh sân tồn tại nhưng không có kích thước; du khách khác nói ngày lễ rất đông. Nguồn khác cùng hỗ trợ một số không gian/hoạt động nhưng không thống nhất về độ lớn và không khí.",
+                        "pinyin": "Jiàoshī tíxǐng, yóujì xuǎnzé zuòzhě zhùyì de shì, yě kěnéng kuāzhāng gǎnshòu. Tóngqí wéixiū qīngdān zhèngmíng yuànzǐ cúnzài, què méiyǒu chǐcùn; lìng yī wèi yóukè shuō jiérì dàngtiān hěn yōngjǐ. Bùtóng láiyuán gòngtóng zhīchí mǒu xiē kōngjiān hé huódòng, dàn duì dàxiǎo yǔ qìfēn bìng bùyīzhì."
+                      },
+                      {
+                        "hanzi": "学生修改作品，把确定、可能和个人感受分成三层，并在每条后写来源。阅读旧游记能提供视角，不能单独重建完整古迹。比较文本和档案使知识更丰富，也让空白更清楚。",
+                        "id": "hsk4-argument-logic-concession-lesson-03:source-1-2",
+                        "meaningVi": "Học sinh sửa sản phẩm, chia ba tầng chắc chắn, có thể và cảm nhận cá nhân, ghi nguồn sau mỗi ý. Đọc du ký cũ cho góc nhìn, không thể một mình dựng lại cổ tích đầy đủ. So văn bản với hồ sơ làm kiến thức phong phú hơn và khoảng trống rõ hơn.",
+                        "pinyin": "Xuéshēng xiūgǎi zuòpǐn, bǎ quèdìng, kěnéng hé gèrén gǎnshòu fēnchéng sān céng, bìng zài měi tiáo hòu xiě láiyuán. Yuèdú jiù yóujì néng tígōng shìjiǎo, bùnéng dāndú chóngjiàn wánzhěng gǔjì. Bǐjiào wénběn hé dǎng'àn shǐ zhīshì gèng fēngfù, yě ràng kòngbái gèng qīngchǔ."
+                      }
+                    ]
+                  },
+                  "title": "Đọc du ký cũ có giúp hiểu cổ tích không"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Đọc du ký cũ có giúp hiểu cổ tích không"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Nguồn nêu lớp đất, gỗ, bản đồ và bản sửa theo khu. Không phải một mốc chung cho toàn thành.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt nguồn nói rõ với khái quát niên đại toàn di tích.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Nguồn nêu lớp đất, gỗ, bản đồ và bản sửa theo khu. Không phải một mốc chung cho toàn thành.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn nêu lớp đất, gỗ, bản đồ và bản sửa theo khu. Không phải một mốc chung cho toàn thành.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "考古队根据土层、材料和旧地图判断年代，后来为不同区域分别说明证据和范围。\nĐội khảo cổ dùng lớp đất, vật liệu, bản đồ cũ để xác định niên đại, rồi nêu bằng chứng và khoảng riêng các khu.\nĐối chiếu nguồn A trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn yêu cầu đối chiếu du ký với danh sách sửa chữa và ghi chép du khách khác. Mô tả sinh động hoặc cảm giác yên bình không chứng minh kích thước và mọi chi tiết đều đúng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Du ký cũ viết sinh động nên mọi chi tiết di tích trong đó hoàn toàn đáng tin.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn yêu cầu đối chiếu du ký với danh sách sửa chữa và ghi chép du khách khác. Mô tả sinh động hoặc cảm giác yên bình không chứng minh kích thước và mọi chi tiết đều đúng.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn yêu cầu đối chiếu du ký với danh sách sửa chữa và ghi chép du khách khác. Mô tả sinh động hoặc cảm giác yên bình không chứng minh kích thước và mọi chi tiết đều đúng.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "旧游记写得生动，所以其中每个古迹细节都完全可靠。\nDu ký cũ viết sinh động nên mọi chi tiết di tích trong đó hoàn toàn đáng tin.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n第一份报告估计主城墙有九百年。新测量发现各区域不同：主墙木材约八百六十年，东门多次重建，市场区更晚。修订报告分别说明范围、证据和取样位置；九百年不能成为整个遗址的确定年代。\nDì yī fèn bàogào gūjì zhǔ chéngqiáng yǒu jiǔ bǎi nián. Xīn cèliáng fāxiàn gè qūyù bùtóng: zhǔ qiáng mùcái yuē bā bǎi liù shí nián, dōngmén duō cì chóngjiàn, shìchǎngqū gèng wǎn. Xiūdìng bàogào fēnbié shuōmíng fànwéi, zhèngjù hé qǔyàng wèizhì; jiǔ bǎi nián bù néng chéngwéi zhěng ge yízhǐ de quèdìng niándài.\nBáo cáo đầu ước tính tường chính chín trăm năm. Đo mới thấy các khu khác nhau: gỗ tường chính khoảng tám trăm sáu mươi năm, cổng đông xây lại nhiều lần, khu chợ muộn hơn. Bản sửa nêu riêng khoảng, bằng chứng và vị trí mẫu; không lấy chín trăm năm làm niên đại chắc chắn của toàn di tích.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase cách xác định niên đại, giữ nhiều loại bằng chứng và khoảng bất định.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ 900 năm là ước tính tường chính, không phải toàn thành.",
+                        "id": "point-0",
+                        "label": "Giữ 900 năm là ước tính tường chính, không phải toàn thành."
+                      },
+                      {
+                        "guidance": "Nêu gỗ khoảng860 năm, cổng xây lại và chợ muộn hơn.",
+                        "id": "point-1",
+                        "label": "Nêu gỗ khoảng860 năm, cổng xây lại và chợ muộn hơn."
+                      },
+                      {
+                        "guidance": "Bản sửa có phạm vi, loại bằng chứng và vị trí mẫu.",
+                        "id": "point-2",
+                        "label": "Bản sửa có phạm vi, loại bằng chứng và vị trí mẫu."
+                      },
+                      {
+                        "guidance": "Không đổi niên đại vật liệu thành ngày hoàn thành toàn công trình.",
+                        "id": "point-3",
+                        "label": "Không đổi niên đại vật liệu thành ngày hoàn thành toàn công trình."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase cách xác định niên đại, giữ nhiều loại bằng chứng và khoảng bất định.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n游记描述钟声带来的平静和宽阔的院子。维修清单证明院子存在，却没有尺寸；另一位游客记得节日的拥挤。学生因此把确定、可能和个人感受分开，并注明来源。游记有价值，但不能单独重建完整古迹。\nYóujì miáoshù zhōngshēng dài lái de píngjìng hé kuānkuò de yuànzi. Wéixiū qīngdān zhèngmíng yuànzi cúnzài, què méiyǒu chǐcùn; lìng yí wèi yóukè jìde jiérì de yōngjǐ. Xuéshēng yīncǐ bǎ quèdìng, kěnéng hé gèrén gǎnshòu fēn kāi, bìng zhùmíng láiyuán. Yóujì yǒu jiàzhí, dàn bù néng dāndú chóngjiàn wánzhěng gǔjì.\nDu ký tả cảm giác yên bình từ tiếng chuông và sân rộng. Danh sách sửa chữa xác nhận có sân nhưng không ghi kích thước; du khách khác nhớ cảnh đông ngày lễ. Học sinh chia riêng điều chắc chắn, có thể và cảm nhận cá nhân, ghi nguồn. Du ký có giá trị nhưng không đủ để tự dựng lại toàn di tích.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại giá trị và giới hạn của du ký cũ trong nghiên cứu di tích.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Tiếng chuông và sân rộng là mô tả của tác giả.",
+                        "id": "point-0",
+                        "label": "Tiếng chuông và sân rộng là mô tả của tác giả."
+                      },
+                      {
+                        "guidance": "Danh sách xác nhận sân tồn tại, không cho kích thước.",
+                        "id": "point-1",
+                        "label": "Danh sách xác nhận sân tồn tại, không cho kích thước."
+                      },
+                      {
+                        "guidance": "Khách khác mô tả đông ngày lễ; không xóa cảm nhận tác giả.",
+                        "id": "point-2",
+                        "label": "Khách khác mô tả đông ngày lễ; không xóa cảm nhận tác giả."
+                      },
+                      {
+                        "guidance": "Giữ ba tầng chắc chắn/có thể/cảm nhận, ghi nguồn.",
+                        "id": "point-3",
+                        "label": "Giữ ba tầng chắc chắn/có thể/cảm nhận, ghi nguồn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại giá trị và giới hạn của du ký cũ trong nghiên cứu di tích.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "无论 wúlùn gần 不管, thường trang trọng hơn. Đi với 谁、什么、怎么 hoặc A还是B, vế sau dùng 都/也: 无论坐车还是走路，我都能准时到. Cùng kết quả qua các khả năng không có nghĩa mọi khả năng là cùng một dữ kiện. Không ghép 无论 với một khẳng định đơn lẻ để thay 因为.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "无论…都/也…: bất kể điều kiện nào"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "无论谁来，都要登记。",
+                  "pinyin": "Wúlùn shéi lái, dōu yào dēngjì.",
+                  "meaningVi": "Bất kể ai đến đều phải đăng ký.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "无论坐车还是走路，我都能准时到。",
+                  "pinyin": "Wúlùn zuò chē háishi zǒu lù, wǒ dōu néng zhǔnshí dào.",
+                  "meaningVi": "Đi xe hay đi bộ tôi đều có thể đến đúng giờ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "无论…都/也…: bất kể điều kiện nào"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:0:practice",
+              "title": "Khảo Luyện · 无论…都/也…: bất kể điều kiện nào",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "无论谁来，都要登记 giữ điều gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Ai cũng cùng tên",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Yêu cầu đăng ký với bất kể ai đến",
+                        "feedback": "谁 nêu mọi người có thể đến; 都要 giữ yêu cầu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chưa ai được đến",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "谁 nêu mọi người có thể đến; 都要 giữ yêu cầu.",
+                    "learningTarget": {
+                      "objective": "无论…都/也…: bất kể điều kiện nào",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Chọn cặp đúng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "无论…都…",
+                        "feedback": "无论 đặt các khả năng, 都/也 nêu điều giữ nguyên."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "无论…因为…",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "无论…所以因为…",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "无论 đặt các khả năng, 都/也 nêu điều giữ nguyên.",
+                    "learningTarget": {
+                      "objective": "无论…都/也…: bất kể điều kiện nào",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:0:transfer",
+              "title": "Vận dụng · 无论…都/也…: bất kể điều kiện nào",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n无论星期六还是星期日来，都要带上借书证。\nWúlùn xīngqīliù háishi xīngqīrì lái, dōu yào dài shàng jièshūzhèng.\nDù đến thứ bảy hay chủ nhật đều phải mang thẻ thư viện.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "无论…都/也…: bất kể điều kiện nào",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu hai ngày với 还是.",
+                        "guidance": "Nêu hai ngày với 还是."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "都要 giữ cùng yêu cầu.",
+                        "guidance": "都要 giữ cùng yêu cầu."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự thêm mọi nơi đều cùng nội quy.",
+                        "guidance": "Không tự thêm mọi nơi đều cùng nội quy."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Dù đến thứ bảy hay chủ nhật, khách thư viện mới đều cần mang thẻ. Viết 无论…还是…都… trong phạm vi hai ngày.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "既然 jìrán nêu điều người nói coi đã biết/đã chấp nhận; 就 đưa kết luận hoặc đề nghị. 既然你已经到了，我们就开始吧. Khác 如果/要是 đặt giả thiết chưa chắc. Không dùng 既然 biến điều chưa có trong nguồn thành thật: du ký nguồn không cho biết số chuyến thăm, nên không khẳng định “chỉ một chuyến”.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "既然…就…: từ tiền đề được chấp nhận"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "既然你已经到了，我们就开始吧。",
+                  "pinyin": "Jìrán nǐ yǐjīng dào le, wǒmen jiù kāishǐ ba.",
+                  "meaningVi": "Bạn đã tới rồi thì chúng ta bắt đầu thôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "既然没有尺寸记录，就不能画出准确的平面图。",
+                  "pinyin": "Jìrán méiyǒu chǐcùn jìlù, jiù bù néng huà chū zhǔnquè de píngmiàntú.",
+                  "meaningVi": "Đã không có ghi chép kích thước thì không thể vẽ sơ đồ chính xác.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "既然…就…: từ tiền đề được chấp nhận"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:1:practice",
+              "title": "Khảo Luyện · 既然…就…: từ tiền đề được chấp nhận",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Chưa biết bạn có rảnh, nên dùng gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "既然你已经有空",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "如果你有空",
+                        "feedback": "如果 đặt điều kiện chưa xác nhận."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "既然你肯定来过",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "如果 đặt điều kiện chưa xác nhận.",
+                    "learningTarget": {
+                      "objective": "既然…就…: từ tiền đề được chấp nhận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "既然…就… tự chứng minh tiền đề đúng không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có vì có 就",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có trong mọi nguồn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không, vẫn phải có căn cứ",
+                        "feedback": "Cấu trúc thể hiện cách người nói dùng tiền đề, không cấp bằng chứng cho nó."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cấu trúc thể hiện cách người nói dùng tiền đề, không cấp bằng chứng cho nó.",
+                    "learningTarget": {
+                      "objective": "既然…就…: từ tiền đề được chấp nhận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:1:transfer",
+              "title": "Vận dụng · 既然…就…: từ tiền đề được chấp nhận",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n既然博物馆今天不开门，我们就明天去吧。\nJìrán bówùguǎn jīntiān bù kāi mén, wǒmen jiù míngtiān qù ba.\nĐã là bảo tàng hôm nay không mở thì mai chúng ta đi nhé.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "既然…就…: từ tiền đề được chấp nhận",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Tiền đề có thông báo xác nhận.",
+                        "guidance": "Tiền đề có thông báo xác nhận."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "就 đưa đề nghị ngày mai.",
+                        "guidance": "就 đưa đề nghị ngày mai."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không kể chuyến đi ngày mai đã xảy ra.",
+                        "guidance": "Không kể chuyến đi ngày mai đã xảy ra."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Thông báo mới xác nhận bảo tàng đóng cửa hôm nay. Đề nghị chuyển chuyến đi sang ngày mai với 既然…就…",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "由于 yóuyú nêu nguyên nhân, 因此 yīncǐ nối kết quả, thường dùng văn viết. Có thể dùng cả cặp hoặc chỉ 因此 khi nguyên nhân ở câu trước. Không viết “由于…的原因” một cách máy móc. Nhân quả phải đúng nội dung; cấu trúc không chứng minh tương quan là nguyên nhân duy nhất. Nguồn khảo cổ không nêu đúng hai mẫu, nên không thêm con số đó.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "由于…因此…: nguyên nhân và kết quả"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "由于道路维修，因此公交车改走另一条路。",
+                  "pinyin": "Yóuyú dàolù wéixiū, yīncǐ gōngjiāochē gǎi zǒu lìng yì tiáo lù.",
+                  "meaningVi": "Do sửa đường nên xe buýt đổi sang đường khác.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "资料还不完整。因此，我们暂时不能下结论。",
+                  "pinyin": "Zīliào hái bù wánzhěng. Yīncǐ, wǒmen zànshí bù néng xià jiélùn.",
+                  "meaningVi": "Tư liệu chưa đầy đủ. Vì vậy chúng tôi tạm chưa thể kết luận.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "由于…因此…: nguyên nhân và kết quả"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:2:practice",
+              "title": "Khảo Luyện · 由于…因此…: nguyên nhân và kết quả",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "由于 nêu phần nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Nguyên nhân",
+                        "feedback": "Do sửa đường là nguyên nhân, đổi đường là kết quả."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mọi kết quả tương lai",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Ý tương phản",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Do sửa đường là nguyên nhân, đổi đường là kết quả.",
+                    "learningTarget": {
+                      "objective": "由于…因此…: nguyên nhân và kết quả",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "资料不完整，因此暂时不能下结论 có nghĩa kết luận không bao giờ có không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, chỉ tạm chưa thể",
+                        "feedback": "暂时 giữ giới hạn thời điểm, không phải vĩnh viễn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu viết văn bản",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "暂时 giữ giới hạn thời điểm, không phải vĩnh viễn.",
+                    "learningTarget": {
+                      "objective": "由于…因此…: nguyên nhân và kết quả",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:2:transfer",
+              "title": "Vận dụng · 由于…因此…: nguyên nhân và kết quả",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n由于下大雨，因此比赛推迟了。\nYóuyú xià dà yǔ, yīncǐ bǐsài tuīchí le.\nDo mưa lớn nên trận đấu hoãn rồi.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "由于…因此…: nguyên nhân và kết quả",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu mưa là nguyên nhân đã cho.",
+                        "guidance": "Nêu mưa là nguyên nhân đã cho."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Kết quả hoãn có 了.",
+                        "guidance": "Kết quả hoãn có 了."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự đặt ngày đấu mới.",
+                        "guidance": "Không tự đặt ngày đấu mới."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trong thông báo mới, mưa lớn làm trận đấu hoãn. Viết câu 由于…因此…; chưa biết ngày tổ chức lại.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "好 hǎo ở đây nối mục đích, gần “để/có thể”: 请写清楚地址，好让快递员找到你. Vế trước là hành động tạo điều kiện, vế sau thường 好 + động từ hoặc 好让 + người + động từ. Khác 好 tính từ tốt trong 这本书很好. Mục đích không chứng minh việc sau đã thành công.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "…好…: làm việc trước để thuận tiện việc sau"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "请写清楚地址，好让快递员找到你。",
+                  "pinyin": "Qǐng xiě qīngchu dìzhǐ, hǎo ràng kuàidìyuán zhǎo dào nǐ.",
+                  "meaningVi": "Hãy viết địa chỉ rõ để nhân viên giao hàng tìm được bạn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我先把资料整理好，好在开会时使用。",
+                  "pinyin": "Wǒ xiān bǎ zīliào zhěnglǐ hǎo, hǎo zài kāi huì shí shǐyòng.",
+                  "meaningVi": "Tôi sắp tư liệu xong trước để dùng khi họp.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "…好…: làm việc trước để thuận tiện việc sau"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:3:practice",
+              "title": "Khảo Luyện · …好…: làm việc trước để thuận tiện việc sau",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "好让快递员找到你 có xác nhận đã giao hàng không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có nếu địa chỉ dài",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không, nêu mục đích",
+                        "feedback": "好让 nêu điều muốn tạo thuận lợi, chưa phải kết quả giao hàng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "好让 nêu điều muốn tạo thuận lợi, chưa phải kết quả giao hàng.",
+                    "learningTarget": {
+                      "objective": "…好…: làm việc trước để thuận tiện việc sau",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "好 trong 这本书很好 là gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Tính từ tốt",
+                        "feedback": "Cần đọc cấu trúc; không dịch mọi 好 là để."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Liên từ mục đích",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Điều kiện nếu",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cần đọc cấu trúc; không dịch mọi 好 là để.",
+                    "learningTarget": {
+                      "objective": "…好…: làm việc trước để thuận tiện việc sau",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-03:reason-purpose-r59:3:transfer",
+              "title": "Vận dụng · …好…: làm việc trước để thuận tiện việc sau",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我把约定的时间记下来，好提醒自己。\nWǒ bǎ yuēdìng de shíjiān jì xià lái, hǎo tíxǐng zìjǐ.\nTôi ghi lại giờ đã hẹn để nhắc mình.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "…好…: làm việc trước để thuận tiện việc sau",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Hành động ghi thời gian trước.",
+                        "guidance": "Hành động ghi thời gian trước."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "好 đưa mục đích nhắc mình.",
+                        "guidance": "好 đưa mục đích nhắc mình."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không khẳng định sẽ không bao giờ quên.",
+                        "guidance": "Không khẳng định sẽ không bao giờ quên."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn ghi giờ hẹn để khỏi quên. Viết hành động trước và mục đích sau 好.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n古城报告从主墙九百年的估计，转向各区域的范围和证据说明。不同建筑不能被当作同一年完成。寺庙游记则提供作者的视角；维修清单和另一位游客的记录支持院子存在，却没有确定院子大小或一致的气氛。两例都说明应保留来源差异和未知，不能把部分证据写成完整、确定的历史。\nGǔchéng bàogào cóng zhǔ qiáng jiǔ bǎi nián de gūjì, zhuǎnxiàng gè qūyù de fànwéi hé zhèngjù shuōmíng. Bùtóng jiànzhú bù néng bèi dàngzuò tóng yì nián wánchéng. Sìmiào yóujì zé tígōng zuòzhě de shìjiǎo; wéixiū qīngdān hé lìng yí wèi yóukè de jìlù zhīchí yuànzi cúnzài, què méiyǒu quèdìng yuànzi dàxiǎo huò yízhì de qìfēn. Liǎng lì dōu shuōmíng yīng bǎoliú láiyuán chāyì hé wèizhī, bù néng bǎ bùfen zhèngjù xiě chéng wánzhěng, quèdìng de lìshǐ.\nBáo cáo thành cổ chuyển từ ước tính tường chính chín trăm năm sang khoảng và bằng chứng riêng từng khu. Không coi các công trình hoàn thành cùng năm. Du ký chùa cung cấp góc nhìn tác giả; danh sách sửa chữa và ghi chép khách khác hỗ trợ sự tồn tại của sân, chưa xác định kích thước hay không khí thống nhất. Hai trường hợp cho thấy cần giữ khác biệt nguồn và điều chưa biết, không viết bằng chứng một phần thành lịch sử đầy đủ, chắc chắn.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt thứ bậc và chức năng của bằng chứng khảo cổ với du ký trong việc hiểu di tích.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Niên đại tường chính khác các khu khác.",
+                        "id": "criterion-0",
+                        "label": "Niên đại tường chính khác các khu khác."
+                      },
+                      {
+                        "guidance": "Ước tính và khoảng bất định được giữ.",
+                        "id": "criterion-1",
+                        "label": "Ước tính và khoảng bất định được giữ."
+                      },
+                      {
+                        "guidance": "Du ký so với danh sách sửa chữa và ghi chép khách khác.",
+                        "id": "criterion-2",
+                        "label": "Du ký so với danh sách sửa chữa và ghi chép khách khác."
+                      },
+                      {
+                        "guidance": "Không biết kích thước đầy đủ, cảm nhận không đồng nhất.",
+                        "id": "criterion-3",
+                        "label": "Không biết kích thước đầy đủ, cảm nhận không đồng nhất."
+                      },
+                      {
+                        "guidance": "Không gọi toàn di tích cùng năm hoặc du ký vô giá trị.",
+                        "id": "criterion-4",
+                        "label": "Không gọi toàn di tích cùng năm hoặc du ký vô giá trị."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt thứ bậc và chức năng của bằng chứng khảo cổ với du ký trong việc hiểu di tích.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n我认为故事可以吸引观众，但必须说明它支持什么。主墙的近似年代不能代表全城；游记中的宽阔和平静也不能代替尺寸和所有人的感受。有人担心说明未知会使展览难懂，我同意需要清楚的表达。因此我建议把已支持的事实、可能的解释和个人感受分别标出。这是展示建议，两份材料没有比较观众的学习效果。\nWǒ rènwéi gùshi kěyǐ xīyǐn guānzhòng, dàn bìxū shuōmíng tā zhīchí shénme. Zhǔ qiáng de jìnsì niándài bù néng dàibiǎo quán chéng; yóujì zhōng de kuānkuò hé píngjìng yě bù néng dàitì chǐcùn hé suǒyǒu rén de gǎnshòu. Yǒu rén dānxīn shuōmíng wèizhī huì shǐ zhǎnlǎn nán dǒng, wǒ tóngyì xūyào qīngchu de biǎodá. Yīncǐ wǒ jiànyì bǎ yǐ zhīchí de shìshí, kěnéng de jiěshì hé gèrén gǎnshòu fēnbié biāo chū. Zhè shì zhǎnshì jiànyì, liǎng fèn cáiliào méiyǒu bǐjiào guānzhòng de xuéxí xiàoguǒ.\nTôi cho rằng câu chuyện có thể thu hút khách nhưng phải nêu nó hỗ trợ điều gì. Niên đại gần đúng của tường chính không đại diện toàn thành; rộng và yên bình trong du ký không thay kích thước hay cảm nhận mọi người. Lo ngại ghi điều chưa biết gây khó hiểu có lý, nên cần diễn đạt rõ. Tôi đề xuất ghi riêng sự kiện được hỗ trợ, giải thích có thể và cảm nhận cá nhân. Đây là đề xuất trưng bày; hai nguồn chưa so hiệu quả học của khách.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: trong giới thiệu di tích cho công chúng, lời kể sinh động có nên được đặt ngang hàng với bằng chứng khảo cổ?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "phân biệt chức năng hai loại nguồn",
+                        "id": "criterion-0",
+                        "label": "phân biệt chức năng hai loại nguồn"
+                      },
+                      {
+                        "guidance": "bằng chứng phương pháp khảo cổ",
+                        "id": "criterion-1",
+                        "label": "bằng chứng phương pháp khảo cổ"
+                      },
+                      {
+                        "guidance": "giá trị và giới hạn du ký",
+                        "id": "criterion-2",
+                        "label": "giá trị và giới hạn du ký"
+                      },
+                      {
+                        "guidance": "phản biện về khả năng thu hút công chúng",
+                        "id": "criterion-3",
+                        "label": "phản biện về khả năng thu hút công chúng"
+                      },
+                      {
+                        "guidance": "đề xuất cách ghi nhãn mức chắc chắn",
+                        "id": "criterion-4",
+                        "label": "đề xuất cách ghi nhãn mức chắc chắn"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Câu chuyện cá nhân sinh động giúp công chúng nhớ di tích; phân cấp quá nhiều có thể làm triển lãm khô và khó hiểu.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất trình bày song song có nhãn độ chắc chắn; chưa chứng minh thiết kế nào tạo học tập tốt nhất.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất trình bày song song có nhãn độ chắc chắn; chưa chứng minh thiết kế nào tạo học tập tốt nhất."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: trong giới thiệu di tích cho công chúng, lời kể sinh động có nên được đặt ngang hàng với bằng chứng khảo cổ?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n我建议展示主墙、东门和市场区的不同证据，再并列游记、维修清单和另一位游客的记录。每条注明来源，把院子存在与院子尺寸分开。颜色可以帮助区分确定、可能和个人感受，但这只是设计方案，仍需了解观众的反馈。\nWǒ jiànyì zhǎnshì zhǔ qiáng, dōngmén hé shìchǎngqū de bùtóng zhèngjù, zài bìngliè yóujì, wéixiū qīngdān hé lìng yí wèi yóukè de jìlù. Měi tiáo zhùmíng láiyuán, bǎ yuànzi cúnzài yǔ yuànzi chǐcùn fēn kāi. Yánsè kěyǐ bāngzhù qūfēn quèdìng, kěnéng hé gèrén gǎnshòu, dàn zhè zhǐ shì shèjì fāng’àn, réng xū liǎojiě guānzhòng de fǎnkuì.\nTôi đề xuất trình bày bằng chứng khác nhau của tường chính, cổng đông, khu chợ; đặt cạnh du ký, danh sách sửa chữa và ghi chép du khách khác. Mỗi ý ghi nguồn, tách có sân khỏi kích thước sân. Màu có thể giúp phân biệt chắc chắn, có thể, cảm nhận cá nhân; đây là phương án thiết kế còn cần phản hồi khách.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Vận dụng: đề xuất cách trình bày các nguồn của hai trường hợp cho công chúng. Nêu rõ phần đã có trong nguồn và phần thiết kế bạn đề xuất, trả lời một lo ngại người xem khó hiểu.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu nhãn cho mỗi loại nguồn",
+                        "id": "move-0",
+                        "label": "nêu nhãn cho mỗi loại nguồn"
+                      },
+                      {
+                        "guidance": "dẫn một bằng chứng khảo cổ",
+                        "id": "move-1",
+                        "label": "dẫn một bằng chứng khảo cổ"
+                      },
+                      {
+                        "guidance": "dẫn một giá trị của du ký",
+                        "id": "move-2",
+                        "label": "dẫn một giá trị của du ký"
+                      },
+                      {
+                        "guidance": "trả lời lo ngại bảng quá khó hiểu",
+                        "id": "move-3",
+                        "label": "trả lời lo ngại bảng quá khó hiểu"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Vận dụng: đề xuất cách trình bày các nguồn của hai trường hợp cho công chúng. Nêu rõ phần đã có trong nguồn và phần thiết kế bạn đề xuất, trả lời một lo ngại người xem khó hiểu.\nTự nói hoặc ghi dàn ý; màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "initial",
+                        "label": "线索一",
+                        "meaningVi": "Khoảng chín trăm năm từ tường chính.",
+                        "note": "Ước tính đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "main-wall",
+                        "label": "线索二",
+                        "meaningVi": "Mẫu gỗ khoảng tám trăm sáu mươi năm.",
+                        "note": "Tường chính · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "east-gate",
+                        "label": "线索三",
+                        "meaningVi": "Có nhiều lần xây lại.",
+                        "note": "Cổng đông · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "market",
+                        "label": "线索四",
+                        "meaningVi": "Giai đoạn muộn hơn.",
+                        "note": "Khu chợ · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "revision",
+                        "label": "线索五",
+                        "meaningVi": "Phạm vi và bất định theo khu.",
+                        "note": "Báo cáo sửa · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-claim-evidence-inference; revision 8d8d2394-2294-4f5c-a3a3-712133f5c0b4; humanReviewed:false",
+                  "title": "Niên đại di tích thành cổ được phán đoán thế nào"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "travelogue",
+                        "label": "线索一",
+                        "meaningVi": "Mô tả sân và cảm giác chuông.",
+                        "note": "Du ký · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "selection",
+                        "label": "线索二",
+                        "meaningVi": "Tác giả chỉ ghi điều mình chú ý.",
+                        "note": "Lựa chọn · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "repair",
+                        "label": "线索三",
+                        "meaningVi": "Xác nhận sân nhưng không có kích thước.",
+                        "note": "Hồ sơ sửa · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "other-visitor",
+                        "label": "线索四",
+                        "meaningVi": "Mô tả ngày lễ đông.",
+                        "note": "Nguồn khác · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "layers",
+                        "label": "线索五",
+                        "meaningVi": "Chắc chắn, có thể và cảm nhận.",
+                        "note": "Ba tầng · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-03:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-claim-evidence-inference; revision 8d8d2394-2294-4f5c-a3a3-712133f5c0b4; humanReviewed:false",
+                  "title": "Đọc du ký cũ có giúp hiểu cổ tích không"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-03:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "40ad08c2-14b8-4e17-a5b8-ba3f070b0923",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng sắp xếp bằng chứng theo sức nặng để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-argument-logic-concession-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-085",
+          "hsk4-grammar-row-086",
+          "hsk4-grammar-row-087",
+          "hsk4-grammar-row-088"
+        ],
+        "sourceLessonIds": [
+          "hsk4-argument-logic-concession-lesson-03",
+          "hsk4-culture-history-interpretation-claim-evidence-inference"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-29"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01008",
+          "hsk-vocab-01263",
+          "hsk-vocab-01548",
+          "hsk-vocab-01692",
+          "hsk-vocab-01944",
+          "hsk-vocab-01227",
+          "hsk-vocab-01374",
+          "hsk-vocab-01589",
+          "hsk-vocab-01766",
+          "hsk-vocab-01909"
+        ],
+        "targetLessonId": "hsk4-argument-logic-concession-lesson-03",
+        "titleZh": "HSK四级 · 59",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "6ef59d58-9fbd-4c33-955d-0859da8b0144"
+        },
+        "vocabulary": [
+          "hsk-vocab-01008",
+          "hsk-vocab-01263",
+          "hsk-vocab-01548",
+          "hsk-vocab-01692",
+          "hsk-vocab-01944",
+          "hsk-vocab-01227",
+          "hsk-vocab-01374",
+          "hsk-vocab-01589",
+          "hsk-vocab-01766",
+          "hsk-vocab-01909"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "eda96682-6607-4918-b006-f2bf1d18b984",
+      "sourceContentSha256": "sha256:92d41481ebe5da6619ee2297970c6c4d100503d847996b0ed6ec538a67823a55",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "lợi ích của tuyến chính\nrủi ro bỏ sót trong triển lãm\ngiá trị nhiều ký ức phố\nphản biện về quá tải và mâu thuẫn\nđề xuất tầng thông tin và nhãn nguồn",
+        "conceptVi": "Nêu phản biện và điều kiện: Xây lập luận chuyển ý, giả thiết, điều kiện, nhân quả, mục đích và nhượng bộ với quan hệ logic có thể kiểm chứng.",
+        "dialogue": [
+          {
+            "hanzi": "城市准备举办一位改革者纪念展。目前方案突出他建设学校的贡献，支持者希望观众感受勇气；反对者指出他也赞成过有争议的政策，并怀疑展览会不会回避责任。双方争论的不是同一事实，而是选择哪些事实。",
+            "meaningVi": "Thành phố chuẩn bị tổ chức triển lãm một nhà cải cách. Phương án hiện nay nhấn đóng góp xây trường; người ủng hộ muốn khách cảm nhận dũng khí, người phản đối chỉ ra ông từng ủng hộ chính sách gây tranh cãi và nghi ngờ triển lãm né trách nhiệm. Hai bên không tranh cùng một sự kiện mà tranh chọn sự kiện nào.",
+            "pinyin": "Chéngshì zhǔnbèi jǔbàn yī wèi gǎigé zhě jìniàn zhǎn. Mùqián fāng'àn túchū tā jiànshè xuéxiào de gòngxiàn, zhīchí zhě xīwàng guānzhòng gǎnshòu yǒngqì; fǎnduì zhě zhǐchū tā yě zànchéngguò yǒu zhēngyì de zhèngcè, bìng huáiyí zhǎnlǎn huì bù huì huíbì zérèn. Shuāngfāng zhēnglùn de bùshì tóngyī shìshí, ér shì xuǎnzé nǎxiē shìshí.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "策展组检查书信、政策记录和同时代批评，发现贡献与限制都能找到证据。个人动机有些无法确定，后来的影响也由多人共同造成。展览若只称英雄会遗漏争议，若只称失败也会忽略教育改变。",
+            "meaningVi": "Nhóm giám tuyển kiểm thư, hồ sơ chính sách và phê bình cùng thời, thấy cả đóng góp lẫn giới hạn đều có bằng chứng. Một số động cơ cá nhân không xác định được; ảnh hưởng sau do nhiều người cùng tạo. Nếu chỉ gọi anh hùng sẽ bỏ tranh cãi, chỉ gọi thất bại sẽ bỏ thay đổi giáo dục.",
+            "pinyin": "Cè zhǎn zǔ jiǎnchá shūxìn, zhèngcè jìlù hé tóngshí dài pīpíng, fāxiàn gòngxiàn yǔ xiànzhì dōu néng zhǎodào zhèngjù. Gèrén dòngjī yǒuxiē wúfǎ quèdìng, hòulái de yǐngxiǎng yě yóu duō rén gòngtóng zàochéng. Zhǎnlǎn ruò zhǐ chēng yīngxióng huì yílòu zhēngyì, ruò zhǐ chēng shībài yě huì hūlüè jiàoyù gǎibiàn.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "最终展览按“选择—当时批评—后果—未知”组织，并邀请观众写自己的判断和证据。综合观点不是平均赞美与反对，而是让每个评价可追到来源。一个展览仍是选择，不是历史本身。",
+            "meaningVi": "Triển lãm cuối tổ chức theo 'lựa chọn–phê bình lúc đó–hệ quả–chưa biết', mời khách viết phán đoán và bằng chứng. Quan điểm tổng hợp không phải chia đều khen/chê mà khiến mỗi đánh giá truy được nguồn. Một triển lãm vẫn là lựa chọn, không phải bản thân lịch sử.",
+            "pinyin": "Zuìzhōng zhǎnlǎn àn “xuǎnzé—dāngshí pīpíng—hòuguǒ—wèizhī” zǔzhī, bìng yāoqǐng guānzhòng xiě zìjǐ de pànduàn hé zhèngjù. Zònghé guāndiǎn bùshì píngjūn zànměi yǔ fǎnduì, ér shì ràng měi gè píngjià kě zhuī dào láiyuán. Yīgè zhǎnlǎn réng shì xuǎnzé, bùshì lìshǐ běnshēn.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "老城更新一条历史街道。商户直接称它是繁荣中心，居民不管搬来多久都记得日常生活，导游则强调战争事件。三种记忆谈同一地点，却不完全相同；有人怀疑规划方故意只保留适合旅游的故事。",
+            "meaningVi": "Phố cổ cải tạo một đường lịch sử. Tiểu thương trực tiếp gọi đây là trung tâm thịnh vượng, cư dân bất kể đến lâu hay mới đều nhớ đời sống thường ngày, hướng dẫn viên nhấn sự kiện chiến tranh. Ba ký ức nói cùng nơi nhưng không hoàn toàn giống; có người nghi quy hoạch cố ý chỉ giữ câu chuyện hợp du lịch.",
+            "pinyin": "Lǎo chéng gēngxīn yītiáo lìshǐ jiēdào. Shānghù zhíjiē chēng tā shì fánróng zhōngxīn, jūmín bùguǎn bān lái duōjiǔ dōu jìdé rìcháng shēnghuó, dǎoyóu zé qiángdiào zhànzhēng shìjiàn. Sān zhǒng jìyì tán tóngyī dìdiǎn, què bù wánquán xiāngtóng; yǒurén huáiyí guīhuà fāng gùyì zhǐ bǎoliú shìhé lǚyóu de gùshì.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "项目组收集店铺账本、居民照片和官方档案。旅游版本并非虚构，但它省略了搬迁和普通工作；居民记忆丰富，也会因年代不同出现冲突。相同街道不能只用一个声音代表，来源多也不等于自动一致。",
+            "meaningVi": "Nhóm dự án thu sổ cửa hàng, ảnh cư dân và hồ sơ chính thức. Phiên bản du lịch không hư cấu nhưng bỏ di dời và lao động thường; ký ức cư dân phong phú song xung đột theo thời kỳ. Cùng một con phố không thể do một tiếng nói đại diện; nhiều nguồn cũng không tự đồng nhất.",
+            "pinyin": "Xiàngmù zǔ shōují diànpù zhàngběn, jūmín zhàopiàn hé guānfāng dǎng'àn. Lǚyóu bǎnběn bìngfēi xūgòu, dàn tā shěnglüèle bānqiān hé pǔtōng gōngzuò; jūmín jìyì fēngfù, yě huì yīn niándài bùtóng chūxiàn chōngtú. Xiāngtóng jiēdào bùnéng zhǐ yòng yīgè shēngyīn dàibiǎo, láiyuán duō yě bù děngyú zìdòng yīzhì.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "新版路线设置商业、生活、战争三条线，并在冲突处注明来源和日期。参观者可选择顺序，最后比较遗漏。这个设计让记忆并存，却仍受未保存照片和未受访居民限制；多声部不是完整历史的保证。",
+            "meaningVi": "Tuyến mới đặt ba mạch thương mại, đời sống, chiến tranh, ghi nguồn/ngày tại chỗ xung đột. Khách chọn thứ tự và cuối cùng so phần bỏ sót. Thiết kế cho ký ức cùng tồn tại nhưng vẫn bị giới hạn bởi ảnh không lưu và cư dân chưa phỏng vấn; nhiều tiếng nói không bảo đảm lịch sử đầy đủ.",
+            "pinyin": "Xīnbǎn lùxiàn shèzhì shāngyè, shēnghuó, zhànzhēng sāntiáo xiàn, bìng zài chōngtú chù zhù míng láiyuán hé rìqí. Cānguān zhě kě xuǎnzé shùnxù, zuìhòu bǐjiào yílòu. Zhège shèjì ràng jìyì bìngcún, què réng shòu wèi bǎocún zhàopiàn hé wèi shòu fǎng jūmín xiànzhì; duō shēng bù bùshì wánzhěng lìshǐ de bǎozhèng.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:0f4976a474dc0fe18362bece2ab8cc4fc18057376a943b4e322880fb545abed3",
+          "evidenceDocument": "docs/thien-lo-redesign-review/151-REVIEW-HSK4-HISTORY-ROUND58.md",
+          "humanReviewed": false,
+          "scope": "Correct fourteen source-fidelity activities about archaeological evidence, travel writing, exhibition and street memory; preserve IDs and distinguish proposals from facts.",
+          "sourceContentSha256": "sha256:574cb19f79702095fb82b3e68479d2f426215eff0e96fb5593be04982a09444b",
+          "sourceRevisionId": "8202780a-5847-4b3e-9091-5ed688a37bea"
+        },
+        "exercises": [
+          {
+            "answer": "城市准备举办一位改革者纪念展。目前方案突出他建设学校的贡献，支持者希望观众感受勇气；反对者指出他也赞成过有争议的政策，并怀疑展览会不会回避责任。双方争论的不是同一事实，而是选择哪些事实。",
+            "answerMeaningVi": "Thành phố chuẩn bị tổ chức triển lãm một nhà cải cách. Phương án hiện nay nhấn đóng góp xây trường; người ủng hộ muốn khách cảm nhận dũng khí, người phản đối chỉ ra ông từng ủng hộ chính sách gây tranh cãi và nghi ngờ triển lãm né trách nhiệm. Hai bên không tranh cùng một sự kiện mà tranh chọn sự kiện nào.",
+            "answerPinyin": "Chéngshì zhǔnbèi jǔbàn yī wèi gǎigé zhě jìniàn zhǎn. Mùqián fāng'àn túchū tā jiànshè xuéxiào de gòngxiàn, zhīchí zhě xīwàng guānzhòng gǎnshòu yǒngqì; fǎnduì zhě zhǐchū tā yě zànchéngguò yǒu zhēngyì de zhèngcè, bìng huáiyí zhǎnlǎn huì bù huì huíbì zérèn. Shuāngfāng zhēnglùn de bùshì tóngyī shìshí, ér shì xuǎnzé nǎxiē shìshí.",
+            "distractors": [
+              "策展组检查书信、政策记录和同时代批评，发现贡献与限制都能找到证据。个人动机有些无法确定，后来的影响也由多人共同造成。展览若只称英雄会遗漏争议，若只称失败也会忽略教育改变。",
+              "最终展览按“选择—当时批评—后果—未知”组织，并邀请观众写自己的判断和证据。综合观点不是平均赞美与反对，而是让每个评价可追到来源。一个展览仍是选择，不是历史本身。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "即使 jíshǐ nêu điều kiện nhượng bộ, thường giả định một khả năng bất lợi; 也 giữ kết quả hoặc ý định. 即使下雨，我也去 không xác nhận đã mưa. So với 尽管 thường thừa nhận tình huống đang được coi là thật. Chủ ngữ đứng trước 也, không đảo máy móc.",
+            "guidedPractice": {
+              "promptVi": "Nếu vé đắt hơn dự kiến, bạn vẫn muốn xem triển lãm. Viết 即使…也… như ý định, không nói đã mua vé.",
+              "modelAnswerHanzi": "即使门票比预计的贵，我也想去看展览。",
+              "modelAnswerPinyin": "Jíshǐ ménpiào bǐ yùjì de guì, wǒ yě xiǎng qù kàn zhǎnlǎn.",
+              "modelAnswerMeaningVi": "Ngay cả nếu vé đắt hơn dự kiến, tôi vẫn muốn đi xem triển lãm."
+            },
+            "modelExample": {
+              "hanzi": "即使明天下雨，我也去。",
+              "pinyin": "Jíshǐ míngtiān xià yǔ, wǒ yě qù.",
+              "meaningVi": "Ngay cả nếu mai mưa, tôi vẫn đi.",
+              "speaker": "A"
+            },
+            "pattern": "即使……，也……"
+          },
+          {
+            "explanationVi": "就是 jiùshì ở đầu vế điều kiện có thể gần 即使 trong khẩu ngữ: 就是再忙，我也要吃饭. Nghĩa này cần vế 也 và ngữ cảnh nhượng bộ. Khác 就是 chỉ xác định như 他就是老师. 再忙 ở mẫu này là bận đến mấy, không nhất thiết “bận lại một lần”.",
+            "guidedPractice": {
+              "promptVi": "Bạn hứa trả sách vào thứ hai dù không có ai nhắc. Viết 就是…也…",
+              "modelAnswerHanzi": "就是没有人提醒，我也要星期一还书。",
+              "modelAnswerPinyin": "Jiùshì méiyǒu rén tíxǐng, wǒ yě yào xīngqīyī huán shū.",
+              "modelAnswerMeaningVi": "Dù không ai nhắc, tôi vẫn phải trả sách vào thứ hai."
+            },
+            "modelExample": {
+              "hanzi": "就是再忙，我也要吃饭。",
+              "pinyin": "Jiùshì zài máng, wǒ yě yào chī fàn.",
+              "meaningVi": "Dù bận đến mấy, tôi vẫn phải ăn cơm.",
+              "speaker": "A"
+            },
+            "pattern": "就是……，也……"
+          },
+          {
+            "explanationVi": "无标记 ở đây là hai vế không dùng từ nối hiển ngôn như 因为/所以、如果/就. 天气太冷，我们不出去了: ngữ cảnh thường cho quan hệ nguyên nhân–kết quả. 你先坐，我去倒茶: các hành động được sắp trong tình huống, không phải nhân quả. Mẫu 越…越… có dấu nối rõ, nên không dùng nó làm mẫu “không dấu nối”. Khi quan hệ dễ nhầm, viết thêm từ nối thay vì đoán.",
+            "guidedPractice": {
+              "promptVi": "Ngữ cảnh mới: bạn không ra ngoài vì mưa quá lớn. Viết hai vế ngắn không từ nối, rồi viết lại với 因为…所以… để kiểm ý.",
+              "modelAnswerHanzi": "雨太大，我不出去了。因为雨太大，所以我不出去了。",
+              "modelAnswerPinyin": "Yǔ tài dà, wǒ bù chū qù le. Yīnwèi yǔ tài dà, suǒyǐ wǒ bù chū qù le.",
+              "modelAnswerMeaningVi": "Mưa lớn quá, tôi không ra ngoài nữa. Vì mưa lớn quá nên tôi không ra ngoài nữa."
+            },
+            "modelExample": {
+              "hanzi": "天气太冷，我们不出去了。",
+              "pinyin": "Tiānqì tài lěng, wǒmen bù chū qù le.",
+              "meaningVi": "Trời lạnh quá, chúng tôi không ra ngoài nữa.",
+              "speaker": "A"
+            },
+            "pattern": "无标记"
+          },
+          {
+            "explanationVi": "不 + hành động/điều kiện rồi 也 + kết quả nói thiếu điều trước mà điều sau vẫn có thể xảy ra: 不坐车也能到. Thường có 能/可以 làm rõ khả năng. Không tự chứng minh mọi điều kiện đều không cần thiết. Phân biệt 没 đi với sự việc chưa/không xảy ra trong quá khứ; không thay mọi 没 bằng 不.",
+            "guidedPractice": {
+              "promptVi": "Một bảo tàng cho vào miễn phí thứ tư. Viết 不…也… và giữ điều kiện ngày, không mở rộng cả tuần.",
+              "modelAnswerHanzi": "星期三不买票也可以参观这家博物馆。",
+              "modelAnswerPinyin": "Xīngqīsān bù mǎi piào yě kěyǐ cānguān zhè jiā bówùguǎn.",
+              "modelAnswerMeaningVi": "Thứ tư không mua vé vẫn có thể tham quan bảo tàng này."
+            },
+            "modelExample": {
+              "hanzi": "不坐车也能到，走路只要十分钟。",
+              "pinyin": "Bú zuò chē yě néng dào, zǒu lù zhǐ yào shí fēnzhōng.",
+              "meaningVi": "Không đi xe vẫn tới được, đi bộ chỉ mất mười phút.",
+              "speaker": "A"
+            },
+            "pattern": "不……也……"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng nêu phản biện và điều kiện để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Nêu phản biện và điều kiện: Xây lập luận chuyển ý, giả thiết, điều kiện, nhân quả, mục đích và nhượng bộ với quan hệ logic có thể kiểm chứng."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "城市准备举办一位改革者纪念展。目前方案突出他建设学校的贡献，支持者希望观众感受勇气；反对者指出他也赞成过有争议的政策，并怀疑展览会不会回避责任。双方争论的不是同一事实，而是选择哪些事实。",
+                        "id": "hsk4-argument-logic-concession-lesson-04:source-0-0",
+                        "meaningVi": "Thành phố chuẩn bị tổ chức triển lãm một nhà cải cách. Phương án hiện nay nhấn đóng góp xây trường; người ủng hộ muốn khách cảm nhận dũng khí, người phản đối chỉ ra ông từng ủng hộ chính sách gây tranh cãi và nghi ngờ triển lãm né trách nhiệm. Hai bên không tranh cùng một sự kiện mà tranh chọn sự kiện nào.",
+                        "pinyin": "Chéngshì zhǔnbèi jǔbàn yī wèi gǎigé zhě jìniàn zhǎn. Mùqián fāng'àn túchū tā jiànshè xuéxiào de gòngxiàn, zhīchí zhě xīwàng guānzhòng gǎnshòu yǒngqì; fǎnduì zhě zhǐchū tā yě zànchéngguò yǒu zhēngyì de zhèngcè, bìng huáiyí zhǎnlǎn huì bù huì huíbì zérèn. Shuāngfāng zhēnglùn de bùshì tóngyī shìshí, ér shì xuǎnzé nǎxiē shìshí."
+                      },
+                      {
+                        "hanzi": "策展组检查书信、政策记录和同时代批评，发现贡献与限制都能找到证据。个人动机有些无法确定，后来的影响也由多人共同造成。展览若只称英雄会遗漏争议，若只称失败也会忽略教育改变。",
+                        "id": "hsk4-argument-logic-concession-lesson-04:source-0-1",
+                        "meaningVi": "Nhóm giám tuyển kiểm thư, hồ sơ chính sách và phê bình cùng thời, thấy cả đóng góp lẫn giới hạn đều có bằng chứng. Một số động cơ cá nhân không xác định được; ảnh hưởng sau do nhiều người cùng tạo. Nếu chỉ gọi anh hùng sẽ bỏ tranh cãi, chỉ gọi thất bại sẽ bỏ thay đổi giáo dục.",
+                        "pinyin": "Cè zhǎn zǔ jiǎnchá shūxìn, zhèngcè jìlù hé tóngshí dài pīpíng, fāxiàn gòngxiàn yǔ xiànzhì dōu néng zhǎodào zhèngjù. Gèrén dòngjī yǒuxiē wúfǎ quèdìng, hòulái de yǐngxiǎng yě yóu duō rén gòngtóng zàochéng. Zhǎnlǎn ruò zhǐ chēng yīngxióng huì yílòu zhēngyì, ruò zhǐ chēng shībài yě huì hūlüè jiàoyù gǎibiàn."
+                      },
+                      {
+                        "hanzi": "最终展览按“选择—当时批评—后果—未知”组织，并邀请观众写自己的判断和证据。综合观点不是平均赞美与反对，而是让每个评价可追到来源。一个展览仍是选择，不是历史本身。",
+                        "id": "hsk4-argument-logic-concession-lesson-04:source-0-2",
+                        "meaningVi": "Triển lãm cuối tổ chức theo 'lựa chọn–phê bình lúc đó–hệ quả–chưa biết', mời khách viết phán đoán và bằng chứng. Quan điểm tổng hợp không phải chia đều khen/chê mà khiến mỗi đánh giá truy được nguồn. Một triển lãm vẫn là lựa chọn, không phải bản thân lịch sử.",
+                        "pinyin": "Zuìzhōng zhǎnlǎn àn “xuǎnzé—dāngshí pīpíng—hòuguǒ—wèizhī” zǔzhī, bìng yāoqǐng guānzhòng xiě zìjǐ de pànduàn hé zhèngjù. Zònghé guāndiǎn bùshì píngjūn zànměi yǔ fǎnduì, ér shì ràng měi gè píngjià kě zhuī dào láiyuán. Yīgè zhǎnlǎn réng shì xuǎnzé, bùshì lìshǐ běnshēn."
+                      }
+                    ]
+                  },
+                  "title": "Triển lãm tưởng niệm nhân vật lịch sử nên kể gì"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Triển lãm tưởng niệm nhân vật lịch sử nên kể gì"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "老城更新一条历史街道。商户直接称它是繁荣中心，居民不管搬来多久都记得日常生活，导游则强调战争事件。三种记忆谈同一地点，却不完全相同；有人怀疑规划方故意只保留适合旅游的故事。",
+                        "id": "hsk4-argument-logic-concession-lesson-04:source-1-0",
+                        "meaningVi": "Phố cổ cải tạo một đường lịch sử. Tiểu thương trực tiếp gọi đây là trung tâm thịnh vượng, cư dân bất kể đến lâu hay mới đều nhớ đời sống thường ngày, hướng dẫn viên nhấn sự kiện chiến tranh. Ba ký ức nói cùng nơi nhưng không hoàn toàn giống; có người nghi quy hoạch cố ý chỉ giữ câu chuyện hợp du lịch.",
+                        "pinyin": "Lǎo chéng gēngxīn yītiáo lìshǐ jiēdào. Shānghù zhíjiē chēng tā shì fánróng zhōngxīn, jūmín bùguǎn bān lái duōjiǔ dōu jìdé rìcháng shēnghuó, dǎoyóu zé qiángdiào zhànzhēng shìjiàn. Sān zhǒng jìyì tán tóngyī dìdiǎn, què bù wánquán xiāngtóng; yǒurén huáiyí guīhuà fāng gùyì zhǐ bǎoliú shìhé lǚyóu de gùshì."
+                      },
+                      {
+                        "hanzi": "项目组收集店铺账本、居民照片和官方档案。旅游版本并非虚构，但它省略了搬迁和普通工作；居民记忆丰富，也会因年代不同出现冲突。相同街道不能只用一个声音代表，来源多也不等于自动一致。",
+                        "id": "hsk4-argument-logic-concession-lesson-04:source-1-1",
+                        "meaningVi": "Nhóm dự án thu sổ cửa hàng, ảnh cư dân và hồ sơ chính thức. Phiên bản du lịch không hư cấu nhưng bỏ di dời và lao động thường; ký ức cư dân phong phú song xung đột theo thời kỳ. Cùng một con phố không thể do một tiếng nói đại diện; nhiều nguồn cũng không tự đồng nhất.",
+                        "pinyin": "Xiàngmù zǔ shōují diànpù zhàngběn, jūmín zhàopiàn hé guānfāng dǎng'àn. Lǚyóu bǎnběn bìngfēi xūgòu, dàn tā shěnglüèle bānqiān hé pǔtōng gōngzuò; jūmín jìyì fēngfù, yě huì yīn niándài bùtóng chūxiàn chōngtú. Xiāngtóng jiēdào bùnéng zhǐ yòng yīgè shēngyīn dàibiǎo, láiyuán duō yě bù děngyú zìdòng yīzhì."
+                      },
+                      {
+                        "hanzi": "新版路线设置商业、生活、战争三条线，并在冲突处注明来源和日期。参观者可选择顺序，最后比较遗漏。这个设计让记忆并存，却仍受未保存照片和未受访居民限制；多声部不是完整历史的保证。",
+                        "id": "hsk4-argument-logic-concession-lesson-04:source-1-2",
+                        "meaningVi": "Tuyến mới đặt ba mạch thương mại, đời sống, chiến tranh, ghi nguồn/ngày tại chỗ xung đột. Khách chọn thứ tự và cuối cùng so phần bỏ sót. Thiết kế cho ký ức cùng tồn tại nhưng vẫn bị giới hạn bởi ảnh không lưu và cư dân chưa phỏng vấn; nhiều tiếng nói không bảo đảm lịch sử đầy đủ.",
+                        "pinyin": "Xīnbǎn lùxiàn shèzhì shāngyè, shēnghuó, zhànzhēng sāntiáo xiàn, bìng zài chōngtú chù zhù míng láiyuán hé rìqí. Cānguān zhě kě xuǎnzé shùnxù, zuìhòu bǐjiào yílòu. Zhège shèjì ràng jìyì bìngcún, què réng shòu wèi bǎocún zhàopiàn hé wèi shòu fǎng jūmín xiànzhì; duō shēng bù bùshì wánzhěng lìshǐ de bǎozhèng."
+                      }
+                    ]
+                  },
+                  "title": "Cùng một phố lịch sử có bao nhiêu ký ức"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Cùng một phố lịch sử có bao nhiêu ký ức"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn mô tả chọn đóng góp, chính sách gây tranh cãi và các đánh giá; không nêu tác phẩm hoặc giới hạn không gian. Câu đã thêm dữ kiện nên không thể gọi toàn câu là điều được nói rõ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Triển lãm tưởng niệm chọn trải nghiệm, tác phẩm và các đánh giá khác nhau của nhân vật trong không gian hạn chế.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn mô tả chọn đóng góp, chính sách gây tranh cãi và các đánh giá; không nêu tác phẩm hoặc giới hạn không gian. Câu đã thêm dữ kiện nên không thể gọi toàn câu là điều được nói rõ.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn mô tả chọn đóng góp, chính sách gây tranh cãi và các đánh giá; không nêu tác phẩm hoặc giới hạn không gian. Câu đã thêm dữ kiện nên không thể gọi toàn câu là điều được nói rõ.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "纪念展在有限空间中选择了人物经历、作品和不同评价。\nTriển lãm chọn trải nghiệm, tác phẩm và các đánh giá trong không gian hạn chế.\nKiểm tra từng phần: nguồn có nêu tác phẩm và giới hạn không gian không?",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn phân biệt trải nghiệm nhóm và hồ sơ chung; đa góc nhìn không xóa sự kiện có thể kiểm tra. Giới hạn: Có thể kết luận ý nghĩa và ký ức khác nhau, không kết luận mọi dữ kiện đều tương đối.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Một con phố có nhiều ký ức chứng tỏ sự thật lịch sử hoàn toàn do cá nhân quyết định.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn phân biệt trải nghiệm nhóm và hồ sơ chung; đa góc nhìn không xóa sự kiện có thể kiểm tra. Giới hạn: Có thể kết luận ý nghĩa và ký ức khác nhau, không kết luận mọi dữ kiện đều tương đối.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn phân biệt trải nghiệm nhóm và hồ sơ chung; đa góc nhìn không xóa sự kiện có thể kiểm tra. Giới hạn: Có thể kết luận ý nghĩa và ký ức khác nhau, không kết luận mọi dữ kiện đều tương đối.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "一条街有多种记忆，说明历史事实完全由个人决定。\nMột con phố có nhiều ký ức chứng tỏ sự thật lịch sử hoàn toàn do cá nhân quyết định.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n纪念展最初突出改革者建设学校的贡献，反对者担心它遗漏有争议的政策。策展组检查书信、政策记录和同时代批评后，按选择、当时批评、后果和未知组织展览。综合评价不是平均赞美和反对，而是让每个评价都有来源。\nJìniànzhǎn zuìchū tūchū gǎigézhě jiànshè xuéxiào de gòngxiàn, fǎnduìzhě dānxīn tā yílòu yǒu zhēngyì de zhèngcè. Cèzhǎnzǔ jiǎnchá shūxìn, zhèngcè jìlù hé tóng shídài pīpíng hòu, àn xuǎnzé, dāngshí pīpíng, hòuguǒ hé wèizhī zǔzhī zhǎnlǎn. Zōnghé píngjià bú shì píngjūn zànměi hé fǎnduì, ér shì ràng měi ge píngjià dōu yǒu láiyuán.\nTriển lãm ban đầu nhấn đóng góp xây trường của nhà cải cách; người phản đối lo bỏ sót chính sách gây tranh cãi. Sau khi kiểm thư, hồ sơ chính sách và phê bình cùng thời, nhóm giám tuyển tổ chức theo lựa chọn, phê bình lúc đó, hệ quả và điều chưa biết. Đánh giá tổng hợp là mỗi nhận xét có nguồn, không phải chia đều khen/chê.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại tranh luận về chọn nội dung triển lãm và cấu trúc cuối cùng. Giữ đúng tư liệu nguồn nêu, không tự thêm giới hạn không gian.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Ban đầu nhấn xây trường; phản đối lo bỏ chính sách gây tranh cãi.",
+                        "id": "point-0",
+                        "label": "Ban đầu nhấn xây trường; phản đối lo bỏ chính sách gây tranh cãi."
+                      },
+                      {
+                        "guidance": "Kiểm thư, hồ sơ chính sách, phê bình cùng thời.",
+                        "id": "point-1",
+                        "label": "Kiểm thư, hồ sơ chính sách, phê bình cùng thời."
+                      },
+                      {
+                        "guidance": "Cấu trúc cuối: lựa chọn/phê bình/hệ quả/chưa biết.",
+                        "id": "point-2",
+                        "label": "Cấu trúc cuối: lựa chọn/phê bình/hệ quả/chưa biết."
+                      },
+                      {
+                        "guidance": "Không bịa giới hạn không gian hoặc tác phẩm chưa được nguồn nêu.",
+                        "id": "point-3",
+                        "label": "Không bịa giới hạn không gian hoặc tác phẩm chưa được nguồn nêu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại tranh luận về chọn nội dung triển lãm và cấu trúc cuối cùng. Giữ đúng tư liệu nguồn nêu, không tự thêm giới hạn không gian.\nĐọc nguồn rồi viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n商户、居民和导游关注同一条街的不同经历。项目组收集账本、照片和档案后，设置商业、生活和战争三条线，并注明冲突记录的来源与日期。多种记忆可以并存，但未保存的照片和未受访居民仍造成空白。\nShānghù, jūmín hé dǎoyóu guānzhù tóng yì tiáo jiē de bùtóng jīnglì. Xiàngmùzǔ shōují zhàngběn, zhàopiàn hé dàng’àn hòu, shèzhì shāngyè, shēnghuó hé zhànzhēng sān tiáo xiàn, bìng zhùmíng chōngtú jìlù de láiyuán yǔ rìqī. Duō zhǒng jìyì kěyǐ bìngcún, dàn wèi bǎocún de zhàopiàn hé wèi shòufǎng jūmín réng zàochéng kòngbái.\nTiểu thương, cư dân và hướng dẫn viên chú ý các trải nghiệm khác nhau của cùng con phố. Nhóm thu sổ, ảnh và hồ sơ rồi đặt ba mạch thương mại, đời sống, chiến tranh; ghi nguồn/ngày của ghi chép mâu thuẫn. Nhiều ký ức cùng tồn tại, nhưng ảnh không lưu và cư dân chưa phỏng vấn vẫn tạo khoảng trống.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại cách thu thập tư liệu và trình bày ba mạch ký ức con phố. Giữ đúng nhóm người và khoảng trống dữ liệu.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Ba nhóm là tiểu thương, cư dân, hướng dẫn viên.",
+                        "id": "point-0",
+                        "label": "Ba nhóm là tiểu thương, cư dân, hướng dẫn viên."
+                      },
+                      {
+                        "guidance": "Dữ liệu gồm sổ, ảnh, hồ sơ.",
+                        "id": "point-1",
+                        "label": "Dữ liệu gồm sổ, ảnh, hồ sơ."
+                      },
+                      {
+                        "guidance": "Ba tuyến và nhãn nguồn/ngày ở chỗ mâu thuẫn.",
+                        "id": "point-2",
+                        "label": "Ba tuyến và nhãn nguồn/ngày ở chỗ mâu thuẫn."
+                      },
+                      {
+                        "guidance": "Giữ giới hạn ảnh không lưu và người chưa phỏng vấn.",
+                        "id": "point-3",
+                        "label": "Giữ giới hạn ảnh không lưu và người chưa phỏng vấn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại cách thu thập tư liệu và trình bày ba mạch ký ức con phố. Giữ đúng nhóm người và khoảng trống dữ liệu.\nĐọc nguồn rồi viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "即使 jíshǐ nêu điều kiện nhượng bộ, thường giả định một khả năng bất lợi; 也 giữ kết quả hoặc ý định. 即使下雨，我也去 không xác nhận đã mưa. So với 尽管 thường thừa nhận tình huống đang được coi là thật. Chủ ngữ đứng trước 也, không đảo máy móc.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "即使…也…: ngay cả nếu"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "即使明天下雨，我也去。",
+                  "pinyin": "Jíshǐ míngtiān xià yǔ, wǒ yě qù.",
+                  "meaningVi": "Ngay cả nếu mai mưa, tôi vẫn đi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "即使意见不同，我们也可以讨论。",
+                  "pinyin": "Jíshǐ yìjiàn bùtóng, wǒmen yě kěyǐ tǎolùn.",
+                  "meaningVi": "Ngay cả nếu ý kiến khác nhau, chúng ta vẫn có thể thảo luận.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "即使…也…: ngay cả nếu"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:0:practice",
+              "title": "Khảo Luyện · 即使…也…: ngay cả nếu",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Câu về ngày mai xác nhận mưa chưa?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chưa",
+                        "feedback": "即使 đặt khả năng; không phải dự báo chắc chắn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Đã mưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chắc chắn mưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "即使 đặt khả năng; không phải dự báo chắc chắn.",
+                    "learningTarget": {
+                      "objective": "即使…也…: ngay cả nếu",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Chọn trật tự tự nhiên.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "即使忙，也我去。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "即使很忙，我也去。",
+                        "feedback": "我 đứng trước 也去."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "即使我去，也忙因为。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "我 đứng trước 也去.",
+                    "learningTarget": {
+                      "objective": "即使…也…: ngay cả nếu",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:0:transfer",
+              "title": "Vận dụng · 即使…也…: ngay cả nếu",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n即使门票比预计的贵，我也想去看展览。\nJíshǐ ménpiào bǐ yùjì de guì, wǒ yě xiǎng qù kàn zhǎnlǎn.\nNgay cả nếu vé đắt hơn dự kiến, tôi vẫn muốn đi xem triển lãm.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "即使…也…: ngay cả nếu",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ điều kiện giá giả định.",
+                        "guidance": "Giữ điều kiện giá giả định."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "也想 nói muốn, không phải đã mua.",
+                        "guidance": "也想 nói muốn, không phải đã mua."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không khẳng định giá thực tế nếu chưa biết.",
+                        "guidance": "Không khẳng định giá thực tế nếu chưa biết."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Nếu vé đắt hơn dự kiến, bạn vẫn muốn xem triển lãm. Viết 即使…也… như ý định, không nói đã mua vé.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "就是 jiùshì ở đầu vế điều kiện có thể gần 即使 trong khẩu ngữ: 就是再忙，我也要吃饭. Nghĩa này cần vế 也 và ngữ cảnh nhượng bộ. Khác 就是 chỉ xác định như 他就是老师. 再忙 ở mẫu này là bận đến mấy, không nhất thiết “bận lại một lần”.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "就是…也…: nhượng bộ nhấn mạnh"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "就是再忙，我也要吃饭。",
+                  "pinyin": "Jiùshì zài máng, wǒ yě yào chī fàn.",
+                  "meaningVi": "Dù bận đến mấy, tôi vẫn phải ăn cơm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "就是没有人陪我，我也去。",
+                  "pinyin": "Jiùshì méiyǒu rén péi wǒ, wǒ yě qù.",
+                  "meaningVi": "Ngay cả nếu không ai đi cùng, tôi vẫn đi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "就是…也…: nhượng bộ nhấn mạnh"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:1:practice",
+              "title": "Khảo Luyện · 就是…也…: nhượng bộ nhấn mạnh",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "就是 trong 他就是老师 có cùng nghĩa mẫu nhượng bộ không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, luôn là dù",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, ở đây xác định anh là giáo viên",
+                        "feedback": "Không có quan hệ hai vế nhượng bộ; đọc ngữ cảnh."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có vì có 是",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Không có quan hệ hai vế nhượng bộ; đọc ngữ cảnh.",
+                    "learningTarget": {
+                      "objective": "就是…也…: nhượng bộ nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "再忙 trong 就是再忙… gần nghĩa nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chắc chắn bận lần thứ hai",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Bận đến mấy",
+                        "feedback": "再 + tính chất nhấn mức độ trong cấu trúc này."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đã hết bận",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "再 + tính chất nhấn mức độ trong cấu trúc này.",
+                    "learningTarget": {
+                      "objective": "就是…也…: nhượng bộ nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:1:transfer",
+              "title": "Vận dụng · 就是…也…: nhượng bộ nhấn mạnh",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n就是没有人提醒，我也要星期一还书。\nJiùshì méiyǒu rén tíxǐng, wǒ yě yào xīngqīyī huán shū.\nDù không ai nhắc, tôi vẫn phải trả sách vào thứ hai.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "就是…也…: nhượng bộ nhấn mạnh",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Điều kiện không ai nhắc.",
+                        "guidance": "Điều kiện không ai nhắc."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "也 giữ ý định trả thứ hai.",
+                        "guidance": "也 giữ ý định trả thứ hai."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không coi ý định là đã trả.",
+                        "guidance": "Không coi ý định là đã trả."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn hứa trả sách vào thứ hai dù không có ai nhắc. Viết 就是…也…",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "无标记 ở đây là hai vế không dùng từ nối hiển ngôn như 因为/所以、如果/就. 天气太冷，我们不出去了: ngữ cảnh thường cho quan hệ nguyên nhân–kết quả. 你先坐，我去倒茶: các hành động được sắp trong tình huống, không phải nhân quả. Mẫu 越…越… có dấu nối rõ, nên không dùng nó làm mẫu “không dấu nối”. Khi quan hệ dễ nhầm, viết thêm từ nối thay vì đoán.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "天气太冷，我们不出去了。",
+                  "pinyin": "Tiānqì tài lěng, wǒmen bù chū qù le.",
+                  "meaningVi": "Trời lạnh quá, chúng tôi không ra ngoài nữa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "你先坐，我去倒茶。",
+                  "pinyin": "Nǐ xiān zuò, wǒ qù dào chá.",
+                  "meaningVi": "Bạn ngồi trước, tôi đi rót trà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:2:practice",
+              "title": "Khảo Luyện · Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Mẫu 越…越… có phù hợp để minh họa “không từ nối” không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, vì câu ngắn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, 越…越… đánh dấu quan hệ rõ",
+                        "feedback": "Vẫn có cặp từ đánh dấu quan hệ, không phải mẫu vô dấu nối."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, vì không có 因为",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Vẫn có cặp từ đánh dấu quan hệ, không phải mẫu vô dấu nối.",
+                    "learningTarget": {
+                      "objective": "Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "你先坐，我去倒茶 có bắt buộc nghĩa bạn ngồi gây tôi đi rót trà không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, hai hành động trong tình huống",
+                        "feedback": "Không suy cùng một quan hệ cho mọi hai vế không từ nối."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, mọi dấu phẩy là nhân quả",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, mọi câu đều dùng 所以 ngầm",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Không suy cùng một quan hệ cho mọi hai vế không từ nối.",
+                    "learningTarget": {
+                      "objective": "Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:2:transfer",
+              "title": "Vận dụng · Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n雨太大，我不出去了。因为雨太大，所以我不出去了。\nYǔ tài dà, wǒ bù chū qù le. Yīnwèi yǔ tài dà, suǒyǐ wǒ bù chū qù le.\nMưa lớn quá, tôi không ra ngoài nữa. Vì mưa lớn quá nên tôi không ra ngoài nữa.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Câu phức không có từ nối: hiểu quan hệ từ ngữ cảnh",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Bản đầu không có cặp từ nối.",
+                        "guidance": "Bản đầu không có cặp từ nối."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Bản hai nêu đúng quan hệ nguyên nhân của ngữ cảnh.",
+                        "guidance": "Bản hai nêu đúng quan hệ nguyên nhân của ngữ cảnh."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không áp nhân quả cho mọi câu dùng dấu phẩy.",
+                        "guidance": "Không áp nhân quả cho mọi câu dùng dấu phẩy."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Ngữ cảnh mới: bạn không ra ngoài vì mưa quá lớn. Viết hai vế ngắn không từ nối, rồi viết lại với 因为…所以… để kiểm ý.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不 + hành động/điều kiện rồi 也 + kết quả nói thiếu điều trước mà điều sau vẫn có thể xảy ra: 不坐车也能到. Thường có 能/可以 làm rõ khả năng. Không tự chứng minh mọi điều kiện đều không cần thiết. Phân biệt 没 đi với sự việc chưa/không xảy ra trong quá khứ; không thay mọi 没 bằng 不.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "不…也…: vẫn có kết quả khi không làm việc trước"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "不坐车也能到，走路只要十分钟。",
+                  "pinyin": "Bú zuò chē yě néng dào, zǒu lù zhǐ yào shí fēnzhōng.",
+                  "meaningVi": "Không đi xe vẫn tới được, đi bộ chỉ mất mười phút.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "不买票也可以进去，今天免费。",
+                  "pinyin": "Bù mǎi piào yě kěyǐ jìn qù, jīntiān miǎnfèi.",
+                  "meaningVi": "Không mua vé vẫn vào được, hôm nay miễn phí.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "不…也…: vẫn có kết quả khi không làm việc trước"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:3:practice",
+              "title": "Khảo Luyện · 不…也…: vẫn có kết quả khi không làm việc trước",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "不坐车也能到 có nói không cần đi lại bằng bất kỳ cách nào không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, mẫu nêu đi bộ là cách khác",
+                        "feedback": "Loại đi xe không xóa phương án đi bộ."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có vì dùng 能",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Loại đi xe không xóa phương án đi bộ.",
+                    "learningTarget": {
+                      "objective": "不…也…: vẫn có kết quả khi không làm việc trước",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Miễn phí hôm nay có chứng minh mọi ngày không mua vé cũng vào được không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không",
+                        "feedback": "Giữ phạm vi hôm nay của điều kiện."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu nói 也",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Giữ phạm vi hôm nay của điều kiện.",
+                    "learningTarget": {
+                      "objective": "不…也…: vẫn có kết quả khi không làm việc trước",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-04:reason-purpose-r59:3:transfer",
+              "title": "Vận dụng · 不…也…: vẫn có kết quả khi không làm việc trước",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n星期三不买票也可以参观这家博物馆。\nXīngqīsān bù mǎi piào yě kěyǐ cānguān zhè jiā bówùguǎn.\nThứ tư không mua vé vẫn có thể tham quan bảo tàng này.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "不…也…: vẫn có kết quả khi không làm việc trước",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ điều kiện thứ tư và bảo tàng này.",
+                        "guidance": "Giữ điều kiện thứ tư và bảo tàng này."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "也可以 nêu khả năng vào tham quan.",
+                        "guidance": "也可以 nêu khả năng vào tham quan."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không mở rộng miễn phí mọi ngày.",
+                        "guidance": "Không mở rộng miễn phí mọi ngày."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Một bảo tàng cho vào miễn phí thứ tư. Viết 不…也… và giữ điều kiện ngày, không mở rộng cả tuần.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n纪念展把贡献、争议、后果和未知联系到来源，而不是只给人物一个英雄或失败的标签。历史街道也用三条路线呈现商户、居民和导游关注的不同经历，并标出冲突的来源与日期。两例都让选择和差异可见，但展览不是历史本身，多种声音也不能补齐所有未保存的记录。\nJìniànzhǎn bǎ gòngxiàn, zhēngyì, hòuguǒ hé wèizhī liánxì dào láiyuán, ér bú shì zhǐ gěi rénwù yí ge yīngxióng huò shībài de biāoqiān. Lìshǐ jiēdào yě yòng sān tiáo lùxiàn chéngxiàn shānghù, jūmín hé dǎoyóu guānzhù de bùtóng jīnglì, bìng biāo chū chōngtú de láiyuán yǔ rìqī. Liǎng lì dōu ràng xuǎnzé hé chāyì kě jiàn, dàn zhǎnlǎn bú shì lìshǐ běnshēn, duō zhǒng shēngyīn yě bù néng bǔ qí suǒyǒu wèi bǎocún de jìlù.\nTriển lãm nối đóng góp, tranh cãi, hệ quả và điều chưa biết với nguồn, thay vì chỉ gắn nhân vật nhãn anh hùng/thất bại. Con phố dùng ba tuyến trình bày trải nghiệm khác nhau mà tiểu thương, cư dân, hướng dẫn viên chú ý; ghi nguồn/ngày khi mâu thuẫn. Hai trường hợp làm lựa chọn và khác biệt nhìn thấy được; triển lãm vẫn không phải toàn lịch sử, nhiều tiếng nói chưa thể bù mọi ghi chép không lưu.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách triển lãm và ký ức đường phố xử lý nhiều góc nhìn mà vẫn giữ sự kiện kiểm tra được.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Triển lãm giữ đóng góp lẫn tranh cãi và nguồn.",
+                        "id": "criterion-0",
+                        "label": "Triển lãm giữ đóng góp lẫn tranh cãi và nguồn."
+                      },
+                      {
+                        "guidance": "Không gắn một nhãn anh hùng/thất bại tuyệt đối.",
+                        "id": "criterion-1",
+                        "label": "Không gắn một nhãn anh hùng/thất bại tuyệt đối."
+                      },
+                      {
+                        "guidance": "Phố có ba nhóm và ba tuyến khác nhau.",
+                        "id": "criterion-2",
+                        "label": "Phố có ba nhóm và ba tuyến khác nhau."
+                      },
+                      {
+                        "guidance": "Ghi nguồn/ngày, còn khoảng trống dữ liệu.",
+                        "id": "criterion-3",
+                        "label": "Ghi nguồn/ngày, còn khoảng trống dữ liệu."
+                      },
+                      {
+                        "guidance": "Không suy nhiều tiếng nói bảo đảm toàn lịch sử.",
+                        "id": "criterion-4",
+                        "label": "Không suy nhiều tiếng nói bảo đảm toàn lịch sử."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách triển lãm và ký ức đường phố xử lý nhiều góc nhìn mà vẫn giữ sự kiện kiểm tra được.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n我认为可以有清楚的主线，但不能隐藏有证据的差异。纪念展保留贡献与争议，街道路线并列商业、生活和战争。有人担心多种声音使观众困惑，这值得考虑。我建议先说明共同问题，再展示不同来源和未知；这是我的设计建议，不是材料已证明最有效的方法。没有观众学习结果的比较，不能断定一种结构适合所有展览。\nWǒ rènwéi kěyǐ yǒu qīngchu de zhǔxiàn, dàn bù néng yǐncáng yǒu zhèngjù de chāyì. Jìniànzhǎn bǎoliú gòngxiàn yǔ zhēngyì, jiēdào lùxiàn bìngliè shāngyè, shēnghuó hé zhànzhēng. Yǒu rén dānxīn duō zhǒng shēngyīn shǐ guānzhòng kùnhuò, zhè zhídé kǎolǜ. Wǒ jiànyì xiān shuōmíng gòngtóng wèntí, zài zhǎnshì bùtóng láiyuán hé wèizhī; zhè shì wǒ de shèjì jiànyì, bú shì cáiliào yǐ zhèngmíng zuì yǒuxiào de fāngfǎ. Méiyǒu guānzhòng xuéxí jiéguǒ de bǐjiào, bù néng duàndìng yì zhǒng jiégòu shìhé suǒyǒu zhǎnlǎn.\nTôi cho rằng có thể có tuyến chính rõ nhưng không giấu khác biệt có bằng chứng. Triển lãm giữ đóng góp lẫn tranh cãi; tuyến phố đặt cạnh thương mại, đời sống, chiến tranh. Lo nhiều tiếng nói gây khó hiểu đáng cân nhắc. Tôi đề xuất nêu vấn đề chung rồi trình bày các nguồn và điều chưa biết; đây là đề xuất thiết kế, chưa được nguồn chứng minh hiệu quả nhất. Chưa có so sánh kết quả học nên không kết luận một cấu trúc hợp mọi triển lãm.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: sản phẩm lịch sử công cộng nên có một câu chuyện chính hay nhiều câu chuyện song song?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "lợi ích của tuyến chính",
+                        "id": "criterion-0",
+                        "label": "lợi ích của tuyến chính"
+                      },
+                      {
+                        "guidance": "Dẫn việc chọn đóng góp/tranh cãi và truy nguồn, không bịa không gian hay tác phẩm.",
+                        "id": "criterion-1",
+                        "label": "Dẫn việc chọn đóng góp/tranh cãi và truy nguồn, không bịa không gian hay tác phẩm."
+                      },
+                      {
+                        "guidance": "Dẫn tiểu thương, cư dân, hướng dẫn viên và ba tuyến; không đổi hướng dẫn viên thành người tham quan.",
+                        "id": "criterion-2",
+                        "label": "Dẫn tiểu thương, cư dân, hướng dẫn viên và ba tuyến; không đổi hướng dẫn viên thành người tham quan."
+                      },
+                      {
+                        "guidance": "phản biện về quá tải và mâu thuẫn",
+                        "id": "criterion-3",
+                        "label": "phản biện về quá tải và mâu thuẫn"
+                      },
+                      {
+                        "guidance": "đề xuất tầng thông tin và nhãn nguồn",
+                        "id": "criterion-4",
+                        "label": "đề xuất tầng thông tin và nhãn nguồn"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Một câu chuyện chính rõ ràng giúp công chúng hiểu và nhớ; nhiều giọng nói mâu thuẫn có thể gây quá tải hoặc hoài nghi mọi thứ.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất mô hình tầng thông tin cho hai bối cảnh; chưa có bằng chứng thực nghiệm về hiệu quả học tập của người xem.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất mô hình tầng thông tin cho hai bối cảnh; chưa có bằng chứng thực nghiệm về hiệu quả học tập của người xem."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: sản phẩm lịch sử công cộng nên có một câu chuyện chính hay nhiều câu chuyện song song?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n我建议第一层介绍地点和问题，第二层并列不同群体的记录，第三层提供来源、日期和未知。街道材料已有三条路线，纪念展也说明贡献和争议，但它们没有实施我提出的完整三层结构。试展和反馈可以帮助修改，不能事先保证学习效果。\nWǒ jiànyì dì yī céng jièshào dìdiǎn hé wèntí, dì èr céng bìngliè bùtóng qúntǐ de jìlù, dì sān céng tígōng láiyuán, rìqī hé wèizhī. Jiēdào cáiliào yǐ yǒu sān tiáo lùxiàn, jìniànzhǎn yě shuōmíng gòngxiàn hé zhēngyì, dàn tāmen méiyǒu shíshī wǒ tíchū de wánzhěng sān céng jiégòu. Shìzhǎn hé fǎnkuì kěyǐ bāngzhù xiūgǎi, bù néng shìxiān bǎozhèng xuéxí xiàoguǒ.\nTôi đề xuất tầng một giới thiệu địa điểm/vấn đề, tầng hai đặt cạnh ghi chép các nhóm, tầng ba cho nguồn/ngày/điều chưa biết. Nguồn phố đã có ba tuyến, triển lãm đã nêu đóng góp và tranh cãi, nhưng chưa thực hiện đầy đủ cấu trúc ba tầng tôi đề xuất. Trưng bày thử và phản hồi giúp sửa, chưa thể bảo đảm hiệu quả học trước.\nTự sửa theo nguồn; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Vận dụng: đề xuất cách trình bày các nguồn của hai trường hợp cho công chúng. Nêu rõ phần đã có trong nguồn và phần thiết kế bạn đề xuất, trả lời một lo ngại người xem khó hiểu.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu ba tầng",
+                        "id": "move-0",
+                        "label": "nêu ba tầng"
+                      },
+                      {
+                        "guidance": "phân biệt sự kiện và diễn giải",
+                        "id": "move-1",
+                        "label": "phân biệt sự kiện và diễn giải"
+                      },
+                      {
+                        "guidance": "dẫn triển lãm và ký ức phố",
+                        "id": "move-2",
+                        "label": "dẫn triển lãm và ký ức phố"
+                      },
+                      {
+                        "guidance": "nêu giới hạn chưa đo người xem",
+                        "id": "move-3",
+                        "label": "nêu giới hạn chưa đo người xem"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Vận dụng: đề xuất cách trình bày các nguồn của hai trường hợp cho công chúng. Nêu rõ phần đã có trong nguồn và phần thiết kế bạn đề xuất, trả lời một lo ngại người xem khó hiểu.\nTự nói hoặc ghi dàn ý; màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "contribution",
+                        "label": "线索一",
+                        "meaningVi": "Xây trường và thay đổi giáo dục.",
+                        "note": "Đóng góp · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "controversy",
+                        "label": "线索二",
+                        "meaningVi": "Ủng hộ chính sách gây phản đối.",
+                        "note": "Tranh cãi · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "sources",
+                        "label": "线索三",
+                        "meaningVi": "Thư, hồ sơ và phê bình cùng thời.",
+                        "note": "Nguồn · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "unknown",
+                        "label": "线索四",
+                        "meaningVi": "Một số động cơ không xác định.",
+                        "note": "Chưa biết · đối chiếu đoạn 2, 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "curation",
+                        "label": "线索五",
+                        "meaningVi": "Tổ chức claim theo nguồn.",
+                        "note": "Giám tuyển · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-viewpoint-synthesis; revision 11d809c7-d6b8-46db-9f4f-27a2d2aa748f; humanReviewed:false",
+                  "title": "Triển lãm tưởng niệm nhân vật lịch sử nên kể gì"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "commerce",
+                        "label": "线索一",
+                        "meaningVi": "Sổ cửa hàng và câu chuyện phồn vinh.",
+                        "note": "Thương mại · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "daily-life",
+                        "label": "线索二",
+                        "meaningVi": "Ảnh và ký ức cư dân.",
+                        "note": "Đời sống · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "war",
+                        "label": "线索三",
+                        "meaningVi": "Hồ sơ và tuyến du lịch.",
+                        "note": "Chiến tranh · đối chiếu đoạn 1, 3",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "conflict",
+                        "label": "线索四",
+                        "meaningVi": "Nguồn và thời kỳ không hoàn toàn giống.",
+                        "note": "Xung đột · đối chiếu đoạn 2, 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "gaps",
+                        "label": "线索五",
+                        "meaningVi": "Ảnh mất và người chưa phỏng vấn.",
+                        "note": "Khoảng trống · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-04:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-viewpoint-synthesis; revision 11d809c7-d6b8-46db-9f4f-27a2d2aa748f; humanReviewed:false",
+                  "title": "Cùng một phố lịch sử có bao nhiêu ký ức"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-04:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "20ab9d7b-add3-4903-a7ca-572081657a8c",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng nêu phản biện và điều kiện để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-argument-logic-concession-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-089",
+          "hsk4-grammar-row-090",
+          "hsk4-grammar-row-091",
+          "hsk4-grammar-row-092"
+        ],
+        "sourceLessonIds": [
+          "hsk4-argument-logic-concession-lesson-04",
+          "hsk4-culture-history-interpretation-viewpoint-synthesis"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-30"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01192",
+          "hsk-vocab-01232",
+          "hsk-vocab-01303",
+          "hsk-vocab-01410",
+          "hsk-vocab-01520",
+          "hsk-vocab-01053",
+          "hsk-vocab-01267",
+          "hsk-vocab-01379",
+          "hsk-vocab-01806",
+          "hsk-vocab-01948"
+        ],
+        "targetLessonId": "hsk4-argument-logic-concession-lesson-04",
+        "titleZh": "HSK四级 · 60",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "8dfdedd8-ce6c-46ec-b3e3-3226de29bb67"
+        },
+        "vocabulary": [
+          "hsk-vocab-01192",
+          "hsk-vocab-01232",
+          "hsk-vocab-01303",
+          "hsk-vocab-01410",
+          "hsk-vocab-01520",
+          "hsk-vocab-01053",
+          "hsk-vocab-01267",
+          "hsk-vocab-01379",
+          "hsk-vocab-01806",
+          "hsk-vocab-01948"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    }
+  ]
+}

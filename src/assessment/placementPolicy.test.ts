@@ -5,6 +5,10 @@ import {
 } from "./placementPolicy";
 
 describe("placementPolicy", () => {
+  it("stops at the lower supported level instead of bouncing back to the failed higher level", () => {
+    expect(derivePlacementRecommendation(2, [{ correct: 4, total: 4 }, { correct: 4, total: 4 }, { correct: 4, total: 4 }], true))
+      .toMatchObject({ acceptedStartingLevel: "hsk2", nextAssessmentLevel: null });
+  });
   it("routes a complete beginner and legacy basic profile to HSK1 screening", () => {
     expect(defaultPlacementLevel("zero")).toBe(1);
     expect(defaultPlacementLevel("basic")).toBe(1);

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+  "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "journey-1",
+      "parentRevisionId": "df747e36-8595-407f-9306-353d2f56cfa6",
+      "parentContentSha256": "sha256:64d251a1857669a57cd551e8622973222058987942e7086f97a918e7ad4eab17",
+      "proposedContentSha256": "sha256:498c5c473903e19ae9186ff09e057fdb0be454e864438ca5ca6de29a49e62bdd",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "journey-2",
+      "parentRevisionId": "bfdda6c7-7fea-411a-8acb-af92e327e82d",
+      "parentContentSha256": "sha256:c72c10794b52a1155a245a36ce4d421f6d9502ef770ea7024eed43683691df44",
+      "proposedContentSha256": "sha256:0b52e65eab886172f1d332140a9bea69baab0eba3112c3206ab4d3e96b0d0289",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "professional-1",
+      "parentRevisionId": "eb7f4164-2c78-4dcc-b4dc-15c4e1f96862",
+      "parentContentSha256": "sha256:dd31e4e3a009382115065bb904febd05615b2d8562328ffd13d5d81184910f6b",
+      "proposedContentSha256": "sha256:d9e3febc695df40dca3dd3506d72d03b10f0fd73ef4ce2971d9908fe49c59929",
+      "targetCount": 5
+    },
+    {
+      "lessonId": "professional-2",
+      "parentRevisionId": "25387092-87d8-41b3-9448-fa2fbc798f14",
+      "parentContentSha256": "sha256:0a7f64f3560f1d6ca23fea94d58a2f68df3b5923e000b5f2cef35fa215b60b9e",
+      "proposedContentSha256": "sha256:235979f4dfe1b0c603a7658911568d5f445e2d02876c8d4cd605a52582626e9c",
+      "targetCount": 5
+    },
+    {
+      "lessonId": "professional-3",
+      "parentRevisionId": "696e04c0-60fd-48c5-bc20-4b36a9188fc2",
+      "parentContentSha256": "sha256:51e83a86b6028ac4c1018ff23a3c4bb71accf4ddbacb5427330114df6e03625c",
+      "proposedContentSha256": "sha256:c3d9fcf90e46f3f38621da700ec960732aa1fbf8e41e223bfc47d155c7c6015b",
+      "targetCount": 5
+    },
+    {
+      "lessonId": "professional-4",
+      "parentRevisionId": "a3099481-1280-425f-832e-3d35c8f025b4",
+      "parentContentSha256": "sha256:507cd9648eb30f617d03eb492d1d5a4bf787e2d37c579fe30fd165946e34dc4b",
+      "proposedContentSha256": "sha256:af69f2d02baf4ddb812454e5903077f9221d05b6cf0b352aa62d30bf37451bda",
+      "targetCount": 4
+    }
+  ]
+}

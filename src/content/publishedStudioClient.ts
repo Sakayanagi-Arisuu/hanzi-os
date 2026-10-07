@@ -37,7 +37,7 @@ export const mergePublishedStudioVocabulary = (
   const merged = current.map((word) => ({ ...word }));
   const indexById = new Map(merged.map((word, index) => [word.id, index]));
   for (const word of published) {
-    const index = indexById.get(word.id);
+    const index = indexById.get(word.sourceVocabularyId ?? word.id);
     if (index === undefined) {
       indexById.set(word.id, merged.length);
       merged.push({ ...word });
@@ -46,6 +46,7 @@ export const mergePublishedStudioVocabulary = (
       merged[index] = {
         ...existing,
         ...word,
+        id: existing.id,
         traditional: existing.traditional || word.traditional,
         classifiers: existing.classifiers,
         partOfSpeech: existing.partOfSpeech || word.partOfSpeech,

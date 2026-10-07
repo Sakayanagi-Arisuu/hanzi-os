@@ -1,0 +1,37 @@
+// Original contextual examples; reviewed by AI only, never native-review evidence.
+const t=(hanzi,pinyin,meaningVi)=>({hanzi,pinyin,meaningVi});
+export const dictionaryCorrections={
+ 'hsk-vocab-00536':t('宿舍里有一个冰箱，我们把牛奶放在里面。','Sùshè lǐ yǒu yí ge bīngxiāng, wǒmen bǎ niúnǎi fàng zài lǐmiàn.','Trong ký túc xá có một tủ lạnh, chúng tôi để sữa bên trong.'),
+ 'hsk-vocab-00620':t('今天来不及做饭，我煮了一碗方便面。','Jīntiān lái bu jí zuò fàn, wǒ zhǔ le yì wǎn fāngbiànmiàn.','Hôm nay không kịp nấu cơm, tôi nấu một bát mì ăn liền.'),
+ 'hsk-vocab-00602':t('她懂得尊重别人的选择，不会要求大家都和她一样。','Tā dǒngde zūnzhòng biérén de xuǎnzé, bú huì yāoqiú dàjiā dōu hé tā yíyàng.','Cô ấy biết tôn trọng lựa chọn của người khác, không yêu cầu mọi người đều giống mình.'),
+ 'hsk-vocab-00612':t('戴了很久的耳机，我的耳朵有点儿不舒服。','Dài le hěn jiǔ de ěrjī, wǒ de ěrduo yǒudiǎnr bù shūfu.','Đeo tai nghe lâu, tai tôi hơi khó chịu.'),
+ 'hsk-vocab-00613':t('在图书馆听录音时，请戴上耳机。','Zài túshūguǎn tīng lùyīn shí, qǐng dài shàng ěrjī.','Khi nghe bản ghi âm trong thư viện, vui lòng đeo tai nghe.'),
+ 'hsk-vocab-00556':t('这本书介绍了十种常用的学习方法。','Zhè běn shū jièshào le shí zhǒng chángyòng de xuéxí fāngfǎ.','Cuốn sách này giới thiệu mười phương pháp học thường dùng.'),
+ 'hsk-vocab-00928':t('通知写着：十八岁以上可以报名，包括正好十八岁的人。','Tōngzhī xiě zhe: shíbā suì yǐshàng kěyǐ bàomíng, bāokuò zhènghǎo shíbā suì de rén.','Thông báo ghi: từ mười tám tuổi trở lên có thể đăng ký, kể cả người đúng mười tám tuổi.'),
+ 'hsk-vocab-00815':t('虽然多年没见面，我还认得照片里的王老师。','Suīrán duō nián méi jiànmiàn, wǒ hái rènde zhàopiàn lǐ de Wáng lǎoshī.','Dù nhiều năm chưa gặp, tôi vẫn nhận ra thầy Vương trong ảnh.'),
+ 'hsk-vocab-00916':t('我的牙有点儿疼，准备明天去看牙医。','Wǒ de yá yǒudiǎnr téng, zhǔnbèi míngtiān qù kàn yáyī.','Răng tôi hơi đau, tôi định ngày mai đi khám nha sĩ.'),
+ 'hsk-vocab-00796':t('他摔倒时，手里的瓶子摔坏了。他的腿也受了伤，需要去医院。','Tā shuāidǎo shí, shǒu lǐ de píngzi shuāi huài le. Tā de tuǐ yě shòu le shāng, xūyào qù yīyuàn.','Khi anh ấy ngã, chai trong tay bị vỡ. Chân anh cũng bị thương, cần tới bệnh viện.'),
+};
+export const contextDecisions2=[
+ {wordIds:['hsk-vocab-00536','hsk-vocab-00620'],word:'冰箱／方便面',lessonId:'hsk3-study-work-accounts-campus-education',title:'Đời sống ở trường: hỏi chỗ để đồ ăn',
+  note:'Tình huống bổ sung sau buổi tham quan trường: học sinh hỏi về sinh hoạt ký túc xá. 冰箱 (bīngxiāng) là tủ lạnh; 方便面 (fāngbiànmiàn) là mì ăn liền, không phải tên chung của mọi món tiện lợi. Một gói mì: 一包方便面; một bát mì đã nấu: 一碗方便面. Ví dụ mô tả việc nhân vật làm, không đặt quy định chung về bảo quản mọi loại thực phẩm.',
+  examples:[dictionaryCorrections['hsk-vocab-00536'],dictionaryCorrections['hsk-vocab-00620'],t('学生问：“牛奶放在哪里？”老师说：“放在冰箱里。方便面还没煮，先放在柜子里。”','Xuésheng wèn: “Niúnǎi fàng zài nǎlǐ?” Lǎoshī shuō: “Fàng zài bīngxiāng lǐ. Fāngbiànmiàn hái méi zhǔ, xiān fàng zài guìzi lǐ.”','Học sinh hỏi: “Để sữa ở đâu ạ?” Giáo viên nói: “Trong tủ lạnh. Mì ăn liền chưa nấu, tạm để trong tủ đồ.”')],
+  prompt:'Theo lời giáo viên trong tình huống này, hai đồ vật được để ở đâu?',options:['牛奶放在冰箱里，方便面先放在柜子里。','牛奶和方便面都放在冰箱里。','牛奶放在柜子里，方便面放在冰箱里。'],answer:0,
+  explanation:'Lời đáp phân biệt sữa trong tủ lạnh và mì chưa nấu trong tủ đồ. Không có căn cứ nói cả hai đều phải để lạnh.',
+  transfer:'Sang căn hộ mới: bạn đã để sữa trong tủ lạnh, vừa nấu một bát mì ăn liền. Nhắn cho bạn cùng nhà hai thông tin này, dùng 冰箱 và 方便面 cùng lượng từ phù hợp.',
+  model:t('我把牛奶放在冰箱里了，还煮了一碗方便面。','Wǒ bǎ niúnǎi fàng zài bīngxiāng lǐ le, hái zhǔ le yì wǎn fāngbiànmiàn.','Tôi đã để sữa vào tủ lạnh và nấu một bát mì ăn liền.'),rubric:['Nêu đúng nơi để sữa bằng 冰箱里.','Dùng 一碗 với mì đã nấu, không đổi dữ kiện thành một gói mì.']},
+ {wordIds:['hsk-vocab-00602','hsk-vocab-00612','hsk-vocab-00613'],word:'耳朵／耳机／懂得',lessonId:'hsk3-cohesion-reconstruction-lesson-01',title:'Nghe rõ chưa chắc đã hiểu',
+  note:'Tiếp tình huống đổi cách theo dõi tin: 耳朵 (ěrduo, 朵 thanh nhẹ) là tai; 耳机 (ěrjī) là thiết bị tai nghe. 听清楚 chỉ nghe rõ âm, 听懂 chỉ hiểu nội dung nghe. 懂得 (dǒngde) thường nói hiểu/biết một nguyên tắc hoặc cách ứng xử, như 懂得尊重别人. Không nói “chỉ động tai” để diễn đạt nghe mà không hiểu; không coi đeo tai nghe là bằng chứng hiểu tin.',
+  examples:[t('爷爷戴上耳机以后，能听清楚录音了，可是有几个词还没听懂。','Yéye dài shàng ěrjī yǐhòu, néng tīng qīngchu lùyīn le, kěshì yǒu jǐ ge cí hái méi tīng dǒng.','Sau khi đeo tai nghe, ông nghe rõ bản ghi âm rồi, nhưng vẫn chưa hiểu vài từ.'),dictionaryCorrections['hsk-vocab-00612'],dictionaryCorrections['hsk-vocab-00602']],
+  prompt:'Kết luận nào giữ đúng sự khác nhau giữa tai, tai nghe và hiểu nội dung?',options:['戴上耳机就一定能听懂所有的词。','耳机是耳朵的另一种说法。','戴耳机可能帮助听清楚，但听清楚不等于听懂。'],answer:2,
+  explanation:'耳机 là thiết bị, 耳朵 là bộ phận cơ thể. Có thể nghe rõ âm nhưng chưa hiểu từ; 懂得 dùng với sự hiểu biết, không phải động tác của tai.',
+  transfer:'Ở lớp ngoại ngữ, bạn nghe rõ bản ghi qua tai nghe nhưng chưa hiểu một câu. Viết lời xin giáo viên giải thích. Sau đó viết một câu riêng dùng 懂得 để nói biết tôn trọng lựa chọn khác mình.',
+  model:t('我戴着耳机，能听清楚，但是没听懂这句话。请您解释一下。我们要懂得尊重别人的选择。','Wǒ dài zhe ěrjī, néng tīng qīngchu, dànshì méi tīng dǒng zhè jù huà. Qǐng nín jiěshì yíxià. Wǒmen yào dǒngde zūnzhòng biérén de xuǎnzé.','Tôi đeo tai nghe, nghe rõ nhưng chưa hiểu câu này. Xin thầy/cô giải thích một chút. Chúng ta cần biết tôn trọng lựa chọn của người khác.'),rubric:['Không nhầm thiết bị 耳机 với bộ phận 耳朵.','Phân biệt nghe rõ và hiểu câu; có lời hỏi lại.','Dùng 懂得 với nguyên tắc ứng xử phù hợp.']},
+ {wordIds:['hsk-vocab-00556','hsk-vocab-00928'],word:'常用／以上',lessonId:'hsk3-nature-environment-explanations-plants-animals',title:'Đọc yêu cầu ghi chép: tối thiểu bao nhiêu?',
+  note:'常用 (chángyòng) là thường dùng: 常用的词, 常用的方法. Không có nghĩa mọi người đều dùng hay luôn hiệu quả. 以上 (yǐshàng) chỉ từ một mốc trở lên; trong quy định số lượng thường tính cả mốc. Trong lời nói ước lượng, ranh giới đôi khi không chặt: nếu cần chính xác, nói 包括… (gồm cả…) hoặc 至少… (ít nhất…). Đừng tự dịch mọi trường hợp 以上 thành “hơn” và loại mốc.',
+  examples:[t('老师列出十个常用的植物名称，帮助大家做观察记录。','Lǎoshī liè chū shí ge chángyòng de zhíwù míngchēng, bāngzhù dàjiā zuò guānchá jìlù.','Giáo viên liệt kê mười tên thực vật thường dùng để giúp mọi người ghi chép quan sát.'),t('这次活动要求记录十种以上的植物，包括正好十种的情况。','Zhè cì huódòng yāoqiú jìlù shí zhǒng yǐshàng de zhíwù, bāokuò zhènghǎo shí zhǒng de qíngkuàng.','Hoạt động lần này yêu cầu ghi chép từ mười loài thực vật trở lên, kể cả đúng mười loài.')],
+  prompt:'Theo yêu cầu đã nói rõ “包括正好十种”, nhóm nào đạt số lượng tối thiểu?',options:['Chỉ nhóm ghi 11 loài; nhóm 10 loài không đạt.','Nhóm ghi 10 loài và nhóm ghi 11 loài đều đạt về số lượng.','Nhóm ghi 9 loài đạt vì 以上 không có mốc.'],answer:1,
+  explanation:'Trong quy định này mốc 10 đã được xác nhận là tính cả. Đạt số lượng không chứng minh ghi chép đúng; vẫn cần đọc nội dung. 常用 chỉ tần suất dùng, không phải mọi tên cây.',
+  transfer:'Bạn viết hướng dẫn ôn tập: chọn từ 5 từ thường dùng trở lên, có tính đúng 5 từ; mỗi từ viết một câu. Dùng 常用 và 以上 rồi diễn đạt lại bằng 至少 để làm rõ mốc.',
+  model:t('请选择五个以上常用的词，每个词写一个句子。也就是说，至少选五个词。','Qǐng xuǎnzé wǔ ge yǐshàng chángyòng de cí, měi ge cí xiě yí ge jùzi. Yě jiù shì shuō, zhìshǎo xuǎn wǔ ge cí.','Hãy chọn từ năm từ thường dùng trở lên, mỗi từ viết một câu. Nghĩa là chọn ít nhất năm từ.'),rubric:['常用 bổ nghĩa cho từ được chọn.','以上/至少 đều giữ mốc 5, không đổi thành bắt buộc 6.','Yêu cầu mỗi từ một câu vẫn rõ.']},
+];

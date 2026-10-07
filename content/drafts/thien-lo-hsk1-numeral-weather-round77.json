@@ -1,0 +1,1990 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/170-REVIEW-HSK1-NUMERAL-WEATHER-ROUND77.md",
+  "entries": [
+    {
+      "sourceRevisionId": "1d265b23-6557-4c9e-acfb-a1bd0ca87ce3",
+      "sourceContentSha256": "sha256:3b7a73c0e533df27a9b7c4a9e719301ea758d5a2973ab3d3bc2c1725f29965fb",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Bàn mới có hai quả táo và hai mươi quyển sách. Mã phòng 305 phải đọc từng chữ số. Nói cả ba thông tin.",
+        "conceptVi": "Đọc số và phân biệt 二 với 两",
+        "dialogue": [
+          {
+            "hanzi": "你有几本书？",
+            "meaningVi": "Bạn có mấy quyển sách?",
+            "pinyin": "Nǐ yǒu jǐ běn shū?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我有两本书。",
+            "meaningVi": "Tôi có hai quyển sách.",
+            "pinyin": "Wǒ yǒu liǎng běn shū.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "房间号是二零三。",
+            "meaningVi": "Mã phòng là hai-không-ba.",
+            "pinyin": "Fángjiān hào shì èr líng sān.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "两本书",
+            "answerMeaningVi": "hai quyển sách",
+            "answerPinyin": "liǎng běn shū",
+            "distractors": [
+              "二十本书",
+              "两十本书"
+            ],
+            "explanationVi": "Đúng: hai quyển, 两 trước lượng từ 本.",
+            "promptVi": "Đọc số lượng hai quyển sách theo mẫu cơ bản nào?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Đọc dãy số: 零、一、二、三、四、五、六、七、八、九、十. 十一 = 11, 二十 = 20, 二十一 = 21. 百 = trăm, 千 = nghìn; 一百零三 = 103, 一千零二 = 1002. 两 thường đứng trước lượng từ: 两本书; dùng 二 trong đếm thứ tự, mã số và 二十. Hai trăm có thể 二百/两百; không đặt quy tắc chỉ một dạng. 半 là một nửa: 半个苹果.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "两个苹果，二十本书。房间号是三零五。",
+              "modelAnswerMeaningVi": "Hai quả táo, hai mươi quyển sách. Mã phòng là ba-không-năm.",
+              "modelAnswerPinyin": "Liǎng ge píngguǒ, èrshí běn shū. Fángjiān hào shì sān líng wǔ.",
+              "promptVi": "Bàn mới có hai quả táo và hai mươi quyển sách. Mã phòng 305 phải đọc từng chữ số. Nói cả ba thông tin."
+            },
+            "modelExample": {
+              "hanzi": "两本书，二十本书。",
+              "meaningVi": "Hai quyển sách, hai mươi quyển sách.",
+              "pinyin": "Liǎng běn shū, èrshí běn shū."
+            },
+            "pattern": "两 + lượng từ；二十 + lượng từ。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn kiểm số đồ dùng trên bàn và đọc mã phòng. Có hai quyển sách; mã phòng 203 đọc từng chữ số, khác cách đọc số lượng 203.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "本 (běn) — lượng từ sách; 书 (shū) — sách; 个 (ge) — lượng từ chung trong mẫu; 苹果 (píngguǒ) — táo; 房间 (fángjiān) — phòng; 号 (hào) — số/mã trong nhãn.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:context",
+              "illustration": {
+                "alt": "Hai quyển sách trên bàn, phía sau là cửa phòng mang số 203",
+                "caption": "Hai quyển sách là số lượng; 203 trên cửa là mã phòng.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/two-books-room-203-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Đọc số và phân biệt 二 với 两"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你有几本书？",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn có mấy quyển sách?",
+                  "pinyin": "Nǐ yǒu jǐ běn shū?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我有两本书。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có hai quyển sách.",
+                  "pinyin": "Wǒ yǒu liǎng běn shū.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "房间号是二零三。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mã phòng là hai-không-ba.",
+                  "pinyin": "Fángjiān hào shì èr líng sān.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:dialogue",
+              "illustration": {
+                "alt": "Hai quyển sách trên bàn, phía sau là cửa phòng mang số 203",
+                "caption": "Hai quyển sách là số lượng; 203 trên cửa là mã phòng.",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/two-books-room-203-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đọc dãy số: 零、一、二、三、四、五、六、七、八、九、十. 十一 = 11, 二十 = 20, 二十一 = 21. 百 = trăm, 千 = nghìn; 一百零三 = 103, 一千零二 = 1002. 两 thường đứng trước lượng từ: 两本书; dùng 二 trong đếm thứ tự, mã số và 二十. Hai trăm có thể 二百/两百; không đặt quy tắc chỉ một dạng. 半 là một nửa: 半个苹果.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "两本书，二十本书。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai quyển sách, hai mươi quyển sách.",
+                  "pinyin": "Liǎng běn shū, èrshí běn shū.",
+                  "provenance": "",
+                  "title": "两 + lượng từ；二十 + lượng từ。"
+                },
+                {
+                  "alt": "",
+                  "body": "Mã 203 đọc 二零三; số lượng 203 đọc 二百零三. Không đọc mã thành số lượng khi nhiệm vụ yêu cầu từng chữ số. Không ghép 两十 để nói hai mươi.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc số và phân biệt 二 với 两"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Cùng chữ số nhưng nhiệm vụ khác: đếm hai quyển, đếm hai mươi quyển và đọc mã phòng từng chữ số.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "两本书",
+                        "meaningVi": "2 quyển sách",
+                        "note": "",
+                        "pinyin": "Liǎng běn shū",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "二十本书",
+                        "meaningVi": "20 quyển sách",
+                        "note": "",
+                        "pinyin": "Èrshí běn shū",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-2",
+                        "label": "二零三",
+                        "meaningVi": "Mã 203 · đọc từng chữ số",
+                        "note": "",
+                        "pinyin": "Èr líng sān",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "tám",
+                  "hanzi": "今天七月二十八号。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00002",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày 28 tháng 7.",
+                  "pinyin": "Jīntiān qī yuè èrshíbā hào.",
+                  "provenance": "",
+                  "title": "八 · bā"
+                },
+                {
+                  "alt": "",
+                  "body": "một trăm; trăm",
+                  "hanzi": "这本书一百块。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00006",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cuốn sách này giá một trăm tệ.",
+                  "pinyin": "Zhè běn shū yì bǎi kuài.",
+                  "provenance": "",
+                  "title": "百 · bǎi"
+                },
+                {
+                  "alt": "",
+                  "body": "một nửa; nửa",
+                  "hanzi": "现在八点半。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00007",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ là tám giờ rưỡi.",
+                  "pinyin": "Xiànzài bā diǎn bàn.",
+                  "provenance": "",
+                  "title": "半 · bàn"
+                },
+                {
+                  "alt": "",
+                  "body": "hai",
+                  "hanzi": "二十本书。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00049",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hai mươi quyển sách.",
+                  "pinyin": "Èrshí běn shū.",
+                  "provenance": "",
+                  "title": "二 · èr"
+                },
+                {
+                  "alt": "",
+                  "body": "chín",
+                  "hanzi": "明天是二十九号。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00095",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai là ngày 29.",
+                  "pinyin": "Míngtiān shì èrshíjiǔ hào.",
+                  "provenance": "",
+                  "title": "九 · jiǔ"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "hai (dùng trước lượng từ)",
+                  "hanzi": "我有两本书。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00111",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có hai quyển sách.",
+                  "pinyin": "Wǒ yǒu liǎng běn shū.",
+                  "provenance": "",
+                  "title": "两 · liǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "số không",
+                  "hanzi": "现在是八点零五分。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00112",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ là tám giờ lẻ năm phút.",
+                  "pinyin": "Xiànzài shì bā diǎn líng wǔ fēn.",
+                  "provenance": "",
+                  "title": "零 · líng"
+                },
+                {
+                  "alt": "",
+                  "body": "sáu",
+                  "hanzi": "我六点起床。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00113",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thức dậy lúc sáu giờ.",
+                  "pinyin": "Wǒ liù diǎn qǐchuáng.",
+                  "provenance": "",
+                  "title": "六 · liù"
+                },
+                {
+                  "alt": "",
+                  "body": "bảy",
+                  "hanzi": "今天七月二十八号。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00160",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày 28 tháng 7.",
+                  "pinyin": "Jīntiān qī yuè èrshíbā hào.",
+                  "provenance": "",
+                  "title": "七 · qī"
+                },
+                {
+                  "alt": "",
+                  "body": "một nghìn; nghìn",
+                  "hanzi": "这台电脑三千块。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00162",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Máy tính này giá ba nghìn tệ.",
+                  "pinyin": "Zhè tái diànnǎo sān qiān kuài.",
+                  "provenance": "",
+                  "title": "千 · qiān"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ba",
+                  "hanzi": "我有三本书。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00173",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có ba quyển sách.",
+                  "pinyin": "Wǒ yǒu sān běn shū.",
+                  "provenance": "",
+                  "title": "三 · sān"
+                },
+                {
+                  "alt": "",
+                  "body": "mười",
+                  "hanzi": "今天七月二十八号。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00184",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay là ngày 28 tháng 7.",
+                  "pinyin": "Jīntiān qī yuè èrshíbā hào.",
+                  "provenance": "",
+                  "title": "十 · shí"
+                },
+                {
+                  "alt": "",
+                  "body": "bốn",
+                  "hanzi": "我家有四个人。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00198",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhà tôi có bốn người.",
+                  "pinyin": "Wǒ jiā yǒu sì ge rén.",
+                  "provenance": "",
+                  "title": "四 · sì"
+                },
+                {
+                  "alt": "",
+                  "body": "năm",
+                  "hanzi": "我们五点见。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00223",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng ta gặp nhau lúc năm giờ.",
+                  "pinyin": "Wǒmen wǔ diǎn jiàn.",
+                  "provenance": "",
+                  "title": "五 · wǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "một",
+                  "hanzi": "我有一个妹妹。",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:word-hsk-vocab-00254",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có một em gái.",
+                  "pinyin": "Wǒ yǒu yí ge mèimei.",
+                  "provenance": "",
+                  "title": "一 · yī"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "id": "hsk1-time-place-events-01-numbers:r77:teach",
+              "title": "Số lượng có 零 và một nửa với 半",
+              "stage": "understand",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:note",
+                  "kind": "explanation",
+                  "title": "Đọc hàng trống, không đọc mã",
+                  "body": "Trong số lượng 103, không có hàng chục nên dùng 零: 一百零三. 1002 có hàng trăm/chục trống, chỉ đọc một 零: 一千零二. Mã 103 đọc từng chữ số 一零三. Không đọc mỗi số 0 riêng trong số lượng. 半个苹果 là nửa quả táo; 一个半苹果 là một quả rưỡi, thứ tự khác nhau.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:example:0",
+                  "kind": "dialogue",
+                  "title": "Một trăm lẻ ba",
+                  "body": "",
+                  "hanzi": "一百零三。",
+                  "pinyin": "Yì bǎi líng sān.",
+                  "meaningVi": "Một trăm lẻ ba.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:example:1",
+                  "kind": "dialogue",
+                  "title": "Một nghìn lẻ hai",
+                  "body": "",
+                  "hanzi": "一千零二。",
+                  "pinyin": "Yì qiān líng èr.",
+                  "meaningVi": "Một nghìn lẻ hai.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:example:2",
+                  "kind": "dialogue",
+                  "title": "Nửa và một rưỡi",
+                  "body": "",
+                  "hanzi": "半个苹果，一个半苹果。",
+                  "pinyin": "Bàn ge píngguǒ, yí ge bàn píngguǒ.",
+                  "meaningVi": "Nửa quả táo, một quả táo rưỡi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-01-numbers:r77:practice",
+              "title": "Khảo Luyện · hàng trống và nửa",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Số lượng 103 đọc theo cách nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "一零三",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "一百零三",
+                        "feedback": "一百零三 là103; 一零三 là đọc mã, 一百三十 là130."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "一百三十",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "一百零三 là103; 一零三 là đọc mã, 一百三十 là130.",
+                    "learningTarget": {
+                      "objective": "Đọc số lượng có hàng trống và nói một nửa với 半; giữ khác biệt giữa số lượng và mã.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00006",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00112",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00007",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Số lượng1002 đọc thế nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "一千零零二",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "一零零二",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "一千零二",
+                        "feedback": "Một hoặc nhiều hàng trống giữa các hàng đọc một 零; không đọc từng0 như mã."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Một hoặc nhiều hàng trống giữa các hàng đọc một 零; không đọc từng0 như mã.",
+                    "learningTarget": {
+                      "objective": "Đọc số lượng có hàng trống và nói một nửa với 半; giữ khác biệt giữa số lượng và mã.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00006",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00112",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00007",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:q:2",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 3",
+                  "body": "Bạn chỉ ăn nửa quả táo, chọn cụm đúng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "半个苹果",
+                        "feedback": "半 trước lượng từ: nửa quả. 一个半 là một quả rưỡi."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "一个半苹果",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "两个苹果",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "半 trước lượng từ: nửa quả. 一个半 là một quả rưỡi.",
+                    "learningTarget": {
+                      "objective": "Đọc số lượng có hàng trống và nói một nửa với 半; giữ khác biệt giữa số lượng và mã.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00006",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00112",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00007",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-01-numbers:r77:transfer",
+              "title": "Vận dụng · kiểm hàng và chia táo",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-01-numbers:r77:transfer-block",
+                  "kind": "activity",
+                  "title": "Vận dụng trong tình huống mới",
+                  "body": "Phiếu mới ghi203 quyển sách; bạn chỉ ăn nửa quả táo. Viết số lượng sách và phần táo. Đây là số lượng, không phải mã phòng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n二百零三本书，半个苹果。\nÈr bǎi líng sān běn shū, bàn ge píngguǒ.\nHai trăm lẻ ba quyển sách, nửa quả táo.\nTự đối chiếu sau khi viết; mẫu không phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Đọc203 theo hàng: 二百/两百零三, không 二零三 như mã.",
+                        "guidance": "Đọc203 theo hàng: 二百/两百零三, không 二零三 như mã."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ 本 cho sách.",
+                        "guidance": "Giữ 本 cho sách."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "半个 là nửa quả, không 一个半.",
+                        "guidance": "半个 là nửa quả, không 一个半."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Đọc số lượng có hàng trống và nói một nửa với 半; giữ khác biệt giữa số lượng và mã.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00006",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00112",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00007",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: hai quyển, 两 trước lượng từ 本. Mã 203 đọc 二零三; số lượng 203 đọc 二百零三. Không đọc mã thành số lượng khi nhiệm vụ yêu cầu từng chữ số. Không ghép 两十 để nói hai mươi.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 两本书 cho hai quyển sách, dùng 两 trước lượng từ và không nhầm với số hai mươi. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00111",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đây là hai mươi quyển.",
+                        "id": "option-0",
+                        "text": "二十本书"
+                      },
+                      {
+                        "feedback": "Đúng: hai quyển, 两 trước lượng từ 本.",
+                        "id": "option-1",
+                        "text": "两本书"
+                      },
+                      {
+                        "feedback": "Không ghép 两十 cho hai mươi.",
+                        "id": "option-2",
+                        "text": "两十本书"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Đọc số lượng hai quyển sách theo mẫu cơ bản nào?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "二"
+                    ],
+                    "answerIds": [],
+                    "explanation": "二十 là hai mươi. 两 dùng trong 两本书, không trong 两十.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 二 để viết 二十, phân biệt với 两 trước lượng từ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00049",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 二 hoặc 两: “hai mươi” là ____十。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bàn mới có hai quả táo và hai mươi quyển sách. Mã phòng 305 phải đọc từng chữ số. Nói cả ba thông tin.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n两个苹果，二十本书。房间号是三零五。\nLiǎng ge píngguǒ, èrshí běn shū. Fángjiān hào shì sān líng wǔ.\nHai quả táo, hai mươi quyển sách. Mã phòng là ba-không-năm.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết số lượng và mã số trong hai ngữ cảnh mới, tự kiểm khi nào đọc từng chữ số. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-time-place-events:01-numbers",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "两 trước 个, 二 trong 二十.",
+                        "id": "criterion-0",
+                        "label": "两 trước 个, 二 trong 二十."
+                      },
+                      {
+                        "guidance": "Không đổi hai mươi thành hai.",
+                        "id": "criterion-1",
+                        "label": "Không đổi hai mươi thành hai."
+                      },
+                      {
+                        "guidance": "Mã phòng đọc từng chữ số có 零.",
+                        "id": "criterion-2",
+                        "label": "Mã phòng đọc từng chữ số có 零."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "两 trước 个, 二 trong 二十.\nKhông đổi hai mươi thành hai.\nMã phòng đọc từng chữ số có 零.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-01-numbers:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-01-numbers:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "dfa36716-0db1-4aaa-9d99-76d963a36b6b",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Đọc và dùng số từ từ không đến hàng nghìn trong câu hỏi đáp ngắn.",
+        "pitfallVi": "Mã 203 đọc 二零三; số lượng 203 đọc 二百零三. Không đọc mã thành số lượng khi nhiệm vụ yêu cầu từng chữ số. Không ghép 两十 để nói hai mươi.",
+        "prerequisites": [
+          "survival-9"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Đọc dãy số: 零、一、二、三、四、五、六、七、八、九、十. 十一 = 11, 二十 = 20, 二十一 = 21. 百 = trăm, 千 = nghìn; 一百零三 = 103, 一千零二 = 1002. 两 thường đứng trước lượng từ: 两本书; dùng 二 trong đếm thứ tự, mã số và 二十. Hai trăm có thể 二百/两百; không đặt quy tắc chỉ một dạng. 半 là một nửa: 半个苹果.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-011"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-01-numbers"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-time-place-events:01-numbers"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00002",
+          "hsk-vocab-00006",
+          "hsk-vocab-00007",
+          "hsk-vocab-00049",
+          "hsk-vocab-00095",
+          "hsk-vocab-00111",
+          "hsk-vocab-00112",
+          "hsk-vocab-00113",
+          "hsk-vocab-00160",
+          "hsk-vocab-00162",
+          "hsk-vocab-00173",
+          "hsk-vocab-00184",
+          "hsk-vocab-00198",
+          "hsk-vocab-00223",
+          "hsk-vocab-00254"
+        ],
+        "targetLessonId": "hsk1-time-place-events-01-numbers",
+        "titleZh": "基础数字",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/72-REVIEW-NUMBERS-WEEK-ART.md",
+          "humanReviewed": false,
+          "scope": "Numbers and weekly schedule context/dialogue original art with captions.",
+          "sourceRevisionId": "b96b981a-4473-4d52-8b29-eab40f4a3dd5"
+        },
+        "vocabulary": [
+          "hsk-vocab-00002",
+          "hsk-vocab-00006",
+          "hsk-vocab-00007",
+          "hsk-vocab-00049",
+          "hsk-vocab-00095",
+          "hsk-vocab-00111",
+          "hsk-vocab-00112",
+          "hsk-vocab-00113",
+          "hsk-vocab-00160",
+          "hsk-vocab-00162",
+          "hsk-vocab-00173",
+          "hsk-vocab-00184",
+          "hsk-vocab-00198",
+          "hsk-vocab-00223",
+          "hsk-vocab-00254"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 2,
+          "netPages": 3
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "9eda3d03-e98f-4d06-90bc-b5a00f7c275e",
+      "sourceContentSha256": "sha256:2c5cc9c76721c186dbcd0c32cb0849793904a89dddcce189d4c243f76ce71883",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Vai mới sống ở Thượng Hải (上海 Shànghǎi), hiện ở trường (学校 xuéxiào). Trong cảnh giả định, hôm nay nóng. Viết ba thông tin, không thêm mưa nếu đề không nói.",
+        "conceptVi": "Nói thời tiết và nơi đang ở",
+        "dialogue": [
+          {
+            "hanzi": "今天天气怎么样？",
+            "meaningVi": "Thời tiết hôm nay thế nào?",
+            "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "很冷，正在下雨。",
+            "meaningVi": "Lạnh, đang mưa.",
+            "pinyin": "Hěn lěng, zhèngzài xiàyǔ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你住在哪儿？",
+            "meaningVi": "Bạn sống ở đâu?",
+            "pinyin": "Nǐ zhù zài nǎr?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我住在北京，现在在家。",
+            "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+            "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我住在北京。",
+            "answerMeaningVi": "Tôi sống ở Bắc Kinh.",
+            "answerPinyin": "Wǒ zhù zài Běijīng.",
+            "distractors": [
+              "我现在在家。",
+              "正在下雨。"
+            ],
+            "explanationVi": "Đúng: 住在 nói nơi sống.",
+            "promptVi": "Câu nào chỉ rõ nơi cư trú của người nói?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "今天天气很冷 nói trời lạnh; 热 nói nóng. 下雨 là mưa, 雨 là mưa trong vai danh từ; 下雪 là tuyết rơi, 雪 là tuyết. 正在 nhấn hành động đang diễn ra: 正在下雨. 住在北京 nói sống ở Bắc Kinh; 现在在家 nói hiện ở nhà. 在 có thể là vị trí hoặc dấu đang trước động từ tùy cấu trúc, không dịch máy móc một nghĩa.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我住在上海，现在在学校。今天天气很热。",
+              "modelAnswerMeaningVi": "Tôi sống ở Thượng Hải, hiện ở trường. Hôm nay trời nóng.",
+              "modelAnswerPinyin": "Wǒ zhù zài Shànghǎi, xiànzài zài xuéxiào. Jīntiān tiānqì hěn rè.",
+              "promptVi": "Vai mới sống ở Thượng Hải (上海 Shànghǎi), hiện ở trường (学校 xuéxiào). Trong cảnh giả định, hôm nay nóng. Viết ba thông tin, không thêm mưa nếu đề không nói."
+            },
+            "modelExample": {
+              "hanzi": "我住在北京，现在在家。",
+              "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+              "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā."
+            },
+            "pattern": "住在 + nơi sống；现在在 + vị trí hiện tại。"
+          }
+        ],
+        "lessonPages": {
+          "art": "city",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hôm nay trời lạnh và đang mưa. Người nói sống ở Bắc Kinh nhưng hiện ở nhà. Bạn phân biệt nơi cư trú với vị trí hiện tại.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "北京 (Běijīng) — Bắc Kinh; 家 (jiā) — nhà; 今天 (jīntiān) — hôm nay; 现在 (xiànzài) — bây giờ; 怎么样 (zěnmeyàng) — thế nào; 很 (hěn) — phó từ đứng trước tính từ; trong câu miêu tả trung tính có thể không cần dịch là “rất”. Không phải từ “là” 是.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:context",
+              "illustration": {
+                "alt": "Người mặc áo ấm đang ở nhà bên cửa sổ có mưa",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/rainy-home-residence-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nói thời tiết và nơi đang ở"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天天气怎么样？",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thời tiết hôm nay thế nào?",
+                  "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "很冷，正在下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lạnh, đang mưa.",
+                  "pinyin": "Hěn lěng, zhèngzài xiàyǔ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你住在哪儿？",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống ở đâu?",
+                  "pinyin": "Nǐ zhù zài nǎr?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我住在北京，现在在家。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+                  "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:dialogue",
+              "illustration": {
+                "alt": "Người mặc áo ấm đang ở nhà bên cửa sổ có mưa",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/rainy-home-residence-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "今天天气很冷 nói trời lạnh; 热 nói nóng. 下雨 là mưa, 雨 là mưa trong vai danh từ; 下雪 là tuyết rơi, 雪 là tuyết. 正在 nhấn hành động đang diễn ra: 正在下雨. 住在北京 nói sống ở Bắc Kinh; 现在在家 nói hiện ở nhà. 在 có thể là vị trí hoặc dấu đang trước động từ tùy cấu trúc, không dịch máy móc một nghĩa.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我住在北京，现在在家。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống ở Bắc Kinh, hiện ở nhà.",
+                  "pinyin": "Wǒ zhù zài Běijīng, xiànzài zài jiā.",
+                  "provenance": "",
+                  "title": "住在 + nơi sống；现在在 + vị trí hiện tại。"
+                },
+                {
+                  "alt": "",
+                  "body": "住在 không chứng minh hiện giờ đang ở đó. 正在下雨 cần ngữ cảnh đang mưa, không suy từ thấy từ 雨 rằng mưa đang xảy ra. Không tạo dự báo thật từ cảnh luyện.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói thời tiết và nơi đang ở"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Hai thông tin đồng thời đúng: người nói sống ở Bắc Kinh và hiện đang ở nhà. Không nhầm nơi cư trú với vị trí hiện tại.",
+                    "nodes": [
+                      {
+                        "id": "node-0",
+                        "label": "住在北京",
+                        "meaningVi": "Nơi sống: Bắc Kinh",
+                        "note": "",
+                        "pinyin": "Zhù zài Běijīng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "node-1",
+                        "label": "现在在家",
+                        "meaningVi": "Hiện tại: ở nhà",
+                        "note": "",
+                        "pinyin": "Xiànzài zài jiā",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:visual",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sơ đồ để hiểu và đối chiếu"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:visual",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc thông tin trong tình huống"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "lạnh",
+                  "hanzi": "今天很冷。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00109",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay rất lạnh.",
+                  "pinyin": "Jīntiān hěn lěng.",
+                  "provenance": "",
+                  "title": "冷 · lěng"
+                },
+                {
+                  "alt": "",
+                  "body": "nóng",
+                  "hanzi": "今天很热，不下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00169",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay rất nóng, không mưa.",
+                  "pinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+                  "provenance": "",
+                  "title": "热 · rè"
+                },
+                {
+                  "alt": "",
+                  "body": "thời tiết",
+                  "hanzi": "今天天气怎么样？",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00208",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay thời tiết thế nào?",
+                  "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+                  "provenance": "",
+                  "title": "天气 · tiānqì"
+                },
+                {
+                  "alt": "",
+                  "body": "mưa",
+                  "hanzi": "今天很热，不下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00227",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay rất nóng, không mưa.",
+                  "pinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+                  "provenance": "",
+                  "title": "下雨 · xiàyǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "tuyết",
+                  "hanzi": "下雪了。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00251",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tuyết rơi rồi.",
+                  "pinyin": "Xiàxuě le.",
+                  "provenance": "",
+                  "title": "雪 · xuě"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "mưa",
+                  "hanzi": "今天的雨很大。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00267",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mưa hôm nay rất lớn.",
+                  "pinyin": "Jīntiān de yǔ hěn dà.",
+                  "provenance": "",
+                  "title": "雨 · yǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "ở; đang",
+                  "hanzi": "我在学校学习。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00271",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học ở trường.",
+                  "pinyin": "Wǒ zài xuéxiào xuéxí.",
+                  "provenance": "",
+                  "title": "在 · zài"
+                },
+                {
+                  "alt": "",
+                  "body": "đang",
+                  "hanzi": "正在下雨。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00286",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đang mưa.",
+                  "pinyin": "Zhèngzài xiàyǔ.",
+                  "provenance": "",
+                  "title": "正在 · zhèngzài"
+                },
+                {
+                  "alt": "",
+                  "body": "ở; sống",
+                  "hanzi": "我住在北京。",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:word-hsk-vocab-00294",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống ở Bắc Kinh.",
+                  "pinyin": "Wǒ zhù zài Běijīng.",
+                  "provenance": "",
+                  "title": "住 · zhù"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "id": "hsk1-time-place-events-06-weather-and-residence:r77:practice",
+              "title": "Khảo Luyện · câu miêu tả thời tiết",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-06-weather-and-residence:r77:note",
+                  "kind": "explanation",
+                  "title": "很 trong câu tính từ",
+                  "body": "今天天气很冷 là câu miêu tả trời lạnh. Trong lời nói trung tính, 很 thường đứng trước tính từ và không nhất thiết nhấn mức “rất”; khi có nhấn giọng/ngữ cảnh, có thể mang nghĩa rất. Không dùng 天气是冷 để làm mẫu câu miêu tả cơ bản. Phủ định đơn giản: 今天不冷. Không thêm 很 vào giữa 不 và 冷 khi chỉ nói không lạnh.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-06-weather-and-residence:r77:example:0",
+                  "kind": "dialogue",
+                  "title": "Miêu tả và phủ định",
+                  "body": "",
+                  "hanzi": "今天很冷，昨天不冷。",
+                  "pinyin": "Jīntiān hěn lěng, zuótiān bù lěng.",
+                  "meaningVi": "Hôm nay lạnh, hôm qua không lạnh.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk1-time-place-events-06-weather-and-residence:r77:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Cảnh giả định hôm nay lạnh, mẫu miêu tả cơ bản nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "今天天气是冷。",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "今天天气很冷。",
+                        "feedback": "Tính từ làm vị ngữ với 很; không cần 是 trong mẫu miêu tả cơ bản."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "今天在冷天气是。",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Tính từ làm vị ngữ với 很; không cần 是 trong mẫu miêu tả cơ bản.",
+                    "learningTarget": {
+                      "objective": "Miêu tả lạnh/nóng với tính từ, phân biệt 很冷 và 不冷; không thêm 是 trước 冷/热.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00109",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00169",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-06-weather-and-residence:r77:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Hôm nay không lạnh: chọn mẫu đúng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "今天很不冷。",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "今天是冷不。",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "今天不冷。",
+                        "feedback": "不 đứng trước 冷 để phủ định đơn giản."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不 đứng trước 冷 để phủ định đơn giản.",
+                    "learningTarget": {
+                      "objective": "Miêu tả lạnh/nóng với tính từ, phân biệt 很冷 và 不冷; không thêm 是 trước 冷/热.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00109",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00169",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk1-time-place-events-06-weather-and-residence:r77:q:2",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 3",
+                  "body": "很冷 có luôn phải dịch nhấn mạnh “rất lạnh” không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có trong mọi câu",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, còn tùy ngữ cảnh và nhấn giọng",
+                        "feedback": "很 có thể dùng trong miêu tả trung tính, không đồng nhất với 是."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "很 luôn là từ là",
+                        "feedback": "Đọc lại vị trí từ và thông tin trong đề."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "很 có thể dùng trong miêu tả trung tính, không đồng nhất với 是.",
+                    "learningTarget": {
+                      "objective": "Miêu tả lạnh/nóng với tính từ, phân biệt 很冷 và 不冷; không thêm 是 trước 冷/热.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00109",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00169",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk1-time-place-events-06-weather-and-residence:r77:transfer",
+              "title": "Vận dụng · thời tiết hai ngày",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk1-time-place-events-06-weather-and-residence:r77:transfer-block",
+                  "kind": "activity",
+                  "title": "Vận dụng trong tình huống mới",
+                  "body": "Cảnh mới: hôm qua nóng; hôm nay không nóng. Viết hai câu với 很 và 不, không tự thêm mưa.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n昨天很热，今天不热。\nZuótiān hěn rè, jīntiān bú rè.\nHôm qua nóng, hôm nay không nóng.\nTự đối chiếu sau khi viết; mẫu không phải điểm nói/viết độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "很 đứng trước 热 trong câu miêu tả.",
+                        "guidance": "很 đứng trước 热 trong câu miêu tả."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "不热 phủ định hôm nay; không thêm 是.",
+                        "guidance": "不热 phủ định hôm nay; không thêm 是."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm mưa hoặc dữ kiện chưa cho.",
+                        "guidance": "Không thêm mưa hoặc dữ kiện chưa cho."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Miêu tả lạnh/nóng với tính từ, phân biệt 很冷 và 不冷; không thêm 是 trước 冷/热.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00109",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00169",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: 住在 nói nơi sống. 住在 không chứng minh hiện giờ đang ở đó. 正在下雨 cần ngữ cảnh đang mưa, không suy từ thấy từ 雨 rằng mưa đang xảy ra. Không tạo dự báo thật từ cảnh luyện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 我住在北京 để nói nơi cư trú, không nhầm với vị trí hiện thời hay thời tiết. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00294",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: 住在 nói nơi sống.",
+                        "id": "option-0",
+                        "text": "我住在北京。"
+                      },
+                      {
+                        "feedback": "Chỉ vị trí hiện tại, chưa nêu thành phố cư trú.",
+                        "id": "option-1",
+                        "text": "我现在在家。"
+                      },
+                      {
+                        "feedback": "Nói thời tiết, chưa nói nơi cư trú.",
+                        "id": "option-2",
+                        "text": "正在下雨。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào chỉ rõ nơi cư trú của người nói?",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "热"
+                    ],
+                    "answerIds": [],
+                    "explanation": "热 là nóng, 冷 là lạnh. Đây là thông tin trong đề, không phải nhiệt độ thật ở nơi bạn đang ở.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 热 cho cảnh thời tiết nóng giả định, không coi đó là thời tiết thật. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00169",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 冷 hoặc 热: cảnh giả định trời nóng, 今天天气很____。",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới sống ở Thượng Hải (上海 Shànghǎi), hiện ở trường (学校 xuéxiào). Trong cảnh giả định, hôm nay nóng. Viết ba thông tin, không thêm mưa nếu đề không nói.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我住在上海，现在在学校。今天天气很热。\nWǒ zhù zài Shànghǎi, xiànzài zài xuéxiào. Jīntiān tiānqì hěn rè.\nTôi sống ở Thượng Hải, hiện ở trường. Hôm nay trời nóng.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu về nơi sống và thời tiết trong cảnh giả định, tách cư trú, vị trí hiện tại và trạng thái thời tiết. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "住在 nói nơi sống, 现在在 nói hiện ở đâu.",
+                        "id": "criterion-0",
+                        "label": "住在 nói nơi sống, 现在在 nói hiện ở đâu."
+                      },
+                      {
+                        "guidance": "热 khớp trời nóng.",
+                        "id": "criterion-1",
+                        "label": "热 khớp trời nóng."
+                      },
+                      {
+                        "guidance": "Không tự thêm mưa/tuyết chưa có trong đề.",
+                        "id": "criterion-2",
+                        "label": "Không tự thêm mưa/tuyết chưa có trong đề."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "住在 nói nơi sống, 现在在 nói hiện ở đâu.\n热 khớp trời nóng.\nKhông tự thêm mưa/tuyết chưa có trong đề.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk1-time-place-events-06-weather-and-residence:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk1-time-place-events-06-weather-and-residence:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/61-REVIEW-EVERYDAY-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "317340e8-3b24-4cac-a54b-9b4a9355ac81",
+          "reviewedAt": "2026-09-29",
+          "scope": "Ten HSK1 everyday/time-place lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:85328075558c3f7527d2d4b78c859552b8fb6ac8d5c54325694717dea0b52c6a"
+        },
+        "objectiveVi": "Mô tả thời tiết hiện tại và nói nơi mình đang sống.",
+        "pitfallVi": "住在 không chứng minh hiện giờ đang ở đó. 正在下雨 cần ngữ cảnh đang mưa, không suy từ thấy từ 雨 rằng mưa đang xảy ra. Không tạo dự báo thật từ cảnh luyện.",
+        "prerequisites": [
+          "hsk1-time-place-events-05-location"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "今天天气很冷 nói trời lạnh; 热 nói nóng. 下雨 là mưa, 雨 là mưa trong vai danh từ; 下雪 là tuyết rơi, 雪 là tuyết. 正在 nhấn hành động đang diễn ra: 正在下雨. 住在北京 nói sống ở Bắc Kinh; 现在在家 nói hiện ở nhà. 在 có thể là vị trí hoặc dấu đang trước động từ tùy cấu trúc, không dịch máy móc một nghĩa.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-032"
+        ],
+        "sourceLessonIds": [
+          "hsk1-time-place-events-06-weather-and-residence"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-04"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-006"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00109",
+          "hsk-vocab-00169",
+          "hsk-vocab-00208",
+          "hsk-vocab-00227",
+          "hsk-vocab-00251",
+          "hsk-vocab-00267",
+          "hsk-vocab-00271",
+          "hsk-vocab-00286",
+          "hsk-vocab-00294"
+        ],
+        "targetLessonId": "hsk1-time-place-events-06-weather-and-residence",
+        "titleZh": "天气和住处",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/71-REVIEW-WEATHER-ART.md",
+          "humanReviewed": false,
+          "scope": "Cold rainy home context and dialogue; learning content unchanged.",
+          "sourceRevisionId": "773a180b-4a87-4f32-8c25-f0ab731f8dc6"
+        },
+        "vocabulary": [
+          "hsk-vocab-00109",
+          "hsk-vocab-00169",
+          "hsk-vocab-00208",
+          "hsk-vocab-00227",
+          "hsk-vocab-00251",
+          "hsk-vocab-00267",
+          "hsk-vocab-00271",
+          "hsk-vocab-00286",
+          "hsk-vocab-00294"
+        ]
+      },
+      "changes": [
+        {
+          "before": "北京 (Běijīng) — Bắc Kinh; 家 (jiā) — nhà; 今天 (jīntiān) — hôm nay; 现在 (xiànzài) — bây giờ; 怎么样 (zěnmeyàng) — thế nào; 很 (hěn) — từ nối/nhấn trong câu tính từ.",
+          "after": "北京 (Běijīng) — Bắc Kinh; 家 (jiā) — nhà; 今天 (jīntiān) — hôm nay; 现在 (xiànzài) — bây giờ; 怎么样 (zěnmeyàng) — thế nào; 很 (hěn) — phó từ đứng trước tính từ; trong câu miêu tả trung tính có thể không cần dịch là “rất”. Không phải từ “là” 是."
+        },
+        {
+          "netPages": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3634 @@
+{
+  "version": 1,
+  "humanReviewed": false,
+  "lessonIds": [
+    "characters-1",
+    "characters-2",
+    "characters-3",
+    "characters-4",
+    "characters-5",
+    "characters-6",
+    "characters-7",
+    "characters-8",
+    "characters-9",
+    "characters-10",
+    "characters-11",
+    "characters-12",
+    "characters-13",
+    "characters-14",
+    "characters-15"
+  ],
+  "contentCorrections": {
+    "characters-13": {
+      "characters-13:v2:block:recall-hsk1-character-246": {
+        "before": {
+          "body": "Cụm từ đã học có nghĩa “làm”, đọc zuò: □. Điền một chữ vào ô vuông; nếu có nhiều ô, chúng dùng cùng một chữ. Thử nhớ trước khi quay lại mẫu. Pinyin và IME vẫn là hỗ trợ; đây không phải kiểm tra viết tay độc lập.",
+          "acceptedAnswers": [
+            "做",
+            "作"
+          ],
+          "explanation": "Chữ cần nhớ: 做. Cụm đầy đủ: 做 · zuò · làm. 作 cũng có âm zuò và nghĩa làm nên được chấp nhận trong câu chỉ hỏi nghĩa này. Trong từ cụ thể phải chọn theo cách dùng: 做饭 (nấu ăn), 工作 (làm việc).  Nếu chưa nhớ, đối chiếu hình rồi thử lại ở lần ôn sau."
+        },
+        "after": {
+          "body": "Cụm từ đã học có nghĩa “nấu cơm”, đọc zuòfàn: □饭. Điền chữ còn thiếu vào từ này. Thử nhớ trước khi quay lại mẫu. Pinyin và IME vẫn là hỗ trợ; đây không phải kiểm tra viết tay độc lập.",
+          "acceptedAnswers": [
+            "做"
+          ],
+          "explanation": "Chữ cần nhớ: 做. Cụm đầy đủ: 做饭 · zuòfàn · nấu cơm. 作 cũng đọc zuò trong một số từ nhưng không thay 做 trong 做饭. Nếu chưa nhớ, đối chiếu hình rồi thử lại ở lần ôn sau."
+        }
+      }
+    }
+  },
+  "targets": {
+    "characters-1": {
+      "characters-1:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 爱 trong từ 爱 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-001"
+          }
+        ]
+      },
+      "characters-1:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 常 trong từ 非常 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-018"
+          }
+        ]
+      },
+      "characters-1:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 得 trong từ 觉得 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-031"
+          }
+        ]
+      },
+      "characters-1:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 都 trong từ 都 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-038"
+          }
+        ]
+      },
+      "characters-1:v2:block:locate-16": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 高 trong từ 高兴 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-050"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-001": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “yêu; thích” và gợi ý Pinyin, điền chữ 爱 vào từ 爱; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-001"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-003": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bố; ba” và gợi ý Pinyin, điền chữ 爸 vào từ 爸爸; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-003"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-004": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nhé; đi; phải không (trợ từ ngữ khí)” và gợi ý Pinyin, điền chữ 吧 vào từ 吧; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-004"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-015": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không” và gợi ý Pinyin, điền chữ 不 vào từ 不; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-015"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-018": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rất; vô cùng” và gợi ý Pinyin, điền chữ 常 vào từ 非常; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-018"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-025": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thức dậy; ra khỏi giường” và gợi ý Pinyin, điền chữ 床 vào từ 起床; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-025"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-026": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gọi điện thoại” và gợi ý Pinyin, điền chữ 打 vào từ 打电话; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-026"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-027": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “to; lớn” và gợi ý Pinyin, điền chữ 大 vào từ 大; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-027"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-031": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cảm thấy; cho rằng” và gợi ý Pinyin, điền chữ 得 vào từ 觉得; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-031"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-032": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “của; trợ từ nối định ngữ với danh từ” và gợi ý Pinyin, điền chữ 的 vào từ 的; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-032"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-033": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “em trai” và gợi ý Pinyin, điền chữ 弟 vào từ 弟弟; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-033"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-036": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gọi điện thoại” và gợi ý Pinyin, điền chữ 电 vào từ 打电话; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-036"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-038": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đều; tất cả” và gợi ý Pinyin, điền chữ 都 vào từ 都; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-038"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-040": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đúng; đối với” và gợi ý Pinyin, điền chữ 对 vào từ 对; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-040"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-042": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “con trai” và gợi ý Pinyin, điền chữ 儿 vào từ 儿子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-042"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-047": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rất; vô cùng” và gợi ý Pinyin, điền chữ 非 vào từ 非常; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-047"
+          }
+        ]
+      },
+      "characters-1:v2:block:recall-hsk1-character-050": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “vui; vui vẻ” và gợi ý Pinyin, điền chữ 高 vào từ 高兴; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-050"
+          }
+        ]
+      },
+      "characters-1:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 大 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “đại học”, đọc dàxué: ____学.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-027"
+          }
+        ]
+      },
+      "characters-1:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 大 vào yêu cầu “Điền một chữ để diễn đạt “đại học”, đọc dàxué: ____学.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-027"
+          }
+        ]
+      },
+      "characters-1:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Giới thiệu bạn là sinh viên đại học. Dùng khung 我是… (tôi là…). Chọn đúng chữ chỉ đại học và thêm chữ chỉ người học. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 大; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-027"
+          }
+        ]
+      }
+    },
+    "characters-2": {
+      "characters-2:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 哥 trong từ 哥哥 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-051"
+          }
+        ]
+      },
+      "characters-2:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 国 trong từ 国 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-060"
+          }
+        ]
+      },
+      "characters-2:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 和 trong từ 和 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-068"
+          }
+        ]
+      },
+      "characters-2:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 会 trong từ 会 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-075"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-051": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “anh trai” và gợi ý Pinyin, điền chữ 哥 vào từ 哥哥; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-051"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-054": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cho; đưa cho” và gợi ý Pinyin, điền chữ 给 vào từ 给; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-054"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-057": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “chó” và gợi ý Pinyin, điền chữ 狗 vào từ 狗; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-057"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-058": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không sao; không có gì” và gợi ý Pinyin, điền chữ 关 vào từ 没关系; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-058"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-060": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nước; quốc gia” và gợi ý Pinyin, điền chữ 国 vào từ 国; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-060"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-062": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “còn; vẫn; cũng” và gợi ý Pinyin, điền chữ 还 vào từ 还; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-062"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-063": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trẻ em; con cái” và gợi ý Pinyin, điền chữ 孩 vào từ 孩子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-063"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-065": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tốt; được” và gợi ý Pinyin, điền chữ 好 vào từ 好; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-065"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-068": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “và; với” và gợi ý Pinyin, điền chữ 和 vào từ 和; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-068"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-069": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rất” và gợi ý Pinyin, điền chữ 很 vào từ 很; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-069"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-072": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gọi điện thoại” và gợi ý Pinyin, điền chữ 话 vào từ 打电话; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-072"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-073": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thích” và gợi ý Pinyin, điền chữ 欢 vào từ 喜欢; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-073"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-075": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “biết; có thể (do có kỹ năng)” và gợi ý Pinyin, điền chữ 会 vào từ 会; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-075"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-080": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mọi người” và gợi ý Pinyin, điền chữ 家 vào từ 大家; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-080"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-082": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gặp; nhìn thấy” và gợi ý Pinyin, điền chữ 见 vào từ 见; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-082"
+          }
+        ]
+      },
+      "characters-2:v2:block:recall-hsk1-character-084": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gọi; tên là” và gợi ý Pinyin, điền chữ 叫 vào từ 叫; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-084"
+          }
+        ]
+      },
+      "characters-2:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 见 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “tạm biệt”, đọc zàijiàn: 再____.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-082"
+          }
+        ]
+      },
+      "characters-2:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 见 vào yêu cầu “Điền một chữ để diễn đạt “tạm biệt”, đọc zàijiàn: 再____.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-082"
+          }
+        ]
+      },
+      "characters-2:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Cuối buổi gặp, nói sẽ gặp lại vào ngày mai. Từ hỗ trợ: 明天 míngtiān = ngày mai. Ghép với chữ mang ý gặp. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 见; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-082"
+          }
+        ]
+      }
+    },
+    "characters-3": {
+      "characters-3:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 姐 trong từ 姐姐 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-085"
+          }
+        ]
+      },
+      "characters-3:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 客 trong từ 不客气 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-092"
+          }
+        ]
+      },
+      "characters-3:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 吗 trong từ 吗 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-106"
+          }
+        ]
+      },
+      "characters-3:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 妹 trong từ 妹妹 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-113"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-085": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “chị gái” và gợi ý Pinyin, điền chữ 姐 vào từ 姐姐; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-085"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-088": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cảm thấy; cho rằng” và gợi ý Pinyin, điền chữ 觉 vào từ 觉得; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-088"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-090": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đẹp; dễ nhìn; hay (với phim, sách)” và gợi ý Pinyin, điền chữ 看 vào từ 好看; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-090"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-091": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “có thể; được phép” và gợi ý Pinyin, điền chữ 可 vào từ 可以; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-091"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-092": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không có gì; đừng khách sáo” và gợi ý Pinyin, điền chữ 客 vào từ 不客气; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-092"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-098": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rồi (trợ từ hoàn thành hoặc thay đổi trạng thái)” và gợi ý Pinyin, điền chữ 了 vào từ 了; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-098"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-102": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “xinh đẹp” và gợi ý Pinyin, điền chữ 亮 vào từ 漂亮; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-102"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-105": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mẹ” và gợi ý Pinyin, điền chữ 妈 vào từ 妈妈; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-105"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-106": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “à; không (trợ từ tạo câu hỏi có/không)” và gợi ý Pinyin, điền chữ 吗 vào từ 吗; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-106"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-110": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mèo” và gợi ý Pinyin, điền chữ 猫 vào từ 猫; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-110"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-111": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gì; cái gì” và gợi ý Pinyin, điền chữ 么 vào từ 什么; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-111"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-112": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không sao; không có gì” và gợi ý Pinyin, điền chữ 没 vào từ 没关系; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-112"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-113": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “em gái” và gợi ý Pinyin, điền chữ 妹 vào từ 妹妹; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-113"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-114": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “hậu tố số nhiều chỉ người” và gợi ý Pinyin, điền chữ 们 vào từ 们; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-114"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-117": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tên” và gợi ý Pinyin, điền chữ 名 vào từ 名字; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-117"
+          }
+        ]
+      },
+      "characters-3:v2:block:recall-hsk1-character-122": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nam” và gợi ý Pinyin, điền chữ 男 vào từ 男; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-122"
+          }
+        ]
+      },
+      "characters-3:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 妈 để hoàn thành yêu cầu “Điền một chữ (hai ô dùng cùng một chữ) để diễn đạt “mẹ”, đọc māma: ________.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-105"
+          }
+        ]
+      },
+      "characters-3:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 妈 vào yêu cầu “Điền một chữ (hai ô dùng cùng một chữ) để diễn đạt “mẹ”, đọc māma: ________.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-105"
+          }
+        ]
+      },
+      "characters-3:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nhìn ảnh gia đình, hỏi “Đây là mẹ của bạn phải không?”. Khung hỗ trợ: 这是你的…吗？ (Đây là … của bạn phải không?). Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 妈; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-105"
+          }
+        ]
+      }
+    },
+    "characters-4": {
+      "characters-4:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 呢 trong từ 呢 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-124"
+          }
+        ]
+      },
+      "characters-4:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 女 trong từ 女 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-130"
+          }
+        ]
+      },
+      "characters-4:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 气 trong từ 不客气 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-137"
+          }
+        ]
+      },
+      "characters-4:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 谁 trong từ 谁 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-151"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-124": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thế còn…; nhỉ; đấy (trợ từ ngữ khí)” và gợi ý Pinyin, điền chữ 呢 vào từ 呢; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-124"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-125": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “có thể; có khả năng” và gợi ý Pinyin, điền chữ 能 vào từ 能; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-125"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-126": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bạn” và gợi ý Pinyin, điền chữ 你 vào từ 你; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-126"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-128": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ngài; ông; bà (cách xưng hô lịch sự)” và gợi ý Pinyin, điền chữ 您 vào từ 您; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-128"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-130": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nữ” và gợi ý Pinyin, điền chữ 女 vào từ 女; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-130"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-131": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bạn trai” và gợi ý Pinyin, điền chữ 朋 vào từ 男朋友; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-131"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-132": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “xinh đẹp” và gợi ý Pinyin, điền chữ 漂 vào từ 漂亮; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-132"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-136": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “xin lỗi” và gợi ý Pinyin, điền chữ 起 vào từ 对不起; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-136"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-137": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không có gì; đừng khách sáo” và gợi ý Pinyin, điền chữ 气 vào từ 不客气; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-137"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-141": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mời; xin; vui lòng” và gợi ý Pinyin, điền chữ 请 vào từ 请; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-141"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-144": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “người nhà” và gợi ý Pinyin, điền chữ 人 vào từ 家人; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-144"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-145": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quen; biết; nhận ra” và gợi ý Pinyin, điền chữ 认 vào từ 认识; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-145"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-151": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ai” và gợi ý Pinyin, điền chữ 谁 vào từ 谁; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-151"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-152": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “gì; cái gì” và gợi ý Pinyin, điền chữ 什 vào từ 什么; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-152"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-157": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quen; biết; nhận ra” và gợi ý Pinyin, điền chữ 识 vào từ 认识; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-157"
+          }
+        ]
+      },
+      "characters-4:v2:block:recall-hsk1-character-158": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quý cô; bà” và gợi ý Pinyin, điền chữ 士 vào từ 女士; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-158"
+          }
+        ]
+      },
+      "characters-4:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 您 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “xin chào (lịch sự)”, đọc nín hǎo: ____好.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-128"
+          }
+        ]
+      },
+      "characters-4:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 您 vào yêu cầu “Điền một chữ để diễn đạt “xin chào (lịch sự)”, đọc nín hǎo: ____好.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-128"
+          }
+        ]
+      },
+      "characters-4:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Hỏi thăm một người lớn tuổi bằng cách xưng hô lịch sự. Khung: …好吗？ (… khỏe không?). Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 您; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-128"
+          }
+        ]
+      }
+    },
+    "characters-5": {
+      "characters-5:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 事 trong từ 没事 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-160"
+          }
+        ]
+      },
+      "characters-5:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 说 trong từ 说 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-167"
+          }
+        ]
+      },
+      "characters-5:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 她 trong từ 她 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-173"
+          }
+        ]
+      },
+      "characters-5:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 问 trong từ 请问 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-185"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-160": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không sao; không có việc gì” và gợi ý Pinyin, điền chữ 事 vào từ 没事; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-160"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-162": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “là” và gợi ý Pinyin, điền chữ 是 vào từ 是; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-162"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-163": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “điện thoại di động” và gợi ý Pinyin, điền chữ 手 vào từ 手机; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-163"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-166": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ngủ” và gợi ý Pinyin, điền chữ 睡 vào từ 睡; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-166"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-167": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nói” và gợi ý Pinyin, điền chữ 说 vào từ 说; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-167"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-170": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tuổi” và gợi ý Pinyin, điền chữ 岁 vào từ 岁; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-170"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-171": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “anh ấy; ông ấy” và gợi ý Pinyin, điền chữ 他 vào từ 他; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-171"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-172": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nó (chỉ vật hoặc động vật)” và gợi ý Pinyin, điền chữ 它 vào từ 它; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-172"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-173": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cô ấy; bà ấy” và gợi ý Pinyin, điền chữ 她 vào từ 她; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-173"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-174": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quá; rất” và gợi ý Pinyin, điền chữ 太 vào từ 太; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-174"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-178": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “hay; dễ nghe” và gợi ý Pinyin, điền chữ 听 vào từ 好听; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-178"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-183": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “a-lô; này” và gợi ý Pinyin, điền chữ 喂 vào từ 喂; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-183"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-185": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “xin hỏi” và gợi ý Pinyin, điền chữ 问 vào từ 请问; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-185"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-186": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tôi; mình” và gợi ý Pinyin, điền chữ 我 vào từ 我; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-186"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-192": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thích” và gợi ý Pinyin, điền chữ 喜 vào từ 喜欢; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-192"
+          }
+        ]
+      },
+      "characters-5:v2:block:recall-hsk1-character-193": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không sao; không có gì” và gợi ý Pinyin, điền chữ 系 vào từ 没关系; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-193"
+          }
+        ]
+      },
+      "characters-5:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 她 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “họ (nhóm nữ)”, đọc tāmen: ____们.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-173"
+          }
+        ]
+      },
+      "characters-5:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 她 vào yêu cầu “Điền một chữ để diễn đạt “họ (nhóm nữ)”, đọc tāmen: ____们.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-173"
+          }
+        ]
+      },
+      "characters-5:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Giới thiệu một cô giáo trong ảnh. Khung: …是老师。 (... là giáo viên). Từ hỗ trợ: 老师 lǎoshī. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 她; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-173"
+          }
+        ]
+      }
+    },
+    "characters-6": {
+      "characters-6:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 先 trong từ 先生 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-195"
+          }
+        ]
+      },
+      "characters-6:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 新 trong từ 新 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-203"
+          }
+        ]
+      },
+      "characters-6:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 也 trong từ 也 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-211"
+          }
+        ]
+      },
+      "characters-6:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 再 trong từ 再 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-226"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-195": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ông; ngài; anh; tiên sinh” và gợi ý Pinyin, điền chữ 先 vào từ 先生; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-195"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-197": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “muốn; nghĩ” và gợi ý Pinyin, điền chữ 想 vào từ 想; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-197"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-198": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nhỏ; bé” và gợi ý Pinyin, điền chữ 小 vào từ 小; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-198"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-202": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cảm ơn” và gợi ý Pinyin, điền chữ 谢 vào từ 谢谢; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-202"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-203": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mới” và gợi ý Pinyin, điền chữ 新 vào từ 新; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-203"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-205": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “vui; vui vẻ” và gợi ý Pinyin, điền chữ 兴 vào từ 高兴; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-205"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-209": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thế nào; ra sao” và gợi ý Pinyin, điền chữ 样 vào từ 怎么样; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-209"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-210": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đừng; không được” và gợi ý Pinyin, điền chữ 要 vào từ 不要; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-210"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-211": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cũng” và gợi ý Pinyin, điền chữ 也 vào từ 也; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-211"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-216": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “có thể; được phép” và gợi ý Pinyin, điền chữ 以 vào từ 可以; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-216"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-219": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bạn trai” và gợi ý Pinyin, điền chữ 友 vào từ 男朋友; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-219"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-220": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “không có; chưa” và gợi ý Pinyin, điền chữ 有 vào từ 没有; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-220"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-226": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “lại; nữa; rồi mới” và gợi ý Pinyin, điền chữ 再 vào từ 再; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-226"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-229": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thế nào; làm sao; tại sao” và gợi ý Pinyin, điền chữ 怎 vào từ 怎么; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-229"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-232": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thật; thực sự” và gợi ý Pinyin, điền chữ 真 vào từ 真; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-232"
+          }
+        ]
+      },
+      "characters-6:v2:block:recall-hsk1-character-235": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “con; cái; chiếc (lượng từ cho một số sự vật)” và gợi ý Pinyin, điền chữ 只 vào từ 只; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-235"
+          }
+        ]
+      },
+      "characters-6:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 再 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “tạm biệt”, đọc zàijiàn: ____见.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-226"
+          }
+        ]
+      },
+      "characters-6:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 再 vào yêu cầu “Điền một chữ để diễn đạt “tạm biệt”, đọc zàijiàn: ____见.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-226"
+          }
+        ]
+      },
+      "characters-6:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói bạn đang ở nhà rồi tạm biệt. Hỗ trợ: 我…家。 (Tôi ở nhà); 家 jiā = nhà. Viết hai câu. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 再; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-226"
+          }
+        ]
+      }
+    },
+    "characters-7": {
+      "characters-7:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 八 trong từ 八 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-002"
+          }
+        ]
+      },
+      "characters-7:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 边 trong từ 边 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-012"
+          }
+        ]
+      },
+      "characters-7:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 二 trong từ 二 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-043"
+          }
+        ]
+      },
+      "characters-7:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 候 trong từ 时候 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-071"
+          }
+        ]
+      },
+      "characters-7:v2:block:locate-16": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 里 trong từ 里 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-100"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-002": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tám” và gợi ý Pinyin, điền chữ 八 vào từ 八; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-002"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-005": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ban ngày” và gợi ý Pinyin, điền chữ 白 vào từ 白天; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-005"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-006": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “một trăm; trăm” và gợi ý Pinyin, điền chữ 百 vào từ 百; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-006"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-008": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “một nửa; nửa” và gợi ý Pinyin, điền chữ 半 vào từ 半; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-008"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-012": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bên; phía” và gợi ý Pinyin, điền chữ 边 vào từ 边; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-012"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-029": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đến; tới” và gợi ý Pinyin, điền chữ 到 vào từ 到; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-029"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-034": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “thứ (số thứ tự)” và gợi ý Pinyin, điền chữ 第 vào từ 第; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-034"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-035": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “giờ; điểm” và gợi ý Pinyin, điền chữ 点 vào từ 点; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-035"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-043": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “hai” và gợi ý Pinyin, điền chữ 二 vào từ 二; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-043"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-048": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “phút; chia” và gợi ý Pinyin, điền chữ 分 vào từ 分; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-048"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-066": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ngày; số” và gợi ý Pinyin, điền chữ 号 vào từ 号; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-066"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-070": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “sau; phía sau” và gợi ý Pinyin, điền chữ 后 vào từ 后; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-070"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-071": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “lúc; khi” và gợi ý Pinyin, điền chữ 候 vào từ 时候; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-071"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-086": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “năm nay” và gợi ý Pinyin, điền chữ 今 vào từ 今年; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-086"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-087": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “chín” và gợi ý Pinyin, điền chữ 九 vào từ 九; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-087"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-099": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “lạnh” và gợi ý Pinyin, điền chữ 冷 vào từ 冷; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-099"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-100": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trong; bên trong” và gợi ý Pinyin, điền chữ 里 vào từ 里; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-100"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-101": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “hai (dùng trước lượng từ)” và gợi ý Pinyin, điền chữ 两 vào từ 两; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-101"
+          }
+        ]
+      },
+      "characters-7:v2:block:recall-hsk1-character-103": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “số không” và gợi ý Pinyin, điền chữ 零 vào từ 零; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-103"
+          }
+        ]
+      },
+      "characters-7:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 白 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “ban ngày”, đọc báitiān: ____天.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-005"
+          }
+        ]
+      },
+      "characters-7:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 白 vào yêu cầu “Điền một chữ để diễn đạt “ban ngày”, đọc báitiān: ____天.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-005"
+          }
+        ]
+      },
+      "characters-7:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói bạn đi học vào ban ngày. Khung: 我…上学。 (Tôi đi học vào…). Hỗ trợ: 上学 shàngxué = đi học. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 白; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-005"
+          }
+        ]
+      }
+    },
+    "characters-8": {
+      "characters-8:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 六 trong từ 六 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-104"
+          }
+        ]
+      },
+      "characters-8:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 年 trong từ 今年 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-127"
+          }
+        ]
+      },
+      "characters-8:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 前 trong từ 前 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-139"
+          }
+        ]
+      },
+      "characters-8:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 上 trong từ 上 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-149"
+          }
+        ]
+      },
+      "characters-8:v2:block:locate-16": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 天 trong từ 白天 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-176"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-104": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “sáu” và gợi ý Pinyin, điền chữ 六 vào từ 六; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-104"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-118": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “năm sau” và gợi ý Pinyin, điền chữ 明 vào từ 明年; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-118"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-119": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nào” và gợi ý Pinyin, điền chữ 哪 vào từ 哪; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-119"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-120": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “kia; đó” và gợi ý Pinyin, điền chữ 那 vào từ 那; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-120"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-127": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “năm nay” và gợi ý Pinyin, điền chữ 年 vào từ 今年; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-127"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-134": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bảy” và gợi ý Pinyin, điền chữ 七 vào từ 七; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-134"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-135": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tuần; thứ” và gợi ý Pinyin, điền chữ 期 vào từ 星期; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-135"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-138": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “một nghìn; nghìn” và gợi ý Pinyin, điền chữ 千 vào từ 千; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-138"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-139": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trước; phía trước” và gợi ý Pinyin, điền chữ 前 vào từ 前; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-139"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-143": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nóng” và gợi ý Pinyin, điền chữ 热 vào từ 热; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-143"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-146": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ngày” và gợi ý Pinyin, điền chữ 日 vào từ 日; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-146"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-147": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ba” và gợi ý Pinyin, điền chữ 三 vào từ 三; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-147"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-149": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trên; lên” và gợi ý Pinyin, điền chữ 上 vào từ 上; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-149"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-155": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mười” và gợi ý Pinyin, điền chữ 十 vào từ 十; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-155"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-156": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “lúc; khi” và gợi ý Pinyin, điền chữ 时 vào từ 时候; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-156"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-169": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bốn” và gợi ý Pinyin, điền chữ 四 vào từ 四; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-169"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-176": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ban ngày” và gợi ý Pinyin, điền chữ 天 vào từ 白天; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-176"
+          }
+        ]
+      },
+      "characters-8:v2:block:recall-hsk1-character-180": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ngoài” và gợi ý Pinyin, điền chữ 外 vào từ 外; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-180"
+          }
+        ]
+      },
+      "characters-8:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 日 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “chủ nhật”, đọc xīngqīrì: 星期____.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-146"
+          }
+        ]
+      },
+      "characters-8:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 日 vào yêu cầu “Điền một chữ để diễn đạt “chủ nhật”, đọc xīngqīrì: 星期____.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-146"
+          }
+        ]
+      },
+      "characters-8:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Hẹn gặp vào chủ nhật. Hỗ trợ: 星期…见！ (Hẹn gặp vào thứ…); 见 jiàn = gặp. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 日; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-146"
+          }
+        ]
+      }
+    },
+    "characters-9": {
+      "characters-9:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 晚 trong từ 晚 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-182"
+          }
+        ]
+      },
+      "characters-9:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 现 trong từ 现在 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-196"
+          }
+        ]
+      },
+      "characters-9:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 一 trong từ 一 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-212"
+          }
+        ]
+      },
+      "characters-9:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 早 trong từ 早 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-228"
+          }
+        ]
+      },
+      "characters-9:v2:block:locate-16": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 住 trong từ 住 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-238"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-182": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “muộn; tối” và gợi ý Pinyin, điền chữ 晚 vào từ 晚; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-182"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-187": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “năm” và gợi ý Pinyin, điền chữ 五 vào từ 五; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-187"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-188": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “buổi sáng” và gợi ý Pinyin, điền chữ 午 vào từ 上午; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-188"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-194": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “dưới; xuống” và gợi ý Pinyin, điền chữ 下 vào từ 下; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-194"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-196": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bây giờ” và gợi ý Pinyin, điền chữ 现 vào từ 现在; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-196"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-200": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “những cái nào” và gợi ý Pinyin, điền chữ 些 vào từ 哪些; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-200"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-204": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tuần; thứ” và gợi ý Pinyin, điền chữ 星 vào từ 星期; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-204"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-208": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tuyết” và gợi ý Pinyin, điền chữ 雪 vào từ 雪; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-208"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-212": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “một” và gợi ý Pinyin, điền chữ 一 vào từ 一; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-212"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-221": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mưa” và gợi ý Pinyin, điền chữ 雨 vào từ 下雨; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-221"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-225": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tháng” và gợi ý Pinyin, điền chữ 月 vào từ 月; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-225"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-227": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bây giờ” và gợi ý Pinyin, điền chữ 在 vào từ 现在; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-227"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-228": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “sớm” và gợi ý Pinyin, điền chữ 早 vào từ 早; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-228"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-231": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đây; này” và gợi ý Pinyin, điền chữ 这 vào từ 这; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-231"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-233": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đang” và gợi ý Pinyin, điền chữ 正 vào từ 正在; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-233"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-237": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “phút (khoảng thời gian)” và gợi ý Pinyin, điền chữ 钟 vào từ 分钟; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-237"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-238": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ở; sống” và gợi ý Pinyin, điền chữ 住 vào từ 住; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-238"
+          }
+        ]
+      },
+      "characters-9:v2:block:recall-hsk1-character-243": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “hôm qua” và gợi ý Pinyin, điền chữ 昨 vào từ 昨天; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-243"
+          }
+        ]
+      },
+      "characters-9:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 下 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “buổi chiều”, đọc xiàwǔ: ____午.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-194"
+          }
+        ]
+      },
+      "characters-9:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 下 vào yêu cầu “Điền một chữ để diễn đạt “buổi chiều”, đọc xiàwǔ: ____午.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-194"
+          }
+        ]
+      },
+      "characters-9:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Đổi lời hẹn buổi sáng 上午见！ sang buổi chiều. Giữ phần “hẹn gặp” và đổi đúng phần thời gian. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 下; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-194"
+          }
+        ]
+      }
+    },
+    "characters-10": {
+      "characters-10:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 包 trong từ 包子 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-009"
+          }
+        ]
+      },
+      "characters-10:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 菜 trong từ 菜 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-016"
+          }
+        ]
+      },
+      "characters-10:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 穿 trong từ 穿 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-024"
+          }
+        ]
+      },
+      "characters-10:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 饭 trong từ 饭 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-044"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-009": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bánh bao” và gợi ý Pinyin, điền chữ 包 vào từ 包子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-009"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-010": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cốc; ly” và gợi ý Pinyin, điền chữ 杯 vào từ 杯子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-010"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-013": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rẻ” và gợi ý Pinyin, điền chữ 便 vào từ 便宜; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-013"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-014": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bệnh; ốm” và gợi ý Pinyin, điền chữ 病 vào từ 病; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-014"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-016": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “món ăn; rau” và gợi ý Pinyin, điền chữ 菜 vào từ 菜; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-016"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-017": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trà” và gợi ý Pinyin, điền chữ 茶 vào từ 茶; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-017"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-020": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “siêu thị” và gợi ý Pinyin, điền chữ 超 vào từ 超市; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-020"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-022": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ăn” và gợi ý Pinyin, điền chữ 吃 vào từ 吃; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-022"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-024": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mặc” và gợi ý Pinyin, điền chữ 穿 vào từ 穿; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-024"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-028": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trứng gà” và gợi ý Pinyin, điền chữ 蛋 vào từ 鸡蛋; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-028"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-037": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đồ; vật; thứ” và gợi ý Pinyin, điền chữ 东 vào từ 东西; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-037"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-041": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nhiều; bao nhiêu” và gợi ý Pinyin, điền chữ 多 vào từ 多; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-041"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-044": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cơm; bữa ăn” và gợi ý Pinyin, điền chữ 饭 vào từ 饭; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-044"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-045": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “phòng” và gợi ý Pinyin, điền chữ 房 vào từ 房间; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-045"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-049": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quần áo” và gợi ý Pinyin, điền chữ 服 vào từ 衣服; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-049"
+          }
+        ]
+      },
+      "characters-10:v2:block:recall-hsk1-character-053": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cái; người (lượng từ phổ biến)” và gợi ý Pinyin, điền chữ 个 vào từ 个; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-053"
+          }
+        ]
+      },
+      "characters-10:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 包 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “bánh bao”, đọc bāozi: ____子.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-009"
+          }
+        ]
+      },
+      "characters-10:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 包 vào yêu cầu “Điền một chữ để diễn đạt “bánh bao”, đọc bāozi: ____子.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-009"
+          }
+        ]
+      },
+      "characters-10:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Trong quán ăn, nói bạn muốn ăn bánh bao. Khung: 我想吃…。 (Tôi muốn ăn…). Hỗ trợ: 想 xiǎng = muốn; 吃 chī = ăn. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 包; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-009"
+          }
+        ]
+      }
+    },
+    "characters-11": {
+      "characters-11:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 贵 trong từ 贵 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-059"
+          }
+        ]
+      },
+      "characters-11:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 几 trong từ 几 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-079"
+          }
+        ]
+      },
+      "characters-11:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 块 trong từ 块 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-095"
+          }
+        ]
+      },
+      "characters-11:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 面 trong từ 面包 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-116"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-059": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đắt” và gợi ý Pinyin, điền chữ 贵 vào từ 贵; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-059"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-061": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “táo” và gợi ý Pinyin, điền chữ 果 vào từ 苹果; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-061"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-067": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “uống” và gợi ý Pinyin, điền chữ 喝 vào từ 喝; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-067"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-078": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trứng gà” và gợi ý Pinyin, điền chữ 鸡 vào từ 鸡蛋; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-078"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-079": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mấy; bao nhiêu” và gợi ý Pinyin, điền chữ 几 vào từ 几; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-079"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-081": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “phòng” và gợi ý Pinyin, điền chữ 间 vào từ 房间; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-081"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-083": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “chiếc; bộ (lượng từ cho quần áo, đồ vật)” và gợi ý Pinyin, điền chữ 件 vào từ 件; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-083"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-094": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “miệng; người (lượng từ cho gia đình)” và gợi ý Pinyin, điền chữ 口 vào từ 口; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-094"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-095": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đồng; tệ; miếng” và gợi ý Pinyin, điền chữ 块 vào từ 块; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-095"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-107": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mua” và gợi ý Pinyin, điền chữ 买 vào từ 买; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-107"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-108": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bán” và gợi ý Pinyin, điền chữ 卖 vào từ 卖; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-108"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-115": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cơm” và gợi ý Pinyin, điền chữ 米 vào từ 米饭; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-115"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-116": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bánh mì” và gợi ý Pinyin, điền chữ 面 vào từ 面包; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-116"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-121": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “sữa bò” và gợi ý Pinyin, điền chữ 奶 vào từ 牛奶; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-121"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-129": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “sữa bò” và gợi ý Pinyin, điền chữ 牛 vào từ 牛奶; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-129"
+          }
+        ]
+      },
+      "characters-11:v2:block:recall-hsk1-character-133": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “táo” và gợi ý Pinyin, điền chữ 苹 vào từ 苹果; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-133"
+          }
+        ]
+      },
+      "characters-11:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 买 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “mua đồ”, đọc mǎi dōngxi: ____东西.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-107"
+          }
+        ]
+      },
+      "characters-11:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 买 vào yêu cầu “Điền một chữ để diễn đạt “mua đồ”, đọc mǎi dōngxi: ____东西.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-107"
+          }
+        ]
+      },
+      "characters-11:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói bạn muốn mua sách. Khung: 我想…书。 (Tôi muốn … sách). Hỗ trợ: 想 xiǎng = muốn; 书 shū = sách. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 买; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-107"
+          }
+        ]
+      }
+    },
+    "characters-12": {
+      "characters-12:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 钱 trong từ 钱 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-140"
+          }
+        ]
+      },
+      "characters-12:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 水 trong từ 水 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-165"
+          }
+        ]
+      },
+      "characters-12:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 医 trong từ 医生 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-214"
+          }
+        ]
+      },
+      "characters-12:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 找 trong từ 找 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-230"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-140": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tiền” và gợi ý Pinyin, điền chữ 钱 vào từ 钱; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-140"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-148": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “cửa hàng” và gợi ý Pinyin, điền chữ 商 vào từ 商店; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-148"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-150": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bao nhiêu” và gợi ý Pinyin, điền chữ 少 vào từ 多少; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-150"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-159": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “siêu thị” và gợi ý Pinyin, điền chữ 市 vào từ 超市; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-159"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-165": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nước” và gợi ý Pinyin, điền chữ 水 vào từ 水; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-165"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-177": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mì sợi” và gợi ý Pinyin, điền chữ 条 vào từ 面条儿; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-177"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-189": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đồ; vật; thứ” và gợi ý Pinyin, điền chữ 西 vào từ 东西; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-189"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-213": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quần áo” và gợi ý Pinyin, điền chữ 衣 vào từ 衣服; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-213"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-214": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bác sĩ” và gợi ý Pinyin, điền chữ 医 vào từ 医生; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-214"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-215": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rẻ” và gợi ý Pinyin, điền chữ 宜 vào từ 便宜; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-215"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-217": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ghế” và gợi ý Pinyin, điền chữ 椅 vào từ 椅子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-217"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-223": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đồng; tệ” và gợi ý Pinyin, điền chữ 元 vào từ 元; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-223"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-230": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tìm; tìm tiền thừa” và gợi ý Pinyin, điền chữ 找 vào từ 找; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-230"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-239": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bàn” và gợi ý Pinyin, điền chữ 桌 vào từ 桌子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-239"
+          }
+        ]
+      },
+      "characters-12:v2:block:recall-hsk1-character-240": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bánh bao” và gợi ý Pinyin, điền chữ 子 vào từ 包子; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-240"
+          }
+        ]
+      },
+      "characters-12:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 衣 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “quần áo”, đọc yīfu: ____服.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-213"
+          }
+        ]
+      },
+      "characters-12:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 衣 vào yêu cầu “Điền một chữ để diễn đạt “quần áo”, đọc yīfu: ____服.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-213"
+          }
+        ]
+      },
+      "characters-12:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói món đồ bạn muốn mua là quần áo. Khung: 我想买…。 (Tôi muốn mua…). Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 衣; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-213"
+          }
+        ]
+      }
+    },
+    "characters-13": {
+      "characters-13:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 唱 trong từ 唱 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-019"
+          }
+        ]
+      },
+      "characters-13:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 歌 trong từ 歌 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-052"
+          }
+        ]
+      },
+      "characters-13:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 开 trong từ 开 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-089"
+          }
+        ]
+      },
+      "characters-13:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 玩 trong từ 好玩儿 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-181"
+          }
+        ]
+      },
+      "characters-13:v2:block:locate-16": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 院 trong từ 电影院 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-224"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-019": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “hát” và gợi ý Pinyin, điền chữ 唱 vào từ 唱; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-019"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-021": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “xe” và gợi ý Pinyin, điền chữ 车 vào từ 车; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-021"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-023": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “taxi” và gợi ý Pinyin, điền chữ 出 vào từ 出租车; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-023"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-046": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “máy bay” và gợi ý Pinyin, điền chữ 飞 vào từ 飞机; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-046"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-052": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bài hát” và gợi ý Pinyin, điền chữ 歌 vào từ 歌; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-052"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-074": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “về; quay lại” và gợi ý Pinyin, điền chữ 回 vào từ 回; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-074"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-076": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tàu hỏa” và gợi ý Pinyin, điền chữ 火 vào từ 火车; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-076"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-077": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “máy bay” và gợi ý Pinyin, điền chữ 机 vào từ 飞机; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-077"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-089": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “mở; lái” và gợi ý Pinyin, điền chữ 开 vào từ 开; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-089"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-096": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đến” và gợi ý Pinyin, điền chữ 来 vào từ 来; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-096"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-142": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đi” và gợi ý Pinyin, điền chữ 去 vào từ 去; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-142"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-161": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tivi; truyền hình” và gợi ý Pinyin, điền chữ 视 vào từ 电视; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-161"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-181": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “vui; thú vị” và gợi ý Pinyin, điền chữ 玩 vào từ 好玩儿; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-181"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-190": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nghỉ ngơi” và gợi ý Pinyin, điền chữ 息 vào từ 休息; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-190"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-206": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “nghỉ ngơi” và gợi ý Pinyin, điền chữ 休 vào từ 休息; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-206"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-218": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “phim” và gợi ý Pinyin, điền chữ 影 vào từ 电影; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-218"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-224": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “rạp chiếu phim” và gợi ý Pinyin, điền chữ 院 vào từ 电影院; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-224"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-242": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “taxi” và gợi ý Pinyin, điền chữ 租 vào từ 出租车; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-242"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-245": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “ngồi; đi bằng” và gợi ý Pinyin, điền chữ 坐 vào từ 坐; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-245"
+          }
+        ]
+      },
+      "characters-13:v2:block:recall-hsk1-character-246": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “làm” và gợi ý Pinyin, điền chữ 做 vào từ 做; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-246"
+          }
+        ]
+      },
+      "characters-13:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 坐 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “đi xe”, đọc zuò chē: ____车.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-245"
+          }
+        ]
+      },
+      "characters-13:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 坐 vào yêu cầu “Điền một chữ để diễn đạt “đi xe”, đọc zuò chē: ____车.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-245"
+          }
+        ]
+      },
+      "characters-13:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói bạn đi xe đến trường. Khung: 我…车去学校。 (Tôi đi xe đến trường). Hỗ trợ: 去 qù = đi đến; 学校 xuéxiào = trường học. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 坐; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-245"
+          }
+        ]
+      }
+    },
+    "characters-14": {
+      "characters-14:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 班 trong từ 上班 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-007"
+          }
+        ]
+      },
+      "characters-14:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 工 trong từ 工作 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-055"
+          }
+        ]
+      },
+      "characters-14:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 老 trong từ 老师 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-097"
+          }
+        ]
+      },
+      "characters-14:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 师 trong từ 老师 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-154"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-007": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đi làm” và gợi ý Pinyin, điền chữ 班 vào từ 上班; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-007"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-011": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “quyển; cuốn” và gợi ý Pinyin, điền chữ 本 vào từ 本; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-011"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-030": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “biết” và gợi ý Pinyin, điền chữ 道 vào từ 知道; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-030"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-039": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đọc” và gợi ý Pinyin, điền chữ 读 vào từ 读; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-039"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-055": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “công việc; làm việc” và gợi ý Pinyin, điền chữ 工 vào từ 工作; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-055"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-056": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “công ty” và gợi ý Pinyin, điền chữ 公 vào từ 公司; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-056"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-064": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tiếng Hán” và gợi ý Pinyin, điền chữ 汉 vào từ 汉语; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-064"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-093": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tiết học; môn học” và gợi ý Pinyin, điền chữ 课 vào từ 课; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-093"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-097": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “giáo viên” và gợi ý Pinyin, điền chữ 老 vào từ 老师; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-097"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-109": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bận” và gợi ý Pinyin, điền chữ 忙 vào từ 忙; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-109"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-123": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “máy tính” và gợi ý Pinyin, điền chữ 脑 vào từ 电脑; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-123"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-153": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “sinh viên đại học” và gợi ý Pinyin, điền chữ 生 vào từ 大学生; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-153"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-154": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “giáo viên” và gợi ý Pinyin, điền chữ 师 vào từ 老师; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-154"
+          }
+        ]
+      },
+      "characters-14:v2:block:recall-hsk1-character-164": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đọc sách; học” và gợi ý Pinyin, điền chữ 书 vào từ 读书; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-164"
+          }
+        ]
+      },
+      "characters-14:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 本 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “một quyển sách”, đọc yī běn shū: 一____书.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-011"
+          }
+        ]
+      },
+      "characters-14:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 本 vào yêu cầu “Điền một chữ để diễn đạt “một quyển sách”, đọc yī běn shū: 一____书.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-011"
+          }
+        ]
+      },
+      "characters-14:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói bạn có hai quyển sách, đổi số lượng so với mẫu một quyển. Khung: 我有两…书。 Hỗ trợ: 有 yǒu = có; 两 liǎng = hai trước lượng từ. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 本; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-011"
+          }
+        ]
+      }
+    },
+    "characters-15": {
+      "characters-15:v2:block:locate-0": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 司 trong từ 公司 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-168"
+          }
+        ]
+      },
+      "characters-15:v2:block:locate-4": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 习 trong từ 学习 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-191"
+          }
+        ]
+      },
+      "characters-15:v2:block:locate-8": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 语 trong từ 汉语 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-222"
+          }
+        ]
+      },
+      "characters-15:v2:block:locate-12": {
+        "skill": "reading",
+        "objective": "Nhận ra chữ 作 trong từ 工作 khi mẫu còn hiển thị; đây là nhìn và gõ theo mẫu, không phải nhớ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-244"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-168": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “công ty” và gợi ý Pinyin, điền chữ 司 vào từ 公司; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-168"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-175": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “vấn đề; câu hỏi” và gợi ý Pinyin, điền chữ 题 vào từ 问题; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-175"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-179": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “bạn học” và gợi ý Pinyin, điền chữ 同 vào từ 同学; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-179"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-184": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tiếng Trung; chữ Trung” và gợi ý Pinyin, điền chữ 文 vào từ 中文; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-184"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-191": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “học tập” và gợi ý Pinyin, điền chữ 习 vào từ 学习; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-191"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-199": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “trường học” và gợi ý Pinyin, điền chữ 校 vào từ 学校; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-199"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-201": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “viết” và gợi ý Pinyin, điền chữ 写 vào từ 写; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-201"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-207": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “đại học” và gợi ý Pinyin, điền chữ 学 vào từ 大学; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-207"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-222": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “tiếng Hán” và gợi ý Pinyin, điền chữ 语 vào từ 汉语; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-222"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-234": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “biết” và gợi ý Pinyin, điền chữ 知 vào từ 知道; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-234"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-236": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “Trung Quốc” và gợi ý Pinyin, điền chữ 中 vào từ 中国; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-236"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-241": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “chữ Hán” và gợi ý Pinyin, điền chữ 字 vào từ 汉字; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-241"
+          }
+        ]
+      },
+      "characters-15:v2:block:recall-hsk1-character-244": {
+        "skill": "reading",
+        "objective": "Từ nghĩa “công việc; làm việc” và gợi ý Pinyin, điền chữ 作 vào từ 工作; Pinyin/IME và mẫu đã học là hỗ trợ, không phải viết tay độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-244"
+          }
+        ]
+      },
+      "characters-15:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn hình chữ 字 để hoàn thành yêu cầu “Điền một chữ để diễn đạt “chữ Hán”, đọc Hànzì: 汉____.”; phương án hiển thị nên chưa đo nhớ chữ độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-241"
+          }
+        ]
+      },
+      "characters-15:v2:block:guided": {
+        "skill": "reading",
+        "objective": "Gõ chữ 字 vào yêu cầu “Điền một chữ để diễn đạt “chữ Hán”, đọc Hànzì: 汉____.” sau khi đã thấy câu chọn mẫu; lượt này có prior exposure.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-241"
+          }
+        ]
+      },
+      "characters-15:v2:block:transfer": {
+        "skill": "reading",
+        "objective": "Tự tạo câu theo tình huống “Nói bạn đang học viết chữ Hán. Khung: 我学写…。 Hỗ trợ: 学 xué = học; 写 xiě = viết. Có thể dùng Pinyin nếu chưa nhập được chữ; ghi rõ phần cần trợ giúp.” và đối chiếu cách dùng chữ 字; rubric tự soát không chấm viết độc lập.",
+        "sources": [
+          {
+            "kind": "character",
+            "id": "hsk1-character-241"
+          }
+        ]
+      }
+    }
+  }
+}

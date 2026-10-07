@@ -77,6 +77,17 @@ const seed = (database: SQLiteD1) => {
 };
 
 describe("HSK Mock Exam assessment integration", () => {
+  it("rejects an HSK4 session presented through a free HSK3 route", async () => {
+    const blueprintId=getHskMockExamDefinition("hsk4","a")!.blueprint.id;
+    const database={
+      prepare:()=>({bind:()=>({first:async()=>({blueprintId})})}),
+      batch:async()=>[],
+    } as unknown as D1Database;
+    await expect(hskMockExamRepositoryOptionsForSession(database,"learner","hsk4-session","hsk3","a"))
+      .rejects.toThrow("does not belong to this level and form");
+    await expect(hskMockExamRepositoryOptionsForSession(database,"learner","hsk4-session","hsk4","a"))
+      .resolves.toMatchObject({blueprint:{id:blueprintId}});
+  });
   it("keeps a v1 12-item door resumable after standards-sized v2 forms ship", async () => {
     const database = new SQLiteD1();
     seed(database);
@@ -109,9 +120,15 @@ describe("HSK Mock Exam assessment integration", () => {
       database,
       "learner",
       opened.sessionId,
+      "hsk3",
+      "b",
     );
     expect(resolved.blueprint?.id).toBe("hsk-mock-hsk3-b-v1");
     expect(resolved.blueprint?.itemCount).toBe(12);
+    await expect(hskMockExamRepositoryOptionsForSession(database,"learner",opened.sessionId,"hsk4","b"))
+      .rejects.toThrow("does not belong to this level and form");
+    await expect(hskMockExamRepositoryOptionsForSession(database,"learner",opened.sessionId,"hsk3","a"))
+      .rejects.toThrow("does not belong to this level and form");
     await expect(new HskMockExamRepository(database).resume(
       "learner",
       legacy,

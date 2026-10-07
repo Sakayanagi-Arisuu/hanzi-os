@@ -1,0 +1,2259 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "professional-2",
+      "baseRevisionId": "0517028a-8102-4e2d-a75d-09eb5b4a1201",
+      "baseContentSha256": "sha256:291e7d597bc011f16cfe66522316f9b932f926012387af2806b4ba97906f6f1f",
+      "changedPageIds": [
+        "professional-2:v2:mission",
+        "professional-2:v2:talk"
+      ],
+      "content": {
+        "checkpointVi": "Đính chính cô gái đi cùng là bạn học, không phải giáo viên; nói mình học tiếng Trung và viết chữ Hán.",
+        "conceptVi": "Phân biệt giáo viên/bạn học, quốc gia/ngôn ngữ/chữ viết; dùng từ đúng nội dung muốn nói.",
+        "dialogue": [
+          {
+            "hanzi": "他是你的老师吗？",
+            "meaningVi": "Anh ấy là giáo viên của bạn phải không?",
+            "pinyin": "Tā shì nǐ de lǎoshī ma?",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "不是，他是我的同学。",
+            "meaningVi": "Không, anh ấy là bạn học của tôi.",
+            "pinyin": "Bú shì, tā shì wǒ de tóngxué.",
+            "speaker": "Bạn B"
+          },
+          {
+            "hanzi": "你们学习汉语吗？",
+            "meaningVi": "Các bạn học tiếng Trung phải không?",
+            "pinyin": "Nǐmen xuéxí Hànyǔ ma?",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "是，我们学习汉语，也学习写汉字。",
+            "meaningVi": "Đúng, chúng tôi học tiếng Trung, cũng học viết chữ Hán.",
+            "pinyin": "Shì, wǒmen xuéxí Hànyǔ, yě xuéxí xiě Hànzì.",
+            "speaker": "Bạn B"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他是我的同学。",
+            "answerMeaningVi": "Anh ấy là bạn học của tôi.",
+            "answerPinyin": "Tā shì wǒ de tóngxué.",
+            "distractors": [
+              "他是我的老师。",
+              "他不是我的同学。"
+            ],
+            "explanationVi": "同学 là bạn học; 老师 đổi vai trò, 不是 phủ định quan hệ.",
+            "promptVi": "Nói anh ấy là bạn học của bạn."
+          },
+          {
+            "answer": "我学习写汉字。",
+            "answerMeaningVi": "Tôi học viết chữ Hán.",
+            "answerPinyin": "Wǒ xuéxí xiě Hànzì.",
+            "distractors": [
+              "我学习中国。",
+              "我是中国人。"
+            ],
+            "explanationVi": "写汉字 là viết chữ Hán. 中国 là quốc gia; 中国人 là người Trung Quốc.",
+            "promptVi": "Nói bạn học viết chữ Hán."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "是 khẳng định quan hệ, 不是 phủ định; 我的 đặt trước từ chỉ người.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "她不是我的老师。",
+              "modelAnswerMeaningVi": "Cô ấy không phải giáo viên của tôi.",
+              "modelAnswerPinyin": "Tā bú shì wǒ de lǎoshī.",
+              "promptVi": "Nói cô ấy không phải giáo viên của bạn."
+            },
+            "modelExample": {
+              "hanzi": "他是我的同学。",
+              "meaningVi": "Anh ấy là bạn học của tôi.",
+              "pinyin": "Tā shì wǒ de tóngxué."
+            },
+            "pattern": "他/她 + 是/不是 + 我的 + 老师/同学"
+          },
+          {
+            "explanationVi": "Nói nội dung học; 写 thêm hoạt động viết, 汉字 là chữ Hán, không phải quốc gia.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我学习写汉字。",
+              "modelAnswerMeaningVi": "Tôi học viết chữ Hán.",
+              "modelAnswerPinyin": "Wǒ xuéxí xiě Hànzì.",
+              "promptVi": "Nói mình học viết chữ Hán."
+            },
+            "modelExample": {
+              "hanzi": "我学习中文。",
+              "meaningVi": "Tôi học tiếng Trung.",
+              "pinyin": "Wǒ xuéxí Zhōngwén."
+            },
+            "pattern": "我学习 + 汉语/中文；我学习写汉字"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một người bạn mới nhầm bạn học của bạn là giáo viên. Bạn cần sửa lại thông tin và nói lớp mình học gì. Bài này giúp phân biệt người, ngôn ngữ, chữ viết và tên quốc gia; không dùng những từ gần hình thức thay thế lẫn nhau.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:mission",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sau giờ học đầu tiên"
+                },
+                {
+                  "alt": "",
+                  "body": "他 (tā) — anh ấy; 的 (de) — của; 我们 (wǒmen) — chúng tôi/chúng ta; 你们 (nǐmen) — các bạn; 也 (yě) — cũng; 写 (xiě) — viết. 学习 (xuéxí) — học đã được giới thiệu ở bài trước. Có thể quay lại đây khi đọc hội thoại.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ cho tình huống"
+                }
+              ],
+              "id": "professional-2:v2:mission",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Giới thiệu đúng người, nói đúng nội dung học",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/classmate-introduction-v1.webp",
+                "alt": "Ba học viên làm quen và giới thiệu bạn học sau giờ học",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Nghe lời đính chính để phân biệt bạn học và giáo viên."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "他是你的老师吗？",
+                  "id": "professional-2:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy là giáo viên của bạn phải không?",
+                  "pinyin": "Tā shì nǐ de lǎoshī ma?",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "不是，他是我的同学。",
+                  "id": "professional-2:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không, anh ấy là bạn học của tôi.",
+                  "pinyin": "Bú shì, tā shì wǒ de tóngxué.",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你们学习汉语吗？",
+                  "id": "professional-2:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Các bạn học tiếng Trung phải không?",
+                  "pinyin": "Nǐmen xuéxí Hànyǔ ma?",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是，我们学习汉语，也学习写汉字。",
+                  "id": "professional-2:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, chúng tôi học tiếng Trung, cũng học viết chữ Hán.",
+                  "pinyin": "Shì, wǒmen xuéxí Hànyǔ, yě xuéxí xiě Hànzì.",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                }
+              ],
+              "id": "professional-2:v2:talk",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Nghe lời đính chính trong lớp",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/classmate-introduction-v1.webp",
+                "alt": "Ba học viên làm quen và giới thiệu bạn học sau giờ học",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Nghe lời đính chính để phân biệt bạn học và giáo viên."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "他是我的老师。",
+                  "id": "professional-2:v2:block:teacher",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy là giáo viên của tôi.",
+                  "pinyin": "Tā shì wǒ de lǎoshī.",
+                  "provenance": "",
+                  "title": "Vai trò giảng dạy"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她是我的同学。",
+                  "id": "professional-2:v2:block:classmate",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy là bạn học của tôi.",
+                  "pinyin": "Tā shì wǒ de tóngxué.",
+                  "provenance": "",
+                  "title": "Quan hệ cùng học"
+                },
+                {
+                  "alt": "",
+                  "body": "我 + 的 + 老师/同学: giáo viên/bạn học của tôi. 同学 không chỉ có nghĩa “người đang học”: nó chỉ quan hệ bạn học, hoặc cách gọi học sinh trong một số tình huống. Ở bài này dùng nghĩa bạn học. 她 (tā) là cô ấy; 他 và 她 phát âm giống nhau nhưng chữ khác.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:person-rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói quan hệ với mình"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "right"
+                    ],
+                    "explanation": "不是 (bú shì) phủ định 是. Trật tự: 他 + 不是 + 我的老师；他 + 是 + 我的同学。",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn lời đính chính người đó là bạn học, không phải giáo viên. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00211",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: phủ định vai trò bị nhầm và nêu lại quan hệ bạn học.",
+                        "id": "right",
+                        "text": "他不是我的老师，他是我的同学。"
+                      },
+                      {
+                        "feedback": "Câu này khẳng định điều đang bị nhầm và phủ định quan hệ thật.",
+                        "id": "wrong",
+                        "text": "他是我的老师，他不是我的同学。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Người được nhắc đến là bạn học, không phải giáo viên của bạn. Chọn lời đính chính.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:repair",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Sửa lời giới thiệu nhầm"
+                }
+              ],
+              "id": "professional-2:v2:people",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Giáo viên và bạn học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "中国 gọi quốc gia; 汉语/中文 có thể gọi tiếng Trung; 汉字 gọi chữ Hán, còn 字 là chữ nói chung. Không gán 中文 chỉ cho chữ viết hoặc 汉语 chỉ cho lời nói.",
+                    "nodes": [
+                      {
+                        "id": "country",
+                        "label": "中国",
+                        "meaningVi": "Trung Quốc",
+                        "note": "Tên quốc gia. 中国人 là người Trung Quốc.",
+                        "pinyin": "Zhōngguó",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "language",
+                        "label": "汉语 / 中文",
+                        "meaningVi": "tiếng Trung",
+                        "note": "Trong 我学习… có thể dùng cả hai.",
+                        "pinyin": "Hànyǔ / Zhōngwén",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "character",
+                        "label": "汉字 / 字",
+                        "meaningVi": "chữ Hán / chữ",
+                        "note": "汉字 cụ thể hơn 字; không phải tên quốc gia.",
+                        "pinyin": "Hànzì / zì",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:map",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đặt từ vào đúng nhóm nghĩa"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "他是中国人。",
+                  "id": "professional-2:v2:block:country",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy là người Trung Quốc.",
+                  "pinyin": "Tā shì Zhōngguó rén.",
+                  "provenance": "",
+                  "title": "Thêm 人 để nói quốc tịch"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这个汉字是“人”。",
+                  "id": "professional-2:v2:block:written-char",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chữ Hán này là chữ “人” (người).",
+                  "pinyin": "Zhè ge Hànzì shì “rén”.",
+                  "provenance": "",
+                  "title": "Nhận diện một chữ"
+                },
+                {
+                  "alt": "",
+                  "body": "这 (zhè) — này; 个 (ge) — lượng từ; 这个汉字 là “chữ Hán này”. 人 (rén) — người. 字 có thể gọi một chữ: 一个字 (yí ge zì). Ở đây học ý nghĩa và cách ghép; không bắt buộc viết nét chữ nếu chưa có hướng dẫn nét phù hợp.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:char-support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc mẫu mà không đoán từ mới"
+                }
+              ],
+              "id": "professional-2:v2:categories",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Quốc gia, ngôn ngữ và chữ viết"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我学习汉语。",
+                  "id": "professional-2:v2:block:learn-hanyu",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học tiếng Trung.",
+                  "pinyin": "Wǒ xuéxí Hànyǔ.",
+                  "provenance": "",
+                  "title": "Hai cách gọi ngôn ngữ"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我学习中文。",
+                  "id": "professional-2:v2:block:learn-zhongwen",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học tiếng Trung.",
+                  "pinyin": "Wǒ xuéxí Zhōngwén.",
+                  "provenance": "",
+                  "title": "Cũng đúng trong mẫu này"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我学习写汉字。",
+                  "id": "professional-2:v2:block:write-character",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học viết chữ Hán.",
+                  "pinyin": "Wǒ xuéxí xiě Hànzì.",
+                  "provenance": "",
+                  "title": "Cụ thể hơn về hoạt động"
+                },
+                {
+                  "alt": "",
+                  "body": "Trong “tôi học tiếng Trung”, dùng 汉语 hoặc 中文. 我学习中国 không diễn đạt cùng ý, vì 中国 là tên quốc gia. 学习汉字 nói học chữ Hán; thêm 写 nói rõ học viết. Không cần coi 汉语 và 中文 khác nhau tuyệt đối: ở những ngữ cảnh khác cần đọc cả câu.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:not-country",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đừng bỏ mất chữ làm đổi nghĩa"
+                }
+              ],
+              "id": "professional-2:v2:language",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói mình học gì"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "writing"
+                    ],
+                    "explanation": "Chọn từ theo nghĩa, không chỉ nhìn chữ 中/汉. 写 là viết; 汉字 là chữ Hán.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu 学习写汉字 để nói học viết chữ Hán, không nhầm với tên quốc gia. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00070",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "中国 là quốc gia, không phải chữ Hán.",
+                        "id": "country",
+                        "text": "我学习中国。"
+                      },
+                      {
+                        "feedback": "Đúng. 写汉字 chỉ hoạt động viết chữ Hán.",
+                        "id": "writing",
+                        "text": "我学习写汉字。"
+                      },
+                      {
+                        "feedback": "Câu này nói quốc tịch, không nói hoạt động học viết.",
+                        "id": "person",
+                        "text": "我是中国人。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn muốn nói mình đang học viết chữ Hán. Chọn câu rõ đúng ý đó.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:choose",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Phân biệt bằng điều muốn nói"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "she",
+                      "be",
+                      "my",
+                      "mate"
+                    ],
+                    "explanation": "她是我的同学。Tā shì wǒ de tóngxué. 我的 đặt ngay trước 同学.",
+                    "hint": "Người được giới thiệu + 是 + quan hệ.",
+                    "learningTarget": {
+                      "objective": "Sắp xếp 她是我的同学 với 我的 ngay trước 同学. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00211",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "mate",
+                        "text": "同学"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "she",
+                        "text": "她"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "my",
+                        "text": "我的"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "be",
+                        "text": "是"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Sắp xếp thành “Cô ấy là bạn học của tôi”.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:order",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới thiệu bạn học"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "汉语",
+                      "中文"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Cả 汉语 (Hànyǔ) và 中文 (Zhōngwén) đều phù hợp. 中国 là quốc gia; 汉字 là chữ Hán, không khớp ý “tiếng Trung” của yêu cầu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Điền 汉语 hoặc 中文 để nói học tiếng Trung; cả hai đáp án được chấp nhận trong câu này. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00069",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00290",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền một từ có nghĩa “tiếng Trung”: 我学习___。",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:recall",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự nhớ một tên ngôn ngữ"
+                }
+              ],
+              "id": "professional-2:v2:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự chọn và ghép câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Trong một buổi sinh hoạt học tiếng Trung, một người nhầm cô gái đi cùng bạn là giáo viên của bạn. Thực ra cô ấy là bạn học. Hãy sửa thông tin và nói bạn học tiếng Trung, đồng thời học viết chữ Hán. Không cần dùng thông tin cá nhân thật.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:new-info",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án: 她不是我的老师，她是我的同学。我学习汉语，也学习写汉字。Tā bú shì wǒ de lǎoshī, tā shì wǒ de tóngxué. Wǒ xuéxí Hànyǔ, yě xuéxí xiě Hànzì. Cô ấy không phải giáo viên của tôi, cô ấy là bạn học. Tôi học tiếng Trung, cũng học viết chữ Hán. Cách diễn đạt khác giữ đúng thông tin vẫn được; đây là tự đối chiếu, chưa phải chấm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lời đính chính vai giáo viên/bạn học và nói rõ việc học tiếng Trung, chữ Hán. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-study-work:02-people-and-language",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 她不是我的老师 để nói cô ấy không phải giáo viên của bạn.",
+                        "id": "fix",
+                        "label": "Phủ định thông tin bị nhầm"
+                      },
+                      {
+                        "guidance": "她是我的同学 nói cô ấy là bạn học của bạn.",
+                        "id": "person",
+                        "label": "Nêu đúng quan hệ"
+                      },
+                      {
+                        "guidance": "我学习汉语/中文 và 我学习写汉字. Có thể nối ý bằng 也 đứng trước 学习.",
+                        "id": "learn",
+                        "label": "Nói đúng nội dung học"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tự viết trước khi mở tiêu chí. Có thể mở lại từ hỗ trợ nếu cần.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết hai hoặc ba câu"
+                }
+              ],
+              "id": "professional-2:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Đính chính trong buổi làm quen mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đang nói người nào? 老师 hay 同学.\nĐang nói quốc gia, ngôn ngữ hay chữ? 中国 / 汉语、中文 / 汉字、字.\nĐang giới thiệu vai trò hay hoạt động? 是 + người/vai trò; 学习 + nội dung học.\nNếu còn nhầm, quay lại bảng nhóm nghĩa rồi tự đổi câu sang một người khác. Tra từ trong bài hoặc tiếp tục Thử Luyện; việc đọc đủ trang không tự chứng minh thành thạo.",
+                  "hanzi": "",
+                  "id": "professional-2:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ba câu hỏi tự kiểm"
+                }
+              ],
+              "id": "professional-2:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Kiểm ý trước khi dùng từ"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "25387092-87d8-41b3-9448-fa2fbc798f14",
+          "reviewedAt": "2026-09-29",
+          "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+          "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181"
+        },
+        "objectiveVi": "Nói vai trò trong lớp và ngôn ngữ đang dùng hoặc đang học.",
+        "pitfallVi": "中国 không thay 汉语/中文 để nói ngôn ngữ. 中文 không chỉ dùng cho chữ viết. 汉字 cụ thể hơn 字. 同学 không mặc định là giáo viên.",
+        "prerequisites": [
+          "professional-1"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "他/她 + 是/不是 + 我的老师/同学. 我学习 + 汉语/中文; 我学习写汉字 nói rõ học viết chữ.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-pattern:hsk1-study-work:02-people-and-language"
+        ],
+        "sourceLessonIds": [
+          "professional-2"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-study-work:02-people-and-language"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-024"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00069",
+          "hsk-vocab-00070",
+          "hsk-vocab-00107",
+          "hsk-vocab-00211",
+          "hsk-vocab-00289",
+          "hsk-vocab-00290",
+          "hsk-vocab-00296"
+        ],
+        "targetLessonId": "professional-2",
+        "titleZh": "课堂人物和汉语",
+        "vocabulary": [
+          "hsk-vocab-00069",
+          "hsk-vocab-00070",
+          "hsk-vocab-00107",
+          "hsk-vocab-00211",
+          "hsk-vocab-00289",
+          "hsk-vocab-00290",
+          "hsk-vocab-00296"
+        ]
+      }
+    },
+    {
+      "lessonId": "professional-3",
+      "baseRevisionId": "ca0a9c99-aee6-4e20-b588-eca7ee22e6b6",
+      "baseContentSha256": "sha256:23794b25ef065c4955452f3a9a82fa98980a7d78a29fdfdbddc8db6b11f07ea0",
+      "changedPageIds": [
+        "professional-3:v2:mission",
+        "professional-3:v2:conversation"
+      ],
+      "content": {
+        "checkpointVi": "Nói có hai quyển sách, đọc và viết trong buổi học, đáp đúng khi chưa biết máy tính ở đâu.",
+        "conceptVi": "Phân biệt hoạt động học/đọc/viết, tài liệu/thiết bị/nơi học; hỏi điều chưa biết.",
+        "dialogue": [
+          {
+            "hanzi": "你学习汉语吗？",
+            "meaningVi": "Bạn học tiếng Trung phải không?",
+            "pinyin": "Nǐ xuéxí Hànyǔ ma?",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "是，我读书，也写汉字。",
+            "meaningVi": "Đúng, tôi đọc sách, cũng viết chữ Hán.",
+            "pinyin": "Shì, wǒ dú shū, yě xiě Hànzì.",
+            "speaker": "Bạn B"
+          },
+          {
+            "hanzi": "我有一个问题。这本书在哪里？",
+            "meaningVi": "Tôi có một câu hỏi. Quyển sách này ở đâu?",
+            "pinyin": "Wǒ yǒu yí ge wèntí. Zhè běn shū zài nǎlǐ?",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "在电脑旁边。",
+            "meaningVi": "Ở bên cạnh máy tính.",
+            "pinyin": "Zài diànnǎo pángbiān.",
+            "speaker": "Bạn B"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我有两本书。",
+            "answerMeaningVi": "Tôi có hai quyển sách.",
+            "answerPinyin": "Wǒ yǒu liǎng běn shū.",
+            "distractors": [
+              "我有两书。",
+              "我有两本电脑。"
+            ],
+            "explanationVi": "Cần 本 trước 书. Không đổi sách thành máy tính hoặc áp 本 cho máy tính.",
+            "promptVi": "Nói bạn có hai quyển sách."
+          },
+          {
+            "answer": "我不知道。",
+            "answerMeaningVi": "Tôi không biết.",
+            "answerPinyin": "Wǒ bù zhīdào.",
+            "distractors": [
+              "在电脑旁边。",
+              "我知道。"
+            ],
+            "explanationVi": "Không đoán vị trí hoặc nói biết khi đề cho chưa biết.",
+            "promptVi": "Bạn chưa biết sách ở đâu. Đáp phù hợp."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "本 là lượng từ sách. 两本书 nói hai quyển; 这本书 nói quyển này.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我有一本书。",
+              "modelAnswerMeaningVi": "Tôi có một quyển sách.",
+              "modelAnswerPinyin": "Wǒ yǒu yì běn shū.",
+              "promptVi": "Nói bạn có một quyển sách."
+            },
+            "modelExample": {
+              "hanzi": "我有两本书。",
+              "meaningVi": "Tôi có hai quyển sách.",
+              "pinyin": "Wǒ yǒu liǎng běn shū."
+            },
+            "pattern": "Số lượng + 本 + 书"
+          },
+          {
+            "explanationVi": "哪里 hỏi ở đâu; 不知道 nói chưa biết thông tin. Không thêm 吗 trong mẫu 哪里.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我不知道。",
+              "modelAnswerMeaningVi": "Tôi không biết.",
+              "modelAnswerPinyin": "Wǒ bù zhīdào.",
+              "promptVi": "Bạn chưa biết câu trả lời. Nói rõ điều đó."
+            },
+            "modelExample": {
+              "hanzi": "这本书在哪里？",
+              "meaningVi": "Quyển sách này ở đâu?",
+              "pinyin": "Zhè běn shū zài nǎlǐ?"
+            },
+            "pattern": "这本书在哪里？ / 我不知道。"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn và một người bạn chuẩn bị học tiếng Trung. Bạn cần nói mình học bằng hoạt động nào, tìm đúng sách và hỏi khi chưa biết thông tin. Bài chia thành hai phần nhỏ: hoạt động học; tài liệu và câu hỏi. Không cần nhớ cả mười hai từ cùng lúc.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:mission",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Việc cần làm trong bài"
+                },
+                {
+                  "alt": "",
+                  "body": "有 (yǒu) — có; 一 (yī) — một; 个 (ge) — lượng từ; 这 (zhè) — này; 在 (zài) — ở; 哪里 (nǎlǐ) — đâu; 旁边 (pángbiān) — bên cạnh; 也 (yě) — cũng. 汉语/汉字 đã được giải thích ở bài trước. Có thể mở lại nghĩa bất cứ lúc nào.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ dùng trong mẫu"
+                }
+              ],
+              "id": "professional-3:v2:mission",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Chuẩn bị góc học cùng một người bạn",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/book-beside-computer-v1.webp",
+                "alt": "Hai người tìm quyển sách đặt ngay cạnh máy tính",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Quyển sách cần tìm ở cạnh máy tính."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "学/学习 nói học một nội dung; 读 là đọc, 写 là viết. Đọc và viết có thể là cách học, nhưng không phải cùng một hành động.",
+                    "nodes": [
+                      {
+                        "id": "learn",
+                        "label": "学 / 学习",
+                        "meaningVi": "học / học tập",
+                        "note": "我学汉语 hoặc 我学习汉语 đều phù hợp trong mẫu này.",
+                        "pinyin": "xué / xuéxí",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "read",
+                        "label": "读 / 读书",
+                        "meaningVi": "đọc / đọc sách",
+                        "note": "读书 trong bối cảnh này là đọc sách; ở ngữ cảnh khác có thể nói việc theo học.",
+                        "pinyin": "dú / dúshū",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "write",
+                        "label": "写",
+                        "meaningVi": "viết",
+                        "note": "写汉字 — viết chữ Hán. Không nhầm với việc chỉ đọc chữ.",
+                        "pinyin": "xiě",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:actions-map",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn động từ theo điều bạn làm"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我学汉语。",
+                  "id": "professional-3:v2:block:learning",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học tiếng Trung.",
+                  "pinyin": "Wǒ xué Hànyǔ.",
+                  "provenance": "",
+                  "title": "Nội dung đang học"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我读书。",
+                  "id": "professional-3:v2:block:reading",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đọc sách.",
+                  "pinyin": "Wǒ dú shū.",
+                  "provenance": "",
+                  "title": "Một hoạt động cụ thể"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我写汉字。",
+                  "id": "professional-3:v2:block:writing",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi viết chữ Hán.",
+                  "pinyin": "Wǒ xiě Hànzì.",
+                  "provenance": "",
+                  "title": "Hoạt động khác"
+                }
+              ],
+              "id": "professional-3:v2:actions",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Học là việc lớn, đọc và viết là hoạt động cụ thể"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "write"
+                    ],
+                    "explanation": "Chọn theo hành động: 读 là đọc, 写 là viết. Cả hai có thể phục vụ 学习 — học tập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 我写汉字 khi đang viết, không nhầm với 读书 là đọc sách. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00240",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "读书 là đọc sách, khác hoạt động được cho.",
+                        "id": "read",
+                        "text": "我读书。"
+                      },
+                      {
+                        "feedback": "Đúng. 写 diễn tả viết, 汉字 là chữ Hán.",
+                        "id": "write",
+                        "text": "我写汉字。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn đang viết chữ Hán vào vở, không phải đọc sách. Câu nào khớp thông tin?",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:write-choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói đúng hoạt động"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "学",
+                      "学习"
+                    ],
+                    "answerIds": [],
+                    "explanation": "我学汉语 và 我学习汉语 đều phù hợp ở đây. Không suy ra rằng 学 và 学习 thay nhau trong mọi cụm cố định.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Điền 学 hoặc 学习 cho 我学汉语/我学习汉语; cả hai được nhận ở câu này. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00247",
+                          "kind": "vocabulary"
+                        },
+                        {
+                          "id": "hsk-vocab-00249",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền “học” để nói tôi học tiếng Trung: 我___汉语。",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:learning-cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hai cách nói đều được"
+                }
+              ],
+              "id": "professional-3:v2:action-check",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Thử phân biệt trước khi học tiếp"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这是一本书。",
+                  "id": "professional-3:v2:block:book",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là một quyển sách.",
+                  "pinyin": "Zhè shì yì běn shū.",
+                  "provenance": "",
+                  "title": "Tài liệu"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这是我的电脑。",
+                  "id": "professional-3:v2:block:computer",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là máy tính của tôi.",
+                  "pinyin": "Zhè shì wǒ de diànnǎo.",
+                  "provenance": "",
+                  "title": "Thiết bị"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "书店有书。",
+                  "id": "professional-3:v2:block:bookshop",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiệu sách có sách.",
+                  "pinyin": "Shūdiàn yǒu shū.",
+                  "provenance": "",
+                  "title": "Nơi bán sách"
+                },
+                {
+                  "alt": "",
+                  "body": "一本书 (yì běn shū) — một quyển sách; 两本书 (liǎng běn shū) — hai quyển sách; 这本书 (zhè běn shū) — quyển sách này. 两 (liǎng) dùng trước lượng từ trong mẫu đếm hai quyển. 本 không phải từ chỉ mọi đồ vật: không dùng 一本电脑. Bài này chưa yêu cầu học lượng từ của máy tính.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:measure",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "本 nằm giữa số lượng và 书"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天有汉语课。",
+                  "id": "professional-3:v2:block:class",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay có giờ học tiếng Trung.",
+                  "pinyin": "Jīntiān yǒu Hànyǔ kè.",
+                  "provenance": "",
+                  "title": "Buổi học theo nội dung"
+                },
+                {
+                  "alt": "",
+                  "body": "今天 (jīntiān) — hôm nay. 汉语课 là giờ/lớp học tiếng Trung. 书 là sách dùng học; 课 là buổi/tiết hoặc môn học tùy câu. Có sách không tự có nghĩa là đang ở trong một tiết học.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:class-note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "课 không phải quyển sách"
+                }
+              ],
+              "id": "professional-3:v2:materials",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Sách, nơi bán sách và thiết bị học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你学习汉语吗？",
+                  "id": "professional-3:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn học tiếng Trung phải không?",
+                  "pinyin": "Nǐ xuéxí Hànyǔ ma?",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是，我读书，也写汉字。",
+                  "id": "professional-3:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, tôi đọc sách, cũng viết chữ Hán.",
+                  "pinyin": "Shì, wǒ dú shū, yě xiě Hànzì.",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我有一个问题。这本书在哪里？",
+                  "id": "professional-3:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có một câu hỏi. Quyển sách này ở đâu?",
+                  "pinyin": "Wǒ yǒu yí ge wèntí. Zhè běn shū zài nǎlǐ?",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "在电脑旁边。",
+                  "id": "professional-3:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ở bên cạnh máy tính.",
+                  "pinyin": "Zài diànnǎo pángbiān.",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                }
+              ],
+              "id": "professional-3:v2:conversation",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi một câu hỏi về tài liệu",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/book-beside-computer-v1.webp",
+                "alt": "Hai người tìm quyển sách đặt ngay cạnh máy tính",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Quyển sách cần tìm ở cạnh máy tính."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我有一个问题。",
+                  "id": "professional-3:v2:block:question",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có một câu hỏi.",
+                  "pinyin": "Wǒ yǒu yí ge wèntí.",
+                  "provenance": "",
+                  "title": "Báo mình có câu hỏi"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这本书在哪里？",
+                  "id": "professional-3:v2:block:where",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Quyển sách này ở đâu?",
+                  "pinyin": "Zhè běn shū zài nǎlǐ?",
+                  "provenance": "",
+                  "title": "Hỏi nơi đặt sách"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我不知道。",
+                  "id": "professional-3:v2:block:know",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi không biết.",
+                  "pinyin": "Wǒ bù zhīdào.",
+                  "provenance": "",
+                  "title": "Nếu chưa biết câu trả lời"
+                },
+                {
+                  "alt": "",
+                  "body": "知道 (zhīdào) — biết một thông tin; 不知道 — không biết. 问题 trong tình huống này là câu hỏi, ở ngữ cảnh khác có thể là vấn đề. 我有一个问题 chưa nêu câu hỏi cụ thể: cần hỏi tiếp điều bạn muốn biết. 这本书在哪里？ hỏi nơi đặt sách; không thêm 吗 vì 哪里 đã hỏi “đâu”.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:ask-rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không biết cũng có cách đáp đúng"
+                }
+              ],
+              "id": "professional-3:v2:ask",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hỏi khi chưa biết"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "i",
+                      "have",
+                      "two",
+                      "measure",
+                      "book"
+                    ],
+                    "explanation": "我有两本书。Wǒ yǒu liǎng běn shū. 本 đứng giữa 两 và 书.",
+                    "hint": "Người sở hữu + 有 + số lượng + 本 + 书.",
+                    "learningTarget": {
+                      "objective": "Sắp xếp 两本书 với 本 làm lượng từ giữa số lượng và sách. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00010",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "book",
+                        "text": "书"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "i",
+                        "text": "我"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "two",
+                        "text": "两"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "measure",
+                        "text": "本"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "have",
+                        "text": "有"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Sắp xếp thành “Tôi có hai quyển sách”.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:book-order",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói số lượng sách"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "unknown"
+                    ],
+                    "explanation": "Biết câu mẫu chỉ vị trí không có nghĩa nên dùng khi không có thông tin. 我不知道 đáp đúng tình huống.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 我不知道 khi thật sự chưa biết vị trí sách, không tự đoán nơi đặt sách. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00288",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Bạn nói rõ chưa biết thông tin.",
+                        "id": "unknown",
+                        "text": "我不知道。"
+                      },
+                      {
+                        "feedback": "Đây là một vị trí cụ thể, không được tự đoán khi đề nói bạn chưa biết.",
+                        "id": "location",
+                        "text": "在电脑旁边。"
+                      },
+                      {
+                        "feedback": "Câu này nói lịch học, chưa trả lời câu hỏi về vị trí sách.",
+                        "id": "class",
+                        "text": "今天有汉语课。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Người bạn hỏi quyển sách ở đâu, nhưng bạn thật sự chưa biết. Chọn câu trả lời phù hợp.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:answer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đáp theo đúng thông tin bạn có"
+                }
+              ],
+              "id": "professional-3:v2:apply",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự dùng tài liệu và câu hỏi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn có hai quyển sách và sẽ học tiếng Trung cùng một người mới. Bạn đọc sách và viết chữ Hán. Người đó hỏi máy tính ở đâu, nhưng bạn chưa biết. Viết ba hoặc bốn câu để nói tài liệu/hoạt động và đáp đúng câu hỏi. Có thể quay lại từ hỗ trợ; không phải kiểm nhớ độc lập.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:new-context",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án: 我有两本书。我读书，也写汉字。我不知道电脑在哪里。Wǒ yǒu liǎng běn shū. Wǒ dú shū, yě xiě Hànzì. Wǒ bù zhīdào diànnǎo zài nǎlǐ. Tôi có hai quyển sách. Tôi đọc sách, cũng viết chữ Hán. Tôi không biết máy tính ở đâu. Có thể đáp câu cuối ngắn hơn: 我不知道。Không bắt buộc dùng cấu trúc dài chưa luyện.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu về sách, đọc/viết và câu trả lời trung thực khi thiếu thông tin. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-13",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "我有两本书. Dùng 两本书, không bỏ 本 hoặc đổi sách thành máy tính.",
+                        "id": "materials",
+                        "label": "Nói đúng số lượng và đồ vật"
+                      },
+                      {
+                        "guidance": "我读书，也写汉字. 读 và 写 diễn tả hai hành động khác nhau.",
+                        "id": "actions",
+                        "label": "Phân biệt hai hoạt động"
+                      },
+                      {
+                        "guidance": "Khi được hỏi máy tính ở đâu, đáp 我不知道 theo đúng tình huống.",
+                        "id": "answer",
+                        "label": "Không tự đoán thông tin chưa biết"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu của bạn trước khi đối chiếu.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo lời nói từ thông tin mới"
+                }
+              ],
+              "id": "professional-3:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Chuẩn bị buổi học ở chỗ mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoạt động: 学/学习 — học; 读/读书 — đọc/đọc sách; 写 — viết.\nTài liệu và bối cảnh: 书 — sách; 本 — lượng từ của sách; 书店 — hiệu sách; 电脑 — máy tính; 课 — giờ/môn học.\nHỏi đáp: 问题 — câu hỏi/vấn đề; 知道 — biết.\nTự nói mình học gì, có bao nhiêu sách và hỏi một thông tin còn thiếu. Nếu vướng, quay lại đúng phần; sau đó vào Thử Luyện. Đọc hết trang chưa tự chứng minh đã nhớ đủ mười hai từ.",
+                  "hanzi": "",
+                  "id": "professional-3:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Gom lại hai phần của bài"
+                }
+              ],
+              "id": "professional-3:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước buổi học tiếp theo"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "696e04c0-60fd-48c5-bc20-4b36a9188fc2",
+          "reviewedAt": "2026-09-29",
+          "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+          "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181"
+        },
+        "objectiveVi": "Nói hoạt động đọc, viết, học và hỏi đáp về tài liệu học.",
+        "pitfallVi": "本 không dùng cho mọi đồ vật; 书 khác 书店 và 课. Không thêm 吗 vào mẫu có 哪里. Không tự đoán vị trí khi không biết.",
+        "prerequisites": [
+          "professional-2"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "我学/学习汉语; 我读书; 我写汉字. Số lượng + 本 + 书. 我有一个问题 mở lời; 哪里 hỏi nơi chốn; 我不知道 đáp khi không biết.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-055"
+        ],
+        "sourceLessonIds": [
+          "professional-3"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-13"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-021",
+          "hsk1-topic-022",
+          "hsk1-topic-025"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00010",
+          "hsk-vocab-00036",
+          "hsk-vocab-00042",
+          "hsk-vocab-00043",
+          "hsk-vocab-00103",
+          "hsk-vocab-00190",
+          "hsk-vocab-00191",
+          "hsk-vocab-00220",
+          "hsk-vocab-00240",
+          "hsk-vocab-00247",
+          "hsk-vocab-00249",
+          "hsk-vocab-00288"
+        ],
+        "targetLessonId": "professional-3",
+        "titleZh": "学习和资料",
+        "vocabulary": [
+          "hsk-vocab-00010",
+          "hsk-vocab-00036",
+          "hsk-vocab-00042",
+          "hsk-vocab-00043",
+          "hsk-vocab-00103",
+          "hsk-vocab-00190",
+          "hsk-vocab-00191",
+          "hsk-vocab-00220",
+          "hsk-vocab-00240",
+          "hsk-vocab-00247",
+          "hsk-vocab-00249",
+          "hsk-vocab-00288"
+        ]
+      }
+    },
+    {
+      "lessonId": "professional-4",
+      "baseRevisionId": "f3dd9221-dd49-4c1a-baf9-c2a6d40a8f18",
+      "baseContentSha256": "sha256:3e1047c1f529691c3199d745060fe144068760e3ddb122d0b1afa88db9a99321",
+      "changedPageIds": [
+        "professional-4:v2:mission",
+        "professional-4:v2:talk"
+      ],
+      "content": {
+        "checkpointVi": "Dùng lịch C nói nơi làm việc và giờ làm/học, không chép giờ của lịch mẫu B.",
+        "conceptVi": "Nói nơi làm việc và phân biệt mốc bắt đầu/kết thúc ca làm, tiết học.",
+        "dialogue": [
+          {
+            "hanzi": "你在哪里工作？",
+            "meaningVi": "Bạn làm việc ở đâu?",
+            "pinyin": "Nǐ zài nǎlǐ gōngzuò?",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "我在公司工作。",
+            "meaningVi": "Tôi làm việc ở công ty.",
+            "pinyin": "Wǒ zài gōngsī gōngzuò.",
+            "speaker": "Bạn B"
+          },
+          {
+            "hanzi": "你几点下班？",
+            "meaningVi": "Bạn mấy giờ tan làm?",
+            "pinyin": "Nǐ jǐ diǎn xiàbān?",
+            "speaker": "Bạn A"
+          },
+          {
+            "hanzi": "我下午五点下班，晚上七点上汉语课。",
+            "meaningVi": "Tôi tan làm lúc năm giờ chiều, bảy giờ tối học tiếng Trung.",
+            "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān, wǎnshang qī diǎn shàng Hànyǔ kè.",
+            "speaker": "Bạn B"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我下午五点下班。",
+            "answerMeaningVi": "Tôi tan làm lúc năm giờ chiều.",
+            "answerPinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān.",
+            "distractors": [
+              "我下午五点下课。",
+              "我上午九点上班。"
+            ],
+            "explanationVi": "下班 là tan làm; 下课 đổi loại hoạt động, câu 上班 nói mốc bắt đầu khác.",
+            "promptVi": "Theo lịch B, nói giờ tan làm: 5 giờ chiều."
+          },
+          {
+            "answer": "我在公司工作。",
+            "answerMeaningVi": "Tôi làm ở công ty.",
+            "answerPinyin": "Wǒ zài gōngsī gōngzuò.",
+            "distractors": [
+              "我是公司工作。",
+              "我很忙。"
+            ],
+            "explanationVi": "在 + nơi + 工作; 是 không thay 在. Nói bận chưa nói nơi làm.",
+            "promptVi": "Nói bạn làm việc ở công ty."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "在公司 nêu nơi; 工作 là hoạt động.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "你在哪里工作？",
+              "modelAnswerMeaningVi": "Bạn làm việc ở đâu?",
+              "modelAnswerPinyin": "Nǐ zài nǎlǐ gōngzuò?",
+              "promptVi": "Hỏi người đối diện làm ở đâu."
+            },
+            "modelExample": {
+              "hanzi": "我在公司工作。",
+              "meaningVi": "Tôi làm ở công ty.",
+              "pinyin": "Wǒ zài gōngsī gōngzuò."
+            },
+            "pattern": "我 + 在 + 公司 + 工作"
+          },
+          {
+            "explanationVi": "Nói thời điểm và đúng loại hoạt động; thời gian đầu câu cũng có thể đúng.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我晚上八点下课。",
+              "modelAnswerMeaningVi": "Tôi hết tiết lúc tám giờ tối.",
+              "modelAnswerPinyin": "Wǒ wǎnshang bā diǎn xiàkè.",
+              "promptVi": "Theo lịch B, nói bạn hết tiết lúc tám giờ tối."
+            },
+            "modelExample": {
+              "hanzi": "我下午五点下班。",
+              "meaningVi": "Tôi tan làm lúc năm giờ chiều.",
+              "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān."
+            },
+            "pattern": "Chủ ngữ + thời gian + 上班/下班/上课/下课"
+          }
+        ],
+        "lessonPages": {
+          "art": "work",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một người bạn muốn biết bạn làm ở đâu và tan làm lúc nào. Buổi tối bạn còn có lớp tiếng Trung. Bạn sẽ phân biệt giờ bắt đầu/kết thúc công việc và tiết học, rồi kể lại lịch của một vai giả định.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dùng lịch để trả lời đúng"
+                },
+                {
+                  "alt": "",
+                  "body": "上午 (shàngwǔ) — buổi sáng; 下午 (xiàwǔ) — buổi chiều; 晚上 (wǎnshang) — buổi tối; 点 (diǎn) — giờ; 几点 (jǐ diǎn) — mấy giờ. 九 (jiǔ) — chín; 五 (wǔ) — năm; 七 (qī) — bảy; 八 (bā) — tám. Trong bài này, lịch sáng/chiều/tối đi cùng số giờ để tránh nhầm.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ khi đọc giờ"
+                }
+              ],
+              "id": "professional-4:v2:mission",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tìm giờ gặp sau một ngày làm việc",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/office-evening-class-v1.webp",
+                "alt": "Một người tan làm ở công ty rồi học tại lớp buổi tối",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Lịch trong hội thoại: 17:00 tan làm; 19:00 học tiếng Trung."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "公司",
+                  "id": "professional-4:v2:block:company",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "công ty",
+                  "pinyin": "gōngsī",
+                  "provenance": "",
+                  "title": "Tên một nơi/tổ chức"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在公司工作。",
+                  "id": "professional-4:v2:block:work",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi làm việc ở công ty.",
+                  "pinyin": "Wǒ zài gōngsī gōngzuò.",
+                  "provenance": "",
+                  "title": "Hoạt động"
+                },
+                {
+                  "alt": "",
+                  "body": "我 + 在公司 + 工作. 在公司 nêu nơi làm việc, 工作 là làm việc. 工作 cũng có thể là danh từ “công việc” trong câu khác; ở đây học cách dùng như hoạt động. Không nói 我是公司工作 để diễn đạt nơi làm việc.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:place-rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "在 + nơi + 工作"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我今天很忙。",
+                  "id": "professional-4:v2:block:busy",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay tôi bận.",
+                  "pinyin": "Wǒ jīntiān hěn máng.",
+                  "provenance": "",
+                  "title": "Nói tình trạng hôm nay"
+                },
+                {
+                  "alt": "",
+                  "body": "今天 (jīntiān) — hôm nay; 很 (hěn) đứng trước 忙 trong mẫu thông dụng. 我很忙 nói mình bận, không cho biết chính xác mấy giờ tan làm. Nếu người bạn hỏi 几点, cần trả lời thời điểm hoặc nói chưa biết.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:busy-note",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "忙 không phải một mốc giờ"
+                }
+              ],
+              "id": "professional-4:v2:place",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Nơi làm việc khác hoạt động làm việc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "上班/下班 dùng với ca hoặc ngày làm việc. 上课/下课 dùng với tiết học. 下课 kết thúc một tiết, không nhất thiết tan trường cả ngày; 上班 theo lịch là bắt đầu đi làm/ca làm, không luôn chỉ giờ rời nhà.",
+                    "nodes": [
+                      {
+                        "id": "work",
+                        "label": "上班 → 下班",
+                        "meaningVi": "đi làm/bắt đầu ca → tan làm",
+                        "note": "公司 và 工作 liên quan công việc, nhưng lịch cụ thể mới cho biết thời gian.",
+                        "pinyin": "shàngbān → xiàbān",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "class",
+                        "label": "上课 → 下课",
+                        "meaningVi": "vào tiết học → hết tiết học",
+                        "note": "上汉语课 là học một giờ/lớp tiếng Trung.",
+                        "pinyin": "shàngkè → xiàkè",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:pairs",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn đúng hoạt động trước, đúng mốc sau"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "class"
+                    ],
+                    "explanation": "Phân biệt 班 của công việc và 课 của tiết học; sau đó chọn 上 hay 下 theo bắt đầu/kết thúc.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 下课 là kết thúc tiết học, phân biệt với tan làm và bắt đầu tiết học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00229",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. 下课 kết thúc tiết học.",
+                        "id": "class",
+                        "text": "下课"
+                      },
+                      {
+                        "feedback": "下班 nói tan làm, không phải kết thúc tiết học trong tình huống này.",
+                        "id": "work",
+                        "text": "下班"
+                      },
+                      {
+                        "feedback": "上课 là vào/học tiết, ngược với mốc kết thúc.",
+                        "id": "start",
+                        "text": "上课"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Chọn từ nói đúng việc kết thúc tiết học.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:pair-check",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tiết tiếng Trung vừa kết thúc"
+                }
+              ],
+              "id": "professional-4:v2:pairs",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hai cặp bắt đầu và kết thúc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Đây là lịch giả định để luyện ngôn ngữ, không phải lịch áp dụng cho mọi công ty hoặc mọi lớp. Khoảng giữa tan làm và vào lớp chưa cho biết người đó làm gì.",
+                    "nodes": [
+                      {
+                        "id": "start-work",
+                        "label": "上午九点 · 上班",
+                        "meaningVi": "9 giờ sáng · đi làm/bắt đầu ca",
+                        "note": "Mốc công việc đầu ngày.",
+                        "pinyin": "shàngwǔ jiǔ diǎn · shàngbān",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "end-work",
+                        "label": "下午五点 · 下班",
+                        "meaningVi": "5 giờ chiều · tan làm",
+                        "note": "Không phải giờ kết thúc lớp tiếng Trung.",
+                        "pinyin": "xiàwǔ wǔ diǎn · xiàbān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "start-class",
+                        "label": "晚上七点 · 上课",
+                        "meaningVi": "7 giờ tối · vào lớp",
+                        "note": "Một hoạt động khác sau ca làm.",
+                        "pinyin": "wǎnshang qī diǎn · shàngkè",
+                        "x": 0,
+                        "y": 2
+                      },
+                      {
+                        "id": "end-class",
+                        "label": "晚上八点 · 下课",
+                        "meaningVi": "8 giờ tối · hết tiết",
+                        "note": "Chỉ khẳng định tiết học kết thúc.",
+                        "pinyin": "wǎnshang bā diǎn · xiàkè",
+                        "x": 0,
+                        "y": 3
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:timeline",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Lịch của vai B"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我上午九点上班。",
+                  "id": "professional-4:v2:block:time-order",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi làm lúc chín giờ sáng.",
+                  "pinyin": "Wǒ shàngwǔ jiǔ diǎn shàngbān.",
+                  "provenance": "",
+                  "title": "Đặt thời gian trước hoạt động"
+                },
+                {
+                  "alt": "",
+                  "body": "我上午九点上班 và 上午九点我上班 đều có thể nói cùng lịch. Trong bài luyện xếp câu này dùng mẫu chủ ngữ + thời gian + hoạt động; không coi vị trí thời gian đầu câu là sai nói chung.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:time-rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hai vị trí thời gian đều có thể đúng"
+                }
+              ],
+              "id": "professional-4:v2:schedule",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Đọc một lịch có cả đi làm và đi học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你在哪里工作？",
+                  "id": "professional-4:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn làm việc ở đâu?",
+                  "pinyin": "Nǐ zài nǎlǐ gōngzuò?",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在公司工作。",
+                  "id": "professional-4:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi làm việc ở công ty.",
+                  "pinyin": "Wǒ zài gōngsī gōngzuò.",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你几点下班？",
+                  "id": "professional-4:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn mấy giờ tan làm?",
+                  "pinyin": "Nǐ jǐ diǎn xiàbān?",
+                  "provenance": "",
+                  "speaker": "Bạn A",
+                  "title": "Bạn A"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我下午五点下班，晚上七点上汉语课。",
+                  "id": "professional-4:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi tan làm lúc năm giờ chiều, bảy giờ tối học tiếng Trung.",
+                  "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān, wǎnshang qī diǎn shàng Hànyǔ kè.",
+                  "provenance": "",
+                  "speaker": "Bạn B",
+                  "title": "Bạn B"
+                }
+              ],
+              "id": "professional-4:v2:talk",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Nghe câu hỏi và lấy đúng thông tin",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/office-evening-class-v1.webp",
+                "alt": "Một người tan làm ở công ty rồi học tại lớp buổi tối",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Lịch trong hội thoại: 17:00 tan làm; 19:00 học tiếng Trung."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "right"
+                    ],
+                    "explanation": "Câu hỏi chứa 下班 nên tìm mốc tan làm. Không chọn một câu chỉ vì cũng có số giờ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn giờ tan làm trong lịch vai B để trả lời 你几点下班, không lấy giờ tan học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00228",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: lịch ghi tan làm lúc 5 giờ chiều.",
+                        "id": "right",
+                        "text": "我下午五点下班。"
+                      },
+                      {
+                        "feedback": "Đây là giờ hết tiết học, không phải giờ tan làm.",
+                        "id": "class",
+                        "text": "我晚上八点下课。"
+                      },
+                      {
+                        "feedback": "Nói bận chưa trả lời mấy giờ.",
+                        "id": "busy",
+                        "text": "我很忙。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Dựa vào lịch vai B, trả lời 你几点下班？",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:time-choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Bạn mấy giờ tan làm?"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "i",
+                      "time",
+                      "class"
+                    ],
+                    "explanation": "我晚上七点上课。Wǒ wǎnshang qī diǎn shàngkè. Bài này yêu cầu chủ ngữ trước; 晚上七点我上课 cũng có thể đúng khi không bị ràng buộc mẫu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sắp xếp 我晚上七点上课 theo mẫu chủ ngữ + thời gian + hoạt động của câu. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00177",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "",
+                        "id": "class",
+                        "text": "上课"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "i",
+                        "text": "我"
+                      },
+                      {
+                        "feedback": "",
+                        "id": "time",
+                        "text": "晚上七点"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "order"
+                  },
+                  "alt": "",
+                  "body": "Xếp theo mẫu “Tôi + bảy giờ tối + vào lớp”.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:order",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ghép lịch lên lớp"
+                }
+              ],
+              "id": "professional-4:v2:practice",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự trả lời từ lịch"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai C làm việc ở công ty: 8 giờ sáng bắt đầu ca, 4 giờ chiều tan làm; 6 giờ tối vào lớp tiếng Trung, 7 giờ tối hết tiết. Từ hỗ trợ: 四 (sì) — bốn; 六 (liù) — sáu. Hãy nói nơi làm việc và hai mốc do bạn chọn, trong đó có ít nhất một mốc của lớp học.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:role",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Lịch mới của vai C"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án: 我在公司工作。我下午四点下班，晚上六点上汉语课。Wǒ zài gōngsī gōngzuò. Wǒ xiàwǔ sì diǎn xiàbān, wǎnshang liù diǎn shàng Hànyǔ kè. Tôi làm ở công ty. Tôi tan làm lúc 4 giờ chiều, 6 giờ tối học tiếng Trung. Có thể tách câu hoặc chọn mốc khác đúng lịch. Tự đối chiếu chưa phải điểm nói khách quan.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lịch vai C, không dùng lại giờ của vai B; tự kiểm mốc tan làm và vào học. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-task-14",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "我在公司工作.",
+                        "id": "place",
+                        "label": "Nói đúng nơi làm việc"
+                      },
+                      {
+                        "guidance": "上午八点上班; 下午四点下班; 晚上六点上课; 晚上七点下课.",
+                        "id": "time",
+                        "label": "Dùng giờ trong lịch C"
+                      },
+                      {
+                        "guidance": "Có ít nhất một câu với 上课/下课 và không dùng 下班 để nói hết tiết.",
+                        "id": "meaning",
+                        "label": "Phân biệt ca làm và tiết học"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Không dùng lại giờ của vai B. Có thể nhìn lịch C vì mục tiêu là diễn đạt đúng thông tin, không kiểm trí nhớ lịch.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết ba câu rồi đối chiếu"
+                }
+              ],
+              "id": "professional-4:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Kể một lịch khác, không chép lịch B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ở đâu? 在公司工作.\nMấy giờ đi/tan làm? 上班/下班.\nMấy giờ vào/hết tiết? 上课/下课.\nTình trạng thế nào? 忙 — bận, không thay câu trả lời về giờ.\nNếu nhầm, quay lại hai cặp hoạt động rồi đọc lại lịch. Tiếp tục Thử Luyện và ôn từ theo hệ thống hiện có; việc xem hết lịch không tự cấp bằng chứng thành thạo.",
+                  "hanzi": "",
+                  "id": "professional-4:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm loại thông tin trước khi trả lời"
+                }
+              ],
+              "id": "professional-4:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Mang theo cách đọc lịch"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/62-REVIEW-JOURNEY-PROFESSIONAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "a3099481-1280-425f-832e-3d35c8f025b4",
+          "reviewedAt": "2026-09-29",
+          "scope": "Two HSK1 journey and four professional lessons: exact source links for choices, orders, clozes and self-review writing.",
+          "targetPlanSha256": "sha256:cb0a1eaf06a7870bcbbcc9898c350d5aceb76fa26963126534491102a5209181"
+        },
+        "objectiveVi": "Nói nơi làm việc, thời điểm đi làm, vào học và kết thúc.",
+        "pitfallVi": "下课 không nhất thiết tan trường cả ngày; 上班 không luôn là giờ rời nhà. 我很忙 không trả lời mấy giờ. Không lẫn giờ tan làm với giờ hết tiết.",
+        "prerequisites": [
+          "professional-3"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "我在公司工作. Chủ ngữ + thời gian + 上班/下班/上课/下课; 几点 hỏi giờ. 忙 nói tình trạng bận.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-pattern:hsk1-study-work:04-work-and-schedule"
+        ],
+        "sourceLessonIds": [
+          "professional-4"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-14"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-026",
+          "hsk1-topic-027",
+          "hsk1-topic-028"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00062",
+          "hsk-vocab-00063",
+          "hsk-vocab-00118",
+          "hsk-vocab-00176",
+          "hsk-vocab-00177",
+          "hsk-vocab-00228",
+          "hsk-vocab-00229"
+        ],
+        "targetLessonId": "professional-4",
+        "titleZh": "工作和日程",
+        "vocabulary": [
+          "hsk-vocab-00062",
+          "hsk-vocab-00063",
+          "hsk-vocab-00118",
+          "hsk-vocab-00176",
+          "hsk-vocab-00177",
+          "hsk-vocab-00228",
+          "hsk-vocab-00229"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+.journey-loading { position: relative; isolation: isolate; min-height: var(--learner-stage-block, 70vh); display: grid; place-items: center; padding: 32px 24px; color: #eff8ef; background: #06120f; text-align: center; overflow: hidden; }
+.journey-loading--fullscreen { min-height: 100dvh; }
+.journey-loading::before { position: absolute; inset: 0; z-index: -1; content: ""; background: linear-gradient(90deg, #03120fe8, #03120fa8), url('/ngoc-dien-gate-v1.webp') center / cover; }
+.journey-loading::after { content: ""; position: absolute; inset: 18px; border: 1px solid #8db69b45; pointer-events: none; }
+.journey-loading-content { width: min(100%, 480px); display: flex; flex-direction: column; align-items: center; }
+.journey-loading .jade-seal { width: 100px; height: 100px; margin-bottom: 22px; }
+.journey-loading-brand { font: 600 14px/1.4 var(--sans); letter-spacing: .24em; color: #d7b66a; }
+.journey-loading h1 { margin: 22px 0 10px; font: 650 clamp(25px, 4vw, 38px)/1.2 var(--sans); }
+.journey-loading p { margin: 0; font: 400 16px/1.6 var(--sans); color: #c1d5ca; }
+.journey-loading-line { width: 160px; height: 3px; margin: 28px 0; background: #29483c; overflow: hidden; border-radius: 2px; }
+.journey-loading-line i { display: block; height: 100%; width: 45%; background: #78e0bb; animation: journey-loading-progress 1.6s ease-in-out infinite alternate; }
+.journey-loading small { color: #a3b7ab; font: 400 12px/1.5 var(--sans); }
+@keyframes journey-loading-progress { to { transform: translateX(125%); } }
+@media (prefers-reduced-motion: reduce) { .journey-loading-line i { animation: none; margin-inline: auto; } }

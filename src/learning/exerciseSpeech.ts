@@ -1,5 +1,6 @@
 import type { VocabularyItem } from "../types";
 import type { Exercise } from "../lib/exerciseGeneration";
+import { lexicalBaseExerciseId } from "../content/lexicalEditorialCatalog";
 
 type SpeechExerciseTarget = {
   kind: Exercise["kind"];
@@ -11,7 +12,8 @@ type SpeechExerciseTarget = {
 
 const tonePosition = (exercise: SpeechExerciseTarget, word: VocabularyItem) => {
   const prefix = `${word.id}-tone-`;
-  const exerciseId = exercise.id ?? exercise.exerciseId;
+  const rawId = exercise.id ?? exercise.exerciseId;
+  const exerciseId = rawId ? lexicalBaseExerciseId(rawId) : undefined;
   if (!exerciseId?.startsWith(prefix)) return null;
   const value = Number(exerciseId.slice(prefix.length));
   return Number.isSafeInteger(value) && value >= 0 ? value : null;

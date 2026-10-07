@@ -213,7 +213,7 @@ export function ReaderLibraryPage() {
           <header className="reader-catalog-heading">
             <div>
               <small>THƯ KHỐ ĐANG MỞ · {libraryChapterCount} CHƯƠNG ĐỌC ĐƯỢC</small>
-              <h1 id="reader-catalog-title">Chọn một thế giới để khai quyển</h1>
+              <div className="realm-emblem" aria-hidden="true" /><h1 id="reader-catalog-title">Chọn một thế giới để khai quyển</h1>
               <p>Mỗi trang sách là một cánh cửa. Đọc truyện tiếng Trung, tra chữ trong ngữ cảnh và lưu lại những từ muốn nhớ.</p>
             </div>
             <button

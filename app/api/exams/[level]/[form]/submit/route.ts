@@ -39,6 +39,8 @@ export async function POST(request: Request, context: Context) {
         database,
         userId,
         command.sessionId,
+        level,
+        form,
       ),
     execute: async (repository, userId, command, database) => {
       const receipt = await repository.submitSession(userId, command);

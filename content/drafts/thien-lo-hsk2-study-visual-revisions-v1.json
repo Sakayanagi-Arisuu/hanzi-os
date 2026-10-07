@@ -1,0 +1,3477 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "baseRevisionId": "64aa319c-14bd-4d79-879e-0c411f996127",
+      "baseContentSha256": "sha256:b96e990f15617130ad540ff4a74878311d1b5969c873c9d824757d6d87f63fed",
+      "changedPageIds": [
+        "hsk2-study-work-culture-lesson-01:v2:context",
+        "hsk2-study-work-culture-lesson-01:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Vai mới bắt đầu sáu tháng trước, học hai buổi mỗi tuần; đã làm hết bài nhưng câu số ba chưa hiểu. Viết sáu lượt hỏi/đáp về lịch sử, tần suất, khó khăn và việc sẽ làm. Không dùng dữ kiện hai năm/ba buổi của mẫu.",
+        "conceptVi": "Kể quá trình học và chỉ đúng phần chưa hiểu",
+        "dialogue": [
+          {
+            "hanzi": "你什么时候开始学汉语的？",
+            "meaningVi": "Bạn bắt đầu học tiếng Trung khi nào?",
+            "pinyin": "Nǐ shénme shíhou kāishǐ xué Hànyǔ de?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "两年前开始的，现在每周上三次课。",
+            "meaningVi": "Bắt đầu hai năm trước, hiện học ba buổi mỗi tuần.",
+            "pinyin": "Liǎng nián qián kāishǐ de, xiànzài měi zhōu shàng sān cì kè.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "昨天的练习做完了吗？",
+            "meaningVi": "Bạn làm xong bài luyện hôm qua chưa?",
+            "pinyin": "Zuótiān de liànxí zuòwán le ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "做完了，但是有两道题没看懂。",
+            "meaningVi": "Làm xong rồi, nhưng có hai câu tôi chưa hiểu.",
+            "pinyin": "Zuòwán le, dànshì yǒu liǎng dào tí méi kàndǒng.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "你准备怎么办？",
+            "meaningVi": "Bạn định làm gì?",
+            "pinyin": "Nǐ zhǔnbèi zěnme bàn?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "我把题记在本子上，下次上课问老师。",
+            "meaningVi": "Tôi ghi câu hỏi vào vở, buổi sau hỏi giáo viên.",
+            "pinyin": "Wǒ bǎ tí jì zài běnzi shàng, xià cì shàngkè wèn lǎoshī.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他做完了练习，但还有两道题没看懂。",
+            "answerMeaningVi": "Đã làm xong nhưng còn hai câu chưa hiểu.",
+            "answerPinyin": "Tā zuòwán le liànxí, dàn hái yǒu liǎng dào tí méi kàndǒng.",
+            "distractors": [
+              "他每周上两次课，已经全懂了。",
+              "他还没做完练习。"
+            ],
+            "explanationVi": "Đúng: hoàn thành bài và hiểu bài là hai điều khác nhau.",
+            "promptVi": "Điều nào đúng với Tiểu An?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "从…开始学 nêu điểm bắt đầu. 学了两年 nêu thời lượng; 每周三次 nêu tần suất, không phải đã học ba năm.\n做完了 nói hoàn tất hành động; 看懂了 nói đã hiểu khi đọc. 我做完了，但是有两道题没看懂 giữ được hai sự thật cùng lúc. Không suy 已经 làm người nói đúng hết.\n教 đọc jiāo khi là động từ dạy trong 老师教我们汉语. 问题 thường là vấn đề/câu hỏi; 两道题 đếm câu bài tập. Nói cụ thể 哪两道题 chưa hiểu giúp người nghe hỗ trợ đúng chỗ.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你什么时候开始学汉语的？ B：六个月前开始的。 A：每周上几次课？ B：两次。 A：练习做完了吗？ B：做完了，但是第三题没看懂。我准备问老师。",
+              "modelAnswerMeaningVi": "Bắt đầu sáu tháng trước, học hai buổi mỗi tuần, làm xong nhưng chưa hiểu câu ba và định hỏi giáo viên.",
+              "modelAnswerPinyin": "A: Nǐ shénme shíhou kāishǐ xué Hànyǔ de? B: Liù ge yuè qián kāishǐ de. A: Měi zhōu shàng jǐ cì kè? B: Liǎng cì. A: Liànxí zuòwán le ma? B: Zuòwán le, dànshì dì sān tí méi kàndǒng. Wǒ zhǔnbèi wèn lǎoshī.",
+              "promptVi": "Vai mới bắt đầu sáu tháng trước, học hai buổi mỗi tuần; đã làm hết bài nhưng câu số ba chưa hiểu. Viết sáu lượt hỏi/đáp về lịch sử, tần suất, khó khăn và việc sẽ làm. Không dùng dữ kiện hai năm/ba buổi của mẫu."
+            },
+            "modelExample": {
+              "hanzi": "做完了，但是没看懂。",
+              "meaningVi": "Đã làm xong nhưng chưa hiểu khi đọc.",
+              "pinyin": "Zuòwán le, dànshì méi kàndǒng."
+            },
+            "pattern": "做完 ≠ 看懂"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tiểu An bắt đầu học tiếng Trung hai năm trước, hiện học ba buổi mỗi tuần. Bài tập hôm qua đã làm hết nhưng còn hai câu chưa hiểu. Em cần hỏi giáo viên về hai câu ấy; làm xong không đồng nghĩa làm đúng hoặc hiểu hết.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "以前 yǐqián: trước đây · 每周 měi zhōu: mỗi tuần · 道 dào: lượng từ câu bài tập · 再 zài: lại lần tới · 把题记在本子上 bǎ tí jì zài běnzi shàng: ghi câu hỏi vào vở, dùng cả cụm hỗ trợ trong bài này.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Kể quá trình học và chỉ đúng phần chưa hiểu",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-study-questions-v1.webp",
+                "alt": "Người học ghi lại hai chỗ chưa hiểu trong bài tập",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Làm hết bài tập nhưng còn hai câu chưa hiểu; ghi lại để hỏi giáo viên ở buổi tới."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你什么时候开始学汉语的？",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn bắt đầu học tiếng Trung khi nào?",
+                  "pinyin": "Nǐ shénme shíhou kāishǐ xué Hànyǔ de?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "两年前开始的，现在每周上三次课。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bắt đầu hai năm trước, hiện học ba buổi mỗi tuần.",
+                  "pinyin": "Liǎng nián qián kāishǐ de, xiànzài měi zhōu shàng sān cì kè.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "昨天的练习做完了吗？",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn làm xong bài luyện hôm qua chưa?",
+                  "pinyin": "Zuótiān de liànxí zuòwán le ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "做完了，但是有两道题没看懂。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Làm xong rồi, nhưng có hai câu tôi chưa hiểu.",
+                  "pinyin": "Zuòwán le, dànshì yǒu liǎng dào tí méi kàndǒng.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你准备怎么办？",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn định làm gì?",
+                  "pinyin": "Nǐ zhǔnbèi zěnme bàn?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我把题记在本子上，下次上课问老师。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi ghi câu hỏi vào vở, buổi sau hỏi giáo viên.",
+                  "pinyin": "Wǒ bǎ tí jì zài běnzi shàng, xià cì shàngkè wèn lǎoshī.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-study-questions-v1.webp",
+                "alt": "Người học ghi lại hai chỗ chưa hiểu trong bài tập",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Làm hết bài tập nhưng còn hai câu chưa hiểu; ghi lại để hỏi giáo viên ở buổi tới."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Dữ kiện và quan hệ được ghi bằng chữ; ảnh nền chỉ trang trí. Các thẻ này có thể sửa trong Xưởng.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "两年前",
+                        "meaningVi": "Bắt đầu học",
+                        "note": "Mốc thời gian, không phải tần suất.",
+                        "pinyin": "liǎng nián qián",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "每周三次",
+                        "meaningVi": "Ba buổi mỗi tuần",
+                        "note": "Lịch học hiện tại.",
+                        "pinyin": "měi zhōu sān cì",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "做完／没看懂",
+                        "meaningVi": "Làm xong / chưa hiểu",
+                        "note": "Hai câu chưa hiểu; cần hỏi cụ thể.",
+                        "pinyin": "zuòwán / méi kàndǒng",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc đúng từng loại thông tin"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Điểm bắt đầu, tần suất và kết quả"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "从…开始学 nêu điểm bắt đầu. 学了两年 nêu thời lượng; 每周三次 nêu tần suất, không phải đã học ba năm.\n做完了 nói hoàn tất hành động; 看懂了 nói đã hiểu khi đọc. 我做完了，但是有两道题没看懂 giữ được hai sự thật cùng lúc. Không suy 已经 làm người nói đúng hết.\n教 đọc jiāo khi là động từ dạy trong 老师教我们汉语. 问题 thường là vấn đề/câu hỏi; 两道题 đếm câu bài tập. Nói cụ thể 哪两道题 chưa hiểu giúp người nghe hỗ trợ đúng chỗ.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "做完了，但是没看懂。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đã làm xong nhưng chưa hiểu khi đọc.",
+                  "pinyin": "Zuòwán le, dànshì méi kàndǒng.",
+                  "provenance": "",
+                  "title": "做完 ≠ 看懂"
+                },
+                {
+                  "alt": "",
+                  "body": "Thời lượng học không chứng minh trình độ; làm đủ câu không chứng minh hiểu. 没看懂 không giữ 了 ngay sau 懂 trong mẫu phủ định này.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kể quá trình học và chỉ đúng phần chưa hiểu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "lớp; nhóm; ca làm",
+                  "hanzi": "我们班有二十个学生。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00304",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lớp chúng tôi có hai mươi học sinh.",
+                  "pinyin": "Wǒmen bān yǒu èrshí ge xuésheng.",
+                  "provenance": "",
+                  "title": "班 · bān"
+                },
+                {
+                  "alt": "",
+                  "body": "vở; sổ",
+                  "hanzi": "我从书包里拿出本子画画。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00308",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi lấy vở từ cặp ra để vẽ.",
+                  "pinyin": "Wǒ cóng shūbāo lǐ náchū běnzi huàhuà.",
+                  "provenance": "",
+                  "title": "本子 · běnzi"
+                },
+                {
+                  "alt": "",
+                  "body": "bút",
+                  "hanzi": "这支笔是我的。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00310",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc bút này là của tôi.",
+                  "pinyin": "Zhè zhī bǐ shì wǒ de.",
+                  "provenance": "",
+                  "title": "笔 · bǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "từ; từ ngữ",
+                  "hanzi": "请读这个词。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00322",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hãy đọc từ này.",
+                  "pinyin": "Qǐng dú zhège cí.",
+                  "provenance": "",
+                  "title": "词 · cí"
+                },
+                {
+                  "alt": "",
+                  "body": "từ nhỏ",
+                  "hanzi": "她从小就喜欢唱歌。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00325",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy thích hát từ nhỏ.",
+                  "pinyin": "Tā cóngxiǎo jiù xǐhuan chànggē.",
+                  "provenance": "",
+                  "title": "从小 · cóngxiǎo"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "sai; lỗi",
+                  "hanzi": "这道题我做错了。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00326",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi làm sai câu này.",
+                  "pinyin": "Zhè dào tí wǒ zuòcuò le.",
+                  "provenance": "",
+                  "title": "错 · cuò"
+                },
+                {
+                  "alt": "",
+                  "body": "hiểu",
+                  "hanzi": "我已经听懂了。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00337",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã nghe hiểu rồi.",
+                  "pinyin": "Wǒ yǐjīng tīngdǒng le.",
+                  "provenance": "",
+                  "title": "懂 · dǒng"
+                },
+                {
+                  "alt": "",
+                  "body": "trung học phổ thông; cấp ba",
+                  "hanzi": "我从高中开始学，已经学了两年。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00342",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi bắt đầu học từ cấp ba, đã học hai năm.",
+                  "pinyin": "Wǒ cóng gāozhōng kāishǐ xué, yǐjīng xué le liǎng nián.",
+                  "provenance": "",
+                  "title": "高中 · gāozhōng"
+                },
+                {
+                  "alt": "",
+                  "body": "nhớ",
+                  "hanzi": "我记得他的名字。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00365",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi nhớ tên anh ấy.",
+                  "pinyin": "Wǒ jìde tā de míngzi.",
+                  "provenance": "",
+                  "title": "记得 · jìde"
+                },
+                {
+                  "alt": "",
+                  "body": "dạy",
+                  "hanzi": "王老师教我们汉语。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00367",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thầy/cô Vương dạy chúng tôi tiếng Trung.",
+                  "pinyin": "Wáng lǎoshī jiāo wǒmen Hànyǔ.",
+                  "provenance": "",
+                  "title": "教 · jiāo"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "thi; kiểm tra",
+                  "hanzi": "明天考汉语。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00380",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai thi tiếng Trung.",
+                  "pinyin": "Míngtiān kǎo Hànyǔ.",
+                  "provenance": "",
+                  "title": "考 · kǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "thi; kỳ thi",
+                  "hanzi": "考试九点开始。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00381",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bài thi bắt đầu lúc chín giờ.",
+                  "pinyin": "Kǎoshì jiǔ diǎn kāishǐ.",
+                  "provenance": "",
+                  "title": "考试 · kǎoshì"
+                },
+                {
+                  "alt": "",
+                  "body": "đề; câu hỏi",
+                  "hanzi": "这两道题我还没看懂。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00442",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi vẫn chưa hiểu hai câu bài tập này.",
+                  "pinyin": "Zhè liǎng dào tí wǒ hái méi kàndǒng.",
+                  "provenance": "",
+                  "title": "题 · tí"
+                },
+                {
+                  "alt": "",
+                  "body": "xong; hoàn thành",
+                  "hanzi": "我写完汉字了。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00448",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã viết xong chữ Hán.",
+                  "pinyin": "Wǒ xiěwán Hànzì le.",
+                  "provenance": "",
+                  "title": "完 · wán"
+                },
+                {
+                  "alt": "",
+                  "body": "quên",
+                  "hanzi": "别忘了拿机票。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00452",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng quên cầm vé máy bay.",
+                  "pinyin": "Bié wàng le ná jīpiào.",
+                  "provenance": "",
+                  "title": "忘 · wàng"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đã; rồi",
+                  "hanzi": "手表已经坏了。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00472",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đồng hồ đã hỏng rồi.",
+                  "pinyin": "Shǒubiǎo yǐjīng huài le.",
+                  "provenance": "",
+                  "title": "已经 · yǐjīng"
+                },
+                {
+                  "alt": "",
+                  "body": "tuần",
+                  "hanzi": "我每周上三次课。",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:word-hsk-vocab-00492",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi học ba buổi mỗi tuần.",
+                  "pinyin": "Wǒ měi zhōu shàng sān cì kè.",
+                  "provenance": "",
+                  "title": "周 · zhōu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: hoàn thành bài và hiểu bài là hai điều khác nhau. Thời lượng học không chứng minh trình độ; làm đủ câu không chứng minh hiểu. 没看懂 không giữ 了 ngay sau 懂 trong mẫu phủ định này.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể quá trình học và chỉ đúng phần chưa hiểu",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-13",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đã đổi ba thành hai và suy hiểu hết từ việc làm xong.",
+                        "id": "option-0",
+                        "text": "他每周上两次课，已经全懂了。"
+                      },
+                      {
+                        "feedback": "Đúng: hoàn thành bài và hiểu bài là hai điều khác nhau.",
+                        "id": "option-1",
+                        "text": "他做完了练习，但还有两道题没看懂。"
+                      },
+                      {
+                        "feedback": "Đề nói đã làm hết; chưa hiểu không đồng nghĩa chưa làm xong.",
+                        "id": "option-2",
+                        "text": "他还没做完练习。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Điều nào đúng với Tiểu An?",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "没"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没看懂 nói chưa đạt kết quả hiểu trong lần đọc; không dùng 不 để kể kết quả chưa đạt của lần này.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "没看懂 nói chưa đạt kết quả hiểu trong lần đọc; không dùng 不 để kể kết quả chưa đạt của lần này.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-study-work-culture-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Đã làm hết nhưng chưa hiểu hai câu: 做完了，但是有两道题___看懂。 Điền 没 hoặc 不.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới bắt đầu sáu tháng trước, học hai buổi mỗi tuần; đã làm hết bài nhưng câu số ba chưa hiểu. Viết sáu lượt hỏi/đáp về lịch sử, tần suất, khó khăn và việc sẽ làm. Không dùng dữ kiện hai năm/ba buổi của mẫu.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你什么时候开始学汉语的？ B：六个月前开始的。 A：每周上几次课？ B：两次。 A：练习做完了吗？ B：做完了，但是第三题没看懂。我准备问老师。\nA: Nǐ shénme shíhou kāishǐ xué Hànyǔ de? B: Liù ge yuè qián kāishǐ de. A: Měi zhōu shàng jǐ cì kè? B: Liǎng cì. A: Liànxí zuòwán le ma? B: Zuòwán le, dànshì dì sān tí méi kàndǒng. Wǒ zhǔnbèi wèn lǎoshī.\nBắt đầu sáu tháng trước, học hai buổi mỗi tuần, làm xong nhưng chưa hiểu câu ba và định hỏi giáo viên.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể quá trình học và chỉ đúng phần chưa hiểu",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-13",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt sáu tháng với hai buổi mỗi tuần.",
+                        "id": "criterion-0",
+                        "label": "Phân biệt sáu tháng với hai buổi mỗi tuần."
+                      },
+                      {
+                        "guidance": "Giữ trạng thái đã làm xong.",
+                        "id": "criterion-1",
+                        "label": "Giữ trạng thái đã làm xong."
+                      },
+                      {
+                        "guidance": "Nói rõ câu ba chưa hiểu, không khẳng định hiểu hết.",
+                        "id": "criterion-2",
+                        "label": "Nói rõ câu ba chưa hiểu, không khẳng định hiểu hết."
+                      },
+                      {
+                        "guidance": "Có bước hỏi giáo viên và ít nhất sáu lượt.",
+                        "id": "criterion-3",
+                        "label": "Có bước hỏi giáo viên và ít nhất sáu lượt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Phân biệt sáu tháng với hai buổi mỗi tuần.\nGiữ trạng thái đã làm xong.\nNói rõ câu ba chưa hiểu, không khẳng định hiểu hết.\nCó bước hỏi giáo viên và ít nhất sáu lượt.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-01:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-01:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/30-REVIEW-HSK2-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-study-work-culture-lesson-01",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 study history, schedules, current work, bounded cultural experience and forms of address.",
+          "sourceContentSha256": "sha256:a43efd4c563df3584b53843f6e46767d14c29038a5d175d60dd49715801b0a0e"
+        },
+        "objectiveVi": "Kể quá trình học và chỉ đúng phần chưa hiểu",
+        "pitfallVi": "Thời lượng học không chứng minh trình độ; làm đủ câu không chứng minh hiểu. 没看懂 không giữ 了 ngay sau 懂 trong mẫu phủ định này.",
+        "prerequisites": [
+          "hsk2-travel-leisure-lesson-05"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "从…开始学 nêu điểm bắt đầu. 学了两年 nêu thời lượng; 每周三次 nêu tần suất, không phải đã học ba năm.\n做完了 nói hoàn tất hành động; 看懂了 nói đã hiểu khi đọc. 我做完了，但是有两道题没看懂 giữ được hai sự thật cùng lúc. Không suy 已经 làm người nói đúng hết.\n教 đọc jiāo khi là động từ dạy trong 老师教我们汉语. 问题 thường là vấn đề/câu hỏi; 两道题 đếm câu bài tập. Nói cụ thể 哪两道题 chưa hiểu giúp người nghe hỗ trợ đúng chỗ.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-study-work-culture-lesson-01"
+        ],
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-01"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-13"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-025",
+          "hsk2-topic-026"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00304",
+          "hsk-vocab-00308",
+          "hsk-vocab-00310",
+          "hsk-vocab-00322",
+          "hsk-vocab-00325",
+          "hsk-vocab-00326",
+          "hsk-vocab-00337",
+          "hsk-vocab-00342",
+          "hsk-vocab-00365",
+          "hsk-vocab-00367",
+          "hsk-vocab-00380",
+          "hsk-vocab-00381",
+          "hsk-vocab-00442",
+          "hsk-vocab-00448",
+          "hsk-vocab-00452",
+          "hsk-vocab-00472",
+          "hsk-vocab-00492"
+        ],
+        "targetLessonId": "hsk2-study-work-culture-lesson-01",
+        "titleZh": "HSK二级 · 16",
+        "vocabulary": [
+          "hsk-vocab-00304",
+          "hsk-vocab-00308",
+          "hsk-vocab-00310",
+          "hsk-vocab-00322",
+          "hsk-vocab-00325",
+          "hsk-vocab-00326",
+          "hsk-vocab-00337",
+          "hsk-vocab-00342",
+          "hsk-vocab-00365",
+          "hsk-vocab-00367",
+          "hsk-vocab-00380",
+          "hsk-vocab-00381",
+          "hsk-vocab-00442",
+          "hsk-vocab-00448",
+          "hsk-vocab-00452",
+          "hsk-vocab-00472",
+          "hsk-vocab-00492"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "baseRevisionId": "99b58626-780d-4842-b696-b77ee6a3b17b",
+      "baseContentSha256": "sha256:614a2108f2830e71cfcfbfd52fa9c5bc2142406b0650cbc0a5a1ac181d4be351",
+      "changedPageIds": [
+        "hsk2-study-work-culture-lesson-02:v2:context",
+        "hsk2-study-work-culture-lesson-02:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Lịch mới: thứ ba tuần sau khai giảng; lớp tầng ba, 9:00–10:30; đọc sách ở thư viện lúc 11:00. Mang sách và bút. Viết sáu lượt để xác nhận ngày, phòng, giờ và việc sau lớp.",
+        "conceptVi": "Đọc lịch trường và sắp xếp việc sau giờ học",
+        "dialogue": [
+          {
+            "hanzi": "你们什么时候开学？",
+            "meaningVi": "Trường bạn khi nào khai giảng?",
+            "pinyin": "Nǐmen shénme shíhou kāixué?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "下周一。第一天八点半开始上课。",
+            "meaningVi": "Thứ hai tuần sau. Ngày đầu bắt đầu học lúc 8:30.",
+            "pinyin": "Xià zhōu yī. Dì yī tiān bā diǎn bàn kāishǐ shàngkè.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "教室在哪儿？几点下课？",
+            "meaningVi": "Lớp ở đâu? Mấy giờ tan học?",
+            "pinyin": "Jiàoshì zài nǎr? Jǐ diǎn xiàkè?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "在二楼，十点下课。十点一刻在教室画画。",
+            "meaningVi": "Ở tầng hai, 10 giờ tan học. 10:15 vẽ tại lớp.",
+            "pinyin": "Zài èr lóu, shí diǎn xiàkè. Shí diǎn yí kè zài jiàoshì huàhuà.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "我需要带什么？",
+            "meaningVi": "Tôi cần mang gì?",
+            "pinyin": "Wǒ xūyào dài shénme?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "带本子和笔。下课以后，先休息，再画画。",
+            "meaningVi": "Mang vở và bút. Sau giờ học, nghỉ trước rồi vẽ.",
+            "pinyin": "Dài běnzi hé bǐ. Xiàkè yǐhòu, xiān xiūxi, zài huàhuà.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "八点半上课，十点下课，十点一刻画画。",
+            "answerMeaningVi": "8:30 học, 10:00 tan, 10:15 vẽ.",
+            "answerPinyin": "Bā diǎn bàn shàngkè, shí diǎn xiàkè, shí diǎn yí kè huàhuà.",
+            "distractors": [
+              "十点一刻开始上课。",
+              "下周二开学。"
+            ],
+            "explanationVi": "Đúng: giữ thứ tự và khoảng nghỉ 15 phút.",
+            "promptVi": "Lịch nào đúng cho ngày đầu?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "开学 nói bắt đầu học kỳ/năm học. 开始上课 nói bắt đầu buổi/tiết học; không dùng một giờ để thay một ngày trong câu trả lời.\n下课以后 là sau khi kết thúc giờ học. 先拿本子，再画画 sắp thứ tự; không khẳng định hai hành động đã xảy ra. 从书包里拿出本子 diễn đạt lấy vở từ trong cặp ra.\nĐọc lịch cần gắn từng giờ với đúng hoạt động: 8:30 học, 10:00 tan, 10:15 vẽ. 教室 đọc jiàoshì; 教 dạy trong bài trước đọc jiāo, không ép một cách đọc cho mọi từ.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：什么时候开学？ B：下周二，九点开始上课。 A：教室在哪儿？ B：在三楼，十点半下课。 A：下课以后做什么？需要带什么？ B：十一点去图书馆看书，带书和笔。",
+              "modelAnswerMeaningVi": "Thứ ba khai giảng, lớp tầng ba học 9:00–10:30; 11 giờ đọc sách ở thư viện, mang sách và bút.",
+              "modelAnswerPinyin": "A: Shénme shíhou kāixué? B: Xià zhōu èr, jiǔ diǎn kāishǐ shàngkè. A: Jiàoshì zài nǎr? B: Zài sān lóu, shí diǎn bàn xiàkè. A: Xiàkè yǐhòu zuò shénme? Xūyào dài shénme? B: Shíyī diǎn qù túshūguǎn kàn shū, dài shū hé bǐ.",
+              "promptVi": "Lịch mới: thứ ba tuần sau khai giảng; lớp tầng ba, 9:00–10:30; đọc sách ở thư viện lúc 11:00. Mang sách và bút. Viết sáu lượt để xác nhận ngày, phòng, giờ và việc sau lớp."
+            },
+            "modelExample": {
+              "hanzi": "下课以后，先休息，再画画。",
+              "meaningVi": "Sau giờ học, nghỉ trước rồi vẽ.",
+              "pinyin": "Xiàkè yǐhòu, xiān xiūxi, zài huàhuà."
+            },
+            "pattern": "下课以后，先…再…"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Trường khai giảng thứ hai tuần sau. Ngày đầu, lớp ở tầng hai: bắt đầu 8:30, kết thúc 10:00. Vẽ ở phòng đó từ 10:15. Người học phân biệt ngày khai giảng với giờ bắt đầu một tiết và có 15 phút chuyển hoạt động.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "楼 lóu: tầng · 结束 jiéshù: kết thúc · 带 dài: mang theo · 以后 yǐhòu: sau khi · 先…再… xiān…zài…: trước…rồi…",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Đọc lịch trường và sắp xếp việc sau giờ học",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-school-art-v1.webp",
+                "alt": "Lớp học chuẩn bị vở bút và đồ vẽ cho ngày khai giảng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Lịch ngày đầu ở tầng hai: 08:30–10:00 học, nghỉ 15 phút rồi vẽ lúc 10:15."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你们什么时候开学？",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trường bạn khi nào khai giảng?",
+                  "pinyin": "Nǐmen shénme shíhou kāixué?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "下周一。第一天八点半开始上课。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ hai tuần sau. Ngày đầu bắt đầu học lúc 8:30.",
+                  "pinyin": "Xià zhōu yī. Dì yī tiān bā diǎn bàn kāishǐ shàngkè.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "教室在哪儿？几点下课？",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lớp ở đâu? Mấy giờ tan học?",
+                  "pinyin": "Jiàoshì zài nǎr? Jǐ diǎn xiàkè?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "在二楼，十点下课。十点一刻在教室画画。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ở tầng hai, 10 giờ tan học. 10:15 vẽ tại lớp.",
+                  "pinyin": "Zài èr lóu, shí diǎn xiàkè. Shí diǎn yí kè zài jiàoshì huàhuà.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我需要带什么？",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi cần mang gì?",
+                  "pinyin": "Wǒ xūyào dài shénme?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "带本子和笔。下课以后，先休息，再画画。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mang vở và bút. Sau giờ học, nghỉ trước rồi vẽ.",
+                  "pinyin": "Dài běnzi hé bǐ. Xiàkè yǐhòu, xiān xiūxi, zài huàhuà.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-school-art-v1.webp",
+                "alt": "Lớp học chuẩn bị vở bút và đồ vẽ cho ngày khai giảng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Lịch ngày đầu ở tầng hai: 08:30–10:00 học, nghỉ 15 phút rồi vẽ lúc 10:15."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Dữ kiện và quan hệ được ghi bằng chữ; ảnh nền chỉ trang trí. Các thẻ này có thể sửa trong Xưởng.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "下周一",
+                        "meaningVi": "Khai giảng",
+                        "note": "Ngày, không phải giờ.",
+                        "pinyin": "xià zhōu yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "8:30 → 10:00",
+                        "meaningVi": "Học ở tầng hai",
+                        "note": "Buổi học ngày đầu.",
+                        "pinyin": "bā diǎn bàn → shí diǎn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "10:15",
+                        "meaningVi": "Vẽ tại lớp",
+                        "note": "15 phút sau khi tan.",
+                        "pinyin": "shí diǎn yí kè",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc đúng từng loại thông tin"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Lịch ngày đầu đi học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "开学 nói bắt đầu học kỳ/năm học. 开始上课 nói bắt đầu buổi/tiết học; không dùng một giờ để thay một ngày trong câu trả lời.\n下课以后 là sau khi kết thúc giờ học. 先拿本子，再画画 sắp thứ tự; không khẳng định hai hành động đã xảy ra. 从书包里拿出本子 diễn đạt lấy vở từ trong cặp ra.\nĐọc lịch cần gắn từng giờ với đúng hoạt động: 8:30 học, 10:00 tan, 10:15 vẽ. 教室 đọc jiàoshì; 教 dạy trong bài trước đọc jiāo, không ép một cách đọc cho mọi từ.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "下课以后，先休息，再画画。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau giờ học, nghỉ trước rồi vẽ.",
+                  "pinyin": "Xiàkè yǐhòu, xiān xiūxi, zài huàhuà.",
+                  "provenance": "",
+                  "title": "下课以后，先…再…"
+                },
+                {
+                  "alt": "",
+                  "body": "Khai giảng không có nghĩa lúc nào cũng bắt đầu học vào 8:30; đây là lịch của ngày đầu đã cho.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc lịch trường và sắp xếp việc sau giờ học"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "vẽ; tranh",
+                  "hanzi": "他会画画。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-hsk-vocab-00359",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy biết vẽ.",
+                  "pinyin": "Tā huì huàhuà.",
+                  "provenance": "",
+                  "title": "画 · huà"
+                },
+                {
+                  "alt": "",
+                  "body": "phòng học",
+                  "hanzi": "教室在五楼。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-hsk-vocab-00368",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lớp học ở tầng năm.",
+                  "pinyin": "Jiàoshì zài wǔ lóu.",
+                  "provenance": "",
+                  "title": "教室 · jiàoshì"
+                },
+                {
+                  "alt": "",
+                  "body": "giới thiệu",
+                  "hanzi": "请介绍一下自己。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-hsk-vocab-00369",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hãy giới thiệu một chút về bản thân.",
+                  "pinyin": "Qǐng jièshào yíxià zìjǐ.",
+                  "provenance": "",
+                  "title": "介绍 · jièshào"
+                },
+                {
+                  "alt": "",
+                  "body": "bắt đầu",
+                  "hanzi": "电影八点开始。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-hsk-vocab-00378",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ phim bắt đầu lúc tám giờ.",
+                  "pinyin": "Diànyǐng bā diǎn kāishǐ.",
+                  "provenance": "",
+                  "title": "开始 · kāishǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "khai giảng; bắt đầu học kỳ",
+                  "hanzi": "你们什么时候开学？",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-hsk-vocab-00379",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Các bạn khi nào khai giảng?",
+                  "pinyin": "Nǐmen shénme shíhou kāixué?",
+                  "provenance": "",
+                  "title": "开学 · kāixué"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cặp sách",
+                  "hanzi": "我从书包里拿出本子画画。",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:word-hsk-vocab-00435",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi lấy vở từ cặp ra để vẽ.",
+                  "pinyin": "Wǒ cóng shūbāo lǐ náchū běnzi huàhuà.",
+                  "provenance": "",
+                  "title": "书包 · shūbāo"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: giữ thứ tự và khoảng nghỉ 15 phút. Khai giảng không có nghĩa lúc nào cũng bắt đầu học vào 8:30; đây là lịch của ngày đầu đã cho.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đọc lịch trường và sắp xếp việc sau giờ học",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-14",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: giữ thứ tự và khoảng nghỉ 15 phút.",
+                        "id": "option-0",
+                        "text": "八点半上课，十点下课，十点一刻画画。"
+                      },
+                      {
+                        "feedback": "10:15 là giờ vẽ, không phải bắt đầu lớp.",
+                        "id": "option-1",
+                        "text": "十点一刻开始上课。"
+                      },
+                      {
+                        "feedback": "Đã đổi thứ hai thành thứ ba.",
+                        "id": "option-2",
+                        "text": "下周二开学。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Lịch nào đúng cho ngày đầu?",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "十五"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Khoảng cách 10:00–10:15 là 15 phút, không phải giờ 10 hay giờ 15.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Khoảng cách 10:00–10:15 là 15 phút, không phải giờ 10 hay giờ 15.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-study-work-culture-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Tan lúc 10:00, vẽ lúc 10:15. 两个活动之间有___分钟。 Điền số phút bằng chữ Hán.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lịch mới: thứ ba tuần sau khai giảng; lớp tầng ba, 9:00–10:30; đọc sách ở thư viện lúc 11:00. Mang sách và bút. Viết sáu lượt để xác nhận ngày, phòng, giờ và việc sau lớp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：什么时候开学？ B：下周二，九点开始上课。 A：教室在哪儿？ B：在三楼，十点半下课。 A：下课以后做什么？需要带什么？ B：十一点去图书馆看书，带书和笔。\nA: Shénme shíhou kāixué? B: Xià zhōu èr, jiǔ diǎn kāishǐ shàngkè. A: Jiàoshì zài nǎr? B: Zài sān lóu, shí diǎn bàn xiàkè. A: Xiàkè yǐhòu zuò shénme? Xūyào dài shénme? B: Shíyī diǎn qù túshūguǎn kàn shū, dài shū hé bǐ.\nThứ ba khai giảng, lớp tầng ba học 9:00–10:30; 11 giờ đọc sách ở thư viện, mang sách và bút.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đọc lịch trường và sắp xếp việc sau giờ học",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-14",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Đúng thứ ba và tầng ba.",
+                        "id": "criterion-0",
+                        "label": "Đúng thứ ba và tầng ba."
+                      },
+                      {
+                        "guidance": "Giữ giờ học 9:00–10:30.",
+                        "id": "criterion-1",
+                        "label": "Giữ giờ học 9:00–10:30."
+                      },
+                      {
+                        "guidance": "Đọc ở thư viện 11:00, không giữ hoạt động vẽ.",
+                        "id": "criterion-2",
+                        "label": "Đọc ở thư viện 11:00, không giữ hoạt động vẽ."
+                      },
+                      {
+                        "guidance": "Nêu đồ cần mang và đủ sáu lượt.",
+                        "id": "criterion-3",
+                        "label": "Nêu đồ cần mang và đủ sáu lượt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đúng thứ ba và tầng ba.\nGiữ giờ học 9:00–10:30.\nĐọc ở thư viện 11:00, không giữ hoạt động vẽ.\nNêu đồ cần mang và đủ sáu lượt.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-02:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-02:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/30-REVIEW-HSK2-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-study-work-culture-lesson-02",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 study history, schedules, current work, bounded cultural experience and forms of address.",
+          "sourceContentSha256": "sha256:ceda22e00431c3fb1ca055ed38793e2c53054f78ad47e97c3e700454548d2871"
+        },
+        "objectiveVi": "Đọc lịch trường và sắp xếp việc sau giờ học",
+        "pitfallVi": "Khai giảng không có nghĩa lúc nào cũng bắt đầu học vào 8:30; đây là lịch của ngày đầu đã cho.",
+        "prerequisites": [
+          "hsk2-study-work-culture-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "开学 nói bắt đầu học kỳ/năm học. 开始上课 nói bắt đầu buổi/tiết học; không dùng một giờ để thay một ngày trong câu trả lời.\n下课以后 là sau khi kết thúc giờ học. 先拿本子，再画画 sắp thứ tự; không khẳng định hai hành động đã xảy ra. 从书包里拿出本子 diễn đạt lấy vở từ trong cặp ra.\nĐọc lịch cần gắn từng giờ với đúng hoạt động: 8:30 học, 10:00 tan, 10:15 vẽ. 教室 đọc jiàoshì; 教 dạy trong bài trước đọc jiāo, không ép một cách đọc cho mọi từ.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-study-work-culture-lesson-02"
+        ],
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-14"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-027",
+          "hsk2-topic-028"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00359",
+          "hsk-vocab-00368",
+          "hsk-vocab-00369",
+          "hsk-vocab-00378",
+          "hsk-vocab-00379",
+          "hsk-vocab-00435"
+        ],
+        "targetLessonId": "hsk2-study-work-culture-lesson-02",
+        "titleZh": "HSK二级 · 17",
+        "vocabulary": [
+          "hsk-vocab-00359",
+          "hsk-vocab-00368",
+          "hsk-vocab-00369",
+          "hsk-vocab-00378",
+          "hsk-vocab-00379",
+          "hsk-vocab-00435"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "baseRevisionId": "c3a7c1a6-8126-420d-808c-f9eabe768dde",
+      "baseContentSha256": "sha256:53987c44bea1bf29e7ce8aa9ec54d67b03d0b8dd8832b6b3e5d242b16fb62848",
+      "changedPageIds": [
+        "hsk2-study-work-culture-lesson-03:v2:context",
+        "hsk2-study-work-culture-lesson-03:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Vai mới là giáo viên ở trường có 80 giáo viên và 2.000 học sinh. Đang đọc bài viết của học sinh để chuẩn bị cho ngày mai. Bận nhưng thích công việc. Viết sáu lượt, giữ đúng số và trạng thái.",
+        "conceptVi": "Tách nghề nghiệp, việc đang làm và việc đã xong",
+        "dialogue": [
+          {
+            "hanzi": "你在哪儿工作？",
+            "meaningVi": "Bạn làm việc ở đâu?",
+            "pinyin": "Nǐ zài nǎr gōngzuò?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我在一所学校当老师。",
+            "meaningVi": "Tôi làm giáo viên ở một trường.",
+            "pinyin": "Wǒ zài yì suǒ xuéxiào dāng lǎoshī.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "学校有多少名老师和学生？",
+            "meaningVi": "Trường có bao nhiêu giáo viên và học sinh?",
+            "pinyin": "Xuéxiào yǒu duōshao míng lǎoshī hé xuésheng?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "有一百二十名老师，一万名学生。",
+            "meaningVi": "Có 120 giáo viên và 10.000 học sinh.",
+            "pinyin": "Yǒu yì bǎi èrshí míng lǎoshī, yí wàn míng xuésheng.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "你现在忙什么事情？",
+            "meaningVi": "Bây giờ bạn bận việc gì?",
+            "pinyin": "Nǐ xiànzài máng shénme shìqing?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "我正准备下午的课。工作很忙，但是我很快乐。",
+            "meaningVi": "Tôi đang chuẩn bị tiết chiều. Công việc bận nhưng tôi vui.",
+            "pinyin": "Wǒ zhèng zhǔnbèi xiàwǔ de kè. Gōngzuò hěn máng, dànshì wǒ hěn kuàilè.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他正准备下午的课，学校有一百二十名老师。",
+            "answerMeaningVi": "Đang chuẩn bị tiết chiều; trường có 120 giáo viên.",
+            "answerPinyin": "Tā zhèng zhǔnbèi xiàwǔ de kè, xuéxiào yǒu yì bǎi èrshí míng lǎoshī.",
+            "distractors": [
+              "学校有一万名老师。",
+              "他已经上完下午的课了。"
+            ],
+            "explanationVi": "Đúng: giữ trạng thái đang chuẩn bị và đúng nhóm được đếm.",
+            "promptVi": "Câu nào đúng về công việc hiện tại và quy mô trường?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "在学校工作 nêu nơi làm việc, không tự cho biết đang làm gì lúc này. 正/正在 + động từ nói đang diễn ra: 正准备下午的课 không phải 已经上完课.\n一百二十 là 120; 一万 là 10.000. Danh từ sau số rất quan trọng: 一百二十名老师 khác 一万名学生. 名 ở đây đếm người, không phải 名字 tên.\n我觉得… nêu cảm nhận cá nhân. Công việc 忙 bận không tự bằng 不快乐 không vui. Khi hỏi người khác, hỏi tiếp nhiệm vụ cụ thể thay vì suy từ nghề nghiệp.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你在哪儿工作？ B：我在一所学校当老师。 A：学校有多少名老师和学生？ B：八十名老师，两千名学生。 A：你现在忙什么？ B：我正在看学生写的文章，准备明天的课。我很忙，但是很喜欢这份工作。",
+              "modelAnswerMeaningVi": "Giáo viên ở trường 80 giáo viên/2.000 học sinh, đang đọc bài và chuẩn bị tiết ngày mai; bận nhưng thích công việc.",
+              "modelAnswerPinyin": "A: Nǐ zài nǎr gōngzuò? B: Wǒ zài yì suǒ xuéxiào dāng lǎoshī. A: Xuéxiào yǒu duōshao míng lǎoshī hé xuésheng? B: Bāshí míng lǎoshī, liǎng qiān míng xuésheng. A: Nǐ xiànzài máng shénme? B: Wǒ zhèngzài kàn xuésheng xiě de wénzhāng, zhǔnbèi míngtiān de kè. Wǒ hěn máng, dànshì hěn xǐhuan zhè fèn gōngzuò.",
+              "promptVi": "Vai mới là giáo viên ở trường có 80 giáo viên và 2.000 học sinh. Đang đọc bài viết của học sinh để chuẩn bị cho ngày mai. Bận nhưng thích công việc. Viết sáu lượt, giữ đúng số và trạng thái."
+            },
+            "modelExample": {
+              "hanzi": "我正准备下午的课。",
+              "meaningVi": "Tôi đang chuẩn bị tiết chiều.",
+              "pinyin": "Wǒ zhèng zhǔnbèi xiàwǔ de kè."
+            },
+            "pattern": "正/正在 + việc đang làm"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Nhân vật giả định là giáo viên ở trường có 120 giáo viên và 10.000 học sinh. Hiện người đó đang chuẩn bị tiết chiều, chưa bắt đầu dạy tiết ấy. Con số học sinh không phải số giáo viên.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "准备 zhǔnbèi: chuẩn bị · 学生 xuésheng: học sinh · 一万 yí wàn: mười nghìn · 名 míng: lượng từ người trong ngữ cảnh trang trọng · 当老师 dāng lǎoshī: làm giáo viên · 文章 wénzhāng: bài viết · 这份工作 zhè fèn gōngzuò: công việc này.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tách nghề nghiệp, việc đang làm và việc đã xong",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-teacher-prepares-v1.webp",
+                "alt": "Giáo viên chuẩn bị tài liệu cho tiết chiều ở phòng làm việc",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Đang chuẩn bị tiết chiều, chưa dạy tiết đó. Trường trong bài có 120 giáo viên, 10.000 học sinh."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你在哪儿工作？",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn làm việc ở đâu?",
+                  "pinyin": "Nǐ zài nǎr gōngzuò?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我在一所学校当老师。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi làm giáo viên ở một trường.",
+                  "pinyin": "Wǒ zài yì suǒ xuéxiào dāng lǎoshī.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "学校有多少名老师和学生？",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trường có bao nhiêu giáo viên và học sinh?",
+                  "pinyin": "Xuéxiào yǒu duōshao míng lǎoshī hé xuésheng?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "有一百二十名老师，一万名学生。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có 120 giáo viên và 10.000 học sinh.",
+                  "pinyin": "Yǒu yì bǎi èrshí míng lǎoshī, yí wàn míng xuésheng.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你现在忙什么事情？",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bây giờ bạn bận việc gì?",
+                  "pinyin": "Nǐ xiànzài máng shénme shìqing?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我正准备下午的课。工作很忙，但是我很快乐。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đang chuẩn bị tiết chiều. Công việc bận nhưng tôi vui.",
+                  "pinyin": "Wǒ zhèng zhǔnbèi xiàwǔ de kè. Gōngzuò hěn máng, dànshì wǒ hěn kuàilè.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-teacher-prepares-v1.webp",
+                "alt": "Giáo viên chuẩn bị tài liệu cho tiết chiều ở phòng làm việc",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Đang chuẩn bị tiết chiều, chưa dạy tiết đó. Trường trong bài có 120 giáo viên, 10.000 học sinh."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Dữ kiện và quan hệ được ghi bằng chữ; ảnh nền chỉ trang trí. Các thẻ này có thể sửa trong Xưởng.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "一百二十名老师",
+                        "meaningVi": "120 giáo viên",
+                        "note": "Không đổi thành 10.000 giáo viên.",
+                        "pinyin": "yì bǎi èrshí míng lǎoshī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "一万名学生",
+                        "meaningVi": "10.000 học sinh",
+                        "note": "万 = 10.000.",
+                        "pinyin": "yí wàn míng xuésheng",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "正准备",
+                        "meaningVi": "Đang chuẩn bị",
+                        "note": "Chưa bắt đầu dạy tiết chiều.",
+                        "pinyin": "zhèng zhǔnbèi",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc đúng từng loại thông tin"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đếm đúng người, kể đúng việc"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "在学校工作 nêu nơi làm việc, không tự cho biết đang làm gì lúc này. 正/正在 + động từ nói đang diễn ra: 正准备下午的课 không phải 已经上完课.\n一百二十 là 120; 一万 là 10.000. Danh từ sau số rất quan trọng: 一百二十名老师 khác 一万名学生. 名 ở đây đếm người, không phải 名字 tên.\n我觉得… nêu cảm nhận cá nhân. Công việc 忙 bận không tự bằng 不快乐 không vui. Khi hỏi người khác, hỏi tiếp nhiệm vụ cụ thể thay vì suy từ nghề nghiệp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我正准备下午的课。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đang chuẩn bị tiết chiều.",
+                  "pinyin": "Wǒ zhèng zhǔnbèi xiàwǔ de kè.",
+                  "provenance": "",
+                  "title": "正/正在 + việc đang làm"
+                },
+                {
+                  "alt": "",
+                  "body": "Chuẩn bị tiết học chưa phải đang dạy hoặc đã dạy xong. Không đổi nhóm được đếm chỉ vì nhớ đúng con số.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tách nghề nghiệp, việc đang làm và việc đã xong"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "tên; vị trí trong bảng xếp hạng",
+                  "hanzi": "学校有八十名老师。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:word-hsk-vocab-00404",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trường có tám mươi giáo viên.",
+                  "pinyin": "Xuéxiào yǒu bāshí míng lǎoshī.",
+                  "provenance": "",
+                  "title": "名 · míng"
+                },
+                {
+                  "alt": "",
+                  "body": "sự việc; chuyện",
+                  "hanzi": "你现在忙什么事情？",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:word-hsk-vocab-00432",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hiện bạn bận việc gì?",
+                  "pinyin": "Nǐ xiànzài máng shénme shìqing?",
+                  "provenance": "",
+                  "title": "事情 · shìqing"
+                },
+                {
+                  "alt": "",
+                  "body": "mười nghìn",
+                  "hanzi": "学校有一万名学生。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:word-hsk-vocab-00449",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trường có mười nghìn học sinh.",
+                  "pinyin": "Xuéxiào yǒu yí wàn míng xuésheng.",
+                  "provenance": "",
+                  "title": "万 · wàn"
+                },
+                {
+                  "alt": "",
+                  "body": "đang; chính; đúng",
+                  "hanzi": "我正吃饭呢。",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:word-hsk-vocab-00491",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đang ăn cơm đây.",
+                  "pinyin": "Wǒ zhèng chīfàn ne.",
+                  "provenance": "",
+                  "title": "正 · zhèng"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng: giữ trạng thái đang chuẩn bị và đúng nhóm được đếm. Chuẩn bị tiết học chưa phải đang dạy hoặc đã dạy xong. Không đổi nhóm được đếm chỉ vì nhớ đúng con số.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tách nghề nghiệp, việc đang làm và việc đã xong",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-15",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "10.000 là số học sinh, không phải giáo viên.",
+                        "id": "option-0",
+                        "text": "学校有一万名老师。"
+                      },
+                      {
+                        "feedback": "Đang chuẩn bị chưa phải đã dạy xong.",
+                        "id": "option-1",
+                        "text": "他已经上完下午的课了。"
+                      },
+                      {
+                        "feedback": "Đúng: giữ trạng thái đang chuẩn bị và đúng nhóm được đếm.",
+                        "id": "option-2",
+                        "text": "他正准备下午的课，学校有一百二十名老师。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Câu nào đúng về công việc hiện tại và quy mô trường?",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "万"
+                    ],
+                    "answerIds": [],
+                    "explanation": "一万 là 10.000; 一千 là 1.000. 名 đếm người trong mẫu này.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "一万 là 10.000; 一千 là 1.000. 名 đếm người trong mẫu này.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-study-work-culture-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Trường có 10.000 học sinh: 学校有一___名学生。 Điền 万 hoặc 千.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới là giáo viên ở trường có 80 giáo viên và 2.000 học sinh. Đang đọc bài viết của học sinh để chuẩn bị cho ngày mai. Bận nhưng thích công việc. Viết sáu lượt, giữ đúng số và trạng thái.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你在哪儿工作？ B：我在一所学校当老师。 A：学校有多少名老师和学生？ B：八十名老师，两千名学生。 A：你现在忙什么？ B：我正在看学生写的文章，准备明天的课。我很忙，但是很喜欢这份工作。\nA: Nǐ zài nǎr gōngzuò? B: Wǒ zài yì suǒ xuéxiào dāng lǎoshī. A: Xuéxiào yǒu duōshao míng lǎoshī hé xuésheng? B: Bāshí míng lǎoshī, liǎng qiān míng xuésheng. A: Nǐ xiànzài máng shénme? B: Wǒ zhèngzài kàn xuésheng xiě de wénzhāng, zhǔnbèi míngtiān de kè. Wǒ hěn máng, dànshì hěn xǐhuan zhè fèn gōngzuò.\nGiáo viên ở trường 80 giáo viên/2.000 học sinh, đang đọc bài và chuẩn bị tiết ngày mai; bận nhưng thích công việc.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tách nghề nghiệp, việc đang làm và việc đã xong",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-15",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ đúng 80 giáo viên/2.000 học sinh.",
+                        "id": "criterion-0",
+                        "label": "Giữ đúng 80 giáo viên/2.000 học sinh."
+                      },
+                      {
+                        "guidance": "正在 nói đang đọc, không phải đã đọc xong.",
+                        "id": "criterion-1",
+                        "label": "正在 nói đang đọc, không phải đã đọc xong."
+                      },
+                      {
+                        "guidance": "Nêu chuẩn bị cho ngày mai.",
+                        "id": "criterion-2",
+                        "label": "Nêu chuẩn bị cho ngày mai."
+                      },
+                      {
+                        "guidance": "Tách bận với cảm nhận thích công việc.",
+                        "id": "criterion-3",
+                        "label": "Tách bận với cảm nhận thích công việc."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giữ đúng 80 giáo viên/2.000 học sinh.\n正在 nói đang đọc, không phải đã đọc xong.\nNêu chuẩn bị cho ngày mai.\nTách bận với cảm nhận thích công việc.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-03:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-03:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/30-REVIEW-HSK2-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-study-work-culture-lesson-03",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 study history, schedules, current work, bounded cultural experience and forms of address.",
+          "sourceContentSha256": "sha256:2fa17f99ccc705a7e710d550b72b9f2d6c07c93588b34e07d760a128a4e69cd9"
+        },
+        "objectiveVi": "Tách nghề nghiệp, việc đang làm và việc đã xong",
+        "pitfallVi": "Chuẩn bị tiết học chưa phải đang dạy hoặc đã dạy xong. Không đổi nhóm được đếm chỉ vì nhớ đúng con số.",
+        "prerequisites": [
+          "hsk2-study-work-culture-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "在学校工作 nêu nơi làm việc, không tự cho biết đang làm gì lúc này. 正/正在 + động từ nói đang diễn ra: 正准备下午的课 không phải 已经上完课.\n一百二十 là 120; 一万 là 10.000. Danh từ sau số rất quan trọng: 一百二十名老师 khác 一万名学生. 名 ở đây đếm người, không phải 名字 tên.\n我觉得… nêu cảm nhận cá nhân. Công việc 忙 bận không tự bằng 不快乐 không vui. Khi hỏi người khác, hỏi tiếp nhiệm vụ cụ thể thay vì suy từ nghề nghiệp.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-study-work-culture-lesson-03"
+        ],
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-03"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-15"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-029",
+          "hsk2-topic-030",
+          "hsk2-topic-031"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00404",
+          "hsk-vocab-00432",
+          "hsk-vocab-00449",
+          "hsk-vocab-00491"
+        ],
+        "targetLessonId": "hsk2-study-work-culture-lesson-03",
+        "titleZh": "HSK二级 · 18",
+        "vocabulary": [
+          "hsk-vocab-00404",
+          "hsk-vocab-00432",
+          "hsk-vocab-00449",
+          "hsk-vocab-00491"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "baseRevisionId": "226e5551-3075-4d14-b6c4-f40c2bd20bfe",
+      "baseContentSha256": "sha256:89ad23c70712bdfe56938f74bb7134eeb899eb3d62009134ee8a22bf6fee14ca",
+      "changedPageIds": [
+        "hsk2-study-work-culture-lesson-04:v2:context",
+        "hsk2-study-work-culture-lesson-04:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Vai mới chưa đón Tết ở Trung Quốc, dự định năm sau đến nhà bạn ở Thượng Hải. Bạn kể nhà mình thường ăn cơm cùng nhau ngày Tết, nhưng không biết nhà người bạn ăn gì. Viết sáu lượt, hỏi thay vì đoán phong tục nhà bạn.",
+        "conceptVi": "Kể trải nghiệm Tết, tránh khái quát phong tục",
+        "dialogue": [
+          {
+            "hanzi": "你在中国过过年吗？",
+            "meaningVi": "Bạn từng đón Tết ở Trung Quốc chưa?",
+            "pinyin": "Nǐ zài Zhōngguó guòguo nián ma?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "过过。去年我在北京的朋友家过年。",
+            "meaningVi": "Rồi. Năm ngoái tôi đón Tết ở nhà bạn tại Bắc Kinh.",
+            "pinyin": "Guòguo. Qùnián wǒ zài Běijīng de péngyou jiā guònián.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你们吃了什么？",
+            "meaningVi": "Các bạn đã ăn gì?",
+            "pinyin": "Nǐmen chī le shénme?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我们一起吃了饺子，很快乐。",
+            "meaningVi": "Chúng tôi cùng ăn sủi cảo, rất vui.",
+            "pinyin": "Wǒmen yìqǐ chī le jiǎozi, hěn kuàilè.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "每家都吃饺子吗？",
+            "meaningVi": "Nhà nào cũng ăn sủi cảo à?",
+            "pinyin": "Měi jiā dōu chī jiǎozi ma?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "不一定，每家的习惯不一定一样。你呢？",
+            "meaningVi": "Không nhất thiết, thói quen mỗi nhà không nhất thiết giống nhau. Còn bạn?",
+            "pinyin": "Bù yídìng, měi jiā de xíguàn bù yídìng yíyàng. Nǐ ne?",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "我没在中国过过年，打算明年去。",
+            "meaningVi": "Tôi chưa từng đón Tết ở Trung Quốc, định năm sau đi.",
+            "pinyin": "Wǒ méi zài Zhōngguó guòguo nián, dǎsuàn míngnián qù.",
+            "speaker": "Lượt 7"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他在朋友家吃了饺子，不是说每家都一样。",
+            "answerMeaningVi": "Ăn sủi cảo ở nhà bạn, không nói mọi nhà đều giống nhau.",
+            "answerPinyin": "Tā zài péngyou jiā chī le jiǎozi, bú shì shuō měi jiā dōu yíyàng.",
+            "distractors": [
+              "中国每家过年都只吃饺子。",
+              "他的朋友已经去过中国过年。"
+            ],
+            "explanationVi": "Đúng: giữ trải nghiệm nhà bạn, không khái quát cả nước.",
+            "promptVi": "Kết luận nào giữ đúng phạm vi trải nghiệm?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "过年 là đón năm mới/Tết theo ngữ cảnh này. 过过年 có 过 thứ nhất là động từ guò, thứ hai là trợ từ trải nghiệm nhẹ guo. 没过过 phủ định chưa từng có trải nghiệm.\n打算明年去 chỉ dự định, chưa thành đã đi. 生日快乐 chúc sinh nhật; 新年快乐 chúc năm mới. Không hoán đổi lời chúc khi ngày lễ đã rõ.\nKể phong tục nên giữ phạm vi 我朋友家… và thừa nhận 每家的习惯不一定一样. Một bữa sủi cảo không chứng minh mọi nhà, mọi vùng đều ăn sủi cảo.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你在中国过过年吗？ B：没过过，打算明年去上海的朋友家。 A：你家过年做什么？ B：我们一起吃饭。 A：你朋友家吃什么？ B：我还不知道，准备问问他。每家的习惯不一定一样。",
+              "modelAnswerMeaningVi": "Chưa từng đón Tết ở Trung Quốc; dự định đến nhà bạn ở Thượng Hải. Nhà mình cùng ăn cơm, còn nhà bạn thì chưa biết nên sẽ hỏi.",
+              "modelAnswerPinyin": "A: Nǐ zài Zhōngguó guòguo nián ma? B: Méi guòguo, dǎsuàn míngnián qù Shànghǎi de péngyou jiā. A: Nǐ jiā guònián zuò shénme? B: Wǒmen yìqǐ chīfàn. A: Nǐ péngyou jiā chī shénme? B: Wǒ hái bù zhīdào, zhǔnbèi wènwen tā. Měi jiā de xíguàn bù yídìng yíyàng.",
+              "promptVi": "Vai mới chưa đón Tết ở Trung Quốc, dự định năm sau đến nhà bạn ở Thượng Hải. Bạn kể nhà mình thường ăn cơm cùng nhau ngày Tết, nhưng không biết nhà người bạn ăn gì. Viết sáu lượt, hỏi thay vì đoán phong tục nhà bạn."
+            },
+            "modelExample": {
+              "hanzi": "我没在中国过过年。",
+              "meaningVi": "Tôi chưa từng đón Tết ở Trung Quốc.",
+              "pinyin": "Wǒ méi zài Zhōngguó guòguo nián."
+            },
+            "pattern": "过 + trải nghiệm; 打算 + dự định"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lý Minh kể một lần đón Tết tại nhà bạn ở Bắc Kinh, cùng gia đình ấy ăn sủi cảo. Đây là trải nghiệm một gia đình, không phải quy tắc mọi người Trung Quốc đều làm giống nhau. Người nghe chưa đón Tết tại Trung Quốc và dự định đi năm sau.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "春节 Chūnjié: Tết Nguyên đán · 饺子 jiǎozi: sủi cảo · 每家 měi jiā: mỗi gia đình · 不一定 bù yídìng: không nhất thiết · 打算 dǎsuàn: dự định.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Kể trải nghiệm Tết, tránh khái quát phong tục",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-new-year-dumplings-v1.webp",
+                "alt": "Minh họa một lần cùng gia đình bạn ăn sủi cảo dịp Tết",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Trải nghiệm năm ngoái ở nhà bạn tại Bắc Kinh; phong tục mỗi gia đình có thể khác nhau."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你在中国过过年吗？",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn từng đón Tết ở Trung Quốc chưa?",
+                  "pinyin": "Nǐ zài Zhōngguó guòguo nián ma?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "过过。去年我在北京的朋友家过年。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Rồi. Năm ngoái tôi đón Tết ở nhà bạn tại Bắc Kinh.",
+                  "pinyin": "Guòguo. Qùnián wǒ zài Běijīng de péngyou jiā guònián.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你们吃了什么？",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Các bạn đã ăn gì?",
+                  "pinyin": "Nǐmen chī le shénme?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我们一起吃了饺子，很快乐。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng tôi cùng ăn sủi cảo, rất vui.",
+                  "pinyin": "Wǒmen yìqǐ chī le jiǎozi, hěn kuàilè.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "每家都吃饺子吗？",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhà nào cũng ăn sủi cảo à?",
+                  "pinyin": "Měi jiā dōu chī jiǎozi ma?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "不一定，每家的习惯不一定一样。你呢？",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không nhất thiết, thói quen mỗi nhà không nhất thiết giống nhau. Còn bạn?",
+                  "pinyin": "Bù yídìng, měi jiā de xíguàn bù yídìng yíyàng. Nǐ ne?",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我没在中国过过年，打算明年去。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chưa từng đón Tết ở Trung Quốc, định năm sau đi.",
+                  "pinyin": "Wǒ méi zài Zhōngguó guòguo nián, dǎsuàn míngnián qù.",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-new-year-dumplings-v1.webp",
+                "alt": "Minh họa một lần cùng gia đình bạn ăn sủi cảo dịp Tết",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Trải nghiệm năm ngoái ở nhà bạn tại Bắc Kinh; phong tục mỗi gia đình có thể khác nhau."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Dữ kiện và quan hệ được ghi bằng chữ; ảnh nền chỉ trang trí. Các thẻ này có thể sửa trong Xưởng.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "去年／北京",
+                        "meaningVi": "Trải nghiệm đã có",
+                        "note": "Ăn sủi cảo ở nhà một người bạn.",
+                        "pinyin": "qùnián / Běijīng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "每家不一定一样",
+                        "meaningVi": "Không nhất thiết giống nhau",
+                        "note": "Không suy mọi gia đình cùng phong tục.",
+                        "pinyin": "měi jiā bù yídìng yíyàng",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "明年／打算",
+                        "meaningVi": "Dự định người nghe",
+                        "note": "Chưa có trải nghiệm đón Tết ở Trung Quốc.",
+                        "pinyin": "míngnián / dǎsuàn",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc đúng từng loại thông tin"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Trải nghiệm và phạm vi kết luận"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "过年 là đón năm mới/Tết theo ngữ cảnh này. 过过年 có 过 thứ nhất là động từ guò, thứ hai là trợ từ trải nghiệm nhẹ guo. 没过过 phủ định chưa từng có trải nghiệm.\n打算明年去 chỉ dự định, chưa thành đã đi. 生日快乐 chúc sinh nhật; 新年快乐 chúc năm mới. Không hoán đổi lời chúc khi ngày lễ đã rõ.\nKể phong tục nên giữ phạm vi 我朋友家… và thừa nhận 每家的习惯不一定一样. Một bữa sủi cảo không chứng minh mọi nhà, mọi vùng đều ăn sủi cảo.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我没在中国过过年。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chưa từng đón Tết ở Trung Quốc.",
+                  "pinyin": "Wǒ méi zài Zhōngguó guòguo nián.",
+                  "provenance": "",
+                  "title": "过 + trải nghiệm; 打算 + dự định"
+                },
+                {
+                  "alt": "",
+                  "body": "Trải nghiệm cá nhân không đại diện cả quốc gia; câu “định đi” không phải “đã từng đi”.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kể trải nghiệm Tết, tránh khái quát phong tục"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ăn Tết",
+                  "hanzi": "你在中国过过年吗？",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:word-hsk-vocab-00349",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đã từng đón năm mới ở Trung Quốc chưa?",
+                  "pinyin": "Nǐ zài Zhōngguó guòguo nián ma?",
+                  "provenance": "",
+                  "title": "过年 · guònián"
+                },
+                {
+                  "alt": "",
+                  "body": "vui vẻ",
+                  "hanzi": "祝你生日快乐。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:word-hsk-vocab-00385",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúc bạn sinh nhật vui vẻ.",
+                  "pinyin": "Zhù nǐ shēngrì kuàilè.",
+                  "provenance": "",
+                  "title": "快乐 · kuàilè"
+                },
+                {
+                  "alt": "",
+                  "body": "sinh nhật",
+                  "hanzi": "祝你生日快乐。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:word-hsk-vocab-00430",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúc bạn sinh nhật vui vẻ.",
+                  "pinyin": "Zhù nǐ shēngrì kuàilè.",
+                  "provenance": "",
+                  "title": "生日 · shēngrì"
+                },
+                {
+                  "alt": "",
+                  "body": "nước ngoài",
+                  "hanzi": "过过。第一次过年时，我还是外国学生。",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:word-hsk-vocab-00446",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh.",
+                  "pinyin": "Guòguo. Dì yí cì guònián shí, wǒ háishi wàiguó xuésheng.",
+                  "provenance": "",
+                  "title": "外国 · wàiguó"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: giữ trải nghiệm nhà bạn, không khái quát cả nước. Trải nghiệm cá nhân không đại diện cả quốc gia; câu “định đi” không phải “đã từng đi”.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể trải nghiệm Tết, tránh khái quát phong tục",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-16",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: giữ trải nghiệm nhà bạn, không khái quát cả nước.",
+                        "id": "option-0",
+                        "text": "他在朋友家吃了饺子，不是说每家都一样。"
+                      },
+                      {
+                        "feedback": "Tự thêm mọi nhà và chỉ ăn; hội thoại không nói vậy.",
+                        "id": "option-1",
+                        "text": "中国每家过年都只吃饺子。"
+                      },
+                      {
+                        "feedback": "Người nghe nói chưa từng và chỉ dự định đi.",
+                        "id": "option-2",
+                        "text": "他的朋友已经去过中国过年。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Kết luận nào giữ đúng phạm vi trải nghiệm?",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "没"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没…过 phủ định trải nghiệm. 不 thường không thay 没 trong mẫu nói chưa từng này.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "没…过 phủ định trải nghiệm. 不 thường không thay 没 trong mẫu nói chưa từng này.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-study-work-culture-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Chưa từng đón Tết ở Trung Quốc: 我___在中国过过年。 Điền 没 hoặc 不.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai mới chưa đón Tết ở Trung Quốc, dự định năm sau đến nhà bạn ở Thượng Hải. Bạn kể nhà mình thường ăn cơm cùng nhau ngày Tết, nhưng không biết nhà người bạn ăn gì. Viết sáu lượt, hỏi thay vì đoán phong tục nhà bạn.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你在中国过过年吗？ B：没过过，打算明年去上海的朋友家。 A：你家过年做什么？ B：我们一起吃饭。 A：你朋友家吃什么？ B：我还不知道，准备问问他。每家的习惯不一定一样。\nA: Nǐ zài Zhōngguó guòguo nián ma? B: Méi guòguo, dǎsuàn míngnián qù Shànghǎi de péngyou jiā. A: Nǐ jiā guònián zuò shénme? B: Wǒmen yìqǐ chīfàn. A: Nǐ péngyou jiā chī shénme? B: Wǒ hái bù zhīdào, zhǔnbèi wènwen tā. Měi jiā de xíguàn bù yídìng yíyàng.\nChưa từng đón Tết ở Trung Quốc; dự định đến nhà bạn ở Thượng Hải. Nhà mình cùng ăn cơm, còn nhà bạn thì chưa biết nên sẽ hỏi.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể trải nghiệm Tết, tránh khái quát phong tục",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-16",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ chưa từng và dự định năm sau.",
+                        "id": "criterion-0",
+                        "label": "Giữ chưa từng và dự định năm sau."
+                      },
+                      {
+                        "guidance": "Đúng Thượng Hải, không giữ Bắc Kinh.",
+                        "id": "criterion-1",
+                        "label": "Đúng Thượng Hải, không giữ Bắc Kinh."
+                      },
+                      {
+                        "guidance": "Không tự gán món sủi cảo cho nhà bạn.",
+                        "id": "criterion-2",
+                        "label": "Không tự gán món sủi cảo cho nhà bạn."
+                      },
+                      {
+                        "guidance": "Hỏi về điều chưa biết, không khái quát mọi gia đình.",
+                        "id": "criterion-3",
+                        "label": "Hỏi về điều chưa biết, không khái quát mọi gia đình."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giữ chưa từng và dự định năm sau.\nĐúng Thượng Hải, không giữ Bắc Kinh.\nKhông tự gán món sủi cảo cho nhà bạn.\nHỏi về điều chưa biết, không khái quát mọi gia đình.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-04:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-04:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/30-REVIEW-HSK2-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-study-work-culture-lesson-04",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 study history, schedules, current work, bounded cultural experience and forms of address.",
+          "sourceContentSha256": "sha256:76c4e2315db4df92bef9ccc352751f2ddf44ced4184f130cfbfef9084a1e59d5"
+        },
+        "objectiveVi": "Kể trải nghiệm Tết, tránh khái quát phong tục",
+        "pitfallVi": "Trải nghiệm cá nhân không đại diện cả quốc gia; câu “định đi” không phải “đã từng đi”.",
+        "prerequisites": [
+          "hsk2-study-work-culture-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "过年 là đón năm mới/Tết theo ngữ cảnh này. 过过年 có 过 thứ nhất là động từ guò, thứ hai là trợ từ trải nghiệm nhẹ guo. 没过过 phủ định chưa từng có trải nghiệm.\n打算明年去 chỉ dự định, chưa thành đã đi. 生日快乐 chúc sinh nhật; 新年快乐 chúc năm mới. Không hoán đổi lời chúc khi ngày lễ đã rõ.\nKể phong tục nên giữ phạm vi 我朋友家… và thừa nhận 每家的习惯不一定一样. Một bữa sủi cảo không chứng minh mọi nhà, mọi vùng đều ăn sủi cảo.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-study-work-culture-lesson-04"
+        ],
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-04"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-16"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-032",
+          "hsk2-topic-033"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00349",
+          "hsk-vocab-00385",
+          "hsk-vocab-00430",
+          "hsk-vocab-00446"
+        ],
+        "targetLessonId": "hsk2-study-work-culture-lesson-04",
+        "titleZh": "HSK二级 · 19",
+        "vocabulary": [
+          "hsk-vocab-00349",
+          "hsk-vocab-00385",
+          "hsk-vocab-00430",
+          "hsk-vocab-00446"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "baseRevisionId": "525bb812-7c50-4700-b38a-82a7c5a2a2c2",
+      "baseContentSha256": "sha256:9c87e7886dd0faf525c8e87cd41389815b7c8ccd0d176d259cc390b388af08c1",
+      "changedPageIds": [
+        "hsk2-study-work-culture-lesson-05:v2:context",
+        "hsk2-study-work-culture-lesson-05:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Gặp bác sĩ giả định họ Lý, tên đầy đủ Lý Lan. Viết sáu lượt hỏi họ, tên, xác nhận cách gọi 李医生 và nhận lời đồng ý. Không giữ họ Trần/chức danh giáo viên của mẫu.",
+        "conceptVi": "Hỏi họ và xác nhận cách xưng hô phù hợp",
+        "dialogue": [
+          {
+            "hanzi": "您好，请问您贵姓？",
+            "meaningVi": "Xin chào, xin hỏi thầy/cô họ gì?",
+            "pinyin": "Nín hǎo, qǐngwèn nín guìxìng?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我姓陈，叫陈雨。",
+            "meaningVi": "Tôi họ Trần, tên đầy đủ là Trần Vũ.",
+            "pinyin": "Wǒ xìng Chén, jiào Chén Yǔ.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "我可以叫您陈老师吗？",
+            "meaningVi": "Tôi có thể gọi thầy/cô là thầy/cô Trần không?",
+            "pinyin": "Wǒ kěyǐ jiào nín Chén lǎoshī ma?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "可以，这么称呼就好。",
+            "meaningVi": "Được, gọi như vậy là được.",
+            "pinyin": "Kěyǐ, zhème chēnghu jiù hǎo.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "“贵姓”是什么意思？",
+            "meaningVi": "“Guìxìng” nghĩa là gì?",
+            "pinyin": "“Guìxìng” shì shénme yìsi?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "是问别人的姓。说自己的姓时，用“我姓陈”就可以。",
+            "meaningVi": "Là hỏi họ người khác. Khi nói họ mình, dùng “Tôi họ Trần” là được.",
+            "pinyin": "Shì wèn biéren de xìng. Shuō zìjǐ de xìng shí, yòng “wǒ xìng Chén” jiù kěyǐ.",
+            "speaker": "Lượt 6"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我可以叫您王医生吗？",
+            "answerMeaningVi": "Tôi có thể gọi ông/bà là bác sĩ Vương không?",
+            "answerPinyin": "Wǒ kěyǐ jiào nín Wáng yīshēng ma?",
+            "distractors": [
+              "您叫王小明，我叫您王老师。",
+              "我贵姓王。"
+            ],
+            "explanationVi": "Đúng: dùng họ và nghề đã biết, hỏi để xác nhận.",
+            "promptVi": "Người mới là bác sĩ họ Vương, chưa cho biết tên đầy đủ. Câu nào hỏi cách gọi mà không tự bịa danh tính?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "您贵姓？ hỏi họ, không phải toàn bộ họ tên. Tôi trả lời 我姓陈, không tự nói 我贵姓陈. 姓名 là họ tên đầy đủ, thường gặp trên biểu mẫu; 我叫陈雨 tự nhiên khi giới thiệu miệng.\nHọ + chức danh: 陈老师 nếu người đó là giáo viên; 王医生 nếu là bác sĩ. Hỏi 我可以这样称呼您吗？ để xác nhận, và tôn trọng cách người đó muốn được gọi.\n这样 chỉ cách đang nói đến. 这么 trong 这么称呼 chỉ gọi như thế này. Không dịch chúng thành mọi nghĩa của nhau ngoài ngữ cảnh.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：您好，请问您贵姓？ B：我姓李。 A：请问您怎么称呼？ B：我叫李兰。 A：我可以叫您李医生吗？ B：可以，这样称呼就好。",
+              "modelAnswerMeaningVi": "Hỏi họ Lý, tên Lý Lan, xin gọi là bác sĩ Lý và được đồng ý.",
+              "modelAnswerPinyin": "A: Nín hǎo, qǐngwèn nín guìxìng? B: Wǒ xìng Lǐ. A: Qǐngwèn nín zěnme chēnghu? B: Wǒ jiào Lǐ Lán. A: Wǒ kěyǐ jiào nín Lǐ yīshēng ma? B: Kěyǐ, zhèyàng chēnghu jiù hǎo.",
+              "promptVi": "Gặp bác sĩ giả định họ Lý, tên đầy đủ Lý Lan. Viết sáu lượt hỏi họ, tên, xác nhận cách gọi 李医生 và nhận lời đồng ý. Không giữ họ Trần/chức danh giáo viên của mẫu."
+            },
+            "modelExample": {
+              "hanzi": "我姓陈，叫陈雨。",
+              "meaningVi": "Tôi họ Trần, tên đầy đủ Trần Vũ.",
+              "pinyin": "Wǒ xìng Chén, jiào Chén Yǔ."
+            },
+            "pattern": "您贵姓？—我姓…"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tại buổi gặp giáo viên mới, một người giới thiệu họ Trần, tên đầy đủ Trần Vũ. Người học hỏi có thể gọi là thầy/cô Trần không. Chức danh dựa trên vai trò đã biết và sự đồng ý, không tự gán mọi người là giáo viên.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "贵姓 guìxìng: cách lịch sự hỏi họ · 称呼 chēnghu: gọi/xưng hô · 陈雨 Chén Yǔ: Trần Vũ, tên giả định · 医生 yīshēng: bác sĩ.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Hỏi họ và xác nhận cách xưng hô phù hợp",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-teacher-greeting-v1.webp",
+                "alt": "Người học gặp giáo viên mới và hỏi cách xưng hô",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Người mới giới thiệu họ Trần, tên Trần Vũ; người học hỏi và được đồng ý gọi là thầy/cô Trần."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "您好，请问您贵姓？",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào, xin hỏi thầy/cô họ gì?",
+                  "pinyin": "Nín hǎo, qǐngwèn nín guìxìng?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我姓陈，叫陈雨。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi họ Trần, tên đầy đủ là Trần Vũ.",
+                  "pinyin": "Wǒ xìng Chén, jiào Chén Yǔ.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我可以叫您陈老师吗？",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có thể gọi thầy/cô là thầy/cô Trần không?",
+                  "pinyin": "Wǒ kěyǐ jiào nín Chén lǎoshī ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "可以，这么称呼就好。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được, gọi như vậy là được.",
+                  "pinyin": "Kěyǐ, zhème chēnghu jiù hǎo.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "“贵姓”是什么意思？",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "“Guìxìng” nghĩa là gì?",
+                  "pinyin": "“Guìxìng” shì shénme yìsi?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是问别人的姓。说自己的姓时，用“我姓陈”就可以。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Là hỏi họ người khác. Khi nói họ mình, dùng “Tôi họ Trần” là được.",
+                  "pinyin": "Shì wèn biéren de xìng. Shuō zìjǐ de xìng shí, yòng “wǒ xìng Chén” jiù kěyǐ.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-teacher-greeting-v1.webp",
+                "alt": "Người học gặp giáo viên mới và hỏi cách xưng hô",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Người mới giới thiệu họ Trần, tên Trần Vũ; người học hỏi và được đồng ý gọi là thầy/cô Trần."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Dữ kiện và quan hệ được ghi bằng chữ; ảnh nền chỉ trang trí. Các thẻ này có thể sửa trong Xưởng.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "姓／姓名",
+                        "meaningVi": "Họ / họ tên đầy đủ",
+                        "note": "陈 / 陈雨.",
+                        "pinyin": "xìng / xìngmíng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "贵姓",
+                        "meaningVi": "Hỏi họ người khác",
+                        "note": "Không tự nói 我贵姓.",
+                        "pinyin": "guìxìng",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "陈老师／王医生",
+                        "meaningVi": "Chức danh theo vai trò",
+                        "note": "Xác nhận cách người đó muốn được gọi.",
+                        "pinyin": "Chén lǎoshī / Wáng yīshēng",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đọc đúng từng loại thông tin"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Thẻ tên và cách gọi"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "您贵姓？ hỏi họ, không phải toàn bộ họ tên. Tôi trả lời 我姓陈, không tự nói 我贵姓陈. 姓名 là họ tên đầy đủ, thường gặp trên biểu mẫu; 我叫陈雨 tự nhiên khi giới thiệu miệng.\nHọ + chức danh: 陈老师 nếu người đó là giáo viên; 王医生 nếu là bác sĩ. Hỏi 我可以这样称呼您吗？ để xác nhận, và tôn trọng cách người đó muốn được gọi.\n这样 chỉ cách đang nói đến. 这么 trong 这么称呼 chỉ gọi như thế này. Không dịch chúng thành mọi nghĩa của nhau ngoài ngữ cảnh.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我姓陈，叫陈雨。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi họ Trần, tên đầy đủ Trần Vũ.",
+                  "pinyin": "Wǒ xìng Chén, jiào Chén Yǔ.",
+                  "provenance": "",
+                  "title": "您贵姓？—我姓…"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dùng 贵 để tự tôn xưng họ mình. Không coi 贵姓 là câu bắt người khác khai toàn bộ danh tính thật; bài dùng nhân vật giả định.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hỏi họ và xác nhận cách xưng hô phù hợp"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "họ; mang họ",
+                  "hanzi": "这位老师姓王。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:word-hsk-vocab-00464",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vị giáo viên này họ Vương.",
+                  "pinyin": "Zhè wèi lǎoshī xìng Wáng.",
+                  "provenance": "",
+                  "title": "姓 · xìng"
+                },
+                {
+                  "alt": "",
+                  "body": "họ tên",
+                  "hanzi": "我姓王，姓名是王小明。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:word-hsk-vocab-00465",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi họ Vương, họ tên là Vương Tiểu Minh.",
+                  "pinyin": "Wǒ xìng Wáng, xìngmíng shì Wáng Xiǎomíng.",
+                  "provenance": "",
+                  "title": "姓名 · xìngmíng"
+                },
+                {
+                  "alt": "",
+                  "body": "ý; ý nghĩa",
+                  "hanzi": "这个词是什么意思？",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:word-hsk-vocab-00474",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Từ này có nghĩa là gì?",
+                  "pinyin": "Zhè ge cí shì shénme yìsi?",
+                  "provenance": "",
+                  "title": "意思 · yìsi"
+                },
+                {
+                  "alt": "",
+                  "body": "như thế này; chừng này",
+                  "hanzi": "他没有我这么忙。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:word-hsk-vocab-00488",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy không bận bằng tôi.",
+                  "pinyin": "Tā méiyǒu wǒ zhème máng.",
+                  "provenance": "",
+                  "title": "这么 · zhème"
+                },
+                {
+                  "alt": "",
+                  "body": "như thế này",
+                  "hanzi": "这样做很不错。",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:word-hsk-vocab-00489",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Làm như thế này khá tốt.",
+                  "pinyin": "Zhèyàng zuò hěn búcuò.",
+                  "provenance": "",
+                  "title": "这样 · zhèyàng"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: dùng họ và nghề đã biết, hỏi để xác nhận. Không dùng 贵 để tự tôn xưng họ mình. Không coi 贵姓 là câu bắt người khác khai toàn bộ danh tính thật; bài dùng nhân vật giả định.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Hỏi họ và xác nhận cách xưng hô phù hợp",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-17",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Tự thêm tên Tiểu Minh và nghề giáo viên, trái dữ kiện.",
+                        "id": "option-0",
+                        "text": "您叫王小明，我叫您王老师。"
+                      },
+                      {
+                        "feedback": "Đúng: dùng họ và nghề đã biết, hỏi để xác nhận.",
+                        "id": "option-1",
+                        "text": "我可以叫您王医生吗？"
+                      },
+                      {
+                        "feedback": "Đây là tự nói họ mình với kính ngữ không phù hợp, không hỏi cách gọi người kia.",
+                        "id": "option-2",
+                        "text": "我贵姓王。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Người mới là bác sĩ họ Vương, chưa cho biết tên đầy đủ. Câu nào hỏi cách gọi mà không tự bịa danh tính?",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "姓"
+                    ],
+                    "answerIds": [],
+                    "explanation": "我姓李 tự giới thiệu họ; 贵姓 dùng lịch sự để hỏi họ người khác.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "我姓李 tự giới thiệu họ; 贵姓 dùng lịch sự để hỏi họ người khác.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-study-work-culture-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Đáp về họ mình, không tự dùng kính ngữ: 我___李。 Điền 姓 hoặc 贵姓.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Gặp bác sĩ giả định họ Lý, tên đầy đủ Lý Lan. Viết sáu lượt hỏi họ, tên, xác nhận cách gọi 李医生 và nhận lời đồng ý. Không giữ họ Trần/chức danh giáo viên của mẫu.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：您好，请问您贵姓？ B：我姓李。 A：请问您怎么称呼？ B：我叫李兰。 A：我可以叫您李医生吗？ B：可以，这样称呼就好。\nA: Nín hǎo, qǐngwèn nín guìxìng? B: Wǒ xìng Lǐ. A: Qǐngwèn nín zěnme chēnghu? B: Wǒ jiào Lǐ Lán. A: Wǒ kěyǐ jiào nín Lǐ yīshēng ma? B: Kěyǐ, zhèyàng chēnghu jiù hǎo.\nHỏi họ Lý, tên Lý Lan, xin gọi là bác sĩ Lý và được đồng ý.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Hỏi họ và xác nhận cách xưng hô phù hợp",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-17",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "贵姓 hỏi họ, trả lời 我姓李.",
+                        "id": "criterion-0",
+                        "label": "贵姓 hỏi họ, trả lời 我姓李."
+                      },
+                      {
+                        "guidance": "Tên đầy đủ Lý Lan, không tự thêm tên khác.",
+                        "id": "criterion-1",
+                        "label": "Tên đầy đủ Lý Lan, không tự thêm tên khác."
+                      },
+                      {
+                        "guidance": "Dùng 李医生 theo nghề đã cho.",
+                        "id": "criterion-2",
+                        "label": "Dùng 李医生 theo nghề đã cho."
+                      },
+                      {
+                        "guidance": "Có xin phép cách gọi và lượt đồng ý.",
+                        "id": "criterion-3",
+                        "label": "Có xin phép cách gọi và lượt đồng ý."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "贵姓 hỏi họ, trả lời 我姓李.\nTên đầy đủ Lý Lan, không tự thêm tên khác.\nDùng 李医生 theo nghề đã cho.\nCó xin phép cách gọi và lượt đồng ý.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-study-work-culture-lesson-05:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-study-work-culture-lesson-05:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/30-REVIEW-HSK2-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-study-work-culture-lesson-05",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 study history, schedules, current work, bounded cultural experience and forms of address.",
+          "sourceContentSha256": "sha256:3f24565303ca646644def6b1d8978e44c4e5f94efced9facb016ac2d9576c64e"
+        },
+        "objectiveVi": "Hỏi họ và xác nhận cách xưng hô phù hợp",
+        "pitfallVi": "Không dùng 贵 để tự tôn xưng họ mình. Không coi 贵姓 là câu bắt người khác khai toàn bộ danh tính thật; bài dùng nhân vật giả định.",
+        "prerequisites": [
+          "hsk2-study-work-culture-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "您贵姓？ hỏi họ, không phải toàn bộ họ tên. Tôi trả lời 我姓陈, không tự nói 我贵姓陈. 姓名 là họ tên đầy đủ, thường gặp trên biểu mẫu; 我叫陈雨 tự nhiên khi giới thiệu miệng.\nHọ + chức danh: 陈老师 nếu người đó là giáo viên; 王医生 nếu là bác sĩ. Hỏi 我可以这样称呼您吗？ để xác nhận, và tôn trọng cách người đó muốn được gọi.\n这样 chỉ cách đang nói đến. 这么 trong 这么称呼 chỉ gọi như thế này. Không dịch chúng thành mọi nghĩa của nhau ngoài ngữ cảnh.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-study-work-culture-lesson-05"
+        ],
+        "sourceLessonIds": [
+          "hsk2-study-work-culture-lesson-05"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-17"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-034"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00464",
+          "hsk-vocab-00465",
+          "hsk-vocab-00474",
+          "hsk-vocab-00488",
+          "hsk-vocab-00489"
+        ],
+        "targetLessonId": "hsk2-study-work-culture-lesson-05",
+        "titleZh": "HSK二级 · 20",
+        "vocabulary": [
+          "hsk-vocab-00464",
+          "hsk-vocab-00465",
+          "hsk-vocab-00474",
+          "hsk-vocab-00488",
+          "hsk-vocab-00489"
+        ]
+      }
+    }
+  ]
+}

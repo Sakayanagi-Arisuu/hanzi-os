@@ -156,7 +156,7 @@ export function DictionaryPage() {
       return normalizeSearch(haystack).includes(normalized);
     });
   }, [allWords, lessonScope, lessonWordIds, query, savedOnly, state.savedWords]);
-  const selected = (requested.get("view") === "detail" ? allWords : results).find((word) => word.id === requested.get("word"))
+  const selected = (requested.get("view") === "detail" ? allWords : results).find((word) => word.id === requested.get("word") || word.sourceStableKey === requested.get("word"))
     ?? results.find((word) => word.id === selectedId) ?? results[0];
   const selectResult = (wordId: string) => {
     setSelectedId(wordId);

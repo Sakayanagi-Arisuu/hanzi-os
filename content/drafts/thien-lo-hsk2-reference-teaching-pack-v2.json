@@ -1,0 +1,4490 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "status": "partial-authoring-not-publishable",
+  "scope": "Editable teaching components for seven lessons; contexts, final vocabulary review and transfer remain required before release.",
+  "items": [
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "title": "Quy chiếu và số lượng",
+      "teachingPages": [
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-001:understand",
+          "title": "Phía nào của mốc nào",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-001:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "面 trong 里面/外面/对面 tạo từ chỉ phía/vị trí. 学校对面 lấy trường làm mốc; không tự nói nhà sách ở bên trong trường.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-001:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "学校对面有一家书店。",
+              "pinyin": "Xuéxiào duìmiàn yǒu yì jiā shūdiàn.",
+              "meaningVi": "Đối diện trường học có một hiệu sách.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-001:practice",
+          "title": "Tự kiểm · Phía nào của mốc nào",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-001:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Nhà sách đối diện trường: 书店在学校对___。 Điền 面 hoặc 里.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "面"
+                ],
+                "explanation": "对面 là đối diện, không phải trong trường.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Phía nào của mốc nào",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-001"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-002:understand",
+          "title": "Trái/phải theo điểm nhìn",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-002:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "左/右 thường kết hợp 边. Phải biết đang nhìn từ đâu: khi bạn đứng đối diện trường nhìn vào, bệnh viện ở bên trái theo bạn. Không tự đổi theo người nhìn ngược lại.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-002:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "医院在学校左边。",
+              "pinyin": "Yīyuàn zài xuéxiào zuǒbian.",
+              "meaningVi": "Bệnh viện ở bên trái trường học.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-002:practice",
+          "title": "Tự kiểm · Trái/phải theo điểm nhìn",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-002:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Theo người đang nhìn vào trường, bệnh viện ở bên trái: 医院在学校___边。 Điền 左 hoặc 右.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "左"
+                ],
+                "explanation": "左 giữ hướng trái từ điểm nhìn đề đã xác định.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Trái/phải theo điểm nhìn",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-002"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-006:understand",
+          "title": "Hỏi lý do",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-006:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "为什么 hỏi nguyên nhân/mục đích theo câu. Không thêm 吗 vào cuối câu hỏi này trong mẫu cơ bản. 怎么 có thể hỏi cách làm, không tự thay 为什么 ở mọi chỗ.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-006:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "你为什么学汉语？",
+              "pinyin": "Nǐ wèishénme xué Hànyǔ?",
+              "meaningVi": "Tại sao bạn học tiếng Trung?",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-006:practice",
+          "title": "Tự kiểm · Hỏi lý do",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-006:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hỏi vì sao học tiếng Trung: 你___学汉语？ Điền 为什么 hoặc 几点.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "为什么"
+                ],
+                "explanation": "为什么 hỏi lý do; 几点 hỏi giờ đồng hồ.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Hỏi lý do",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-006"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-007:understand",
+          "title": "Tự mình và của mình",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-007:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "我自己做饭 nhấn chính tôi nấu. 自己的书 cần biết ai là chủ thể sở hữu; người khác đổi lượt nói thì 自己 có thể đổi đối tượng quy chiếu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-007:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我自己做晚饭。",
+              "pinyin": "Wǒ zìjǐ zuò wǎnfàn.",
+              "meaningVi": "Tôi tự nấu bữa tối.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-007:practice",
+          "title": "Tự kiểm · Tự mình và của mình",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-007:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Không ai nấu giúp tôi: 我___做饭。 Điền 自己 hoặc 别人.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "自己"
+                ],
+                "explanation": "自己 gắn với 我 để nói tự tôi làm; không thêm người khác làm.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Tự mình và của mình",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-007"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-008:understand",
+          "title": "Cách này/cách kia và mỗi",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-008:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "这样/那样 chỉ cách hoặc kiểu; 这么/那么 thường chỉ mức hoặc cách trong ngữ cảnh. 每 + lượng từ + danh từ nói từng thành viên, thường đi với 都. Mỗi người không có nghĩa chỉ một người cụ thể.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-008:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "每个人都有自己的名字。",
+              "pinyin": "Měi ge rén dōu yǒu zìjǐ de míngzi.",
+              "meaningVi": "Mỗi người đều có tên riêng.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-008:practice",
+          "title": "Tự kiểm · Cách này/cách kia và mỗi",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-008:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Mỗi học sinh đều có sách: ___个学生都有书。 Điền 每 hoặc 那么.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "每"
+                ],
+                "explanation": "每个学生 là mỗi học sinh; 那么 không thay 每 trong mẫu này.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Cách này/cách kia và mỗi",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-008"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-009:understand",
+          "title": "Lặp tính từ đúng mẫu",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-009:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "红红的 là dạng AA; 干干净净 là AABB từ 干净. Không biến mọi tính từ thành AABB; không tự đặt 很 trước 红红的 theo mẫu này.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-009:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "房间干干净净的。",
+              "pinyin": "Fángjiān gāngānjìngjìng de.",
+              "meaningVi": "Căn phòng sạch sẽ tinh tươm.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-009:practice",
+          "title": "Tự kiểm · Lặp tính từ đúng mẫu",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-009:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Lặp 干净 theo AABB: 房间___的。 Điền toàn bộ dạng lặp.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "干干净净"
+                ],
+                "explanation": "干干净净 lặp từng âm tiết theo AABB, không phải 干净干净.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Lặp tính từ đúng mẫu",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-009"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-010:understand",
+          "title": "Vạn và số lượng chưa chính xác",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-010:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "一万 = 10.000. 一万多 nói hơn 10.000; 好多 là nhiều, không phải một con số chính xác. Không bỏ 多 rồi báo con số chính xác.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-010:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "这个学校有一万多人。",
+              "pinyin": "Zhège xuéxiào yǒu yí wàn duō rén.",
+              "meaningVi": "Trường học này có hơn mười nghìn người.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-010:practice",
+          "title": "Tự kiểm · Vạn và số lượng chưa chính xác",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-010:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Một vạn người là bao nhiêu? Điền chữ số Ả Rập, không dấu ngăn cách.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "10000"
+                ],
+                "explanation": "一万 bằng 10.000, không phải 1.000.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Vạn và số lượng chưa chính xác",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-010"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-011:understand",
+          "title": "Chọn lượng từ theo danh từ",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-011:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "一条裤子: quần; 三位老师: giáo viên, lịch sự; 一间教室: phòng; 两名学生: học sinh, trang trọng. Không có một lượng từ thay được mọi loại trong bài.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-011:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "教室里有三位老师。",
+              "pinyin": "Jiàoshì lǐ yǒu sān wèi lǎoshī.",
+              "meaningVi": "Trong lớp học có ba giáo viên.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-011:practice",
+          "title": "Tự kiểm · Chọn lượng từ theo danh từ",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-011:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Một phòng học: 一___教室。 Chọn 间 hoặc 条.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "间"
+                ],
+                "explanation": "间 đếm phòng; 条 thường đếm đồ dài như quần, đường.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Chọn lượng từ theo danh từ",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-011"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-012:understand",
+          "title": "Đếm bằng đơn vị chứa",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-012:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "一包茶 đếm gói trà, không đếm lá trà; 两包茶 là hai gói, chưa cho biết khối lượng hay số lá.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-012:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我买了一包茶。",
+              "pinyin": "Wǒ mǎi le yì bāo chá.",
+              "meaningVi": "Tôi đã mua một gói trà.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-012:practice",
+          "title": "Tự kiểm · Đếm bằng đơn vị chứa",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-01:v2:grammar:hsk2-grammar-row-012:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hai gói trà: 两___茶。 Điền 包 hoặc 位.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "包"
+                ],
+                "explanation": "包 là gói; 位 dùng lịch sự cho người.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Đếm bằng đơn vị chứa",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-012"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00304",
+          "headword": "班",
+          "headwordPinyin": "bān",
+          "meaning": "lớp; nhóm; ca làm",
+          "example": {
+            "hanzi": "我们班有二十个学生。",
+            "pinyin": "Wǒmen bān yǒu èrshí ge xuésheng.",
+            "meaningVi": "Lớp chúng tôi có hai mươi học sinh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00307",
+          "headword": "包",
+          "headwordPinyin": "bāo",
+          "meaning": "gói; bọc; bao hoặc túi",
+          "example": {
+            "hanzi": "我买了两包茶。",
+            "pinyin": "Wǒ mǎi le liǎng bāo chá.",
+            "meaningVi": "Tôi đã mua hai gói trà."
+          }
+        },
+        {
+          "id": "hsk-vocab-00312",
+          "headword": "不错",
+          "headwordPinyin": "bùcuò",
+          "meaning": "không tệ; khá tốt",
+          "example": {
+            "hanzi": "这样做很不错。",
+            "pinyin": "Zhèyàng zuò hěn búcuò.",
+            "meaningVi": "Làm như thế này khá tốt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00326",
+          "headword": "错",
+          "headwordPinyin": "cuò",
+          "meaning": "sai; lỗi",
+          "example": {
+            "hanzi": "这样做很不错。",
+            "pinyin": "Zhèyàng zuò hěn búcuò.",
+            "meaningVi": "Làm như thế này khá tốt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00356",
+          "headword": "后面",
+          "headwordPinyin": "hòumian",
+          "meaning": "phía sau",
+          "example": {
+            "hanzi": "医院后面有一家咖啡店。",
+            "pinyin": "Yīyuàn hòumiàn yǒu yì jiā kāfēidiàn.",
+            "meaningVi": "Phía sau bệnh viện có một quán cà phê."
+          }
+        },
+        {
+          "id": "hsk-vocab-00366",
+          "headword": "间",
+          "headwordPinyin": "jiān",
+          "meaning": "gian; phòng; khoảng",
+          "example": {
+            "hanzi": "这里有三间教室。",
+            "pinyin": "Zhèlǐ yǒu sān jiān jiàoshì.",
+            "meaningVi": "Ở đây có ba phòng học."
+          }
+        },
+        {
+          "id": "hsk-vocab-00367",
+          "headword": "教",
+          "headwordPinyin": "jiāo",
+          "meaning": "dạy",
+          "example": {
+            "hanzi": "老师教我们写汉字。",
+            "pinyin": "Lǎoshī jiāo wǒmen xiě Hànzì.",
+            "meaningVi": "Giáo viên dạy chúng tôi viết chữ Hán."
+          }
+        },
+        {
+          "id": "hsk-vocab-00368",
+          "headword": "教室",
+          "headwordPinyin": "jiàoshì",
+          "meaning": "phòng học",
+          "example": {
+            "hanzi": "教室在五楼。",
+            "pinyin": "Jiàoshì zài wǔ lóu.",
+            "meaningVi": "Lớp học ở tầng năm."
+          }
+        },
+        {
+          "id": "hsk-vocab-00377",
+          "headword": "咖啡",
+          "headwordPinyin": "kāfēi",
+          "meaning": "cà phê",
+          "example": {
+            "hanzi": "我想喝一杯咖啡。",
+            "pinyin": "Wǒ xiǎng hē yì bēi kāfēi.",
+            "meaningVi": "Tôi muốn uống một cốc cà phê."
+          }
+        },
+        {
+          "id": "hsk-vocab-00397",
+          "headword": "慢",
+          "headwordPinyin": "màn",
+          "meaning": "chậm",
+          "example": {
+            "hanzi": "你慢慢说。",
+            "pinyin": "Nǐ mànmàn shuō.",
+            "meaningVi": "Bạn nói chậm chậm thôi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00399",
+          "headword": "每",
+          "headwordPinyin": "měi",
+          "meaning": "mỗi",
+          "example": {
+            "hanzi": "我每天跑步。",
+            "pinyin": "Wǒ měitiān pǎobù.",
+            "meaningVi": "Tôi chạy bộ mỗi ngày."
+          }
+        },
+        {
+          "id": "hsk-vocab-00403",
+          "headword": "面",
+          "headwordPinyin": "miàn",
+          "meaning": "mặt; phía",
+          "example": {
+            "hanzi": "学校对面有一家书店。",
+            "pinyin": "Xuéxiào duìmiàn yǒu yì jiā shūdiàn.",
+            "meaningVi": "Đối diện trường có một hiệu sách."
+          }
+        },
+        {
+          "id": "hsk-vocab-00404",
+          "headword": "名",
+          "headwordPinyin": "míng",
+          "meaning": "tên; vị trí trong bảng xếp hạng",
+          "example": {
+            "hanzi": "她在比赛中得了第一名。",
+            "pinyin": "Tā zài bǐsài zhōng dé le dì yī míng.",
+            "meaningVi": "Cô ấy đạt hạng nhất trong cuộc thi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00416",
+          "headword": "票",
+          "headwordPinyin": "piào",
+          "meaning": "vé",
+          "example": {
+            "hanzi": "票买好了。",
+            "pinyin": "Piào mǎihǎo le.",
+            "meaningVi": "Vé đã mua xong rồi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00433",
+          "headword": "手",
+          "headwordPinyin": "shǒu",
+          "meaning": "tay",
+          "example": {
+            "hanzi": "我的手有点儿疼。",
+            "pinyin": "Wǒ de shǒu yǒudiǎnr téng.",
+            "meaningVi": "Tay tôi hơi đau."
+          }
+        },
+        {
+          "id": "hsk-vocab-00449",
+          "headword": "万",
+          "headwordPinyin": "wàn",
+          "meaning": "mười nghìn",
+          "example": {
+            "hanzi": "上面写着一万块。",
+            "pinyin": "Shàngmiàn xiězhe yí wàn kuài.",
+            "meaningVi": "Trên đó ghi mười nghìn tệ."
+          }
+        },
+        {
+          "id": "hsk-vocab-00453",
+          "headword": "位",
+          "headwordPinyin": "wèi",
+          "meaning": "vị; lượng từ lịch sự chỉ người",
+          "example": {
+            "hanzi": "这位老师姓王。",
+            "pinyin": "Zhè wèi lǎoshī xìng Wáng.",
+            "meaningVi": "Vị giáo viên này họ Vương."
+          }
+        },
+        {
+          "id": "hsk-vocab-00454",
+          "headword": "为什么",
+          "headwordPinyin": "wèishénme",
+          "meaning": "tại sao",
+          "example": {
+            "hanzi": "你为什么学汉语？",
+            "pinyin": "Nǐ wèishénme xué Hànyǔ?",
+            "meaningVi": "Vì sao bạn học tiếng Trung?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00456",
+          "headword": "洗",
+          "headwordPinyin": "xǐ",
+          "meaning": "giặt; rửa; tắm",
+          "example": {
+            "hanzi": "洗手间在教室右边。",
+            "pinyin": "Xǐshǒujiān zài jiàoshì yòubian.",
+            "meaningVi": "Nhà vệ sinh ở bên phải lớp học."
+          }
+        },
+        {
+          "id": "hsk-vocab-00457",
+          "headword": "洗手间",
+          "headwordPinyin": "xǐshǒujiān",
+          "meaning": "nhà vệ sinh",
+          "example": {
+            "hanzi": "洗手间在教室右边。",
+            "pinyin": "Xǐshǒujiān zài jiàoshì yòubian.",
+            "meaningVi": "Nhà vệ sinh ở bên phải lớp học."
+          }
+        },
+        {
+          "id": "hsk-vocab-00468",
+          "headword": "药",
+          "headwordPinyin": "yào",
+          "meaning": "thuốc",
+          "example": {
+            "hanzi": "附近有药店吗？",
+            "pinyin": "Fùjìn yǒu yàodiàn ma?",
+            "meaningVi": "Gần đây có hiệu thuốc không?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00481",
+          "headword": "右",
+          "headwordPinyin": "yòu",
+          "meaning": "phải; phía bên phải",
+          "example": {
+            "hanzi": "请往右走。",
+            "pinyin": "Qǐng wǎng yòu zǒu.",
+            "meaningVi": "Xin đi về phía phải."
+          }
+        },
+        {
+          "id": "hsk-vocab-00482",
+          "headword": "右边",
+          "headwordPinyin": "yòubian",
+          "meaning": "bên phải",
+          "example": {
+            "hanzi": "往右边走。",
+            "pinyin": "Wǎng yòubian zǒu.",
+            "meaningVi": "Đi về bên phải."
+          }
+        },
+        {
+          "id": "hsk-vocab-00489",
+          "headword": "这样",
+          "headwordPinyin": "zhèyàng",
+          "meaning": "như thế này",
+          "example": {
+            "hanzi": "这样做很不错。",
+            "pinyin": "Zhèyàng zuò hěn búcuò.",
+            "meaningVi": "Làm như thế này khá tốt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00494",
+          "headword": "自己",
+          "headwordPinyin": "zìjǐ",
+          "meaning": "bản thân; tự mình",
+          "example": {
+            "hanzi": "我想自己做这件事。",
+            "pinyin": "Wǒ xiǎng zìjǐ zuò zhè jiàn shì.",
+            "meaningVi": "Tôi muốn tự làm việc này."
+          }
+        },
+        {
+          "id": "hsk-vocab-00499",
+          "headword": "左",
+          "headwordPinyin": "zuǒ",
+          "meaning": "trái; phía bên trái",
+          "example": {
+            "hanzi": "医院在学校左边。",
+            "pinyin": "Yīyuàn zài xuéxiào zuǒbian.",
+            "meaningVi": "Bệnh viện ở bên trái trường học."
+          }
+        },
+        {
+          "id": "hsk-vocab-00500",
+          "headword": "左边",
+          "headwordPinyin": "zuǒbian",
+          "meaning": "bên trái",
+          "example": {
+            "hanzi": "医院在学校左边。",
+            "pinyin": "Yīyuàn zài xuéxiào zuǒbian.",
+            "meaningVi": "Bệnh viện ở bên trái trường học."
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "title": "Vị trí và miêu tả có đối tượng",
+      "teachingPages": [
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-013:understand",
+          "title": "Số lần không phải thời lượng",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-013:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "两次 là hai lần; 两年 là hai năm. 去过北京两次 kể số lần từng đến, không tự nói tổng thời gian ở đó.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-013:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我去过北京两次。",
+              "pinyin": "Wǒ qùguo Běijīng liǎng cì.",
+              "meaningVi": "Tôi đã từng đến Bắc Kinh hai lần.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-013:practice",
+          "title": "Tự kiểm · Số lần không phải thời lượng",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-013:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Đã đến hai lần: 我去过北京两___。 Chọn 次 hoặc 年.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "次"
+                ],
+                "explanation": "次 đếm lần; 年 đo năm, khác câu yêu cầu.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Số lần không phải thời lượng",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-013"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-014:understand",
+          "title": "Mức độ và phạm vi cao nhất",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-014:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "好累/多好啊 tăng cảm thán theo ngữ cảnh. 最 cần tập so sánh rõ: 这三件里，红色的最好看 là đánh giá trong ba chiếc. Không suy cao nhất thế giới.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-014:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "这件衣服最好看。",
+              "pinyin": "Zhè jiàn yīfu zuì hǎokàn.",
+              "meaningVi": "Bộ quần áo này đẹp nhất.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-014:practice",
+          "title": "Tự kiểm · Mức độ và phạm vi cao nhất",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-014:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Trong ba chiếc, chiếc này đẹp nhất: 这三件里，这件___好看。 Điền 最 hoặc 比.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "最"
+                ],
+                "explanation": "最 đứng trước tính từ trong phạm vi đã biết; 比 cần đối tượng B.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Mức độ và phạm vi cao nhất",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-014"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-020:understand",
+          "title": "Vẫn chọn và chỉ có",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-020:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "你还是坐地铁吧 đề nghị lựa chọn sau cân nhắc; 还是 cũng có nghĩa vẫn theo câu. 就在这里 nhấn ngay chỗ này, 就一个 có thể nhấn chỉ một. 都十点了 nhấn mốc đã tới, không luôn là tất cả.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-020:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "你还是坐地铁去吧。",
+              "pinyin": "Nǐ háishi zuò dìtiě qù ba.",
+              "meaningVi": "Bạn vẫn nên đi tàu điện ngầm thì hơn.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-020:practice",
+          "title": "Tự kiểm · Vẫn chọn và chỉ có",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-020:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Sau cân nhắc, khuyên đi tàu: 你___坐地铁吧。 Chọn 还是 hoặc 已经.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "还是"
+                ],
+                "explanation": "还是…吧 đưa lời khuyên; 已经 báo đã, không đúng ý đề nghị.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Vẫn chọn và chỉ có",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-020"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-021:understand",
+          "title": "Khoảng thời gian với 从",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-021:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "从八点到五点 lấy hai mốc làm đầu/cuối. Cần biết sáng/chiều để tính thời lượng, không tự giả định giờ kết thúc là sáng.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-021:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我从八点工作到五点。",
+              "pinyin": "Wǒ cóng bā diǎn gōngzuò dào wǔ diǎn.",
+              "meaningVi": "Tôi làm việc từ tám giờ đến năm giờ.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-021:practice",
+          "title": "Tự kiểm · Khoảng thời gian với 从",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-021:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Từ 8 giờ sáng tới 5 giờ chiều: ___早上八点到下午五点。 Điền 从 hoặc 比.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "从"
+                ],
+                "explanation": "从…到… nối hai mốc; 比 so sánh đối tượng.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Khoảng thời gian với 从",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-021"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-024:understand",
+          "title": "Hành động hướng tới ai",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-024:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "给妈妈打电话 là gọi cho mẹ; mẹ là người nhận cuộc gọi, không tự là người gọi. 给 nằm trước người nhận trong mẫu này.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-024:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我给妈妈打电话。",
+              "pinyin": "Wǒ gěi māma dǎ diànhuà.",
+              "meaningVi": "Tôi gọi điện cho mẹ.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-024:practice",
+          "title": "Tự kiểm · Hành động hướng tới ai",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-024:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Tôi gọi cho mẹ: 我___妈妈打电话。 Điền 给 hoặc 从.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "给"
+                ],
+                "explanation": "给 đưa người nhận cuộc gọi; 从 chỉ nguồn/điểm xuất phát.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Hành động hướng tới ai",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-024"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-025:understand",
+          "title": "So sánh hai đối tượng",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-025:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "今天比昨天冷 so hôm nay với hôm qua. Không có nghĩa hôm qua nóng hoặc hôm nay lạnh nhất. 比 không cho biết chênh bao nhiêu nếu chưa nêu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-025:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "今天比昨天冷。",
+              "pinyin": "Jīntiān bǐ zuótiān lěng.",
+              "meaningVi": "Hôm nay lạnh hơn hôm qua.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-025:practice",
+          "title": "Tự kiểm · So sánh hai đối tượng",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-025:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hôm nay lạnh hơn hôm qua: 今天___昨天冷。 Điền 比 hoặc 最.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "比"
+                ],
+                "explanation": "比 nối A với B. 最 không thể đặt giữa hai đối tượng ở mẫu này.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "So sánh hai đối tượng",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-025"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-026:understand",
+          "title": "Nói với ai",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-026:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "跟老师说 chuyện nói với giáo viên. Tôi nói, giáo viên là người được nói cùng; không đổi thành giáo viên kể cho tôi khi chủ ngữ vẫn là 我.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-026:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我跟老师说了这件事。",
+              "pinyin": "Wǒ gēn lǎoshī shuō le zhè jiàn shì.",
+              "meaningVi": "Tôi đã nói việc này với giáo viên.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-026:practice",
+          "title": "Tự kiểm · Nói với ai",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-026:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Tôi nói chuyện này với giáo viên: 我___老师说了这件事。 Điền 跟 hoặc 因为.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "跟"
+                ],
+                "explanation": "跟 giới thiệu người tham gia giao tiếp, không chỉ lý do.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Nói với ai",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-026"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-030:understand",
+          "title": "地 trước động từ, 得 sau động từ",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-030:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "高兴地说 miêu tả cách nói; 说得很好 đánh giá nói thế nào. Cả hai thường đọc nhẹ de nhưng chữ và vị trí khác nhau.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-030:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "他高兴地说：“你写得很好。”",
+              "pinyin": "Tā gāoxìng de shuō: “Nǐ xiě de hěn hǎo.”",
+              "meaningVi": "Anh ấy vui vẻ nói: “Bạn viết rất tốt.”",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-030:practice",
+          "title": "Tự kiểm · 地 trước động từ, 得 sau động từ",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-030:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Nói một cách vui vẻ: 他高兴___说。 Điền 地 hoặc 得.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "地"
+                ],
+                "explanation": "地 nối 高兴 với động từ 说; 得 đi sau động từ để nối bổ ngữ.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "地 trước động từ, 得 sau động từ",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-030"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-033:understand",
+          "title": "Trợ từ cần ngữ cảnh",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-033:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "呢 trong 你找什么呢 gợi tình huống đang hỏi; 吧 trong 走吧 đề nghị; 的 trong 会来的 thể hiện sự xác nhận theo ngữ cảnh; 啊 thêm cảm thán. Không coi mỗi từ có một bản dịch cố định.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-033:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "你在找什么呢？",
+              "pinyin": "Nǐ zài zhǎo shénme ne?",
+              "meaningVi": "Bạn đang tìm gì vậy?",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-033:practice",
+          "title": "Tự kiểm · Trợ từ cần ngữ cảnh",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-02:v2:grammar:hsk2-grammar-row-033:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Đề nghị cùng đi: 我们走___。 Điền 吧 hoặc 吗 theo ý rủ rê.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "吧"
+                ],
+                "explanation": "吧 tạo đề nghị. 吗 sẽ chuyển thành câu hỏi có/không khác mục đích.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Trợ từ cần ngữ cảnh",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-033"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00301",
+          "headword": "啊",
+          "headwordPinyin": "a",
+          "meaning": "trợ từ cuối câu biểu thị xác nhận hoặc cảm thán",
+          "example": {
+            "hanzi": "今天天气真好啊！",
+            "pinyin": "Jīntiān tiānqì zhēn hǎo a!",
+            "meaningVi": "Hôm nay thời tiết đẹp thật!"
+          }
+        },
+        {
+          "id": "hsk-vocab-00309",
+          "headword": "比",
+          "headwordPinyin": "bǐ",
+          "meaning": "so với; hơn",
+          "example": {
+            "hanzi": "今天比昨天冷。",
+            "pinyin": "Jīntiān bǐ zuótiān lěng.",
+            "meaningVi": "Hôm nay lạnh hơn hôm qua."
+          }
+        },
+        {
+          "id": "hsk-vocab-00315",
+          "headword": "车站",
+          "headwordPinyin": "chēzhàn",
+          "meaning": "nhà ga; trạm xe",
+          "example": {
+            "hanzi": "车站离这里很远。",
+            "pinyin": "Chēzhàn lí zhèlǐ hěn yuǎn.",
+            "meaningVi": "Nhà ga rất xa đây."
+          }
+        },
+        {
+          "id": "hsk-vocab-00323",
+          "headword": "次",
+          "headwordPinyin": "cì",
+          "meaning": "lần; lượt",
+          "example": {
+            "hanzi": "我去过两次。",
+            "pinyin": "Wǒ qùguo liǎng cì.",
+            "meaningVi": "Tôi đã đi hai lần."
+          }
+        },
+        {
+          "id": "hsk-vocab-00324",
+          "headword": "从",
+          "headwordPinyin": "cóng",
+          "meaning": "từ; theo; kể từ",
+          "example": {
+            "hanzi": "从这里走，没错。",
+            "pinyin": "Cóng zhèlǐ zǒu, méi cuò.",
+            "meaningVi": "Đi từ đây, đúng rồi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00327",
+          "headword": "打",
+          "headwordPinyin": "dǎ",
+          "meaning": "đánh; thực hiện một hành động",
+          "example": {
+            "hanzi": "我们周末一起打球。",
+            "pinyin": "Wǒmen zhōumò yìqǐ dǎqiú.",
+            "meaningVi": "Cuối tuần chúng tôi cùng chơi bóng."
+          }
+        },
+        {
+          "id": "hsk-vocab-00332",
+          "headword": "得",
+          "headwordPinyin": "de",
+          "meaning": "trợ từ nối động từ với bổ ngữ",
+          "example": {
+            "hanzi": "他跑得不快。",
+            "pinyin": "Tā pǎo de bú kuài.",
+            "meaningVi": "Anh ấy chạy không nhanh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00333",
+          "headword": "地",
+          "headwordPinyin": "de",
+          "meaning": "trợ từ nối trạng ngữ với động từ",
+          "example": {
+            "hanzi": "请慢慢地走。",
+            "pinyin": "Qǐng mànmàn de zǒu.",
+            "meaningVi": "Hãy đi chậm thôi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00335",
+          "headword": "地铁",
+          "headwordPinyin": "dìtiě",
+          "meaning": "tàu điện ngầm",
+          "example": {
+            "hanzi": "地铁比公交车快。",
+            "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+            "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00336",
+          "headword": "点",
+          "headwordPinyin": "diǎn",
+          "meaning": "chấm; điểm; gọi món",
+          "example": {
+            "hanzi": "我想点两个菜。",
+            "pinyin": "Wǒ xiǎng diǎn liǎng ge cài.",
+            "meaningVi": "Tôi muốn gọi hai món ăn."
+          }
+        },
+        {
+          "id": "hsk-vocab-00341",
+          "headword": "高",
+          "headwordPinyin": "gāo",
+          "meaning": "cao",
+          "example": {
+            "hanzi": "姐姐比我高十厘米。",
+            "pinyin": "Jiějie bǐ wǒ gāo shí límǐ.",
+            "meaningVi": "Chị cao hơn tôi mười centimet."
+          }
+        },
+        {
+          "id": "hsk-vocab-00345",
+          "headword": "跟",
+          "headwordPinyin": "gēn",
+          "meaning": "với; theo; cùng",
+          "example": {
+            "hanzi": "你跟谁一起住？",
+            "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+            "meaningVi": "Bạn sống cùng ai?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00347",
+          "headword": "过",
+          "headwordPinyin": "guò",
+          "meaning": "qua; vượt qua",
+          "example": {
+            "hanzi": "过马路时要小心。",
+            "pinyin": "Guò mǎlù shí yào xiǎoxīn.",
+            "meaningVi": "Khi qua đường cần cẩn thận."
+          }
+        },
+        {
+          "id": "hsk-vocab-00351",
+          "headword": "过",
+          "headwordPinyin": "guo",
+          "meaning": "trợ từ chỉ trải nghiệm đã từng",
+          "example": {
+            "hanzi": "我没去过北京。",
+            "pinyin": "Wǒ méi qùguo Běijīng.",
+            "meaningVi": "Tôi chưa từng đến Bắc Kinh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00352",
+          "headword": "还是",
+          "headwordPinyin": "háishi",
+          "meaning": "vẫn; hay là",
+          "example": {
+            "hanzi": "喝红茶还是绿茶？",
+            "pinyin": "Hē hóngchá háishi lǜchá?",
+            "meaningVi": "Uống trà đen hay trà xanh?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00384",
+          "headword": "快",
+          "headwordPinyin": "kuài",
+          "meaning": "nhanh; sắp",
+          "example": {
+            "hanzi": "他跑得不快。",
+            "pinyin": "Tā pǎo de bú kuài.",
+            "meaningVi": "Anh ấy chạy không nhanh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00400",
+          "headword": "门",
+          "headwordPinyin": "mén",
+          "meaning": "cửa",
+          "example": {
+            "hanzi": "门开着。",
+            "pinyin": "Mén kāizhe.",
+            "meaningVi": "Cửa đang để mở."
+          }
+        },
+        {
+          "id": "hsk-vocab-00414",
+          "headword": "跑",
+          "headwordPinyin": "pǎo",
+          "meaning": "chạy",
+          "example": {
+            "hanzi": "他每天早上跑步。",
+            "pinyin": "Tā měitiān zǎoshang pǎobù.",
+            "meaningVi": "Anh ấy chạy bộ mỗi sáng."
+          }
+        },
+        {
+          "id": "hsk-vocab-00471",
+          "headword": "一会儿",
+          "headwordPinyin": "yīhuìr",
+          "meaning": "một lát; một lúc",
+          "example": {
+            "hanzi": "好，一会儿见。",
+            "pinyin": "Hǎo, yíhuìr jiàn.",
+            "meaningVi": "Được, lát nữa gặp."
+          }
+        },
+        {
+          "id": "hsk-vocab-00486",
+          "headword": "站",
+          "headwordPinyin": "zhàn",
+          "meaning": "trạm; đứng",
+          "example": {
+            "hanzi": "老师站在门口。",
+            "pinyin": "Lǎoshī zhàn zài ménkǒu.",
+            "meaningVi": "Giáo viên đứng ở cửa."
+          }
+        },
+        {
+          "id": "hsk-vocab-00492",
+          "headword": "周",
+          "headwordPinyin": "zhōu",
+          "meaning": "tuần",
+          "example": {
+            "hanzi": "我们每周上两次课。",
+            "pinyin": "Wǒmen měi zhōu shàng liǎng cì kè.",
+            "meaningVi": "Chúng tôi học hai buổi mỗi tuần."
+          }
+        },
+        {
+          "id": "hsk-vocab-00495",
+          "headword": "走",
+          "headwordPinyin": "zǒu",
+          "meaning": "đi; bước",
+          "example": {
+            "hanzi": "往右边走。",
+            "pinyin": "Wǎng yòubian zǒu.",
+            "meaningVi": "Đi về bên phải."
+          }
+        },
+        {
+          "id": "hsk-vocab-00498",
+          "headword": "最",
+          "headwordPinyin": "zuì",
+          "meaning": "nhất",
+          "example": {
+            "hanzi": "他想买最便宜的。",
+            "pinyin": "Tā xiǎng mǎi zuì piányi de.",
+            "meaningVi": "Anh ấy muốn mua chiếc rẻ nhất."
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "title": "So sánh và mức độ",
+      "teachingPages": [
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-035:understand",
+          "title": "的 thay danh từ đã rõ",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-035:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "Hai chiếc áo trên bàn: 红的是我的，白的是他的. 红的 thay 红色的衣服; nếu chưa biết món gì thì cần nêu danh từ. Không suy từ 的 rằng đó luôn là áo.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-035:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "红的是我的，白的是他的。",
+              "pinyin": "Hóng de shì wǒ de, bái de shì tā de.",
+              "meaningVi": "Cái màu đỏ là của tôi, cái màu trắng là của anh ấy.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-035:practice",
+          "title": "Tự kiểm · 的 thay danh từ đã rõ",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-035:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Đang chỉ hai chiếc áo: 红___是我的。 Điền 的 hoặc 地.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "的"
+                ],
+                "explanation": "的 tạo cụm thay áo đỏ; 地 không dùng thay danh từ.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "的 thay danh từ đã rõ",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-035"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-038:understand",
+          "title": "Liệt kê mở với 什么的",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-038:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "茶、咖啡什么的 là trà, cà phê và những thứ tương tự; danh sách không đóng. Không hiểu thành câu hỏi “cái gì” khi nó theo danh sách trong câu trần thuật.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-038:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我喜欢红茶、咖啡什么的。",
+              "pinyin": "Wǒ xǐhuan hóngchá, kāfēi shénme de.",
+              "meaningVi": "Tôi thích trà đen, cà phê và những thứ tương tự.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-038:practice",
+          "title": "Tự kiểm · Liệt kê mở với 什么的",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-038:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Liệt kê đồ uống và các thứ tương tự: 茶、咖啡___。 Điền 什么的 hoặc 为什么.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "什么的"
+                ],
+                "explanation": "什么的 mở danh sách; 为什么 hỏi lý do, không phù hợp.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Liệt kê mở với 什么的",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-038"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-039:understand",
+          "title": "Đề nghị sau cân nhắc",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-039:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "下雨了，还是坐车吧: vì điều kiện mới, đề nghị chọn xe. 还是 ở đây không phải “hay là” để hỏi chọn giữa hai vế rõ ràng.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-039:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "下雨了，我们还是坐车吧。",
+              "pinyin": "Xiàyǔ le, wǒmen háishi zuò chē ba.",
+              "meaningVi": "Trời mưa rồi, chúng ta vẫn nên đi xe thì hơn.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-039:practice",
+          "title": "Tự kiểm · Đề nghị sau cân nhắc",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-039:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Mưa rồi, đề nghị đi xe: 我们___坐车吧。 Điền 还是 hoặc 都.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "还是"
+                ],
+                "explanation": "还是…吧 đưa đề nghị sau cân nhắc; 都 chỉ tất cả không tạo ý đó.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Đề nghị sau cân nhắc",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-039"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-042:understand",
+          "title": "Vật đứng đầu câu kết quả",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-042:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "饭做好了 nói cơm đã nấu xong; cơm là thứ chịu tác động, không phải người nấu. Chưa biết ai nấu nếu không có thông tin khác.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-042:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "饭做好了。",
+              "pinyin": "Fàn zuòhǎo le.",
+              "meaningVi": "Cơm đã nấu xong rồi.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-042:practice",
+          "title": "Tự kiểm · Vật đứng đầu câu kết quả",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-042:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "饭做好了。 Câu này đã nêu người nấu chưa? Điền 有 hoặc 没有.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "没有"
+                ],
+                "explanation": "Câu chỉ nêu cơm đã xong, không định danh người nấu.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Vật đứng đầu câu kết quả",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-042"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-043:understand",
+          "title": "Danh từ làm vị ngữ trong mẫu thời gian",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-043:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "今天星期一 có thể không dùng 是. Có thể nói 今天是星期一, không kết luận cứ câu danh từ nào cũng được bỏ 是.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-043:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "今天星期一。",
+              "pinyin": "Jīntiān xīngqīyī.",
+              "meaningVi": "Hôm nay là thứ Hai.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-043:practice",
+          "title": "Tự kiểm · Danh từ làm vị ngữ trong mẫu thời gian",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-043:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hôm nay thứ hai: 今天___。 Điền 星期一 hoặc 星期三.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "星期一"
+                ],
+                "explanation": "星期一 là thứ hai; 星期三 là thứ tư.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Danh từ làm vị ngữ trong mẫu thời gian",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-043"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-044:understand",
+          "title": "Mệnh đề trước 的 bổ nghĩa danh từ",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-044:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "我昨天买的书: quyển sách tôi mua hôm qua. Cả 我昨天买 đứng trước 的 và bổ nghĩa 书; không tự hiểu là hôm nay mua.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-044:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我昨天买的书在桌子上。",
+              "pinyin": "Wǒ zuótiān mǎi de shū zài zhuōzi shàng.",
+              "meaningVi": "Quyển sách tôi mua hôm qua ở trên bàn.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-044:practice",
+          "title": "Tự kiểm · Mệnh đề trước 的 bổ nghĩa danh từ",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-044:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Quyển sách tôi mua hôm qua: 我昨天买___书。 Điền 的 hoặc 得.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "的"
+                ],
+                "explanation": "的 nối phần miêu tả 我昨天买 với danh từ 书.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Mệnh đề trước 的 bổ nghĩa danh từ",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-044"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-052:understand",
+          "title": "Nói về một mặt của đối tượng",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-052:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "他身体很好: nói về anh ấy, sức khỏe tốt. Không suy mọi mặt đều tốt. 身体很好 là phần đánh giá sức khỏe trong cấu trúc chủ đề này.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-052:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "他身体很好。",
+              "pinyin": "Tā shēntǐ hěn hǎo.",
+              "meaningVi": "Sức khỏe anh ấy rất tốt.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-052:practice",
+          "title": "Tự kiểm · Nói về một mặt của đối tượng",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-052:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "他身体很好。 Đang đánh giá điều gì? Điền 身体 hoặc 工作.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "身体"
+                ],
+                "explanation": "身体 là sức khỏe/cơ thể được nêu; câu không đánh giá công việc.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Nói về một mặt của đối tượng",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-052"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-053:understand",
+          "title": "Hỏi chọn bằng 还是",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-053:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "喝茶还是喝咖啡？ cần chọn một phương án hoặc giải thích lựa chọn khác. Không thêm 吗 cuối mẫu lựa chọn cơ bản này.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-053:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "你喝茶还是喝咖啡？",
+              "pinyin": "Nǐ hē chá háishi hē kāfēi?",
+              "meaningVi": "Bạn uống trà hay uống cà phê?",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-053:practice",
+          "title": "Tự kiểm · Hỏi chọn bằng 还是",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-053:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hỏi uống trà hay cà phê: 你喝茶___喝咖啡？ Điền 还是 hoặc 所以.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "还是"
+                ],
+                "explanation": "还是 nối hai lựa chọn; 所以 sẽ gán quan hệ kết quả.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Hỏi chọn bằng 还是",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-053"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-055:understand",
+          "title": "Giới thiệu đặc điểm bằng 是",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-055:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "她是新来的老师 giải thích đặc điểm/danh tính: giáo viên mới đến. 的 ở 新来的老师 nối định ngữ với danh từ, không phải mọi câu 是…的 đều đang nhấn một sự việc quá khứ.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-055:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "她是新来的汉语老师。",
+              "pinyin": "Tā shì xīn lái de Hànyǔ lǎoshī.",
+              "meaningVi": "Cô ấy là giáo viên tiếng Trung mới đến.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-055:practice",
+          "title": "Tự kiểm · Giới thiệu đặc điểm bằng 是",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-03:v2:grammar:hsk2-grammar-row-055:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Cô ấy là giáo viên mới đến: 她是新来___老师。 Điền 的 hoặc 地.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "的"
+                ],
+                "explanation": "的 nối 新来 với 老师; 地 dùng trạng ngữ trước động từ.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Giới thiệu đặc điểm bằng 是",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-055"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00333",
+          "headword": "地",
+          "headwordPinyin": "de",
+          "meaning": "trợ từ nối trạng ngữ với động từ",
+          "example": {
+            "hanzi": "请慢慢地走。",
+            "pinyin": "Qǐng mànmàn de zǒu.",
+            "meaningVi": "Hãy đi chậm thôi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00335",
+          "headword": "地铁",
+          "headwordPinyin": "dìtiě",
+          "meaning": "tàu điện ngầm",
+          "example": {
+            "hanzi": "地铁比公交车快。",
+            "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+            "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00346",
+          "headword": "公交车",
+          "headwordPinyin": "gōngjiāochē",
+          "meaning": "xe buýt",
+          "example": {
+            "hanzi": "地铁比公交车快。",
+            "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+            "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00352",
+          "headword": "还是",
+          "headwordPinyin": "háishi",
+          "meaning": "vẫn; hay là",
+          "example": {
+            "hanzi": "喝红茶还是绿茶？",
+            "pinyin": "Hē hóngchá háishi lǜchá?",
+            "meaningVi": "Uống trà đen hay trà xanh?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00354",
+          "headword": "红茶",
+          "headwordPinyin": "hóngchá",
+          "meaning": "trà đen",
+          "example": {
+            "hanzi": "你喝红茶还是绿茶？",
+            "pinyin": "Nǐ hē hóngchá háishi lǜchá?",
+            "meaningVi": "Bạn uống trà đen hay trà xanh?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00377",
+          "headword": "咖啡",
+          "headwordPinyin": "kāfēi",
+          "meaning": "cà phê",
+          "example": {
+            "hanzi": "我想喝一杯咖啡。",
+            "pinyin": "Wǒ xiǎng hē yì bēi kāfēi.",
+            "meaningVi": "Tôi muốn uống một cốc cà phê."
+          }
+        },
+        {
+          "id": "hsk-vocab-00416",
+          "headword": "票",
+          "headwordPinyin": "piào",
+          "meaning": "vé",
+          "example": {
+            "hanzi": "票买好了。",
+            "pinyin": "Piào mǎihǎo le.",
+            "meaningVi": "Vé đã mua xong rồi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00429",
+          "headword": "身体",
+          "headwordPinyin": "shēntǐ",
+          "meaning": "cơ thể; sức khỏe",
+          "example": {
+            "hanzi": "他身体很好。",
+            "pinyin": "Tā shēntǐ hěn hǎo.",
+            "meaningVi": "Sức khỏe anh ấy rất tốt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00467",
+          "headword": "眼睛",
+          "headwordPinyin": "yǎnjing",
+          "meaning": "mắt",
+          "example": {
+            "hanzi": "她的眼睛很大。",
+            "pinyin": "Tā de yǎnjing hěn dà.",
+            "meaningVi": "Mắt của cô ấy to."
+          }
+        },
+        {
+          "id": "hsk-vocab-00492",
+          "headword": "周",
+          "headwordPinyin": "zhōu",
+          "meaning": "tuần",
+          "example": {
+            "hanzi": "我们每周上两次课。",
+            "pinyin": "Wǒmen měi zhōu shàng liǎng cì kè.",
+            "meaningVi": "Chúng tôi học hai buổi mỗi tuần."
+          }
+        },
+        {
+          "id": "hsk-vocab-00498",
+          "headword": "最",
+          "headwordPinyin": "zuì",
+          "meaning": "nhất",
+          "example": {
+            "hanzi": "他想买最便宜的。",
+            "pinyin": "Tā xiǎng mǎi zuì piányi de.",
+            "meaningVi": "Anh ấy muốn mua chiếc rẻ nhất."
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "title": "Chuỗi miêu tả tổng hợp",
+      "teachingPages": [
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-056:understand",
+          "title": "Nêu kích thước đạt tới",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-056:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "有一米五高 nêu cao 1,5 mét. 有 ở đây không phải sở hữu một vật; không so với người khác nếu chưa có mốc B.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-056:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "这个男孩儿有一米五高。",
+              "pinyin": "Zhège nánháir yǒu yì mǐ wǔ gāo.",
+              "meaningVi": "Cậu bé này cao một mét rưỡi.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-056:practice",
+          "title": "Tự kiểm · Nêu kích thước đạt tới",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-056:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Cao 1,5 mét: 他有一米五___。 Điền 高 hoặc 长.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "高"
+                ],
+                "explanation": "高 dùng chiều cao của người; 长 sẽ đổi loại kích thước.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Nêu kích thước đạt tới",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-056"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-058:understand",
+          "title": "Hơn không bằng nhất",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-058:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "A比B热 chỉ A nóng hơn B. A và B vẫn có thể đều lạnh theo cảm nhận; chưa thể chọn A nóng nhất trong ba ngày.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-058:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "今天比昨天热。",
+              "pinyin": "Jīntiān bǐ zuótiān rè.",
+              "meaningVi": "Hôm nay nóng hơn hôm qua.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-058:practice",
+          "title": "Tự kiểm · Hơn không bằng nhất",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-058:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hôm nay nóng hơn hôm qua: 今天比昨天___。 Điền 热 hoặc 冷.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "热"
+                ],
+                "explanation": "热 giữ đúng chiều so sánh nóng hơn.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Hơn không bằng nhất",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-058"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-059:understand",
+          "title": "Chênh lệch định lượng",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-059:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "姐姐比我大三岁: chị hơn tôi ba tuổi. Nếu tôi 20, chị 23; không có nghĩa chị chỉ ba tuổi. 高十厘米 cũng nêu phần chênh, không chiều cao toàn bộ.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-059:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "姐姐比我大三岁。",
+              "pinyin": "Jiějie bǐ wǒ dà sān suì.",
+              "meaningVi": "Chị gái lớn hơn tôi ba tuổi.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-059:practice",
+          "title": "Tự kiểm · Chênh lệch định lượng",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-059:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Tôi 20 tuổi, chị hơn ba tuổi. Chị bao nhiêu tuổi? Điền số Ả Rập.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "23"
+                ],
+                "explanation": "20 + 3 = 23; ba là chênh lệch tuổi.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Chênh lệch định lượng",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-059"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-060:understand",
+          "title": "Không bằng theo một đặc tính",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-060:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "他没有我这么忙: anh ấy không bận bằng tôi. Không suy anh ấy hoàn toàn rảnh. 这么/那么 gắn mức tham chiếu; 有…那么… có thể hỏi/khẳng định đạt mức B.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-060:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "他没有我这么忙。",
+              "pinyin": "Tā méiyǒu wǒ zhème máng.",
+              "meaningVi": "Anh ấy không bận bằng tôi.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-060:practice",
+          "title": "Tự kiểm · Không bằng theo một đặc tính",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-060:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Anh ấy không bận bằng tôi: 他___我这么忙。 Điền 没有 hoặc 比 để giữ hướng đã cho.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "没有"
+                ],
+                "explanation": "没有…这么忙 là không bận bằng; 比…忙 sẽ đảo thành bận hơn.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Không bằng theo một đặc tính",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-060"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-061:understand",
+          "title": "So cách thực hiện động tác",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-061:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "他跑得比我快 hoặc 他比我跑得快 so tốc độ chạy. 得 nối đánh giá hành động; không chỉ so chiều cao/cân nặng của người.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-061:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "他跑得比我快。",
+              "pinyin": "Tā pǎo de bǐ wǒ kuài.",
+              "meaningVi": "Anh ấy chạy nhanh hơn tôi.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-061:practice",
+          "title": "Tự kiểm · So cách thực hiện động tác",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-061:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Anh ấy chạy nhanh hơn tôi: 他跑___比我快。 Điền 得 hoặc 地.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "得"
+                ],
+                "explanation": "得 đứng sau 跑 nối phần đánh giá tốc độ.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "So cách thực hiện động tác",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-061"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-072:understand",
+          "title": "Tầng và thứ tự",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-072:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "三楼 là tầng ba, không phải ba tòa nhà. Khi đếm tòa thường nói 三座楼/三栋楼 theo vật và ngữ cảnh. Không thêm 第 máy móc vào mỗi nhãn tầng.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-072:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "我家住三楼。",
+              "pinyin": "Wǒ jiā zhù sān lóu.",
+              "meaningVi": "Nhà tôi ở tầng ba.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-072:practice",
+          "title": "Tự kiểm · Tầng và thứ tự",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-072:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Phòng ở tầng bốn: 教室在___楼。 Điền 四 hoặc 三.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "四"
+                ],
+                "explanation": "四楼 là tầng bốn.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Tầng và thứ tự",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-072"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-073:understand",
+          "title": "Ước lượng bằng 几",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-073:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "十几个学生 thường là hơn mười nhưng chưa hai mươi, không biết chính xác. 几个 không tự cố định bằng ba; phân biệt câu hỏi 几 với câu trần thuật ước lượng.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-073:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "教室里有十几个学生。",
+              "pinyin": "Jiàoshì lǐ yǒu shí jǐ ge xuésheng.",
+              "meaningVi": "Trong lớp có hơn mười học sinh.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-073:practice",
+          "title": "Tự kiểm · Ước lượng bằng 几",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-073:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Nghe “十几个学生” có biết chính xác là 15 không? Điền 知道 hoặc 不知道.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "不知道"
+                ],
+                "explanation": "Cụm chỉ ước lượng, không có số chính xác 15.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Ước lượng bằng 几",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-073"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-074:understand",
+          "title": "多 sau số trước lượng từ",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-074:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "三十多名学生 là hơn ba mươi (thông thường chưa bốn mươi theo cách đếm này). 多 đứng trước 名; không đổi thành đúng 30.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-074:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "这个班有三十多名学生。",
+              "pinyin": "Zhège bān yǒu sānshí duō míng xuésheng.",
+              "meaningVi": "Lớp này có hơn ba mươi học sinh.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-074:practice",
+          "title": "Tự kiểm · 多 sau số trước lượng từ",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-074:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hơn ba mươi học sinh: 三十___名学生。 Điền 多 hoặc 最.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "多"
+                ],
+                "explanation": "多 đánh dấu hơn số tròn; 最 không chỉ số lượng ước chừng.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "多 sau số trước lượng từ",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-074"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-075:understand",
+          "title": "多 sau đơn vị",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-075:note",
+              "kind": "explanation",
+              "title": "Cách dùng và giới hạn",
+              "body": "三岁多 là hơn ba tuổi; 三个小时多 không phải mẫu chuẩn ưu tiên ở đây, dùng 三个多小时 để nói hơn ba tiếng. Vị trí phụ thuộc đơn vị/mẫu, không có một quy tắc hoán đổi tự do.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-075:example",
+              "kind": "dialogue",
+              "title": "Đọc mẫu trong ngữ cảnh",
+              "body": "",
+              "hanzi": "这个孩子三岁多了。",
+              "pinyin": "Zhège háizi sān suì duō le.",
+              "meaningVi": "Đứa trẻ này hơn ba tuổi.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-075:practice",
+          "title": "Tự kiểm · 多 sau đơn vị",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-reference-description-comparison-lesson-04:v2:grammar:hsk2-grammar-row-075:activity",
+              "kind": "activity",
+              "title": "Chọn theo ý nghĩa cần diễn đạt",
+              "body": "Hơn ba tuổi: 三岁___。 Điền 多 hoặc 几.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "cloze",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [
+                  "多"
+                ],
+                "explanation": "三岁多 nêu hơn ba tuổi; 三岁几 không hoàn chỉnh theo mẫu.",
+                "hint": "Có thể trở lại mẫu để tìm trợ giúp; lần làm này chưa chứng minh đã nhớ độc lập.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "多 sau đơn vị",
+                  "sources": [
+                    {
+                      "kind": "grammar",
+                      "id": "hsk2-grammar-row-075"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00304",
+          "headword": "班",
+          "headwordPinyin": "bān",
+          "meaning": "lớp; nhóm; ca làm",
+          "example": {
+            "hanzi": "我们班有二十个学生。",
+            "pinyin": "Wǒmen bān yǒu èrshí ge xuésheng.",
+            "meaningVi": "Lớp chúng tôi có hai mươi học sinh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00309",
+          "headword": "比",
+          "headwordPinyin": "bǐ",
+          "meaning": "so với; hơn",
+          "example": {
+            "hanzi": "今天比昨天冷。",
+            "pinyin": "Jīntiān bǐ zuótiān lěng.",
+            "meaningVi": "Hôm nay lạnh hơn hôm qua."
+          }
+        },
+        {
+          "id": "hsk-vocab-00332",
+          "headword": "得",
+          "headwordPinyin": "de",
+          "meaning": "trợ từ nối động từ với bổ ngữ",
+          "example": {
+            "hanzi": "他跑得不快。",
+            "pinyin": "Tā pǎo de bú kuài.",
+            "meaningVi": "Anh ấy chạy không nhanh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00341",
+          "headword": "高",
+          "headwordPinyin": "gāo",
+          "meaning": "cao",
+          "example": {
+            "hanzi": "姐姐比我高十厘米。",
+            "pinyin": "Jiějie bǐ wǒ gāo shí límǐ.",
+            "meaningVi": "Chị cao hơn tôi mười centimet."
+          }
+        },
+        {
+          "id": "hsk-vocab-00366",
+          "headword": "间",
+          "headwordPinyin": "jiān",
+          "meaning": "gian; phòng; khoảng",
+          "example": {
+            "hanzi": "这里有三间教室。",
+            "pinyin": "Zhèlǐ yǒu sān jiān jiàoshì.",
+            "meaningVi": "Ở đây có ba phòng học."
+          }
+        },
+        {
+          "id": "hsk-vocab-00367",
+          "headword": "教",
+          "headwordPinyin": "jiāo",
+          "meaning": "dạy",
+          "example": {
+            "hanzi": "老师教我们写汉字。",
+            "pinyin": "Lǎoshī jiāo wǒmen xiě Hànzì.",
+            "meaningVi": "Giáo viên dạy chúng tôi viết chữ Hán."
+          }
+        },
+        {
+          "id": "hsk-vocab-00368",
+          "headword": "教室",
+          "headwordPinyin": "jiàoshì",
+          "meaning": "phòng học",
+          "example": {
+            "hanzi": "教室在五楼。",
+            "pinyin": "Jiàoshì zài wǔ lóu.",
+            "meaningVi": "Lớp học ở tầng năm."
+          }
+        },
+        {
+          "id": "hsk-vocab-00384",
+          "headword": "快",
+          "headwordPinyin": "kuài",
+          "meaning": "nhanh; sắp",
+          "example": {
+            "hanzi": "他跑得不快。",
+            "pinyin": "Tā pǎo de bú kuài.",
+            "meaningVi": "Anh ấy chạy không nhanh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00391",
+          "headword": "楼",
+          "headwordPinyin": "lóu",
+          "meaning": "tầng; tòa nhà nhiều tầng",
+          "example": {
+            "hanzi": "教室在五楼。",
+            "pinyin": "Jiàoshì zài wǔ lóu.",
+            "meaningVi": "Lớp học ở tầng năm."
+          }
+        },
+        {
+          "id": "hsk-vocab-00404",
+          "headword": "名",
+          "headwordPinyin": "míng",
+          "meaning": "tên; vị trí trong bảng xếp hạng",
+          "example": {
+            "hanzi": "她在比赛中得了第一名。",
+            "pinyin": "Tā zài bǐsài zhōng dé le dì yī míng.",
+            "meaningVi": "Cô ấy đạt hạng nhất trong cuộc thi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00406",
+          "headword": "那么",
+          "headwordPinyin": "nàme",
+          "meaning": "như vậy; thế thì",
+          "example": {
+            "hanzi": "就要红色的，不要那么长的。",
+            "pinyin": "Jiù yào hóngsè de, bú yào nàme cháng de.",
+            "meaningVi": "Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế."
+          }
+        },
+        {
+          "id": "hsk-vocab-00410",
+          "headword": "男孩儿",
+          "headwordPinyin": "nánháir",
+          "meaning": "bé trai",
+          "example": {
+            "hanzi": "这个男孩儿有一米五高。",
+            "pinyin": "Zhège nánháir yǒu yì mǐ wǔ gāo.",
+            "meaningVi": "Cậu bé này cao một mét rưỡi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00412",
+          "headword": "女孩儿",
+          "headwordPinyin": "nǚháir",
+          "meaning": "bé gái",
+          "example": {
+            "hanzi": "这个女孩儿有一米高。",
+            "pinyin": "Zhège nǚháir yǒu yì mǐ gāo.",
+            "meaningVi": "Cô bé này cao một mét."
+          }
+        },
+        {
+          "id": "hsk-vocab-00414",
+          "headword": "跑",
+          "headwordPinyin": "pǎo",
+          "meaning": "chạy",
+          "example": {
+            "hanzi": "他每天早上跑步。",
+            "pinyin": "Tā měitiān zǎoshang pǎobù.",
+            "meaningVi": "Anh ấy chạy bộ mỗi sáng."
+          }
+        },
+        {
+          "id": "hsk-vocab-00488",
+          "headword": "这么",
+          "headwordPinyin": "zhème",
+          "meaning": "như thế này; chừng này",
+          "example": {
+            "hanzi": "他没有我这么忙。",
+            "pinyin": "Tā méiyǒu wǒ zhème máng.",
+            "meaningVi": "Anh ấy không bận bằng tôi."
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-01",
+      "title": "Dựng câu từ thành phần",
+      "teachingPages": [
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-01:v2:reconstruct-0",
+          "title": "Dựng câu · lượt 1",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-01:v2:reconstruct-0:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Dựng câu bắt đầu bằng 酒店: khách sạn không xa ga. Dùng đủ các mảnh.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "离车站",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "不远",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "酒店",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "酒店 là nơi đang nói đến; 离车站 lấy ga làm mốc; 不远 mô tả khoảng cách. Đề yêu cầu bắt đầu bằng 酒店.\n酒店离车站不远。\nJiǔdiàn lí chēzhàn bù yuǎn.\nKhách sạn không xa ga.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Dựng câu bắt đầu bằng 酒店: khách sạn không xa ga. Dùng đủ các mảnh.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-01"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-01:v2:reconstruct-1",
+          "title": "Dựng câu · lượt 2",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-01:v2:reconstruct-1:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Đưa thời gian 下课以后 lên đầu, rồi nêu “tôi về nhà ngay”.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "我",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "就",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-3",
+                    "text": "回家",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "下课以后",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2",
+                  "piece-3"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Thời gian đặt đầu theo yêu cầu; 我 là chủ thể; 就 trước 回家 nhấn ngay. 我下课以后就回家 cũng có thể dùng, nhưng không theo yêu cầu đặt thời gian đầu của bài này.\n下课以后我就回家。\nXiàkè yǐhòu wǒ jiù huí jiā.\nSau khi tan học tôi về nhà ngay.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Đưa thời gian 下课以后 lên đầu, rồi nêu “tôi về nhà ngay”.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-01"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-01:v2:reconstruct-2",
+          "title": "Dựng câu · lượt 3",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-01:v2:reconstruct-2:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Bắt đầu bằng 她, đặt tần suất trước động từ: cô ấy uống một cốc cà phê mỗi ngày.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "每天",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "喝",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-3",
+                    "text": "一杯咖啡",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "她",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2",
+                  "piece-3"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Chủ thể 她, tần suất 每天, động từ 喝, vật uống 一杯咖啡. Đếm cốc bằng 杯, không bỏ lượng từ.\n她每天喝一杯咖啡。\nTā měitiān hē yì bēi kāfēi.\nCô ấy uống một cốc cà phê mỗi ngày.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Bắt đầu bằng 她, đặt tần suất trước động từ: cô ấy uống một cốc cà phê mỗi ngày.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-01"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00375",
+          "headword": "酒店",
+          "headwordPinyin": "jiǔdiàn",
+          "meaning": "khách sạn",
+          "example": {
+            "hanzi": "酒店离车站不远。",
+            "pinyin": "Jiǔdiàn lí chēzhàn bù yuǎn.",
+            "meaningVi": "Khách sạn không xa nhà ga."
+          }
+        },
+        {
+          "id": "hsk-vocab-00376",
+          "headword": "就",
+          "headwordPinyin": "jiù",
+          "meaning": "liền; thì; chỉ",
+          "example": {
+            "hanzi": "前面就是学校。",
+            "pinyin": "Qiánmiàn jiù shì xuéxiào.",
+            "meaningVi": "Phía trước chính là trường học."
+          }
+        },
+        {
+          "id": "hsk-vocab-00377",
+          "headword": "咖啡",
+          "headwordPinyin": "kāfēi",
+          "meaning": "cà phê",
+          "example": {
+            "hanzi": "我想喝一杯咖啡。",
+            "pinyin": "Wǒ xiǎng hē yì bēi kāfēi.",
+            "meaningVi": "Tôi muốn uống một cốc cà phê."
+          }
+        },
+        {
+          "id": "hsk-vocab-00380",
+          "headword": "考",
+          "headwordPinyin": "kǎo",
+          "meaning": "thi; kiểm tra",
+          "example": {
+            "hanzi": "我们明天考汉语。",
+            "pinyin": "Wǒmen míngtiān kǎo Hànyǔ.",
+            "meaningVi": "Ngày mai chúng tôi thi tiếng Trung."
+          }
+        },
+        {
+          "id": "hsk-vocab-00383",
+          "headword": "裤子",
+          "headwordPinyin": "kùzi",
+          "meaning": "quần",
+          "example": {
+            "hanzi": "我要买一条裤子。",
+            "pinyin": "Wǒ yào mǎi yì tiáo kùzi.",
+            "meaningVi": "Tôi muốn mua một chiếc quần."
+          }
+        },
+        {
+          "id": "hsk-vocab-00384",
+          "headword": "快",
+          "headwordPinyin": "kuài",
+          "meaning": "nhanh; sắp",
+          "example": {
+            "hanzi": "他跑得不快。",
+            "pinyin": "Tā pǎo de bú kuài.",
+            "meaningVi": "Anh ấy chạy không nhanh."
+          }
+        },
+        {
+          "id": "hsk-vocab-00387",
+          "headword": "篮球",
+          "headwordPinyin": "lánqiú",
+          "meaning": "bóng rổ",
+          "example": {
+            "hanzi": "我喜欢打篮球。",
+            "pinyin": "Wǒ xǐhuan dǎ lánqiú.",
+            "meaningVi": "Tôi thích chơi bóng rổ."
+          }
+        },
+        {
+          "id": "hsk-vocab-00385",
+          "headword": "快乐",
+          "headwordPinyin": "kuàilè",
+          "meaning": "vui vẻ",
+          "example": {
+            "hanzi": "祝你生日快乐。",
+            "pinyin": "Zhù nǐ shēngrì kuàilè.",
+            "meaningVi": "Chúc bạn sinh nhật vui vẻ."
+          }
+        },
+        {
+          "id": "hsk-vocab-00388",
+          "headword": "累",
+          "headwordPinyin": "lèi",
+          "meaning": "mệt",
+          "example": {
+            "hanzi": "我今天有点儿累。",
+            "pinyin": "Wǒ jīntiān yǒudiǎnr lèi.",
+            "meaningVi": "Hôm nay tôi hơi mệt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00389",
+          "headword": "离",
+          "headwordPinyin": "lí",
+          "meaning": "cách; rời khỏi",
+          "example": {
+            "hanzi": "离这里远吗？",
+            "pinyin": "Lí zhèlǐ yuǎn ma?",
+            "meaningVi": "Có xa đây không?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00391",
+          "headword": "楼",
+          "headwordPinyin": "lóu",
+          "meaning": "tầng; tòa nhà nhiều tầng",
+          "example": {
+            "hanzi": "教室在五楼。",
+            "pinyin": "Jiàoshì zài wǔ lóu.",
+            "meaningVi": "Lớp học ở tầng năm."
+          }
+        },
+        {
+          "id": "hsk-vocab-00392",
+          "headword": "路",
+          "headwordPinyin": "lù",
+          "meaning": "đường; tuyến",
+          "example": {
+            "hanzi": "这条路怎么走？",
+            "pinyin": "Zhè tiáo lù zěnme zǒu?",
+            "meaningVi": "Đi đường này thế nào?"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-02",
+      "title": "Dựng câu có aspect và bổ ngữ",
+      "teachingPages": [
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-02:v2:reconstruct-0",
+          "title": "Dựng câu · lượt 1",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-02:v2:reconstruct-0:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Đặt 旅游以前 ở đầu: trước chuyến du lịch, tôi đã mua xong vé máy bay.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "我",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "买好了",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-3",
+                    "text": "机票",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "旅游以前",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2",
+                  "piece-3"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "买好 giữ kết quả mua xong, 了 đi trong mảnh 买好了. Câu này chưa nói chuyến đi đã hoàn tất. Đề cố định thời gian đầu câu.\n旅游以前我买好了机票。\nLǚyóu yǐqián wǒ mǎihǎo le jīpiào.\nTrước khi du lịch tôi đã mua xong vé máy bay.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Đặt 旅游以前 ở đầu: trước chuyến du lịch, tôi đã mua xong vé máy bay.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-02"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-02:v2:reconstruct-1",
+          "title": "Dựng câu · lượt 2",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-02:v2:reconstruct-1:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Dựng lời yêu cầu lịch sự: xin nói chậm hơn một chút. Bắt đầu bằng 请.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "说",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "慢一点儿",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "请",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "请 mở yêu cầu, 说 là hành động, 慢一点儿 là mức cần thay đổi. 有点儿慢 lại đánh giá hơi chậm, khác yêu cầu nói chậm hơn.\n请说慢一点儿。\nQǐng shuō màn yìdiǎnr.\nXin nói chậm hơn một chút.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Dựng lời yêu cầu lịch sự: xin nói chậm hơn một chút. Bắt đầu bằng 请.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-02"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-02:v2:reconstruct-2",
+          "title": "Dựng câu · lượt 3",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-02:v2:reconstruct-2:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Bắt đầu bằng 他: anh ấy ngày nào cũng chạy bộ. Giữ 每天 trước 都.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "每天",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "都",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-3",
+                    "text": "跑步",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "他",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2",
+                  "piece-3"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "每天 nêu phạm vi mỗi ngày, 都 nhấn đều, 跑步 là hành động. Đây là thói quen, không chứng minh hiện đang chạy.\n他每天都跑步。\nTā měitiān dōu pǎobù.\nAnh ấy ngày nào cũng chạy bộ.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Bắt đầu bằng 他: anh ấy ngày nào cũng chạy bộ. Giữ 每天 trước 都.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-02"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00394",
+          "headword": "旅游",
+          "headwordPinyin": "lǚyóu",
+          "meaning": "du lịch",
+          "example": {
+            "hanzi": "我们准备下个月去旅游。",
+            "pinyin": "Wǒmen zhǔnbèi xià ge yuè qù lǚyóu.",
+            "meaningVi": "Chúng tôi dự định tháng sau đi du lịch."
+          }
+        },
+        {
+          "id": "hsk-vocab-00395",
+          "headword": "绿茶",
+          "headwordPinyin": "lǜchá",
+          "meaning": "trà xanh",
+          "example": {
+            "hanzi": "绿茶，谢谢。",
+            "pinyin": "Lǜchá, xièxie.",
+            "meaningVi": "Trà xanh, cảm ơn."
+          }
+        },
+        {
+          "id": "hsk-vocab-00397",
+          "headword": "慢",
+          "headwordPinyin": "màn",
+          "meaning": "chậm",
+          "example": {
+            "hanzi": "你慢慢说。",
+            "pinyin": "Nǐ mànmàn shuō.",
+            "meaningVi": "Bạn nói chậm chậm thôi."
+          }
+        },
+        {
+          "id": "hsk-vocab-00399",
+          "headword": "每",
+          "headwordPinyin": "měi",
+          "meaning": "mỗi",
+          "example": {
+            "hanzi": "我每天跑步。",
+            "pinyin": "Wǒ měitiān pǎobù.",
+            "meaningVi": "Tôi chạy bộ mỗi ngày."
+          }
+        },
+        {
+          "id": "hsk-vocab-00319",
+          "headword": "出门",
+          "headwordPinyin": "chūmén",
+          "meaning": "ra khỏi nhà",
+          "example": {
+            "hanzi": "出门以后下雨了。",
+            "pinyin": "Chūmén yǐhòu xiàyǔ le.",
+            "meaningVi": "Sau khi ra khỏi nhà thì trời mưa."
+          }
+        },
+        {
+          "id": "hsk-vocab-00405",
+          "headword": "拿",
+          "headwordPinyin": "ná",
+          "meaning": "cầm; lấy",
+          "example": {
+            "hanzi": "别忘了拿机票。",
+            "pinyin": "Bié wàng le ná jīpiào.",
+            "meaningVi": "Đừng quên cầm vé máy bay."
+          }
+        },
+        {
+          "id": "hsk-vocab-00411",
+          "headword": "鸟",
+          "headwordPinyin": "niǎo",
+          "meaning": "chim",
+          "example": {
+            "hanzi": "树上有一只鸟。",
+            "pinyin": "Shù shàng yǒu yì zhī niǎo.",
+            "meaningVi": "Trên cây có một con chim."
+          }
+        },
+        {
+          "id": "hsk-vocab-00413",
+          "headword": "旁边",
+          "headwordPinyin": "pángbiān",
+          "meaning": "bên cạnh",
+          "example": {
+            "hanzi": "药店在饭馆旁边。",
+            "pinyin": "Yàodiàn zài fànguǎn pángbiān.",
+            "meaningVi": "Hiệu thuốc ở cạnh nhà hàng."
+          }
+        },
+        {
+          "id": "hsk-vocab-00414",
+          "headword": "跑",
+          "headwordPinyin": "pǎo",
+          "meaning": "chạy",
+          "example": {
+            "hanzi": "他每天早上跑步。",
+            "pinyin": "Tā měitiān zǎoshang pǎobù.",
+            "meaningVi": "Anh ấy chạy bộ mỗi sáng."
+          }
+        },
+        {
+          "id": "hsk-vocab-00364",
+          "headword": "机票",
+          "headwordPinyin": "jīpiào",
+          "meaning": "vé máy bay",
+          "example": {
+            "hanzi": "别忘了拿机票。",
+            "pinyin": "Bié wàng le ná jīpiào.",
+            "meaningVi": "Đừng quên cầm vé máy bay."
+          }
+        },
+        {
+          "id": "hsk-vocab-00417",
+          "headword": "妻子",
+          "headwordPinyin": "qīzi",
+          "meaning": "vợ",
+          "example": {
+            "hanzi": "他比妻子高一点儿。",
+            "pinyin": "Tā bǐ qīzi gāo yìdiǎnr.",
+            "meaningVi": "Anh ấy cao hơn vợ một chút."
+          }
+        },
+        {
+          "id": "hsk-vocab-00432",
+          "headword": "事情",
+          "headwordPinyin": "shìqing",
+          "meaning": "sự việc; chuyện",
+          "example": {
+            "hanzi": "你现在忙什么事情？",
+            "pinyin": "Nǐ xiànzài máng shénme shìqing?",
+            "meaningVi": "Hiện bạn bận việc gì?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00420",
+          "headword": "晴",
+          "headwordPinyin": "qíng",
+          "meaning": "trời quang; trời nắng",
+          "example": {
+            "hanzi": "明天是晴天。",
+            "pinyin": "Míngtiān shì qíngtiān.",
+            "meaningVi": "Ngày mai trời nắng."
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-03",
+      "title": "Dựng chuỗi câu có liên kết",
+      "teachingPages": [
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-03:v2:reconstruct-0",
+          "title": "Dựng câu · lượt 1",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-03:v2:reconstruct-0:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Xếp hai vế theo thứ tự nhượng bộ trước, kết quả sau: dù mưa nhưng anh ấy vẫn đến.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "但是",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "他还是来了",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "虽然下雨，",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "虽然 giới thiệu trở ngại; 但是 nối kết quả trái kỳ vọng. 还是 ở đây là vẫn, không phải câu hỏi lựa chọn.\n虽然下雨，但是他还是来了。\nSuīrán xiàyǔ, dànshì tā háishi lái le.\nTuy trời mưa nhưng anh ấy vẫn đến.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Xếp hai vế theo thứ tự nhượng bộ trước, kết quả sau: dù mưa nhưng anh ấy vẫn đến.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-03"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-03:v2:reconstruct-1",
+          "title": "Dựng câu · lượt 2",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-03:v2:reconstruct-1:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Bắt đầu bằng 因为: vì mai thi nên tối nay tôi học ở nhà. Xếp nguyên nhân trước kết quả.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "所以",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "我今晚在家学习",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "因为明天考试，",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Kỳ thi là lý do chọn học, không phải học gây ra kỳ thi. Giữ hai vế theo yêu cầu để quan hệ rõ.\n因为明天考试，所以我今晚在家学习。\nYīnwèi míngtiān kǎoshì, suǒyǐ wǒ jīnwǎn zài jiā xuéxí.\nVì mai thi nên tối nay tôi học ở nhà.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Bắt đầu bằng 因为: vì mai thi nên tối nay tôi học ở nhà. Xếp nguyên nhân trước kết quả.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-03"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk2-sentence-reconstruction-lesson-03:v2:reconstruct-2",
+          "title": "Dựng câu · lượt 3",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk2-sentence-reconstruction-lesson-03:v2:reconstruct-2:activity",
+              "kind": "activity",
+              "title": "Chọn từng mảnh theo thứ tự",
+              "body": "Dựng lời đề nghị giúp đỡ. Bắt đầu bằng 让, kết thúc bằng 吧.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "piece-1",
+                    "text": "我来帮你",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-2",
+                    "text": "吧",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "piece-0",
+                    "text": "让",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "piece-0",
+                  "piece-1",
+                  "piece-2"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "我 là người sẽ giúp, 你 là người nhận trợ giúp. Không đảo thành bạn giúp tôi. 吧 làm lời đề nghị.\n让我来帮你吧。\nRàng wǒ lái bāng nǐ ba.\nĐể tôi giúp bạn nhé.",
+                "hint": "Xác định chủ thể, mốc thời gian và quan hệ giữa các vế trước; nếu mở lại mẫu, ghi nhận đã dùng trợ giúp.",
+                "rubric": [],
+                "learningTarget": {
+                  "skill": "grammar",
+                  "objective": "Dựng lời đề nghị giúp đỡ. Bắt đầu bằng 让, kết thúc bằng 吧.",
+                  "sources": [
+                    {
+                      "kind": "task",
+                      "id": "hsk2-short-text-task:hsk2-sentence-reconstruction-lesson-03"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "hsk-vocab-00387",
+          "headword": "篮球",
+          "headwordPinyin": "lánqiú",
+          "meaning": "bóng rổ",
+          "example": {
+            "hanzi": "我喜欢打篮球。",
+            "pinyin": "Wǒ xǐhuan dǎ lánqiú.",
+            "meaningVi": "Tôi thích chơi bóng rổ."
+          }
+        },
+        {
+          "id": "hsk-vocab-00438",
+          "headword": "虽然",
+          "headwordPinyin": "suīrán",
+          "meaning": "mặc dù",
+          "example": {
+            "hanzi": "虽然很累，但是他还在工作。",
+            "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò.",
+            "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc."
+          }
+        },
+        {
+          "id": "hsk-vocab-00422",
+          "headword": "让",
+          "headwordPinyin": "ràng",
+          "meaning": "để; cho phép; nhường",
+          "example": {
+            "hanzi": "让我来帮你吧。",
+            "pinyin": "Ràng wǒ lái bāng nǐ ba.",
+            "meaningVi": "Để tôi giúp bạn."
+          }
+        },
+        {
+          "id": "hsk-vocab-00423",
+          "headword": "肉",
+          "headwordPinyin": "ròu",
+          "meaning": "thịt",
+          "example": {
+            "hanzi": "你喜欢吃肉还是鱼？",
+            "pinyin": "Nǐ xǐhuan chī ròu háishi yú?",
+            "meaningVi": "Bạn thích ăn thịt hay cá?"
+          }
+        },
+        {
+          "id": "hsk-vocab-00303",
+          "headword": "白色",
+          "headwordPinyin": "báisè",
+          "meaning": "màu trắng",
+          "example": {
+            "hanzi": "我想买一件白色的衣服。",
+            "pinyin": "Wǒ xiǎng mǎi yí jiàn báisè de yīfu.",
+            "meaningVi": "Tôi muốn mua một bộ quần áo màu trắng."
+          }
+        },
+        {
+          "id": "hsk-vocab-00369",
+          "headword": "介绍",
+          "headwordPinyin": "jièshào",
+          "meaning": "giới thiệu",
+          "example": {
+            "hanzi": "请介绍一下自己。",
+            "pinyin": "Qǐng jièshào yíxià zìjǐ.",
+            "meaningVi": "Hãy giới thiệu một chút về bản thân."
+          }
+        },
+        {
+          "id": "hsk-vocab-00429",
+          "headword": "身体",
+          "headwordPinyin": "shēntǐ",
+          "meaning": "cơ thể; sức khỏe",
+          "example": {
+            "hanzi": "他身体很好。",
+            "pinyin": "Tā shēntǐ hěn hǎo.",
+            "meaningVi": "Sức khỏe anh ấy rất tốt."
+          }
+        },
+        {
+          "id": "hsk-vocab-00378",
+          "headword": "开始",
+          "headwordPinyin": "kāishǐ",
+          "meaning": "bắt đầu",
+          "example": {
+            "hanzi": "电影八点开始。",
+            "pinyin": "Diànyǐng bā diǎn kāishǐ.",
+            "meaningVi": "Bộ phim bắt đầu lúc tám giờ."
+          }
+        },
+        {
+          "id": "hsk-vocab-00381",
+          "headword": "考试",
+          "headwordPinyin": "kǎoshì",
+          "meaning": "thi; kỳ thi",
+          "example": {
+            "hanzi": "考试九点开始。",
+            "pinyin": "Kǎoshì jiǔ diǎn kāishǐ.",
+            "meaningVi": "Bài thi bắt đầu lúc chín giờ."
+          }
+        },
+        {
+          "id": "hsk-vocab-00368",
+          "headword": "教室",
+          "headwordPinyin": "jiàoshì",
+          "meaning": "phòng học",
+          "example": {
+            "hanzi": "教室在五楼。",
+            "pinyin": "Jiàoshì zài wǔ lóu.",
+            "meaningVi": "Lớp học ở tầng năm."
+          }
+        },
+        {
+          "id": "hsk-vocab-00436",
+          "headword": "舒服",
+          "headwordPinyin": "shūfu",
+          "meaning": "thoải mái; khỏe",
+          "example": {
+            "hanzi": "他的眼睛不太舒服。",
+            "pinyin": "Tā de yǎnjing bú tài shūfu.",
+            "meaningVi": "Mắt anh ấy không được dễ chịu."
+          }
+        },
+        {
+          "id": "hsk-vocab-00313",
+          "headword": "不好意思",
+          "headwordPinyin": "bùhǎoyìsi",
+          "meaning": "ngại quá; xin lỗi vì làm phiền",
+          "example": {
+            "hanzi": "不好意思，我来晚了。",
+            "pinyin": "Bù hǎoyìsi, wǒ lái wǎn le.",
+            "meaningVi": "Xin lỗi, tôi đến muộn."
+          }
+        }
+      ]
+    }
+  ]
+}

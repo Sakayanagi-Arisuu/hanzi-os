@@ -1,0 +1,2419 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/160-REVIEW-HSK4-REFERENCE-MEASURE-ROUND67.md",
+  "entries": [
+    {
+      "sourceRevisionId": "bcc9b745-c38d-49d0-ab82-cb473499723b",
+      "sourceContentSha256": "sha256:6a405824237dcdf26a538c1d6e71530f7c7ed3d2aed269f2f52bff23f916f1a1",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm có phạm vi\nít nhất một bằng chứng từ mỗi nguồn\ngiải thích quan hệ giữa vai trò và tiêu chí\nphản biện ý kiến ưu tiên một chuẩn để dễ quản lý\nkết luận giới hạn ở tình huống nguồn",
+        "conceptVi": "Tách dữ kiện và diễn giải: Kiểm soát phạm vi, thời gian, thái độ, lượng, cấu trúc cố định và số liệu để diễn đạt thông tin chính xác.",
+        "dialogue": [
+          {
+            "hanzi": "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
+            "meaningVi": "Sau khi chuyển đến khu Minh Hà, cư dân mới thường không biết phải giải quyết công việc ở đâu. Trung tâm cộng đồng lập một bảng gồm dịch vụ y tế, sửa chữa, tư vấn giao thông và chăm sóc người cao tuổi, đồng thời ghi rõ người phụ trách cùng cách liên hệ. Cư dân tra mục cần thiết trước rồi chọn nhắn trực tuyến hoặc trình bày tại quầy.",
+            "pinyin": "Xīn jūmín bān jìn Mínghé shèqū hòu, chángcháng bù zhīdào gāi qù nǎlǐ bàn shì. Shèqū zhōngxīn bǎ yīliáo, xiūlǐ, jiāotōng zīxún hé lǎorén zhàogù děng fúwù liè chéng yì zhāng biǎo, bìng zài měi xiàng fúwù hòu xiě míng fùzérén de xìngmíng hé liánxì fāngshì. Jūmín kěyǐ xiān cházhǎo xūyào de xiàngmù, zài juédìng zàixiàn liúyán háishi dào fúwùtái shuōmíng qíngkuàng.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "表上看起来只有几个名字，实际工作却由多方合作完成。工作人员收到问题后先分类，再请志愿者回复一般咨询；如果涉及道路安全，就转给交警。如果老人行动不便，维修人员或医生还可以预约上门。这样，每个人的角色不同，但信息不会停在一个人手里。",
+            "meaningVi": "Trên bảng chỉ có vài cái tên nhưng công việc thực tế do nhiều bên phối hợp. Nhân viên phân loại yêu cầu, tình nguyện viên trả lời tư vấn thông thường, còn vấn đề an toàn đường bộ được chuyển cho cảnh sát giao thông. Nếu người cao tuổi đi lại khó khăn, thợ sửa chữa hoặc bác sĩ có thể hẹn đến tận nhà; vai trò khác nhau nhưng thông tin không bị giữ ở một người.",
+            "pinyin": "Biǎo shàng kàn qǐ lái zhǐyǒu jǐ ge míngzi, shíjì gōngzuò què yóu duō fāng hézuò wánchéng. Gōngzuò rényuán shōu dào wèntí hòu xiān fēnlèi, zài qǐng zhìyuànzhě huífù yìbān zīxún; rúguǒ shèjí dàolù ānquán, jiù zhuǎn gěi jiāojǐng. Rúguǒ lǎorén xíngdòng bú biàn, wéixiū rényuán huò yīshēng hái kěyǐ yùyuē shàng mén. Zhèyàng, měi ge rén de juésè bùtóng, dàn xìnxī bú huì tíng zài yí ge rén shǒu lǐ.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "三个月后，中心发现大多数问题能在一天内得到回复，不过也有居民把紧急求助写成普通留言。于是中心在表上增加了“紧急程度”和“是否需要上门”两栏，并安排值班人员电话确认。新办法没有减少参与者，却让居民更容易看清谁负责判断、谁负责处理、谁负责继续跟进。",
+            "meaningVi": "Ba tháng sau, trung tâm nhận thấy phần lớn vấn đề được hồi đáp trong một ngày, nhưng một số cư dân vẫn ghi yêu cầu khẩn như lời nhắn thường. Vì vậy bảng được thêm hai cột “mức khẩn cấp” và “có cần đến tận nơi không”, kèm người trực gọi xác nhận. Cách mới không giảm số người tham gia mà làm rõ ai đánh giá, ai xử lý và ai theo dõi tiếp.",
+            "pinyin": "Sān ge yuè hòu, zhōngxīn fāxiàn dàduōshù wèntí néng zài yì tiān nèi dédào huífù, búguò yě yǒu jūmín bǎ jǐnjí qiúzhù xiě chéng pǔtōng liúyán. Yúshì zhōngxīn zài biǎo shàng zēngjiā le “jǐnjí chéngdù” hé “shìfǒu xūyào shàng mén” liǎng lán, bìng ānpái zhíbān rényuán diànhuà quèrèn. Xīn bànfǎ méiyǒu jiǎnshǎo cānyùzhě, què ràng jūmín gèng róngyì kàn qīng shéi fùzé pànduàn, shéi fùzé chǔlǐ, shéi fùzé jìxù gēnjìn.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "长途车站过去只有两家快餐店，许多旅客为了赶车，只能买已经装好的套餐。车站经理发现，老人和带孩子的家庭常常吃不完，而需要清淡饮食的人也很难找到合适的中餐。有人因此选择不吃午饭，也有人把没吃完的食品直接扔掉。",
+            "meaningVi": "Bến xe đường dài trước đây chỉ có hai cửa hàng đồ ăn nhanh; nhiều hành khách vì vội lên xe chỉ có thể mua suất đóng sẵn. Người cao tuổi, gia đình có trẻ nhỏ thường ăn không hết, còn người cần đồ thanh đạm khó tìm món Trung phù hợp. Có người bỏ bữa, có người vứt phần thức ăn thừa.",
+            "pinyin": "Chángtú chēzhàn guòqù zhǐyǒu liǎng jiā kuàicāndiàn, xǔduō lǚkè wèile gǎn chē, zhǐ néng mǎi yǐjīng zhuāng hǎo de tàocān. Chēzhàn jīnglǐ fāxiàn, lǎorén hé dài háizi de jiātíng chángcháng chī bu wán, ér xūyào qīngdàn yǐnshí de rén yě hěn nán zhǎo dào héshì de zhōngcān. Yǒu rén yīncǐ xuǎnzé bù chī wǔfàn, yě yǒu rén bǎ méi chī wán de shípǐn zhíjiē rēng diào.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "后来，车站邀请三类人一起讨论：旅客代表说明时间和价格要求，厨师介绍哪些美食能提前准备，卫生人员则提醒大家鲜菜和热菜不能在常温下放太久。他们最后决定设置小份窗口，并把每份菜的主要材料、重量和制作时间写在电子牌上。",
+            "meaningVi": "Sau đó, bến xe mời ba nhóm cùng thảo luận: đại diện hành khách nêu yêu cầu về thời gian và giá, đầu bếp giới thiệu món ngon có thể chuẩn bị trước, còn nhân viên vệ sinh nhắc rằng rau tươi và món nóng không được để lâu ở nhiệt độ thường. Họ quyết định mở quầy phần nhỏ và ghi nguyên liệu, trọng lượng, thời gian chế biến trên bảng điện tử.",
+            "pinyin": "Hòulái, chēzhàn yāoqǐng sān lèi rén yìqǐ tǎolùn: lǚkè dàibiǎo shuōmíng shíjiān hé jiàgé yāoqiú, chúshī jièshào nǎxiē měishí néng tíqián zhǔnbèi, wèishēng rényuán zé tíxǐng dàjiā xiān cài hé rè cài bù néng zài chángwēn xià fàng tài jiǔ. Tāmen zuìhòu juédìng shèzhì xiǎo fèn chuāngkǒu, bìng bǎ měi fèn cài de zhǔyào cáiliào, zhòngliàng hé zhìzuò shíjiān xiě zài diànzǐpái shàng.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "试行一个月后，窗口前排队的人比预想的多，但食品浪费明显减少。经理没有因此认定方案已经完美，因为调查只覆盖工作日中午，也没有记录旅客是否真正喜欢这些口味。车站准备在周末继续收集意见，再决定是否增加晚餐和地方特色菜。",
+            "meaningVi": "Sau một tháng thử nghiệm, số người xếp hàng đông hơn dự kiến nhưng lãng phí thực phẩm giảm rõ. Quản lý không coi phương án đã hoàn hảo vì khảo sát mới phủ buổi trưa ngày thường và chưa ghi nhận hành khách có thực sự thích hương vị không. Bến xe sẽ tiếp tục lấy ý kiến cuối tuần trước khi quyết định thêm bữa tối và món địa phương.",
+            "pinyin": "Shìxíng yí ge yuè hòu, chuāngkǒu qián pái duì de rén bǐ yùxiǎng de duō, dàn shípǐn làngfèi míngxiǎn jiǎnshǎo. Jīnglǐ méiyǒu yīncǐ rèndìng fāng’àn yǐjīng wánměi, yīnwèi diàochá zhǐ fùgài gōngzuòrì zhōngwǔ, yě méiyǒu jìlù lǚkè shìfǒu zhēnzhèng xǐhuan zhèxiē kǒuwèi. Chēzhàn zhǔnbèi zài zhōumò jìxù shōují yìjiàn, zài juédìng shìfǒu zēngjiā wǎncān hé dìfang tèsè cài.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:69d69c01cee1eb80911412337151d72230e69f21c5ca600d25996bb1eea3aa5f",
+          "evidenceDocument": "docs/thien-lo-redesign-review/123-REVIEW-HSK4-SERVICE-PINYIN-ROUND30.md",
+          "humanReviewed": false,
+          "scope": "Correct contextual Pinyin in six shared paragraphs across three lessons; preserve Hanzi, meaning, IDs and answer keys.",
+          "sourceContentSha256": "sha256:82b4461ced8ced10e59c9e7f47b0402eb32f307bc9f3198eb2c935b33986e595",
+          "sourceRevisionId": "c94bfaf5-1334-4e62-b2f0-08b34f11301d"
+        },
+        "exercises": [
+          {
+            "answer": "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
+            "answerMeaningVi": "Sau khi chuyển đến khu Minh Hà, cư dân mới thường không biết phải giải quyết công việc ở đâu. Trung tâm cộng đồng lập một bảng gồm dịch vụ y tế, sửa chữa, tư vấn giao thông và chăm sóc người cao tuổi, đồng thời ghi rõ người phụ trách cùng cách liên hệ. Cư dân tra mục cần thiết trước rồi chọn nhắn trực tuyến hoặc trình bày tại quầy.",
+            "answerPinyin": "Xīn jūmín bān jìn Mínghé shèqū hòu, chángcháng bù zhīdào gāi qù nǎlǐ bàn shì. Shèqū zhōngxīn bǎ yīliáo, xiūlǐ, jiāotōng zīxún hé lǎorén zhàogù děng fúwù liè chéng yì zhāng biǎo, bìng zài měi xiàng fúwù hòu xiě míng fùzérén de xìngmíng hé liánxì fāngshì. Jūmín kěyǐ xiān cházhǎo xūyào de xiàngmù, zài juédìng zàixiàn liúyán háishi dào fúwùtái shuōmíng qíngkuàng.",
+            "distractors": [
+              "表上看起来只有几个名字，实际工作却由多方合作完成。工作人员收到问题后先分类，再请志愿者回复一般咨询；如果涉及道路安全，就转给交警。如果老人行动不便，维修人员或医生还可以预约上门。这样，每个人的角色不同，但信息不会停在一个人手里。",
+              "三个月后，中心发现大多数问题能在一天内得到回复，不过也有居民把紧急求助写成普通留言。于是中心在表上增加了“紧急程度”和“是否需要上门”两栏，并安排值班人员电话确认。新办法没有减少参与者，却让居民更容易看清谁负责判断、谁负责处理、谁负责继续跟进。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "敢 gǎn đứng trước động từ để nói dám, có can đảm/sẵn sàng chấp nhận việc đó. Phủ định 不敢; hỏi 敢不敢 hoặc 敢…吗. Khác 会 biết cách và 能 có khả năng/điều kiện. 敢 nói thái độ, không xác nhận hành động thành công. 不敢问 có thể biết cách hỏi nhưng ngại.",
+            "guidedPractice": {
+              "promptVi": "Bạn biết bơi nhưng không dám bơi một mình. Viết hai vế 会/不敢, không nói không biết bơi.",
+              "modelAnswerHanzi": "我会游泳，但不敢一个人游泳。",
+              "modelAnswerPinyin": "Wǒ huì yóuyǒng, dàn bù gǎn yí ge rén yóuyǒng.",
+              "modelAnswerMeaningVi": "Tôi biết bơi nhưng không dám bơi một mình."
+            },
+            "modelExample": {
+              "hanzi": "我不敢一个人去。",
+              "pinyin": "Wǒ bù gǎn yí ge rén qù.",
+              "meaningVi": "Tôi không dám đi một mình.",
+              "speaker": "A"
+            },
+            "pattern": "敢"
+          },
+          {
+            "explanationVi": "各 gè nói từng/mỗi trong tập hợp như 各班; 各位 gèwèi gọi trang trọng mọi người; 各种 gèzhǒng là nhiều loại; 任何 rènhé là bất kỳ, thường đi với 都 hoặc phủ định; 此 cǐ chỉ này trong văn viết. Không đồng nhất 不能代表任何车站 (không đại diện bất kỳ ga nào) với 不能代表所有车站 (không đại diện tất cả ga). Nếu mẫu từ một ga, vẫn có thể nói về ga đó theo phạm vi dữ liệu.",
+            "guidedPractice": {
+              "promptVi": "Một bảng chỉ ghi tuần này của lớp A. Dùng 此表 và nói chưa thể đại diện tất cả lớp, không phủ nhận giá trị đối với lớp A.",
+              "modelAnswerHanzi": "此表只记录A班本周的情况，不能代表所有班级。",
+              "modelAnswerPinyin": "Cǐ biǎo zhǐ jìlù A bān běn zhōu de qíngkuàng, bù néng dàibiǎo suǒyǒu bānjí.",
+              "modelAnswerMeaningVi": "Bảng này chỉ ghi tình hình tuần này của lớp A, không thể đại diện tất cả lớp."
+            },
+            "modelExample": {
+              "hanzi": "各班都有自己的计划。",
+              "pinyin": "Gè bān dōu yǒu zìjǐ de jìhuà.",
+              "meaningVi": "Mỗi lớp đều có kế hoạch riêng.",
+              "speaker": "A"
+            },
+            "pattern": "各、各位、各种、任何、此"
+          },
+          {
+            "explanationVi": "打 dá là một tá, thường12: 一打鸡蛋. 袋 dài là túi, 棵 kē đếm cây, 台 tái đếm một số máy/thiết bị, 幅 fú đếm tranh/bản đồ dạng tấm. 袋 không cho trọng lượng nếu chưa biết kích cỡ túi. 打 lượng từ đọc dá, khác 打电话 dǎ. Đổi lượng từ có thể đổi đơn vị đếm.",
+            "guidedPractice": {
+              "promptVi": "Cửa hàng mới có hai máy tính, ba túi gạo, một cây và một bức tranh. Viết số lượng đúng lượng từ.",
+              "modelAnswerHanzi": "这里有两台电脑、三袋米、一棵树和一幅画。",
+              "modelAnswerPinyin": "Zhèlǐ yǒu liǎng tái diànnǎo, sān dài mǐ, yì kē shù hé yì fú huà.",
+              "modelAnswerMeaningVi": "Ở đây có hai máy tính, ba túi gạo, một cây và một bức tranh."
+            },
+            "modelExample": {
+              "hanzi": "我买了一打鸡蛋和一袋米。",
+              "pinyin": "Wǒ mǎi le yì dá jīdàn hé yí dài mǐ.",
+              "meaningVi": "Tôi mua một tá trứng và một túi gạo.",
+              "speaker": "A"
+            },
+            "pattern": "（1）专用名量词：打、袋、棵、台、幅"
+          },
+          {
+            "explanationVi": "Danh từ có thể tạo đơn vị chứa/phủ đầy trong ngữ cảnh: 一盒饼干 hộp bánh, 一脸汗 mồ hôi đầy mặt, 一手油 dầu đầy tay, 一屋子人 cả phòng người, 一桌子菜 cả bàn món ăn. 脸/手 ở đây không phải đếm mặt/tay riêng lẻ. Không suy số người hoặc số món chính xác từ “cả phòng/cả bàn”.",
+            "guidedPractice": {
+              "promptVi": "Bạn thấy mồ hôi đầy mặt bạn chạy bộ và một hộp bánh trên bàn. Viết 一脸汗/一盒饼干.",
+              "modelAnswerHanzi": "他跑完步，一脸汗。桌上有一盒饼干。",
+              "modelAnswerPinyin": "Tā pǎo wán bù, yì liǎn hàn. Zhuō shàng yǒu yì hé bǐnggān.",
+              "modelAnswerMeaningVi": "Anh chạy xong, mặt đầy mồ hôi. Trên bàn có một hộp bánh quy."
+            },
+            "modelExample": {
+              "hanzi": "他跑回来，满脸是汗，也可以说一脸汗。",
+              "pinyin": "Tā pǎo huí lái, mǎn liǎn shì hàn, yě kěyǐ shuō yì liǎn hàn.",
+              "meaningVi": "Anh chạy về, mặt đầy mồ hôi, cũng có thể nói 一脸汗.",
+              "speaker": "A"
+            },
+            "pattern": "（2）借用名量词：脸、手、盒、屋子、桌子"
+          },
+          {
+            "explanationVi": "场 chǎng đếm một số sự kiện như 一场比赛; 顿 dùn bữa ăn/lần mắng như 一顿饭; 趟 tàng chuyến đi/lượt đi như 去一趟北京. Không đổi 场/顿/趟 tùy ý thành 次 ở mọi vị trí. Số chuyến không chứng minh đã xử lý xong việc; 一场比赛 không nói ai thắng.",
+            "guidedPractice": {
+              "promptVi": "Kế hoạch mới: mai đi một chuyến tới trường rồi ăn một bữa cùng bạn. Viết 趟/顿, chưa kể đã xảy ra.",
+              "modelAnswerHanzi": "我明天要去一趟学校，再和朋友吃一顿饭。",
+              "modelAnswerPinyin": "Wǒ míngtiān yào qù yí tàng xuéxiào, zài hé péngyou chī yí dùn fàn.",
+              "modelAnswerMeaningVi": "Mai tôi cần đi một chuyến tới trường rồi ăn một bữa cùng bạn."
+            },
+            "modelExample": {
+              "hanzi": "我们看了一场比赛，又吃了一顿饭。",
+              "pinyin": "Wǒmen kàn le yì chǎng bǐsài, yòu chī le yí dùn fàn.",
+              "meaningVi": "Chúng tôi xem một trận đấu rồi ăn một bữa.",
+              "speaker": "A"
+            },
+            "pattern": "场、顿、趟"
+          },
+          {
+            "explanationVi": "十分 shífēn là rất (khác mười phút khi đọc số thời gian); 更加 gèngjiā là càng/hơn nữa, cần mốc trong ngữ cảnh; 稍/稍微 shāo/shāowéi là hơi/một chút, thường 稍微…一点儿. 尤其 yóuqí là đặc biệt, chọn điểm nổi bật trong tập; không nhất thiết so hơn. 多么 duōme thường cảm thán mức độ: 多么美啊！ Mẫu cũ nói mọi 稍微/尤其 đều cần chuẩn so sánh chưa đúng.",
+            "guidedPractice": {
+              "promptVi": "Bạn thích trà, đặc biệt trà xanh; muốn nhờ bạn nói chậm hơn một chút. Viết hai câu 尤其/稍微.",
+              "modelAnswerHanzi": "我喜欢喝茶，尤其喜欢绿茶。请稍微说慢一点儿。",
+              "modelAnswerPinyin": "Wǒ xǐhuān hē chá, yóuqí xǐhuān lǜchá. Qǐng shāowéi shuō màn yì diǎnr.",
+              "modelAnswerMeaningVi": "Tôi thích uống trà, đặc biệt thích trà xanh. Xin nói chậm hơn một chút."
+            },
+            "modelExample": {
+              "hanzi": "这里十分安静。",
+              "pinyin": "Zhèlǐ shífēn ānjìng.",
+              "meaningVi": "Ở đây rất yên tĩnh.",
+              "speaker": "A"
+            },
+            "pattern": "十分、更加、稍、稍微、尤其、多么"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Tách dữ kiện và diễn giải: Kiểm soát phạm vi, thời gian, thái độ, lượng, cấu trúc cố định và số liệu để diễn đạt thông tin chính xác."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-0-0",
+                        "meaningVi": "Sau khi chuyển đến khu Minh Hà, cư dân mới thường không biết phải giải quyết công việc ở đâu. Trung tâm cộng đồng lập một bảng gồm dịch vụ y tế, sửa chữa, tư vấn giao thông và chăm sóc người cao tuổi, đồng thời ghi rõ người phụ trách cùng cách liên hệ. Cư dân tra mục cần thiết trước rồi chọn nhắn trực tuyến hoặc trình bày tại quầy.",
+                        "pinyin": "Xīn jūmín bān jìn Mínghé shèqū hòu, chángcháng bù zhīdào gāi qù nǎlǐ bàn shì. Shèqū zhōngxīn bǎ yīliáo, xiūlǐ, jiāotōng zīxún hé lǎorén zhàogù děng fúwù liè chéng yì zhāng biǎo, bìng zài měi xiàng fúwù hòu xiě míng fùzérén de xìngmíng hé liánxì fāngshì. Jūmín kěyǐ xiān cházhǎo xūyào de xiàngmù, zài juédìng zàixiàn liúyán háishi dào fúwùtái shuōmíng qíngkuàng."
+                      },
+                      {
+                        "hanzi": "表上看起来只有几个名字，实际工作却由多方合作完成。工作人员收到问题后先分类，再请志愿者回复一般咨询；如果涉及道路安全，就转给交警。如果老人行动不便，维修人员或医生还可以预约上门。这样，每个人的角色不同，但信息不会停在一个人手里。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-0-1",
+                        "meaningVi": "Trên bảng chỉ có vài cái tên nhưng công việc thực tế do nhiều bên phối hợp. Nhân viên phân loại yêu cầu, tình nguyện viên trả lời tư vấn thông thường, còn vấn đề an toàn đường bộ được chuyển cho cảnh sát giao thông. Nếu người cao tuổi đi lại khó khăn, thợ sửa chữa hoặc bác sĩ có thể hẹn đến tận nhà; vai trò khác nhau nhưng thông tin không bị giữ ở một người.",
+                        "pinyin": "Biǎo shàng kàn qǐ lái zhǐyǒu jǐ ge míngzi, shíjì gōngzuò què yóu duō fāng hézuò wánchéng. Gōngzuò rényuán shōu dào wèntí hòu xiān fēnlèi, zài qǐng zhìyuànzhě huífù yìbān zīxún; rúguǒ shèjí dàolù ānquán, jiù zhuǎn gěi jiāojǐng. Rúguǒ lǎorén xíngdòng bú biàn, wéixiū rényuán huò yīshēng hái kěyǐ yùyuē shàng mén. Zhèyàng, měi ge rén de juésè bùtóng, dàn xìnxī bú huì tíng zài yí ge rén shǒu lǐ."
+                      },
+                      {
+                        "hanzi": "三个月后，中心发现大多数问题能在一天内得到回复，不过也有居民把紧急求助写成普通留言。于是中心在表上增加了“紧急程度”和“是否需要上门”两栏，并安排值班人员电话确认。新办法没有减少参与者，却让居民更容易看清谁负责判断、谁负责处理、谁负责继续跟进。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-0-2",
+                        "meaningVi": "Ba tháng sau, trung tâm nhận thấy phần lớn vấn đề được hồi đáp trong một ngày, nhưng một số cư dân vẫn ghi yêu cầu khẩn như lời nhắn thường. Vì vậy bảng được thêm hai cột “mức khẩn cấp” và “có cần đến tận nơi không”, kèm người trực gọi xác nhận. Cách mới không giảm số người tham gia mà làm rõ ai đánh giá, ai xử lý và ai theo dõi tiếp.",
+                        "pinyin": "Sān ge yuè hòu, zhōngxīn fāxiàn dàduōshù wèntí néng zài yì tiān nèi dédào huífù, búguò yě yǒu jūmín bǎ jǐnjí qiúzhù xiě chéng pǔtōng liúyán. Yúshì zhōngxīn zài biǎo shàng zēngjiā le “jǐnjí chéngdù” hé “shìfǒu xūyào shàng mén” liǎng lán, bìng ānpái zhíbān rényuán diànhuà quèrèn. Xīn bànfǎ méiyǒu jiǎnshǎo cānyùzhě, què ràng jūmín gèng róngyì kàn qīng shéi fùzé pànduàn, shéi fùzé chǔlǐ, shéi fùzé jìxù gēnjìn."
+                      }
+                    ]
+                  },
+                  "title": "Sự phối hợp đằng sau một bảng dịch vụ cộng đồng"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Sự phối hợp đằng sau một bảng dịch vụ cộng đồng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "长途车站过去只有两家快餐店，许多旅客为了赶车，只能买已经装好的套餐。车站经理发现，老人和带孩子的家庭常常吃不完，而需要清淡饮食的人也很难找到合适的中餐。有人因此选择不吃午饭，也有人把没吃完的食品直接扔掉。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-1-0",
+                        "meaningVi": "Bến xe đường dài trước đây chỉ có hai cửa hàng đồ ăn nhanh; nhiều hành khách vì vội lên xe chỉ có thể mua suất đóng sẵn. Người cao tuổi, gia đình có trẻ nhỏ thường ăn không hết, còn người cần đồ thanh đạm khó tìm món Trung phù hợp. Có người bỏ bữa, có người vứt phần thức ăn thừa.",
+                        "pinyin": "Chángtú chēzhàn guòqù zhǐyǒu liǎng jiā kuàicāndiàn, xǔduō lǚkè wèile gǎn chē, zhǐ néng mǎi yǐjīng zhuāng hǎo de tàocān. Chēzhàn jīnglǐ fāxiàn, lǎorén hé dài háizi de jiātíng chángcháng chī bu wán, ér xūyào qīngdàn yǐnshí de rén yě hěn nán zhǎo dào héshì de zhōngcān. Yǒu rén yīncǐ xuǎnzé bù chī wǔfàn, yě yǒu rén bǎ méi chī wán de shípǐn zhíjiē rēng diào."
+                      },
+                      {
+                        "hanzi": "后来，车站邀请三类人一起讨论：旅客代表说明时间和价格要求，厨师介绍哪些美食能提前准备，卫生人员则提醒大家鲜菜和热菜不能在常温下放太久。他们最后决定设置小份窗口，并把每份菜的主要材料、重量和制作时间写在电子牌上。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-1-1",
+                        "meaningVi": "Sau đó, bến xe mời ba nhóm cùng thảo luận: đại diện hành khách nêu yêu cầu về thời gian và giá, đầu bếp giới thiệu món ngon có thể chuẩn bị trước, còn nhân viên vệ sinh nhắc rằng rau tươi và món nóng không được để lâu ở nhiệt độ thường. Họ quyết định mở quầy phần nhỏ và ghi nguyên liệu, trọng lượng, thời gian chế biến trên bảng điện tử.",
+                        "pinyin": "Hòulái, chēzhàn yāoqǐng sān lèi rén yìqǐ tǎolùn: lǚkè dàibiǎo shuōmíng shíjiān hé jiàgé yāoqiú, chúshī jièshào nǎxiē měishí néng tíqián zhǔnbèi, wèishēng rényuán zé tíxǐng dàjiā xiān cài hé rè cài bù néng zài chángwēn xià fàng tài jiǔ. Tāmen zuìhòu juédìng shèzhì xiǎo fèn chuāngkǒu, bìng bǎ měi fèn cài de zhǔyào cáiliào, zhòngliàng hé zhìzuò shíjiān xiě zài diànzǐpái shàng."
+                      },
+                      {
+                        "hanzi": "试行一个月后，窗口前排队的人比预想的多，但食品浪费明显减少。经理没有因此认定方案已经完美，因为调查只覆盖工作日中午，也没有记录旅客是否真正喜欢这些口味。车站准备在周末继续收集意见，再决定是否增加晚餐和地方特色菜。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-1-2",
+                        "meaningVi": "Sau một tháng thử nghiệm, số người xếp hàng đông hơn dự kiến nhưng lãng phí thực phẩm giảm rõ. Quản lý không coi phương án đã hoàn hảo vì khảo sát mới phủ buổi trưa ngày thường và chưa ghi nhận hành khách có thực sự thích hương vị không. Bến xe sẽ tiếp tục lấy ý kiến cuối tuần trước khi quyết định thêm bữa tối và món địa phương.",
+                        "pinyin": "Shìxíng yí ge yuè hòu, chuāngkǒu qián pái duì de rén bǐ yùxiǎng de duō, dàn shípǐn làngfèi míngxiǎn jiǎnshǎo. Jīnglǐ méiyǒu yīncǐ rèndìng fāng’àn yǐjīng wánměi, yīnwèi diàochá zhǐ fùgài gōngzuòrì zhōngwǔ, yě méiyǒu jìlù lǚkè shìfǒu zhēnzhèng xǐhuan zhèxiē kǒuwèi. Chēzhàn zhǔnbèi zài zhōumò jìxù shōují yìjiàn, zài juédìng shìfǒu zēngjiā wǎncān hé dìfang tèsè cài."
+                      }
+                    ]
+                  },
+                  "title": "Lựa chọn bữa trưa trong nhà ga"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Lựa chọn bữa trưa trong nhà ga"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "服务表在每项服务后写明负责人的姓名和联系方式。\nBảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.\nĐối chiếu Nguồn A · đoạn1.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "食品浪费减少，证明所有旅客都喜欢小份窗口的饭菜。\nLãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.\nĐối chiếu Nguồn B · đoạn3.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n社区中心把服务、负责人和联系方式列成表。实际工作由工作人员、志愿者等多方合作完成。三个月后，中心又增加紧急程度和上门需求两栏，并安排电话确认，让判断、处理和跟进的责任更清楚。\nShèqū zhōngxīn bǎ fúwù, fùzérén hé liánxì fāngshì liè chéng biǎo. Shíjì gōngzuò yóu gōngzuò rényuán, zhìyuànzhě děng duō fāng hézuò wánchéng. Sān ge yuè hòu, zhōngxīn yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú liǎng lán, bìng ānpái diànhuà quèrèn, ràng pànduàn, chǔlǐ hé gēnjìn de zérèn gèng qīngchu.\nTrung tâm liệt kê dịch vụ, người phụ trách và cách liên hệ thành bảng. Công việc thực tế do nhân viên, tình nguyện viên và các bên phối hợp. Ba tháng sau, trung tâm thêm hai cột mức khẩn cấp và nhu cầu đến tận nhà, đồng thời gọi xác nhận để rõ trách nhiệm đánh giá, xử lý và theo dõi.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt các mục trên bảng với công việc thực tế của các bên.",
+                        "id": "point-0",
+                        "label": "Phân biệt các mục trên bảng với công việc thực tế của các bên."
+                      },
+                      {
+                        "guidance": "Sự phối hợp xuất hiện trong trường hợp được mô tả.",
+                        "id": "point-1",
+                        "label": "Sự phối hợp xuất hiện trong trường hợp được mô tả."
+                      },
+                      {
+                        "guidance": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn.",
+                        "id": "point-2",
+                        "label": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn."
+                      },
+                      {
+                        "guidance": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng.",
+                        "id": "point-3",
+                        "label": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n过去，长途车站的套餐不能满足所有旅客的需要。旅客代表、厨师和卫生人员讨论后，车站设置小份窗口，并公布材料、重量和制作时间。试行后浪费减少了，但调查只覆盖工作日中午，还没有记录口味偏好，所以不能说方案已经完美。\nGuòqù, chángtú chēzhàn de tàocān bù néng mǎnzú suǒyǒu lǚkè de xūyào. Lǚkè dàibiǎo, chúshī hé wèishēng rényuán tǎolùn hòu, chēzhàn shèzhì xiǎo fèn chuāngkǒu, bìng gōngbù cáiliào, zhòngliàng hé zhìzuò shíjiān. Shìxíng hòu làngfèi jiǎnshǎo le, dàn diàochá zhǐ fùgài gōngzuòrì zhōngwǔ, hái méiyǒu jìlù kǒuwèi piānhào, suǒyǐ bù néng shuō fāng’àn yǐjīng wánměi.\nTrước đây suất ăn ở bến xe đường dài chưa đáp ứng mọi hành khách. Sau thảo luận giữa đại diện hành khách, đầu bếp và nhân sự vệ sinh, bến xe mở quầy phần nhỏ, công bố nguyên liệu, trọng lượng và giờ chế biến. Thử nghiệm giúp giảm lãng phí, nhưng khảo sát chỉ ở trưa ngày thường và chưa ghi sở thích hương vị nên chưa thể nói phương án hoàn hảo.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Diễn đạt lại cải tiến quầy ăn tại bến xe, giữ kết quả và giới hạn dữ liệu.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Có nhiều hơn một tiêu chí lựa chọn.",
+                        "id": "point-0",
+                        "label": "Có nhiều hơn một tiêu chí lựa chọn."
+                      },
+                      {
+                        "guidance": "Nhu cầu của hành khách không giống nhau.",
+                        "id": "point-1",
+                        "label": "Nhu cầu của hành khách không giống nhau."
+                      },
+                      {
+                        "guidance": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo.",
+                        "id": "point-2",
+                        "label": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại quá trình bến xe mở quầy phần nhỏ, giữ nhu cầu, vai trò, kết quả thử nghiệm và giới hạn dữ liệu.\nDẫn chứng: Nguồn B · đoạn1–3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "敢 gǎn đứng trước động từ để nói dám, có can đảm/sẵn sàng chấp nhận việc đó. Phủ định 不敢; hỏi 敢不敢 hoặc 敢…吗. Khác 会 biết cách và 能 có khả năng/điều kiện. 敢 nói thái độ, không xác nhận hành động thành công. 不敢问 có thể biết cách hỏi nhưng ngại.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "敢: dám làm; 不敢/敢不敢"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我不敢一个人去。",
+                  "pinyin": "Wǒ bù gǎn yí ge rén qù.",
+                  "meaningVi": "Tôi không dám đi một mình.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "你敢不敢问老师？",
+                  "pinyin": "Nǐ gǎn bu gǎn wèn lǎoshī?",
+                  "meaningVi": "Bạn có dám hỏi giáo viên không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:0:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "他敢说出自己的意见。",
+                  "pinyin": "Tā gǎn shuō chū zìjǐ de yìjiàn.",
+                  "meaningVi": "Anh ấy dám nói ý kiến của mình.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "敢: dám làm; 不敢/敢不敢"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:0:practice",
+              "title": "Khảo Luyện · 敢: dám làm; 不敢/敢不敢",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Biết cách hỏi nhưng ngại, dùng gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "不会问 luôn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "不敢问",
+                        "feedback": "不敢 nói ngại/không dám, khác không biết cách."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不能 biết",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不敢 nói ngại/không dám, khác không biết cách.",
+                    "learningTarget": {
+                      "objective": "敢: dám làm; 不敢/敢不敢",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "敢提意见 có chứng minh ý kiến đã được chấp thuận không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không",
+                        "feedback": "Dám đề xuất khác kết quả được chấp thuận."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu 大胆",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Dám đề xuất khác kết quả được chấp thuận.",
+                    "learningTarget": {
+                      "objective": "敢: dám làm; 不敢/敢不敢",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:0:transfer",
+              "title": "Vận dụng · 敢: dám làm; 不敢/敢不敢",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我会游泳，但不敢一个人游泳。\nWǒ huì yóuyǒng, dàn bù gǎn yí ge rén yóuyǒng.\nTôi biết bơi nhưng không dám bơi một mình.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "敢: dám làm; 不敢/敢不敢",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "会 nói biết cách.",
+                        "guidance": "会 nói biết cách."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "不敢 nói không dám trong hoàn cảnh một mình.",
+                        "guidance": "不敢 nói không dám trong hoàn cảnh một mình."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không biến thái độ thành mất kỹ năng.",
+                        "guidance": "Không biến thái độ thành mất kỹ năng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn biết bơi nhưng không dám bơi một mình. Viết hai vế 会/不敢, không nói không biết bơi.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "各 gè nói từng/mỗi trong tập hợp như 各班; 各位 gèwèi gọi trang trọng mọi người; 各种 gèzhǒng là nhiều loại; 任何 rènhé là bất kỳ, thường đi với 都 hoặc phủ định; 此 cǐ chỉ này trong văn viết. Không đồng nhất 不能代表任何车站 (không đại diện bất kỳ ga nào) với 不能代表所有车站 (không đại diện tất cả ga). Nếu mẫu từ một ga, vẫn có thể nói về ga đó theo phạm vi dữ liệu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "各/各位/各种/任何/此: giữ đúng phạm vi"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "各班都有自己的计划。",
+                  "pinyin": "Gè bān dōu yǒu zìjǐ de jìhuà.",
+                  "meaningVi": "Mỗi lớp đều có kế hoạch riêng.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "各位，请坐。",
+                  "pinyin": "Gèwèi, qǐng zuò.",
+                  "meaningVi": "Thưa mọi người, mời ngồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "这里有各种饮料。",
+                  "pinyin": "Zhèlǐ yǒu gè zhǒng yǐnliào.",
+                  "meaningVi": "Ở đây có nhiều loại đồ uống.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 4",
+                  "body": "",
+                  "hanzi": "任何人都可以报名。",
+                  "pinyin": "Rènhé rén dōu kěyǐ bàomíng.",
+                  "meaningVi": "Bất kỳ ai cũng có thể đăng ký.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:example:4",
+                  "kind": "dialogue",
+                  "title": "Mẫu 5",
+                  "body": "",
+                  "hanzi": "此表只记录本周的情况。",
+                  "pinyin": "Cǐ biǎo zhǐ jìlù běn zhōu de qíngkuàng.",
+                  "meaningVi": "Bảng này chỉ ghi tình hình tuần này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "各/各位/各种/任何/此: giữ đúng phạm vi"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:practice",
+              "title": "Khảo Luyện · 各/各位/各种/任何/此: giữ đúng phạm vi",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Không đại diện tất cả ga có bằng không đại diện bất kỳ ga nào không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không",
+                        "feedback": "Phủ định toàn bộ và phủ định từng đối tượng khác nhau."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu có 不能",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Phủ định toàn bộ và phủ định từng đối tượng khác nhau.",
+                    "learningTarget": {
+                      "objective": "各/各位/各种/任何/此: giữ đúng phạm vi",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "各位 dùng để làm gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Gọi mọi người trang trọng",
+                        "feedback": "各位 thường mở lời với nhóm người nghe."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Nói nhiều loại vật",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chỉ bất kỳ ga nào",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "各位 thường mở lời với nhóm người nghe.",
+                    "learningTarget": {
+                      "objective": "各/各位/各种/任何/此: giữ đúng phạm vi",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "各种 nói gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Một loại chắc chắn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mọi vật đều giống nhau",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Nhiều loại",
+                        "feedback": "种 là loại, không đếm từng người như 各位."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "种 là loại, không đếm từng người như 各位.",
+                    "learningTarget": {
+                      "objective": "各/各位/各种/任何/此: giữ đúng phạm vi",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:1:transfer",
+              "title": "Vận dụng · 各/各位/各种/任何/此: giữ đúng phạm vi",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n此表只记录A班本周的情况，不能代表所有班级。\nCǐ biǎo zhǐ jìlù A bān běn zhōu de qíngkuàng, bù néng dàibiǎo suǒyǒu bānjí.\nBảng này chỉ ghi tình hình tuần này của lớp A, không thể đại diện tất cả lớp.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "各/各位/各种/任何/此: giữ đúng phạm vi",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "此表 chỉ bảng này.",
+                        "guidance": "此表 chỉ bảng này."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ lớp A/tuần này.",
+                        "guidance": "Giữ lớp A/tuần này."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "所有 không bị đổi thành 任何 trong phủ định.",
+                        "guidance": "所有 không bị đổi thành 任何 trong phủ định."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Một bảng chỉ ghi tuần này của lớp A. Dùng 此表 và nói chưa thể đại diện tất cả lớp, không phủ nhận giá trị đối với lớp A.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "打 dá là một tá, thường12: 一打鸡蛋. 袋 dài là túi, 棵 kē đếm cây, 台 tái đếm một số máy/thiết bị, 幅 fú đếm tranh/bản đồ dạng tấm. 袋 không cho trọng lượng nếu chưa biết kích cỡ túi. 打 lượng từ đọc dá, khác 打电话 dǎ. Đổi lượng từ có thể đổi đơn vị đếm.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "打/袋/棵/台/幅: đơn vị đếm chuyên dụng"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我买了一打鸡蛋和一袋米。",
+                  "pinyin": "Wǒ mǎi le yì dá jīdàn hé yí dài mǐ.",
+                  "meaningVi": "Tôi mua một tá trứng và một túi gạo.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "院子里有一棵树，房间里有一台电脑和一幅画。",
+                  "pinyin": "Yuànzi lǐ yǒu yì kē shù, fángjiān lǐ yǒu yì tái diànnǎo hé yì fú huà.",
+                  "meaningVi": "Trong sân có một cây, trong phòng có một máy tính và một bức tranh.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "打/袋/棵/台/幅: đơn vị đếm chuyên dụng"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:2:practice",
+              "title": "Khảo Luyện · 打/袋/棵/台/幅: đơn vị đếm chuyên dụng",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "一打鸡蛋 thường là bao nhiêu?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Một",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mười hai",
+                        "feedback": "打 lượng từ tá thường12, đọc dá."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Một trăm",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "打 lượng từ tá thường12, đọc dá.",
+                    "learningTarget": {
+                      "objective": "打/袋/棵/台/幅: đơn vị đếm chuyên dụng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Cây dùng lượng từ nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "棵",
+                        "feedback": "棵 đếm cây; 台 máy; 幅 tranh/tấm."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "台",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "幅",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "棵 đếm cây; 台 máy; 幅 tranh/tấm.",
+                    "learningTarget": {
+                      "objective": "打/袋/棵/台/幅: đơn vị đếm chuyên dụng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:2:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "一袋米 có tự nghĩa một kilôgam không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có nếu gạo",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không",
+                        "feedback": "Túi không tự cho trọng lượng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Túi không tự cho trọng lượng.",
+                    "learningTarget": {
+                      "objective": "打/袋/棵/台/幅: đơn vị đếm chuyên dụng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:2:transfer",
+              "title": "Vận dụng · 打/袋/棵/台/幅: đơn vị đếm chuyên dụng",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n这里有两台电脑、三袋米、一棵树和一幅画。\nZhèlǐ yǒu liǎng tái diànnǎo, sān dài mǐ, yì kē shù hé yì fú huà.\nỞ đây có hai máy tính, ba túi gạo, một cây và một bức tranh.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "打/袋/棵/台/幅: đơn vị đếm chuyên dụng",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "台/袋/棵/幅 khớp danh từ.",
+                        "guidance": "台/袋/棵/幅 khớp danh từ."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ số đã cho.",
+                        "guidance": "Giữ số đã cho."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự quy túi ra kilôgam.",
+                        "guidance": "Không tự quy túi ra kilôgam."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Cửa hàng mới có hai máy tính, ba túi gạo, một cây và một bức tranh. Viết số lượng đúng lượng từ.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Danh từ có thể tạo đơn vị chứa/phủ đầy trong ngữ cảnh: 一盒饼干 hộp bánh, 一脸汗 mồ hôi đầy mặt, 一手油 dầu đầy tay, 一屋子人 cả phòng người, 一桌子菜 cả bàn món ăn. 脸/手 ở đây không phải đếm mặt/tay riêng lẻ. Không suy số người hoặc số món chính xác từ “cả phòng/cả bàn”.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "他跑回来，满脸是汗，也可以说一脸汗。",
+                  "pinyin": "Tā pǎo huí lái, mǎn liǎn shì hàn, yě kěyǐ shuō yì liǎn hàn.",
+                  "meaningVi": "Anh chạy về, mặt đầy mồ hôi, cũng có thể nói 一脸汗.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "他修车以后弄了一手油。",
+                  "pinyin": "Tā xiū chē yǐhòu nòng le yì shǒu yóu.",
+                  "meaningVi": "Sau khi sửa xe, anh bị dầu đầy tay.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:3:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "桌上有一盒饼干和一桌子菜，屋里有一屋子人。",
+                  "pinyin": "Zhuō shàng yǒu yì hé bǐnggān hé yì zhuōzi cài, wū lǐ yǒu yì wūzi rén.",
+                  "meaningVi": "Trên bàn có một hộp bánh quy và cả bàn món ăn, trong phòng có cả phòng người.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:3:practice",
+              "title": "Khảo Luyện · 脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "一脸汗 nghĩa gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Mồ hôi đầy mặt",
+                        "feedback": "脸 là phạm vi bề mặt được phủ, không đếm mặt ở đây."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Một khuôn mặt người",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Một người tên Hãn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "脸 là phạm vi bề mặt được phủ, không đếm mặt ở đây.",
+                    "learningTarget": {
+                      "objective": "脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "一屋子人 có cho đúng số người không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không",
+                        "feedback": "Mô tả cả phòng, không thay con số đo."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu phòng lớn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Mô tả cả phòng, không thay con số đo.",
+                    "learningTarget": {
+                      "objective": "脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:3:transfer",
+              "title": "Vận dụng · 脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n他跑完步，一脸汗。桌上有一盒饼干。\nTā pǎo wán bù, yì liǎn hàn. Zhuō shàng yǒu yì hé bǐnggān.\nAnh chạy xong, mặt đầy mồ hôi. Trên bàn có một hộp bánh quy.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "脸/手/盒/屋子/桌子: danh từ dùng làm đơn vị",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "脸 mô tả mồ hôi phủ mặt.",
+                        "guidance": "脸 mô tả mồ hôi phủ mặt."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "盒 là hộp bánh.",
+                        "guidance": "盒 là hộp bánh."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không bịa số bánh trong hộp.",
+                        "guidance": "Không bịa số bánh trong hộp."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn thấy mồ hôi đầy mặt bạn chạy bộ và một hộp bánh trên bàn. Viết 一脸汗/一盒饼干.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "场 chǎng đếm một số sự kiện như 一场比赛; 顿 dùn bữa ăn/lần mắng như 一顿饭; 趟 tàng chuyến đi/lượt đi như 去一趟北京. Không đổi 场/顿/趟 tùy ý thành 次 ở mọi vị trí. Số chuyến không chứng minh đã xử lý xong việc; 一场比赛 không nói ai thắng.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:4",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "场/顿/趟: sự kiện, bữa và chuyến"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:4",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我们看了一场比赛，又吃了一顿饭。",
+                  "pinyin": "Wǒmen kàn le yì chǎng bǐsài, yòu chī le yí dùn fàn.",
+                  "meaningVi": "Chúng tôi xem một trận đấu rồi ăn một bữa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:4:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我明天要去一趟银行。",
+                  "pinyin": "Wǒ míngtiān yào qù yí tàng yínháng.",
+                  "meaningVi": "Mai tôi cần đi một chuyến tới ngân hàng.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:4",
+              "layout": "split",
+              "stage": "understand",
+              "title": "场/顿/趟: sự kiện, bữa và chuyến"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:4:practice",
+              "title": "Khảo Luyện · 场/顿/趟: sự kiện, bữa và chuyến",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:4:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Một bữa cơm dùng gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "顿",
+                        "feedback": "顿 đếm bữa, khác chuyến đi 趟."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "台",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "幅",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "顿 đếm bữa, khác chuyến đi 趟.",
+                    "learningTarget": {
+                      "objective": "场/顿/趟: sự kiện, bữa và chuyến",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:4:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "去一趟银行 có tự chứng minh đã mở tài khoản không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không",
+                        "feedback": "Chuyến đi khác kết quả nghiệp vụ."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu dùng 趟",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Chuyến đi khác kết quả nghiệp vụ.",
+                    "learningTarget": {
+                      "objective": "场/顿/趟: sự kiện, bữa và chuyến",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:4:transfer",
+              "title": "Vận dụng · 场/顿/趟: sự kiện, bữa và chuyến",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我明天要去一趟学校，再和朋友吃一顿饭。\nWǒ míngtiān yào qù yí tàng xuéxiào, zài hé péngyou chī yí dùn fàn.\nMai tôi cần đi một chuyến tới trường rồi ăn một bữa cùng bạn.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "场/顿/趟: sự kiện, bữa và chuyến",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "趟 đi với chuyến tới trường.",
+                        "guidance": "趟 đi với chuyến tới trường."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "顿 với bữa ăn.",
+                        "guidance": "顿 với bữa ăn."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Giữ dự định ngày mai.",
+                        "guidance": "Giữ dự định ngày mai."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Kế hoạch mới: mai đi một chuyến tới trường rồi ăn một bữa cùng bạn. Viết 趟/顿, chưa kể đã xảy ra.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "十分 shífēn là rất (khác mười phút khi đọc số thời gian); 更加 gèngjiā là càng/hơn nữa, cần mốc trong ngữ cảnh; 稍/稍微 shāo/shāowéi là hơi/một chút, thường 稍微…一点儿. 尤其 yóuqí là đặc biệt, chọn điểm nổi bật trong tập; không nhất thiết so hơn. 多么 duōme thường cảm thán mức độ: 多么美啊！ Mẫu cũ nói mọi 稍微/尤其 đều cần chuẩn so sánh chưa đúng.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh"
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:5",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "这里十分安静。",
+                  "pinyin": "Zhèlǐ shífēn ānjìng.",
+                  "meaningVi": "Ở đây rất yên tĩnh.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "新办法更加方便。",
+                  "pinyin": "Xīn bànfǎ gèngjiā fāngbiàn.",
+                  "meaningVi": "Cách mới tiện hơn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "请稍等。请稍微慢一点儿。",
+                  "pinyin": "Qǐng shāo děng. Qǐng shāowéi màn yì diǎnr.",
+                  "meaningVi": "Xin chờ một chút. Xin chậm hơn một chút.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 4",
+                  "body": "",
+                  "hanzi": "我喜欢运动，尤其喜欢游泳。",
+                  "pinyin": "Wǒ xǐhuān yùndòng, yóuqí xǐhuān yóuyǒng.",
+                  "meaningVi": "Tôi thích vận động, đặc biệt thích bơi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:example:4",
+                  "kind": "dialogue",
+                  "title": "Mẫu 5",
+                  "body": "",
+                  "hanzi": "这里多么美啊！",
+                  "pinyin": "Zhèlǐ duōme měi a!",
+                  "meaningVi": "Nơi này đẹp biết bao!",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh"
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:practice",
+              "title": "Khảo Luyện · 十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "尤其喜欢游泳 có nghĩa chỉ thích bơi không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Không, nêu sở thích nổi bật",
+                        "feedback": "Đặc biệt không xóa các hoạt động khác đã nói."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có nếu có 运动",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Đặc biệt không xóa các hoạt động khác đã nói.",
+                    "learningTarget": {
+                      "objective": "十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "十分安静 nghĩa gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Yên đúng mười phút",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Rất yên tĩnh",
+                        "feedback": "十分 bổ nghĩa tính từ là rất."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chưa có gì yên",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "十分 bổ nghĩa tính từ là rất.",
+                    "learningTarget": {
+                      "objective": "十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Xin chậm một chút, mẫu nào tự nhiên?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "请稍微慢一点儿。",
+                        "feedback": "稍微…一点儿 biểu thị thay đổi mức nhỏ."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "请尤其十慢。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "请更加多么慢啊一点。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "稍微…一点儿 biểu thị thay đổi mức nhỏ.",
+                    "learningTarget": {
+                      "objective": "十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-precision-reference-quantity-lesson-01:reference-measure-r67:5:transfer",
+              "title": "Vận dụng · 十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我喜欢喝茶，尤其喜欢绿茶。请稍微说慢一点儿。\nWǒ xǐhuān hē chá, yóuqí xǐhuān lǜchá. Qǐng shāowéi shuō màn yì diǎnr.\nTôi thích uống trà, đặc biệt thích trà xanh. Xin nói chậm hơn một chút.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "十分/更加/稍（微）/尤其/多么: mức độ và nhấn mạnh",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "尤其 chọn điểm nổi bật.",
+                        "guidance": "尤其 chọn điểm nổi bật."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "稍微…一点儿 giữ mức nhỏ.",
+                        "guidance": "稍微…一点儿 giữ mức nhỏ."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không biến đặc biệt thành duy nhất.",
+                        "guidance": "Không biến đặc biệt thành duy nhất."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn thích trà, đặc biệt trà xanh; muốn nhờ bạn nói chậm hơn một chút. Viết hai câu 尤其/稍微.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:5",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n明河社区列出服务和负责人，由工作人员、志愿者等合作处理问题，三个月后又增加紧急程度和上门需求。长途车站听取旅客、厨师和卫生人员的意见，开设小份窗口并公布食品信息。两处都按不同需要调整服务，但社区的经验不能直接推广，车站也缺少周末和口味偏好的资料。\nMínghé shèqū liè chū fúwù hé fùzérén, yóu gōngzuò rényuán, zhìyuànzhě děng hézuò chǔlǐ wèntí, sān ge yuè hòu yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú. Chángtú chēzhàn tīngqǔ lǚkè, chúshī hé wèishēng rényuán de yìjiàn, kāishè xiǎo fèn chuāngkǒu bìng gōngbù shípǐn xìnxī. Liǎng chù dōu àn bùtóng xūyào tiáozhěng fúwù, dàn shèqū de jīngyàn bù néng zhíjiē tuīguǎng, chēzhàn yě quēshǎo zhōumò hé kǒuwèi piānhào de zīliào.\nKhu Minh Hà ghi dịch vụ và người phụ trách, các bên phối hợp xử lý; ba tháng sau thêm mức khẩn cấp và nhu cầu đến tận nhà. Bến xe nghe hành khách, đầu bếp và nhân sự vệ sinh, mở quầy phần nhỏ, công bố thông tin thức ăn. Cả hai điều chỉnh theo nhu cầu khác nhau; kinh nghiệm cộng đồng chưa thể áp dụng thẳng nơi khác, còn bến xe thiếu dữ liệu cuối tuần và sở thích hương vị.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà.",
+                        "id": "criterion-0",
+                        "label": "Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà."
+                      },
+                      {
+                        "guidance": "Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn.",
+                        "id": "criterion-1",
+                        "label": "Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn."
+                      },
+                      {
+                        "guidance": "điểm chung về nhu cầu khác nhau",
+                        "id": "criterion-2",
+                        "label": "điểm chung về nhu cầu khác nhau"
+                      },
+                      {
+                        "guidance": "một giới hạn phạm vi của mỗi nguồn",
+                        "id": "criterion-3",
+                        "label": "một giới hạn phạm vi của mỗi nguồn"
+                      },
+                      {
+                        "guidance": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát.",
+                        "id": "criterion-4",
+                        "label": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n我认为服务可以有共同要求，也需要回应不同需求。社区中心统一列出服务和联系方式，但普通咨询与道路安全问题交给不同的人处理。车站也没有只看速度和价格，而是听取旅客、厨师与卫生人员的意见，设置小份窗口。统一标准确实便于管理，例如食品安全要求不能随意降低。不过，份量和上门服务可以按需要调整。试行后食品浪费减少，并不说明所有旅客都满意，因为调查还缺少周末和口味方面的记录。因此，我建议保留共同要求，同时明确不同选择和负责人员，再继续收集意见。这个建议基于两个具体场所，推广前还需要更多资料。\nWǒ rènwéi fúwù kěyǐ yǒu gòngtóng yāoqiú, yě xūyào huíyìng bùtóng xūqiú. Shèqū zhōngxīn tǒngyī liè chū fúwù hé liánxì fāngshì, dàn pǔtōng zīxún yǔ dàolù ānquán wèntí jiāo gěi bùtóng de rén chǔlǐ. Chēzhàn yě méiyǒu zhǐ kàn sùdù hé jiàgé, ér shì tīngqǔ lǚkè, chúshī yǔ wèishēng rényuán de yìjiàn, shèzhì xiǎo fèn chuāngkǒu. Tǒngyī biāozhǔn quèshí biànyú guǎnlǐ, lìrú shípǐn ānquán yāoqiú bù néng suíyì jiàngdī. Búguò, fènliàng hé shàngmén fúwù kěyǐ àn xūyào tiáozhěng. Shìxíng hòu shípǐn làngfèi jiǎnshǎo, bìng bù shuōmíng suǒyǒu lǚkè dōu mǎnyì, yīnwèi diàochá hái quēshǎo zhōumò hé kǒuwèi fāngmiàn de jìlù. Yīncǐ, wǒ jiànyì bǎoliú gòngtóng yāoqiú, tóngshí míngquè bùtóng xuǎnzé hé fùzé rényuán, zài jìxù shōují yìjiàn. Zhège jiànyì jīyú liǎng ge jùtǐ chǎngsuǒ, tuīguǎng qián hái xūyào gèng duō zīliào.\nTôi cho rằng dịch vụ có thể có yêu cầu chung và vẫn đáp ứng nhu cầu khác nhau. Trung tâm thống nhất bảng liên hệ nhưng chuyển tư vấn thường và an toàn đường bộ cho người khác nhau. Bến xe không chỉ xét tốc độ, giá mà còn nghe ba nhóm để mở quầy phần nhỏ. Chuẩn chung giúp quản lý, chẳng hạn không tùy tiện hạ yêu cầu an toàn thực phẩm. Tuy nhiên khẩu phần và dịch vụ tại nhà có thể tùy nhu cầu. Giảm lãng phí chưa có nghĩa mọi khách hài lòng vì còn thiếu ghi nhận cuối tuần và khẩu vị. Tôi đề nghị giữ yêu cầu chung, nêu rõ lựa chọn và người phụ trách, rồi lấy thêm ý kiến. Đề nghị dựa vào hai địa điểm cụ thể, cần thêm tài liệu trước khi áp dụng rộng.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm có phạm vi",
+                        "id": "criterion-0",
+                        "label": "luận điểm có phạm vi"
+                      },
+                      {
+                        "guidance": "ít nhất một bằng chứng từ mỗi nguồn",
+                        "id": "criterion-1",
+                        "label": "ít nhất một bằng chứng từ mỗi nguồn"
+                      },
+                      {
+                        "guidance": "giải thích quan hệ giữa vai trò và tiêu chí",
+                        "id": "criterion-2",
+                        "label": "giải thích quan hệ giữa vai trò và tiêu chí"
+                      },
+                      {
+                        "guidance": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý",
+                        "id": "criterion-3",
+                        "label": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý"
+                      },
+                      {
+                        "guidance": "kết luận giới hạn ở tình huống nguồn",
+                        "id": "criterion-4",
+                        "label": "kết luận giới hạn ở tình huống nguồn"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Một tiêu chí thống nhất giúp quản lý nhanh, so sánh dễ và tránh quyết định tùy tiện.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác.",
+                        "id": "criterion-6",
+                        "label": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n我的建议是保留共同要求，同时说明不同选择由谁负责。社区把普通咨询和道路安全问题分别处理；车站兼顾时间、价格、份量和食品安全。统一要求不等于所有人只能选同一份套餐。两个案例范围有限，尤其不能把浪费减少当成所有旅客满意。\nWǒ de jiànyì shì bǎoliú gòngtóng yāoqiú, tóngshí shuōmíng bùtóng xuǎnzé yóu shéi fùzé. Shèqū bǎ pǔtōng zīxún hé dàolù ānquán wèntí fēnbié chǔlǐ; chēzhàn jiāngù shíjiān, jiàgé, fènliàng hé shípǐn ānquán. Tǒngyī yāoqiú bù děngyú suǒyǒu rén zhǐ néng xuǎn tóng yí fèn tàocān. Liǎng ge ànlì fànwéi yǒuxiàn, yóuqí bù néng bǎ làngfèi jiǎnshǎo dàng chéng suǒyǒu lǚkè mǎnyì.\nTôi đề nghị giữ yêu cầu chung và nói rõ ai phụ trách mỗi lựa chọn. Cộng đồng tách xử lý tư vấn thường với an toàn đường bộ; bến xe xét thời gian, giá, khẩu phần và an toàn thức ăn. Chuẩn chung không có nghĩa mọi người chỉ được chọn một suất giống nhau. Hai trường hợp có phạm vi hẹp, nhất là không coi giảm lãng phí là tất cả khách hài lòng.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu quy tắc chính",
+                        "id": "move-0",
+                        "label": "nêu quy tắc chính"
+                      },
+                      {
+                        "guidance": "dẫn một chi tiết từ mỗi nguồn",
+                        "id": "move-1",
+                        "label": "dẫn một chi tiết từ mỗi nguồn"
+                      },
+                      {
+                        "guidance": "trả lời phản biện về sự phức tạp",
+                        "id": "move-2",
+                        "label": "trả lời phản biện về sự phức tạp"
+                      },
+                      {
+                        "guidance": "nêu giới hạn dữ liệu",
+                        "id": "move-3",
+                        "label": "nêu giới hạn dữ liệu"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 3; Nguồn B · đoạn 1, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "need",
+                        "label": "线索一",
+                        "meaningVi": "Cư dân mới cần biết nơi và người giải quyết từng việc.",
+                        "note": "Nhu cầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "intake",
+                        "label": "线索二",
+                        "meaningVi": "Bảng dịch vụ và nhân viên tiếp nhận giúp xác định loại yêu cầu.",
+                        "note": "Tiếp nhận · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "routing",
+                        "label": "线索三",
+                        "meaningVi": "Tình nguyện viên, cảnh sát, bác sĩ hoặc thợ nhận phần phù hợp.",
+                        "note": "Chuyển việc · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索四",
+                        "meaningVi": "Yêu cầu khẩn đôi khi bị ghi như lời nhắn thường.",
+                        "note": "Khoảng trống · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "revision",
+                        "label": "线索五",
+                        "meaningVi": "Thêm mức khẩn, nhu cầu đến nhà và cuộc gọi xác nhận.",
+                        "note": "Điều chỉnh · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-personal-community-analysis-concept-actor-map; revision 9c0fe382-73cf-474f-a678-89326b88e425; humanReviewed:false",
+                  "title": "Sự phối hợp đằng sau một bảng dịch vụ cộng đồng"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "problem",
+                        "label": "线索一",
+                        "meaningVi": "Suất ăn cố định gây khó chọn và tạo thức ăn thừa.",
+                        "note": "Vấn đề · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "traveler",
+                        "label": "线索二",
+                        "meaningVi": "Cần nhanh, đúng giá và có phần phù hợp.",
+                        "note": "Góc nhìn hành khách · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "kitchen",
+                        "label": "线索三",
+                        "meaningVi": "Chọn món có thể chuẩn bị trước nhưng vẫn bảo đảm độ tươi.",
+                        "note": "Góc nhìn bếp · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "trial",
+                        "label": "线索四",
+                        "meaningVi": "Mở quầy phần nhỏ với bảng nguyên liệu và thời gian.",
+                        "note": "Thử nghiệm · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "limit",
+                        "label": "线索五",
+                        "meaningVi": "Chưa có cuối tuần và chưa đo mức thích hương vị.",
+                        "note": "Giới hạn dữ liệu · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-personal-community-analysis-concept-actor-map; revision 9c0fe382-73cf-474f-a678-89326b88e425; humanReviewed:false",
+                  "title": "Lựa chọn bữa trưa trong nhà ga"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "fbedcb3c-1ee1-4abf-9fad-d133d4475c57",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-culture-history-interpretation-viewpoint-synthesis"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-001",
+          "hsk4-grammar-row-002",
+          "hsk4-grammar-row-003",
+          "hsk4-grammar-row-004",
+          "hsk4-grammar-row-005",
+          "hsk4-grammar-row-006"
+        ],
+        "sourceLessonIds": [
+          "hsk4-precision-reference-quantity-lesson-01",
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-01",
+          "hsk4-task-02"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01033",
+          "hsk-vocab-01069",
+          "hsk-vocab-01307",
+          "hsk-vocab-01369",
+          "hsk-vocab-01632",
+          "hsk-vocab-01442",
+          "hsk-vocab-01489",
+          "hsk-vocab-01504",
+          "hsk-vocab-01794",
+          "hsk-vocab-01957"
+        ],
+        "targetLessonId": "hsk4-precision-reference-quantity-lesson-01",
+        "titleZh": "HSK四级 · 37",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/87-REVIEW-HSK4-PRECISION-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific diagrams for post-writing review; existing pages and exercises preserved.",
+          "sourceRevisionId": "e53cece7-02ec-48b4-acf0-7811560021f1"
+        },
+        "vocabulary": [
+          "hsk-vocab-01033",
+          "hsk-vocab-01069",
+          "hsk-vocab-01307",
+          "hsk-vocab-01369",
+          "hsk-vocab-01632",
+          "hsk-vocab-01442",
+          "hsk-vocab-01489",
+          "hsk-vocab-01504",
+          "hsk-vocab-01794",
+          "hsk-vocab-01957"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 6,
+          "netPages": 12
+        }
+      ]
+    }
+  ]
+}

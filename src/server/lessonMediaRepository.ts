@@ -65,10 +65,25 @@ export class LessonMediaRepository {
     }
     return missing;
   }
-  async isReleased(url:string) {
-    // Immutable historical packages remain readable for pinned learner sessions.
-    return !!await this.db.prepare('SELECT id FROM content_release_packages WHERE instr(package_json, ?) > 0 LIMIT 1').bind(url).first();
+  async releaseAccess(url:string):Promise<'unreleased'|'free'|'premium'|'unknown'> {
+    // Only media used exclusively by Thiên Lộ HSK4 lessons is paid.
+    const result=await this.db.prepare("SELECT json_extract(package_json, '$.level') AS level, json_extract(package_json, '$.itemType') AS itemType FROM content_release_packages WHERE instr(package_json, ?) > 0").bind(url).all<{level:string|null;itemType:string|null}>();
+    if(!result.success)throw new Error('Không đọc được quyền học liệu.');
+    const releases=result.results??[];
+    if(releases.length===0)return 'unreleased';
+    if(releases.some(row=>!['hsk0','hsk1','hsk2','hsk3','hsk4'].includes(row.level??'')||!row.itemType))return 'unknown';
+    if(releases.some(row=>row.level!=='hsk4'||row.itemType!=='lesson'))return 'free';
+    return 'premium';
   }
+  async releasedHsk4LessonIds(url:string):Promise<string[]> {
+    const result=await this.db.prepare(`SELECT DISTINCT json_extract(package_json, '$.content.targetLessonId') AS lessonId
+      FROM content_release_packages WHERE instr(package_json, ?) > 0
+      AND json_extract(package_json, '$.level')='hsk4'
+      AND json_extract(package_json, '$.itemType')='lesson'`).bind(url).all<{lessonId:string|null}>();
+    if(!result.success)throw new Error('Không đọc được bài dùng học liệu.');
+    return (result.results??[]).map(row=>row.lessonId).filter((id):id is string=>typeof id==='string');
+  }
+  async isReleased(url:string) {return (await this.releaseAccess(url))!=='unreleased';}
   async bytes(id:string) {
     const result=await this.db.prepare('SELECT data_base64 AS data FROM lesson_media_chunks WHERE asset_id=? ORDER BY sequence').bind(id).all<{data:string}>();
     if(!result.success)throw new Error('Không đọc được tệp.');

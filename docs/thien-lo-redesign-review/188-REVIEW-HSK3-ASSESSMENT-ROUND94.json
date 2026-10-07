@@ -1,0 +1,359 @@
+{
+  "mode": "apply",
+  "backup": "D:\\Projects\\hanzi-os\\.wrangler\\demo-backups\\before-hsk3-assessment-editorial-round94-2026-10-05T04-18-43-387Z.sqlite",
+  "protectedTables": 43,
+  "completed": 86,
+  "forms": [
+    {
+      "level": "hsk3",
+      "blueprintId": "hsk-mock-editorial-f8a5e26b-72a1-41cf-861c-2798dcda9a06",
+      "formVersion": "foundation-2026.08.7:hsk-mock-editorial:f8a5e26b-72a1-41cf-861c-2798dcda9a06:sha256:2d754184a19b02c583e975514d73a29e324c8e5254b08afa6474acf26f814275"
+    }
+  ],
+  "releases": [
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-01",
+      "revisionId": "8856097a-5166-4268-9788-1102d865f15c"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-02",
+      "revisionId": "e75b4665-df97-485a-9b7d-a4f2b389bab8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-03",
+      "revisionId": "b5340a77-c653-49e2-ba23-d656873027e1"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-04",
+      "revisionId": "8fc43935-201d-44a1-ada0-6f9cdb4b8cc8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-05",
+      "revisionId": "1752ef2b-6801-4cd7-a642-3d1cc2a23cb0"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-06",
+      "revisionId": "2ad796aa-fa27-4904-97d2-1bdcb1e484bb"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-07",
+      "revisionId": "2bab7c72-aa7f-42e3-beda-07b95db6e723"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-08",
+      "revisionId": "7c61ba8f-f162-47d7-8695-26869a59428f"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-09",
+      "revisionId": "10b88911-69fd-41d6-b4e8-85c5967d76fe"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-10",
+      "revisionId": "135ab3a3-5abf-4f11-bbf3-b9a5da51fcd3"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-11",
+      "revisionId": "c51fabdb-6e67-4693-90fb-8497ce1843e8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-listening-12",
+      "revisionId": "d5796feb-d970-4f6a-87a2-ef12a7ebcaee"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-01",
+      "revisionId": "1fae6f7f-ba89-4973-b87c-b7e96c715707"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-02",
+      "revisionId": "050e47b0-9805-4050-8219-c013bf695226"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-03",
+      "revisionId": "b52a420b-3de0-401d-a962-b04ed278da5c"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-04",
+      "revisionId": "2f276cc5-6400-4a5f-a080-e3466e1cf8d1"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-05",
+      "revisionId": "970e6fdc-5dac-4f35-aafc-9c389a782b54"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-06",
+      "revisionId": "05cca2fb-2949-44b6-b543-315e024feb0e"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-07",
+      "revisionId": "37def4b4-69e3-4881-baec-dfb0fa2186be"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-08",
+      "revisionId": "b3a5a107-98fd-476f-8f89-382bb73d68c6"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-09",
+      "revisionId": "18f8266e-52ce-498c-bd2f-1f9c51074ac7"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-10",
+      "revisionId": "923d7718-455b-41a2-be35-e0c8795dc6b5"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-11",
+      "revisionId": "e5966481-2ab2-4d83-8ddd-463e1e3662d6"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-reading-12",
+      "revisionId": "1a751bb3-99f7-4256-8639-5780de029cd0"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-01",
+      "revisionId": "79e239b2-1bf1-464a-97e8-06c2ecf23e48"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-02",
+      "revisionId": "ac8a3066-7728-4c2c-a850-1d6e23ea6726"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-03",
+      "revisionId": "07612bea-b59a-43b6-ba0d-65200490a987"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-04",
+      "revisionId": "c6e409c9-b379-45af-ad8c-df5aa6b79832"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-05",
+      "revisionId": "926564cc-86c5-490c-8a9c-57ade8499708"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-06",
+      "revisionId": "a2f4b24a-eea9-4a05-bb50-1306d9315f96"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-07",
+      "revisionId": "e43a93c2-53e7-475e-af2e-208f659c48f3"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-08",
+      "revisionId": "1d5a13a1-f696-4553-8a07-e9a6d7877396"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-09",
+      "revisionId": "d49d6722-bb5a-43fe-86f8-e9ab3cfa41b6"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-10",
+      "revisionId": "89382e30-f869-4ce8-8c7c-f9801d11cc2a"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-11",
+      "revisionId": "5aa33e11-5432-4a8b-951e-22c46bbf5a8b"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-12",
+      "revisionId": "09d816b9-5a23-44f7-9771-3444f5392f55"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-13",
+      "revisionId": "3195c33b-b635-4a53-be46-647ed8bde5a8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-14",
+      "revisionId": "b13af852-2b52-4af3-bdfb-17a3c75f6735"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-vocabulary-15",
+      "revisionId": "bd5dd72b-4d8f-495a-a8ff-f57cb2e07fa3"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-01",
+      "revisionId": "0c8f2632-c750-4a65-8206-94165585bbbb"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-02",
+      "revisionId": "79ab6c69-64b8-4fe4-84bf-9d840c23a3d9"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-03",
+      "revisionId": "b5ac181d-880f-43b3-ac64-22374e65d139"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-04",
+      "revisionId": "4902093f-f139-4ac9-9fb7-87945faff317"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-05",
+      "revisionId": "2a7246dd-3d0c-4690-8f0b-11eac06487fa"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-06",
+      "revisionId": "e0a87cd5-463e-4a0e-aa62-9d630ac054ed"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-07",
+      "revisionId": "f180c29a-8a98-45fc-a473-f8b88936eb7b"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-08",
+      "revisionId": "65d7bf56-d77f-4e64-bff4-74a8999b3937"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-09",
+      "revisionId": "78ae2df2-1718-4231-a123-0c23a66fe112"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-10",
+      "revisionId": "4dce15ae-f4f2-45d8-b631-e30697004be5"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-11",
+      "revisionId": "5870241f-4ec7-4376-bb72-b334ec67bc98"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-12",
+      "revisionId": "8eab7f2f-ef97-40f4-9865-9dd7ae1fffd0"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-13",
+      "revisionId": "083fe729-e055-4e63-aa78-3c1a2ed72a74"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-14",
+      "revisionId": "26b9c8f9-c28e-458f-8354-7638014171db"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-a-grammar-15",
+      "revisionId": "e5ff9de3-2a00-4905-9545-cdd08063a85f"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-01",
+      "revisionId": "f73b9b1a-e267-4582-9527-8ad079333735"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-02",
+      "revisionId": "c7aee5e6-fecc-4a38-b74f-bb5121da87a6"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-03",
+      "revisionId": "d0469da8-655e-442e-9f93-f133da69670d"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-04",
+      "revisionId": "1ab1906b-5a83-452a-96a1-598efdf90cbb"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-05",
+      "revisionId": "57316455-d0e8-4afb-9d76-e64d16b97bad"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-06",
+      "revisionId": "c821f557-bc06-432d-a50f-c8e85eb1db36"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-07",
+      "revisionId": "a54c5123-4f41-4f20-87f9-f9d9b9626118"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-08",
+      "revisionId": "6b0b1b4c-26de-4def-b5a5-cfe30c350180"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-09",
+      "revisionId": "01bf28cc-7086-4da2-8d08-495b7a85343d"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-10",
+      "revisionId": "c17ee117-ba43-4cf2-8f3f-42893d554a98"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-11",
+      "revisionId": "022a761d-addb-4402-b13e-7fa6455552e7"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-listening-12",
+      "revisionId": "8d9aefb4-47a2-4c13-9b83-fa518f4fda0a"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-01",
+      "revisionId": "845feb73-4db2-4223-987d-6f95f142cb53"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-02",
+      "revisionId": "d8ebf829-8423-4da6-9575-08cc5a46ab1e"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-03",
+      "revisionId": "3f5d85a2-1971-4caf-b176-667758600630"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-04",
+      "revisionId": "a9bed4b6-8a80-4e7d-838c-22e40cf850a4"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-05",
+      "revisionId": "9f4c458c-dce4-4da9-89ca-4344d5967ae2"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-06",
+      "revisionId": "263c49aa-4f3e-4e95-aedf-4d28cda8b098"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-07",
+      "revisionId": "548ed3a0-73f0-4f9e-93b7-8ef6f91a8fa0"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-08",
+      "revisionId": "6090527b-90e1-443b-ad37-8fe3332e84a0"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-09",
+      "revisionId": "0a315090-78e4-49eb-839d-88e8b5623c1a"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-10",
+      "revisionId": "d41b55ae-63ce-4776-8b4e-429993f2e05a"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-11",
+      "revisionId": "7e69ff16-b94f-4a0e-906e-a2136ec11e5f"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-reading-12",
+      "revisionId": "b8ad5ed0-4df8-4b13-939d-4ebeac21bfeb"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-01",
+      "revisionId": "1423d0fb-f50d-48e2-9c7c-81a51866b086"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-02",
+      "revisionId": "c3c0e0df-af50-4367-99aa-79ee3d957397"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-03",
+      "revisionId": "a9880e2a-d18d-47d9-b01d-11be20e1adf5"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-04",
+      "revisionId": "56e787e9-c67a-4885-8d71-6d1c9a8b6abc"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-05",
+      "revisionId": "adf41063-d0e8-4066-b724-4dc9b063d9b8"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-06",
+      "revisionId": "12c2e923-eb54-49c9-adf1-204f5f7fc21f"
+    },
+    {
+      "stableKey": "hsk3-assessment-r94-hsk3-level-check-form-b-vocabulary-07",
+      "revisionId": "cd7eebd2-af6c-460a-a62f-a1eccebf6031"
+    },
+    {
+      "stableKey": "hsk3-assessment-reviewed-round94-g",
+      "revisionId": "f8a5e26b-72a1-41cf-861c-2798dcda9a06"
+    }
+  ]
+}

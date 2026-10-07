@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-22",
+  "scope": "Three HSK2 synthetic-fallback listening-writing lessons; self practice, not independent listening mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/34-REVIEW-HSK2-DICTATION.md",
+  "items": [
+    {
+      "lessonId": "hsk2-dictation-lesson-01",
+      "sourceContentSha256": "sha256:900850e8b72ffc9f3143d361f01a7d9dd3ff8f0334ada77713438b5678dcf76b",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-02",
+      "sourceContentSha256": "sha256:06b47a40af756c0234b32fcd0a66532e33448ce553943444fa6b94898461f59d",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-dictation-lesson-03",
+      "sourceContentSha256": "sha256:42104796373495e505cb823ba9cc626cc855dc114bb80ea5bc9c4c4e605ad43c",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

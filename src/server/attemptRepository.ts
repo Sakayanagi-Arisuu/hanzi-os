@@ -9,6 +9,7 @@ import {
   type LearningAttemptReceiptV1,
 } from "../learning/attemptProtocol";
 import type { ObjectiveAttemptScore } from "./attemptScoring";
+import { remediationAttemptFeedback } from "./remediationAttemptFeedback";
 import type { D1Database } from "./d1";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
 import {
@@ -127,6 +128,7 @@ export class AttemptRepository {
     const persistedMethod = command.source === "mistake"
       ? "remediation-recall" as const
       : command.method;
+    const remediationFeedback = remediationAttemptFeedback(command);
     const receipt: LearningAttemptReceiptV1 = {
       protocolVersion: ATTEMPT_PROTOCOL_VERSION,
       idempotencyKey: command.idempotencyKey,
@@ -142,8 +144,7 @@ export class AttemptRepository {
       outcome: score.outcome,
       score: score.score,
       verification: "server-objective",
-      ...(command.source === "mistake" && score.remediationFeedback
-        ? { remediationFeedback: score.remediationFeedback } : {}),
+      ...(remediationFeedback ? { remediationFeedback } : {}),
     };
     const responseJson = JSON.stringify(receipt);
     const responsePayload = JSON.stringify(command.response);

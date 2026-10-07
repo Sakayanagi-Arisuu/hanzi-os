@@ -1,0 +1,43 @@
+const lessonId='hsk3-study-work-accounts-campus-education';
+const prefix=lessonId+':family-r108';
+const triple=(hanzi,pinyin,meaningVi)=>({hanzi,pinyin,meaningVi});
+const examples=[
+ triple('孩子：我想先休息二十分钟，再做作业。妈妈：可以。七点开始，八点以前做完，好吗？孩子：好。如果有不会的题，我先自己想，再请你帮忙。妈妈：我们一起看方法，我不替你写答案。','Háizi: Wǒ xiǎng xiān xiūxi èrshí fēnzhōng, zài zuò zuòyè. Māma: Kěyǐ. Qī diǎn kāishǐ, bā diǎn yǐqián zuò wán, hǎo ma? Háizi: Hǎo. Rúguǒ yǒu bú huì de tí, wǒ xiān zìjǐ xiǎng, zài qǐng nǐ bāngmáng. Māma: Wǒmen yìqǐ kàn fāngfǎ, wǒ bù tì nǐ xiě dá’àn.','Con: Con muốn nghỉ hai mươi phút rồi làm bài tập. Mẹ: Được. Bắt đầu lúc bảy giờ, làm xong trước tám giờ nhé? Con: Vâng. Nếu có bài con chưa biết làm, con sẽ tự nghĩ trước rồi nhờ mẹ giúp. Mẹ: Mẹ con mình cùng xem cách làm; mẹ không viết đáp án thay con.'),
+ triple('爸爸：这次你检查了每一道题，比上次认真。孩子：可是还有两个错误。爸爸：我们看看错在哪里。下次先检查，再交作业。孩子：好，我把这两个错误记下来。','Bàba: Zhè cì nǐ jiǎnchá le měi yí dào tí, bǐ shàng cì rènzhēn. Háizi: Kěshì hái yǒu liǎng ge cuòwù. Bàba: Wǒmen kànkan cuò zài nǎlǐ. Xià cì xiān jiǎnchá, zài jiāo zuòyè. Háizi: Hǎo, wǒ bǎ zhè liǎng ge cuòwù jì xiàlái.','Bố: Lần này con đã kiểm tra từng câu, cẩn thận hơn lần trước. Con: Nhưng vẫn còn hai lỗi. Bố: Mình cùng xem sai ở đâu. Lần sau kiểm tra trước rồi nộp bài. Con: Vâng, con ghi lại hai lỗi này.')
+];
+const block=(id,kind,title,extra={})=>({id:prefix+':block:'+id,kind,title,body:'',hanzi:'',pinyin:'',meaningVi:'',imageSrc:'',alt:'',provenance:'',...extra});
+const target=skill=>({objective:'Trao đổi cách cha mẹ hỗ trợ con học và thỏa thuận việc học ở nhà',skill,sources:[{kind:'task',id:'hsk3-paragraph-task:'+lessonId}]});
+const model=triple('孩子：我想先听十分钟音乐，再练习写字。爸爸：可以。六点半开始，七点以前写完，好吗？孩子：好。如果有不会写的字，我先查字典，再问你。爸爸：我可以教你方法，但不替你写。','Háizi: Wǒ xiǎng xiān tīng shí fēnzhōng yīnyuè, zài liànxí xiě zì. Bàba: Kěyǐ. Liù diǎn bàn kāishǐ, qī diǎn yǐqián xiě wán, hǎo ma? Háizi: Hǎo. Rúguǒ yǒu bú huì xiě de zì, wǒ xiān chá zìdiǎn, zài wèn nǐ. Bàba: Wǒ kěyǐ jiāo nǐ fāngfǎ, dàn bù tì nǐ xiě.','Con: Con muốn nghe nhạc mười phút rồi luyện viết chữ. Bố: Được. Bắt đầu lúc sáu giờ rưỡi, viết xong trước bảy giờ nhé? Con: Vâng. Nếu có chữ chưa biết viết, con sẽ tra từ điển trước rồi hỏi bố. Bố: Bố có thể chỉ cách làm nhưng không viết thay con.');
+export function supplementFamilyEducation108(source){
+ const content=structuredClone(source),changes=[];
+ if(content.targetLessonId!==lessonId)return{content,changes};
+ if(content.lessonPages.pages.some(p=>p.id.startsWith(prefix)))throw Error('Do not replay family education supplement');
+ const pages=[
+  {id:prefix+':understand',title:'Giáo dục gia đình · hỗ trợ con tự học',stage:'understand',layout:'focus',blocks:[
+   block('context','explanation','Từ tham quan trường đến học ở nhà',{body:'Trong bài trước, mẹ khuyến khích con tự hỏi giáo viên. Ở nhà, người lớn và con cũng có thể trao đổi giờ học, cách xin giúp đỡ và cách sửa lỗi. Hai gia đình dưới đây là tình huống giả định để luyện lời nói, không đại diện mọi gia đình. 替 tì: làm thay; 方法 fāngfǎ: cách làm; 检查 jiǎnchá: kiểm tra; 交作业 jiāo zuòyè: nộp bài tập.'}),
+   ...examples.map((e,i)=>block('dialogue-'+i,'dialogue',i?'Ghi nhận tiến bộ và cùng sửa lỗi':'Thỏa thuận giờ học và cách giúp đỡ',e)),
+   block('rule','explanation','Nêu việc cụ thể trước khi nhận xét',{body:'先…再… nêu thứ tự; 如果… nêu điều kiện. 不替你写答案 chỉ từ chối làm thay, không có nghĩa từ chối giúp. 比上次认真 là nhận xét về lần làm bài này, không chứng minh mọi điểm số đã tăng. Khi trao đổi cách dạy con, mô tả việc đã làm, rồi nêu ý kiến hoặc đề nghị; tránh biến ý kiến của một người thành quy tắc cho mọi gia đình.'})
+  ]},
+  {id:prefix+':practice',title:'Khảo Luyện · hỗ trợ khác làm thay',stage:'practice',layout:'workshop',blocks:[
+   block('choice','activity','Chọn theo hai hội thoại',{body:'Nhận xét nào được cả hai hội thoại hỗ trợ?',activity:{type:'choice',learningTarget:target('reading'),hint:'',acceptedAnswers:[],answerIds:['help'],options:[{id:'help',text:'家长帮助孩子找方法，但让孩子自己做。',feedback:'Đúng: mẹ cùng xem phương pháp nhưng không viết đáp án thay; bố cùng tìm chỗ sai và hướng dẫn kiểm tra.'},{id:'refuse',text:'家长不替孩子写，所以不愿意帮助孩子。',feedback:'Sai: không làm thay khác không giúp. Cả mẹ và bố đều nói sẽ cùng xem cách làm hoặc chỗ sai.'},{id:'score',text:'孩子认真了，所以这次考试一定得了满分。',feedback:'Sai: hội thoại không đưa điểm thi; còn hai lỗi trong lần làm bài được nhắc đến.'}],explanation:'Lời hỗ trợ có thể là tìm phương pháp và cùng xem lỗi, trong khi con vẫn tự làm. Không suy ra điểm thi hoặc thái độ từ chối giúp khi nguồn không nói.',rubric:[]}}),
+   block('guided','dialogue','Luyện lời đề nghị có hướng dẫn',{body:'Con muốn nghỉ rồi học; hãy nói rõ thứ tự. Người lớn muốn giúp mà không làm thay; hãy nêu cụ thể việc có thể làm. Tự nói trước khi đọc mẫu.',...triple('我想先休息，再做作业。你可以教我方法，我自己写答案。','Wǒ xiǎng xiān xiūxi, zài zuò zuòyè. Nǐ kěyǐ jiāo wǒ fāngfǎ, wǒ zìjǐ xiě dá’àn.','Con muốn nghỉ trước rồi làm bài. Mẹ/bố có thể chỉ cách làm; con tự viết đáp án.')})
+  ]},
+  {id:prefix+':transfer',title:'Vận dụng · thỏa thuận luyện viết chữ',stage:'transfer',layout:'workshop',blocks:[
+   block('transfer','activity','Đổi vai và đổi nhiệm vụ',{body:'Tình huống mới: con muốn nghe nhạc mười phút rồi luyện viết chữ. Bố đồng ý bắt đầu lúc 6 giờ 30 và xong trước 7 giờ. Chữ chưa biết viết: con tra từ điển trước rồi hỏi bố. Bố chỉ cách làm, không viết thay. Viết hoặc nói bốn lượt, sau đó tự chỉ ra sự khác nhau giữa giúp đỡ và làm thay.',activity:{type:'rubric',learningTarget:target('writing'),hint:'',acceptedAnswers:[],answerIds:[],options:[],explanation:'Một phương án để tự đối chiếu:\n'+model.hanzi+'\n'+model.pinyin+'\n'+model.meaningVi+'\nCách diễn đạt khác đúng dữ kiện vẫn phù hợp. Đây là vận dụng tự đối chiếu, không tạo điểm viết/nói độc lập.',rubric:[{id:'order',label:'Thứ tự và thời gian',guidance:'Nghe nhạc mười phút rồi luyện viết; bắt đầu6:30, hoàn thành trước7:00. Không chép giờ của mẫu làm bài tập.'},{id:'roles',label:'Đúng vai và cách giúp',guidance:'Con tra từ điển trước; bố có thể giải thích phương pháp và không viết thay.'},{id:'language',label:'Lời nói rõ và phù hợp',guidance:'Nêu lời đề nghị, lời đồng ý và điều kiện; dùng 先…再…/如果… khi phù hợp.'},{id:'scope',label:'Không suy rộng',guidance:'Giải thích cách giúp trong tình huống này; không tự thêm điểm thi hoặc nói mọi cha mẹ đều làm như vậy.'}]}})
+  ]}
+ ];
+ const last=content.lessonPages.pages.findIndex(p=>p.id.endsWith(':recap'));
+ content.lessonPages.pages.splice(last<0?content.lessonPages.pages.length:last,0,...pages);
+ content.review={...content.review,humanReviewed:false,aiSelfReview:{accuracy:true,levelFit:true,pedagogy:true,answerIntegrity:true,originality:true}};
+ pages[1].blocks.push(
+  block('friends','dialogue','Hỏi và trả lời về cách gia đình hỗ trợ',{body:'Đổi vai với bạn học. Hỏi về một cách giúp đỡ cụ thể, nghe câu trả lời rồi nêu lại ý kiến của người nói. Có thể đọc trước; TTS là giọng tổng hợp.',...triple('朋友：你做作业遇到问题时，家里人怎么帮助你？小雨：妈妈让我先自己想，再和我一起看方法。我觉得这样很好。','Péngyou: Nǐ zuò zuòyè yùdào wèntí shí, jiālǐ rén zěnme bāngzhù nǐ? Xiǎo Yǔ: Māma ràng wǒ xiān zìjǐ xiǎng, zài hé wǒ yìqǐ kàn fāngfǎ. Wǒ juéde zhèyàng hěn hǎo.','Bạn: Khi gặp vấn đề lúc làm bài, người nhà giúp bạn thế nào? Tiểu Vũ: Mẹ để tôi tự nghĩ trước rồi cùng xem cách làm. Tôi thấy cách này rất tốt.')}),
+  block('short-text','reading','Đọc một lời giới thiệu ngắn',{reading:{instruction:'Đọc lời kể, chỉ ra việc của con, việc của mẹ và câu nêu ý kiến. Có thể mở Pinyin/nghĩa khi cần.',notePrompt:'Người kể học thế nào? Mẹ làm gì? Đâu là nhận xét riêng của người kể?',paragraphs:[{id:prefix+':short-text:paragraph',...triple('我每天做完作业以后，先自己检查。妈妈会和我一起看不会的题，但不会替我写。我喜欢这种方法，因为我可以自己试一试。','Wǒ měi tiān zuò wán zuòyè yǐhòu, xiān zìjǐ jiǎnchá. Māma huì hé wǒ yìqǐ kàn bú huì de tí, dàn bú huì tì wǒ xiě. Wǒ xǐhuan zhè zhǒng fāngfǎ, yīnwèi wǒ kěyǐ zìjǐ shì yi shì.','Mỗi ngày sau khi làm bài, tôi tự kiểm tra trước. Mẹ cùng tôi xem câu chưa biết làm nhưng không viết thay. Tôi thích cách này vì có thể tự thử.')} ]}})
+ );
+ const transfer=pages[2].blocks[0];
+ transfer.body+=' Sau bốn lượt, viết hai câu giới thiệu cách giúp đỡ và ý kiến của con trong tình huống này.';
+ const summary=triple('爸爸教我方法，让我自己写。我觉得这样可以帮助我学习。','Bàba jiāo wǒ fāngfǎ, ràng wǒ zìjǐ xiě. Wǒ juéde zhèyàng kěyǐ bāngzhù wǒ xuéxí.','Bố chỉ cách làm và để con tự viết. Con thấy cách này có thể giúp mình học.');
+ transfer.activity.explanation+='\nMẫu giới thiệu hai câu:\n'+summary.hanzi+'\n'+summary.pinyin+'\n'+summary.meaningVi;
+ transfer.activity.rubric.push({id:'view',label:'Giới thiệu cách giúp và nêu ý kiến',guidance:'Hai câu tách việc bố làm khỏi nhận xét của con; dùng 我觉得 cho ý kiến, không tự bịa điểm số.'});
+ changes.push({lessonId,pages:3,models:7,guidedChoices:1,transfers:1});
+ return{content,changes};
+}

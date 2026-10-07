@@ -1,0 +1,3367 @@
+{
+  "humanReviewed": false,
+  "items": [
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "baseRevisionId": "1746ecdb-5f52-45ca-b8f5-4b215286cfa3",
+      "baseContentSha256": "sha256:70cc1cc06ddd82ba12aa79c18737f8ce6ff4b93f450daefc8c34d43540e665d5",
+      "changedPageIds": [
+        "hsk2-daily-needs-family-lesson-04:v2:context",
+        "hsk2-daily-needs-family-lesson-04:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay.",
+        "conceptVi": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+        "dialogue": [
+          {
+            "hanzi": "你怎么了？",
+            "meaningVi": "Bạn bị làm sao?",
+            "pinyin": "Nǐ zěnme le?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我头疼，眼睛也不舒服。",
+            "meaningVi": "Tôi đau đầu, mắt cũng khó chịu.",
+            "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "什么时候开始的？",
+            "meaningVi": "Bắt đầu từ khi nào?",
+            "pinyin": "Shénme shíhou kāishǐ de?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "从今天早上开始。",
+            "meaningVi": "Từ sáng nay.",
+            "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "是不是因为昨天太累了？",
+            "meaningVi": "Có phải vì hôm qua quá mệt không?",
+            "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "可能是，但我不知道。我想去看医生。",
+            "meaningVi": "Có thể, nhưng tôi không biết. Tôi muốn đi khám.",
+            "pinyin": "Kěnéng shì, dàn wǒ bù zhīdào. Wǒ xiǎng qù kàn yīshēng.",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "我陪你去。",
+            "meaningVi": "Tôi đi cùng bạn.",
+            "pinyin": "Wǒ péi nǐ qù.",
+            "speaker": "Lượt 7"
+          },
+          {
+            "hanzi": "谢谢，看医生以后我想回家休息。",
+            "meaningVi": "Cảm ơn, sau khi khám tôi muốn về nhà nghỉ.",
+            "pinyin": "Xièxie, kàn yīshēng yǐhòu wǒ xiǎng huí jiā xiūxi.",
+            "speaker": "Lượt 8"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我不知道原因，可能是昨天太累了。",
+            "answerMeaningVi": "Tôi không biết nguyên nhân, có thể là hôm qua quá mệt.",
+            "answerPinyin": "Wǒ bù zhīdào yuányīn, kěnéng shì zuótiān tài lèi le.",
+            "distractors": [
+              "因为昨天太累了，所以今天头疼。",
+              "我已经看过医生了。"
+            ],
+            "explanationVi": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng.",
+            "promptVi": "B nói 可能是，但我不知道. Cách kể lại nào giữ đúng mức chắc chắn?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你怎么了？ B：我的手疼。 A：什么时候开始的？ B：从昨天下午开始。 A：你知道原因吗？ B：不知道，我想今天下午去看医生。 A：我陪你去。 B：谢谢。",
+              "modelAnswerMeaningVi": "A: Bạn sao vậy? B: Tay tôi đau. A: Bắt đầu khi nào? B: Từ chiều hôm qua. A: Bạn biết nguyên nhân không? B: Không biết, tôi muốn chiều nay đi khám. A: Tôi đi cùng bạn. B: Cảm ơn.",
+              "modelAnswerPinyin": "A: Nǐ zěnme le? B: Wǒ de shǒu téng. A: Shénme shíhou kāishǐ de? B: Cóng zuótiān xiàwǔ kāishǐ. A: Nǐ zhīdào yuányīn ma? B: Bù zhīdào, wǒ xiǎng jīntiān xiàwǔ qù kàn yīshēng. A: Wǒ péi nǐ qù. B: Xièxie.",
+              "promptVi": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay."
+            },
+            "modelExample": {
+              "hanzi": "从今天早上开始。",
+              "meaningVi": "Bắt đầu từ sáng nay.",
+              "pinyin": "Cóng jīntiān zǎoshang kāishǐ."
+            },
+            "pattern": "从 + mốc thời gian + 开始"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vai B đau đầu từ sáng nay, mắt cũng khó chịu. B không biết nguyên nhân, dự định đi khám; A hỏi thăm và đề nghị đi cùng. Tập nói rõ triệu chứng, thời điểm và bước tiếp theo.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "早上 zǎoshang: sáng · 从 có nghĩa từ một mốc · 开始 kāishǐ: bắt đầu · 可能 kěnéng: có thể · 原因 yuányīn: nguyên nhân · 医生 yīshēng: bác sĩ · 陪 péi: đi cùng · 休息 xiūxi: nghỉ. Các câu là tình huống luyện giao tiếp, không dùng để tự chẩn đoán hoặc chọn thuốc.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-headache-v1.webp",
+                "alt": "Người đau đầu và khó chịu ở mắt trao đổi với bạn trước khi đi khám",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Hỏi triệu chứng và thời điểm bắt đầu; hai bạn dự định đi khám, chưa xác định nguyên nhân."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Hai thông tin B nêu và một giả thuyết A hỏi. Không biến câu hỏi về nguyên nhân thành chẩn đoán.",
+                    "nodes": [
+                      {
+                        "id": "symptom",
+                        "label": "头疼，眼睛不舒服",
+                        "meaningVi": "đau đầu, mắt khó chịu",
+                        "note": "B tự mô tả cảm giác.",
+                        "pinyin": "tóuténg, yǎnjing bù shūfu",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "onset",
+                        "label": "今天早上",
+                        "meaningVi": "sáng nay",
+                        "note": "Mốc bắt đầu, không phải nguyên nhân.",
+                        "pinyin": "jīntiān zǎoshang",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "cause",
+                        "label": "可能是昨天太累了",
+                        "meaningVi": "có thể là hôm qua quá mệt",
+                        "note": "Chưa chắc chắn; B nói không biết.",
+                        "pinyin": "kěnéng shì zuótiān tài lèi le",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Triệu chứng · thời gian · phỏng đoán"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Phân biệt ba loại thông tin"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你怎么了？",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn bị làm sao?",
+                  "pinyin": "Nǐ zěnme le?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我头疼，眼睛也不舒服。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đau đầu, mắt cũng khó chịu.",
+                  "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "什么时候开始的？",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bắt đầu từ khi nào?",
+                  "pinyin": "Shénme shíhou kāishǐ de?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "从今天早上开始。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Từ sáng nay.",
+                  "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是不是因为昨天太累了？",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có phải vì hôm qua quá mệt không?",
+                  "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "可能是，但我不知道。我想去看医生。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có thể, nhưng tôi không biết. Tôi muốn đi khám.",
+                  "pinyin": "Kěnéng shì, dàn wǒ bù zhīdào. Wǒ xiǎng qù kàn yīshēng.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我陪你去。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đi cùng bạn.",
+                  "pinyin": "Wǒ péi nǐ qù.",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "谢谢，看医生以后我想回家休息。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-7",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cảm ơn, sau khi khám tôi muốn về nhà nghỉ.",
+                  "pinyin": "Xièxie, kàn yīshēng yǐhòu wǒ xiǎng huí jiā xiūxi.",
+                  "provenance": "",
+                  "title": "Lượt 8"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-headache-v1.webp",
+                "alt": "Người đau đầu và khó chịu ở mắt trao đổi với bạn trước khi đi khám",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Hỏi triệu chứng và thời điểm bắt đầu; hai bạn dự định đi khám, chưa xác định nguyên nhân."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "从今天早上开始。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bắt đầu từ sáng nay.",
+                  "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+                  "provenance": "",
+                  "title": "从 + mốc thời gian + 开始"
+                },
+                {
+                  "alt": "",
+                  "body": "头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "mệt",
+                  "hanzi": "我今天很累。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00388",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay tôi rất mệt.",
+                  "pinyin": "Wǒ jīntiān hěn lèi.",
+                  "provenance": "",
+                  "title": "累 · lèi"
+                },
+                {
+                  "alt": "",
+                  "body": "cơ thể; sức khỏe",
+                  "hanzi": "你最近身体怎么样？",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00429",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Dạo này sức khỏe bạn thế nào?",
+                  "pinyin": "Nǐ zuìjìn shēntǐ zěnmeyàng?",
+                  "provenance": "",
+                  "title": "身体 · shēntǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "tay",
+                  "hanzi": "我的手有点儿疼。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00433",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tay tôi hơi đau.",
+                  "pinyin": "Wǒ de shǒu yǒudiǎnr téng.",
+                  "provenance": "",
+                  "title": "手 · shǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "thoải mái; khỏe",
+                  "hanzi": "我今天不太舒服。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00436",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay tôi không được khỏe lắm.",
+                  "pinyin": "Wǒ jīntiān bú tài shūfu.",
+                  "provenance": "",
+                  "title": "舒服 · shūfu"
+                },
+                {
+                  "alt": "",
+                  "body": "đau",
+                  "hanzi": "你的头还疼吗？",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00440",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đầu bạn còn đau không?",
+                  "pinyin": "Nǐ de tóu hái téng ma?",
+                  "provenance": "",
+                  "title": "疼 · téng"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "đầu",
+                  "hanzi": "我头疼，想休息一下。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00445",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đau đầu, muốn nghỉ một lát.",
+                  "pinyin": "Wǒ tóuténg, xiǎng xiūxi yíxià.",
+                  "provenance": "",
+                  "title": "头 · tóu"
+                },
+                {
+                  "alt": "",
+                  "body": "giặt; rửa; tắm",
+                  "hanzi": "吃饭以前我先洗手。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00456",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trước khi ăn tôi rửa tay trước.",
+                  "pinyin": "Chīfàn yǐqián wǒ xiān xǐ shǒu.",
+                  "provenance": "",
+                  "title": "洗 · xǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "nhà vệ sinh",
+                  "hanzi": "请问，洗手间在哪儿？",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00457",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cho hỏi nhà vệ sinh ở đâu?",
+                  "pinyin": "Qǐngwèn, xǐshǒujiān zài nǎr?",
+                  "provenance": "",
+                  "title": "洗手间 · xǐshǒujiān"
+                },
+                {
+                  "alt": "",
+                  "body": "mắt",
+                  "hanzi": "她的眼睛不舒服。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00467",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mắt cô ấy khó chịu.",
+                  "pinyin": "Tā de yǎnjing bù shūfu.",
+                  "provenance": "",
+                  "title": "眼睛 · yǎnjing"
+                },
+                {
+                  "alt": "",
+                  "body": "thuốc",
+                  "hanzi": "我想问医生，这是什么药。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00468",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn hỏi bác sĩ đây là thuốc gì.",
+                  "pinyin": "Wǒ xiǎng wèn yīshēng, zhè shì shénme yào.",
+                  "provenance": "",
+                  "title": "药 · yào"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "hiệu thuốc",
+                  "hanzi": "医院旁边有一家药店。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00469",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bên cạnh bệnh viện có một hiệu thuốc.",
+                  "pinyin": "Yīyuàn pángbiān yǒu yì jiā yàodiàn.",
+                  "provenance": "",
+                  "title": "药店 · yàodiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "bởi vì",
+                  "hanzi": "因为我不舒服，所以今天不去上班。",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00476",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vì tôi không khỏe nên hôm nay không đi làm.",
+                  "pinyin": "Yīnwèi wǒ bù shūfu, suǒyǐ jīntiān bú qù shàngbān.",
+                  "provenance": "",
+                  "title": "因为 · yīnwèi"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng. 头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Giữ mức chưa chắc chắn khi kể lại phỏng đoán nguyên nhân.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-10",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng.",
+                        "id": "option-0",
+                        "text": "我不知道原因，可能是昨天太累了。"
+                      },
+                      {
+                        "feedback": "Câu này khẳng định quan hệ nguyên nhân; mạnh hơn điều B thực sự biết.",
+                        "id": "option-1",
+                        "text": "因为昨天太累了，所以今天头疼。"
+                      },
+                      {
+                        "feedback": "Câu này nói đã khám, nhưng B mới nêu dự định đi khám.",
+                        "id": "option-2",
+                        "text": "我已经看过医生了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "B nói 可能是，但我不知道. Cách kể lại nào giữ đúng mức chắc chắn?",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "从"
+                    ],
+                    "answerIds": [],
+                    "explanation": "从 nêu mốc bắt đầu. 因为 đưa ra nguyên nhân, không trả lời từ lúc nào.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Dùng 从 để nêu mốc bắt đầu theo mẫu.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền đúng từ chỉ điểm bắt đầu theo mẫu: ___今天早上开始。 (Bắt đầu từ sáng nay.)",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你怎么了？ B：我的手疼。 A：什么时候开始的？ B：从昨天下午开始。 A：你知道原因吗？ B：不知道，我想今天下午去看医生。 A：我陪你去。 B：谢谢。\nA: Nǐ zěnme le? B: Wǒ de shǒu téng. A: Shénme shíhou kāishǐ de? B: Cóng zuótiān xiàwǔ kāishǐ. A: Nǐ zhīdào yuányīn ma? B: Bù zhīdào, wǒ xiǎng jīntiān xiàwǔ qù kàn yīshēng. A: Wǒ péi nǐ qù. B: Xièxie.\nA: Bạn sao vậy? B: Tay tôi đau. A: Bắt đầu khi nào? B: Từ chiều hôm qua. A: Bạn biết nguyên nhân không? B: Không biết, tôi muốn chiều nay đi khám. A: Tôi đi cùng bạn. B: Cảm ơn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự viết chuỗi hỏi thăm với triệu chứng, thời gian và mức chắc chắn đúng; rubric tự đối chiếu.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-10",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ.",
+                        "id": "criterion-0",
+                        "label": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ."
+                      },
+                      {
+                        "guidance": "Mốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc.",
+                        "id": "criterion-1",
+                        "label": "Mốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc."
+                      },
+                      {
+                        "guidance": "Giữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc.",
+                        "id": "criterion-2",
+                        "label": "Giữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc."
+                      },
+                      {
+                        "guidance": "Các lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn.",
+                        "id": "criterion-3",
+                        "label": "Các lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ.\nMốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc.\nGiữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc.\nCác lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-04:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/23-REVIEW-HSK2-HEALTH.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-daily-needs-family-lesson-04",
+          "reviewedAt": "2026-09-15",
+          "scope": "HSK2 health exchange: symptoms, onset, uncertain cause and intended care; supported practice and self-review.",
+          "sourceContentSha256": "sha256:f86462007b909d9357bdf781e82e83183f8aa159b96a56776365b74de9366c26"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về báo bệnh, hỏi thăm và đi khám bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+        "prerequisites": [
+          "hsk2-daily-needs-family-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-daily-needs-family-lesson-04"
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-04"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-10"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-019",
+          "hsk2-topic-020"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00388",
+          "hsk-vocab-00429",
+          "hsk-vocab-00433",
+          "hsk-vocab-00436",
+          "hsk-vocab-00440",
+          "hsk-vocab-00445",
+          "hsk-vocab-00456",
+          "hsk-vocab-00457",
+          "hsk-vocab-00467",
+          "hsk-vocab-00468",
+          "hsk-vocab-00469",
+          "hsk-vocab-00476"
+        ],
+        "targetLessonId": "hsk2-daily-needs-family-lesson-04",
+        "titleZh": "HSK二级 · 09",
+        "vocabulary": [
+          "hsk-vocab-00388",
+          "hsk-vocab-00429",
+          "hsk-vocab-00433",
+          "hsk-vocab-00436",
+          "hsk-vocab-00440",
+          "hsk-vocab-00445",
+          "hsk-vocab-00456",
+          "hsk-vocab-00457",
+          "hsk-vocab-00467",
+          "hsk-vocab-00468",
+          "hsk-vocab-00469",
+          "hsk-vocab-00476"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "baseRevisionId": "04f4b4cb-273a-42f9-81f6-8521af6d4be6",
+      "baseContentSha256": "sha256:c80d571c3dfff461c7f8f4a192cdbdbbaeb1d236dbb8472af8f457a959fa49a9",
+      "changedPageIds": [
+        "hsk2-daily-needs-family-lesson-05:v2:context",
+        "hsk2-daily-needs-family-lesson-05:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Đóng vai Minh: sống cùng vợ và con; bố mẹ sống gần. Cuối tuần thường thăm bố mẹ. Có khi bố nấu, có khi bạn tự nấu; hôm nay bố nấu và bạn chơi cùng con. Viết ít nhất sáu lượt hỏi/đáp về người sống cùng, hoạt động cuối tuần, ai nấu và hôm nay. Giữ đúng góc nhìn của Minh.",
+        "conceptVi": "Kể đúng ai làm gì và làm khi nào",
+        "dialogue": [
+          {
+            "hanzi": "你跟谁一起住？",
+            "meaningVi": "Bạn sống cùng ai?",
+            "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我跟丈夫和孩子一起住，爷爷奶奶住在附近。",
+            "meaningVi": "Tôi sống cùng chồng và con; ông bà nội tôi sống gần đó.",
+            "pinyin": "Wǒ gēn zhàngfu hé háizi yìqǐ zhù, yéye nǎinai zhù zài fùjìn.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "周末你们常做什么？",
+            "meaningVi": "Cuối tuần các bạn thường làm gì?",
+            "pinyin": "Zhōumò nǐmen cháng zuò shénme?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我们常去看爷爷奶奶。",
+            "meaningVi": "Chúng tôi thường đến thăm ông bà nội tôi.",
+            "pinyin": "Wǒmen cháng qù kàn yéye nǎinai.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "谁做饭呢？",
+            "meaningVi": "Ai nấu cơm vậy?",
+            "pinyin": "Shéi zuòfàn ne?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "有时奶奶做，有时我自己做。丈夫跟孩子一起玩。",
+            "meaningVi": "Có khi bà nội nấu, có khi tôi tự nấu. Chồng tôi chơi cùng con.",
+            "pinyin": "Yǒushí nǎinai zuò, yǒushí wǒ zìjǐ zuò. Zhàngfu gēn háizi yìqǐ wán.",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "今天也是奶奶做饭吗？",
+            "meaningVi": "Hôm nay cũng bà nội nấu cơm à?",
+            "pinyin": "Jīntiān yě shì nǎinai zuòfàn ma?",
+            "speaker": "Lượt 7"
+          },
+          {
+            "hanzi": "不是，今天我做，让奶奶休息一下。",
+            "meaningVi": "Không, hôm nay tôi nấu, để bà nội nghỉ một lát.",
+            "pinyin": "Bú shì, jīntiān wǒ zuò, ràng nǎinai xiūxi yíxià.",
+            "speaker": "Lượt 8"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "有时奶奶做饭，今天我自己做。",
+            "answerMeaningVi": "Có khi bà nội nấu, hôm nay tôi tự nấu.",
+            "answerPinyin": "Yǒushí nǎinai zuòfàn, jīntiān wǒ zìjǐ zuò.",
+            "distractors": [
+              "奶奶每天做饭。",
+              "今天奶奶做饭。"
+            ],
+            "explanationVi": "Đúng khi kể từ góc nhìn Lan: bà đôi khi nấu, còn hôm nay Lan tự nấu.",
+            "promptVi": "Lan kể 有时奶奶做，有时我自己做 rồi nói 今天我做. Câu nào giữ đúng cả thói quen lẫn hôm nay?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "跟/和 + người + 一起 + động từ nối những người cùng tham gia: 我跟丈夫和孩子一起住. Không suy ra ông bà sống cùng chỉ vì họ sống gần.\n有时…，有时… mô tả những dịp khác nhau, không có nghĩa luôn luôn hoặc cùng lúc. 我自己做饭 nhấn mạnh tự làm; không nhất thiết đang ở nhà một mình.\n她 chỉ người nữ vừa được nhắc trong ngữ cảnh, không tự động là 妻子. Khi có nhiều người nữ, nhắc lại 奶奶/妈妈 để rõ nghĩa. 今天 hỏi một dịp cụ thể, khác 周末一般 hoặc 有时.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你跟谁一起住？ B：我跟妻子和孩子一起住，爸爸妈妈住在附近。 A：周末你们常做什么？ B：我们常去看爸爸妈妈。 A：谁做饭？ B：有时爸爸做，有时我自己做。 A：今天呢？ B：今天爸爸做饭，我跟孩子一起玩。",
+              "modelAnswerMeaningVi": "A: Bạn sống cùng ai? B: Tôi sống cùng vợ và con, bố mẹ sống gần đó. A: Cuối tuần thường làm gì? B: Chúng tôi thường thăm bố mẹ. A: Ai nấu cơm? B: Có khi bố nấu, có khi tôi tự nấu. A: Hôm nay thì sao? B: Hôm nay bố nấu, tôi chơi cùng con.",
+              "modelAnswerPinyin": "A: Nǐ gēn shéi yìqǐ zhù? B: Wǒ gēn qīzi hé háizi yìqǐ zhù, bàba māma zhù zài fùjìn. A: Zhōumò nǐmen cháng zuò shénme? B: Wǒmen cháng qù kàn bàba māma. A: Shéi zuòfàn? B: Yǒushí bàba zuò, yǒushí wǒ zìjǐ zuò. A: Jīntiān ne? B: Jīntiān bàba zuòfàn, wǒ gēn háizi yìqǐ wán.",
+              "promptVi": "Đóng vai Minh: sống cùng vợ và con; bố mẹ sống gần. Cuối tuần thường thăm bố mẹ. Có khi bố nấu, có khi bạn tự nấu; hôm nay bố nấu và bạn chơi cùng con. Viết ít nhất sáu lượt hỏi/đáp về người sống cùng, hoạt động cuối tuần, ai nấu và hôm nay. Giữ đúng góc nhìn của Minh."
+            },
+            "modelExample": {
+              "hanzi": "有时奶奶做饭，有时我自己做。",
+              "meaningVi": "Có khi bà nội nấu cơm, có khi tôi tự nấu.",
+              "pinyin": "Yǒushí nǎinai zuòfàn, yǒushí wǒ zìjǐ zuò."
+            },
+            "pattern": "有时…，有时…"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Lan sống cùng chồng và con. Ông bà nội của Lan sống gần đó. Bạn hỏi gia đình thường làm gì cuối tuần rồi xác nhận kế hoạch hôm nay. Cần phân biệt sống cùng, đến thăm và hoạt động đôi khi mới làm.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "周末 zhōumò: cuối tuần · 附近 fùjìn: gần đây · 看 trong 看爷爷奶奶: thăm ông bà · 做饭 zuòfàn: nấu cơm · 丈夫 zhàngfu: chồng · 妻子 qīzi: vợ. 爷爷、奶奶 là ông bà nội của người được nói tới; phải xác định người kể.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Kể đúng ai làm gì và làm khi nào",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-family-v1.webp",
+                "alt": "Lan nấu cơm, chồng chơi với con, ông bà nội của Lan nghỉ trên ghế",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Hôm nay Lan nấu cơm; ông bà nội của Lan nghỉ, chồng chơi với con."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你跟谁一起住？",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn sống cùng ai?",
+                  "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我跟丈夫和孩子一起住，爷爷奶奶住在附近。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi sống cùng chồng và con; ông bà nội tôi sống gần đó.",
+                  "pinyin": "Wǒ gēn zhàngfu hé háizi yìqǐ zhù, yéye nǎinai zhù zài fùjìn.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "周末你们常做什么？",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cuối tuần các bạn thường làm gì?",
+                  "pinyin": "Zhōumò nǐmen cháng zuò shénme?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我们常去看爷爷奶奶。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng tôi thường đến thăm ông bà nội tôi.",
+                  "pinyin": "Wǒmen cháng qù kàn yéye nǎinai.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "谁做饭呢？",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ai nấu cơm vậy?",
+                  "pinyin": "Shéi zuòfàn ne?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "有时奶奶做，有时我自己做。丈夫跟孩子一起玩。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có khi bà nội nấu, có khi tôi tự nấu. Chồng tôi chơi cùng con.",
+                  "pinyin": "Yǒushí nǎinai zuò, yǒushí wǒ zìjǐ zuò. Zhàngfu gēn háizi yìqǐ wán.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "今天也是奶奶做饭吗？",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay cũng bà nội nấu cơm à?",
+                  "pinyin": "Jīntiān yě shì nǎinai zuòfàn ma?",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "不是，今天我做，让奶奶休息一下。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:turn-7",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không, hôm nay tôi nấu, để bà nội nghỉ một lát.",
+                  "pinyin": "Bú shì, jīntiān wǒ zuò, ràng nǎinai xiūxi yíxià.",
+                  "provenance": "",
+                  "title": "Lượt 8"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-family-v1.webp",
+                "alt": "Lan nấu cơm, chồng chơi với con, ông bà nội của Lan nghỉ trên ghế",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Hôm nay Lan nấu cơm; ông bà nội của Lan nghỉ, chồng chơi với con."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Giữ góc nhìn Lan khi kể lại. Bảng mô tả gia đình trong bài, không phải khuôn mẫu cho mọi gia đình.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "一起住",
+                        "meaningVi": "Sống cùng",
+                        "note": "Lan, chồng và con.",
+                        "pinyin": "yìqǐ zhù",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "住在附近",
+                        "meaningVi": "Sống gần",
+                        "note": "Ông bà nội của Lan.",
+                        "pinyin": "zhù zài fùjìn",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "今天做饭",
+                        "meaningVi": "Nấu hôm nay",
+                        "note": "Lan; có khi bà nội nấu vào dịp khác.",
+                        "pinyin": "jīntiān zuòfàn",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Ba thông tin không được gộp"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Quan hệ, nơi ở và hôm nay"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "跟/和 + người + 一起 + động từ nối những người cùng tham gia: 我跟丈夫和孩子一起住. Không suy ra ông bà sống cùng chỉ vì họ sống gần.\n有时…，有时… mô tả những dịp khác nhau, không có nghĩa luôn luôn hoặc cùng lúc. 我自己做饭 nhấn mạnh tự làm; không nhất thiết đang ở nhà một mình.\n她 chỉ người nữ vừa được nhắc trong ngữ cảnh, không tự động là 妻子. Khi có nhiều người nữ, nhắc lại 奶奶/妈妈 để rõ nghĩa. 今天 hỏi một dịp cụ thể, khác 周末一般 hoặc 有时.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "有时奶奶做饭，有时我自己做。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có khi bà nội nấu cơm, có khi tôi tự nấu.",
+                  "pinyin": "Yǒushí nǎinai zuòfàn, yǒushí wǒ zìjǐ zuò.",
+                  "provenance": "",
+                  "title": "有时…，有时…"
+                },
+                {
+                  "alt": "",
+                  "body": "有时 = đôi khi; 有时间 = có thời gian. Không cắt 有时间 thành ví dụ cho 有时. 奶奶 không phải mẹ hay bà ngoại. Khi kể lại từ góc nhìn Lan, 奶奶 vẫn là bà nội của Lan, không phải bà của chồng.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Kể đúng ai làm gì và làm khi nào"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bà nội",
+                  "hanzi": "周末我去看奶奶。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00409",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cuối tuần tôi đi thăm bà nội.",
+                  "pinyin": "Zhōumò wǒ qù kàn nǎinai.",
+                  "provenance": "",
+                  "title": "奶奶 · nǎinai"
+                },
+                {
+                  "alt": "",
+                  "body": "vợ",
+                  "hanzi": "他跟妻子一起做饭。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00417",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy nấu cơm cùng vợ.",
+                  "pinyin": "Tā gēn qīzi yìqǐ zuòfàn.",
+                  "provenance": "",
+                  "title": "妻子 · qīzi"
+                },
+                {
+                  "alt": "",
+                  "body": "trẻ con",
+                  "hanzi": "小孩儿跟爷爷一起玩。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00461",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đứa trẻ chơi cùng ông nội.",
+                  "pinyin": "Xiǎoháir gēn yéye yìqǐ wán.",
+                  "provenance": "",
+                  "title": "小孩儿 · xiǎoháir"
+                },
+                {
+                  "alt": "",
+                  "body": "ông nội",
+                  "hanzi": "爷爷今天在家休息。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00470",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay ông nội nghỉ ở nhà.",
+                  "pinyin": "Yéye jīntiān zài jiā xiūxi.",
+                  "provenance": "",
+                  "title": "爷爷 · yéye"
+                },
+                {
+                  "alt": "",
+                  "body": "đôi khi",
+                  "hanzi": "有时我做饭，有时丈夫做。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00480",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có khi tôi nấu cơm, có khi chồng nấu.",
+                  "pinyin": "Yǒushí wǒ zuòfàn, yǒushí zhàngfu zuò.",
+                  "provenance": "",
+                  "title": "有时 · yǒushí"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "chồng",
+                  "hanzi": "我丈夫今天跟孩子一起玩。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00487",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay chồng tôi chơi cùng con.",
+                  "pinyin": "Wǒ zhàngfu jīntiān gēn háizi yìqǐ wán.",
+                  "provenance": "",
+                  "title": "丈夫 · zhàngfu"
+                },
+                {
+                  "alt": "",
+                  "body": "bản thân; tự mình",
+                  "hanzi": "今天我自己做饭。",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:word-hsk-vocab-00494",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay tôi tự nấu cơm.",
+                  "pinyin": "Jīntiān wǒ zìjǐ zuòfàn.",
+                  "provenance": "",
+                  "title": "自己 · zìjǐ"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-2"
+                    ],
+                    "explanation": "Đúng khi kể từ góc nhìn Lan: bà đôi khi nấu, còn hôm nay Lan tự nấu. 有时 = đôi khi; 有时间 = có thời gian. Không cắt 有时间 thành ví dụ cho 有时. 奶奶 không phải mẹ hay bà ngoại. Khi kể lại từ góc nhìn Lan, 奶奶 vẫn là bà nội của Lan, không phải bà của chồng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể lại đúng người thực hiện và tần suất.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-12",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "每天 là hằng ngày; Lan chỉ nói bà có khi nấu.",
+                        "id": "option-0",
+                        "text": "奶奶每天做饭。"
+                      },
+                      {
+                        "feedback": "Lan đã xác nhận hôm nay chính Lan nấu.",
+                        "id": "option-1",
+                        "text": "今天奶奶做饭。"
+                      },
+                      {
+                        "feedback": "Đúng khi kể từ góc nhìn Lan: bà đôi khi nấu, còn hôm nay Lan tự nấu.",
+                        "id": "option-2",
+                        "text": "有时奶奶做饭，今天我自己做。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Lan kể 有时奶奶做，有时我自己做 rồi nói 今天我做. Câu nào giữ đúng cả thói quen lẫn hôm nay?",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "有时",
+                      "有时候"
+                    ],
+                    "answerIds": [],
+                    "explanation": "有时/有时候 nói đôi khi. 每天 nói hằng ngày, 有时间 nói có thời gian nên không giữ nghĩa yêu cầu.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Dùng từ chỉ tần suất đôi khi theo mẫu.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền từ mang nghĩa “đôi khi” theo mẫu: ___奶奶做饭，有时我自己做。",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đóng vai Minh: sống cùng vợ và con; bố mẹ sống gần. Cuối tuần thường thăm bố mẹ. Có khi bố nấu, có khi bạn tự nấu; hôm nay bố nấu và bạn chơi cùng con. Viết ít nhất sáu lượt hỏi/đáp về người sống cùng, hoạt động cuối tuần, ai nấu và hôm nay. Giữ đúng góc nhìn của Minh.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你跟谁一起住？ B：我跟妻子和孩子一起住，爸爸妈妈住在附近。 A：周末你们常做什么？ B：我们常去看爸爸妈妈。 A：谁做饭？ B：有时爸爸做，有时我自己做。 A：今天呢？ B：今天爸爸做饭，我跟孩子一起玩。\nA: Nǐ gēn shéi yìqǐ zhù? B: Wǒ gēn qīzi hé háizi yìqǐ zhù, bàba māma zhù zài fùjìn. A: Zhōumò nǐmen cháng zuò shénme? B: Wǒmen cháng qù kàn bàba māma. A: Shéi zuòfàn? B: Yǒushí bàba zuò, yǒushí wǒ zìjǐ zuò. A: Jīntiān ne? B: Jīntiān bàba zuòfàn, wǒ gēn háizi yìqǐ wán.\nA: Bạn sống cùng ai? B: Tôi sống cùng vợ và con, bố mẹ sống gần đó. A: Cuối tuần thường làm gì? B: Chúng tôi thường thăm bố mẹ. A: Ai nấu cơm? B: Có khi bố nấu, có khi tôi tự nấu. A: Hôm nay thì sao? B: Hôm nay bố nấu, tôi chơi cùng con.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự viết chuỗi trao đổi gia đình với quan hệ và tần suất đúng; tự đối chiếu.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-12",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Nêu vợ, con sống cùng; bố mẹ sống gần, không nhập hai thông tin thành một.",
+                        "id": "criterion-0",
+                        "label": "Nêu vợ, con sống cùng; bố mẹ sống gần, không nhập hai thông tin thành một."
+                      },
+                      {
+                        "guidance": "Nêu việc thường thăm bố mẹ và hai người có thể nấu vào những dịp khác nhau.",
+                        "id": "criterion-1",
+                        "label": "Nêu việc thường thăm bố mẹ và hai người có thể nấu vào những dịp khác nhau."
+                      },
+                      {
+                        "guidance": "Hôm nay bố nấu, Minh chơi với con; không chép kế hoạch của Lan.",
+                        "id": "criterion-2",
+                        "label": "Hôm nay bố nấu, Minh chơi với con; không chép kế hoạch của Lan."
+                      },
+                      {
+                        "guidance": "Ít nhất sáu lượt có hỏi tiếp và trả lời đúng câu hỏi.",
+                        "id": "criterion-3",
+                        "label": "Ít nhất sáu lượt có hỏi tiếp và trả lời đúng câu hỏi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Nêu vợ, con sống cùng; bố mẹ sống gần, không nhập hai thông tin thành một.\nNêu việc thường thăm bố mẹ và hai người có thể nấu vào những dịp khác nhau.\nHôm nay bố nấu, Minh chơi với con; không chép kế hoạch của Lan.\nÍt nhất sáu lượt có hỏi tiếp và trả lời đúng câu hỏi.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-daily-needs-family-lesson-05:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-daily-needs-family-lesson-05:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/24-REVIEW-HSK2-FAMILY-DIRECTIONS.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-daily-needs-family-lesson-05",
+          "reviewedAt": "2026-09-15",
+          "scope": "HSK2 family referents/frequency and route confirmation; supported practice and self-review.",
+          "sourceContentSha256": "sha256:0e2bb13bf994da822b84a2f88dfd0cf2802018e5e0481427f42cf79ddc1ce2e3"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về quan hệ và hoạt động gia đình bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "有时 = đôi khi; 有时间 = có thời gian. Không cắt 有时间 thành ví dụ cho 有时. 奶奶 không phải mẹ hay bà ngoại. Khi kể lại từ góc nhìn Lan, 奶奶 vẫn là bà nội của Lan, không phải bà của chồng.",
+        "prerequisites": [
+          "hsk2-daily-needs-family-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "跟/和 + người + 一起 + động từ nối những người cùng tham gia: 我跟丈夫和孩子一起住. Không suy ra ông bà sống cùng chỉ vì họ sống gần.\n有时…，有时… mô tả những dịp khác nhau, không có nghĩa luôn luôn hoặc cùng lúc. 我自己做饭 nhấn mạnh tự làm; không nhất thiết đang ở nhà một mình.\n她 chỉ người nữ vừa được nhắc trong ngữ cảnh, không tự động là 妻子. Khi có nhiều người nữ, nhắc lại 奶奶/妈妈 để rõ nghĩa. 今天 hỏi một dịp cụ thể, khác 周末一般 hoặc 有时.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-daily-needs-family-lesson-05"
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-05"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-12"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-023",
+          "hsk2-topic-024"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00409",
+          "hsk-vocab-00417",
+          "hsk-vocab-00461",
+          "hsk-vocab-00470",
+          "hsk-vocab-00480",
+          "hsk-vocab-00487",
+          "hsk-vocab-00494"
+        ],
+        "targetLessonId": "hsk2-daily-needs-family-lesson-05",
+        "titleZh": "HSK二级 · 10",
+        "vocabulary": [
+          "hsk-vocab-00409",
+          "hsk-vocab-00417",
+          "hsk-vocab-00461",
+          "hsk-vocab-00470",
+          "hsk-vocab-00480",
+          "hsk-vocab-00487",
+          "hsk-vocab-00494"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "baseRevisionId": "8b9dbdbf-9c60-47ee-ac0a-10c78e6bd0e4",
+      "baseContentSha256": "sha256:bfe206f521bebf0af195f279fd5037c3fd419fb9f78a0dba8b6a879d983fb012",
+      "changedPageIds": [
+        "hsk2-travel-leisure-lesson-03:v2:context",
+        "hsk2-travel-leisure-lesson-03:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Đóng vai người chưa từng đến Bắc Kinh (北京 Běijīng). Bạn sẽ đi chủ nhật tuần sau, vé đã mua, định đi taxi đến sân bay lúc 7:00. Khách sạn cách nhà ga năm phút đi bộ. Viết ít nhất sáu lượt hỏi/đáp, có câu hỏi trải nghiệm và câu trả lời phủ định. Không bịa cảm nhận của chuyến chưa đi; có thể nói điều mình mong đợi.",
+        "conceptVi": "Tách việc đã làm, kế hoạch sắp tới và trải nghiệm",
+        "dialogue": [
+          {
+            "hanzi": "你什么时候去杭州旅游？",
+            "meaningVi": "Bạn khi nào đi du lịch Hàng Châu?",
+            "pinyin": "Nǐ shénme shíhou qù Hángzhōu lǚyóu?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "下周六。我已经买好机票了。",
+            "meaningVi": "Thứ bảy tuần sau. Tôi đã mua vé máy bay rồi.",
+            "pinyin": "Xià zhōu liù. Wǒ yǐjīng mǎihǎo jīpiào le.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你怎么去机场？",
+            "meaningVi": "Bạn đến sân bay bằng cách nào?",
+            "pinyin": "Nǐ zěnme qù jīchǎng?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我准备坐地铁去，八点到机场。",
+            "meaningVi": "Tôi định đi tàu điện ngầm, tám giờ đến sân bay.",
+            "pinyin": "Wǒ zhǔnbèi zuò dìtiě qù, bā diǎn dào jīchǎng.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "你去过杭州吗？",
+            "meaningVi": "Bạn đã từng đến Hàng Châu chưa?",
+            "pinyin": "Nǐ qùguo Hángzhōu ma?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "去过。上次我坐公交车去酒店，路上用了一个小时，我觉得有点儿慢。",
+            "meaningVi": "Từng đến rồi. Lần trước tôi đi xe buýt đến khách sạn, trên đường mất một giờ; tôi thấy hơi chậm.",
+            "pinyin": "Qùguo. Shàng cì wǒ zuò gōngjiāochē qù jiǔdiàn, lùshang yòngle yí ge xiǎoshí, wǒ juéde yǒudiǎnr màn.",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "这次酒店离车站远吗？",
+            "meaningVi": "Lần này khách sạn có xa nhà ga không?",
+            "pinyin": "Zhè cì jiǔdiàn lí chēzhàn yuǎn ma?",
+            "speaker": "Lượt 7"
+          },
+          {
+            "hanzi": "不远，从车站走路十分钟就到。",
+            "meaningVi": "Không xa, từ nhà ga đi bộ mười phút là đến.",
+            "pinyin": "Bù yuǎn, cóng chēzhàn zǒulù shí fēnzhōng jiù dào.",
+            "speaker": "Lượt 8"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他已经买好机票了，下周六坐地铁去机场。",
+            "answerMeaningVi": "Anh ấy đã mua vé máy bay, thứ bảy tuần sau đi tàu điện ngầm đến sân bay.",
+            "answerPinyin": "Tā yǐjīng mǎihǎo jīpiào le, xià zhōu liù zuò dìtiě qù jīchǎng.",
+            "distractors": [
+              "他已经到杭州了。",
+              "他下周六走路去机场。"
+            ],
+            "explanationVi": "Đúng: mua vé đã xong; đến sân bay là kế hoạch tuần sau.",
+            "promptVi": "Hôm nay thứ sáu, chuyến đi vào thứ bảy tuần sau. Tóm tắt nào giữ đúng việc đã xong và kế hoạch?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "我下周六去杭州旅游 nói kế hoạch tương lai. 我已经买好机票了 nói việc mua vé đã hoàn tất trước lúc nói. Ghép hai câu này được, nhưng không đặt 下周 trực tiếp trước 已经买好 rồi hiểu rằng việc mua vé vừa ở tương lai vừa đã xong.\n你去过杭州吗？ hỏi đã từng đến Hàng Châu hay chưa, không hỏi lịch chuyến tới. 我去过/我没去过 trả lời về trải nghiệm. Với phủ định trải nghiệm dùng 没 + động từ + 过, không dùng 不去过. 过 ở đây đọc nhẹ guo.\n坐地铁/坐公交车 mô tả phương tiện; 打车 là đi taxi. 从车站走路到酒店 diễn tả đoạn đường bộ. 到机场 là đến sân bay, không đồng nghĩa chuyến bay cất cánh. 觉得… mô tả cảm nhận, không phải dữ kiện đúng cho mọi người.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：你去过北京吗？ B：我没去过。 A：你什么时候去？ B：下周日，机票已经买好了。 A：怎么去机场？ B：我准备打车去，七点到机场。 A：酒店离车站远吗？ B：不远，走路五分钟就到。",
+              "modelAnswerMeaningVi": "A hỏi đã từng đến Bắc Kinh, thời gian, cách đến sân bay và khoảng cách khách sạn. B chưa từng đến; đi chủ nhật tuần sau, vé đã mua; đi taxi, đến sân bay lúc 7:00; từ nhà ga đi bộ năm phút đến khách sạn.",
+              "modelAnswerPinyin": "A: Nǐ qùguo Běijīng ma? B: Wǒ méi qùguo. A: Nǐ shénme shíhou qù? B: Xià zhōu rì, jīpiào yǐjīng mǎihǎo le. A: Zěnme qù jīchǎng? B: Wǒ zhǔnbèi dǎchē qù, qī diǎn dào jīchǎng. A: Jiǔdiàn lí chēzhàn yuǎn ma? B: Bù yuǎn, zǒulù wǔ fēnzhōng jiù dào.",
+              "promptVi": "Đóng vai người chưa từng đến Bắc Kinh (北京 Běijīng). Bạn sẽ đi chủ nhật tuần sau, vé đã mua, định đi taxi đến sân bay lúc 7:00. Khách sạn cách nhà ga năm phút đi bộ. Viết ít nhất sáu lượt hỏi/đáp, có câu hỏi trải nghiệm và câu trả lời phủ định. Không bịa cảm nhận của chuyến chưa đi; có thể nói điều mình mong đợi."
+            },
+            "modelExample": {
+              "hanzi": "我没去过杭州。",
+              "meaningVi": "Tôi chưa từng đến Hàng Châu.",
+              "pinyin": "Wǒ méi qùguo Hángzhōu."
+            },
+            "pattern": "没 + động từ + 过"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hôm nay là thứ sáu. B đã mua vé máy bay cho chuyến đi thứ bảy tuần sau, nhưng chưa đi. Hai bạn kiểm tra cách đến sân bay và hỏi kinh nghiệm lần trước. Giờ trong bài là dữ kiện giả định để luyện tiếng, không phải hướng dẫn giờ ra sân bay thực tế.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "下周六 xià zhōu liù: thứ bảy tuần sau · 已经 yǐjīng: đã · 还没 hái méi: vẫn chưa · 准备 zhǔnbèi: dự định/chuẩn bị · 小时 xiǎoshí: giờ (khoảng thời gian) · 杭州 Hángzhōu: Hàng Châu.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tách việc đã làm, kế hoạch sắp tới và trải nghiệm",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-flight-v1.webp",
+                "alt": "Hai bạn chuẩn bị hành lý và bàn cách đi sân bay cho chuyến bay sắp tới",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Đã mua vé cho thứ bảy tuần sau, chưa đi. Giờ đến sân bay 08:00 là dữ kiện luyện tiếng giả định."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你什么时候去杭州旅游？",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn khi nào đi du lịch Hàng Châu?",
+                  "pinyin": "Nǐ shénme shíhou qù Hángzhōu lǚyóu?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "下周六。我已经买好机票了。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ bảy tuần sau. Tôi đã mua vé máy bay rồi.",
+                  "pinyin": "Xià zhōu liù. Wǒ yǐjīng mǎihǎo jīpiào le.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你怎么去机场？",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đến sân bay bằng cách nào?",
+                  "pinyin": "Nǐ zěnme qù jīchǎng?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我准备坐地铁去，八点到机场。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi định đi tàu điện ngầm, tám giờ đến sân bay.",
+                  "pinyin": "Wǒ zhǔnbèi zuò dìtiě qù, bā diǎn dào jīchǎng.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你去过杭州吗？",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn đã từng đến Hàng Châu chưa?",
+                  "pinyin": "Nǐ qùguo Hángzhōu ma?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "去过。上次我坐公交车去酒店，路上用了一个小时，我觉得有点儿慢。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Từng đến rồi. Lần trước tôi đi xe buýt đến khách sạn, trên đường mất một giờ; tôi thấy hơi chậm.",
+                  "pinyin": "Qùguo. Shàng cì wǒ zuò gōngjiāochē qù jiǔdiàn, lùshang yòngle yí ge xiǎoshí, wǒ juéde yǒudiǎnr màn.",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这次酒店离车站远吗？",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Lần này khách sạn có xa nhà ga không?",
+                  "pinyin": "Zhè cì jiǔdiàn lí chēzhàn yuǎn ma?",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "不远，从车站走路十分钟就到。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:turn-7",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không xa, từ nhà ga đi bộ mười phút là đến.",
+                  "pinyin": "Bù yuǎn, cóng chēzhàn zǒulù shí fēnzhōng jiù dào.",
+                  "provenance": "",
+                  "title": "Lượt 8"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-flight-v1.webp",
+                "alt": "Hai bạn chuẩn bị hành lý và bàn cách đi sân bay cho chuyến bay sắp tới",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Đã mua vé cho thứ bảy tuần sau, chưa đi. Giờ đến sân bay 08:00 là dữ kiện luyện tiếng giả định."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Mỗi mốc lấy thời điểm đang trò chuyện làm điểm tham chiếu.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "上次",
+                        "meaningVi": "Lần trước",
+                        "note": "Đã đến Hàng Châu; đi xe buýt đến khách sạn mất một giờ.",
+                        "pinyin": "shàng cì",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "已经买好",
+                        "meaningVi": "Đã mua xong",
+                        "note": "Vé cho chuyến tới đã mua; chuyến đi chưa diễn ra.",
+                        "pinyin": "yǐjīng mǎihǎo",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "下周六",
+                        "meaningVi": "Thứ bảy tuần sau",
+                        "note": "Dự định đi tàu điện ngầm, 8:00 đến sân bay.",
+                        "pinyin": "xià zhōu liù",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Trải nghiệm → chuẩn bị → kế hoạch"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Ba thời điểm, ba loại thông tin"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "我下周六去杭州旅游 nói kế hoạch tương lai. 我已经买好机票了 nói việc mua vé đã hoàn tất trước lúc nói. Ghép hai câu này được, nhưng không đặt 下周 trực tiếp trước 已经买好 rồi hiểu rằng việc mua vé vừa ở tương lai vừa đã xong.\n你去过杭州吗？ hỏi đã từng đến Hàng Châu hay chưa, không hỏi lịch chuyến tới. 我去过/我没去过 trả lời về trải nghiệm. Với phủ định trải nghiệm dùng 没 + động từ + 过, không dùng 不去过. 过 ở đây đọc nhẹ guo.\n坐地铁/坐公交车 mô tả phương tiện; 打车 là đi taxi. 从车站走路到酒店 diễn tả đoạn đường bộ. 到机场 là đến sân bay, không đồng nghĩa chuyến bay cất cánh. 觉得… mô tả cảm nhận, không phải dữ kiện đúng cho mọi người.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我没去过杭州。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chưa từng đến Hàng Châu.",
+                  "pinyin": "Wǒ méi qùguo Hángzhōu.",
+                  "provenance": "",
+                  "title": "没 + động từ + 过"
+                },
+                {
+                  "alt": "",
+                  "body": "Đã mua vé không có nghĩa đã đi; từng đến nơi đó không có nghĩa chuyến sắp tới đã hoàn thành. Đừng lấy cảm nhận “chậm” của một lần đi làm đặc tính cố định của mọi tuyến xe.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tách việc đã làm, kế hoạch sắp tới và trải nghiệm"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "nhà ga; trạm xe",
+                  "hanzi": "车站离这里很远。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00315",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nhà ga rất xa đây.",
+                  "pinyin": "Chēzhàn lí zhèlǐ hěn yuǎn.",
+                  "provenance": "",
+                  "title": "车站 · chēzhàn"
+                },
+                {
+                  "alt": "",
+                  "body": "ra nước ngoài",
+                  "hanzi": "他明年要出国学习。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00317",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Năm sau anh ấy sẽ ra nước ngoài học.",
+                  "pinyin": "Tā míngnián yào chūguó xuéxí.",
+                  "provenance": "",
+                  "title": "出国 · chūguó"
+                },
+                {
+                  "alt": "",
+                  "body": "ra khỏi nhà",
+                  "hanzi": "出门以后下雨了。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00319",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau khi ra khỏi nhà thì trời mưa.",
+                  "pinyin": "Chūmén yǐhòu xiàyǔ le.",
+                  "provenance": "",
+                  "title": "出门 · chūmén"
+                },
+                {
+                  "alt": "",
+                  "body": "đi taxi",
+                  "hanzi": "我准备打车去机场。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00328",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi định đi taxi đến sân bay.",
+                  "pinyin": "Wǒ zhǔnbèi dǎchē qù jīchǎng.",
+                  "provenance": "",
+                  "title": "打车 · dǎchē"
+                },
+                {
+                  "alt": "",
+                  "body": "tàu điện ngầm",
+                  "hanzi": "地铁比公交车快。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00335",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt.",
+                  "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+                  "provenance": "",
+                  "title": "地铁 · dìtiě"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bay",
+                  "hanzi": "飞机马上要飞了。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00340",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Máy bay sắp cất cánh rồi.",
+                  "pinyin": "Fēijī mǎshàng yào fēi le.",
+                  "provenance": "",
+                  "title": "飞 · fēi"
+                },
+                {
+                  "alt": "",
+                  "body": "xe buýt",
+                  "hanzi": "地铁比公交车快。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00346",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tàu điện ngầm nhanh hơn xe buýt.",
+                  "pinyin": "Dìtiě bǐ gōngjiāochē kuài.",
+                  "provenance": "",
+                  "title": "公交车 · gōngjiāochē"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ chỉ trải nghiệm đã từng",
+                  "hanzi": "我没去过北京。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00351",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chưa từng đến Bắc Kinh.",
+                  "pinyin": "Wǒ méi qùguo Běijīng.",
+                  "provenance": "",
+                  "title": "过 · guo"
+                },
+                {
+                  "alt": "",
+                  "body": "sân bay",
+                  "hanzi": "八点到机场。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00363",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tám giờ đến sân bay.",
+                  "pinyin": "Bā diǎn dào jīchǎng.",
+                  "provenance": "",
+                  "title": "机场 · jīchǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "vé máy bay",
+                  "hanzi": "别忘了拿机票。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00364",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng quên cầm vé máy bay.",
+                  "pinyin": "Bié wàng le ná jīpiào.",
+                  "provenance": "",
+                  "title": "机票 · jīpiào"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "khách sạn",
+                  "hanzi": "酒店离车站不远。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00375",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Khách sạn không xa nhà ga.",
+                  "pinyin": "Jiǔdiàn lí chēzhàn bù yuǎn.",
+                  "provenance": "",
+                  "title": "酒店 · jiǔdiàn"
+                },
+                {
+                  "alt": "",
+                  "body": "trên đường",
+                  "hanzi": "路上有一家咖啡店。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00393",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trên đường có một quán cà phê.",
+                  "pinyin": "Lù shàng yǒu yì jiā kāfēidiàn.",
+                  "provenance": "",
+                  "title": "路上 · lùshang"
+                },
+                {
+                  "alt": "",
+                  "body": "du lịch",
+                  "hanzi": "下周我们去杭州旅游。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00394",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tuần sau chúng tôi đi du lịch Hàng Châu.",
+                  "pinyin": "Xià zhōu wǒmen qù Hángzhōu lǚyóu.",
+                  "provenance": "",
+                  "title": "旅游 · lǚyóu"
+                },
+                {
+                  "alt": "",
+                  "body": "chậm",
+                  "hanzi": "你慢慢说。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00397",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn nói chậm chậm thôi.",
+                  "pinyin": "Nǐ mànmàn shuō.",
+                  "provenance": "",
+                  "title": "慢 · màn"
+                },
+                {
+                  "alt": "",
+                  "body": "chán; không thú vị",
+                  "hanzi": "这个电影没意思。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00398",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ phim này không thú vị.",
+                  "pinyin": "Zhège diànyǐng méi yìsi.",
+                  "provenance": "",
+                  "title": "没意思 · méiyìsi"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "vé vào cửa",
+                  "hanzi": "我已经买好门票了。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00402",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi đã mua xong vé vào cửa rồi.",
+                  "pinyin": "Wǒ yǐjīng mǎihǎo ménpiào le.",
+                  "provenance": "",
+                  "title": "门票 · ménpiào"
+                },
+                {
+                  "alt": "",
+                  "body": "vé",
+                  "hanzi": "票买好了。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00416",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vé đã mua xong rồi.",
+                  "pinyin": "Piào mǎihǎo le.",
+                  "provenance": "",
+                  "title": "票 · piào"
+                },
+                {
+                  "alt": "",
+                  "body": "đi bộ",
+                  "hanzi": "不远，走路十分钟就到。",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:word-hsk-vocab-00496",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không xa, đi bộ mười phút là tới.",
+                  "pinyin": "Bù yuǎn, zǒulù shí fēnzhōng jiù dào.",
+                  "provenance": "",
+                  "title": "走路 · zǒulù"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: mua vé đã xong; đến sân bay là kế hoạch tuần sau. Đã mua vé không có nghĩa đã đi; từng đến nơi đó không có nghĩa chuyến sắp tới đã hoàn thành. Đừng lấy cảm nhận “chậm” của một lần đi làm đặc tính cố định của mọi tuyến xe.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt trải nghiệm, việc đã xong và kế hoạch.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-guided-roleplay:hsk2-travel-leisure-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Người nói chỉ đã mua vé, chưa nói đã đến Hàng Châu trong chuyến này.",
+                        "id": "option-0",
+                        "text": "他已经到杭州了。"
+                      },
+                      {
+                        "feedback": "Đúng: mua vé đã xong; đến sân bay là kế hoạch tuần sau.",
+                        "id": "option-1",
+                        "text": "他已经买好机票了，下周六坐地铁去机场。"
+                      },
+                      {
+                        "feedback": "Đi bộ mười phút là từ nhà ga đến khách sạn, không phải đến sân bay.",
+                        "id": "option-2",
+                        "text": "他下周六走路去机场。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Hôm nay thứ sáu, chuyến đi vào thứ bảy tuần sau. Tóm tắt nào giữ đúng việc đã xong và kế hoạch?",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "没"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没去过 phủ định trải nghiệm đã từng. 不去 thường nói không đi theo thói quen hoặc ý định, không ghép 不去过 ở mẫu này.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Phủ định trải nghiệm bằng 没…过.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-travel-leisure-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Người nói chưa từng đến Bắc Kinh: 我___去过北京。 Điền 没 hoặc 不.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đóng vai người chưa từng đến Bắc Kinh (北京 Běijīng). Bạn sẽ đi chủ nhật tuần sau, vé đã mua, định đi taxi đến sân bay lúc 7:00. Khách sạn cách nhà ga năm phút đi bộ. Viết ít nhất sáu lượt hỏi/đáp, có câu hỏi trải nghiệm và câu trả lời phủ định. Không bịa cảm nhận của chuyến chưa đi; có thể nói điều mình mong đợi.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你去过北京吗？ B：我没去过。 A：你什么时候去？ B：下周日，机票已经买好了。 A：怎么去机场？ B：我准备打车去，七点到机场。 A：酒店离车站远吗？ B：不远，走路五分钟就到。\nA: Nǐ qùguo Běijīng ma? B: Wǒ méi qùguo. A: Nǐ shénme shíhou qù? B: Xià zhōu rì, jīpiào yǐjīng mǎihǎo le. A: Zěnme qù jīchǎng? B: Wǒ zhǔnbèi dǎchē qù, qī diǎn dào jīchǎng. A: Jiǔdiàn lí chēzhàn yuǎn ma? B: Bù yuǎn, zǒulù wǔ fēnzhōng jiù dào.\nA hỏi đã từng đến Bắc Kinh, thời gian, cách đến sân bay và khoảng cách khách sạn. B chưa từng đến; đi chủ nhật tuần sau, vé đã mua; đi taxi, đến sân bay lúc 7:00; từ nhà ga đi bộ năm phút đến khách sạn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đóng vai người chưa từng đến Bắc Kinh (北京 Běijīng). Bạn sẽ đi chủ nhật tuần sau, vé đã mua, định đi taxi đến sân bay lúc 7:00. Khách sạn cách nhà ga năm phút đi bộ. Viết ít nhất sáu lượt hỏi/đáp, có câu hỏi trải nghiệm và câu trả lời phủ định. Không bịa cảm nhận của chuyến chưa đi; có thể nói điều mình mong đợi.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-guided-roleplay:hsk2-travel-leisure-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Tách rõ chưa từng đi, đã mua vé và chuyến sắp tới.",
+                        "id": "criterion-0",
+                        "label": "Tách rõ chưa từng đi, đã mua vé và chuyến sắp tới."
+                      },
+                      {
+                        "guidance": "Dùng 没去过 để phủ định trải nghiệm.",
+                        "id": "criterion-1",
+                        "label": "Dùng 没去过 để phủ định trải nghiệm."
+                      },
+                      {
+                        "guidance": "Giữ đúng chủ nhật tuần sau, taxi và giờ đến sân bay 7:00.",
+                        "id": "criterion-2",
+                        "label": "Giữ đúng chủ nhật tuần sau, taxi và giờ đến sân bay 7:00."
+                      },
+                      {
+                        "guidance": "Đoạn đi bộ năm phút nối nhà ga với khách sạn; ít nhất sáu lượt có hỏi tiếp.",
+                        "id": "criterion-3",
+                        "label": "Đoạn đi bộ năm phút nối nhà ga với khách sạn; ít nhất sáu lượt có hỏi tiếp."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tách rõ chưa từng đi, đã mua vé và chuyến sắp tới.\nDùng 没去过 để phủ định trải nghiệm.\nGiữ đúng chủ nhật tuần sau, taxi và giờ đến sân bay 7:00.\nĐoạn đi bộ năm phút nối nhà ga với khách sạn; ít nhất sáu lượt có hỏi tiếp.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-03:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-03:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/26-REVIEW-HSK2-TRAVEL-LEISURE.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-travel-leisure-lesson-03",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 travel time reference, experience and shared leisure plans; supported practice and self-review.",
+          "sourceContentSha256": "sha256:372670ef2c389bb1a854f5c59247a0fdf5a958855a0e8e303fccd01ebbfe5f7c"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về phương tiện, lịch trình và cảm nhận chuyến đi bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Đã mua vé không có nghĩa đã đi; từng đến nơi đó không có nghĩa chuyến sắp tới đã hoàn thành. Đừng lấy cảm nhận “chậm” của một lần đi làm đặc tính cố định của mọi tuyến xe.",
+        "prerequisites": [
+          "hsk2-travel-leisure-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "我下周六去杭州旅游 nói kế hoạch tương lai. 我已经买好机票了 nói việc mua vé đã hoàn tất trước lúc nói. Ghép hai câu này được, nhưng không đặt 下周 trực tiếp trước 已经买好 rồi hiểu rằng việc mua vé vừa ở tương lai vừa đã xong.\n你去过杭州吗？ hỏi đã từng đến Hàng Châu hay chưa, không hỏi lịch chuyến tới. 我去过/我没去过 trả lời về trải nghiệm. Với phủ định trải nghiệm dùng 没 + động từ + 过, không dùng 不去过. 过 ở đây đọc nhẹ guo.\n坐地铁/坐公交车 mô tả phương tiện; 打车 là đi taxi. 从车站走路到酒店 diễn tả đoạn đường bộ. 到机场 là đến sân bay, không đồng nghĩa chuyến bay cất cánh. 觉得… mô tả cảm nhận, không phải dữ kiện đúng cho mọi người.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-travel-leisure-lesson-03"
+        ],
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-03"
+        ],
+        "sourceTaskIds": [
+          "hsk2-guided-roleplay:hsk2-travel-leisure-lesson-03"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-015",
+          "hsk2-topic-016"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00315",
+          "hsk-vocab-00317",
+          "hsk-vocab-00319",
+          "hsk-vocab-00328",
+          "hsk-vocab-00335",
+          "hsk-vocab-00340",
+          "hsk-vocab-00346",
+          "hsk-vocab-00351",
+          "hsk-vocab-00363",
+          "hsk-vocab-00364",
+          "hsk-vocab-00375",
+          "hsk-vocab-00393",
+          "hsk-vocab-00394",
+          "hsk-vocab-00397",
+          "hsk-vocab-00398",
+          "hsk-vocab-00402",
+          "hsk-vocab-00416",
+          "hsk-vocab-00496"
+        ],
+        "targetLessonId": "hsk2-travel-leisure-lesson-03",
+        "titleZh": "HSK二级 · 13",
+        "vocabulary": [
+          "hsk-vocab-00315",
+          "hsk-vocab-00317",
+          "hsk-vocab-00319",
+          "hsk-vocab-00328",
+          "hsk-vocab-00335",
+          "hsk-vocab-00340",
+          "hsk-vocab-00346",
+          "hsk-vocab-00351",
+          "hsk-vocab-00363",
+          "hsk-vocab-00364",
+          "hsk-vocab-00375",
+          "hsk-vocab-00393",
+          "hsk-vocab-00394",
+          "hsk-vocab-00397",
+          "hsk-vocab-00398",
+          "hsk-vocab-00402",
+          "hsk-vocab-00416",
+          "hsk-vocab-00496"
+        ]
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "baseRevisionId": "1e222783-5e88-4e53-8f74-d494d71fb986",
+      "baseContentSha256": "sha256:d9f22f17c027dc954eaf8b834a08b7fbe88f47c1cef91cdca0daae434da259d0",
+      "changedPageIds": [
+        "hsk2-travel-leisure-lesson-04:v2:context",
+        "hsk2-travel-leisure-lesson-04:v2:dialogue"
+      ],
+      "content": {
+        "checkpointVi": "Đổi vai: bạn biết chơi bóng rổ nhưng chưa biết đá bóng; bạn thấy bóng rổ thú vị hơn chạy bộ. Bạn kia đề nghị đá bóng. Viết ít nhất sáu lượt để giải thích, đề xuất bóng rổ, được đồng ý, rồi chốt 16:00 chủ nhật ở cổng trường (学校门口 xuéxiào ménkǒu). Nêu ai mang bóng. Không chép lại kế hoạch 15:00 công viên.",
+        "conceptVi": "Chọn hoạt động phù hợp cả sở thích lẫn khả năng",
+        "dialogue": [
+          {
+            "hanzi": "周六下午一起去游泳吧？",
+            "meaningVi": "Chiều thứ bảy cùng đi bơi nhé?",
+            "pinyin": "Zhōu liù xiàwǔ yìqǐ qù yóuyǒng ba?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我喜欢游泳，但是还不会。你会踢足球吗？",
+            "meaningVi": "Tôi thích bơi nhưng vẫn chưa biết bơi. Bạn biết đá bóng không?",
+            "pinyin": "Wǒ xǐhuan yóuyǒng, dànshì hái bú huì. Nǐ huì tī zúqiú ma?",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "会。你喜欢足球还是篮球？",
+            "meaningVi": "Có. Bạn thích bóng đá hay bóng rổ?",
+            "pinyin": "Huì. Nǐ xǐhuan zúqiú háishi lánqiú?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我觉得足球比篮球有意思。",
+            "meaningVi": "Tôi thấy bóng đá thú vị hơn bóng rổ.",
+            "pinyin": "Wǒ juéde zúqiú bǐ lánqiú yǒuyìsi.",
+            "speaker": "Lượt 4"
+          },
+          {
+            "hanzi": "那我们先跑步，再踢足球，好吗？",
+            "meaningVi": "Vậy chúng ta chạy bộ trước rồi đá bóng, được không?",
+            "pinyin": "Nà wǒmen xiān pǎobù, zài tī zúqiú, hǎo ma?",
+            "speaker": "Lượt 5"
+          },
+          {
+            "hanzi": "好。几点在哪儿见？",
+            "meaningVi": "Được. Mấy giờ gặp ở đâu?",
+            "pinyin": "Hǎo. Jǐ diǎn zài nǎr jiàn?",
+            "speaker": "Lượt 6"
+          },
+          {
+            "hanzi": "下午三点在公园门口见。我拿着球等你。",
+            "meaningVi": "Ba giờ chiều gặp ở cổng công viên. Tôi sẽ cầm bóng đợi bạn.",
+            "pinyin": "Xiàwǔ sān diǎn zài gōngyuán ménkǒu jiàn. Wǒ názhe qiú děng nǐ.",
+            "speaker": "Lượt 7"
+          },
+          {
+            "hanzi": "好，三点见！",
+            "meaningVi": "Được, ba giờ gặp nhé!",
+            "pinyin": "Hǎo, sān diǎn jiàn!",
+            "speaker": "Lượt 8"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "下午三点见，先跑步，再踢足球。",
+            "answerMeaningVi": "Gặp ba giờ chiều, chạy bộ trước rồi đá bóng.",
+            "answerPinyin": "Xiàwǔ sān diǎn jiàn, xiān pǎobù, zài tī zúqiú.",
+            "distractors": [
+              "下午三点去游泳。",
+              "先踢足球，再打篮球。"
+            ],
+            "explanationVi": "Đúng: kế hoạch cuối cùng là chạy trước, đá bóng sau, gặp 15:00.",
+            "promptVi": "B thích bơi nhưng chưa biết bơi. Hai bạn cuối cùng đã đồng ý kế hoạch nào?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "喜欢 nói sở thích, 会 nói biết làm. 我喜欢游泳 không tự chứng minh 我会游泳. Có thể nói 我喜欢游泳，但是还不会 để phân biệt mong muốn với kỹ năng.\n踢足球 là đá bóng; 打篮球 là chơi bóng rổ; không hoán đổi 踢 và 打 trong các cụm cơ bản này. 跑步、游泳、跳舞 là các hoạt động. A比B有意思 diễn tả A thú vị hơn B theo đánh giá người nói, không có nghĩa B hoàn toàn chán.\n我拿着球等你: 拿着 mô tả trạng thái vẫn cầm bóng trong khi đợi. 着 ở đây đọc nhẹ zhe, không phải zháo trong 着急. 不会游泳 chỉ kỹ năng chưa biết; 不想游泳 chỉ không muốn bơi lúc này. 上网 là hoạt động lên mạng, 在网上 là ở/trên mạng.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "A：周日一起踢足球吧？ B：我还不会踢足球，但是会打篮球。 A：你喜欢跑步吗？ B：喜欢，不过我觉得篮球比跑步有意思。我们打篮球吧？ A：好。几点在哪儿见？ B：下午四点在学校门口见，我带球。 A：好，四点见！",
+              "modelAnswerMeaningVi": "A đề nghị đá bóng chủ nhật. B chưa biết đá nhưng biết chơi bóng rổ, thích bóng rổ hơn chạy bộ. Hai bạn đồng ý chơi bóng rổ, 16:00 ở cổng trường, B mang bóng.",
+              "modelAnswerPinyin": "A: Zhōu rì yìqǐ tī zúqiú ba? B: Wǒ hái bú huì tī zúqiú, dànshì huì dǎ lánqiú. A: Nǐ xǐhuan pǎobù ma? B: Xǐhuan, búguò wǒ juéde lánqiú bǐ pǎobù yǒuyìsi. Wǒmen dǎ lánqiú ba? A: Hǎo. Jǐ diǎn zài nǎr jiàn? B: Xiàwǔ sì diǎn zài xuéxiào ménkǒu jiàn, wǒ dài qiú. A: Hǎo, sì diǎn jiàn!",
+              "promptVi": "Đổi vai: bạn biết chơi bóng rổ nhưng chưa biết đá bóng; bạn thấy bóng rổ thú vị hơn chạy bộ. Bạn kia đề nghị đá bóng. Viết ít nhất sáu lượt để giải thích, đề xuất bóng rổ, được đồng ý, rồi chốt 16:00 chủ nhật ở cổng trường (学校门口 xuéxiào ménkǒu). Nêu ai mang bóng. Không chép lại kế hoạch 15:00 công viên."
+            },
+            "modelExample": {
+              "hanzi": "我会打篮球，但是不会踢足球。",
+              "meaningVi": "Tôi biết chơi bóng rổ nhưng không biết đá bóng.",
+              "pinyin": "Wǒ huì dǎ lánqiú, dànshì bú huì tī zúqiú."
+            },
+            "pattern": "打篮球 / 踢足球"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hai bạn đang bàn hoạt động chiều thứ bảy. A thích bơi nhưng B chưa biết bơi. B thích bóng đá hơn bóng rổ; cả hai biết đá bóng. Cần chốt việc có thể làm cùng nhau, không chỉ kể sở thích.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "会 huì: biết làm (kỹ năng đã học) · 还不会 hái bú huì: vẫn chưa biết · 觉得 juéde: cảm thấy/cho rằng · 公园 gōngyuán: công viên · 拿 ná: cầm/lấy · 一边…一边… yìbiān…yìbiān…: vừa…vừa… (chỉ giới thiệu qua ví dụ).",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Chọn hoạt động phù hợp cả sở thích lẫn khả năng",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-football-v1.webp",
+                "alt": "Minh họa cuộc hẹn ở cửa công viên với bóng đá và đường chạy",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Minh họa cuộc hẹn được bàn: 15:00 ở cửa công viên, chạy bộ trước rồi đá bóng."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "周六下午一起去游泳吧？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiều thứ bảy cùng đi bơi nhé?",
+                  "pinyin": "Zhōu liù xiàwǔ yìqǐ qù yóuyǒng ba?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我喜欢游泳，但是还不会。你会踢足球吗？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thích bơi nhưng vẫn chưa biết bơi. Bạn biết đá bóng không?",
+                  "pinyin": "Wǒ xǐhuan yóuyǒng, dànshì hái bú huì. Nǐ huì tī zúqiú ma?",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "会。你喜欢足球还是篮球？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có. Bạn thích bóng đá hay bóng rổ?",
+                  "pinyin": "Huì. Nǐ xǐhuan zúqiú háishi lánqiú?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我觉得足球比篮球有意思。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thấy bóng đá thú vị hơn bóng rổ.",
+                  "pinyin": "Wǒ juéde zúqiú bǐ lánqiú yǒuyìsi.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "那我们先跑步，再踢足球，好吗？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vậy chúng ta chạy bộ trước rồi đá bóng, được không?",
+                  "pinyin": "Nà wǒmen xiān pǎobù, zài tī zúqiú, hǎo ma?",
+                  "provenance": "",
+                  "title": "Lượt 5"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好。几点在哪儿见？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được. Mấy giờ gặp ở đâu?",
+                  "pinyin": "Hǎo. Jǐ diǎn zài nǎr jiàn?",
+                  "provenance": "",
+                  "title": "Lượt 6"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "下午三点在公园门口见。我拿着球等你。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-6",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ba giờ chiều gặp ở cổng công viên. Tôi sẽ cầm bóng đợi bạn.",
+                  "pinyin": "Xiàwǔ sān diǎn zài gōngyuán ménkǒu jiàn. Wǒ názhe qiú děng nǐ.",
+                  "provenance": "",
+                  "title": "Lượt 7"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "好，三点见！",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:turn-7",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được, ba giờ gặp nhé!",
+                  "pinyin": "Hǎo, sān diǎn jiàn!",
+                  "provenance": "",
+                  "title": "Lượt 8"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/hsk2-football-v1.webp",
+                "alt": "Minh họa cuộc hẹn ở cửa công viên với bóng đá và đường chạy",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-30 · AI-assisted, humanReviewed:false",
+                "caption": "Minh họa cuộc hẹn được bàn: 15:00 ở cửa công viên, chạy bộ trước rồi đá bóng."
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "So sánh ba vai trò của thông tin, không phải thang điểm kỹ năng.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "喜欢游泳",
+                        "meaningVi": "Sở thích",
+                        "note": "B thích bơi, nhưng chưa biết bơi.",
+                        "pinyin": "xǐhuan yóuyǒng",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "会踢足球",
+                        "meaningVi": "Khả năng",
+                        "note": "Cả hai biết đá bóng; dùng 踢, không dùng 打.",
+                        "pinyin": "huì tī zúqiú",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "先跑步，再踢足球",
+                        "meaningVi": "Kế hoạch đã chốt",
+                        "note": "Thứ bảy 15:00, cổng công viên.",
+                        "pinyin": "xiān pǎobù, zài tī zúqiú",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:facts",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thích → biết làm → cùng quyết định"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:facts",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sở thích không đồng nghĩa kỹ năng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "喜欢 nói sở thích, 会 nói biết làm. 我喜欢游泳 không tự chứng minh 我会游泳. Có thể nói 我喜欢游泳，但是还不会 để phân biệt mong muốn với kỹ năng.\n踢足球 là đá bóng; 打篮球 là chơi bóng rổ; không hoán đổi 踢 và 打 trong các cụm cơ bản này. 跑步、游泳、跳舞 là các hoạt động. A比B有意思 diễn tả A thú vị hơn B theo đánh giá người nói, không có nghĩa B hoàn toàn chán.\n我拿着球等你: 拿着 mô tả trạng thái vẫn cầm bóng trong khi đợi. 着 ở đây đọc nhẹ zhe, không phải zháo trong 着急. 不会游泳 chỉ kỹ năng chưa biết; 不想游泳 chỉ không muốn bơi lúc này. 上网 là hoạt động lên mạng, 在网上 là ở/trên mạng.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我会打篮球，但是不会踢足球。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi biết chơi bóng rổ nhưng không biết đá bóng.",
+                  "pinyin": "Wǒ huì dǎ lánqiú, dànshì bú huì tī zúqiú.",
+                  "provenance": "",
+                  "title": "打篮球 / 踢足球"
+                },
+                {
+                  "alt": "",
+                  "body": "Không chốt đi bơi chỉ vì một người thích bơi khi người kia nói chưa biết bơi. 喜欢/会/想 trả lời ba câu hỏi khác nhau: thích gì, biết làm gì, muốn làm gì.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Chọn hoạt động phù hợp cả sở thích lẫn khả năng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "động; di chuyển",
+                  "hanzi": "别动。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00338",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng cử động.",
+                  "pinyin": "Bié dòng.",
+                  "provenance": "",
+                  "title": "动 · dòng"
+                },
+                {
+                  "alt": "",
+                  "body": "bóng rổ",
+                  "hanzi": "我会打篮球。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00387",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi biết chơi bóng rổ.",
+                  "pinyin": "Wǒ huì dǎ lánqiú.",
+                  "provenance": "",
+                  "title": "篮球 · lánqiú"
+                },
+                {
+                  "alt": "",
+                  "body": "chim",
+                  "hanzi": "树上有一只鸟。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00411",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trên cây có một con chim.",
+                  "pinyin": "Shù shàng yǒu yì zhī niǎo.",
+                  "provenance": "",
+                  "title": "鸟 · niǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "chạy",
+                  "hanzi": "他跑得很快。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00414",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy chạy rất nhanh.",
+                  "pinyin": "Tā pǎo de hěn kuài.",
+                  "provenance": "",
+                  "title": "跑 · pǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "chạy bộ",
+                  "hanzi": "我每天跑步。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00415",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi chạy bộ mỗi ngày.",
+                  "pinyin": "Wǒ měitiān pǎobù.",
+                  "provenance": "",
+                  "title": "跑步 · pǎobù"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "quả bóng",
+                  "hanzi": "球在椅子下面。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00421",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Quả bóng ở dưới ghế.",
+                  "pinyin": "Qiú zài yǐzi xiàmian.",
+                  "provenance": "",
+                  "title": "球 · qiú"
+                },
+                {
+                  "alt": "",
+                  "body": "lên mạng",
+                  "hanzi": "我晚上常上网看新闻。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00428",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Buổi tối tôi thường lên mạng xem tin tức.",
+                  "pinyin": "Wǒ wǎnshang cháng shàngwǎng kàn xīnwén.",
+                  "provenance": "",
+                  "title": "上网 · shàngwǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "đá bằng chân",
+                  "hanzi": "请不要在教室里踢球。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00441",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin đừng đá bóng trong lớp học.",
+                  "pinyin": "Qǐng bú yào zài jiàoshì lǐ tī qiú.",
+                  "provenance": "",
+                  "title": "踢 · tī"
+                },
+                {
+                  "alt": "",
+                  "body": "nhảy múa",
+                  "hanzi": "周六我们一起去跳舞吧。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00444",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Bảy chúng ta cùng đi nhảy nhé.",
+                  "pinyin": "Zhōuliù wǒmen yìqǐ qù tiàowǔ ba.",
+                  "provenance": "",
+                  "title": "跳舞 · tiàowǔ"
+                },
+                {
+                  "alt": "",
+                  "body": "trên mạng",
+                  "hanzi": "我在网上看见一台电脑。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00451",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thấy một chiếc máy tính trên mạng.",
+                  "pinyin": "Wǒ zài wǎngshàng kànjiàn yì tái diànnǎo.",
+                  "provenance": "",
+                  "title": "网上 · wǎngshàng"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bơi",
+                  "hanzi": "他在水里游。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00477",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy bơi trong nước.",
+                  "pinyin": "Tā zài shuǐ lǐ yóu.",
+                  "provenance": "",
+                  "title": "游 · yóu"
+                },
+                {
+                  "alt": "",
+                  "body": "bơi lội",
+                  "hanzi": "还有一个人在游泳。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00478",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vẫn có một người đang bơi.",
+                  "pinyin": "Hái yǒu yí ge rén zài yóuyǒng.",
+                  "provenance": "",
+                  "title": "游泳 · yóuyǒng"
+                },
+                {
+                  "alt": "",
+                  "body": "thú vị; có ý nghĩa",
+                  "hanzi": "足球比篮球有意思。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00479",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bóng đá thú vị hơn bóng rổ.",
+                  "pinyin": "Zúqiú bǐ lánqiú yǒuyìsi.",
+                  "provenance": "",
+                  "title": "有意思 · yǒuyìsi"
+                },
+                {
+                  "alt": "",
+                  "body": "vận động; thể thao",
+                  "hanzi": "明天一起去运动吧？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00485",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai cùng đi vận động nhé?",
+                  "pinyin": "Míngtiān yìqǐ qù yùndòng ba?",
+                  "provenance": "",
+                  "title": "运动 · yùndòng"
+                },
+                {
+                  "alt": "",
+                  "body": "trợ từ chỉ trạng thái đang tiếp diễn",
+                  "hanzi": "我拿着球等你。",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00490",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi cầm bóng đợi bạn.",
+                  "pinyin": "Wǒ názhe qiú děng nǐ.",
+                  "provenance": "",
+                  "title": "着 · zhe"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bóng đá",
+                  "hanzi": "你会踢足球吗？",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:word-hsk-vocab-00497",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn biết đá bóng không?",
+                  "pinyin": "Nǐ huì tī zúqiú ma?",
+                  "provenance": "",
+                  "title": "足球 · zúqiú"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: kế hoạch cuối cùng là chạy trước, đá bóng sau, gặp 15:00. Không chốt đi bơi chỉ vì một người thích bơi khi người kia nói chưa biết bơi. 喜欢/会/想 trả lời ba câu hỏi khác nhau: thích gì, biết làm gì, muốn làm gì.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Xác nhận hoạt động cuối cùng sau khi trao đổi sở thích và khả năng.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-11",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: kế hoạch cuối cùng là chạy trước, đá bóng sau, gặp 15:00.",
+                        "id": "option-0",
+                        "text": "下午三点见，先跑步，再踢足球。"
+                      },
+                      {
+                        "feedback": "B chưa biết bơi và hai người đã đổi hoạt động.",
+                        "id": "option-1",
+                        "text": "下午三点去游泳。"
+                      },
+                      {
+                        "feedback": "Đảo hoạt động và thêm bóng rổ không có trong kế hoạch đã chốt.",
+                        "id": "option-2",
+                        "text": "先踢足球，再打篮球。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "B thích bơi nhưng chưa biết bơi. Hai bạn cuối cùng đã đồng ý kế hoạch nào?",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "打"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Cụm cơ bản là 打篮球, còn đá bóng là 踢足球. Việc thích một môn chưa chứng minh biết chơi môn đó.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Chọn đúng động từ trong 打篮球.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-pattern:hsk2-travel-leisure-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Bạn đề nghị chơi bóng rổ: 我们一起___篮球吧。 Điền 打 hoặc 踢.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đổi vai: bạn biết chơi bóng rổ nhưng chưa biết đá bóng; bạn thấy bóng rổ thú vị hơn chạy bộ. Bạn kia đề nghị đá bóng. Viết ít nhất sáu lượt để giải thích, đề xuất bóng rổ, được đồng ý, rồi chốt 16:00 chủ nhật ở cổng trường (学校门口 xuéxiào ménkǒu). Nêu ai mang bóng. Không chép lại kế hoạch 15:00 công viên.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：周日一起踢足球吧？ B：我还不会踢足球，但是会打篮球。 A：你喜欢跑步吗？ B：喜欢，不过我觉得篮球比跑步有意思。我们打篮球吧？ A：好。几点在哪儿见？ B：下午四点在学校门口见，我带球。 A：好，四点见！\nA: Zhōu rì yìqǐ tī zúqiú ba? B: Wǒ hái bú huì tī zúqiú, dànshì huì dǎ lánqiú. A: Nǐ xǐhuan pǎobù ma? B: Xǐhuan, búguò wǒ juéde lánqiú bǐ pǎobù yǒuyìsi. Wǒmen dǎ lánqiú ba? A: Hǎo. Jǐ diǎn zài nǎr jiàn? B: Xiàwǔ sì diǎn zài xuéxiào ménkǒu jiàn, wǒ dài qiú. A: Hǎo, sì diǎn jiàn!\nA đề nghị đá bóng chủ nhật. B chưa biết đá nhưng biết chơi bóng rổ, thích bóng rổ hơn chạy bộ. Hai bạn đồng ý chơi bóng rổ, 16:00 ở cổng trường, B mang bóng.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đổi vai: bạn biết chơi bóng rổ nhưng chưa biết đá bóng; bạn thấy bóng rổ thú vị hơn chạy bộ. Bạn kia đề nghị đá bóng. Viết ít nhất sáu lượt để giải thích, đề xuất bóng rổ, được đồng ý, rồi chốt 16:00 chủ nhật ở cổng trường (学校门口 xuéxiào ménkǒu). Nêu ai mang bóng. Không chép lại kế hoạch 15:00 công viên.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk2-task-11",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt chưa biết đá bóng và biết chơi bóng rổ.",
+                        "id": "criterion-0",
+                        "label": "Phân biệt chưa biết đá bóng và biết chơi bóng rổ."
+                      },
+                      {
+                        "guidance": "Dùng 打篮球/踢足球 đúng hoạt động.",
+                        "id": "criterion-1",
+                        "label": "Dùng 打篮球/踢足球 đúng hoạt động."
+                      },
+                      {
+                        "guidance": "So sánh bóng rổ với chạy bộ và có lời đồng ý cho đề nghị mới.",
+                        "id": "criterion-2",
+                        "label": "So sánh bóng rổ với chạy bộ và có lời đồng ý cho đề nghị mới."
+                      },
+                      {
+                        "guidance": "Giữ đúng chủ nhật 16:00 cổng trường, nói ai mang bóng, ít nhất sáu lượt.",
+                        "id": "criterion-3",
+                        "label": "Giữ đúng chủ nhật 16:00 cổng trường, nói ai mang bóng, ít nhất sáu lượt."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Phân biệt chưa biết đá bóng và biết chơi bóng rổ.\nDùng 打篮球/踢足球 đúng hoạt động.\nSo sánh bóng rổ với chạy bộ và có lời đồng ý cho đề nghị mới.\nGiữ đúng chủ nhật 16:00 cổng trường, nói ai mang bóng, ít nhất sáu lượt.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk2-travel-leisure-lesson-04:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "hsk2-travel-leisure-lesson-04:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/26-REVIEW-HSK2-TRAVEL-LEISURE.md",
+          "humanReviewed": false,
+          "lessonId": "hsk2-travel-leisure-lesson-04",
+          "reviewedAt": "2026-09-20",
+          "scope": "HSK2 travel time reference, experience and shared leisure plans; supported practice and self-review.",
+          "sourceContentSha256": "sha256:70f68391c89265c003a12b68f1fa320d665afbdf094a71a5ca121d6f2028f157"
+        },
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về trao đổi hoạt động giải trí bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "pitfallVi": "Không chốt đi bơi chỉ vì một người thích bơi khi người kia nói chưa biết bơi. 喜欢/会/想 trả lời ba câu hỏi khác nhau: thích gì, biết làm gì, muốn làm gì.",
+        "prerequisites": [
+          "hsk2-travel-leisure-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "喜欢 nói sở thích, 会 nói biết làm. 我喜欢游泳 không tự chứng minh 我会游泳. Có thể nói 我喜欢游泳，但是还不会 để phân biệt mong muốn với kỹ năng.\n踢足球 là đá bóng; 打篮球 là chơi bóng rổ; không hoán đổi 踢 và 打 trong các cụm cơ bản này. 跑步、游泳、跳舞 là các hoạt động. A比B有意思 diễn tả A thú vị hơn B theo đánh giá người nói, không có nghĩa B hoàn toàn chán.\n我拿着球等你: 拿着 mô tả trạng thái vẫn cầm bóng trong khi đợi. 着 ở đây đọc nhẹ zhe, không phải zháo trong 着急. 不会游泳 chỉ kỹ năng chưa biết; 不想游泳 chỉ không muốn bơi lúc này. 上网 là hoạt động lên mạng, 在网上 là ở/trên mạng.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-travel-leisure-lesson-04"
+        ],
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-11"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-021"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00338",
+          "hsk-vocab-00387",
+          "hsk-vocab-00411",
+          "hsk-vocab-00414",
+          "hsk-vocab-00415",
+          "hsk-vocab-00421",
+          "hsk-vocab-00428",
+          "hsk-vocab-00441",
+          "hsk-vocab-00444",
+          "hsk-vocab-00451",
+          "hsk-vocab-00477",
+          "hsk-vocab-00478",
+          "hsk-vocab-00479",
+          "hsk-vocab-00485",
+          "hsk-vocab-00490",
+          "hsk-vocab-00497"
+        ],
+        "targetLessonId": "hsk2-travel-leisure-lesson-04",
+        "titleZh": "HSK二级 · 14",
+        "vocabulary": [
+          "hsk-vocab-00338",
+          "hsk-vocab-00387",
+          "hsk-vocab-00411",
+          "hsk-vocab-00414",
+          "hsk-vocab-00415",
+          "hsk-vocab-00421",
+          "hsk-vocab-00428",
+          "hsk-vocab-00441",
+          "hsk-vocab-00444",
+          "hsk-vocab-00451",
+          "hsk-vocab-00477",
+          "hsk-vocab-00478",
+          "hsk-vocab-00479",
+          "hsk-vocab-00485",
+          "hsk-vocab-00490",
+          "hsk-vocab-00497"
+        ]
+      }
+    }
+  ]
+}

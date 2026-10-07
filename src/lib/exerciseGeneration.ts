@@ -4,6 +4,10 @@ import {
   WORD_BY_ID,
 } from "../data/curriculum";
 import type { ExerciseKind, Lesson, Skill, VocabularyItem } from "../types";
+import {
+  EDITORIAL_RELEASED_VOCABULARY, EDITORIAL_WORD_BY_ID,
+  LEXICAL_EXERCISE_SUFFIX, lexicalActivityVersion,
+} from "../content/lexicalEditorialCatalog";
 import { applyToneSandhi, formatMarkedPinyin, parseNumberedPinyin } from "./pinyin";
 
 export type Exercise = {
@@ -78,6 +82,8 @@ const RELEASED_PINYIN = RELEASED_VOCABULARY.map((word) => word.pinyin);
 const RELEASED_EXAMPLE_MEANINGS = RELEASED_VOCABULARY.map(
   (word) => word.exampleMeaning,
 );
+const EDITORIAL_MEANINGS = EDITORIAL_RELEASED_VOCABULARY.map(word => word.meaning);
+const EDITORIAL_EXAMPLE_MEANINGS = EDITORIAL_RELEASED_VOCABULARY.map(word => word.exampleMeaning);
 
 const displayCharacter = (word: VocabularyItem, script: "simplified" | "traditional") =>
   script === "traditional" ? word.traditional : word.simplified;
@@ -146,11 +152,12 @@ const buildExerciseCandidateGroups = (
   lesson: Lesson,
   script: "simplified" | "traditional",
   random: RandomSource = Math.random,
+  editorial = false,
 ) => {
   const words = lesson.wordIds
-    .map((id) => WORD_BY_ID.get(id))
+    .map((id) => (editorial ? EDITORIAL_WORD_BY_ID : WORD_BY_ID).get(id))
     .filter((word): word is VocabularyItem => Boolean(word));
-  const allMeanings = RELEASED_MEANINGS;
+  const allMeanings = editorial ? EDITORIAL_MEANINGS : RELEASED_MEANINGS;
   const allPinyin = RELEASED_PINYIN;
   const activityVersion = `${lesson.contentVersion}:${lesson.id}:1`;
   const exercises: Exercise[] = [];
@@ -246,7 +253,7 @@ const buildExerciseCandidateGroups = (
       promptMeta: word.examplePinyin,
       options: makeOptions(
         word.exampleMeaning,
-        RELEASED_EXAMPLE_MEANINGS,
+        editorial ? EDITORIAL_EXAMPLE_MEANINGS : RELEASED_EXAMPLE_MEANINGS,
         random,
       ),
       correct: word.exampleMeaning,
@@ -275,6 +282,14 @@ const buildExerciseCandidateGroups = (
           requiredForPass: true,
         }))
       : [];
+  if (editorial) {
+    // Renaming after generation preserves the legacy generator and RNG sequence.
+    for (const exercise of [...exercises, ...required]) {
+      if (!exercise.wordId) continue;
+      exercise.id += LEXICAL_EXERCISE_SUFFIX;
+      exercise.activityVersion = lexicalActivityVersion(exercise.activityVersion);
+    }
+  }
   const requiredIds = new Set(required.map((exercise) => exercise.id));
   const remaining = lessonScopedExercises.filter(
     (exercise) => !requiredIds.has(exercise.id),
@@ -299,18 +314,25 @@ export function buildExerciseCatalog(
     script,
     random,
   );
-  return [...required, ...catalogRemaining];
+  const legacy = [...required, ...catalogRemaining];
+  const current = buildExerciseCandidateGroups(lesson, script, random, true);
+  const legacyIds = new Set(legacy.map(exercise => exercise.id));
+  return [...legacy, ...current.required, ...current.catalogRemaining.filter(exercise =>
+    !legacyIds.has(exercise.id) && !current.required.some(item => item.id === exercise.id)
+  )].filter((exercise, index, all) => all.findIndex(item => item.id === exercise.id) === index);
 }
 
 export function buildExercises(
   lesson: Lesson,
   script: "simplified" | "traditional",
   random: RandomSource = Math.random,
+  editorial = false,
 ) {
   const { required, remaining: candidates } = buildExerciseCandidateGroups(
     lesson,
     script,
     random,
+    editorial,
   );
   const shuffledCandidates = shuffleWith(candidates, random);
   const selected: Exercise[] = [...required];

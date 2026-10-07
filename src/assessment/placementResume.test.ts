@@ -48,5 +48,6 @@ describe("placement resume destination", () => {
     expect(resolvePlacementResumeDestination(() => makeResume({
       formVersion: "ordinary-level-check",
     }))).toBeNull();
+    expect(resolvePlacementResumeDestination(() => makeResume({ phase: "result" }))).toBeNull();
   });
 });

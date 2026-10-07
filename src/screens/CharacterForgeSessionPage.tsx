@@ -48,6 +48,7 @@ import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 import { useLearningJourney } from "../store/LearningJourneyStore";
 import { getCharacterScriptPresentation } from "./CharactersPage";
+import { usePremiumCharacters } from "../commerce/usePremiumCharacters";
 import "./CharactersPage.css";
 import "./CharacterForgeSessionPage.css";
 import "./GlyphGuild.css";
@@ -185,10 +186,11 @@ export function CharacterForgeSessionPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const publishedCharacters = usePublishedStudioCharacters();
+  const premiumCharacters = usePremiumCharacters(sync.ownerKey);
   const characterEntries = useMemo(() => mergePublishedStudioCharacters(
-    RELEASED_CHARACTER_PRACTICE,
+    [...RELEASED_CHARACTER_PRACTICE, ...premiumCharacters],
     publishedCharacters.entries,
-  ), [publishedCharacters.entries]);
+  ), [premiumCharacters, publishedCharacters.entries]);
   const uniqueCharacters = useMemo(
     () => getUniqueReleasedCharacterEntries(characterEntries),
     [characterEntries],
@@ -402,7 +404,7 @@ export function CharacterForgeSessionPage() {
     <div className="forge-session guild-theme" data-phase={session.phase}>
       <header className="forge-session-command">
         <Link to="/characters" aria-label="Rời phiên và về Sảnh"><ArrowLeft /></Link>
-        <div className="forge-session-identity">
+        <div className="forge-session-identity"><div className="realm-emblem realm-emblem-compact" aria-hidden="true" />
           <h1>{meta.label} <small>· Chữ {session.currentIndex + 1}/{session.hanzis.length}</small></h1>
           <small>{meta.instruction}</small>
         </div>

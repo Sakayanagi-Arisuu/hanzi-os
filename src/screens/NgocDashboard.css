@@ -1,0 +1,102 @@
+/* Approved Ngọc điện surfaces; original awakening hero and carousel behavior stay intact. */
+.dashboard-deck.ngoc-deck .dashboard-tab-panel:not(.awakening-hero) {
+  --window-accent: var(--jade);
+  --window-accent-rgb: 81, 246, 193;
+  background: linear-gradient(90deg, #04120fed 0%, #04120fa8 48%, #04120f30 100%), url('/ngoc-dien-gate-v1.webp') right center / cover;
+  border-color: #628e754f;
+  padding: clamp(20px, 3vw, 42px) clamp(44px, 5vw, 70px);
+  gap: 22px;
+}
+.dashboard-deck.ngoc-deck .dashboard-window-header { grid-template-columns: minmax(0, 1fr) auto; border-bottom-color: #d7b66a4a; gap: 16px; }
+.dashboard-deck.ngoc-deck .dashboard-window-token { display: none; }
+.dashboard-deck.ngoc-deck .dashboard-window-header::after { left: 0; right: 55%; background: linear-gradient(90deg, #d7b66a, transparent); box-shadow: none; }
+.dashboard-deck.ngoc-deck .dashboard-window-heading-copy > span { color: #dec78d; font: 600 11px/1.4 var(--sans); letter-spacing: .1em; }
+.dashboard-deck.ngoc-deck .dashboard-window-heading-copy h2 { margin-top: 9px; font-size: clamp(26px, 3vw, 39px); line-height: 1.12; }
+.dashboard-deck.ngoc-deck .dashboard-window-heading-copy p { font-size: 13px; line-height: 1.5; color: #c0d0c6; max-width: 620px; margin-top: 10px; }
+.dashboard-deck.ngoc-deck .dashboard-window-meta { font-size: 10px; border-color: #a9bc9555; background: #092018dc; color: #d2dfd2; }
+.dashboard-deck.ngoc-deck .dashboard-status-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; width: 78%; }
+.dashboard-deck.ngoc-deck .dashboard-metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; }
+.dashboard-deck.ngoc-deck .dashboard-metric-card { min-height: 82px; }
+.dashboard-deck.ngoc-deck .dashboard-metric-card strong { white-space: normal; }
+.dashboard-deck.ngoc-deck .status-focus-card { padding: 24px; }
+.dashboard-deck.ngoc-deck .mission-command-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; width: 78%; }
+.dashboard-deck.ngoc-deck .mission-queue-panel { max-height: 170px; overflow: hidden; grid-template-rows: auto minmax(0, 1fr); }
+.dashboard-deck.ngoc-deck .mission-primary { padding: 24px; grid-template-rows: minmax(0, 1fr) auto; gap: 12px 22px; border-radius: 9px 2px; }
+.dashboard-deck.ngoc-deck .mission-copy { min-height: 0; height: 100%; overflow-y: auto; scrollbar-width: thin; padding-right: 8px; }
+.dashboard-deck.ngoc-deck .mission-start-command { align-self: end; }
+.dashboard-deck.ngoc-deck .mission-queue-panel .mission-queue { overflow-y: auto; min-height: 0; grid-auto-rows: max-content; align-content: start; }
+.dashboard-deck.ngoc-deck .mission-journey-step { min-height: 66px; padding: 10px; }
+.dashboard-deck.ngoc-deck .mission-queue { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.dashboard-deck.ngoc-deck .mission-journey-queue { grid-template-columns: minmax(0, 1fr); }
+.dashboard-deck.ngoc-deck .path-command-layout { width: 100%; }
+.dashboard-deck.ngoc-deck .dashboard-holo-card { border: 1px solid #799c7f70; border-radius: 9px 2px; clip-path: none; background: linear-gradient(120deg, #102d24f2, #061812e8); box-shadow: 0 14px 32px #0003; }
+.dashboard-deck.ngoc-deck .dashboard-holo-card::before, .dashboard-deck.ngoc-deck .dashboard-holo-card::after { display: none; }
+.dashboard-deck.ngoc-deck .dashboard-card-kicker { color: #ddc68d; font: 600 11px/1.4 var(--sans); letter-spacing: .04em; }
+.dashboard-deck.ngoc-deck .dashboard-window-cta { min-height: 48px; padding: 10px 20px; font: 700 14px/1.3 var(--sans); border-radius: 6px 2px; clip-path: none; box-shadow: none; }
+.dashboard-deck.ngoc-deck .dashboard-secondary-link { font-size: 13px; }
+.dashboard-deck.ngoc-deck .status-focus-copy h3, .dashboard-deck.ngoc-deck .mission-copy h3, .dashboard-deck.ngoc-deck .path-next-copy h3 { font-size: clamp(23px, 2.6vw, 34px); line-height: 1.2; }
+.dashboard-deck.ngoc-deck .status-focus-copy > p, .dashboard-deck.ngoc-deck .mission-copy > p, .dashboard-deck.ngoc-deck .path-next-copy > p, .dashboard-deck.ngoc-deck .pillar-focus-copy > p { font-size: 14px; line-height: 1.6; color: #c0d0c6; }
+.dashboard-deck.ngoc-deck :is(.status-focus-copy, .mission-copy, .path-next-copy, .pillar-focus-copy) > p { max-height: none; white-space: normal; overflow: visible; text-overflow: clip; display: block; -webkit-line-clamp: unset; }
+.dashboard-deck.ngoc-deck .status-signal-note small { font-size: 12px; line-height: 1.5; }
+.dashboard-deck.ngoc-deck .dashboard-metric-card { background: #081d17ed; border: 1px solid #64816b66; border-radius: 6px; }
+.dashboard-deck.ngoc-deck .dashboard-metric-card small { font-size: 10px; color: #bdd0c4; }
+.dashboard-deck.ngoc-deck .dashboard-metric-card p, .dashboard-deck.ngoc-deck .dashboard-metric-card a { font-size: 12px; line-height: 1.45; }
+.dashboard-deck.ngoc-deck .mission-copy > div { font-size: 10px; color: #dac694; }
+.dashboard-deck.ngoc-deck .mission-copy li, .dashboard-deck.ngoc-deck .path-next-copy li { font-size: 11px; line-height: 1.4; }
+.dashboard-deck.ngoc-deck .mission-sigil { background: #112f25; border-color: #82b19d; box-shadow: none; }
+.dashboard-deck.ngoc-deck .mission-start-command strong { font-size: 15px; }
+.dashboard-deck.ngoc-deck .mission-start-command small { font-size: 10px; }
+.dashboard-deck.ngoc-deck .mission-queue-panel > header strong { color: #edf3e9; font-size: 16px; }
+.dashboard-deck.ngoc-deck .mission-queue-panel > header > span, .dashboard-deck.ngoc-deck .realm-preview > header > span { color: #d8c58f; font-size: 10px; }
+.dashboard-deck.ngoc-deck .mission-queue strong, .dashboard-deck.ngoc-deck .mission-journey-step strong { font-size: 13px; line-height: 1.4; }
+.dashboard-deck.ngoc-deck .mission-queue small, .dashboard-deck.ngoc-deck .mission-journey-step small { font-size: 11px; }
+.dashboard-deck.ngoc-deck .mission-journey-step em { font-size: 11px; line-height: 1.5; }
+.dashboard-deck.ngoc-deck .pillar-focus-copy h3 { font-size: 23px; line-height: 1.3; }
+.dashboard-deck.ngoc-deck .pillar-focus-card { grid-template-columns: minmax(0, 1fr); align-content: center; gap: 14px; padding: 22px; }
+.dashboard-deck.ngoc-deck .pillar-signal-core { width: 72px; height: 72px; justify-self: start; }
+.dashboard-deck.ngoc-deck .pillar-focus-copy .dashboard-window-cta { width: 100%; }
+.dashboard-deck.ngoc-deck .pillar-signal-row { background: #081d17e8; border-color: #64816b66; border-radius: 5px; }
+.dashboard-deck.ngoc-deck .pillar-signal-label strong { font-size: 13px; }
+.dashboard-deck.ngoc-deck .pillar-signal-label small { font-size: 11px; color: #b8cbbf; }
+.dashboard-deck.ngoc-deck .realm-node-copy strong { font-size: 12px; }
+.dashboard-deck.ngoc-deck .realm-node-copy small, .dashboard-deck.ngoc-deck .realm-node > em, .dashboard-deck.ngoc-deck .realm-preview > header strong { font-size: 10px; }
+.dashboard-deck.ngoc-deck .realm-node-copy > span { font-size: 12px; }
+.dashboard-deck.ngoc-deck .dashboard-carousel-arrow { border-color: #8bb8a5; background: #092019ed; box-shadow: none; }
+@media (max-width: 1000px), (max-height: 700px) {
+  .dashboard-deck.ngoc-deck .dashboard-tab-panel:not(.awakening-hero) { gap: 12px; padding-block: 18px; }
+  .dashboard-deck.ngoc-deck .dashboard-window-heading-copy h2 { font-size: 26px; }
+  .dashboard-deck.ngoc-deck .dashboard-window-heading-copy p { margin-top: 6px; }
+  .dashboard-deck.ngoc-deck .dashboard-window-meta { display: none; }
+  .dashboard-deck.ngoc-deck .dashboard-status-body, .dashboard-deck.ngoc-deck .mission-command-layout, .dashboard-deck.ngoc-deck .path-command-layout { width: 100%; }
+  .dashboard-deck.ngoc-deck .status-focus-card { padding: 16px; }
+  .dashboard-deck.ngoc-deck .dashboard-metric-card { min-height: 75px; }
+}
+@media (max-width: 760px) {
+  .dashboard-deck.ngoc-deck .dashboard-tab-panel:not(.awakening-hero) { padding: 16px 14px 68px; gap: 12px; background-position: 70% center; }
+  .dashboard-deck.ngoc-deck .dashboard-window-header { min-height: 0; grid-template-columns: minmax(0, 1fr); padding-bottom: 10px; }
+  .dashboard-deck.ngoc-deck .dashboard-window-heading-copy h2 { font-size: 23px; }
+  .dashboard-deck.ngoc-deck .dashboard-window-heading-copy > span { font-size: 10px; }
+  .dashboard-deck.ngoc-deck .dashboard-window-heading-copy p { display: none; }
+  .dashboard-deck.ngoc-deck .dashboard-slide-body { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+  .dashboard-deck.ngoc-deck .dashboard-status-body { grid-template-rows: auto auto; }
+  .dashboard-deck.ngoc-deck .status-focus-card { grid-template-columns: minmax(0, 1fr); }
+  .dashboard-deck.ngoc-deck .dashboard-signal-orbit { display: none; }
+  .dashboard-deck.ngoc-deck .mission-queue { grid-template-columns: minmax(0, 1fr); }
+  .dashboard-deck.ngoc-deck .mission-command-layout { grid-template-rows: minmax(200px, 1fr) auto; }
+  .dashboard-deck.ngoc-deck .mission-copy > p { font-size: 13px; }
+  .dashboard-deck.ngoc-deck .mission-copy h3, .dashboard-deck.ngoc-deck .status-focus-copy h3, .dashboard-deck.ngoc-deck .path-next-copy h3 { font-size: 22px; }
+  .dashboard-deck.ngoc-deck .pillar-focus-copy h3 { font-size: 18px; }
+  .dashboard-deck.ngoc-deck .pillar-command-layout { grid-template-rows: 174px minmax(0, 1fr); }
+  .dashboard-deck.ngoc-deck .pillar-focus-card { min-height: 174px; grid-template-columns: 58px minmax(0, 1fr); padding: 12px; gap: 10px; }
+  .dashboard-deck.ngoc-deck .pillar-focus-copy > p { font-size: 12px; line-height: 1.45; }
+  .dashboard-deck.ngoc-deck .skill-bars { overflow-y: auto; min-height: 0; grid-auto-rows: minmax(68px, auto); }
+  .dashboard-deck.ngoc-deck .dashboard-window-cta { font-size: 13px; min-height: 44px; padding: 8px 12px; }
+  .dashboard-deck.ngoc-deck .pillar-signal-label strong { font-size: 12px; }
+  .dashboard-deck.ngoc-deck .pillar-signal-label small { font-size: 10px; }
+}
+@media (min-width: 761px) and (max-height: 760px) {
+  .dashboard-deck.ngoc-deck .dashboard-metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto; }
+  .dashboard-deck.ngoc-deck .dashboard-metric-card { padding: 12px; }
+  .dashboard-deck.ngoc-deck .status-focus-copy h3 { margin-block: 10px; }
+  .dashboard-deck.ngoc-deck .status-signal-note { margin-block: 12px; }
+}

@@ -1,6 +1,7 @@
 import {isEditableActivityTarget,validateActivityTarget,type LessonActivityTarget} from './lessonActivityTarget';
 export type LessonActivity = {
   learningTarget?:LessonActivityTarget;
+  timeLimitSeconds?:number;
   type: 'choice' | 'order' | 'cloze' | 'rubric';
   options: Array<{ id: string; text: string; feedback: string }>;
   answerIds: string[];
@@ -14,6 +15,7 @@ const record = (v:unknown):v is Record<string,unknown> => !!v&&typeof v==='objec
 const text = (v:unknown):v is string => typeof v==='string'&&v.length<=12000;
 export function isEditableLessonActivity(v:unknown):v is LessonActivity {
   return record(v)&&['choice','order','cloze','rubric'].includes(String(v.type))
+    &&(v.timeLimitSeconds===undefined||(Number.isInteger(v.timeLimitSeconds)&&Number(v.timeLimitSeconds)>=30&&Number(v.timeLimitSeconds)<=1800))
     &&(v.learningTarget===undefined||isEditableActivityTarget(v.learningTarget))
     &&text(v.explanation)&&text(v.hint)
     &&Array.isArray(v.options)&&v.options.length<=30&&v.options.every(o=>record(o)&&text(o.id)&&text(o.text)&&text(o.feedback))

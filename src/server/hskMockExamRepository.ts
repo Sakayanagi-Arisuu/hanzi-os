@@ -13,6 +13,7 @@ import {
   type HskMockExamFormKey,
 } from "./hskMockExamBank";
 import { resolveHskMockExamDefinitionByBlueprint } from "./hskMockExamEditorialRepository";
+import { AssessmentSessionUnavailableError } from "./assessmentRepository";
 
 type SessionRow = {
   sessionId: string;
@@ -79,6 +80,8 @@ export const hskMockExamRepositoryOptionsForSession = async (
   database: D1Database,
   userId: string,
   sessionId: string,
+  expectedLevel: HskMockExamLevel,
+  expectedForm: HskMockExamFormKey,
 ) => {
   const row = await database.prepare(
     `SELECT blueprint_id AS blueprintId
@@ -88,7 +91,9 @@ export const hskMockExamRepositoryOptionsForSession = async (
   const definition = row
     ? await resolveHskMockExamDefinitionByBlueprint(database, row.blueprintId)
     : null;
-  if (!definition) throw new Error("Mock Exam session definition is unavailable.");
+  if (!definition || definition.examLevel !== expectedLevel || definition.formKey !== expectedForm) {
+    throw new AssessmentSessionUnavailableError("Mock Exam session does not belong to this level and form.");
+  }
   return hskMockExamRepositoryOptions(definition);
 };
 

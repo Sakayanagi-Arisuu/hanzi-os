@@ -14,6 +14,10 @@ export function lessonActivitySources(lessonId:string):ActivitySourceOption[]{
   ...(rich?.characters??[]).map(c=>({kind:'character' as const,id:c.id,label:`${c.hanzi} · ${c.contextWord} · ${c.contextMeaningVi}`})),
   ...(rich?.grammar??[]).map(g=>({kind:'grammar' as const,id:g.id,label:g.label})),
   ...(rich?.tasks??[]).map(t=>({kind:'task' as const,id:t.id,label:t.titleVi})),
+  ...(['hsk4-deep-comprehension','hsk4-summary-argument','hsk4-timed-integration'].includes(lesson.unitId)?[
+   {kind:'grammar' as const,id:`hsk4-pattern:${lessonId}`,label:'Dẫn chứng trước khi suy luận'},
+   {kind:'task' as const,id:`hsk4-local-task:${lessonId}`,label:lesson.title},
+  ]:[]),
   ...KNOWLEDGE_ITEM_BLUEPRINTS.flatMap(k=>k.sourceLessonId===lessonId&&k.itemType==='pronunciation'?[{kind:'pronunciation' as const,id:k.itemId,label:k.targets.join(' · ')}]:[]),
  ];
 }

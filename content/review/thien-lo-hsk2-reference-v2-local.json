@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-21",
+  "scope": "Seven HSK2 reference, comparison and sentence reconstruction lessons with 36 source-bound grammar points and nine constrained ordering tasks.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/32-REVIEW-HSK2-REFERENCE.md",
+  "items": [
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "sourceContentSha256": "sha256:e9f470128b3876efe8861ebbec1a8c2db9b632ce3482d785e3011d7ba681fbcc",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "sourceContentSha256": "sha256:a50fcbd80d0dc06048754889c1370e4ad2b3aaabf07477a14acbbf23cf4d6092",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "sourceContentSha256": "sha256:b69e5f605dba5a2d088f783ddc1376776a37de30280d6d8612e4d67bd5974da2",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "sourceContentSha256": "sha256:5e2250199ad1de6a1db7cbe3f862811cdc9ed663dbd5ec0d4e44d6cdb9cad013",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-01",
+      "sourceContentSha256": "sha256:5298b408f210d170f1e4c95f2b1ca2e3a11f149e72b6958451659fabd84cc126",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-02",
+      "sourceContentSha256": "sha256:6c4cba7582bca0ede2a5449ed6e42ad39f32716605dcbb04b703ea488c0d6f3d",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-sentence-reconstruction-lesson-03",
+      "sourceContentSha256": "sha256:87ba6ca7a663740ce0f1e0862b60f0011f7a516c7e9e3251e1339da333ec3595",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

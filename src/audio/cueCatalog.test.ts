@@ -23,3 +23,15 @@ describe("living system cue catalog", () => {
     expect(SIGNAL_CUE_MAP["state.restored"]).toBe("state.sync");
   });
 });
+
+ it("keeps realm cues distinct, bounded and fully contained in their envelope", () => {
+   const realmCues = Object.entries(CUE_CATALOG).filter(([id]) => id.startsWith("realm."));
+   expect(realmCues).toHaveLength(13);
+   expect(new Set(realmCues.map(([, cue]) => JSON.stringify(cue.tones))).size).toBe(13);
+   for (const [, cue] of realmCues) {
+     expect(cue.tones.length).toBeLessThanOrEqual(5);
+     expect(cue.cooldown).toBeGreaterThan(cue.duration * 1000);
+     expect(cue.priority).toBe(1);
+     for (const [, offset, duration] of cue.tones) expect(offset + duration).toBeLessThan(cue.duration);
+   }
+ });

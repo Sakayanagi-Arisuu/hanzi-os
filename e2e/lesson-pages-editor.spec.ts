@@ -1,3 +1,9 @@
+import remainingSceneRevisions from '../content/drafts/thien-lo-survival-remaining-scenes-v1.json' with {type:'json'};
+import sceneRevisions from '../content/drafts/thien-lo-survival-scene-revisions-v1.json' with {type:'json'};
+import referenceBatch from '../content/drafts/thien-lo-hsk2-reference-v2.json' with {type:'json'};
+import grammarBatch from '../content/drafts/thien-lo-hsk2-grammar-v2.json' with {type:'json'};
+import studyWorkBatch from '../content/drafts/thien-lo-hsk2-study-work-v2.json' with {type:'json'};
+import environmentBatch from '../content/drafts/thien-lo-hsk2-environment-v2.json' with {type:'json'};
 import { expect, test } from '@playwright/test';
 import schoolDraft from '../content/drafts/thien-lo-professional-1-v2.json' with { type: 'json' };
 import readingDraft from '../content/drafts/thien-lo-hsk3-timeline-v2.json' with { type: 'json' };
@@ -20,9 +26,11 @@ import foodShopping from '../content/drafts/thien-lo-hsk2-food-shopping-v2.json'
 import healthBatch from '../content/drafts/thien-lo-hsk2-health-v2.json' with {type:'json'};
 import familyDirections from '../content/drafts/thien-lo-hsk2-family-directions-v2.json' with {type:'json'};
 import motionMeeting from '../content/drafts/thien-lo-hsk2-motion-meeting-v2.json' with {type:'json'};
+import travelLeisure from '../content/drafts/thien-lo-hsk2-travel-leisure-v2.json' with {type:'json'};
+import personEvents from '../content/drafts/thien-lo-hsk2-person-events-v2.json' with {type:'json'};
 type BrowserBatch={name:string;items:Array<{lessonId:string;title:string;studioContent:unknown;lessonPages:LessonPageDocument}>};
 
-for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'health',items:healthBatch.items},{name:'family and directions',items:familyDirections.items},{name:'motion and meeting',items:motionMeeting.items}])test(`HSK2 ${batch.name} drafts preserve their distinct decisions in Studio`,async({page,request})=>{
+for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'health',items:healthBatch.items},{name:'family and directions',items:familyDirections.items},{name:'motion and meeting',items:motionMeeting.items},{name:'travel and leisure',items:travelLeisure.items},{name:'person and events',items:personEvents.items},{name:'environment',items:environmentBatch.items},{name:'study and work',items:studyWorkBatch.items},{name:'grammar synthesis',items:grammarBatch.items},{name:'reference and reconstruction',items:referenceBatch.items}])test(`HSK2 ${batch.name} drafts preserve their distinct decisions in Studio`,async({page,request})=>{
  const accounts=await(await request.post('/api/auth/hanzi/demo-accounts',{headers:{origin:'http://localhost:3000'}})).json();
  const account=accounts.accounts.find((a:{username:string})=>a.username==='editor.demo');
  expect((await page.request.post('/api/auth/hanzi/login',{headers:{origin:'http://localhost:3000'},data:{identifier:account.username,password:account.password}})).ok()).toBe(true);
@@ -33,7 +41,8 @@ for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'h
   await page.getByRole('button',{name:'Xem như người học',exact:true}).click();
   const reader=page.locator('.studio-form-section.lesson-pages-editor .lesson-page-reader');
   await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(`${item.lessonId}:v2:facts`);
-  await expect(reader.locator('.jade-diagram li')).toHaveCount(item.lessonId.endsWith('03')?2:3);
+  const facts=(item.lessonPages as LessonPageDocument).pages.find(p=>p.id.endsWith(':facts'))!.blocks.find(b=>b.diagram)!.diagram!;
+  await expect(reader.locator('.jade-diagram li')).toHaveCount(facts.nodes.length);
   await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(`${item.lessonId}:v2:choice`);
   const activity=(item.lessonPages as LessonPageDocument).pages.find(p=>p.id.endsWith(':choice'))!.blocks[0].activity!;
   await reader.getByRole('button',{name:activity.options.find(o=>!activity.answerIds.includes(o.id))!.text,exact:true}).click();
@@ -42,6 +51,30 @@ for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'h
   await reader.getByRole('button',{name:activity.options.find(o=>activity.answerIds.includes(o.id))!.text,exact:true}).click();
   await reader.getByRole('button',{name:'Kiểm tra câu trả lời',exact:true}).click();
   await expect(reader.getByRole('status')).toContainText(activity.explanation);
+  if(batch.name==='grammar synthesis'||(batch.name==='reference and reconstruction'&&!item.lessonId.includes('sentence-reconstruction'))){
+   const practice=(item.lessonPages as LessonPageDocument).pages.find(p=>p.id.includes(':grammar:')&&p.id.endsWith(':practice'))!;
+   const cloze=practice.blocks[0].activity!;
+   await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(practice.id);
+   await reader.getByRole('textbox',{name:'Phần còn thiếu'}).fill('không khớp đáp án');
+   await reader.getByRole('button',{name:'Kiểm tra câu trả lời',exact:true}).click();
+   await expect(reader.getByRole('status')).toContainText('Chưa đúng');
+   await reader.getByRole('textbox',{name:'Phần còn thiếu'}).fill(cloze.acceptedAnswers[0]);
+   await reader.getByRole('button',{name:'Kiểm tra câu trả lời',exact:true}).click();
+   await expect(reader.getByRole('status')).toContainText(cloze.explanation);
+  }
+  if(batch.name==='reference and reconstruction'&&item.lessonId.includes('sentence-reconstruction')){
+   const practice=(item.lessonPages as LessonPageDocument).pages.find(p=>p.id.endsWith(':reconstruct-0'))!;
+   const order=practice.blocks[0].activity!;
+   await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(practice.id);
+   for(const option of order.options)await reader.getByRole('group',{name:'Các mảnh còn lại'}).getByRole('button',{name:option.text,exact:true}).click();
+   await reader.getByRole('button',{name:'Kiểm tra câu trả lời',exact:true}).click();
+   await expect(reader.getByRole('status')).toContainText('Chưa đúng');
+   for(const option of order.options)await reader.getByRole('group',{name:'Câu đang sắp xếp'}).getByRole('button',{name:option.text,exact:true}).click();
+   for(const id of order.answerIds)await reader.getByRole('group',{name:'Các mảnh còn lại'}).getByRole('button',{name:order.options.find(o=>o.id===id)!.text,exact:true}).click();
+   await reader.getByRole('button',{name:'Kiểm tra câu trả lời',exact:true}).click();
+   await expect(reader.getByRole('status')).toContainText('Đúng với đáp án');
+   await expect(reader.getByRole('status')).toContainText(order.explanation);
+  }
  }
 });
 
@@ -146,13 +179,16 @@ test('Studio saves an explicit activity skill and source without changing its an
  expect(created.ok()).toBe(true);
  await page.goto(created.url());
  const editor=page.locator('.lesson-activity-editor');
- await editor.locator('summary').click();
+ await expect(page.locator('.lesson-target-queue')).toContainText('0/1 hoạt động');
+ await page.getByRole('button',{name:'Đến hoạt động cần biên tập tiếp (1)'}).click();
+ await expect(editor.locator('details')).toHaveAttribute('open','');
  await editor.getByRole('button',{name:'Thêm mục tiêu hoạt động',exact:true}).click();
  await editor.getByLabel('Kỹ năng được luyện').selectOption('pronunciation');
  await editor.getByLabel('Người học làm được gì?').fill('Xác định vùng lưỡi của âm x bằng mô tả.');
  await editor.getByRole('button',{name:'Thêm nguồn liên kết',exact:true}).click();
  await editor.getByLabel('Loại nguồn 1').selectOption('pronunciation');
  await editor.getByLabel('Nguồn trong bài 1').selectOption('initial-contrast-jqx-zhchsh-zcs');
+ await expect(page.locator('.lesson-target-queue')).toContainText('1/1 hoạt động');
  await page.getByRole('button',{name:'Lưu thay đổi',exact:true}).click();
  await expect(page.getByRole('button',{name:'Xem như người học',exact:true})).toBeEnabled();
  await page.reload();
@@ -185,7 +221,7 @@ test('foundation sound drafts preserve diagrams and rule feedback in Studio',asy
  }
 });
 
-for(const batch of [{name:'survival',items:survivalBatch.items},{name:'everyday',items:everydayBatch.items},{name:'journey',items:journeyBatch.items}] as unknown as BrowserBatch[]){
+for(const batch of [{name:'survival',items:survivalBatch.items.map(item=>{const revised=[...sceneRevisions.items,...remainingSceneRevisions.items].find(r=>r.lessonId===item.lessonId);return revised?{...item,lessonPages:revised.content.lessonPages,studioContent:revised.content}:item;})},{name:'everyday',items:everydayBatch.items},{name:'journey',items:journeyBatch.items}] as unknown as BrowserBatch[]){
 test(`${batch.name} batch publishes every lesson and supports practice in the learner UI`,async({page,request})=>{
   const runtime=await(await request.get('/api/content/runtime?projection=learning')).json();
   const published=new Map(runtime.items[0] as Array<[string,{richContent:{lessonPages:unknown}}]>);
@@ -201,6 +237,12 @@ test(`${batch.name} batch publishes every lesson and supports practice in the le
     await page.goto(`/lesson/${draft.lessonId}`);
     const reader=page.locator('.lesson-page-reader');
     await expect(reader.getByRole('combobox',{name:'Chọn trang học'}).locator('option')).toHaveCount(draft.lessonPages.pages.length);
+    const scene=draft.lessonPages.pages.find(p=>p.illustration);
+    if(scene){
+      await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(scene.id);
+      await expect(reader.locator('.jade-scene img')).toHaveAttribute('src',scene.illustration!.src);
+      await expect.poll(()=>reader.locator('.jade-scene img').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
+    }
     const visual=draft.lessonPages.pages.find(p=>p.id.endsWith(':visual'));
     if(visual){
       await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(visual.id);
@@ -507,6 +549,12 @@ test('authored school lesson opens all eight pages in the same Studio reader',as
   const copied = JSON.parse(await page.locator('input[name=lessonPages]').inputValue());
   expect(copied.pages).toHaveLength(9);
   expect(copied.pages[3].blocks[1].activity.answerIds[0]).not.toBe(copied.pages[2].blocks[1].activity.answerIds[0]);
+  await page.getByRole('button',{name:'Xóa trang',exact:true}).click();
+  await expect.poll(async()=>JSON.parse(await page.locator('input[name=lessonPages]').inputValue()).pages.length).toBe(8);
+  await page.getByRole('button',{name:'Hoàn tác',exact:true}).click();
+  await expect(page.getByLabel('Tên trang',{exact:true})).toHaveValue(copied.pages[3].title);
+  expect(JSON.parse(await page.locator('input[name=lessonPages]').inputValue())).toEqual(copied);
+  await expect(page.getByRole('button',{name:'Hoàn tác',exact:true})).toBeDisabled();
   await page.getByRole('button',{name:'Nhân bản khối',exact:true}).last().click();
   await page.getByRole('button',{name:'Đưa khối lên',exact:true}).last().click();
   await page.getByRole('button',{name:'Lưu thay đổi',exact:true}).click();
@@ -753,4 +801,86 @@ test('character transfer situations and answers are editable in the saved Studio
   await reader.getByRole('button',{name:'Xem hướng dẫn đối chiếu',exact:true}).click();
   await expect(reader.getByRole('status')).toContainText(transfer.blocks[0].activity!.explanation);
  }
+});
+
+test('Studio authors dictation with hidden model and hear-write-compare preview',async({page,request})=>{
+ const accounts=await(await request.post('/api/auth/hanzi/demo-accounts',{headers:{origin:'http://localhost:3000'}})).json();
+ const account=accounts.accounts.find((a:{username:string})=>a.username==='editor.demo');
+ expect((await page.request.post('/api/auth/hanzi/login',{headers:{origin:'http://localhost:3000'},data:{identifier:account.username,password:account.password}})).ok()).toBe(true);
+ const key=`hsk2.lesson.dictation-preview-${Date.now()}`;
+ const created=await page.request.post('/studio/actions',{headers:{origin:'http://localhost:3000'},form:{action:'create',itemType:'lesson',level:'hsk2',stableKey:key,title:'Nháp kiểm nghe chép',idempotencyKey:key,contentJson:JSON.stringify(schoolDraft.studioContent)}});
+ expect(created.url()).toContain('/studio/items/');
+ expect((await page.goto(created.url()))?.ok()).toBe(true);
+ const editor=page.locator('.studio-form-section.lesson-pages-editor');
+ await editor.getByRole('button',{name:'Soạn trang đầu tiên',exact:true}).click();
+ await editor.getByLabel('Tên trang',{exact:true}).fill('Nghe thông báo giờ học');
+ await editor.getByRole('combobox',{name:'Bố cục',exact:true}).selectOption('workshop');
+ const block=editor.getByRole('group',{name:'Khối 1',exact:true});
+ await block.getByRole('combobox',{name:'Loại khối',exact:true}).selectOption('dictation');
+ for(const [label,value]of Object.entries({'Tiêu đề':'Nghe rồi chép','Nội dung / yêu cầu':'Nghe và ghi giờ bắt đầu.','Hán tự':'八点半开始。','Pinyin':'Bā diǎn bàn kāishǐ.','Nghĩa Việt':'Bắt đầu lúc 8:30.'}))await block.getByLabel(label,{exact:true}).fill(value);
+ const edited=JSON.parse(await editor.locator('input[name=lessonPages]').inputValue()) as LessonPageDocument;
+ const last=edited.pages.at(-1)!;
+ expect(last.blocks[0]).toMatchObject({kind:'dictation',hanzi:'八点半开始。'});
+ await editor.getByRole('button',{name:'Xem như người học',exact:true}).click();
+ const reader=editor.locator('.lesson-page-reader');
+ await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(last.id);
+ await expect(reader.locator('.jade-reveal')).toHaveCount(0);
+ await expect(reader.getByRole('button',{name:'Nghe đoạn cần chép · giọng tổng hợp',exact:true})).toBeVisible();
+ await reader.getByRole('button',{name:'Nghe đoạn cần chép · giọng tổng hợp',exact:true}).click();
+ await reader.getByRole('textbox',{name:'Câu trả lời của bạn'}).fill('八点开始。');
+ await reader.getByRole('button',{name:'Đối chiếu câu',exact:true}).click();
+ await expect(reader.getByRole('status')).toContainText('Bản chép khác lời mẫu');
+ await reader.getByRole('button',{name:'Cần xem mẫu',exact:true}).click();
+ await expect(reader.locator('.jade-reveal')).toContainText('八点半开始。');
+ await reader.getByRole('button',{name:'Thu mẫu lại',exact:true}).click();
+ await reader.getByRole('textbox',{name:'Câu trả lời của bạn'}).fill('八点半开始');
+ await reader.getByRole('button',{name:'Đối chiếu câu',exact:true}).click();
+ await expect(reader.getByRole('status')).toContainText('Bản chép khớp lời mẫu');
+ for(const viewport of [{width:1235,height:640},{width:375,height:812},{width:812,height:375}]){
+  await page.setViewportSize(viewport);
+  await reader.scrollIntoViewIfNeeded();
+  await expect(reader.getByRole('button',{name:'Nghe đoạn cần chép · giọng tổng hợp',exact:true})).toBeVisible();
+  expect(await reader.evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);
+  await reader.screenshot({path:`tmp/dictation-studio-${viewport.width}.png`});
+ }
+ // Only the dedicated test draft is created; existing author content is untouched.
+});
+
+test('Studio saves distinct page illustrations and previews the selected scene',async({page,request})=>{
+ const accounts=await(await request.post('/api/auth/hanzi/demo-accounts',{headers:{origin:'http://localhost:3000'}})).json();
+ const account=accounts.accounts.find((a:{username:string})=>a.username==='editor.demo');
+ expect((await page.request.post('/api/auth/hanzi/login',{headers:{origin:'http://localhost:3000'},data:{identifier:account.username,password:account.password}})).ok()).toBe(true);
+ const key=`hsk2.lesson.scene-preview-${Date.now()}`;
+ const created=await page.request.post('/studio/actions',{headers:{origin:'http://localhost:3000'},form:{action:'create',itemType:'lesson',level:'hsk2',stableKey:key,title:'Nháp kiểm ảnh theo trang',idempotencyKey:key,contentJson:JSON.stringify(schoolDraft.studioContent)}});
+ expect(created.url()).toContain('/studio/items/');
+ await page.goto(created.url());
+ const editor=page.locator('.studio-form-section.lesson-pages-editor');
+ await editor.getByRole('button',{name:'Soạn trang đầu tiên',exact:true}).click();
+ const scenes=['study-preparation','station-meeting','classroom-change'];
+ for(const [index,scene]of scenes.entries()){
+  if(index)await editor.getByRole('button',{name:'Thêm trang',exact:true}).click();
+  await editor.getByLabel('Tên trang',{exact:true}).fill(`Tình huống ${index+1}`);
+  await editor.getByRole('combobox',{name:'Bố cục',exact:true}).selectOption('scene');
+  await editor.getByRole('group',{name:'Khối 1',exact:true}).getByLabel('Nội dung / yêu cầu',{exact:true}).fill('Quan sát bối cảnh trước khi nghe.');
+  await editor.getByRole('combobox',{name:'Chọn cảnh minh họa',exact:true}).selectOption(`/lessons/ngoc-dien/${scene}-v1.webp`);
+ }
+ const authored=JSON.parse(await editor.locator('input[name=lessonPages]').inputValue()) as LessonPageDocument;
+ await page.getByRole('button',{name:'Lưu thay đổi',exact:true}).click();
+ await expect.poll(async()=>JSON.parse(await editor.locator('input[name=lessonPages]').inputValue())).toEqual(authored);
+ await page.reload();
+ expect(JSON.parse(await editor.locator('input[name=lessonPages]').inputValue())).toEqual(authored);
+ await editor.getByRole('button',{name:'Xem như người học',exact:true}).click();
+ const reader=editor.locator('.lesson-page-reader');
+ for(const [index,p]of authored.pages.entries()){
+  await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(p.id);
+  await expect(reader.locator('.jade-scene img')).toHaveAttribute('src',`/lessons/ngoc-dien/${scenes[index]}-v1.webp`);
+  await expect.poll(()=>reader.locator('.jade-scene img').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
+ }
+ const footer=reader.locator(':scope > footer');
+ await footer.scrollIntoViewIfNeeded();
+ const footerBox=await footer.boundingBox();
+ const saveBox=await page.locator('.studio-editor-footer').boundingBox();
+ expect(footerBox).not.toBeNull();expect(saveBox).not.toBeNull();
+ expect(saveBox!.y).toBeGreaterThanOrEqual(footerBox!.y+footerBox!.height-1);
+ await reader.screenshot({path:'tmp/studio-distinct-scenes.png'});
 });

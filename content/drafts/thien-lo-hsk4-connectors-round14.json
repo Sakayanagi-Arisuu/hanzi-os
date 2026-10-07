@@ -1,0 +1,1968 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/107-REVIEW-HSK4-CONNECTORS-ROUND14.md",
+  "entries": [
+    {
+      "sourceRevisionId": "1523be8f-4806-48a7-b499-2975b7c88d92",
+      "sourceContentSha256": "sha256:88425bb2ee6cb553a3d2b7243f4de22ca1ddc0ef88bdccabdd835cd729eea174",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm về hệ thống đa kênh\nvai trò của cơ quan, tổ chức và cộng đồng\nkhác biệt nhóm dùng phát thanh và Internet\nphản biện về tốc độ và khả năng lưu sửa của mạng\ngiới hạn ba tháng, tín hiệu vùng xa và cộng đồng chưa phỏng vấn",
+        "conceptVi": "Tách dữ kiện và diễn giải: Tổ chức thông tin song song, trình tự, tăng tiến và lựa chọn bằng liên từ cùng dấu hiệu liên kết diễn ngôn.",
+        "dialogue": [
+          {
+            "hanzi": "青川城更新公共资料，介绍交通、医疗和少数民族文化。政府部门提供地点与时间，社会组织检查无障碍信息，各民族社区补充名称读法和节日背景。三方都参与，但责任不同。",
+            "meaningVi": "Thành Thanh Xuyên cập nhật dữ liệu công cộng về giao thông, y tế và văn hóa dân tộc thiểu số. Cơ quan nhà nước cung cấp địa điểm/giờ, tổ chức xã hội kiểm thông tin tiếp cận, cộng đồng dân tộc bổ sung cách đọc tên và bối cảnh lễ. Ba bên tham gia với trách nhiệm khác.",
+            "pinyin": "Qīngchuān chéng gēngxīn gōnggòng zīliào, jièshào jiāotōng, yīliáo hé shǎoshù mínzú wénhuà. Zhèngfǔ bùmén tígōng dìdiǎn yǔ shíjiān, shèhuì zǔzhī jiǎnchá wú zhàng'ài xìnxī, gè mínzú shèqū bǔchōng míngchēng dú fǎ hé jiérì bèijǐng. Sānfāng dōu cānyù, dàn zérèn bùtóng.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "旧资料把一个节日只写成旅游活动，社区代表认为这会忽略其家庭和历史意义。编辑组先保存原文，再记录修改理由，并请文化研究者核对。社区有解释权，却不能单独改变公交时刻；交通部门也不能替社区定义文化。",
+            "meaningVi": "Dữ liệu cũ chỉ gọi một lễ là hoạt động du lịch, cộng đồng cho rằng bỏ ý nghĩa gia đình/lịch sử. Nhóm lưu bản cũ, ghi lý do sửa và nhờ nhà nghiên cứu kiểm. Cộng đồng có quyền giải thích nhưng không tự đổi giờ xe; ngành giao thông không định nghĩa văn hóa thay họ.",
+            "pinyin": "Jiù zīliào bǎ yīgè jiérì zhǐ xiěchéng lǚyóu huódòng, shèqū dàibiǎo rènwéi zhè huì hūlüè qí jiātíng hé lìshǐ yìyì. Biānjí zǔ xiān bǎocún yuánwén, zài jìlù xiūgǎi lǐyóu, bìng qǐng wénhuà yánjiū zhě héduì. Shèqū yǒu jiěshì quán, què bùnéng dāndú gǎibiàn gōngjiāo shíkè; jiāotōng bùmén yě bùnéng tì shèqū dìngyì wénhuà.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "新版分别标明资料来源、更新时间和负责人。读者可以看见事实、解释和服务信息来自哪里。这个角色图提高透明度，却不能保证所有描述都已完整；未参与访谈的小社区仍需要后续补充。",
+            "meaningVi": "Bản mới ghi nguồn, ngày cập nhật và người phụ trách. Người đọc thấy dữ kiện, diễn giải và dịch vụ đến từ đâu. Bản đồ vai trò tăng minh bạch nhưng không bảo đảm mô tả đầy đủ; cộng đồng nhỏ chưa phỏng vấn còn cần bổ sung.",
+            "pinyin": "Xīnbǎn fēnbié biāomíng zīliào láiyuán, gēngxīn shíjiān hé fùzé rén. Dúzhě kěyǐ kànjiàn shìshí, jiěshì hé fúwù xìnxī láizì nǎlǐ. Zhège juésè tú tígāo tòumíngdù, què bùnéng bǎozhèng suǒyǒu miáoshù dōu yǐ wánzhěng; wèi cānyù fǎngtán de xiǎo shèqū réng xūyào hòuxù bǔchōng.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "山区市场用广播发布价格和天气，负责人每天早晨核对。互联网平台后来加入图片和在线订单，年轻商户欢迎新渠道，老人仍依靠广播。两种渠道服务同一市场，却覆盖不同人。",
+            "meaningVi": "Chợ vùng núi dùng phát thanh báo giá/thời tiết, người phụ trách kiểm mỗi sáng. Sau đó nền tảng Internet thêm ảnh và đặt trực tuyến; người trẻ thích kênh mới, người già vẫn dựa phát thanh. Hai kênh phục vụ cùng chợ nhưng phủ nhóm khác.",
+            "pinyin": "Shānqū shìchǎng yòng guǎngbò fābù jiàgé hé tiānqì, fùzé rén měitiān zǎochén héduì. Hùliánwǎng píngtái hòulái jiārù túpiàn hé zàixiàn dìngdān, niánqīng shānghù huānyíng xīn qúdào, lǎorén réng yīkào guǎngbò. Liǎng zhǒng qúdào fúwù tóngyī shìchǎng, què fùgài bùtóng rén.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "一次价格写错后，网上消息被迅速转发，广播却在下一小时完成更正。管理组规定：市场办公室负责原始数据，平台负责显示与修改记录，广播员负责口头确认。商户交流意见，但不能直接改官方价格。",
+            "meaningVi": "Một lần giá sai bị chia sẻ nhanh trên mạng, phát thanh sửa trong giờ sau. Nhóm quy định văn phòng chợ chịu dữ liệu gốc, nền tảng chịu hiển thị/lịch sử sửa, phát thanh viên chịu xác nhận miệng. Tiểu thương trao đổi nhưng không trực tiếp đổi giá chính thức.",
+            "pinyin": "Yīcì jiàgé xiě cuò hòu, wǎngshàng xiāoxī bèi xùnsù zhuǎnfā, guǎngbò què zàixià yī xiǎoshí wánchéng gēngzhèng. Guǎnlǐ zǔ guīdìng: Shìchǎng bàngōngshì fùzé yuánshǐ shùjù, píngtái fùzé xiǎnshì yǔ xiūgǎi jìlù, guǎngbò yuán fùzé kǒutóu quèrèn. Shānghù jiāoliú yìjiàn, dàn bùnéng zhíjiē gǎi guānfāng jiàgé.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "三个月后，在线订单增加，广播收听没有明显下降。结果说明新渠道可以补充旧渠道，不证明互联网适合每个人。偏远村庄的信号数据仍不完整，下一阶段要分别记录两种渠道的到达率。",
+            "meaningVi": "Ba tháng sau, đơn trực tuyến tăng, nghe phát thanh không giảm rõ. Kết quả cho thấy kênh mới bổ sung kênh cũ, không chứng minh Internet hợp mọi người. Dữ liệu tín hiệu làng xa còn thiếu; giai đoạn sau ghi tỷ lệ tiếp cận từng kênh.",
+            "pinyin": "Sān gè yuè hòu, zàixiàn dìngdān zēngjiā, guǎngbò shōutīng méiyǒu míngxiǎn xiàjiàng. Jiéguǒ shuōmíng xīn qúdào kěyǐ bǔchōng jiù qúdào, bù zhèngmíng hùliánwǎng shìhé měi gèrén. Piānyuǎn cūnzhuāng de xìnhào shùjù réng bù wánzhěng, xià yī jiēduàn yào fēnbié jìlù liǎng zhǒng qúdào de dàodá lǜ.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "青川城更新公共资料，介绍交通、医疗和少数民族文化。政府部门提供地点与时间，社会组织检查无障碍信息，各民族社区补充名称读法和节日背景。三方都参与，但责任不同。",
+            "answerMeaningVi": "Thành Thanh Xuyên cập nhật dữ liệu công cộng về giao thông, y tế và văn hóa dân tộc thiểu số. Cơ quan nhà nước cung cấp địa điểm/giờ, tổ chức xã hội kiểm thông tin tiếp cận, cộng đồng dân tộc bổ sung cách đọc tên và bối cảnh lễ. Ba bên tham gia với trách nhiệm khác.",
+            "answerPinyin": "Qīngchuān chéng gēngxīn gōnggòng zīliào, jièshào jiāotōng, yīliáo hé shǎoshù mínzú wénhuà. Zhèngfǔ bùmén tígōng dìdiǎn yǔ shíjiān, shèhuì zǔzhī jiǎnchá wú zhàng'ài xìnxī, gè mínzú shèqū bǔchōng míngchēng dú fǎ hé jiérì bèijǐng. Sānfāng dōu cānyù, dàn zérèn bùtóng.",
+            "distractors": [
+              "旧资料把一个节日只写成旅游活动，社区代表认为这会忽略其家庭和历史意义。编辑组先保存原文，再记录修改理由，并请文化研究者核对。社区有解释权，却不能单独改变公交时刻；交通部门也不能替社区定义文化。",
+              "新版分别标明资料来源、更新时间和负责人。读者可以看见事实、解释和服务信息来自哪里。这个角色图提高透明度，却不能保证所有描述都已完整；未参与访谈的小社区仍需要后续补充。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "与 nối danh từ/cụm danh từ, gần 和 nhưng thường trang trọng hơn. 并 nối hành động song song hoặc nối tiếp của cùng chủ thể, thường gặp trong văn viết. 而 có thể nối hai tính chất/cụm vị từ, như 简单而有效. Phân biệt 并 nối hành động với 并不/并没有 nhấn mạnh phủ định; có chữ 并 chưa có nghĩa đã dùng liên từ. Mẫu dưới là tình huống luyện riêng, không thêm dữ kiện vào hai nguồn.",
+            "guidedPractice": {
+              "promptVi": "Đổi sang câu lạc bộ làm vườn: thành viên và giáo viên cùng chuẩn bị; nhóm kiểm tra rồi ghi lại dụng cụ; cách tưới mới vừa đơn giản vừa tiết kiệm nước. Viết 3 câu dùng lần lượt 与、并、而. Không phải nhét cả ba vào một câu.",
+              "modelAnswerHanzi": "成员与老师一起准备活动。大家检查并记录了工具的数量。新的浇水方法简单而节约用水。",
+              "modelAnswerPinyin": "Chéngyuán yǔ lǎoshī yìqǐ zhǔnbèi huódòng. Dàjiā jiǎnchá bìng jìlù le gōngjù de shùliàng. Xīn de jiāo shuǐ fāngfǎ jiǎndān ér jiéyuē yòng shuǐ.",
+              "modelAnswerMeaningVi": "Thành viên và giáo viên cùng chuẩn bị hoạt động. Mọi người kiểm tra và ghi số dụng cụ. Cách tưới mới đơn giản mà tiết kiệm nước."
+            },
+            "modelExample": {
+              "hanzi": "老师与学生一起讨论了这个问题。",
+              "pinyin": "Lǎoshī yǔ xuésheng yìqǐ tǎolùn le zhège wèntí.",
+              "meaningVi": "Giáo viên và học sinh cùng thảo luận vấn đề này.",
+              "speaker": "A"
+            },
+            "pattern": "并2、而1、与2"
+          },
+          {
+            "explanationVi": "此外 thêm một ý nữa, thường ở đầu câu/vế. 并且 thêm ý cùng hướng, có thể làm ý sau mạnh hơn. 而 nối hai vế để đối chiếu; 不过 đưa giới hạn hoặc chuyển hướng nhẹ. 甚至 đẩy tới trường hợp ở mức cao hơn hoặc gây bất ngờ, không chỉ liệt kê bất kỳ ví dụ nào. 既然 A，就 B đi từ tiền đề người nói xem là đã biết sang suy luận/đề nghị. Chọn từ theo quan hệ ý; không dùng lẫn chỉ vì cùng là từ nối. Các mẫu là tình huống riêng.",
+            "guidedPractice": {
+              "promptVi": "Đổi sang trung tâm thể thao: có lớp bơi cuối tuần và lớp cầu lông; học phí hợp lý nhưng chỗ gửi xe ít. Mọi người đã thống nhất đi thử thứ Bảy. Viết 4–5 câu: thêm thông tin bằng 此外 hoặc 并且, nêu giới hạn bằng 不过, rồi đề nghị từ quyết định đã có bằng 既然…就…. Không thêm 甚至 khi dữ kiện chưa có mức tăng tiến bất ngờ.",
+              "modelAnswerHanzi": "中心周末有游泳课。此外，还有羽毛球课。学费比较合理，不过停车的地方不多。既然大家已经决定周六去试试，我们就一起坐公交车去吧。",
+              "modelAnswerPinyin": "Zhōngxīn zhōumò yǒu yóuyǒng kè. Cǐwài, hái yǒu yǔmáoqiú kè. Xuéfèi bǐjiào hélǐ, búguò tíngchē de dìfang bù duō. Jìrán dàjiā yǐjīng juédìng Zhōuliù qù shìshi, wǒmen jiù yìqǐ zuò gōngjiāochē qù ba.",
+              "modelAnswerMeaningVi": "Trung tâm có lớp bơi cuối tuần. Ngoài ra còn có lớp cầu lông. Học phí khá hợp lý nhưng chỗ gửi xe không nhiều. Đã quyết định đi thử thứ Bảy thì cùng đi xe buýt nhé."
+            },
+            "modelExample": {
+              "hanzi": "图书馆周末开放。此外，读者还可以在网上借书。",
+              "pinyin": "Túshūguǎn zhōumò kāifàng. Cǐwài, dúzhě hái kěyǐ zài wǎngshàng jiè shū.",
+              "meaningVi": "Thư viện mở cuối tuần. Ngoài ra, độc giả còn có thể mượn sách trực tuyến.",
+              "speaker": "A"
+            },
+            "pattern": "此外、而2、既然、甚至、不过、并且"
+          },
+          {
+            "explanationVi": "不光/不仅 A，还/也 B nêu không chỉ A mà còn B; 不光 thường dùng trong khẩu ngữ. 另外 thêm ý khác hoặc việc khác cần làm. 要是 A，就 B nêu giả định, không khẳng định A đã xảy ra. 由于 dẫn nguyên nhân; 因此 dẫn hệ quả. 加上 bổ sung một yếu tố góp phần vào kết quả. Khi viết, phải có dữ kiện cho quan hệ nhân quả; cùng xảy ra chưa đủ chứng minh nguyên nhân. Mẫu dưới là tình huống luyện riêng.",
+            "guidedPractice": {
+              "promptVi": "Đổi sang buổi đọc sách cộng đồng: có phần đọc và trao đổi; điện ở phòng cũ đã hỏng nên buổi gặp chuyển sang phòng khác. Chưa biết cuối tuần có mưa hay không; nếu mưa thì hướng dẫn khách dùng lối có mái che. Viết 4–5 câu dùng 不仅…还… hoặc 不光…也…, 由于/因此 cho việc đã xảy ra và 要是…就… cho phương án giả định.",
+              "modelAnswerHanzi": "这次活动不仅有阅读，还有交流。由于原来的房间停电了，活动改到另一间教室举行。因此我们要提前通知参加者。要是周末下雨，我们就请大家走有雨棚的入口。",
+              "modelAnswerPinyin": "Zhè cì huódòng bùjǐn yǒu yuèdú, hái yǒu jiāoliú. Yóuyú yuánlái de fángjiān tíngdiàn le, huódòng gǎi dào lìng yì jiān jiàoshì jǔxíng. Yīncǐ wǒmen yào tíqián tōngzhī cānjiāzhě. Yàoshi zhōumò xià yǔ, wǒmen jiù qǐng dàjiā zǒu yǒu yǔpéng de rùkǒu.",
+              "modelAnswerMeaningVi": "Hoạt động không chỉ có đọc sách mà còn có trao đổi. Do phòng cũ mất điện, buổi gặp chuyển sang phòng học khác. Vì vậy cần báo trước cho người tham gia. Nếu cuối tuần mưa, chúng ta sẽ mời mọi người đi lối vào có mái che."
+            },
+            "modelExample": {
+              "hanzi": "她不仅会说汉语，还能用汉语写文章。",
+              "pinyin": "Tā bùjǐn huì shuō Hànyǔ, hái néng yòng Hànyǔ xiě wénzhāng.",
+              "meaningVi": "Cô ấy không chỉ nói được tiếng Trung mà còn viết bài bằng tiếng Trung.",
+              "speaker": "A"
+            },
+            "pattern": "不光、不仅、另外、要是、因此、由于2、 / 加上"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Tách dữ kiện và diễn giải: Tổ chức thông tin song song, trình tự, tăng tiến và lựa chọn bằng liên từ cùng dấu hiệu liên kết diễn ngôn."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "青川城更新公共资料，介绍交通、医疗和少数民族文化。政府部门提供地点与时间，社会组织检查无障碍信息，各民族社区补充名称读法和节日背景。三方都参与，但责任不同。",
+                        "id": "hsk4-information-order-cohesion-lesson-01:source-0-0",
+                        "meaningVi": "Thành Thanh Xuyên cập nhật dữ liệu công cộng về giao thông, y tế và văn hóa dân tộc thiểu số. Cơ quan nhà nước cung cấp địa điểm/giờ, tổ chức xã hội kiểm thông tin tiếp cận, cộng đồng dân tộc bổ sung cách đọc tên và bối cảnh lễ. Ba bên tham gia với trách nhiệm khác.",
+                        "pinyin": "Qīngchuān chéng gēngxīn gōnggòng zīliào, jièshào jiāotōng, yīliáo hé shǎoshù mínzú wénhuà. Zhèngfǔ bùmén tígōng dìdiǎn yǔ shíjiān, shèhuì zǔzhī jiǎnchá wú zhàng'ài xìnxī, gè mínzú shèqū bǔchōng míngchēng dú fǎ hé jiérì bèijǐng. Sānfāng dōu cānyù, dàn zérèn bùtóng."
+                      },
+                      {
+                        "hanzi": "旧资料把一个节日只写成旅游活动，社区代表认为这会忽略其家庭和历史意义。编辑组先保存原文，再记录修改理由，并请文化研究者核对。社区有解释权，却不能单独改变公交时刻；交通部门也不能替社区定义文化。",
+                        "id": "hsk4-information-order-cohesion-lesson-01:source-0-1",
+                        "meaningVi": "Dữ liệu cũ chỉ gọi một lễ là hoạt động du lịch, cộng đồng cho rằng bỏ ý nghĩa gia đình/lịch sử. Nhóm lưu bản cũ, ghi lý do sửa và nhờ nhà nghiên cứu kiểm. Cộng đồng có quyền giải thích nhưng không tự đổi giờ xe; ngành giao thông không định nghĩa văn hóa thay họ.",
+                        "pinyin": "Jiù zīliào bǎ yīgè jiérì zhǐ xiěchéng lǚyóu huódòng, shèqū dàibiǎo rènwéi zhè huì hūlüè qí jiātíng hé lìshǐ yìyì. Biānjí zǔ xiān bǎocún yuánwén, zài jìlù xiūgǎi lǐyóu, bìng qǐng wénhuà yánjiū zhě héduì. Shèqū yǒu jiěshì quán, què bùnéng dāndú gǎibiàn gōngjiāo shíkè; jiāotōng bùmén yě bùnéng tì shèqū dìngyì wénhuà."
+                      },
+                      {
+                        "hanzi": "新版分别标明资料来源、更新时间和负责人。读者可以看见事实、解释和服务信息来自哪里。这个角色图提高透明度，却不能保证所有描述都已完整；未参与访谈的小社区仍需要后续补充。",
+                        "id": "hsk4-information-order-cohesion-lesson-01:source-0-2",
+                        "meaningVi": "Bản mới ghi nguồn, ngày cập nhật và người phụ trách. Người đọc thấy dữ kiện, diễn giải và dịch vụ đến từ đâu. Bản đồ vai trò tăng minh bạch nhưng không bảo đảm mô tả đầy đủ; cộng đồng nhỏ chưa phỏng vấn còn cần bổ sung.",
+                        "pinyin": "Xīnbǎn fēnbié biāomíng zīliào láiyuán, gēngxīn shíjiān hé fùzé rén. Dúzhě kěyǐ kànjiàn shìshí, jiěshì hé fúwù xìnxī láizì nǎlǐ. Zhège juésè tú tígāo tòumíngdù, què bùnéng bǎozhèng suǒyǒu miáoshù dōu yǐ wánzhěng; wèi cānyù fǎngtán de xiǎo shèqū réng xūyào hòuxù bǔchōng."
+                      }
+                    ]
+                  },
+                  "title": "Ai viết dữ liệu công cộng của một thành phố"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Ai viết dữ liệu công cộng của một thành phố"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "山区市场用广播发布价格和天气，负责人每天早晨核对。互联网平台后来加入图片和在线订单，年轻商户欢迎新渠道，老人仍依靠广播。两种渠道服务同一市场，却覆盖不同人。",
+                        "id": "hsk4-information-order-cohesion-lesson-01:source-1-0",
+                        "meaningVi": "Chợ vùng núi dùng phát thanh báo giá/thời tiết, người phụ trách kiểm mỗi sáng. Sau đó nền tảng Internet thêm ảnh và đặt trực tuyến; người trẻ thích kênh mới, người già vẫn dựa phát thanh. Hai kênh phục vụ cùng chợ nhưng phủ nhóm khác.",
+                        "pinyin": "Shānqū shìchǎng yòng guǎngbò fābù jiàgé hé tiānqì, fùzé rén měitiān zǎochén héduì. Hùliánwǎng píngtái hòulái jiārù túpiàn hé zàixiàn dìngdān, niánqīng shānghù huānyíng xīn qúdào, lǎorén réng yīkào guǎngbò. Liǎng zhǒng qúdào fúwù tóngyī shìchǎng, què fùgài bùtóng rén."
+                      },
+                      {
+                        "hanzi": "一次价格写错后，网上消息被迅速转发，广播却在下一小时完成更正。管理组规定：市场办公室负责原始数据，平台负责显示与修改记录，广播员负责口头确认。商户交流意见，但不能直接改官方价格。",
+                        "id": "hsk4-information-order-cohesion-lesson-01:source-1-1",
+                        "meaningVi": "Một lần giá sai bị chia sẻ nhanh trên mạng, phát thanh sửa trong giờ sau. Nhóm quy định văn phòng chợ chịu dữ liệu gốc, nền tảng chịu hiển thị/lịch sử sửa, phát thanh viên chịu xác nhận miệng. Tiểu thương trao đổi nhưng không trực tiếp đổi giá chính thức.",
+                        "pinyin": "Yīcì jiàgé xiě cuò hòu, wǎngshàng xiāoxī bèi xùnsù zhuǎnfā, guǎngbò què zàixià yī xiǎoshí wánchéng gēngzhèng. Guǎnlǐ zǔ guīdìng: Shìchǎng bàngōngshì fùzé yuánshǐ shùjù, píngtái fùzé xiǎnshì yǔ xiūgǎi jìlù, guǎngbò yuán fùzé kǒutóu quèrèn. Shānghù jiāoliú yìjiàn, dàn bùnéng zhíjiē gǎi guānfāng jiàgé."
+                      },
+                      {
+                        "hanzi": "三个月后，在线订单增加，广播收听没有明显下降。结果说明新渠道可以补充旧渠道，不证明互联网适合每个人。偏远村庄的信号数据仍不完整，下一阶段要分别记录两种渠道的到达率。",
+                        "id": "hsk4-information-order-cohesion-lesson-01:source-1-2",
+                        "meaningVi": "Ba tháng sau, đơn trực tuyến tăng, nghe phát thanh không giảm rõ. Kết quả cho thấy kênh mới bổ sung kênh cũ, không chứng minh Internet hợp mọi người. Dữ liệu tín hiệu làng xa còn thiếu; giai đoạn sau ghi tỷ lệ tiếp cận từng kênh.",
+                        "pinyin": "Sān gè yuè hòu, zàixiàn dìngdān zēngjiā, guǎngbò shōutīng méiyǒu míngxiǎn xiàjiàng. Jiéguǒ shuōmíng xīn qúdào kěyǐ bǔchōng jiù qúdào, bù zhèngmíng hùliánwǎng shìhé měi gèrén. Piānyuǎn cūnzhuāng de xìnhào shùjù réng bù wánzhěng, xià yī jiēduàn yào fēnbié jìlù liǎng zhǒng qúdào de dàodá lǜ."
+                      }
+                    ]
+                  },
+                  "title": "Phát thanh, Internet và thị trường địa phương"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Phát thanh, Internet và thị trường địa phương"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Đây là ba trường thông tin được nguồn đọc nêu trực tiếp, không phải đánh giá của người viết. Giới hạn: Dữ kiện cho thấy tăng khả năng truy nguồn, nhưng không chứng minh mọi cộng đồng đã được phỏng vấn hoặc mô tả đầy đủ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bản dữ liệu công cộng mới ghi riêng nguồn, ngày cập nhật và người phụ trách.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Đây là ba trường thông tin được nguồn đọc nêu trực tiếp, không phải đánh giá của người viết.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đây là ba trường thông tin được nguồn đọc nêu trực tiếp, không phải đánh giá của người viết.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "新版公共资料分别标明来源、更新时间和负责人。\nBản dữ liệu công cộng mới ghi riêng nguồn, ngày cập nhật và người phụ trách.\nĐối chiếu Nguồn A · đoạn 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn còn nói lượng nghe phát thanh không giảm rõ và hai kênh phục vụ những nhóm khác nhau. Giới hạn: Chỉ có thể nói kênh trực tuyến bổ sung lựa chọn trong ba tháng quan sát; chưa thể nói đã thay thế phát thanh.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đơn trực tuyến tăng chứng minh Internet đã thay thế phát thanh.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Chỉ có thể nói kênh trực tuyến bổ sung lựa chọn trong ba tháng quan sát; chưa thể nói đã thay thế phát thanh.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn còn nói lượng nghe phát thanh không giảm rõ và hai kênh phục vụ những nhóm khác nhau.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "网上订单增加说明互联网已经取代广播。\nĐơn trực tuyến tăng chứng minh Internet đã thay thế phát thanh.\nĐối chiếu Nguồn B · đoạn 1, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n城市资料由政府、社会组织与民族社区共同补充：部门提供服务事实，组织检查无障碍信息，社区解释名称和节日。新版记录来源与负责人，提高了透明度；不过未受访的小社区仍未被完整代表。\nDữ liệu thành phố do cơ quan nhà nước, tổ chức xã hội và cộng đồng dân tộc cùng bổ sung: cơ quan cung cấp dữ kiện dịch vụ, tổ chức kiểm tiếp cận, cộng đồng giải thích tên và lễ. Bản mới ghi nguồn/người phụ trách nên minh bạch hơn, nhưng cộng đồng nhỏ chưa phỏng vấn vẫn chưa được đại diện đầy đủ.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại cách ba nhóm cùng xây dữ liệu công cộng, giữ đúng quyền hạn riêng và khoảng trống đại diện.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Ba nhóm có trách nhiệm khác nhau chứ không thay thế lẫn nhau.",
+                        "id": "point-0",
+                        "label": "Ba nhóm có trách nhiệm khác nhau chứ không thay thế lẫn nhau."
+                      },
+                      {
+                        "guidance": "Bản mới có nguồn, ngày cập nhật và người phụ trách.",
+                        "id": "point-1",
+                        "label": "Bản mới có nguồn, ngày cập nhật và người phụ trách."
+                      },
+                      {
+                        "guidance": "Vẫn còn cộng đồng nhỏ chưa tham gia phỏng vấn.",
+                        "id": "point-2",
+                        "label": "Vẫn còn cộng đồng nhỏ chưa tham gia phỏng vấn."
+                      },
+                      {
+                        "guidance": "Không nói dữ liệu đã hoàn chỉnh, chính quyền kiểm soát diễn giải văn hóa hoặc cộng đồng được tự đổi thông tin giao thông.",
+                        "id": "point-3",
+                        "label": "Không nói dữ liệu đã hoàn chỉnh, chính quyền kiểm soát diễn giải văn hóa hoặc cộng đồng được tự đổi thông tin giao thông."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại cách ba nhóm cùng xây dữ liệu công cộng, giữ đúng quyền hạn riêng và khoảng trống đại diện.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n市场先用广播发布价格和天气，后来增加图片与在线订单。网络受年轻商户欢迎，老人仍依靠广播；价格出错后，办公室管原始数据，平台留修改记录，广播员口头确认。三个月内订单增加，但收听没有明显下降。\nChợ vốn dùng phát thanh báo giá và thời tiết, sau thêm ảnh và đặt hàng trực tuyến. Người trẻ chuộng mạng, người già vẫn dựa phát thanh; sau lỗi giá, văn phòng giữ dữ liệu gốc, nền tảng lưu sửa, phát thanh viên xác nhận. Trong ba tháng đơn tăng nhưng nghe phát thanh không giảm rõ.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase quan hệ giữa phát thanh và Internet, giữ đúng nhóm người dùng, trách nhiệm sửa giá và thời gian quan sát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Hai kênh phủ các nhóm người dùng khác nhau.",
+                        "id": "point-0",
+                        "label": "Hai kênh phủ các nhóm người dùng khác nhau."
+                      },
+                      {
+                        "guidance": "Ba bên có trách nhiệm riêng khi sửa thông tin giá.",
+                        "id": "point-1",
+                        "label": "Ba bên có trách nhiệm riêng khi sửa thông tin giá."
+                      },
+                      {
+                        "guidance": "Quan sát mới kéo dài ba tháng và dữ liệu làng xa còn thiếu.",
+                        "id": "point-2",
+                        "label": "Quan sát mới kéo dài ba tháng và dữ liệu làng xa còn thiếu."
+                      },
+                      {
+                        "guidance": "Không suy ra Internet phù hợp mọi người, phát thanh đang biến mất hoặc đơn trực tuyến tăng do duy nhất một nguyên nhân.",
+                        "id": "point-3",
+                        "label": "Không suy ra Internet phù hợp mọi người, phát thanh đang biến mất hoặc đơn trực tuyến tăng do duy nhất một nguyên nhân."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase quan hệ giữa phát thanh và Internet, giữ đúng nhóm người dùng, trách nhiệm sửa giá và thời gian quan sát.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "与 nối danh từ/cụm danh từ, gần 和 nhưng thường trang trọng hơn. 并 nối hành động song song hoặc nối tiếp của cùng chủ thể, thường gặp trong văn viết. 而 có thể nối hai tính chất/cụm vị từ, như 简单而有效. Phân biệt 并 nối hành động với 并不/并没有 nhấn mạnh phủ định; có chữ 并 chưa có nghĩa đã dùng liên từ. Mẫu dưới là tình huống luyện riêng, không thêm dữ kiện vào hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nối từ và cụm: 与、并、而"
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "老师与学生一起讨论了这个问题。",
+                  "pinyin": "Lǎoshī yǔ xuésheng yìqǐ tǎolùn le zhège wèntí.",
+                  "meaningVi": "Giáo viên và học sinh cùng thảo luận vấn đề này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "工作人员检查并记录了设备的情况。",
+                  "pinyin": "Gōngzuò rényuán jiǎnchá bìng jìlù le shèbèi de qíngkuàng.",
+                  "meaningVi": "Nhân viên kiểm tra và ghi lại tình trạng thiết bị.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "这是一个简单而有效的办法。",
+                  "pinyin": "Zhè shì yí ge jiǎndān ér yǒuxiào de bànfǎ.",
+                  "meaningVi": "Đây là một cách đơn giản mà hiệu quả.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 4",
+                  "body": "",
+                  "hanzi": "他并没有反对，只是希望再考虑一下。",
+                  "pinyin": "Tā bìng méiyǒu fǎnduì, zhǐshì xīwàng zài kǎolǜ yíxià.",
+                  "meaningVi": "Anh ấy không hề phản đối, chỉ muốn cân nhắc thêm một chút.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Nối từ và cụm: 与、并、而"
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:practice",
+              "title": "Khảo Luyện · Nối từ và cụm: 与、并、而",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Trong “老师与学生一起讨论”, 与 nối những thành phần nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Hai chủ thể 老师 và 学生",
+                        "feedback": "与 nối hai danh từ chỉ người. Câu chưa nêu quan hệ nguyên nhân hay điều kiện."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Nguyên nhân và kết quả",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Điều kiện chưa xác nhận và kết quả",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "与 nối hai danh từ chỉ người. Câu chưa nêu quan hệ nguyên nhân hay điều kiện.",
+                    "learningTarget": {
+                      "objective": "Nối từ và cụm: 与、并、而",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Câu nào dùng 并 để nối hai hành động?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "他并不忙。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "他检查并记录了结果。",
+                        "feedback": "检查 và 记录 là hai hành động được 并 nối. Hai câu còn lại dùng 并 để nhấn mạnh phủ định."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "他并没有离开。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "检查 và 记录 là hai hành động được 并 nối. Hai câu còn lại dùng 并 để nhấn mạnh phủ định.",
+                    "learningTarget": {
+                      "objective": "Nối từ và cụm: 与、并、而",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Muốn nói một cách vừa đơn giản vừa hiệu quả, cụm nào giữ cả hai tính chất?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "简单而有效的办法",
+                        "feedback": "而 nối hai tính chất trong cụm này. 与 thường nối danh từ; 既然 cần một tiền đề rồi một suy luận/đề nghị."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "简单与有效的办法",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "简单既然有效的办法",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "而 nối hai tính chất trong cụm này. 与 thường nối danh từ; 既然 cần một tiền đề rồi một suy luận/đề nghị.",
+                    "learningTarget": {
+                      "objective": "Nối từ và cụm: 与、并、而",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:0:transfer",
+              "title": "Vận dụng · Nối từ và cụm: 与、并、而",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n成员与老师一起准备活动。大家检查并记录了工具的数量。新的浇水方法简单而节约用水。\nChéngyuán yǔ lǎoshī yìqǐ zhǔnbèi huódòng. Dàjiā jiǎnchá bìng jìlù le gōngjù de shùliàng. Xīn de jiāo shuǐ fāngfǎ jiǎndān ér jiéyuē yòng shuǐ.\nThành viên và giáo viên cùng chuẩn bị hoạt động. Mọi người kiểm tra và ghi số dụng cụ. Cách tưới mới đơn giản mà tiết kiệm nước.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nối từ và cụm: 与、并、而",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "与 nối người/nhóm; 并 nối hai hành động cùng chủ thể.",
+                        "guidance": "与 nối người/nhóm; 并 nối hai hành động cùng chủ thể."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "而 nối hai tính chất của cách tưới.",
+                        "guidance": "而 nối hai tính chất của cách tưới."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Giữ dữ kiện tình huống; không bắt buộc trùng câu mẫu.",
+                        "guidance": "Giữ dữ kiện tình huống; không bắt buộc trùng câu mẫu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Đổi sang câu lạc bộ làm vườn: thành viên và giáo viên cùng chuẩn bị; nhóm kiểm tra rồi ghi lại dụng cụ; cách tưới mới vừa đơn giản vừa tiết kiệm nước. Viết 3 câu dùng lần lượt 与、并、而. Không phải nhét cả ba vào một câu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "此外 thêm một ý nữa, thường ở đầu câu/vế. 并且 thêm ý cùng hướng, có thể làm ý sau mạnh hơn. 而 nối hai vế để đối chiếu; 不过 đưa giới hạn hoặc chuyển hướng nhẹ. 甚至 đẩy tới trường hợp ở mức cao hơn hoặc gây bất ngờ, không chỉ liệt kê bất kỳ ví dụ nào. 既然 A，就 B đi từ tiền đề người nói xem là đã biết sang suy luận/đề nghị. Chọn từ theo quan hệ ý; không dùng lẫn chỉ vì cùng là từ nối. Các mẫu là tình huống riêng.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thêm ý, đối chiếu và suy luận"
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "图书馆周末开放。此外，读者还可以在网上借书。",
+                  "pinyin": "Túshūguǎn zhōumò kāifàng. Cǐwài, dúzhě hái kěyǐ zài wǎngshàng jiè shū.",
+                  "meaningVi": "Thư viện mở cuối tuần. Ngoài ra, độc giả còn có thể mượn sách trực tuyến.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这份说明很清楚，并且提供了具体例子。",
+                  "pinyin": "Zhè fèn shuōmíng hěn qīngchu, bìngqiě tígōng le jùtǐ lìzi.",
+                  "meaningVi": "Bản hướng dẫn này rõ ràng và còn cung cấp ví dụ cụ thể.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "小林喜欢早上学习，而小王更喜欢晚上学习。",
+                  "pinyin": "Xiǎo Lín xǐhuan zǎoshang xuéxí, ér Xiǎo Wáng gèng xǐhuan wǎnshang xuéxí.",
+                  "meaningVi": "Tiểu Lâm thích học buổi sáng, còn Tiểu Vương thích học buổi tối hơn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 4",
+                  "body": "",
+                  "hanzi": "这个办法很方便，不过费用有点儿高。",
+                  "pinyin": "Zhège bànfǎ hěn fāngbiàn, búguò fèiyong yǒudiǎnr gāo.",
+                  "meaningVi": "Cách này rất tiện, nhưng chi phí hơi cao.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:example:4",
+                  "kind": "dialogue",
+                  "title": "Mẫu 5",
+                  "body": "",
+                  "hanzi": "他忙得没时间休息，甚至连午饭都忘了吃。",
+                  "pinyin": "Tā máng de méi shíjiān xiūxi, shènzhì lián wǔfàn dōu wàng le chī.",
+                  "meaningVi": "Anh ấy bận đến mức không có thời gian nghỉ, thậm chí quên cả ăn trưa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:example:5",
+                  "kind": "dialogue",
+                  "title": "Mẫu 6",
+                  "body": "",
+                  "hanzi": "既然大家都看过材料了，我们就开始讨论吧。",
+                  "pinyin": "Jìrán dàjiā dōu kàn guo cáiliào le, wǒmen jiù kāishǐ tǎolùn ba.",
+                  "meaningVi": "Đã là mọi người đều đọc tài liệu rồi thì bắt đầu thảo luận nhé.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Thêm ý, đối chiếu và suy luận"
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:practice",
+              "title": "Khảo Luyện · Thêm ý, đối chiếu và suy luận",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "“Ngoài giờ mở cửa cuối tuần, thư viện còn có dịch vụ mượn online.” Quan hệ được 此外 thể hiện là gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Bổ sung một thông tin cùng chủ đề",
+                        "feedback": "此外 thêm dịch vụ thứ hai, không bác bỏ giờ mở cửa và không giải thích nguyên nhân."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Phủ nhận thông tin trước",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Nêu một nguyên nhân đã được xác minh",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "此外 thêm dịch vụ thứ hai, không bác bỏ giờ mở cửa và không giải thích nguyên nhân.",
+                    "learningTarget": {
+                      "objective": "Thêm ý, đối chiếu và suy luận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Trong câu về Tiểu Lâm và Tiểu Vương, 而 có tác dụng gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chứng minh một người học giỏi hơn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Đối chiếu hai sở thích khác nhau",
+                        "feedback": "而 đối chiếu sở thích. Không có dữ kiện về kết quả học hay quan hệ nhân quả."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Khẳng định buổi sáng gây ra việc học buổi tối",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "而 đối chiếu sở thích. Không có dữ kiện về kết quả học hay quan hệ nhân quả.",
+                    "learningTarget": {
+                      "objective": "Thêm ý, đối chiếu và suy luận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Điền từ thể hiện đánh đổi: 这个办法很方便，___费用有点儿高。",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "既然",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "甚至",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不过",
+                        "feedback": "不过 chuyển từ ưu điểm tiện sang giới hạn chi phí. 甚至 cần mức tăng tiến; 既然 dẫn tiền đề cho vế sau."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不过 chuyển từ ưu điểm tiện sang giới hạn chi phí. 甚至 cần mức tăng tiến; 既然 dẫn tiền đề cho vế sau.",
+                    "learningTarget": {
+                      "objective": "Thêm ý, đối chiếu và suy luận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:question:3",
+                  "kind": "activity",
+                  "title": "Đối chiếu 4",
+                  "body": "Vì sao “甚至连午饭都忘了吃” phù hợp sau “忙得没时间休息”?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Quên cả bữa trưa là mức bận tăng thêm, vượt điều thường mong đợi",
+                        "feedback": "甚至 nhấn mạnh mức độ ngoài dự kiến; câu mô tả tình huống, không khuyên bỏ bữa."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "甚至 chỉ có nghĩa là ngoài ra và dùng ở mọi danh sách",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Câu khuyên nên bỏ bữa để làm việc",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "甚至 nhấn mạnh mức độ ngoài dự kiến; câu mô tả tình huống, không khuyên bỏ bữa.",
+                    "learningTarget": {
+                      "objective": "Thêm ý, đối chiếu và suy luận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:question:4",
+                  "kind": "activity",
+                  "title": "Đối chiếu 5",
+                  "body": "Chưa biết mọi người đã đọc tài liệu hay chưa. Câu nào giữ đúng sự chưa chắc chắn?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "既然大家都看过材料了，我们就开始。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "如果大家都看过材料了，我们就开始。",
+                        "feedback": "如果 giữ việc đọc xong là điều kiện. Hai câu kia trình bày nó như đã biết hoặc chắc chắn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "大家肯定都看过材料了。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "如果 giữ việc đọc xong là điều kiện. Hai câu kia trình bày nó như đã biết hoặc chắc chắn.",
+                    "learningTarget": {
+                      "objective": "Thêm ý, đối chiếu và suy luận",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:1:transfer",
+              "title": "Vận dụng · Thêm ý, đối chiếu và suy luận",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n中心周末有游泳课。此外，还有羽毛球课。学费比较合理，不过停车的地方不多。既然大家已经决定周六去试试，我们就一起坐公交车去吧。\nZhōngxīn zhōumò yǒu yóuyǒng kè. Cǐwài, hái yǒu yǔmáoqiú kè. Xuéfèi bǐjiào hélǐ, búguò tíngchē de dìfang bù duō. Jìrán dàjiā yǐjīng juédìng Zhōuliù qù shìshi, wǒmen jiù yìqǐ zuò gōngjiāochē qù ba.\nTrung tâm có lớp bơi cuối tuần. Ngoài ra còn có lớp cầu lông. Học phí khá hợp lý nhưng chỗ gửi xe không nhiều. Đã quyết định đi thử thứ Bảy thì cùng đi xe buýt nhé.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Thêm ý, đối chiếu và suy luận",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Ý thêm và giới hạn được nối đúng chức năng.",
+                        "guidance": "Ý thêm và giới hạn được nối đúng chức năng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "既然 dựa vào quyết định đã có; đi xe buýt chỉ là đề nghị.",
+                        "guidance": "既然 dựa vào quyết định đã có; đi xe buýt chỉ là đề nghị."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không coi các liên từ đồng nghĩa hoặc cố nhét hết vào một câu.",
+                        "guidance": "Không coi các liên từ đồng nghĩa hoặc cố nhét hết vào một câu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Đổi sang trung tâm thể thao: có lớp bơi cuối tuần và lớp cầu lông; học phí hợp lý nhưng chỗ gửi xe ít. Mọi người đã thống nhất đi thử thứ Bảy. Viết 4–5 câu: thêm thông tin bằng 此外 hoặc 并且, nêu giới hạn bằng 不过, rồi đề nghị từ quyết định đã có bằng 既然…就…. Không thêm 甚至 khi dữ kiện chưa có mức tăng tiến bất ngờ.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不光/不仅 A，还/也 B nêu không chỉ A mà còn B; 不光 thường dùng trong khẩu ngữ. 另外 thêm ý khác hoặc việc khác cần làm. 要是 A，就 B nêu giả định, không khẳng định A đã xảy ra. 由于 dẫn nguyên nhân; 因此 dẫn hệ quả. 加上 bổ sung một yếu tố góp phần vào kết quả. Khi viết, phải có dữ kiện cho quan hệ nhân quả; cùng xảy ra chưa đủ chứng minh nguyên nhân. Mẫu dưới là tình huống luyện riêng.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Bổ sung, giả định và nguyên nhân"
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "她不仅会说汉语，还能用汉语写文章。",
+                  "pinyin": "Tā bùjǐn huì shuō Hànyǔ, hái néng yòng Hànyǔ xiě wénzhāng.",
+                  "meaningVi": "Cô ấy không chỉ nói được tiếng Trung mà còn viết bài bằng tiếng Trung.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这次活动不光有学生参加，也有老师参加。",
+                  "pinyin": "Zhè cì huódòng bùguāng yǒu xuésheng cānjiā, yě yǒu lǎoshī cānjiā.",
+                  "meaningVi": "Hoạt động này không chỉ có học sinh mà còn có giáo viên tham gia.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "请带上笔记本。另外，别忘了带笔。",
+                  "pinyin": "Qǐng dài shàng bǐjìběn. Lìngwài, bié wàng le dài bǐ.",
+                  "meaningVi": "Hãy mang sổ ghi chép. Ngoài ra, đừng quên mang bút.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 4",
+                  "body": "",
+                  "hanzi": "要是明天下雨，我们就改在室内活动。",
+                  "pinyin": "Yàoshi míngtiān xià yǔ, wǒmen jiù gǎi zài shìnèi huódòng.",
+                  "meaningVi": "Nếu ngày mai mưa, chúng ta sẽ chuyển sang hoạt động trong nhà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:example:4",
+                  "kind": "dialogue",
+                  "title": "Mẫu 5",
+                  "body": "",
+                  "hanzi": "由于设备出了问题，活动推迟了，因此我们通知大家晚半小时到。",
+                  "pinyin": "Yóuyú shèbèi chū le wèntí, huódòng tuīchí le, yīncǐ wǒmen tōngzhī dàjiā wǎn bàn xiǎoshí dào.",
+                  "meaningVi": "Do thiết bị gặp trục trặc, hoạt động bị hoãn, vì vậy chúng tôi thông báo mọi người tới muộn nửa giờ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:example:5",
+                  "kind": "dialogue",
+                  "title": "Mẫu 6",
+                  "body": "",
+                  "hanzi": "路上堵车，加上出门晚，我们没赶上第一场演出。",
+                  "pinyin": "Lù shàng dǔchē, jiāshàng chū mén wǎn, wǒmen méi gǎn shàng dì yī chǎng yǎnchū.",
+                  "meaningVi": "Đường tắc, thêm việc ra khỏi nhà muộn, chúng tôi không kịp buổi diễn đầu.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Bổ sung, giả định và nguyên nhân"
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:practice",
+              "title": "Khảo Luyện · Bổ sung, giả định và nguyên nhân",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Câu nào diễn đạt đủ “không chỉ nói mà còn viết được”?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "她不仅会说汉语，还能用汉语写文章。",
+                        "feedback": "不仅…还… nối hai năng lực cùng hướng. Hai lựa chọn kia không tạo cấu trúc đầy đủ cho ý yêu cầu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "她不仅会说汉语，要是写文章。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "她由于会说汉语，不过写文章。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不仅…还… nối hai năng lực cùng hướng. Hai lựa chọn kia không tạo cấu trúc đầy đủ cho ý yêu cầu.",
+                    "learningTarget": {
+                      "objective": "Bổ sung, giả định và nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "“要是明天下雨，我们就改在室内活动” cho biết gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chắc chắn ngày mai mưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Một phương án nếu điều kiện mưa xảy ra",
+                        "feedback": "要是 nêu giả định. Không biến dự phòng thành dự báo chắc chắn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Mưa là kết quả của hoạt động trong nhà",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "要是 nêu giả định. Không biến dự phòng thành dự báo chắc chắn.",
+                    "learningTarget": {
+                      "objective": "Bổ sung, giả định và nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Điền đúng nguyên nhân rồi hệ quả: ___设备出了问题，活动推迟了，___我们通知大家晚点到。",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "因此 / 由于",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "由于 / 因此",
+                        "feedback": "由于 mở nguyên nhân thiết bị lỗi; 因此 nối hệ quả thông báo sau việc hoãn."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "另外 / 要是",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "由于 mở nguyên nhân thiết bị lỗi; 因此 nối hệ quả thông báo sau việc hoãn.",
+                    "learningTarget": {
+                      "objective": "Bổ sung, giả định và nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:question:3",
+                  "kind": "activity",
+                  "title": "Đối chiếu 4",
+                  "body": "Trong câu lỡ buổi diễn, 加上 bổ sung gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Ra khỏi nhà muộn, cùng tắc đường góp phần làm lỡ buổi diễn",
+                        "feedback": "加上 thêm yếu tố thứ hai cùng hướng. Câu mẫu nêu cả hai, không dùng để suy nhân quả trong mọi trường hợp."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Một kết quả không liên quan",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Một sự việc trái ngược với tắc đường",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "加上 thêm yếu tố thứ hai cùng hướng. Câu mẫu nêu cả hai, không dùng để suy nhân quả trong mọi trường hợp.",
+                    "learningTarget": {
+                      "objective": "Bổ sung, giả định và nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:question:4",
+                  "kind": "activity",
+                  "title": "Đối chiếu 5",
+                  "body": "“请带上笔记本。另外，别忘了带笔。” dùng 另外 để làm gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Nêu thêm một việc cần chuẩn bị",
+                        "feedback": "另外 bổ sung việc mang bút, giữ nguyên yêu cầu mang sổ."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Giải thích vì sao sổ gây ra bút",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Phủ nhận việc cần mang sổ",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "另外 bổ sung việc mang bút, giữ nguyên yêu cầu mang sổ.",
+                    "learningTarget": {
+                      "objective": "Bổ sung, giả định và nguyên nhân",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-01:connectors-r14:2:transfer",
+              "title": "Vận dụng · Bổ sung, giả định và nguyên nhân",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n这次活动不仅有阅读，还有交流。由于原来的房间停电了，活动改到另一间教室举行。因此我们要提前通知参加者。要是周末下雨，我们就请大家走有雨棚的入口。\nZhè cì huódòng bùjǐn yǒu yuèdú, hái yǒu jiāoliú. Yóuyú yuánlái de fángjiān tíngdiàn le, huódòng gǎi dào lìng yì jiān jiàoshì jǔxíng. Yīncǐ wǒmen yào tíqián tōngzhī cānjiāzhě. Yàoshi zhōumò xià yǔ, wǒmen jiù qǐng dàjiā zǒu yǒu yǔpéng de rùkǒu.\nHoạt động không chỉ có đọc sách mà còn có trao đổi. Do phòng cũ mất điện, buổi gặp chuyển sang phòng học khác. Vì vậy cần báo trước cho người tham gia. Nếu cuối tuần mưa, chúng ta sẽ mời mọi người đi lối vào có mái che.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bổ sung, giả định và nguyên nhân",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Không chỉ…mà còn… nối đọc và trao đổi.",
+                        "guidance": "Không chỉ…mà còn… nối đọc và trao đổi."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Nguyên nhân đổi phòng là sự việc đã có; mưa vẫn là giả định.",
+                        "guidance": "Nguyên nhân đổi phòng là sự việc đã có; mưa vẫn là giả định."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy mưa gây ra sự cố điện; không cần dùng hết từ nối trong nhóm.",
+                        "guidance": "Không suy mưa gây ra sự cố điện; không cần dùng hết từ nối trong nhóm."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Đổi sang buổi đọc sách cộng đồng: có phần đọc và trao đổi; điện ở phòng cũ đã hỏng nên buổi gặp chuyển sang phòng khác. Chưa biết cuối tuần có mưa hay không; nếu mưa thì hướng dẫn khách dùng lối có mái che. Viết 4–5 câu dùng 不仅…还… hoặc 不光…也…, 由于/因此 cho việc đã xảy ra và 要是…就… cho phương án giả định.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n城市公共资料由政府部门、社会组织与民族社区共同更新，三方分别提供服务事实、检查无障碍信息和解释文化背景。新版并且标出来源、日期与负责人，不过未受访社区仍需补充。山区市场则同时使用广播和互联网：办公室管理原始价格，平台保存修改，广播员口头确认。三个月内在线订单增加，而收听没有明显下降。两例都说明，多方与多渠道可以互补，但不能因此宣称资料完整或互联网适合所有人。\nDữ liệu công cộng do cơ quan nhà nước, tổ chức xã hội và cộng đồng dân tộc cùng cập nhật, lần lượt cung cấp dữ kiện dịch vụ, kiểm tiếp cận và giải thích văn hóa. Bản mới ghi nguồn/ngày/người phụ trách nhưng cộng đồng chưa phỏng vấn vẫn thiếu. Chợ miền núi dùng cả phát thanh và Internet; văn phòng giữ giá gốc, nền tảng lưu sửa, phát thanh viên xác nhận. Ba tháng cho thấy đơn mạng tăng mà nghe phát thanh không giảm rõ. Hai trường hợp cho thấy bổ sung đa bên/đa kênh, không chứng minh dữ liệu hoàn chỉnh hay mạng hợp mọi người.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách hai hệ thống phân vai, tổ chức nguồn và giữ nhiều kênh thông tin; nêu rõ kết quả quan sát cùng giới hạn đại diện.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "ba vai trò trong dữ liệu thành phố",
+                        "id": "criterion-0",
+                        "label": "ba vai trò trong dữ liệu thành phố"
+                      },
+                      {
+                        "guidance": "nguồn và người phụ trách",
+                        "id": "criterion-1",
+                        "label": "nguồn và người phụ trách"
+                      },
+                      {
+                        "guidance": "phát thanh so với Internet",
+                        "id": "criterion-2",
+                        "label": "phát thanh so với Internet"
+                      },
+                      {
+                        "guidance": "ba tháng quan sát và dữ liệu còn thiếu",
+                        "id": "criterion-3",
+                        "label": "ba tháng quan sát và dữ liệu còn thiếu"
+                      },
+                      {
+                        "guidance": "Không đổi kết quả ba tháng thành xu hướng dài hạn, không nói hai kênh hiệu quả bằng nhau và không xóa nhóm chưa được quan sát.",
+                        "id": "criterion-4",
+                        "label": "Không đổi kết quả ba tháng thành xu hướng dài hạn, không nói hai kênh hiệu quả bằng nhau và không xóa nhóm chưa được quan sát."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách hai hệ thống phân vai, tổ chức nguồn và giữ nhiều kênh thông tin; nêu rõ kết quả quan sát cùng giới hạn đại diện.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n城市不应马上把公共信息全部转到互联网，而应建立责任清楚的多渠道系统。公共资料既有地点时间，也有文化解释和无障碍信息，因此政府、社会组织与社区应分别负责。山区市场的网络订单增加，平台也能保存修改记录，支持继续发展网络。有人认为广播慢，集中到一个平台更方便。不过老人仍依靠广播，三个月内收听没有明显下降，偏远村庄的信号资料也不完整。价格写错时，办公室管原始数据，平台留修改记录，广播员口头确认，说明可靠性来自分工而不只来自技术。较好的办法是统一来源标准，保留网页、广播和服务台，并分别报告到达率。现有材料只涉及一座城和一个市场，不能确定长期成本，也不能证明同一安排适合所有地区。\nThành phố chưa nên chuyển toàn bộ thông tin lên Internet mà cần hệ đa kênh với trách nhiệm rõ. Dữ liệu công cộng gồm cả địa điểm/giờ, diễn giải văn hóa và tiếp cận, nên cơ quan, tổ chức, cộng đồng phải phụ trách phần khác nhau; một bên viết dễ bỏ tri thức của bên khác. Đơn mạng tăng và nền tảng lưu lịch sử sửa là lý do phát triển mạng. Phản biện cho rằng phát thanh chậm và một nền tảng tiện hơn. Tuy vậy người cao tuổi còn dựa phát thanh, ba tháng chưa thấy lượng nghe giảm, tín hiệu làng xa còn thiếu. Khi giá sai, văn phòng, nền tảng, phát thanh viên xử lý các lớp riêng, nên độ tin cậy đến từ phân vai chứ không chỉ công nghệ. Nên thống nhất chuẩn nguồn, giữ web–phát thanh–quầy và báo tỷ lệ tiếp cận riêng. Hai nguồn không cho biết chi phí dài hạn hay khả năng áp dụng mọi nơi.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận liệu thành phố nên chuyển toàn bộ thông tin công cộng sang Internet hay duy trì hệ thống đa kênh có phân rõ trách nhiệm.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm về hệ thống đa kênh",
+                        "id": "criterion-0",
+                        "label": "luận điểm về hệ thống đa kênh"
+                      },
+                      {
+                        "guidance": "vai trò của cơ quan, tổ chức và cộng đồng",
+                        "id": "criterion-1",
+                        "label": "vai trò của cơ quan, tổ chức và cộng đồng"
+                      },
+                      {
+                        "guidance": "khác biệt nhóm dùng phát thanh và Internet",
+                        "id": "criterion-2",
+                        "label": "khác biệt nhóm dùng phát thanh và Internet"
+                      },
+                      {
+                        "guidance": "phản biện về tốc độ và khả năng lưu sửa của mạng",
+                        "id": "criterion-3",
+                        "label": "phản biện về tốc độ và khả năng lưu sửa của mạng"
+                      },
+                      {
+                        "guidance": "giới hạn ba tháng, tín hiệu vùng xa và cộng đồng chưa phỏng vấn",
+                        "id": "criterion-4",
+                        "label": "giới hạn ba tháng, tín hiệu vùng xa và cộng đồng chưa phỏng vấn"
+                      },
+                      {
+                        "guidance": "Một nền tảng Internet tập trung cập nhật nhanh, lưu lịch sử sửa và giảm chi phí duy trì nhiều kênh.",
+                        "id": "criterion-5",
+                        "label": "Một nền tảng Internet tập trung cập nhật nhanh, lưu lịch sử sửa và giảm chi phí duy trì nhiều kênh."
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất đa kênh cho bối cảnh nguồn; chưa có dữ liệu chi phí, hiệu quả dài hạn hoặc độ phủ đủ để áp dụng cho mọi thành phố.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất đa kênh cho bối cảnh nguồn; chưa có dữ liệu chi phí, hiệu quả dài hạn hoặc độ phủ đủ để áp dụng cho mọi thành phố."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận liệu thành phố nên chuyển toàn bộ thông tin công cộng sang Internet hay duy trì hệ thống đa kênh có phân rõ trách nhiệm.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n先把服务事实、文化解释和传播渠道分别标明来源。\n政府、社会组织与社区共同参与，但不能越过各自责任。\n网络订单增加，而广播仍覆盖老人，两种渠道暂时互补。\n回应“只用互联网更快”：速度不能代替信号覆盖与口头确认。\n最后说明资料缺少偏远村庄和未受访社区，观察也只有三个月。\nTrước hết ghi riêng nguồn cho dữ kiện dịch vụ, diễn giải văn hóa và kênh truyền.\nCơ quan, tổ chức xã hội và cộng đồng cùng tham gia nhưng không vượt quyền nhau.\nĐơn mạng tăng, phát thanh vẫn phủ người cao tuổi nên tạm thời bổ sung nhau.\nTrả lời ý kiến mạng nhanh hơn: tốc độ không thay độ phủ tín hiệu và xác nhận miệng.\nKết bằng khoảng trống làng xa, cộng đồng chưa phỏng vấn và thời gian ba tháng.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Bảo vệ một quy tắc sắp xếp thông tin công cộng sao cho người nghe biết dữ kiện, diễn giải, kênh truyền và người chịu trách nhiệm. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "mở bằng một nguyên tắc phân nguồn",
+                        "id": "move-0",
+                        "label": "mở bằng một nguyên tắc phân nguồn"
+                      },
+                      {
+                        "guidance": "dẫn một ví dụ về quyền hạn thành phố",
+                        "id": "move-1",
+                        "label": "dẫn một ví dụ về quyền hạn thành phố"
+                      },
+                      {
+                        "guidance": "dẫn một ví dụ về hai kênh thị trường",
+                        "id": "move-2",
+                        "label": "dẫn một ví dụ về hai kênh thị trường"
+                      },
+                      {
+                        "guidance": "trả lời ý kiến nên dùng duy nhất Internet",
+                        "id": "move-3",
+                        "label": "trả lời ý kiến nên dùng duy nhất Internet"
+                      },
+                      {
+                        "guidance": "kết bằng giới hạn đại diện và thời gian",
+                        "id": "move-4",
+                        "label": "kết bằng giới hạn đại diện và thời gian"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bảo vệ một quy tắc sắp xếp thông tin công cộng sao cho người nghe biết dữ kiện, diễn giải, kênh truyền và người chịu trách nhiệm.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "government",
+                        "label": "线索一",
+                        "meaningVi": "Dịch vụ, địa điểm và thời gian.",
+                        "note": "Nhà nước · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "social",
+                        "label": "线索二",
+                        "meaningVi": "Kiểm khả năng tiếp cận.",
+                        "note": "Tổ chức xã hội · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "community",
+                        "label": "线索三",
+                        "meaningVi": "Tên gọi và bối cảnh văn hóa.",
+                        "note": "Cộng đồng · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "process",
+                        "label": "线索四",
+                        "meaningVi": "Lưu bản, lý do, kiểm tra.",
+                        "note": "Quy trình · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索五",
+                        "meaningVi": "Nhóm chưa được phỏng vấn.",
+                        "note": "Khoảng trống · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-society-economy-argument-concept-actor-map; revision 4ee57540-fd3f-401d-bec6-526a7ef6dac9; humanReviewed:false",
+                  "title": "Ai viết dữ liệu công cộng của một thành phố"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "radio",
+                        "label": "线索一",
+                        "meaningVi": "Giá, thời tiết và người nghe lớn tuổi.",
+                        "note": "Phát thanh · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "internet",
+                        "label": "线索二",
+                        "meaningVi": "Ảnh, đơn và người dùng trẻ.",
+                        "note": "Internet · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "source",
+                        "label": "线索三",
+                        "meaningVi": "Văn phòng chợ.",
+                        "note": "Nguồn gốc · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "incident",
+                        "label": "线索四",
+                        "meaningVi": "Giá sai lan nhanh.",
+                        "note": "Sự cố · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索五",
+                        "meaningVi": "Độ phủ làng xa.",
+                        "note": "Thiếu · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-01:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-society-economy-argument-concept-actor-map; revision 4ee57540-fd3f-401d-bec6-526a7ef6dac9; humanReviewed:false",
+                  "title": "Phát thanh, Internet và thị trường địa phương"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-01:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "0d04ee97-c980-4463-a256-917e11155cb8",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-event-agency-voice-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-019",
+          "hsk4-grammar-row-020",
+          "hsk4-grammar-row-021"
+        ],
+        "sourceLessonIds": [
+          "hsk4-information-order-cohesion-lesson-01",
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-22"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01077",
+          "hsk-vocab-01252",
+          "hsk-vocab-01512",
+          "hsk-vocab-01639",
+          "hsk-vocab-01978",
+          "hsk-vocab-01275",
+          "hsk-vocab-01299",
+          "hsk-vocab-01370",
+          "hsk-vocab-01669",
+          "hsk-vocab-01215"
+        ],
+        "targetLessonId": "hsk4-information-order-cohesion-lesson-01",
+        "titleZh": "HSK四级 · 52",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "39f551f9-ad17-42b9-b00e-bd52a9d935c0"
+        },
+        "vocabulary": [
+          "hsk-vocab-01077",
+          "hsk-vocab-01252",
+          "hsk-vocab-01512",
+          "hsk-vocab-01639",
+          "hsk-vocab-01978",
+          "hsk-vocab-01275",
+          "hsk-vocab-01299",
+          "hsk-vocab-01370",
+          "hsk-vocab-01669",
+          "hsk-vocab-01215"
+        ]
+      }
+    }
+  ]
+}

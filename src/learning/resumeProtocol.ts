@@ -1,5 +1,6 @@
 import { answersMatch, buildExercises, type Exercise } from "../lib/exerciseGeneration";
 import type { ExerciseKind, Lesson, Skill } from "../types";
+import { isEditorialLessonSession, LEXICAL_EXERCISE_SUFFIX, lexicalActivityVersion } from "../content/lexicalEditorialCatalog";
 
 export type LessonResumePhase = "briefing" | "exercise";
 
@@ -150,6 +151,7 @@ export const buildLessonResumeExercises = (
   lesson,
   script,
   seededRandom(`lesson-resume:v5:${lesson.contentVersion}:${lesson.id}:${script}:${sessionId}`),
+  isEditorialLessonSession(lesson.id, sessionId),
 );
 
 export const summarizeLessonResumeAnswers = (
@@ -195,7 +197,9 @@ export const scoreLessonResumeAnswers = (
 };
 
 const expectedActivityVersion = (lesson: Lesson, exercise: Exercise) =>
-  exercise.kind === "tone-pair"
+  exercise.id.endsWith(LEXICAL_EXERCISE_SUFFIX)
+    ? lexicalActivityVersion(`${lesson.contentVersion}:${lesson.id}:1`)
+    : exercise.kind === "tone-pair"
     ? `${lesson.contentVersion}:tone-sandhi:1`
     : `${lesson.contentVersion}:${lesson.id}:1`;
 

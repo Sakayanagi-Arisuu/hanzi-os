@@ -104,12 +104,19 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   const speechRetryTimerRef = useRef<number | null>(null);
   const contextIdleTimerRef = useRef<number | null>(null);
   const recordingRef = useRef(false);
+  const effectNodesRef = useRef(new Set<OscillatorNode>());
+  const realmNodesRef = useRef(new Set<OscillatorNode>());
+  const realmPlayedAtRef = useRef(-2000);
   const mandarinSpeechPreparerRef = useRef<(() => boolean) | null>(null);
   const [playback, setPlayback] = useState<VoicePlaybackState>({ phase: "idle" });
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
   useEffect(() => {
     preferencesRef.current = preferences;
+    if (!preferences.soundEnabled || preferences.effectsVolume <= 0 || preferences.soundVolume <= 0) {
+      effectNodesRef.current.forEach(node => { try { node.stop(); } catch { /* Already ended. */ } });
+      effectNodesRef.current.clear();
+    }
     masterGainRef.current?.gain.setTargetAtTime(preferences.soundVolume, audioContextRef.current?.currentTime ?? 0, .02);
     voiceGainRef.current?.gain.setTargetAtTime(
       Math.min(1.5, preferences.voiceVolume * 1.45),
@@ -185,6 +192,9 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       const effects = effectsGainRef.current;
       if (!context || !effects) return;
       const current = preferencesRef.current;
+      if ((!current.soundEnabled && !options?.force) || current.soundVolume <= 0 || current.effectsVolume <= 0) return;
+      if (cue.startsWith("realm.") && (document.hidden || recordingRef.current || currentUtteranceRef.current || currentClipSourceRef.current)) return;
+      if (effectNodesRef.current.size + definition.tones.length > 24) return;
       const startAt = context.currentTime + .008;
       const presetGain = PRESET_GAIN[current.soundPreset];
       definition.tones.forEach(([frequency, offset, duration, wave = "sine"], index) => {
@@ -204,6 +214,9 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
         envelope.gain.exponentialRampToValueAtTime(.0001, startAt + offset + duration);
         oscillator.connect(envelope);
         envelope.connect(effects);
+        effectNodesRef.current.add(oscillator);
+        if (cue.startsWith("realm.")) realmNodesRef.current.add(oscillator);
+        oscillator.onended = () => { oscillator.disconnect(); envelope.disconnect(); effectNodesRef.current.delete(oscillator); realmNodesRef.current.delete(oscillator); };
         oscillator.start(startAt + offset);
         oscillator.stop(startAt + offset + duration + .025);
       });
@@ -216,7 +229,22 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     }).catch(() => undefined);
   }, [ensureGraph]);
 
+
+  useEffect(() => {
+    const ceremony = (event: Event) => {
+      const family = (event as CustomEvent<{ family?: string }>).detail?.family;
+      if (!family || !navigator.userActivation?.hasBeenActive || document.hidden || recordingRef.current || currentUtteranceRef.current || currentClipSourceRef.current) return;
+      const now = performance.now();
+      if (now - realmPlayedAtRef.current < 1900) return;
+      realmPlayedAtRef.current = now;
+      playCue(`realm.${family}` as SoundCueId);
+    };
+    document.addEventListener("hanzi:realm-sound", ceremony);
+    return () => document.removeEventListener("hanzi:realm-sound", ceremony);
+  }, [playCue]);
+
   const setDucked = useCallback((ducked: boolean) => {
+    if (ducked) realmNodesRef.current.forEach(node => { try { node.stop(); } catch { /* Already ended. */ } });
     const context = audioContextRef.current;
     const effects = effectsGainRef.current;
     if (!context || !effects) return;

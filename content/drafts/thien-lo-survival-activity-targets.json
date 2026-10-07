@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "humanReviewed": false,
+  "partial": true,
+  "lessonIds": [
+    "survival-1",
+    "survival-2",
+    "survival-3",
+    "survival-4",
+    "survival-5",
+    "survival-6",
+    "survival-7",
+    "survival-8",
+    "survival-9"
+  ],
+  "targets": {
+    "survival-1": {
+      "survival-1:v2:block:choice": {
+        "skill": "vocabulary",
+        "objective": "Chọn lời xin lỗi 对不起 khi chính mình làm rơi đồ của người khác; không nhầm với lời đáp cảm ơn. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00045"
+          }
+        ]
+      },
+      "survival-1:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 不客气 làm lời đáp cho 谢谢你, phân biệt với lời đáp xin lỗi. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00014"
+          }
+        ]
+      },
+      "survival-1:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết các lượt thoại mới, giữ đúng vai người cảm ơn, người xin lỗi và người đáp lời theo tình huống. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-06"
+          }
+        ]
+      }
+    },
+    "survival-2": {
+      "survival-2:v2:block:choice": {
+        "skill": "vocabulary",
+        "objective": "Chọn 它们 cho hai con mèo không được nhân hóa, phân biệt nhóm nữ và nhóm có người nói. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00204"
+          }
+        ]
+      },
+      "survival-2:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 她们 cho nhóm nữ được nhắc tới mà không có người nói. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00205"
+          }
+        ]
+      },
+      "survival-2:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lời giới thiệu nhóm người và vật theo đúng điểm nhìn, tự soát đại từ số nhiều. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-02-pronouns-and-groups"
+          }
+        ]
+      }
+    },
+    "survival-3": {
+      "survival-3:v2:block:choice": {
+        "skill": "grammar",
+        "objective": "Chọn câu hỏi 怎么写 để hỏi cách viết tên thay vì hỏi danh tính hay tình trạng. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00276"
+          }
+        ]
+      },
+      "survival-3:v2:block:guided": {
+        "skill": "grammar",
+        "objective": "Hoàn thành câu hỏi 你的名字怎么写 bằng động từ 写; 写 chưa có source từ vựng riêng trong bài nên nối mẫu nghi vấn đã học. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "grammar",
+            "id": "hsk1-grammar-row-008"
+          }
+        ]
+      },
+      "survival-3:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết đoạn giới thiệu giả định và hỏi lại tên, tuổi hoặc cách viết tên theo đúng vai giao tiếp. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-01"
+          }
+        ]
+      }
+    },
+    "survival-4": {
+      "survival-4:v2:block:choice": {
+        "skill": "vocabulary",
+        "objective": "Chọn 弟弟 cho em trai cùng cha mẹ và nhỏ tuổi hơn người nói. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00032"
+          }
+        ]
+      },
+      "survival-4:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 姐姐 cho chị gái lớn tuổi hơn người nói trong gia đình giả định. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00092"
+          }
+        ]
+      },
+      "survival-4:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu về quan hệ gia đình giả định, giữ đúng tuổi tương đối và điểm nhìn của từng vai. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-04-family"
+          }
+        ]
+      }
+    },
+    "survival-5": {
+      "survival-5:v2:block:choice": {
+        "skill": "vocabulary",
+        "objective": "Chọn 朋友 khi đề chỉ nói quan hệ bạn bè, không tự suy thành quan hệ yêu đương. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00156"
+          }
+        ]
+      },
+      "survival-5:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền lượng từ 只 sau 两 để đếm hai con chó trong mẫu đã học. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00287"
+          }
+        ]
+      },
+      "survival-5:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu giới thiệu bạn bè, vật nuôi và lượng từ; tự kiểm không đổi quan hệ do suy đoán. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-05-friends-and-pets"
+          }
+        ]
+      }
+    },
+    "survival-6": {
+      "survival-6:v2:block:choice": {
+        "skill": "vocabulary",
+        "objective": "Chọn 好听 để đánh giá giai điệu nghe hay thay vì ngoại hình hay cảm xúc. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00074"
+          }
+        ]
+      },
+      "survival-6:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 好听 trong 这首歌很好听 khi điều được đánh giá là âm thanh. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00074"
+          }
+        ]
+      },
+      "survival-6:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lời nhận xét phù hợp từng đối tượng nhìn/nghe và mức độ, không dùng một tính từ cho mọi giác quan. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-06-description-and-feeling"
+          }
+        ]
+      }
+    },
+    "survival-7": {
+      "survival-7:v2:block:choice": {
+        "skill": "grammar",
+        "objective": "Chọn câu 我今天没有时间 để phủ định việc có thời gian hôm nay. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00122"
+          }
+        ]
+      },
+      "survival-7:v2:block:guided": {
+        "skill": "grammar",
+        "objective": "Điền 没有 để phủ định 有 trong câu nói không có thời gian, không dùng 不有. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00122"
+          }
+        ]
+      },
+      "survival-7:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu về khả năng, dự định và điều kiện thời gian; phân biệt 会, 想 và 没有. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-07-ability-intention-negation"
+          }
+        ]
+      }
+    },
+    "survival-8": {
+      "survival-8:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn lời hẹn gọi lại vào tối phù hợp khi người nhận đang có việc; đối chiếu nội dung và thời điểm trong phương án. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-08-phone-and-conversation"
+          }
+        ]
+      },
+      "survival-8:v2:block:guided": {
+        "skill": "grammar",
+        "objective": "Điền 再 cho một lần gọi sau trong tương lai, không nhầm với 在 đồng âm; từ này chưa có source từ vựng riêng trong bài. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-08-phone-and-conversation"
+          }
+        ]
+      },
+      "survival-8:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lượt thoại hẹn gọi lại có thời điểm và ngữ khí phù hợp, tự kiểm vai hai bên. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-08-phone-and-conversation"
+          }
+        ]
+      }
+    },
+    "survival-9": {
+      "survival-9:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn 我还没起床 khi thông tin là vẫn chưa ra khỏi giường, phân biệt với đã dậy và thói quen. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-09-personal-routine"
+          }
+        ]
+      },
+      "survival-9:v2:block:guided": {
+        "skill": "grammar",
+        "objective": "Điền 还没 trước 起床 để nói việc chưa xảy ra; cụm này chưa có source từ vựng riêng trong bài. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-09-personal-routine"
+          }
+        ]
+      },
+      "survival-9:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu về thói quen, trạng thái đã dậy và dự định đi ngủ, phân biệt mốc thời gian. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-pe-09-personal-routine"
+          }
+        ]
+      }
+    }
+  }
+}

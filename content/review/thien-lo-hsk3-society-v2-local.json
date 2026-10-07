@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-27",
+  "scope": "Five original HSK3 society, arts and sports narratives with source-linked reading practice, editable factual diagrams and guided writing. Self-review is local editorial review, not native/human sign-off or mastery evidence.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/39-REVIEW-HSK3-SOCIETY.md",
+  "items": [
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-modern-life",
+      "sourceContentSha256": "sha256:795216ad1e3ec3caab3da7d2e17787633c735c0c03cc2f79540b206e3503a704",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-city-development",
+      "sourceContentSha256": "sha256:7cd50c49f8954b7dfa0a256706528d49200e51c56235ad764a1e2b2223adaeb7",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-arts-activities",
+      "sourceContentSha256": "sha256:189ae1340ead0cafc9c22fb4ee52fb1a11b77c31d33bebc5db4f39f39514e599",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-sports-introduction",
+      "sourceContentSha256": "sha256:e4d3eb424138a952b81c435e81248e473dd32d74ad154840b748c62e50759137",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-society-arts-sports-reports-competition-report",
+      "sourceContentSha256": "sha256:d6cab1589777f1caa1b31273d51cb039ec5a32328cb74285889ed75effda5464",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

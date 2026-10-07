@@ -24,6 +24,14 @@ editorial chỉ dành cho server/tooling. Package hiện hành là
 `foundation-2026.08.7`; thay version phải đi qua registry, validator và migration
 thay vì sửa chuỗi rải rác.
 
+Premium hiện áp dụng cho bài HSK4 trong Thiên Lộ và các cửa luyện đề được cấu hình Premium. Phòng Luyện Đề mặc định mở A–C ở mỗi HSK; D–L mặc định Premium, có override từng level/cửa trong Xưởng. Bài dùng cùng lesson ID và
+learner UI, nhưng payload rich và hoạt động gắn bài được đọc ở server sau khi
+xác minh quyền. Từ điển, mục chữ và Khảo Nghiệm Căn Cơ vẫn mở
+theo quy tắc đăng nhập riêng của từng khu; chúng không cần Premium. Các API mở/khôi phục đề kiểm quyền server trước khi trả câu; lịch sử và lệnh ghi/nộp phiên đã cấp giữ nguyên để bảo toàn phiên. Client giữ
+metadata lộ trình công khai; `check-premium-client-bundle.mjs` chặn marker
+payload bài Thiên Lộ HSK4 lọt vào JS công khai sau build. Quyền hiện mới là
+sandbox local; cần thanh toán thật và audit provider trước production.
+
 ## 2. Trách nhiệm thư mục root
 
 | Thư mục | Trách nhiệm | Không đặt ở đây |

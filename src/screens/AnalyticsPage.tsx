@@ -1,4 +1,5 @@
-import { PracticeMilestone } from "../components/PracticeMilestone";
+import { PracticeCoverageMeter } from "../components/PracticeCoverageMeter";
+import { usePracticeCoverage } from "../learning/usePracticeCoverage";
 import {
   Activity,
   ArrowRight,
@@ -92,6 +93,7 @@ const signalLabel = (
 };
 
 export function AnalyticsPage() {
+  const practiceCoverage = usePracticeCoverage(true);
   const detailRef = useRef<HTMLDetailsElement>(null);
   const { state, dueWordIds, level } = useLearning();
   const interactionXp = useInteractionXp();
@@ -195,7 +197,7 @@ export function AnalyticsPage() {
   return (
     <div className="content-page analytics-page oracle-page" data-testid="analytics-page">
       <header className="oracle-hero">
-        <div className="oracle-hero-copy">
+        <div className="oracle-hero-copy"><div className="realm-emblem" aria-hidden="true" />
           <span className="oracle-mirror-inscription" aria-hidden="true">天机镜</span>
           <span className="oracle-kicker"><BarChart3 size={16} aria-hidden="true" /> MIRROR-10 · TRUNG TÂM ĐIỀU PHỐI</span>
           <h1>Thiên Cơ Kính</h1>
@@ -277,7 +279,7 @@ export function AnalyticsPage() {
             <div>
               <span>THẤT TRỤ · DẤU CHÂN THEO KỸ NĂNG</span>
               <h2 id="oracle-pillar-title">Bản đồ Căn Cơ</h2>
-              <p>Mốc luyện: 1.000 câu mỗi kỹ năng · không phải điểm thành thạo.</p>
+              <p>Tiến độ luyện tập · không phải mức thành thạo.</p>
             </div>
             <a className="oracle-detail-link" href="#oracle-detail" onClick={() => { if (detailRef.current) detailRef.current.open = true; }}>Xem chi tiết <ArrowRight size={14} aria-hidden="true" /></a>
           </header>
@@ -286,17 +288,14 @@ export function AnalyticsPage() {
               const meta = skillMeta[item.skill];
               const Icon = meta.icon;
               const visibleState = visibleSignalState(item);
-              const practice = activity?.skills[item.skill];
-              const valueText = practice ? `${practice.unique} câu · ${practice.attempts} lượt luyện` : "Chưa tải được lượt luyện";
               return <article className={`is-${meta.color}`} data-state={visibleState} key={item.skill}>
                 <div className="oracle-pillar-copy">
                   <span><Icon size={17} aria-hidden="true" /><strong>{meta.label}</strong></span>
-                  <small>{valueText}</small>
                 </div>
                 <Link to={ANALYTICS_SKILL_DESTINATION[item.skill]} aria-label={`${meta.action}: ${meta.label}`} viewTransition>
                   <span>{meta.action}</span><ChevronRight size={16} aria-hidden="true" />
                 </Link>
-                <PracticeMilestone count={practice?.unique ?? null} label={meta.label} compact />
+                <PracticeCoverageMeter value={practiceCoverage[item.skill]} label={meta.label} />
               </article>;
             })}
           </div>

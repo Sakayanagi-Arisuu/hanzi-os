@@ -3,6 +3,7 @@ import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
+import {seedThienLoRestoreFixture,readThienLoRestoreFixture,assertThienLoRestoreFixture} from "./restore-thien-lo-fixture.mjs";
 
 const workspace = process.cwd();
 const temporaryDirectory = await mkdtemp(join(tmpdir(), "hanzi-os-d1-restore-"));
@@ -259,13 +260,22 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 23
+    migrations.length !== 32
     || !migrations[20]?.startsWith("0020_")
     || migrations[21] !== "0021_sleepy_gorilla_man.sql"
     || migrations[22] !== "0022_tearful_lady_ursula.sql"
+    || migrations[23] !== "0023_brave_mandrill.sql"
+    || migrations[24] !== "0024_thien_lo_media.sql"
+    || migrations[25] !== "0025_lesson_page_attempts.sql"
+    || migrations[26] !== "0026_hsk4_premium_sandbox.sql"
+    || migrations[27] !== "0027_premium_support.sql"
+    || migrations[28] !== "0028_living_marvex.sql"
+    || migrations[29] !== "0029_burly_midnight.sql"
+    || migrations[30] !== "0030_next_talos.sql"
+    || migrations[31] !== "0031_hanzi_refund_rejection.sql"
   ) {
     throw new Error(
-      `Restore rehearsal requires 23 migrations through 0022; found ${
+      `Restore rehearsal requires 32 migrations through 0031; found ${
         migrations.length
       }`,
     );
@@ -1128,6 +1138,14 @@ try {
     source.prepare(
       "INSERT INTO learning_documents (user_id, revision, document_json, schema_version, content_version, updated_at) VALUES (?, 7, ?, 1, ?, ?)",
     ).run("restore-user", documentJson, "restore-content-v1", now);
+    source.prepare(
+      "INSERT INTO premium_support_tickets (id,user_id,category,subject,message,status,response,responded_by,created_at,updated_at) VALUES ('restore-support-ticket',?,'access','Quyền HSK4','Không mở được bài HSK4','answered','Đã kiểm tra quyền','restore-user',?,?)",
+    ).run("restore-user", now, now);
+    source.prepare("INSERT INTO hanzi_wallets (user_id,balance,updated_at) VALUES ('restore-user',75,?)").run(now);
+    source.prepare("INSERT INTO hanzi_wallet_entries (id,user_id,delta,kind,reference_id,actor_user_id,created_at) VALUES ('restore-wallet-entry','restore-user',75,'admin_credit','restore-wallet-ref','restore-user',?)").run(now);
+    source.prepare("INSERT INTO hanzi_plan_prices (plan_id,amount,updated_by,updated_at) VALUES ('hsk4-month',25,'restore-user',?)").run(now);
+    source.prepare("INSERT INTO hanzi_premium_orders (id,user_id,plan_id,amount,idempotency_key,status,paid_at) VALUES ('restore-hanzi-order','restore-user','hsk4-month',25,'restore-hanzi-key','paid',?)").run(now);
+    source.prepare("INSERT INTO lesson_access_rules (lesson_id,tier,updated_by,updated_at) VALUES ('hsk4-lesson-restore','free','restore-user',?)").run(now);
     insertEditorialAssignmentEvent.run(
       "restore-editorial-event-1",
       editorialStreamId,
@@ -1202,6 +1220,9 @@ try {
     source.exec("ROLLBACK");
     throw error;
   }
+  seedThienLoRestoreFixture(source);
+  const sourceThienLoFixture = readThienLoRestoreFixture(source);
+  assertThienLoRestoreFixture(source, sourceThienLoFixture);
   const sourceReaderFixture = readReaderFixture(source);
   const sourceHanziCredential = readHanziCredential(source);
   if (
@@ -1265,7 +1286,20 @@ try {
   const tables = restored.prepare(
     "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' ORDER BY name",
   ).all();
+  const restoredThienLoFixture = assertThienLoRestoreFixture(restored, sourceThienLoFixture);
   const tableNames = new Set(tables.map((table) => table.name));
+  const restoredSupportTicket = restored.prepare(
+    "SELECT user_id AS userId, status, response FROM premium_support_tickets WHERE id='restore-support-ticket'",
+  ).get();
+  if (JSON.stringify(restoredSupportTicket) !== JSON.stringify({
+    userId: "restore-user", status: "answered", response: "Đã kiểm tra quyền",
+  })) throw new Error("Restore rehearsal lost the account-owned Premium support response");
+  const restoredWallet = restored.prepare("SELECT balance FROM hanzi_wallets WHERE user_id='restore-user'").get();
+  const restoredWalletEntry = restored.prepare("SELECT delta FROM hanzi_wallet_entries WHERE id='restore-wallet-entry'").get();
+  const restoredHanziOrder = restored.prepare("SELECT amount FROM hanzi_premium_orders WHERE id='restore-hanzi-order'").get();
+  const restoredLessonAccess = restored.prepare("SELECT tier FROM lesson_access_rules WHERE lesson_id='hsk4-lesson-restore'").get();
+  if (restoredWallet?.balance !== 75 || restoredWalletEntry?.delta !== 75 || restoredHanziOrder?.amount !== 25) throw new Error("Restore rehearsal lost Hanzi wallet data");
+  if (restoredLessonAccess?.tier !== "free") throw new Error("Restore rehearsal lost lesson access rule");
   const requiredIdentityTables = [
     "audit_events",
     "auth_challenges",
@@ -1277,13 +1311,24 @@ try {
     "hanzi_password_credentials",
     "passkey_credentials",
     "system_settings",
+    "learner_access_days",
+    "lesson_media_assets",
+    "lesson_media_chunks",
+    "lesson_page_attempts",
+    "commerce_sandbox_orders",
+    "hanzi_wallets",
+    "hanzi_wallet_entries",
+    "hanzi_plan_prices",
+    "hanzi_premium_orders",
+    "lesson_access_rules",
+    "premium_support_tickets",
   ];
   if (
-    tables.length !== 40
+    tables.length !== 51
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 40 application tables including identity, HANZI.OS credentials, audited controls, governed content revisions, assignments, and content release worker state; found ${
+      `Restore rehearsal requires 51 application tables including identity, content releases, visit days, lesson media, page attempts, sandbox orders, wallet, lesson access and support tickets; found ${
         tables.length
       }`,
     );
@@ -1857,6 +1902,7 @@ try {
   console.log(JSON.stringify({
     migrations: migrations.length,
     restoredTables: tables.length,
+    thienLoRestore: restoredThienLoFixture,
     restoredRoles: restoredRoles.map((row) => row.role),
     hanziCredentialRestore: "fingerprint-and-constraints-ok",
     revision: restoredDocument.revision,

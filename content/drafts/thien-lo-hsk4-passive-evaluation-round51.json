@@ -1,0 +1,1426 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/144-REVIEW-HSK4-PASSIVE-EVALUATION-ROUND51.md",
+  "entries": [
+    {
+      "sourceRevisionId": "3e9988aa-3d54-4a98-8a50-000720f488b1",
+      "sourceContentSha256": "sha256:12b804cb0ffefa67ac9b4bd7f4a5b3d7915480938e35786bf587f6293dd69aa0",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm về trách nhiệm theo hành động\nquyền hạn của ba bên tại thành phố\nsự cố và phân vai tại chợ\nphản biện về đầu mối duy nhất\ngiới hạn về nhóm chưa được ghi nhận",
+        "conceptVi": "Sắp xếp bằng chứng theo sức nặng: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp.",
+        "dialogue": [
+          {
+            "hanzi": "青川城更新公共资料，介绍交通、医疗和少数民族文化。政府部门提供地点与时间，社会组织检查无障碍信息，各民族社区补充名称读法和节日背景。三方都参与，但责任不同。",
+            "meaningVi": "Thành Thanh Xuyên cập nhật dữ liệu công cộng về giao thông, y tế và văn hóa dân tộc thiểu số. Cơ quan nhà nước cung cấp địa điểm/giờ, tổ chức xã hội kiểm thông tin tiếp cận, cộng đồng dân tộc bổ sung cách đọc tên và bối cảnh lễ. Ba bên tham gia với trách nhiệm khác.",
+            "pinyin": "Qīngchuān chéng gēngxīn gōnggòng zīliào, jièshào jiāotōng, yīliáo hé shǎoshù mínzú wénhuà. Zhèngfǔ bùmén tígōng dìdiǎn yǔ shíjiān, shèhuì zǔzhī jiǎnchá wú zhàng’ài xìnxī, gè mínzú shèqū bǔchōng míngchēng dúfǎ hé jiérì bèijǐng. Sān fāng dōu cānyù, dàn zérèn bùtóng.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "旧资料把一个节日只写成旅游活动，社区代表认为这会忽略其家庭和历史意义。编辑组先保存原文，再记录修改理由，并请文化研究者核对。社区有解释权，却不能单独改变公交时刻；交通部门也不能替社区定义文化。",
+            "meaningVi": "Dữ liệu cũ chỉ gọi một lễ là hoạt động du lịch, cộng đồng cho rằng bỏ ý nghĩa gia đình/lịch sử. Nhóm lưu bản cũ, ghi lý do sửa và nhờ nhà nghiên cứu kiểm. Cộng đồng có quyền giải thích nhưng không tự đổi giờ xe; ngành giao thông không định nghĩa văn hóa thay họ.",
+            "pinyin": "Jiù zīliào bǎ yí ge jiérì zhǐ xiě chéng lǚyóu huódòng, shèqū dàibiǎo rènwéi zhè huì hūlüè qí jiātíng hé lìshǐ yìyì. Biānjízǔ xiān bǎocún yuánwén, zài jìlù xiūgǎi lǐyóu, bìng qǐng wénhuà yánjiūzhě héduì. Shèqū yǒu jiěshìquán, què bù néng dāndú gǎibiàn gōngjiāo shíkè; jiāotōng bùmén yě bù néng tì shèqū dìngyì wénhuà.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "新版分别标明资料来源、更新时间和负责人。读者可以看见事实、解释和服务信息来自哪里。这个角色图提高透明度，却不能保证所有描述都已完整；未参与访谈的小社区仍需要后续补充。",
+            "meaningVi": "Bản mới ghi nguồn, ngày cập nhật và người phụ trách. Người đọc thấy dữ kiện, diễn giải và dịch vụ đến từ đâu. Bản đồ vai trò tăng minh bạch nhưng không bảo đảm mô tả đầy đủ; cộng đồng nhỏ chưa phỏng vấn còn cần bổ sung.",
+            "pinyin": "Xīn bǎn fēnbié biāomíng zīliào láiyuán, gēngxīn shíjiān hé fùzérén. Dúzhě kěyǐ kàn jiàn shìshí, jiěshì hé fúwù xìnxī láizì nǎlǐ. Zhè ge juésètú tígāo tòumíngdù, què bù néng bǎozhèng suǒyǒu miáoshù dōu yǐ wánzhěng; wèi cānyù fǎngtán de xiǎo shèqū réng xūyào hòuxù bǔchōng.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "山区市场用广播发布价格和天气，负责人每天早晨核对。互联网平台后来加入图片和在线订单，年轻商户欢迎新渠道，老人仍依靠广播。两种渠道服务同一市场，却覆盖不同人。",
+            "meaningVi": "Chợ vùng núi dùng phát thanh báo giá/thời tiết, người phụ trách kiểm mỗi sáng. Sau đó nền tảng Internet thêm ảnh và đặt trực tuyến; người trẻ thích kênh mới, người già vẫn dựa phát thanh. Hai kênh phục vụ cùng chợ nhưng phủ nhóm khác.",
+            "pinyin": "Shānqū shìchǎng yòng guǎngbō fābù jiàgé hé tiānqì, fùzérén měi tiān zǎochen héduì. Hùliánwǎng píngtái hòulái jiārù túpiàn hé zàixiàn dìngdān, niánqīng shānghù huānyíng xīn qúdào, lǎorén réng yīkào guǎngbō. Liǎng zhǒng qúdào fúwù tóng yī shìchǎng, què fùgài bùtóng rén.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "一次价格写错后，网上消息被迅速转发，广播却在下一小时完成更正。管理组规定：市场办公室负责原始数据，平台负责显示与修改记录，广播员负责口头确认。商户交流意见，但不能直接改官方价格。",
+            "meaningVi": "Một lần giá sai bị chia sẻ nhanh trên mạng, phát thanh sửa trong giờ sau. Nhóm quy định văn phòng chợ chịu dữ liệu gốc, nền tảng chịu hiển thị/lịch sử sửa, phát thanh viên chịu xác nhận miệng. Tiểu thương trao đổi nhưng không trực tiếp đổi giá chính thức.",
+            "pinyin": "Yí cì jiàgé xiě cuò hòu, wǎngshàng xiāoxi bèi xùnsù zhuǎnfā, guǎngbō què zài xià yì xiǎoshí wánchéng gēngzhèng. Guǎnlǐzǔ guīdìng: shìchǎng bàngōngshì fùzé yuánshǐ shùjù, píngtái fùzé xiǎnshì yǔ xiūgǎi jìlù, guǎngbōyuán fùzé kǒutóu quèrèn. Shānghù jiāoliú yìjiàn, dàn bù néng zhíjiē gǎi guānfāng jiàgé.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "三个月后，在线订单增加，广播收听没有明显下降。结果说明新渠道可以补充旧渠道，不证明互联网适合每个人。偏远村庄的信号数据仍不完整，下一阶段要分别记录两种渠道的到达率。",
+            "meaningVi": "Ba tháng sau, đơn trực tuyến tăng, nghe phát thanh không giảm rõ. Kết quả cho thấy kênh mới bổ sung kênh cũ, không chứng minh Internet hợp mọi người. Dữ liệu tín hiệu làng xa còn thiếu; giai đoạn sau ghi tỷ lệ tiếp cận từng kênh.",
+            "pinyin": "Sān ge yuè hòu, zàixiàn dìngdān zēngjiā, guǎngbō shōutīng méiyǒu míngxiǎn xiàjiàng. Jiéguǒ shuōmíng xīn qúdào kěyǐ bǔchōng jiù qúdào, bù zhèngmíng hùliánwǎng shìhé měi ge rén. Piānyuǎn cūnzhuāng de xìnhào shùjù réng bù wánzhěng, xià yí jiēduàn yào fēnbié jìlù liǎng zhǒng qúdào de dàodálǜ.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:f409042ad40fa9ceac1404adf4cb99ddad2a060ffa3f6f5de285dcb48c31577e",
+          "evidenceDocument": "docs/thien-lo-redesign-review/143-REVIEW-HSK4-INFORMATION-CONTEXT-ROUND50.md",
+          "humanReviewed": false,
+          "scope": "Correct six shared information paragraphs in Pinyin and distinguish hypothetical praise from recorded source facts; preserve IDs and keys.",
+          "sourceContentSha256": "sha256:88a86977e87421eac9b198a4c1cef3f5fda5574ffbf994a3738d666cce73b710",
+          "sourceRevisionId": "8e325093-5d4f-4039-a7ea-4d9c26b27101"
+        },
+        "exercises": [
+          {
+            "answer": "青川城更新公共资料，介绍交通、医疗和少数民族文化。政府部门提供地点与时间，社会组织检查无障碍信息，各民族社区补充名称读法和节日背景。三方都参与，但责任不同。",
+            "answerMeaningVi": "Thành Thanh Xuyên cập nhật dữ liệu công cộng về giao thông, y tế và văn hóa dân tộc thiểu số. Cơ quan nhà nước cung cấp địa điểm/giờ, tổ chức xã hội kiểm thông tin tiếp cận, cộng đồng dân tộc bổ sung cách đọc tên và bối cảnh lễ. Ba bên tham gia với trách nhiệm khác.",
+            "answerPinyin": "Qīngchuān chéng gēngxīn gōnggòng zīliào, jièshào jiāotōng, yīliáo hé shǎoshù mínzú wénhuà. Zhèngfǔ bùmén tígōng dìdiǎn yǔ shíjiān, shèhuì zǔzhī jiǎnchá wú zhàng’ài xìnxī, gè mínzú shèqū bǔchōng míngchēng dúfǎ hé jiérì bèijǐng. Sān fāng dōu cānyù, dàn zérèn bùtóng.",
+            "distractors": [
+              "旧资料把一个节日只写成旅游活动，社区代表认为这会忽略其家庭和历史意义。编辑组先保存原文，再记录修改理由，并请文化研究者核对。社区有解释权，却不能单独改变公交时刻；交通部门也不能替社区定义文化。",
+              "新版分别标明资料来源、更新时间和负责人。读者可以看见事实、解释和服务信息来自哪里。这个角色图提高透明度，却不能保证所有描述都已完整；未参与访谈的小社区仍需要后续补充。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Câu bị động đặt đối tượng chịu tác động trước: 我的杯子让小王打破了 (cốc của tôi bị Tiểu Vương làm vỡ). 叫/让 thường dùng trong khẩu ngữ, hay với việc không mong muốn; phía sau thường cần người/tác nhân. 被 linh hoạt hơn, có thể không nêu tác nhân: 杯子被打破了. Phân biệt 让 sai khiến/cho phép: 老师让小王读课文 (giáo viên bảo Tiểu Vương đọc). Dựa quan hệ nghĩa để đọc đúng, không coi mọi 让 là bị động. Trong nguồn chỉ biết giá bị chuyển tiếp nhanh, chưa biết chính xác ai; không tự thêm “nhiều tiểu thương” làm người chuyển.",
+            "guidedPractice": {
+              "promptVi": "Tình huống mới: em trai vô ý làm rách tờ bản đồ của bạn; giáo viên bảo bạn dùng bản đồ điện tử. Viết một câu bị động 让 và một câu sai khiến 让.",
+              "modelAnswerHanzi": "我的地图让弟弟不小心撕破了。老师让我用电子地图。",
+              "modelAnswerPinyin": "Wǒ de dìtú ràng dìdi bù xiǎoxīn sī pò le. Lǎoshī ràng wǒ yòng diànzǐ dìtú.",
+              "modelAnswerMeaningVi": "Bản đồ của tôi bị em trai vô ý làm rách. Giáo viên bảo tôi dùng bản đồ điện tử."
+            },
+            "modelExample": {
+              "hanzi": "我的杯子让小王打破了。",
+              "pinyin": "Wǒ de bēizi ràng Xiǎowáng dǎ pò le.",
+              "meaningVi": "Cốc của tôi bị Tiểu Vương làm vỡ.",
+              "speaker": "A"
+            },
+            "pattern": "主语+叫/让+宾语+动词+其他成分"
+          },
+          {
+            "explanationVi": "表扬 là biểu dương/khen; 批评 là phê bình. Có thể nêu người được đánh giá rồi hành động/lý do: 老师表扬他按时完成任务. 他 vừa là đối tượng lời khen vừa là người hoàn thành nhiệm vụ. Cũng có thể nói 因为…表扬/批评… để rõ lý do. Không coi lời đánh giá là bằng chứng tự động cho mọi năng lực hay động cơ. Bài nguồn không ghi ban quản lý khen phát thanh viên hoặc chê nền tảng; các mẫu mới dưới đây là tình huống luyện độc lập.",
+            "guidedPractice": {
+              "promptVi": "Trong nhóm mới, trưởng nhóm khen bạn Mai phát hiện lỗi số liệu; cũng nhắc phê bình bạn Nam chưa kiểm nguồn trước khi gửi. Viết hai câu nêu rõ ai được đánh giá vì hành động nào.",
+              "modelAnswerHanzi": "组长表扬小梅发现了数据错误，也批评小南没有核对来源就发送了资料。",
+              "modelAnswerPinyin": "Zǔzhǎng biǎoyáng Xiǎoméi fāxiàn le shùjù cuòwù, yě pīpíng Xiǎonán méiyǒu héduì láiyuán jiù fāsòng le zīliào.",
+              "modelAnswerMeaningVi": "Trưởng nhóm khen Tiểu Mai phát hiện lỗi số liệu, đồng thời phê bình Tiểu Nam chưa kiểm nguồn đã gửi tài liệu."
+            },
+            "modelExample": {
+              "hanzi": "老师表扬小林主动帮助同学。",
+              "pinyin": "Lǎoshī biǎoyáng Xiǎolín zhǔdòng bāngzhù tóngxué.",
+              "meaningVi": "Giáo viên khen Tiểu Lâm chủ động giúp bạn.",
+              "speaker": "A"
+            },
+            "pattern": "（1）表爱憎义：主语+表扬/批评+宾语1+动词 / +宾语2"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng sắp xếp bằng chứng theo sức nặng để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Sắp xếp bằng chứng theo sức nặng: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "青川城更新公共资料，介绍交通、医疗和少数民族文化。政府部门提供地点与时间，社会组织检查无障碍信息，各民族社区补充名称读法和节日背景。三方都参与，但责任不同。",
+                        "id": "hsk4-event-agency-voice-lesson-03:source-0-0",
+                        "meaningVi": "Thành Thanh Xuyên cập nhật dữ liệu công cộng về giao thông, y tế và văn hóa dân tộc thiểu số. Cơ quan nhà nước cung cấp địa điểm/giờ, tổ chức xã hội kiểm thông tin tiếp cận, cộng đồng dân tộc bổ sung cách đọc tên và bối cảnh lễ. Ba bên tham gia với trách nhiệm khác.",
+                        "pinyin": "Qīngchuān chéng gēngxīn gōnggòng zīliào, jièshào jiāotōng, yīliáo hé shǎoshù mínzú wénhuà. Zhèngfǔ bùmén tígōng dìdiǎn yǔ shíjiān, shèhuì zǔzhī jiǎnchá wú zhàng’ài xìnxī, gè mínzú shèqū bǔchōng míngchēng dúfǎ hé jiérì bèijǐng. Sān fāng dōu cānyù, dàn zérèn bùtóng."
+                      },
+                      {
+                        "hanzi": "旧资料把一个节日只写成旅游活动，社区代表认为这会忽略其家庭和历史意义。编辑组先保存原文，再记录修改理由，并请文化研究者核对。社区有解释权，却不能单独改变公交时刻；交通部门也不能替社区定义文化。",
+                        "id": "hsk4-event-agency-voice-lesson-03:source-0-1",
+                        "meaningVi": "Dữ liệu cũ chỉ gọi một lễ là hoạt động du lịch, cộng đồng cho rằng bỏ ý nghĩa gia đình/lịch sử. Nhóm lưu bản cũ, ghi lý do sửa và nhờ nhà nghiên cứu kiểm. Cộng đồng có quyền giải thích nhưng không tự đổi giờ xe; ngành giao thông không định nghĩa văn hóa thay họ.",
+                        "pinyin": "Jiù zīliào bǎ yí ge jiérì zhǐ xiě chéng lǚyóu huódòng, shèqū dàibiǎo rènwéi zhè huì hūlüè qí jiātíng hé lìshǐ yìyì. Biānjízǔ xiān bǎocún yuánwén, zài jìlù xiūgǎi lǐyóu, bìng qǐng wénhuà yánjiūzhě héduì. Shèqū yǒu jiěshìquán, què bù néng dāndú gǎibiàn gōngjiāo shíkè; jiāotōng bùmén yě bù néng tì shèqū dìngyì wénhuà."
+                      },
+                      {
+                        "hanzi": "新版分别标明资料来源、更新时间和负责人。读者可以看见事实、解释和服务信息来自哪里。这个角色图提高透明度，却不能保证所有描述都已完整；未参与访谈的小社区仍需要后续补充。",
+                        "id": "hsk4-event-agency-voice-lesson-03:source-0-2",
+                        "meaningVi": "Bản mới ghi nguồn, ngày cập nhật và người phụ trách. Người đọc thấy dữ kiện, diễn giải và dịch vụ đến từ đâu. Bản đồ vai trò tăng minh bạch nhưng không bảo đảm mô tả đầy đủ; cộng đồng nhỏ chưa phỏng vấn còn cần bổ sung.",
+                        "pinyin": "Xīn bǎn fēnbié biāomíng zīliào láiyuán, gēngxīn shíjiān hé fùzérén. Dúzhě kěyǐ kàn jiàn shìshí, jiěshì hé fúwù xìnxī láizì nǎlǐ. Zhè ge juésètú tígāo tòumíngdù, què bù néng bǎozhèng suǒyǒu miáoshù dōu yǐ wánzhěng; wèi cānyù fǎngtán de xiǎo shèqū réng xūyào hòuxù bǔchōng."
+                      }
+                    ]
+                  },
+                  "title": "Ai viết dữ liệu công cộng của một thành phố"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Ai viết dữ liệu công cộng của một thành phố"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "山区市场用广播发布价格和天气，负责人每天早晨核对。互联网平台后来加入图片和在线订单，年轻商户欢迎新渠道，老人仍依靠广播。两种渠道服务同一市场，却覆盖不同人。",
+                        "id": "hsk4-event-agency-voice-lesson-03:source-1-0",
+                        "meaningVi": "Chợ vùng núi dùng phát thanh báo giá/thời tiết, người phụ trách kiểm mỗi sáng. Sau đó nền tảng Internet thêm ảnh và đặt trực tuyến; người trẻ thích kênh mới, người già vẫn dựa phát thanh. Hai kênh phục vụ cùng chợ nhưng phủ nhóm khác.",
+                        "pinyin": "Shānqū shìchǎng yòng guǎngbō fābù jiàgé hé tiānqì, fùzérén měi tiān zǎochen héduì. Hùliánwǎng píngtái hòulái jiārù túpiàn hé zàixiàn dìngdān, niánqīng shānghù huānyíng xīn qúdào, lǎorén réng yīkào guǎngbō. Liǎng zhǒng qúdào fúwù tóng yī shìchǎng, què fùgài bùtóng rén."
+                      },
+                      {
+                        "hanzi": "一次价格写错后，网上消息被迅速转发，广播却在下一小时完成更正。管理组规定：市场办公室负责原始数据，平台负责显示与修改记录，广播员负责口头确认。商户交流意见，但不能直接改官方价格。",
+                        "id": "hsk4-event-agency-voice-lesson-03:source-1-1",
+                        "meaningVi": "Một lần giá sai bị chia sẻ nhanh trên mạng, phát thanh sửa trong giờ sau. Nhóm quy định văn phòng chợ chịu dữ liệu gốc, nền tảng chịu hiển thị/lịch sử sửa, phát thanh viên chịu xác nhận miệng. Tiểu thương trao đổi nhưng không trực tiếp đổi giá chính thức.",
+                        "pinyin": "Yí cì jiàgé xiě cuò hòu, wǎngshàng xiāoxi bèi xùnsù zhuǎnfā, guǎngbō què zài xià yì xiǎoshí wánchéng gēngzhèng. Guǎnlǐzǔ guīdìng: shìchǎng bàngōngshì fùzé yuánshǐ shùjù, píngtái fùzé xiǎnshì yǔ xiūgǎi jìlù, guǎngbōyuán fùzé kǒutóu quèrèn. Shānghù jiāoliú yìjiàn, dàn bù néng zhíjiē gǎi guānfāng jiàgé."
+                      },
+                      {
+                        "hanzi": "三个月后，在线订单增加，广播收听没有明显下降。结果说明新渠道可以补充旧渠道，不证明互联网适合每个人。偏远村庄的信号数据仍不完整，下一阶段要分别记录两种渠道的到达率。",
+                        "id": "hsk4-event-agency-voice-lesson-03:source-1-2",
+                        "meaningVi": "Ba tháng sau, đơn trực tuyến tăng, nghe phát thanh không giảm rõ. Kết quả cho thấy kênh mới bổ sung kênh cũ, không chứng minh Internet hợp mọi người. Dữ liệu tín hiệu làng xa còn thiếu; giai đoạn sau ghi tỷ lệ tiếp cận từng kênh.",
+                        "pinyin": "Sān ge yuè hòu, zàixiàn dìngdān zēngjiā, guǎngbō shōutīng méiyǒu míngxiǎn xiàjiàng. Jiéguǒ shuōmíng xīn qúdào kěyǐ bǔchōng jiù qúdào, bù zhèngmíng hùliánwǎng shìhé měi ge rén. Piānyuǎn cūnzhuāng de xìnhào shùjù réng bù wánzhěng, xià yí jiēduàn yào fēnbié jìlù liǎng zhǒng qúdào de dàodálǜ."
+                      }
+                    ]
+                  },
+                  "title": "Phát thanh, Internet và thị trường địa phương"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Phát thanh, Internet và thị trường địa phương"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Nguồn nêu trực tiếp vai trò ba bên, ví dụ quyền hạn và ba trường thông tin của bản mới. Giới hạn: Minh bạch hơn không chứng minh mọi cộng đồng đã được đại diện đầy đủ; nguồn nói vẫn còn nhóm chưa phỏng vấn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bản dữ liệu công mới ghi nguồn, ngày cập nhật, người phụ trách và giữ ranh giới trách nhiệm của các bên.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Nguồn nêu trực tiếp vai trò ba bên, ví dụ quyền hạn và ba trường thông tin của bản mới.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn nêu trực tiếp vai trò ba bên, ví dụ quyền hạn và ba trường thông tin của bản mới.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "新版公共资料标明来源、更新时间和负责人，并保留不同参与者的责任边界。\nBản dữ liệu công mới ghi nguồn, ngày cập nhật, người phụ trách và giữ ranh giới trách nhiệm của các bên.\nĐối chiếu Nguồn A · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Sau ba tháng đơn online tăng nhưng lượng nghe phát thanh không giảm rõ, nên diễn giải loại bỏ kênh cũ trái nguồn. Giới hạn: Có thể nói hai kênh bổ sung nhau trong giai đoạn quan sát; chưa biết tỷ lệ tiếp cận ở làng xa vì dữ liệu tín hiệu còn thiếu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Đơn trực tuyến tăng chứng minh Internet đã khiến phát thanh mất vai trò ở chợ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Có thể nói hai kênh bổ sung nhau trong giai đoạn quan sát; chưa biết tỷ lệ tiếp cận ở làng xa vì dữ liệu tín hiệu còn thiếu.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Sau ba tháng đơn online tăng nhưng lượng nghe phát thanh không giảm rõ, nên diễn giải loại bỏ kênh cũ trái nguồn.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "在线订单增加证明互联网已经让广播失去市场作用。\nĐơn trực tuyến tăng chứng minh Internet đã khiến phát thanh mất vai trò ở chợ.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n社区代表指出旧资料忽略节日的家庭和历史意义，编辑组保存原文并记录修改理由，文化研究者负责核对。社区能解释文化，却不能改公交时间；交通部门也不能替社区定义文化。\nĐại diện cộng đồng chỉ ra dữ liệu cũ bỏ ý nghĩa gia đình và lịch sử; nhóm biên tập giữ bản cũ, ghi lý do sửa, nhà nghiên cứu văn hóa kiểm tra. Cộng đồng có thể giải thích văn hóa nhưng không đổi giờ xe; ngành giao thông cũng không định nghĩa văn hóa thay cộng đồng.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại quy trình sửa thông tin lễ hội, giữ chủ thể đề nghị, người kiểm và giới hạn quyền của từng bên.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Cộng đồng khởi phát yêu cầu sửa cách mô tả lễ hội.",
+                        "id": "point-0",
+                        "label": "Cộng đồng khởi phát yêu cầu sửa cách mô tả lễ hội."
+                      },
+                      {
+                        "guidance": "Nhóm biên tập lưu vết và nhà nghiên cứu kiểm tra.",
+                        "id": "point-1",
+                        "label": "Nhóm biên tập lưu vết và nhà nghiên cứu kiểm tra."
+                      },
+                      {
+                        "guidance": "Quyền văn hóa và quyền dịch vụ không thay thế nhau.",
+                        "id": "point-2",
+                        "label": "Quyền văn hóa và quyền dịch vụ không thay thế nhau."
+                      },
+                      {
+                        "guidance": "Không nói cộng đồng tự xuất bản mọi thay đổi hay cơ quan nhà nước mất trách nhiệm với dữ liệu dịch vụ.",
+                        "id": "point-3",
+                        "label": "Không nói cộng đồng tự xuất bản mọi thay đổi hay cơ quan nhà nước mất trách nhiệm với dữ liệu dịch vụ."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại quy trình sửa thông tin lễ hội, giữ chủ thể đề nghị, người kiểm và giới hạn quyền của từng bên.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n价格错误在网上被快速转发，广播在下一小时更正。此后办公室提供原始数据，平台保存显示和修改记录，广播员口头确认。三个月内在线订单增加，但广播收听没有明显下降。\nGiá sai được chuyển nhanh trên mạng và phát thanh đính chính trong giờ tiếp theo. Sau đó văn phòng cung cấp dữ liệu gốc, nền tảng giữ hiển thị/lịch sử sửa, phát thanh viên xác nhận miệng. Trong ba tháng, đơn online tăng nhưng nghe phát thanh không giảm rõ.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase sự cố giá và cách chia trách nhiệm, không gán lỗi cố ý hoặc nói kênh mới thay kênh cũ.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Tin sai lan trên mạng và phát thanh sửa trong giờ sau.",
+                        "id": "point-0",
+                        "label": "Tin sai lan trên mạng và phát thanh sửa trong giờ sau."
+                      },
+                      {
+                        "guidance": "Ba chủ thể nhận ba trách nhiệm cụ thể.",
+                        "id": "point-1",
+                        "label": "Ba chủ thể nhận ba trách nhiệm cụ thể."
+                      },
+                      {
+                        "guidance": "Đơn online và lượng nghe phát thanh có xu hướng khác nhau.",
+                        "id": "point-2",
+                        "label": "Đơn online và lượng nghe phát thanh có xu hướng khác nhau."
+                      },
+                      {
+                        "guidance": "Không nói nền tảng cố ý viết sai, phát thanh sửa ngay lập tức hoặc Internet đã thay thế phát thanh.",
+                        "id": "point-3",
+                        "label": "Không nói nền tảng cố ý viết sai, phát thanh sửa ngay lập tức hoặc Internet đã thay thế phát thanh."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase sự cố giá và cách chia trách nhiệm, không gán lỗi cố ý hoặc nói kênh mới thay kênh cũ.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Câu bị động đặt đối tượng chịu tác động trước: 我的杯子让小王打破了 (cốc của tôi bị Tiểu Vương làm vỡ). 叫/让 thường dùng trong khẩu ngữ, hay với việc không mong muốn; phía sau thường cần người/tác nhân. 被 linh hoạt hơn, có thể không nêu tác nhân: 杯子被打破了. Phân biệt 让 sai khiến/cho phép: 老师让小王读课文 (giáo viên bảo Tiểu Vương đọc). Dựa quan hệ nghĩa để đọc đúng, không coi mọi 让 là bị động. Trong nguồn chỉ biết giá bị chuyển tiếp nhanh, chưa biết chính xác ai; không tự thêm “nhiều tiểu thương” làm người chuyển.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "叫/让 trong câu bị động và câu sai khiến"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我的杯子让小王打破了。",
+                  "pinyin": "Wǒ de bēizi ràng Xiǎowáng dǎ pò le.",
+                  "meaningVi": "Cốc của tôi bị Tiểu Vương làm vỡ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我的自行车叫人骑走了。",
+                  "pinyin": "Wǒ de zìxíngchē jiào rén qí zǒu le.",
+                  "meaningVi": "Xe đạp của tôi bị người ta đi mất rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "老师让小王读课文。",
+                  "pinyin": "Lǎoshī ràng Xiǎowáng dú kèwén.",
+                  "meaningVi": "Giáo viên bảo Tiểu Vương đọc bài khóa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 4",
+                  "body": "",
+                  "hanzi": "价格信息被迅速转发了。",
+                  "pinyin": "Jiàgé xìnxī bèi xùnsù zhuǎnfā le.",
+                  "meaningVi": "Thông tin giá đã bị chuyển tiếp nhanh chóng.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "叫/让 trong câu bị động và câu sai khiến"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:practice",
+              "title": "Khảo Luyện · 叫/让 trong câu bị động và câu sai khiến",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Trong “杯子让小王打破了”, ai làm vỡ cốc?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Cốc tự làm vỡ Tiểu Vương",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tiểu Vương",
+                        "feedback": "杯子 là vật chịu tác động, 小王 là người thực hiện sau 让."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Giáo viên",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "杯子 là vật chịu tác động, 小王 là người thực hiện sau 让.",
+                    "learningTarget": {
+                      "objective": "叫/让 trong câu bị động và câu sai khiến",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "让 trong “老师让小王读课文” là gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Bị động: giáo viên bị đọc",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tự đọc",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Bảo/để Tiểu Vương đọc",
+                        "feedback": "Giáo viên yêu cầu người khác làm; giáo viên không phải đối tượng của đọc."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Giáo viên yêu cầu người khác làm; giáo viên không phải đối tượng của đọc.",
+                    "learningTarget": {
+                      "objective": "叫/让 trong câu bị động và câu sai khiến",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Không biết ai làm vỡ cốc. Câu nào tự nhiên mà không bịa người?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "杯子被打破了。",
+                        "feedback": "被 có thể lược tác nhân; câu chọn Tiểu Vương tự thêm người chưa biết."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "杯子让打破了。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "杯子叫小王打破了。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "被 có thể lược tác nhân; câu chọn Tiểu Vương tự thêm người chưa biết.",
+                    "learningTarget": {
+                      "objective": "叫/让 trong câu bị động và câu sai khiến",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:0:transfer",
+              "title": "Vận dụng · 叫/让 trong câu bị động và câu sai khiến",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我的地图让弟弟不小心撕破了。老师让我用电子地图。\nWǒ de dìtú ràng dìdi bù xiǎoxīn sī pò le. Lǎoshī ràng wǒ yòng diànzǐ dìtú.\nBản đồ của tôi bị em trai vô ý làm rách. Giáo viên bảo tôi dùng bản đồ điện tử.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "叫/让 trong câu bị động và câu sai khiến",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Bản đồ chịu tác động; em trai làm rách vô ý.",
+                        "guidance": "Bản đồ chịu tác động; em trai làm rách vô ý."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giáo viên là người yêu cầu, tôi là người dùng bản đồ.",
+                        "guidance": "Giáo viên là người yêu cầu, tôi là người dùng bản đồ."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy em trai cố ý hoặc giáo viên làm rách.",
+                        "guidance": "Không suy em trai cố ý hoặc giáo viên làm rách."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tình huống mới: em trai vô ý làm rách tờ bản đồ của bạn; giáo viên bảo bạn dùng bản đồ điện tử. Viết một câu bị động 让 và một câu sai khiến 让.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "表扬 là biểu dương/khen; 批评 là phê bình. Có thể nêu người được đánh giá rồi hành động/lý do: 老师表扬他按时完成任务. 他 vừa là đối tượng lời khen vừa là người hoàn thành nhiệm vụ. Cũng có thể nói 因为…表扬/批评… để rõ lý do. Không coi lời đánh giá là bằng chứng tự động cho mọi năng lực hay động cơ. Bài nguồn không ghi ban quản lý khen phát thanh viên hoặc chê nền tảng; các mẫu mới dưới đây là tình huống luyện độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "表扬/批评 + người + hành động được đánh giá"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "老师表扬小林主动帮助同学。",
+                  "pinyin": "Lǎoshī biǎoyáng Xiǎolín zhǔdòng bāngzhù tóngxué.",
+                  "meaningVi": "Giáo viên khen Tiểu Lâm chủ động giúp bạn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "经理批评他没有按时交报告。",
+                  "pinyin": "Jīnglǐ pīpíng tā méiyǒu ànshí jiāo bàogào.",
+                  "meaningVi": "Quản lý phê bình anh ấy vì không nộp báo cáo đúng hạn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "因为她及时发现了错误，大家表扬了她。",
+                  "pinyin": "Yīnwèi tā jíshí fāxiàn le cuòwù, dàjiā biǎoyáng le tā.",
+                  "meaningVi": "Vì cô phát hiện lỗi kịp thời, mọi người đã khen cô.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "表扬/批评 + người + hành động được đánh giá"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:practice",
+              "title": "Khảo Luyện · 表扬/批评 + người + hành động được đánh giá",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Trong “老师表扬小林主动帮助同学”, ai giúp bạn?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Giáo viên",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tiểu Lâm",
+                        "feedback": "小林 là người được khen và cũng là chủ thể hành động giúp."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Người kể không xác định",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "小林 là người được khen và cũng là chủ thể hành động giúp.",
+                    "learningTarget": {
+                      "objective": "表扬/批评 + người + hành động được đánh giá",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "批评他没有按时交报告 có chứng minh anh cố ý gây hại không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, phê bình luôn chứng minh cố ý",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, mọi lần đều vậy",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không; chỉ có hành động không đúng hạn được nêu",
+                        "feedback": "Lý do bị phê bình khác kết luận về động cơ."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Lý do bị phê bình khác kết luận về động cơ.",
+                    "learningTarget": {
+                      "objective": "表扬/批评 + người + hành động được đánh giá",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Nguồn chỉ phân công trách nhiệm. Có kể ban quản lý đã khen/chê như dữ kiện không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, nguồn chưa ghi việc đánh giá đó",
+                        "feedback": "Không thêm sự kiện chỉ để luyện cấu trúc."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, vì thường sẽ khen",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, nếu không ghi tên người",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Không thêm sự kiện chỉ để luyện cấu trúc.",
+                    "learningTarget": {
+                      "objective": "表扬/批评 + người + hành động được đánh giá",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-03:passive-evaluation-r51:1:transfer",
+              "title": "Vận dụng · 表扬/批评 + người + hành động được đánh giá",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n组长表扬小梅发现了数据错误，也批评小南没有核对来源就发送了资料。\nZǔzhǎng biǎoyáng Xiǎoméi fāxiàn le shùjù cuòwù, yě pīpíng Xiǎonán méiyǒu héduì láiyuán jiù fāsòng le zīliào.\nTrưởng nhóm khen Tiểu Mai phát hiện lỗi số liệu, đồng thời phê bình Tiểu Nam chưa kiểm nguồn đã gửi tài liệu.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "表扬/批评 + người + hành động được đánh giá",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-03",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Mai phát hiện lỗi; Nam gửi trước khi kiểm nguồn.",
+                        "guidance": "Mai phát hiện lỗi; Nam gửi trước khi kiểm nguồn."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Người đánh giá là trưởng nhóm trong cả hai vế.",
+                        "guidance": "Người đánh giá là trưởng nhóm trong cả hai vế."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không suy Nam cố ý hoặc Mai luôn đúng.",
+                        "guidance": "Không suy Nam cố ý hoặc Mai luôn đúng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Trong nhóm mới, trưởng nhóm khen bạn Mai phát hiện lỗi số liệu; cũng nhắc phê bình bạn Nam chưa kiểm nguồn trước khi gửi. Viết hai câu nêu rõ ai được đánh giá vì hành động nào.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n青川城更新资料时，政府提供服务地点与时间，社会组织检查无障碍信息，社区解释名称和节日。旧资料被质疑后，编辑组存原文、记理由，请研究者核对；社区不能改公交时间，交通部门也不能替社区定义文化。山区市场网上价格出错后，责任分给办公室、平台和广播员，分别管理原始数据、修改记录与口头确认。三个月后在线订单增加，广播收听却没有明显下降。两套系统都用来源和负责人追踪信息，但未受访社区与偏远村信号数据仍不完整。\nKhi Thanh Xuyên cập nhật dữ liệu công, chính quyền cung cấp địa điểm/giờ dịch vụ, tổ chức xã hội kiểm tiếp cận, cộng đồng giải thích tên và lễ hội. Khi bản cũ bị chất vấn, nhóm biên tập giữ nguyên văn, ghi lý do và nhờ nhà nghiên cứu kiểm; cộng đồng không đổi giờ xe, ngành giao thông không định nghĩa văn hóa. Sau lỗi giá ở chợ núi, trách nhiệm lại chia cho văn phòng về dữ liệu gốc, nền tảng về lịch sử sửa và phát thanh viên về xác nhận miệng. Ba tháng sau đơn online tăng mà nghe phát thanh không giảm rõ. Nguồn và người chịu trách nhiệm được theo dõi, nhưng cộng đồng chưa phỏng vấn và tín hiệu làng xa còn thiếu.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt hai hệ thống thông tin công bằng cách nêu ai tạo, ai kiểm, ai truyền và ai có quyền sửa loại dữ liệu nào.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "ba vai trò trong dữ liệu thành phố",
+                        "id": "criterion-0",
+                        "label": "ba vai trò trong dữ liệu thành phố"
+                      },
+                      {
+                        "guidance": "quy trình sửa mô tả lễ hội",
+                        "id": "criterion-1",
+                        "label": "quy trình sửa mô tả lễ hội"
+                      },
+                      {
+                        "guidance": "ba trách nhiệm sau sự cố giá",
+                        "id": "criterion-2",
+                        "label": "ba trách nhiệm sau sự cố giá"
+                      },
+                      {
+                        "guidance": "kết quả ba tháng và dữ liệu còn thiếu",
+                        "id": "criterion-3",
+                        "label": "kết quả ba tháng và dữ liệu còn thiếu"
+                      },
+                      {
+                        "guidance": "Không nói hệ thống đã đại diện mọi nhóm, nền tảng gây lỗi có chủ ý hoặc Internet phù hợp với tất cả người dùng.",
+                        "id": "criterion-4",
+                        "label": "Không nói hệ thống đã đại diện mọi nhóm, nền tảng gây lỗi có chủ ý hoặc Internet phù hợp với tất cả người dùng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt hai hệ thống thông tin công bằng cách nêu ai tạo, ai kiểm, ai truyền và ai có quyền sửa loại dữ liệu nào.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n公共信息需要一个接受意见的窗口，但修改责任应按行动分开，不能全推给出版者。在青川城，政府掌握服务时间和地点，社会组织检查无障碍信息，社区解释文化，研究者核对修改。若只交给一个单位，它可能越过权限：交通部门不能定义节日，社区也不能自己改变车次。市场价格出错时，办公室提供原始数据，平台显示并保存修改记录，广播员口头确认。有人认为单一负责人能让公众知道向谁投诉，也能更快纠错。我同意需要统一入口，不过入口必须公开谁生产、传播、检查和批准每项信息。这样既能追查错误，也不会把责任随意推给所有转发者。两份材料没有覆盖小社区和信号较弱的村庄，因此只支持分层责任，不能确定共同的法律制度。\nThông tin công cần một đầu mối nhận phản hồi, nhưng trách nhiệm sửa phải được chia theo hành động chứ không dồn hết cho nơi xuất bản. Ở Thanh Xuyên, cơ quan nhà nước biết giờ/địa điểm, tổ chức xã hội kiểm tiếp cận, cộng đồng giải thích văn hóa và nhà nghiên cứu kiểm bản sửa; một đơn vị dễ vượt quyền. Sự cố giá chợ cho thấy chuỗi văn phòng tạo dữ liệu, nền tảng hiển thị/lưu lịch sử và phát thanh viên xác nhận. Đầu mối duy nhất giúp công chúng biết nơi phản ánh là phản biện hợp lý, nhưng đầu mối đó nên công khai ai tạo, truyền, kiểm và duyệt từng trường. Hai nguồn còn thiếu cộng đồng nhỏ và làng tín hiệu yếu nên chỉ hỗ trợ trách nhiệm phân tầng, không xác định cơ cấu pháp lý chung.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: khi thông tin công bị sai hoặc bị phản đối, trách nhiệm nên thuộc về một đơn vị xuất bản hay được chia theo từng hành động trong chuỗi?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm về trách nhiệm theo hành động",
+                        "id": "criterion-0",
+                        "label": "luận điểm về trách nhiệm theo hành động"
+                      },
+                      {
+                        "guidance": "quyền hạn của ba bên tại thành phố",
+                        "id": "criterion-1",
+                        "label": "quyền hạn của ba bên tại thành phố"
+                      },
+                      {
+                        "guidance": "sự cố và phân vai tại chợ",
+                        "id": "criterion-2",
+                        "label": "sự cố và phân vai tại chợ"
+                      },
+                      {
+                        "guidance": "phản biện về đầu mối duy nhất",
+                        "id": "criterion-3",
+                        "label": "phản biện về đầu mối duy nhất"
+                      },
+                      {
+                        "guidance": "giới hạn về nhóm chưa được ghi nhận",
+                        "id": "criterion-4",
+                        "label": "giới hạn về nhóm chưa được ghi nhận"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Một đơn vị xuất bản chịu toàn bộ trách nhiệm sẽ giúp người dân dễ khiếu nại, tránh đổ lỗi qua lại và có thể sửa thông tin nhanh hơn.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất một cửa tiếp nhận kết hợp dấu vết trách nhiệm theo hành động; nguồn không đủ quyết định trách nhiệm pháp lý hay mô hình quản trị toàn quốc.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất một cửa tiếp nhận kết hợp dấu vết trách nhiệm theo hành động; nguồn không đủ quyết định trách nhiệm pháp lý hay mô hình quản trị toàn quốc."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: khi thông tin công bị sai hoặc bị phản đối, trách nhiệm nên thuộc về một đơn vị xuất bản hay được chia theo từng hành động trong chuỗi?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n先用被动句说明错误价格被快速转发，但不要隐藏传播者和数据来源。\n再用主动句分别指出办公室、平台、广播员和编辑组的行动。\n如果以后有人表扬或批评某个角色，要分清评价与修改记录等可核事实；本材料没有记载这样的表扬或批评。\n一个入口方便公众联系，但后台仍要保存分层责任。\n未访谈社区和偏远村数据不完整，因此不能声称所有人已被代表。\nDùng câu bị động nêu giá sai bị chuyển nhanh nhưng không giấu người truyền và nguồn dữ liệu.\nSau đó dùng câu chủ động chỉ riêng hành động của văn phòng, nền tảng, phát thanh viên và nhóm biên tập.\nNếu sau này có lời khen/chê một vai trò, hãy phân biệt đánh giá với lịch sử sửa có thể kiểm. Nguồn hiện tại không ghi nhóm quản lý đã khen hay chê.\nMột cửa liên hệ tiện cho công chúng nhưng hậu trường vẫn cần trách nhiệm phân tầng.\nCộng đồng chưa phỏng vấn và dữ liệu làng xa còn thiếu nên chưa thể nói mọi người đã được đại diện.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Bảo vệ một cách dùng thể chủ động và bị động để báo sự cố thông tin mà vẫn truy được trách nhiệm. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-03",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu đối tượng chịu tác động của tin sai",
+                        "id": "move-0",
+                        "label": "nêu đối tượng chịu tác động của tin sai"
+                      },
+                      {
+                        "guidance": "gọi tên người tạo, truyền, kiểm và sửa",
+                        "id": "move-1",
+                        "label": "gọi tên người tạo, truyền, kiểm và sửa"
+                      },
+                      {
+                        "guidance": "phân biệt phê bình với dữ kiện",
+                        "id": "move-2",
+                        "label": "phân biệt phê bình với dữ kiện"
+                      },
+                      {
+                        "guidance": "trả lời đề xuất chỉ cần một đầu mối",
+                        "id": "move-3",
+                        "label": "trả lời đề xuất chỉ cần một đầu mối"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bảo vệ một cách dùng thể chủ động và bị động để báo sự cố thông tin mà vẫn truy được trách nhiệm.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "government",
+                        "label": "线索一",
+                        "meaningVi": "Dịch vụ, địa điểm và thời gian.",
+                        "note": "Nhà nước · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "social",
+                        "label": "线索二",
+                        "meaningVi": "Kiểm khả năng tiếp cận.",
+                        "note": "Tổ chức xã hội · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "community",
+                        "label": "线索三",
+                        "meaningVi": "Tên gọi và bối cảnh văn hóa.",
+                        "note": "Cộng đồng · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "process",
+                        "label": "线索四",
+                        "meaningVi": "Lưu bản, lý do, kiểm tra.",
+                        "note": "Quy trình · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索五",
+                        "meaningVi": "Nhóm chưa được phỏng vấn.",
+                        "note": "Khoảng trống · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-society-economy-argument-concept-actor-map; revision 4ee57540-fd3f-401d-bec6-526a7ef6dac9; humanReviewed:false",
+                  "title": "Ai viết dữ liệu công cộng của một thành phố"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "radio",
+                        "label": "线索一",
+                        "meaningVi": "Giá, thời tiết và người nghe lớn tuổi.",
+                        "note": "Phát thanh · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "internet",
+                        "label": "线索二",
+                        "meaningVi": "Ảnh, đơn và người dùng trẻ.",
+                        "note": "Internet · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "source",
+                        "label": "线索三",
+                        "meaningVi": "Văn phòng chợ.",
+                        "note": "Nguồn gốc · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "incident",
+                        "label": "线索四",
+                        "meaningVi": "Giá sai lan nhanh.",
+                        "note": "Sự cố · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索五",
+                        "meaningVi": "Độ phủ làng xa.",
+                        "note": "Thiếu · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-03:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-society-economy-argument-concept-actor-map; revision 4ee57540-fd3f-401d-bec6-526a7ef6dac9; humanReviewed:false",
+                  "title": "Phát thanh, Internet và thị trường địa phương"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-03:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "8d0e4de0-1903-4a54-80a1-7787edd97570",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng sắp xếp bằng chứng theo sức nặng để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-event-agency-voice-lesson-02"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-059",
+          "hsk4-grammar-row-060"
+        ],
+        "sourceLessonIds": [
+          "hsk4-event-agency-voice-lesson-03",
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-20"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01077",
+          "hsk-vocab-01252",
+          "hsk-vocab-01512",
+          "hsk-vocab-01639",
+          "hsk-vocab-01978",
+          "hsk-vocab-01275",
+          "hsk-vocab-01299",
+          "hsk-vocab-01370",
+          "hsk-vocab-01669",
+          "hsk-vocab-01215"
+        ],
+        "targetLessonId": "hsk4-event-agency-voice-lesson-03",
+        "titleZh": "HSK四级 · 50",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "9d1aed36-79d9-4a5d-b5fa-ef908a725922"
+        },
+        "vocabulary": [
+          "hsk-vocab-01077",
+          "hsk-vocab-01252",
+          "hsk-vocab-01512",
+          "hsk-vocab-01639",
+          "hsk-vocab-01978",
+          "hsk-vocab-01275",
+          "hsk-vocab-01299",
+          "hsk-vocab-01370",
+          "hsk-vocab-01669",
+          "hsk-vocab-01215"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 2,
+          "netPages": 4
+        }
+      ]
+    }
+  ]
+}

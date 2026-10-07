@@ -29,6 +29,7 @@ import {
   applyObservedDiagnosticCompletion,
   applySkippedDiagnostic,
 } from "../lib/diagnosticCompletion";
+import { evaluatePlacementSafety, type PlacementBaseline } from "../assessment/placementSafety";
 import {
   canAdvanceMistakeFromEvidence,
   canRecordLocalRemediationAttempt,
@@ -252,7 +253,8 @@ type LearningActions = {
   acceptDiagnosticPlacement: (
     startingLevel: Exclude<LearningState["profile"]["startingLevel"], "basic">,
     score: number,
-  ) => void;
+    baseline?: PlacementBaseline,
+  ) => boolean;
   skipDiagnostic: () => void;
   completeLesson: (
     lessonId: string,
@@ -268,6 +270,7 @@ type LearningActions = {
     rating: Grade,
     idempotencyKey?: string,
     usedHint?: boolean,
+    presentationVersion?: string,
   ) => Promise<void>;
   resetProgress: () => Promise<boolean>;
   syncNow: () => Promise<void>;
@@ -731,12 +734,15 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       }),
     completeDiagnostic: (score) =>
       persist((current) => applyObservedDiagnosticCompletion(current, score)),
-    acceptDiagnosticPlacement: (startingLevel, score) =>
-      persist((current) => applyAcceptedDiagnosticPlacement(
-        current,
-        startingLevel,
-        score,
-      )),
+    acceptDiagnosticPlacement: (startingLevel, score, baseline) => {
+      let accepted = false;
+      const saved = persist((current) => {
+        if (baseline && evaluatePlacementSafety(baseline, current, readLocalStorage(LEARNING_OWNER_STORAGE_KEY) ?? "") !== "current") return current;
+        accepted = true;
+        return applyAcceptedDiagnosticPlacement(current, startingLevel, score, undefined, undefined, baseline?.preservePath);
+      });
+      return saved && accepted;
+    },
     skipDiagnostic: () =>
       persist((current) => applySkippedDiagnostic(current)),
     completeLesson: async (
@@ -915,11 +921,13 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           : { ...current.fsrsCards, [wordId]: emptyStoredCard() },
       }));
     },
-    gradeReview: async (wordId, rating, idempotencyKey, usedHint = false) => {
+    gradeReview: async (wordId, rating, idempotencyKey, usedHint = false, presentationVersion) => {
       const { RELEASED_WORD_BY_ID, WORD_BY_ID } = await import(
         "../data/curriculum"
       );
       if (!RELEASED_WORD_BY_ID.has(wordId)) return;
+      const { EDITORIAL_WORD_BY_ID, LEXICAL_EDITORIAL_VERSION } = await import("../content/lexicalEditorialCatalog");
+      if (presentationVersion !== undefined && presentationVersion !== LEXICAL_EDITORIAL_VERSION) return;
       persist((current) => {
         const now = new Date();
         const evidenceResult = recordEvidenceInState(current, {
@@ -931,7 +939,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           skill: "vocabulary",
           outcome: rating === Rating.Again ? "incorrect" : "unverified",
           score: null,
-          metadata: { rating: Number(rating), usedHint },
+          metadata: { rating: Number(rating), usedHint, ...(presentationVersion ? { presentationVersion } : {}) },
         }, now.toISOString());
         if (!evidenceResult.inserted) return current;
         const currentWithEvidence = evidenceResult.state;
@@ -947,7 +955,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           rating,
         );
         const day = applyStudyDay(currentWithEvidence);
-        const word = WORD_BY_ID.get(wordId);
+        const word = (presentationVersion ? EDITORIAL_WORD_BY_ID : WORD_BY_ID).get(wordId);
         const recalled = rating !== Rating.Again;
         let mistakes = currentWithEvidence.mistakes;
         if (!recalled && word) {

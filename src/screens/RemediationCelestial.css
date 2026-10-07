@@ -21,6 +21,11 @@
 .rem-atlas-core svg {width:27px;height:27px;color:#68f2d7;margin-bottom:2px;filter:drop-shadow(0 0 8px #55ffe57a)}
 .rem-atlas-core strong {font:600 43px/1.1 var(--sans);color:#f0ffff;letter-spacing:-.05em}
 .rem-atlas-core>span {font-size:10px;color:#b3d4df;margin-top:7px}
+.rem-atlas .rem-atlas-core {gap:4px;text-align:center}
+.rem-atlas .rem-atlas-core > svg:not(.awakening-vignette) {width:20px;height:20px;margin:0;flex-shrink:0}
+.rem-atlas .rem-atlas-core > strong {font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.025em}
+.rem-atlas .rem-atlas-core > .rem-atlas-core-label {display:grid;justify-items:center;gap:2px;margin:1px 0 0;font:500 10px/1.25 var(--sans);letter-spacing:.01em;color:#d1e8eb;white-space:nowrap}
+.rem-atlas-core-label > span:first-child {font-size:9px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:#93c5cb}
 .rem-atlas-nodes {position:absolute;inset:0 0 26px;list-style:none;padding:0;margin:0}
 .rem-atlas-nodes li {position:absolute;left:var(--node-x);top:var(--node-y);transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:9px;width:104px}
 .rem-atlas-node-icon {position:relative;display:grid;place-items:center;width:74px;height:74px;border-radius:50%;border:1px solid #a0eaf699;color:#c2f3ff;background:radial-gradient(circle at 32% 15%,#25566b,#081a2c 65%);box-shadow:inset 0 2px 2px #dbffff66,inset 0 -5px 10px #0007,0 0 0 4px #6cd9eb12,0 0 24px #24b4dc26}

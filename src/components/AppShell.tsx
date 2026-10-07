@@ -3,25 +3,22 @@ import {
   BookOpenText,
   BrainCircuit,
   ChevronRight,
-  Flame,
+  Crown,
   Gauge,
   Languages,
   LayoutGrid,
   Map,
   Mic2,
-  Orbit,
   PanelLeftClose,
   PanelLeftOpen,
   PenTool,
   Search,
   Settings,
   ShieldCheck,
-  Sparkles,
   Swords,
   Target,
   Volume2,
   X,
-  Zap,
 } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
@@ -29,6 +26,8 @@ import {
   resolvePlacementResumeDestination,
   type PlacementResumeDestination,
 } from "../assessment/placementResume";
+import { hasLearningProgress } from "../assessment/placementSafety";
+import { usePlacementContext } from "../assessment/usePlacementContext";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
 import { useLearning } from "../store/LearningStore";
 import { useAccessDays } from "../learning/useAccessDays";
@@ -43,12 +42,13 @@ import {
 } from "../lib/storageKeys";
 import {
   getInteractionRankProgress,
-  getSystemClass,
 } from "../system/systemProgression";
 import { useSystemUi } from "../system/systemUiPreferences";
-import { SystemAtmosphere } from "./system/SystemAtmosphere";
 import { SystemPromotionOverlay } from "./system/SystemPromotionOverlay";
 import { SystemStatusHologram } from "./system/SystemStatusHologram";
+import { NgocHeader } from "./NgocHeader";
+import { useAwakeningMotion } from "../system/useAwakeningMotion";
+import { AwakeningVignette } from "./system/AwakeningVignette";
 
 const navItems = [
   { to: "/", label: "Thức Tỉnh Điện", short: "Tâm", icon: Gauge },
@@ -66,17 +66,17 @@ const navItems = [
 const ASSESSMENT_INVITE_SESSION_KEY = "hanzi-os-assessment-invite-v1";
 
 export function AppShell({ children }: { children: ReactNode }) {
-  const { state, sync, dueWordIds, level } = useLearning();
+  const { state, sync, level } = useLearning();
+  const placementContext = usePlacementContext();
   usePageAttemptPump(sync.session?.authenticated && sync.ownerKey === sync.session.accountKey ? sync.ownerKey : '');
   useAccessDays(sync.session?.authenticated ? sync.session.accountKey : null, sync.session !== null);
   const interactionXp = useInteractionXp();
   const { announce, cancelSpeech } = useAudioEngine();
-  const { resolvedMotion } = useSystemUi();
+  const { resolvedMotion, motionQuality, hydrated } = useSystemUi();
   const rank = getInteractionRankProgress(interactionXp.totalXp);
   const displayedLevel = interactionXp.authoritative
     ? Math.floor(interactionXp.totalXp / 500) + 1
     : level;
-  const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
   const readerRoute = location.pathname.startsWith("/reader");
   const lessonRoute = location.pathname.startsWith("/lesson/");
@@ -92,10 +92,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [assessmentInviteOpen, setAssessmentInviteOpen] = useState(false);
   const [assessmentResume, setAssessmentResume] = useState<PlacementResumeDestination | null>(null);
   const mainRef = useRef<HTMLElement>(null);
+  useAwakeningMotion(mainRef, location.pathname);
   const statusButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuCloseRef = useRef<HTMLButtonElement>(null);
-  const dailyTarget = state.profile.dailyMinutes * 6;
 
   useEffect(() => setMobileMenuOpen(false), [location.pathname]);
   useEffect(() => {
@@ -135,16 +135,20 @@ export function AppShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (
       state.diagnostic.completed
+      || hasLearningProgress(state)
+      || !placementContext.ready
+      || placementContext.preservePath
       || location.pathname.startsWith("/assessment")
       || readerRoute
       || lessonRoute
       || reviewRoute
       || remediationRoute
     ) return;
-    const resume = resolvePlacementResumeDestination();
     const ownerKey = sync.session?.authenticated
       ? sync.session.accountKey
       : sync.ownerKey;
+    if (!ownerKey) return;
+    const resume = resolvePlacementResumeDestination(undefined, { state, ownerKey, contextSnapshot: placementContext.snapshot });
     const invitationId = resume?.sessionId ?? "new";
     const storageKey = `${ASSESSMENT_INVITE_SESSION_KEY}:${ownerKey}:${invitationId}`;
     try {
@@ -157,7 +161,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     setAssessmentInviteOpen(true);
     const voiceTimer = window.setTimeout(() => playAssessmentInvite(resume), 450);
     return () => window.clearTimeout(voiceTimer);
-  }, [lessonRoute, location.pathname, playAssessmentInvite, readerRoute, remediationRoute, reviewRoute, state.diagnostic.completed, sync.ownerKey, sync.session]);
+  }, [lessonRoute, location.pathname, playAssessmentInvite, readerRoute, remediationRoute, reviewRoute, state, sync.ownerKey, sync.session, placementContext.ready, placementContext.preservePath, placementContext.snapshot]);
 
   useEffect(() => {
     if (!readerRoute && !lessonRoute && !reviewRoute && !remediationRoute) return;
@@ -166,8 +170,14 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [cancelSpeech, lessonRoute, readerRoute, remediationRoute, reviewRoute]);
 
   useEffect(() => {
-    if (state.diagnostic.completed) setAssessmentInviteOpen(false);
-  }, [state.diagnostic.completed]);
+    if (state.diagnostic.completed || hasLearningProgress(state) || placementContext.preservePath) setAssessmentInviteOpen(false);
+  }, [state, placementContext.preservePath]);
+
+  const summonStatus = useCallback(() => {
+    if (statusOpen) return;
+    emitSystemSignal({ type: "system.panel-opened", sourceId: "status:command-bar" });
+    setStatusOpen(true);
+  }, [statusOpen]);
 
   useEffect(() => {
     const handleSummonShortcut = (event: KeyboardEvent) => {
@@ -179,19 +189,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           emitSystemSignal({ type: "system.panel-closed", sourceId: "status:shortcut" });
           setStatusOpen(false);
         } else {
-          emitSystemSignal({ type: "system.panel-opened", sourceId: "status:shortcut" });
-          setStatusOpen(true);
+          summonStatus();
         }
       }
     };
     window.addEventListener("keydown", handleSummonShortcut);
     return () => window.removeEventListener("keydown", handleSummonShortcut);
-  }, [statusOpen]);
-
-  const summonStatus = () => {
-    emitSystemSignal({ type: "system.panel-opened", sourceId: "status:command-bar" });
-    setStatusOpen(true);
-  };
+  }, [statusOpen, summonStatus]);
   const closeStatus = useCallback(() => setStatusOpen(false), []);
 
   useEffect(() => {
@@ -235,7 +239,6 @@ export function AppShell({ children }: { children: ReactNode }) {
       data-system-motion={resolvedMotion}
     >
       <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
-      <SystemAtmosphere />
       <aside className="side-rail" id="learner-navigation">
         <NavLink className="brand-core" to="/" viewTransition aria-label="HANZI.OS - Trang chủ">
           <span className="brand-hex"><Languages size={24} /></span>
@@ -283,6 +286,10 @@ export function AppShell({ children }: { children: ReactNode }) {
         </nav>
 
         <div className="rail-footer">
+          <NavLink className="premium-rail-link" to="/profile/premium" viewTransition title="Xem gói Premium" aria-label="Xem gói Premium và nâng cấp">
+            <Crown size={19} aria-hidden="true" />
+            <span>Gói Premium</span>
+          </NavLink>
           <NavLink to="/profile" viewTransition title="Cài đặt hồ sơ">
             <Settings size={18} />
             <span>Cấu hình hệ thống</span>
@@ -293,44 +300,19 @@ export function AppShell({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="app-stage">
-        <header className="command-bar">
-          <div className="command-title">
-            <Orbit size={20} />
-            <span>
-              <small>{page.code} · {page.plain}</small>
-              <strong>{page.title}</strong>
-            </span>
-          </div>
-          <div className="system-pulses" aria-label="Trạng thái học tập">
-            <span><BrainCircuit size={15} /> {dueWordIds.length} ôn tập</span>
-            <span><Flame size={15} /> {state.streak} ngày</span>
-            <span><Zap size={15} /> {interactionXp.dailyXp === null
-              ? interactionXp.pending ? "Đang đồng bộ" : `${interactionXp.totalXp} XP`
-              : `${interactionXp.dailyXp}/${dailyTarget} XP`}</span>
-          </div>
-          <button
-            ref={statusButtonRef}
-            className="sys-summon-trigger"
-            type="button"
-            onClick={summonStatus}
-            data-system-silent="true"
-            aria-haspopup="dialog"
-            aria-expanded={statusOpen}
-            title="Triệu hồi Bảng Hệ Thống · Alt + S"
-          >
-            <Sparkles size={17} />
-            <span><small>ALT + S</small><strong>TRIỆU HỒI</strong></span>
-          </button>
-          <NavLink className="profile-chip" to="/profile" viewTransition>
-            <span className="profile-avatar">{state.profile.name.slice(0, 1).toUpperCase()}</span>
-            <span>
-              <small>{systemClass.title}</small>
-              <strong>{state.profile.name}</strong>
-            </span>
-          </NavLink>
-        </header>
+        <NgocHeader
+          resolvedMotion={resolvedMotion}
+          motionQuality={motionQuality}
+          hydrated={hydrated}
+          title={page.title}
+          plainTitle={page.plain}
+          name={state.profile.name}
+          statusOpen={statusOpen}
+          statusButtonRef={statusButtonRef}
+          onSummon={summonStatus}
+        />
 
-        <main className="main-stage" id="main-content" ref={mainRef} tabIndex={-1}>{children}</main>
+        <main className="main-stage" id="main-content" ref={mainRef} tabIndex={-1}><AwakeningVignette stageRef={mainRef} mode={resolvedMotion} quality={motionQuality} />{children}</main>
       </div>
 
       <nav className="mobile-nav" aria-label="Điều hướng di động">
@@ -365,6 +347,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 </NavLink>
               ))}
               <NavLink to="/assessment" viewTransition><Target size={20} /><span>Khảo Nghiệm Căn Cơ</span><ChevronRight size={16} /></NavLink>
+              <NavLink to="/profile/premium" viewTransition><Crown size={20} /><span>Gói Premium</span><ChevronRight size={16} /></NavLink>
               <NavLink to="/profile" viewTransition><Settings size={20} /><span>Bảng Thuộc Tính</span><ChevronRight size={16} /></NavLink>
             </nav>
           </section>

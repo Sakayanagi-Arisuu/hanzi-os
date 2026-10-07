@@ -1,0 +1,1414 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/142-REVIEW-HSK4-BA-PROCESS-ROUND49.md",
+  "entries": [
+    {
+      "sourceRevisionId": "cc9e347a-811d-44fe-a5ed-0299e15a28c5",
+      "sourceContentSha256": "sha256:39103e9df4911d5564143970c4e73fe200bbb3c80fd47134eeb00fc440558023",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm về giá trị của thất bại\nthử nghiệm và vùng đối chứng cỏ biển\nchỉ số và điểm đối chứng đường mòn\nphản biện về độ rõ của thông điệp\ngiới hạn không khái quát ngoài nguồn",
+        "conceptVi": "Paraphrase không đổi phạm vi: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp.",
+        "dialogue": [
+          {
+            "hanzi": "海湾曾有丰富的海草，后来由于船只和泥沙增加，覆盖面积下降。环保小组第一年先画海洋底图，没有马上大量种草，因为他们需要知道水流、深度和旧草的位置。气候记录也显示夏季高温年份差异很大。",
+            "meaningVi": "Vịnh từng có cỏ biển phong phú, sau giảm do tàu và bùn tăng. Năm đầu nhóm môi trường lập bản đồ đáy, chưa trồng nhiều vì cần biết dòng, độ sâu và cỏ cũ. Hồ sơ khí hậu cũng cho thấy mùa hè nóng khác nhiều giữa các năm.",
+            "pinyin": "Hǎiwān céng yǒu fēngfù de hǎicǎo, hòulái yóuyú chuánzhī hé níshā zēngjiā, fùgài miànjī xiàjiàng. Huánbǎo xiǎozǔ dì yī nián xiān huà hǎiyáng dǐtú, méiyǒu mǎshàng dàliàng zhòng cǎo, yīnwèi tāmen xūyào zhīdào shuǐliú, shēndù hé jiù cǎo de wèizhì. Qìhòu jìlù yě xiǎnshì xiàjì gāowēn niánfen chāyì hěn dà.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "第二年，他们在三种地点各试种少量海草；第三年保留成活最好的一种方法，并设置无种植区作比较。第四年一次强风破坏了两片试验区，小组调整固定方式，却没有删除失败数据。",
+            "meaningVi": "Năm hai, họ thử ít cỏ ở ba loại nơi; năm ba giữ cách sống tốt nhất và lập vùng không trồng để so. Năm bốn, gió mạnh phá hai vùng thử; nhóm đổi cách cố định nhưng không xóa dữ liệu thất bại.",
+            "pinyin": "Dì èr nián, tāmen zài sān zhǒng dìdiǎn gè shìzhòng shǎoliàng hǎicǎo; dì sān nián bǎoliú chénghuó zuì hǎo de yì zhǒng fāngfǎ, bìng shèzhì wú zhòngzhíqū zuò bǐjiào. Dì sì nián yí cì qiáng fēng pòhuài le liǎng piàn shìyànqū, xiǎozǔ tiáozhěng gùdìng fāngshì, què méiyǒu shānchú shībài shùjù.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "第五年，部分区域覆盖增加，小鱼数量也上升，但另一侧海湾没有明显变化。小组把过程分成测量、试种、比较、受损和调整五段。结果支持局部恢复可行，却不能说明整个海湾已恢复，也不能把鱼增加只归因于海草。",
+            "meaningVi": "Năm năm, độ phủ tăng ở một số vùng và cá nhỏ cũng tăng, nhưng phía khác không đổi rõ. Nhóm chia quá trình thành đo, thử trồng, so, hư hại và điều chỉnh. Kết quả hỗ trợ phục hồi cục bộ khả thi, chưa nói toàn vịnh hồi phục hay cá tăng chỉ do cỏ.",
+            "pinyin": "Dì wǔ nián, bùfen qūyù fùgài zēngjiā, xiǎo yú shùliàng yě shàngshēng, dàn lìng yí cè hǎiwān méiyǒu míngxiǎn biànhuà. Xiǎozǔ bǎ guòchéng fēn chéng cèliáng, shìzhòng, bǐjiào, shòusǔn hé tiáozhěng wǔ duàn. Jiéguǒ zhīchí júbù huīfù kěxíng, què bù néng shuōmíng zhěng ge hǎiwān yǐ huīfù, yě bù néng bǎ yú zēngjiā zhǐ guīyīn yú hǎicǎo.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "森林公园为了让参观更丰富，在步道放置二维码。游客通过手机听到动物的声音，看到季节图片。第一阶段只看扫描次数，管理方认为次数高就代表科技项目成功，却没有记录游客是否停留或理解内容。",
+            "meaningVi": "Công viên rừng đặt mã QR để chuyến tham quan phong phú hơn; khách nghe tiếng động vật và xem ảnh theo mùa qua điện thoại. Giai đoạn đầu chỉ xem lượt quét, quản lý coi cao là thành công nhưng không ghi thời gian dừng hay mức hiểu.",
+            "pinyin": "Sēnlín gōngyuán wèile ràng cānguān gèng fēngfù, zài bùdào fàngzhì èrwéimǎ. Yóukè tōngguò shǒujī tīng dào dòngwù de shēngyīn, kàn dào jìjié túpiàn. Dì yī jiēduàn zhǐ kàn sǎomiáo cìshù, guǎnlǐfāng rènwéi cìshù gāo jiù dàibiǎo kējì xiàngmù chénggōng, què méiyǒu jìlù yóukè shìfǒu tíngliú huò lǐjiě nèiróng.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "第二阶段接受教师建议，在三个点增加短问题，并保留没有问题的两个点。结果显示，有问题的点停留更久，但山顶手机信号弱，扫描少并不一定表示内容差。公园于是把部分内容下载到入口设备。",
+            "meaningVi": "Giai đoạn hai nhận kiến nghị giáo viên, thêm câu ngắn ở ba điểm và giữ hai điểm không câu. Điểm có câu được dừng lâu hơn, nhưng đỉnh núi tín hiệu yếu nên ít quét không hẳn nội dung kém. Công viên tải một phần nội dung ở thiết bị lối vào.",
+            "pinyin": "Dì èr jiēduàn jiēshòu jiàoshī jiànyì, zài sān ge diǎn zēngjiā duǎn wèntí, bìng bǎoliú méiyǒu wèntí de liǎng ge diǎn. Jiéguǒ xiǎnshì, yǒu wèntí de diǎn tíngliú gèng jiǔ, dàn shāndǐng shǒujī xìnhào ruò, sǎomiáo shǎo bìng bù yídìng biǎoshì nèiróng chà. Gōngyuán yúshì bǎ bùfen nèiróng xiàzài dào rùkǒu shèbèi.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "第三阶段将扫描、停留、问题回答和纸质观察表结合。项目发现，科技便于提供声音，却不能代替观察真实环境；无信号版本也改善了山顶使用。公园仍要在不同季节测试，当前结果只适用于这条步道。",
+            "meaningVi": "Giai đoạn ba kết hợp lượt quét, thời gian dừng, trả lời và phiếu quan sát. Công nghệ tiện cung cấp âm thanh nhưng không thay quan sát thật; bản không cần tín hiệu cải thiện dùng ở đỉnh. Công viên vẫn cần thử theo mùa; kết quả chỉ cho đường này.",
+            "pinyin": "Dì sān jiēduàn jiāng sǎomiáo, tíngliú, wèntí huídá hé zhǐzhì guānchábiǎo jiéhé. Xiàngmù fāxiàn, kējì biànyú tígōng shēngyīn, què bù néng dàitì guānchá zhēnshí huánjìng; wú xìnhào bǎnběn yě gǎishàn le shāndǐng shǐyòng. Gōngyuán réng yào zài bùtóng jìjié cèshì, dāngqián jiéguǒ zhǐ shìyòng yú zhè tiáo bùdào.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:7a7c8fee5f6e1f2d35926cf9d28bc644a842e6d1e4bb77272bd5be69618bcc80",
+          "evidenceDocument": "docs/thien-lo-redesign-review/141-REVIEW-HSK4-SEAGRASS-CONTEXT-ROUND48.md",
+          "humanReviewed": false,
+          "scope": "Correct seagrass and trail Pinyin, hearing versus seeing audio, and second/third-stage chronology; preserve IDs and keys.",
+          "sourceContentSha256": "sha256:0668a343d94be572a06dd136ce140c74ab4561fc278afc7eaa7def9216e0790b",
+          "sourceRevisionId": "d569ed29-8a30-4c5a-93c3-3ab7c0390daf"
+        },
+        "exercises": [
+          {
+            "answer": "海湾曾有丰富的海草，后来由于船只和泥沙增加，覆盖面积下降。环保小组第一年先画海洋底图，没有马上大量种草，因为他们需要知道水流、深度和旧草的位置。气候记录也显示夏季高温年份差异很大。",
+            "answerMeaningVi": "Vịnh từng có cỏ biển phong phú, sau giảm do tàu và bùn tăng. Năm đầu nhóm môi trường lập bản đồ đáy, chưa trồng nhiều vì cần biết dòng, độ sâu và cỏ cũ. Hồ sơ khí hậu cũng cho thấy mùa hè nóng khác nhiều giữa các năm.",
+            "answerPinyin": "Hǎiwān céng yǒu fēngfù de hǎicǎo, hòulái yóuyú chuánzhī hé níshā zēngjiā, fùgài miànjī xiàjiàng. Huánbǎo xiǎozǔ dì yī nián xiān huà hǎiyáng dǐtú, méiyǒu mǎshàng dàliàng zhòng cǎo, yīnwèi tāmen xūyào zhīdào shuǐliú, shēndù hé jiù cǎo de wèizhì. Qìhòu jìlù yě xiǎnshì xiàjì gāowēn niánfen chāyì hěn dà.",
+            "distractors": [
+              "第二年，他们在三种地点各试种少量海草；第三年保留成活最好的一种方法，并设置无种植区作比较。第四年一次强风破坏了两片试验区，小组调整固定方式，却没有删除失败数据。",
+              "第五年，部分区域覆盖增加，小鱼数量也上升，但另一侧海湾没有明显变化。小组把过程分成测量、试种、比较、受损和调整五段。结果支持局部恢复可行，却不能说明整个海湾已恢复，也不能把鱼增加只归因于海草。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Sau động từ có thể nêu số lần xử lý đối tượng: 把这篇文章读了两遍 (đọc toàn bài hai lượt). 次 đếm lần nói chung; 遍 nhấn đi hết một lượt từ đầu đến cuối. Thời lượng nói kéo dài bao lâu: 把这件事考虑了三天. Tân ngữ sau 把 cần xác định và động từ phải hợp cách xử lý đó; không áp dụng máy móc với mọi trạng thái. Giữ số lần/thời lượng đúng dữ kiện. Năm năm của dự án cỏ biển không có nghĩa mọi vùng thử được quan sát liên tục năm năm: trồng thử bắt đầu năm hai.",
+            "guidedPractice": {
+              "promptVi": "Tình huống mới: bạn đọc trọn hướng dẫn ba lượt, còn đồng nghiệp cân nhắc đề nghị trong hai ngày. Viết hai câu 把, phân biệt lượt và thời lượng.",
+              "modelAnswerHanzi": "我把说明书读了三遍。同事把这个建议考虑了两天。",
+              "modelAnswerPinyin": "Wǒ bǎ shuōmíngshū dú le sān biàn. Tóngshì bǎ zhè ge jiànyì kǎolǜ le liǎng tiān.",
+              "modelAnswerMeaningVi": "Tôi đọc hướng dẫn ba lượt. Đồng nghiệp cân nhắc đề nghị này trong hai ngày."
+            },
+            "modelExample": {
+              "hanzi": "我把这篇文章读了两遍。",
+              "pinyin": "Wǒ bǎ zhè piān wénzhāng dú le liǎng biàn.",
+              "meaningVi": "Tôi đọc bài này hai lượt từ đầu đến cuối.",
+              "speaker": "A"
+            },
+            "pattern": "（3）主语+把+宾语+动词+动量补语/时量补语"
+          },
+          {
+            "explanationVi": "Cách thức có thể đứng sau đối tượng trước động từ: 把名字认真地写下来, 把资料分别保存. 地 nối nhiều cụm miêu tả cách thức, nhưng không gắn 地 máy móc sau mọi phó từ như 分别. Phủ định/khả năng thường đứng trước 把: 不要把、可以把. Một trạng ngữ không thay toàn bộ yêu cầu của câu 把; giữ cụm động từ tự nhiên với kết quả/hướng khi cần. 分别 nhấn xử lý riêng từng phần, không đồng nghĩa gộp dữ liệu thành một điểm.",
+            "guidedPractice": {
+              "promptVi": "Bạn nhờ đồng nghiệp lưu riêng hai hóa đơn và kiểm kỹ ngày tháng, không xóa bản gốc. Viết hai hoặc ba câu 把 theo tình huống mới.",
+              "modelAnswerHanzi": "请把这两张发票分别保存，把日期仔细检查一遍，不要把原件删掉。",
+              "modelAnswerPinyin": "Qǐng bǎ zhè liǎng zhāng fāpiào fēnbié bǎocún, bǎ rìqī zǐxì jiǎnchá yí biàn, bú yào bǎ yuánjiàn shān diào.",
+              "modelAnswerMeaningVi": "Hãy lưu riêng hai hóa đơn này, kiểm kỹ ngày tháng một lượt, đừng xóa bản gốc."
+            },
+            "modelExample": {
+              "hanzi": "请把名字清楚地写在这里。",
+              "pinyin": "Qǐng bǎ míngzi qīngchu de xiě zài zhèlǐ.",
+              "meaningVi": "Hãy viết tên rõ ràng ở đây.",
+              "speaker": "A"
+            },
+            "pattern": "（4）主语+把+宾语+状语+动词"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng paraphrase không đổi phạm vi để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Paraphrase không đổi phạm vi: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "海湾曾有丰富的海草，后来由于船只和泥沙增加，覆盖面积下降。环保小组第一年先画海洋底图，没有马上大量种草，因为他们需要知道水流、深度和旧草的位置。气候记录也显示夏季高温年份差异很大。",
+                        "id": "hsk4-event-agency-voice-lesson-02:source-0-0",
+                        "meaningVi": "Vịnh từng có cỏ biển phong phú, sau giảm do tàu và bùn tăng. Năm đầu nhóm môi trường lập bản đồ đáy, chưa trồng nhiều vì cần biết dòng, độ sâu và cỏ cũ. Hồ sơ khí hậu cũng cho thấy mùa hè nóng khác nhiều giữa các năm.",
+                        "pinyin": "Hǎiwān céng yǒu fēngfù de hǎicǎo, hòulái yóuyú chuánzhī hé níshā zēngjiā, fùgài miànjī xiàjiàng. Huánbǎo xiǎozǔ dì yī nián xiān huà hǎiyáng dǐtú, méiyǒu mǎshàng dàliàng zhòng cǎo, yīnwèi tāmen xūyào zhīdào shuǐliú, shēndù hé jiù cǎo de wèizhì. Qìhòu jìlù yě xiǎnshì xiàjì gāowēn niánfen chāyì hěn dà."
+                      },
+                      {
+                        "hanzi": "第二年，他们在三种地点各试种少量海草；第三年保留成活最好的一种方法，并设置无种植区作比较。第四年一次强风破坏了两片试验区，小组调整固定方式，却没有删除失败数据。",
+                        "id": "hsk4-event-agency-voice-lesson-02:source-0-1",
+                        "meaningVi": "Năm hai, họ thử ít cỏ ở ba loại nơi; năm ba giữ cách sống tốt nhất và lập vùng không trồng để so. Năm bốn, gió mạnh phá hai vùng thử; nhóm đổi cách cố định nhưng không xóa dữ liệu thất bại.",
+                        "pinyin": "Dì èr nián, tāmen zài sān zhǒng dìdiǎn gè shìzhòng shǎoliàng hǎicǎo; dì sān nián bǎoliú chénghuó zuì hǎo de yì zhǒng fāngfǎ, bìng shèzhì wú zhòngzhíqū zuò bǐjiào. Dì sì nián yí cì qiáng fēng pòhuài le liǎng piàn shìyànqū, xiǎozǔ tiáozhěng gùdìng fāngshì, què méiyǒu shānchú shībài shùjù."
+                      },
+                      {
+                        "hanzi": "第五年，部分区域覆盖增加，小鱼数量也上升，但另一侧海湾没有明显变化。小组把过程分成测量、试种、比较、受损和调整五段。结果支持局部恢复可行，却不能说明整个海湾已恢复，也不能把鱼增加只归因于海草。",
+                        "id": "hsk4-event-agency-voice-lesson-02:source-0-2",
+                        "meaningVi": "Năm năm, độ phủ tăng ở một số vùng và cá nhỏ cũng tăng, nhưng phía khác không đổi rõ. Nhóm chia quá trình thành đo, thử trồng, so, hư hại và điều chỉnh. Kết quả hỗ trợ phục hồi cục bộ khả thi, chưa nói toàn vịnh hồi phục hay cá tăng chỉ do cỏ.",
+                        "pinyin": "Dì wǔ nián, bùfen qūyù fùgài zēngjiā, xiǎo yú shùliàng yě shàngshēng, dàn lìng yí cè hǎiwān méiyǒu míngxiǎn biànhuà. Xiǎozǔ bǎ guòchéng fēn chéng cèliáng, shìzhòng, bǐjiào, shòusǔn hé tiáozhěng wǔ duàn. Jiéguǒ zhīchí júbù huīfù kěxíng, què bù néng shuōmíng zhěng ge hǎiwān yǐ huīfù, yě bù néng bǎ yú zēngjiā zhǐ guīyīn yú hǎicǎo."
+                      }
+                    ]
+                  },
+                  "title": "Quá trình năm năm phục hồi cỏ biển"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Quá trình năm năm phục hồi cỏ biển"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "森林公园为了让参观更丰富，在步道放置二维码。游客通过手机听到动物的声音，看到季节图片。第一阶段只看扫描次数，管理方认为次数高就代表科技项目成功，却没有记录游客是否停留或理解内容。",
+                        "id": "hsk4-event-agency-voice-lesson-02:source-1-0",
+                        "meaningVi": "Công viên rừng đặt mã QR để chuyến tham quan phong phú hơn; khách nghe tiếng động vật và xem ảnh theo mùa qua điện thoại. Giai đoạn đầu chỉ xem lượt quét, quản lý coi cao là thành công nhưng không ghi thời gian dừng hay mức hiểu.",
+                        "pinyin": "Sēnlín gōngyuán wèile ràng cānguān gèng fēngfù, zài bùdào fàngzhì èrwéimǎ. Yóukè tōngguò shǒujī tīng dào dòngwù de shēngyīn, kàn dào jìjié túpiàn. Dì yī jiēduàn zhǐ kàn sǎomiáo cìshù, guǎnlǐfāng rènwéi cìshù gāo jiù dàibiǎo kējì xiàngmù chénggōng, què méiyǒu jìlù yóukè shìfǒu tíngliú huò lǐjiě nèiróng."
+                      },
+                      {
+                        "hanzi": "第二阶段接受教师建议，在三个点增加短问题，并保留没有问题的两个点。结果显示，有问题的点停留更久，但山顶手机信号弱，扫描少并不一定表示内容差。公园于是把部分内容下载到入口设备。",
+                        "id": "hsk4-event-agency-voice-lesson-02:source-1-1",
+                        "meaningVi": "Giai đoạn hai nhận kiến nghị giáo viên, thêm câu ngắn ở ba điểm và giữ hai điểm không câu. Điểm có câu được dừng lâu hơn, nhưng đỉnh núi tín hiệu yếu nên ít quét không hẳn nội dung kém. Công viên tải một phần nội dung ở thiết bị lối vào.",
+                        "pinyin": "Dì èr jiēduàn jiēshòu jiàoshī jiànyì, zài sān ge diǎn zēngjiā duǎn wèntí, bìng bǎoliú méiyǒu wèntí de liǎng ge diǎn. Jiéguǒ xiǎnshì, yǒu wèntí de diǎn tíngliú gèng jiǔ, dàn shāndǐng shǒujī xìnhào ruò, sǎomiáo shǎo bìng bù yídìng biǎoshì nèiróng chà. Gōngyuán yúshì bǎ bùfen nèiróng xiàzài dào rùkǒu shèbèi."
+                      },
+                      {
+                        "hanzi": "第三阶段将扫描、停留、问题回答和纸质观察表结合。项目发现，科技便于提供声音，却不能代替观察真实环境；无信号版本也改善了山顶使用。公园仍要在不同季节测试，当前结果只适用于这条步道。",
+                        "id": "hsk4-event-agency-voice-lesson-02:source-1-2",
+                        "meaningVi": "Giai đoạn ba kết hợp lượt quét, thời gian dừng, trả lời và phiếu quan sát. Công nghệ tiện cung cấp âm thanh nhưng không thay quan sát thật; bản không cần tín hiệu cải thiện dùng ở đỉnh. Công viên vẫn cần thử theo mùa; kết quả chỉ cho đường này.",
+                        "pinyin": "Dì sān jiēduàn jiāng sǎomiáo, tíngliú, wèntí huídá hé zhǐzhì guānchábiǎo jiéhé. Xiàngmù fāxiàn, kējì biànyú tígōng shēngyīn, què bù néng dàitì guānchá zhēnshí huánjìng; wú xìnhào bǎnběn yě gǎishàn le shāndǐng shǐyòng. Gōngyuán réng yào zài bùtóng jìjié cèshì, dāngqián jiéguǒ zhǐ shìyòng yú zhè tiáo bùdào."
+                      }
+                    ]
+                  },
+                  "title": "Một đường mòn thiên nhiên dùng công nghệ như thế nào"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Một đường mòn thiên nhiên dùng công nghệ như thế nào"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Ba đoạn mô tả trực tiếp chuỗi năm năm và giới hạn kết quả ở một số khu vực. Giới hạn: Không được chuyển phục hồi cục bộ thành toàn vịnh hoặc quy toàn bộ mức tăng cá nhỏ cho cỏ biển.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nhóm cỏ biển trải qua đo, trồng thử, so sánh, hư hại và điều chỉnh; năm thứ năm độ phủ tăng ở một số vùng.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Ba đoạn mô tả trực tiếp chuỗi năm năm và giới hạn kết quả ở một số khu vực.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Ba đoạn mô tả trực tiếp chuỗi năm năm và giới hạn kết quả ở một số khu vực.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "海草小组经历测量、试种、比较、受损和调整，部分区域第五年覆盖增加。\nNhóm cỏ biển trải qua đo, trồng thử, so sánh, hư hại và điều chỉnh; năm thứ năm độ phủ tăng ở một số vùng.\nĐối chiếu Nguồn A · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn nói ngược lại rằng công nghệ cung cấp âm thanh tiện lợi nhưng không thay quan sát môi trường thật. Giới hạn: Chỉ có thể nói câu hỏi liên quan thời gian dừng ở các điểm thử; chưa chứng minh hiểu sâu hay hiệu quả ở mùa khác.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sau khi thêm câu hỏi mã QR, công nghệ đã thay thế việc khách quan sát môi trường tự nhiên.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Chỉ có thể nói câu hỏi liên quan thời gian dừng ở các điểm thử; chưa chứng minh hiểu sâu hay hiệu quả ở mùa khác.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn nói ngược lại rằng công nghệ cung cấp âm thanh tiện lợi nhưng không thay quan sát môi trường thật.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "增加二维码问题以后，科技已经代替游客观察自然环境。\nSau khi thêm câu hỏi mã QR, công nghệ đã thay thế việc khách quan sát môi trường tự nhiên.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n小组先画海底图，再在三类地点少量试种并保留无种植区。强风破坏试验后，他们调整固定方式而不删除失败数据。第五年只有部分区域增加覆盖。\nNhóm trước hết lập bản đồ đáy, rồi trồng ít ở ba loại nơi và giữ vùng không trồng. Sau khi gió mạnh phá thử nghiệm, họ đổi cách cố định mà không xóa dữ liệu thất bại. Năm thứ năm chỉ một số vùng tăng độ phủ.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại tiến trình năm năm, giữ lần lượt các hành động, thất bại và phạm vi kết quả cuối.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Lập bản đồ diễn ra trước khi trồng thử.",
+                        "id": "point-0",
+                        "label": "Lập bản đồ diễn ra trước khi trồng thử."
+                      },
+                      {
+                        "guidance": "Có vùng không trồng để so sánh.",
+                        "id": "point-1",
+                        "label": "Có vùng không trồng để so sánh."
+                      },
+                      {
+                        "guidance": "Dữ liệu thất bại được giữ và kết quả chỉ cục bộ.",
+                        "id": "point-2",
+                        "label": "Dữ liệu thất bại được giữ và kết quả chỉ cục bộ."
+                      },
+                      {
+                        "guidance": "Không rút chuỗi năm năm thành một lần trồng thành công hay nói toàn vịnh và số cá đã phục hồi vì cỏ.",
+                        "id": "point-3",
+                        "label": "Không rút chuỗi năm năm thành một lần trồng thành công hay nói toàn vịnh và số cá đã phục hồi vì cỏ."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại tiến trình năm năm, giữ lần lượt các hành động, thất bại và phạm vi kết quả cuối.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n公园起初只数二维码扫描，后来加入短问题和对照点，最后同时记录停留、回答与纸质观察。山顶信号弱会减少扫描，因此扫描少不能直接说明内容差。\nBan đầu công viên chỉ đếm lượt quét mã; sau đó thêm câu hỏi ngắn và điểm đối chứng, cuối cùng ghi cả thời gian dừng, câu trả lời và phiếu giấy. Tín hiệu yếu trên đỉnh làm giảm lượt quét nên ít quét không trực tiếp cho thấy nội dung kém.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase ba giai đoạn đánh giá đường mòn, không đổi lượt quét thành mức hiểu và phải giữ yếu tố tín hiệu.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Ba giai đoạn dùng bộ chỉ số ngày càng rộng.",
+                        "id": "point-0",
+                        "label": "Ba giai đoạn dùng bộ chỉ số ngày càng rộng."
+                      },
+                      {
+                        "guidance": "Có các điểm không thêm câu hỏi để so.",
+                        "id": "point-1",
+                        "label": "Có các điểm không thêm câu hỏi để so."
+                      },
+                      {
+                        "guidance": "Tín hiệu yếu là một cách giải thích cho ít lượt quét.",
+                        "id": "point-2",
+                        "label": "Tín hiệu yếu là một cách giải thích cho ít lượt quét."
+                      },
+                      {
+                        "guidance": "Không nói câu hỏi gây hiểu biết lâu dài hoặc kết quả áp dụng ngoài đường mòn và các mùa chưa thử.",
+                        "id": "point-3",
+                        "label": "Không nói câu hỏi gây hiểu biết lâu dài hoặc kết quả áp dụng ngoài đường mòn và các mùa chưa thử."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase ba giai đoạn đánh giá đường mòn, không đổi lượt quét thành mức hiểu và phải giữ yếu tố tín hiệu.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Sau động từ có thể nêu số lần xử lý đối tượng: 把这篇文章读了两遍 (đọc toàn bài hai lượt). 次 đếm lần nói chung; 遍 nhấn đi hết một lượt từ đầu đến cuối. Thời lượng nói kéo dài bao lâu: 把这件事考虑了三天. Tân ngữ sau 把 cần xác định và động từ phải hợp cách xử lý đó; không áp dụng máy móc với mọi trạng thái. Giữ số lần/thời lượng đúng dữ kiện. Năm năm của dự án cỏ biển không có nghĩa mọi vùng thử được quan sát liên tục năm năm: trồng thử bắt đầu năm hai.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "把 + động từ + số lần hoặc thời lượng"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我把这篇文章读了两遍。",
+                  "pinyin": "Wǒ bǎ zhè piān wénzhāng dú le liǎng biàn.",
+                  "meaningVi": "Tôi đọc bài này hai lượt từ đầu đến cuối.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "她把这件事考虑了三天。",
+                  "pinyin": "Tā bǎ zhè jiàn shì kǎolǜ le sān tiān.",
+                  "meaningVi": "Cô ấy cân nhắc việc này trong ba ngày.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "请把这个词再写一次。",
+                  "pinyin": "Qǐng bǎ zhè ge cí zài xiě yí cì.",
+                  "meaningVi": "Hãy viết từ này thêm một lần.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "把 + động từ + số lần hoặc thời lượng"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:practice",
+              "title": "Khảo Luyện · 把 + động từ + số lần hoặc thời lượng",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "读了两遍 nhấn gì hơn chỉ nêu 两次?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Hai lượt đọc từ đầu đến cuối",
+                        "feedback": "遍 là lượt hoàn chỉnh qua nội dung; 次 đếm số lần nói chung."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Hai ngày đọc",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Hai người đọc",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "遍 là lượt hoàn chỉnh qua nội dung; 次 đếm số lần nói chung.",
+                    "learningTarget": {
+                      "objective": "把 + động từ + số lần hoặc thời lượng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "考虑了三天 diễn đạt gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Cân nhắc đúng ba lần",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Cân nhắc kéo dài ba ngày",
+                        "feedback": "三天 là thời lượng, không phải số lần hay chất lượng quyết định."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đã chắc chắn có quyết định tốt",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "三天 là thời lượng, không phải số lần hay chất lượng quyết định.",
+                    "learningTarget": {
+                      "objective": "把 + động từ + số lần hoặc thời lượng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Dự án năm năm, thử trồng từ năm hai. Có căn cứ nói mọi vùng thử được quan sát đủ năm năm không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, cứ lấy tổng tuổi dự án",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, vì thử trồng cũng là dự án",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không, nguồn không cho thời lượng đó",
+                        "feedback": "Không lấy thời gian toàn dự án gán cho một công đoạn bắt đầu sau."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Không lấy thời gian toàn dự án gán cho một công đoạn bắt đầu sau.",
+                    "learningTarget": {
+                      "objective": "把 + động từ + số lần hoặc thời lượng",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:0:transfer",
+              "title": "Vận dụng · 把 + động từ + số lần hoặc thời lượng",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我把说明书读了三遍。同事把这个建议考虑了两天。\nWǒ bǎ shuōmíngshū dú le sān biàn. Tóngshì bǎ zhè ge jiànyì kǎolǜ le liǎng tiān.\nTôi đọc hướng dẫn ba lượt. Đồng nghiệp cân nhắc đề nghị này trong hai ngày.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "把 + động từ + số lần hoặc thời lượng",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "三遍 là ba lượt đọc trọn.",
+                        "guidance": "三遍 là ba lượt đọc trọn."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "两天 là thời lượng cân nhắc, không phải hai lần.",
+                        "guidance": "两天 là thời lượng cân nhắc, không phải hai lần."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm rằng đồng nghiệp đã đồng ý.",
+                        "guidance": "Không thêm rằng đồng nghiệp đã đồng ý."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tình huống mới: bạn đọc trọn hướng dẫn ba lượt, còn đồng nghiệp cân nhắc đề nghị trong hai ngày. Viết hai câu 把, phân biệt lượt và thời lượng.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Cách thức có thể đứng sau đối tượng trước động từ: 把名字认真地写下来, 把资料分别保存. 地 nối nhiều cụm miêu tả cách thức, nhưng không gắn 地 máy móc sau mọi phó từ như 分别. Phủ định/khả năng thường đứng trước 把: 不要把、可以把. Một trạng ngữ không thay toàn bộ yêu cầu của câu 把; giữ cụm động từ tự nhiên với kết quả/hướng khi cần. 分别 nhấn xử lý riêng từng phần, không đồng nghĩa gộp dữ liệu thành một điểm.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "把 + đối tượng + trạng ngữ + động từ"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "请把名字清楚地写在这里。",
+                  "pinyin": "Qǐng bǎ míngzi qīngchu de xiě zài zhèlǐ.",
+                  "meaningVi": "Hãy viết tên rõ ràng ở đây.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "她把两份资料分别保存了。",
+                  "pinyin": "Tā bǎ liǎng fèn zīliào fēnbié bǎocún le.",
+                  "meaningVi": "Cô ấy lưu riêng hai tài liệu.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "不要把这些记录随便删掉。",
+                  "pinyin": "Bú yào bǎ zhèxiē jìlù suíbiàn shān diào.",
+                  "meaningVi": "Đừng tùy tiện xóa những bản ghi này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "把 + đối tượng + trạng ngữ + động từ"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:practice",
+              "title": "Khảo Luyện · 把 + đối tượng + trạng ngữ + động từ",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Chọn vị trí tự nhiên để nhờ viết tên rõ ràng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "请把名字清楚地写在这里。",
+                        "feedback": "Cách thức 清楚地 đứng trước 写, sau đối tượng 名字."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "请把清楚地名字这里写。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "请名字写把清楚。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cách thức 清楚地 đứng trước 写, sau đối tượng 名字.",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + trạng ngữ + động từ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "分别保存两份资料 có nghĩa gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Gộp mọi nội dung thành một kết luận",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Lưu hai tài liệu riêng",
+                        "feedback": "分别 nhấn xử lý từng phần riêng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Xóa cả hai tài liệu",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "分别 nhấn xử lý từng phần riêng.",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + trạng ngữ + động từ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Chọn vị trí 不要 phù hợp.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "把不要记录删掉。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "把记录删掉不要。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不要把记录删掉。",
+                        "feedback": "Lời ngăn 不要 thường đặt trước 把."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Lời ngăn 不要 thường đặt trước 把.",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + trạng ngữ + động từ",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-02:ba-process-r49:1:transfer",
+              "title": "Vận dụng · 把 + đối tượng + trạng ngữ + động từ",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n请把这两张发票分别保存，把日期仔细检查一遍，不要把原件删掉。\nQǐng bǎ zhè liǎng zhāng fāpiào fēnbié bǎocún, bǎ rìqī zǐxì jiǎnchá yí biàn, bú yào bǎ yuánjiàn shān diào.\nHãy lưu riêng hai hóa đơn này, kiểm kỹ ngày tháng một lượt, đừng xóa bản gốc.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + trạng ngữ + động từ",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "分别/仔细 đứng trước động từ tương ứng.",
+                        "guidance": "分别/仔细 đứng trước động từ tương ứng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "不要 trước 把 để ngăn xóa.",
+                        "guidance": "不要 trước 把 để ngăn xóa."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không biến lời nhờ thành việc đã hoàn tất.",
+                        "guidance": "Không biến lời nhờ thành việc đã hoàn tất."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn nhờ đồng nghiệp lưu riêng hai hóa đơn và kiểm kỹ ngày tháng, không xóa bản gốc. Viết hai hoặc ba câu 把 theo tình huống mới.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n海草小组用五年完成画图、少量试种、设置无种植区、记录风灾和调整固定方式。第五年部分区域覆盖增加，小鱼也变多，但海湾另一侧没有明显变化，鱼的变化也不能只归因于海草。森林公园起初把扫描次数当作成功信号，第二阶段增加短问题与对照点，第三阶段同时记录停留、回答和纸质观察。山顶信号弱会影响扫描，无信号版本改善了使用。两项工作都通过保留对照和失败信息修正早期判断，结果只支持局部恢复和这条步道上的改进。\nNhóm cỏ biển dùng năm năm để lập bản đồ, trồng thử ít, đặt vùng không trồng, ghi thiệt hại do gió và đổi cách cố định. Năm thứ năm một số vùng tăng độ phủ, cá nhỏ cũng tăng nhưng phía khác không đổi và chưa thể quy cá cho cỏ. Công viên ban đầu xem lượt quét là tín hiệu thành công, rồi thêm câu hỏi và điểm đối chứng, cuối cùng ghi thời gian dừng, trả lời và phiếu giấy. Tín hiệu đỉnh núi ảnh hưởng lượt quét và bản không tín hiệu cải thiện sử dụng. Hai việc đều giữ đối chứng và thất bại để sửa nhận định; kết quả chỉ cục bộ.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt hai chuỗi can thiệp theo thời gian, chỉ rõ đối tượng được xử lý, bằng chứng đối chứng và giới hạn của kết quả.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "năm bước phục hồi cỏ biển",
+                        "id": "criterion-0",
+                        "label": "năm bước phục hồi cỏ biển"
+                      },
+                      {
+                        "guidance": "vùng không trồng và dữ liệu thất bại",
+                        "id": "criterion-1",
+                        "label": "vùng không trồng và dữ liệu thất bại"
+                      },
+                      {
+                        "guidance": "ba giai đoạn đánh giá đường mòn",
+                        "id": "criterion-2",
+                        "label": "ba giai đoạn đánh giá đường mòn"
+                      },
+                      {
+                        "guidance": "tác động tín hiệu và phạm vi một đường mòn",
+                        "id": "criterion-3",
+                        "label": "tác động tín hiệu và phạm vi một đường mòn"
+                      },
+                      {
+                        "guidance": "Không nói phục hồi toàn vịnh, quan hệ nhân quả với cá, mức hiểu lâu dài hoặc hiệu quả ở mọi đường mòn.",
+                        "id": "criterion-4",
+                        "label": "Không nói phục hồi toàn vịnh, quan hệ nhân quả với cá, mức hiểu lâu dài hoặc hiệu quả ở mọi đường mòn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt hai chuỗi can thiệp theo thời gian, chỉ rõ đối tượng được xử lý, bằng chứng đối chứng và giới hạn của kết quả.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n报告项目时，失败和对照应与结果一起出现，因为它们解释结论能够走多远。海草小组没有删除强风破坏两片试验区的数据，还保留无种植区；因此第五年的覆盖增加只能支持部分地点可恢复，不能代表整个海湾。步道最初只数扫描，容易把技术使用写成学习成功。第二阶段增加短问题和无问题点后，管理者发现山顶信号弱也可能影响扫描；第三阶段又结合了纸质观察。有人担心展示太多失败会让公众看不懂，会削弱项目支持。我同意报告需要清楚主线，但清楚不等于只保留好消息。可以按“行动—比较—结果—限制”组织，把关键失败放在它改变决定的位置。这样既说明团队采取了什么，也让读者看见结果受地点、天气和信号限制。两项本地项目不能证明所有失败都同样重要，只表明影响解释的失败与对照不能被隐藏。\nKhi báo cáo dự án nhiều giai đoạn, thất bại và đối chứng nên xuất hiện cùng kết quả tốt vì chúng cho biết kết luận đi xa đến đâu. Nhóm cỏ biển giữ dữ liệu hai vùng bị gió phá và vùng không trồng, nên độ phủ tăng chỉ hỗ trợ phục hồi cục bộ. Đường mòn ban đầu chỉ đếm quét, dễ đồng nhất dùng công nghệ với học; giai đoạn hai thêm câu hỏi và điểm đối chứng, đồng thời nhận ra hạn chế tín hiệu; phiếu giấy được kết hợp ở giai đoạn ba. Lo rằng quá nhiều thất bại khiến công chúng khó hiểu là hợp lý, nhưng có thể trình bày theo hành động–so sánh–kết quả–giới hạn. Hai dự án địa phương không chứng minh mọi thất bại đều quan trọng như nhau; chỉ những thất bại đổi cách hiểu bằng chứng phải được giữ.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: khi một dự án trải qua nhiều giai đoạn, thất bại và dữ liệu đối chứng có nên được trình bày ngang với kết quả tích cực?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm về giá trị của thất bại",
+                        "id": "criterion-0",
+                        "label": "luận điểm về giá trị của thất bại"
+                      },
+                      {
+                        "guidance": "thử nghiệm và vùng đối chứng cỏ biển",
+                        "id": "criterion-1",
+                        "label": "thử nghiệm và vùng đối chứng cỏ biển"
+                      },
+                      {
+                        "guidance": "chỉ số và điểm đối chứng đường mòn",
+                        "id": "criterion-2",
+                        "label": "chỉ số và điểm đối chứng đường mòn"
+                      },
+                      {
+                        "guidance": "phản biện về độ rõ của thông điệp",
+                        "id": "criterion-3",
+                        "label": "phản biện về độ rõ của thông điệp"
+                      },
+                      {
+                        "guidance": "giới hạn không khái quát ngoài nguồn",
+                        "id": "criterion-4",
+                        "label": "giới hạn không khái quát ngoài nguồn"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Đưa quá nhiều dữ liệu thất bại và đối chứng vào báo cáo có thể làm thông điệp khó hiểu và khiến công chúng đánh giá thấp thành quả thật.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ yêu cầu công bố thất bại và đối chứng có ảnh hưởng trực tiếp đến diễn giải; không đòi mọi chi tiết kỹ thuật có trọng số ngang nhau.",
+                        "id": "criterion-6",
+                        "label": "Chỉ yêu cầu công bố thất bại và đối chứng có ảnh hưởng trực tiếp đến diễn giải; không đòi mọi chi tiết kỹ thuật có trọng số ngang nhau."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: khi một dự án trải qua nhiều giai đoạn, thất bại và dữ liệu đối chứng có nên được trình bày ngang với kết quả tích cực?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n海草项目先测量，再试种、比较，受损后才调整固定方式。\n无种植区和风灾数据使部分覆盖增加不能代表全海湾。\n步道只数扫描时，没有测停留、回答或真实观察。\n信号弱也会让扫描减少，所以技术内容不是唯一行动者。\n结论分别限于五年中的部分区域和仍需跨季节测试的一条步道。\nDự án cỏ biển đo trước, rồi trồng thử, so sánh và chỉ đổi cách cố định sau thiệt hại.\nVùng không trồng và dữ liệu gió khiến tăng độ phủ không đại diện toàn vịnh.\nKhi chỉ đếm quét, đường mòn chưa đo thời gian dừng, câu trả lời hay quan sát thật.\nTín hiệu yếu cũng giảm quét nên nội dung công nghệ không phải tác nhân duy nhất.\nKết luận giới hạn ở vài vùng trong năm năm và một đường mòn còn cần thử qua mùa.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Bảo vệ cách kể một dự án nhiều giai đoạn mà không biến hành động cuối cùng thành nguyên nhân duy nhất của kết quả. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu thứ tự hành động và tác nhân",
+                        "id": "move-0",
+                        "label": "nêu thứ tự hành động và tác nhân"
+                      },
+                      {
+                        "guidance": "chỉ một dữ liệu thất bại hoặc đối chứng",
+                        "id": "move-1",
+                        "label": "chỉ một dữ liệu thất bại hoặc đối chứng"
+                      },
+                      {
+                        "guidance": "giải thích vì sao chỉ số đầu tiên chưa đủ",
+                        "id": "move-2",
+                        "label": "giải thích vì sao chỉ số đầu tiên chưa đủ"
+                      },
+                      {
+                        "guidance": "giới hạn kết luận theo địa điểm và thời gian",
+                        "id": "move-3",
+                        "label": "giới hạn kết luận theo địa điểm và thời gian"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bảo vệ cách kể một dự án nhiều giai đoạn mà không biến hành động cuối cùng thành nguyên nhân duy nhất của kết quả.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "baseline",
+                        "label": "线索一",
+                        "meaningVi": "Bản đồ và khí hậu nền.",
+                        "note": "Năm 1 · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "pilot",
+                        "label": "线索二",
+                        "meaningVi": "Thử ít ở ba loại nơi.",
+                        "note": "Năm 2 · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "comparison",
+                        "label": "线索三",
+                        "meaningVi": "Giữ cách tốt và vùng đối chứng.",
+                        "note": "Năm 3 · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "shock",
+                        "label": "线索四",
+                        "meaningVi": "Gió phá vùng thử, đổi cách cố định.",
+                        "note": "Năm 4 · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "outcome",
+                        "label": "线索五",
+                        "meaningVi": "Phục hồi cục bộ, giới hạn toàn vịnh.",
+                        "note": "Năm 5 · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-nature-technology-explanation-process-timeline; revision 0adf5213-3c0a-4d67-a421-d279bb1db6db; humanReviewed:false",
+                  "title": "Quá trình năm năm phục hồi cỏ biển"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "phase1",
+                        "label": "线索一",
+                        "meaningVi": "QR và chỉ số lượt quét.",
+                        "note": "Giai đoạn 1 · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索二",
+                        "meaningVi": "Không đo dừng/hiểu, tín hiệu yếu.",
+                        "note": "Khoảng trống · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "phase2",
+                        "label": "线索三",
+                        "meaningVi": "Câu hỏi và điểm so sánh.",
+                        "note": "Giai đoạn 2 · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "access",
+                        "label": "线索四",
+                        "meaningVi": "Nội dung tải ở lối vào.",
+                        "note": "Điều chỉnh truy cập · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "phase3",
+                        "label": "线索五",
+                        "meaningVi": "Nhiều chỉ số và giới hạn theo mùa.",
+                        "note": "Giai đoạn 3 · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-02:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-nature-technology-explanation-process-timeline; revision 0adf5213-3c0a-4d67-a421-d279bb1db6db; humanReviewed:false",
+                  "title": "Một đường mòn thiên nhiên dùng công nghệ như thế nào"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-02:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "410f370a-5cd2-4835-a4b0-8c74c6a40d6d",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng paraphrase không đổi phạm vi để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-event-agency-voice-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-057",
+          "hsk4-grammar-row-058"
+        ],
+        "sourceLessonIds": [
+          "hsk4-event-agency-voice-lesson-02",
+          "hsk4-nature-technology-explanation-process-timeline"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-19"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01283",
+          "hsk-vocab-01305",
+          "hsk-vocab-01571",
+          "hsk-vocab-01888",
+          "hsk-vocab-01959",
+          "hsk-vocab-01062",
+          "hsk-vocab-01204",
+          "hsk-vocab-01354",
+          "hsk-vocab-01425",
+          "hsk-vocab-01744"
+        ],
+        "targetLessonId": "hsk4-event-agency-voice-lesson-02",
+        "titleZh": "HSK四级 · 49",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "471e8826-d457-4e5b-97d0-5f7ad650a232"
+        },
+        "vocabulary": [
+          "hsk-vocab-01283",
+          "hsk-vocab-01305",
+          "hsk-vocab-01571",
+          "hsk-vocab-01888",
+          "hsk-vocab-01959",
+          "hsk-vocab-01062",
+          "hsk-vocab-01204",
+          "hsk-vocab-01354",
+          "hsk-vocab-01425",
+          "hsk-vocab-01744"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 2,
+          "netPages": 4
+        }
+      ]
+    }
+  ]
+}

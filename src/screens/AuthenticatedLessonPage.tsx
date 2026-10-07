@@ -30,6 +30,7 @@ import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ConfirmModal } from "../components/SystemFeedback";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
+import { EDITORIAL_WORD_BY_ID, LEXICAL_EXERCISE_SUFFIX } from "../content/lexicalEditorialCatalog";
 import { getLessonGuide } from "../data/lessonGuides";
 import { getLessonTeachingGuide } from "../learning/lessonPedagogy";
 import { learnerFacingCopy } from "../learning/lessonTeachingFlow";
@@ -160,6 +161,7 @@ const currentLessonVersion = (lesson: Lesson) =>
 type PublishedLessonProps = {
   publishedLesson?: PublishedStudioLesson;
   publishedLessonEnhancement?: PublishedStudioLessonEnhancement;
+  premiumRichContent?: import("../learning/richLessonContent").RichLessonContent | null;
   publishedLessonStatus: "loading" | "ready" | "fallback";
   retryPublishedLesson: () => void;
 };
@@ -187,6 +189,7 @@ export function AuthenticatedLessonPage(props: PublishedLessonProps) {
 function AuthenticatedLessonPageScope({
   publishedLesson,
   publishedLessonEnhancement,
+  premiumRichContent,
   publishedLessonStatus,
   retryPublishedLesson,
 }: PublishedLessonProps) {
@@ -290,9 +293,10 @@ function AuthenticatedLessonPageScope({
   );
   const lessonWords = useMemo(
     () => lesson?.wordIds
-      .map((id) => WORD_BY_ID.get(id))
+      .map((id) => (!runtime || runtime.activities.some(activity => activity.activityId.endsWith(LEXICAL_EXERCISE_SUFFIX))
+        ? EDITORIAL_WORD_BY_ID : WORD_BY_ID).get(id))
       .filter((word): word is VocabularyItem => Boolean(word)) ?? [],
-    [lesson],
+    [lesson, runtime],
   );
 
   const refreshRecords = useCallback(() => {
@@ -1232,6 +1236,8 @@ function AuthenticatedLessonPageScope({
             setPhase("briefing");
         }}
         onNavigate={refreshProjection}
+        retryDestination="/mistakes"
+        retryDestinationLabel="Xem câu cần ôn"
         continueDestination={currentStep?.stage === "learn"
           ? undefined
           : currentStep?.to}
@@ -1253,7 +1259,7 @@ function AuthenticatedLessonPageScope({
               </Link>
               <strong>{lesson.minutes} phút</strong>
             </header>
-            <div className="briefing-hero-copy">
+            <div className="briefing-hero-copy"><div className="realm-emblem" aria-hidden="true" />
               <span className="system-kicker"><BrainCircuit size={16} /> MỤC TIÊU BÀI HỌC</span>
               <h1>{presentedLesson?.title ?? lesson.title}</h1>
               <p className="briefing-chinese">{presentedLesson?.chineseTitle ?? lesson.chineseTitle}</p>
@@ -1271,7 +1277,7 @@ function AuthenticatedLessonPageScope({
             script={state.profile.script}
             practiceKinds={runtime?.activities.map((activity) => activity.kind)}
             practiceWordIds={runtime?.activities.map((activity) => activity.wordId)}
-            contentOverride={publishedLesson?.richContent}
+            contentOverride={publishedLesson?.richContent ?? premiumRichContent ?? undefined}
             enhancement={publishedLessonEnhancement}
             ready={theoryReady || Boolean(runtime)}
             onReadinessChange={setTheoryReady}
@@ -1368,12 +1374,12 @@ function AuthenticatedLessonPageScope({
             script={state.profile.script}
             practiceKinds={runtime.activities.map((activity) => activity.kind)}
             practiceWordIds={runtime.activities.map((activity) => activity.wordId)}
-            contentOverride={publishedLesson?.richContent}
+            contentOverride={publishedLesson?.richContent ?? premiumRichContent ?? undefined}
             enhancement={publishedLessonEnhancement}
           />
         ) : (
           <>
-        <div className={`exercise-prompt kind-${current.kind}`}>
+        <div className={`exercise-prompt kind-${current.kind}`} data-motion-scene={`${current.activityId}:${checked ? "feedback" : "question"}`}><div className="realm-emblem realm-emblem-compact" aria-hidden="true" />
           {current.kind === "listening" ? (
             <button className="sound-orb" type="button" onClick={() => currentSpeechText && speakMandarin(currentSpeechText)} aria-label="Phát âm thanh">
               <Volume2 size={38} /><span aria-hidden="true" />

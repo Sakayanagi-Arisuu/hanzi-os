@@ -5,7 +5,8 @@ import { ReviewRatingConsole } from "../components/ReviewRatingConsole";
 import { ReviewMemoryArena } from "../components/ReviewMemoryArena";
 import { MemoryReviewLobby } from "../components/MemoryReviewLobby";
 import { MemoryReviewComplete } from "../components/MemoryReviewComplete";
-import { LESSON_BY_ID, RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { LESSON_BY_ID } from "../data/curriculum";
+import { EDITORIAL_WORD_BY_ID, LEXICAL_EDITORIAL_VERSION } from "../content/lexicalEditorialCatalog";
 import { makeIdempotencyKey } from "../lib/evidence";
 import {
   buildReviewForecast,
@@ -81,7 +82,7 @@ export function LocalReviewPage() {
   const cardHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
   const currentId = queue[index];
-  const word = RELEASED_WORD_BY_ID.get(currentId);
+  const word = EDITORIAL_WORD_BY_ID.get(currentId);
   const card = currentId ? state.fsrsCards[currentId] : undefined;
   const complete = index >= queue.length;
 
@@ -101,7 +102,7 @@ export function LocalReviewPage() {
 
   const grade = async (rating: Grade) => {
     if (!word) return;
-    await actions.gradeReview(word.id, rating, reviewKey, hintUsed);
+    await actions.gradeReview(word.id, rating, reviewKey, hintUsed, LEXICAL_EDITORIAL_VERSION);
     emitSystemSignal({
       type: "review.recalled",
       sourceId: `review:${word.id}`,
@@ -190,6 +191,7 @@ export function LocalReviewPage() {
 
       <div className="review-card-scroll">
         <ReviewMemoryArena
+          wordId={word.id}
           audioSourceId={`review:local:${word.id}`}
           character={character}
           example={word.example}

@@ -1,0 +1,2266 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/174-REVIEW-HSK1-MODAL-SCOPE-ROUND81.md",
+  "entries": [
+    {
+      "sourceRevisionId": "198a2189-8821-4a5d-99a3-094cb4d424ff",
+      "sourceContentSha256": "sha256:23b5acbeaaf25ba6eabaf43ef6d9cbd5d213c80e67a646d5ed62f19f4956ea4c",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Chiếc áo mới đẹp nhưng hơi lớn với vai của bạn; một bài hát nghe rất hay. Viết hai nhận xét dùng 觉得 và 有点儿, không biến sở thích cá nhân thành sự thật chung.",
+        "conceptVi": "Miêu tả và phân biệt nhận xét cá nhân",
+        "dialogue": [
+          {
+            "hanzi": "你觉得这件衣服怎么样？",
+            "meaningVi": "Bạn thấy chiếc áo này thế nào?",
+            "pinyin": "Nǐ juéde zhè jiàn yīfu zěnmeyàng?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我觉得很好看，但是有点儿小。",
+            "meaningVi": "Tôi thấy đẹp, nhưng hơi nhỏ.",
+            "pinyin": "Wǒ juéde hěn hǎokàn, dànshì yǒudiǎnr xiǎo.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "那件很大。",
+            "meaningVi": "Chiếc kia lớn.",
+            "pinyin": "Nà jiàn hěn dà.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "好听",
+            "answerMeaningVi": "hay; dễ nghe",
+            "answerPinyin": "hǎotīng",
+            "distractors": [
+              "好看",
+              "高兴"
+            ],
+            "explanationVi": "Đúng: đánh giá âm thanh nghe hay.",
+            "promptVi": "Bạn nhận xét giai điệu một bài hát nghe hay. Từ nào phù hợp với điều đang đánh giá?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Chủ ngữ + 很 + tính từ trong lời miêu tả thông thường, không cần 是. 很 là phó từ trước tính từ; trong miêu tả trung tính không luôn nhấn “rất”, không phải từ nối hay 是. 非常/真 nhấn mạnh; 有点儿 thường nói mức hơi, hay kèm cảm nhận chưa vừa ý. 太…了 có thể khen hoặc chê tùy tính từ/ngữ cảnh. 好看 nói dễ nhìn/hay để xem, 好听 dễ nghe; 漂亮 xinh đẹp; 新 mới; 大/小 lớn/nhỏ. 我觉得 mở nhận xét cá nhân, 高兴 là vui.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我觉得这件新衣服很漂亮，但是有点儿大。这首歌非常好听。",
+              "modelAnswerMeaningVi": "Tôi thấy áo mới này đẹp nhưng hơi lớn. Bài hát này rất hay.",
+              "modelAnswerPinyin": "Wǒ juéde zhè jiàn xīn yīfu hěn piàoliang, dànshì yǒudiǎnr dà. Zhè shǒu gē fēicháng hǎotīng.",
+              "promptVi": "Chiếc áo mới đẹp nhưng hơi lớn với vai của bạn; một bài hát nghe rất hay. Viết hai nhận xét dùng 觉得 và 有点儿, không biến sở thích cá nhân thành sự thật chung."
+            },
+            "modelExample": {
+              "hanzi": "我觉得这件衣服很漂亮。",
+              "meaningVi": "Tôi thấy chiếc áo này đẹp.",
+              "pinyin": "Wǒ juéde zhè jiàn yīfu hěn piàoliang."
+            },
+            "pattern": "我觉得 + chủ ngữ + 很 + tính từ。"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn xem hai chiếc áo và nghe một bài hát, rồi nói nhận xét cá nhân. Không có một đáp án thẩm mỹ đúng cho mọi người.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "但是 (dànshì) — nhưng; 衣服 (yīfu) — quần áo; 歌 (gē) — bài hát; 这 (zhè) — này; 那 (nà) — kia; 件 (jiàn) — lượng từ quần áo; 首 (shǒu) — lượng từ bài hát.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "survival-6:v2:context",
+              "illustration": {
+                "alt": "Hai người bạn nhận xét độ rộng của áo trong cửa hàng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/clothes-opinion-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Miêu tả và phân biệt nhận xét cá nhân"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你觉得这件衣服怎么样？",
+                  "id": "survival-6:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn thấy chiếc áo này thế nào?",
+                  "pinyin": "Nǐ juéde zhè jiàn yīfu zěnmeyàng?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我觉得很好看，但是有点儿小。",
+                  "id": "survival-6:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thấy đẹp, nhưng hơi nhỏ.",
+                  "pinyin": "Wǒ juéde hěn hǎokàn, dànshì yǒudiǎnr xiǎo.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "那件很大。",
+                  "id": "survival-6:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc kia lớn.",
+                  "pinyin": "Nà jiàn hěn dà.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "survival-6:v2:dialogue",
+              "illustration": {
+                "alt": "Hai người bạn nhận xét độ rộng của áo trong cửa hàng",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/clothes-opinion-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Chủ ngữ + 很 + tính từ trong lời miêu tả thông thường, không cần 是. 很 là phó từ trước tính từ; trong miêu tả trung tính không luôn nhấn “rất”, không phải từ nối hay 是. 非常/真 nhấn mạnh; 有点儿 thường nói mức hơi, hay kèm cảm nhận chưa vừa ý. 太…了 có thể khen hoặc chê tùy tính từ/ngữ cảnh. 好看 nói dễ nhìn/hay để xem, 好听 dễ nghe; 漂亮 xinh đẹp; 新 mới; 大/小 lớn/nhỏ. 我觉得 mở nhận xét cá nhân, 高兴 là vui.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我觉得这件衣服很漂亮。",
+                  "id": "survival-6:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thấy chiếc áo này đẹp.",
+                  "pinyin": "Wǒ juéde zhè jiàn yīfu hěn piàoliang.",
+                  "provenance": "",
+                  "title": "我觉得 + chủ ngữ + 很 + tính từ。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không nói 这件衣服是很漂亮 theo mẫu tính từ cơ bản. Không tự coi mọi 太…了 là chê. 好 nghe không đủ để chọn 好看 hay 好听 nếu chưa biết đối tượng.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "survival-6:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Miêu tả và phân biệt nhận xét cá nhân"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "to; lớn",
+                  "hanzi": "这件衣服很大。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00025",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này lớn.",
+                  "pinyin": "Zhè jiàn yīfu hěn dà.",
+                  "provenance": "",
+                  "title": "大 · dà"
+                },
+                {
+                  "alt": "",
+                  "body": "rất; vô cùng",
+                  "hanzi": "我非常高兴。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00053",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi rất vui.",
+                  "pinyin": "Wǒ fēicháng gāoxìng.",
+                  "provenance": "",
+                  "title": "非常 · fēicháng"
+                },
+                {
+                  "alt": "",
+                  "body": "vui; vui vẻ",
+                  "hanzi": "你高兴吗？",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00057",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn vui không?",
+                  "pinyin": "Nǐ gāoxìng ma?",
+                  "provenance": "",
+                  "title": "高兴 · gāoxìng"
+                },
+                {
+                  "alt": "",
+                  "body": "tốt; được",
+                  "hanzi": "很好！",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00071",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Rất tốt!",
+                  "pinyin": "Hěn hǎo!",
+                  "provenance": "",
+                  "title": "好 · hǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "đẹp; dễ nhìn; hay (với phim, sách)",
+                  "hanzi": "这件衣服很好看。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00073",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ quần áo này rất đẹp.",
+                  "pinyin": "Zhè jiàn yīfu hěn hǎokàn.",
+                  "provenance": "",
+                  "title": "好看 · hǎokàn"
+                }
+              ],
+              "id": "survival-6:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "hay; dễ nghe",
+                  "hanzi": "这首歌很好听。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00074",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bài hát này rất hay.",
+                  "pinyin": "Zhè shǒu gē hěn hǎotīng.",
+                  "provenance": "",
+                  "title": "好听 · hǎotīng"
+                },
+                {
+                  "alt": "",
+                  "body": "rất",
+                  "hanzi": "很好！",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00079",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Rất tốt!",
+                  "pinyin": "Hěn hǎo!",
+                  "provenance": "",
+                  "title": "很 · hěn"
+                },
+                {
+                  "alt": "",
+                  "body": "cảm thấy; cho rằng",
+                  "hanzi": "我觉得汉语很有意思。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00096",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi thấy tiếng Trung rất thú vị.",
+                  "pinyin": "Wǒ juéde Hànyǔ hěn yǒuyìsi.",
+                  "provenance": "",
+                  "title": "觉得 · juéde"
+                },
+                {
+                  "alt": "",
+                  "body": "xinh đẹp",
+                  "hanzi": "她很漂亮。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00158",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy rất xinh đẹp.",
+                  "pinyin": "Tā hěn piàoliang.",
+                  "provenance": "",
+                  "title": "漂亮 · piàoliang"
+                },
+                {
+                  "alt": "",
+                  "body": "quá; rất",
+                  "hanzi": "这件衣服太贵了。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00206",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ quần áo này đắt quá.",
+                  "pinyin": "Zhè jiàn yīfu tài guì le.",
+                  "provenance": "",
+                  "title": "太 · tài"
+                }
+              ],
+              "id": "survival-6:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "nhỏ; bé",
+                  "hanzi": "这件衣服有点儿小。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00234",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này hơi nhỏ.",
+                  "pinyin": "Zhè jiàn yīfu yǒudiǎnr xiǎo.",
+                  "provenance": "",
+                  "title": "小 · xiǎo"
+                },
+                {
+                  "alt": "",
+                  "body": "mới",
+                  "hanzi": "这是我的新书。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00242",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là sách mới của tôi.",
+                  "pinyin": "Zhè shì wǒ de xīn shū.",
+                  "provenance": "",
+                  "title": "新 · xīn"
+                },
+                {
+                  "alt": "",
+                  "body": "hơi; có chút",
+                  "hanzi": "这件衣服有点儿大。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00265",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chiếc áo này hơi lớn.",
+                  "pinyin": "Zhè jiàn yīfu yǒudiǎnr dà.",
+                  "provenance": "",
+                  "title": "有点儿 · yǒudiǎnr"
+                },
+                {
+                  "alt": "",
+                  "body": "thật; thực sự",
+                  "hanzi": "今天真冷。",
+                  "id": "survival-6:v2:block:word-hsk-vocab-00285",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay thật lạnh.",
+                  "pinyin": "Jīntiān zhēn lěng.",
+                  "provenance": "",
+                  "title": "真 · zhēn"
+                }
+              ],
+              "id": "survival-6:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: đánh giá âm thanh nghe hay. Không nói 这件衣服是很漂亮 theo mẫu tính từ cơ bản. Không tự coi mọi 太…了 là chê. 好 nghe không đủ để chọn 好看 hay 好听 nếu chưa biết đối tượng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn 好听 để đánh giá giai điệu nghe hay thay vì ngoại hình hay cảm xúc. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00074",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: đánh giá âm thanh nghe hay.",
+                        "id": "option-0",
+                        "text": "好听"
+                      },
+                      {
+                        "feedback": "Đánh giá nhìn/xem, chưa đúng điều đề nhắm tới.",
+                        "id": "option-1",
+                        "text": "好看"
+                      },
+                      {
+                        "feedback": "Nói cảm xúc vui của người, chưa nhận xét giai điệu hay.",
+                        "id": "option-2",
+                        "text": "高兴"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn nhận xét giai điệu một bài hát nghe hay. Từ nào phù hợp với điều đang đánh giá?",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "survival-6:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "好听"
+                    ],
+                    "answerIds": [],
+                    "explanation": "Đang nhận xét âm thanh nên dùng 好听. 很 trong câu tính từ không bắt buộc luôn dịch là “rất”.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 好听 trong 这首歌很好听 khi điều được đánh giá là âm thanh. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00074",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 好看 hoặc 好听 để nói giai điệu bài hát nghe hay: 这首歌很____。",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "survival-6:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Chiếc áo mới đẹp nhưng hơi lớn với vai của bạn; một bài hát nghe rất hay. Viết hai nhận xét dùng 觉得 và 有点儿, không biến sở thích cá nhân thành sự thật chung.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我觉得这件新衣服很漂亮，但是有点儿大。这首歌非常好听。\nWǒ juéde zhè jiàn xīn yīfu hěn piàoliang, dànshì yǒudiǎnr dà. Zhè shǒu gē fēicháng hǎotīng.\nTôi thấy áo mới này đẹp nhưng hơi lớn. Bài hát này rất hay.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lời nhận xét phù hợp từng đối tượng nhìn/nghe và mức độ, không dùng một tính từ cho mọi giác quan. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-pe-06-description-and-feeling",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Miêu tả không thêm 是 trước 很漂亮.",
+                        "id": "criterion-0",
+                        "label": "Miêu tả không thêm 是 trước 很漂亮."
+                      },
+                      {
+                        "guidance": "有点儿大 giữ thông tin hơi lớn.",
+                        "id": "criterion-1",
+                        "label": "有点儿大 giữ thông tin hơi lớn."
+                      },
+                      {
+                        "guidance": "Dùng 好听 với giai điệu.",
+                        "id": "criterion-2",
+                        "label": "Dùng 好听 với giai điệu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "survival-6:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Miêu tả không thêm 是 trước 很漂亮.\n有点儿大 giữ thông tin hơi lớn.\nDùng 好听 với giai điệu.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "survival-6:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "survival-6:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/60-REVIEW-SURVIVAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "ab15228b-5fc6-4ef5-8e73-177e1d5aeb47",
+          "reviewedAt": "2026-09-29",
+          "scope": "Nine HSK1 survival lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:2db6af1f5850bad4c30a57ec8195f1d142e2531bde80c0b0ff49d93c052b3ab4"
+        },
+        "objectiveVi": "Miêu tả người, sự vật và nói cảm nhận bằng vị ngữ tính từ.",
+        "pitfallVi": "Không nói 这件衣服是很漂亮 theo mẫu tính từ cơ bản. Không tự coi mọi 太…了 là chê. 好 nghe không đủ để chọn 好看 hay 好听 nếu chưa biết đối tượng.",
+        "prerequisites": [
+          "survival-5"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Chủ ngữ + 很 + tính từ trong lời miêu tả thông thường, không cần 是. 很 là phó từ trước tính từ; trong miêu tả trung tính không luôn nhấn “rất”, không phải từ nối hay 是. 非常/真 nhấn mạnh; 有点儿 thường nói mức hơi, hay kèm cảm nhận chưa vừa ý. 太…了 có thể khen hoặc chê tùy tính từ/ngữ cảnh. 好看 nói dễ nhìn/hay để xem, 好听 dễ nghe; 漂亮 xinh đẹp; 新 mới; 大/小 lớn/nhỏ. 我觉得 mở nhận xét cá nhân, 高兴 là vui.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-015",
+          "hsk1-grammar-row-029",
+          "hsk1-grammar-row-031",
+          "hsk1-grammar-row-037",
+          "hsk1-grammar-row-039",
+          "hsk1-grammar-row-043"
+        ],
+        "sourceLessonIds": [
+          "survival-6"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-pe-06-description-and-feeling"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-010"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00025",
+          "hsk-vocab-00053",
+          "hsk-vocab-00057",
+          "hsk-vocab-00071",
+          "hsk-vocab-00073",
+          "hsk-vocab-00074",
+          "hsk-vocab-00079",
+          "hsk-vocab-00096",
+          "hsk-vocab-00158",
+          "hsk-vocab-00206",
+          "hsk-vocab-00234",
+          "hsk-vocab-00242",
+          "hsk-vocab-00265",
+          "hsk-vocab-00285"
+        ],
+        "targetLessonId": "survival-6",
+        "titleZh": "描述和感受",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/68-REVIEW-SURVIVAL-DIALOGUE-VISUALS.md",
+          "humanReviewed": false,
+          "scope": "Nine individually reviewed dialogue illustrations; no learning content change.",
+          "sourceRevisionId": "b73fea1d-4269-4541-afe8-8765c6d767b2"
+        },
+        "vocabulary": [
+          "hsk-vocab-00025",
+          "hsk-vocab-00053",
+          "hsk-vocab-00057",
+          "hsk-vocab-00071",
+          "hsk-vocab-00073",
+          "hsk-vocab-00074",
+          "hsk-vocab-00079",
+          "hsk-vocab-00096",
+          "hsk-vocab-00158",
+          "hsk-vocab-00206",
+          "hsk-vocab-00234",
+          "hsk-vocab-00242",
+          "hsk-vocab-00265",
+          "hsk-vocab-00285"
+        ]
+      },
+      "changes": [
+        {
+          "field": "explanationVi"
+        },
+        {
+          "field": "body"
+        },
+        {
+          "field": "ruleVi"
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "3c74ed92-1787-4129-a867-d38a11336ad8",
+      "sourceContentSha256": "sha256:974e043b62e9067f747e852357fddb2bd6ecdfaf4b4858464eabefbc55e1f8e8",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Bạn đã biết nói tiếng Trung, muốn đến ngày mai, nhưng hôm nay không có thời gian. Nói đủ ba ý, không viết thành không biết nói.",
+        "conceptVi": "Tách kỹ năng, mong muốn và điều kiện",
+        "dialogue": [
+          {
+            "hanzi": "你会说汉语吗？",
+            "meaningVi": "Bạn biết nói tiếng Trung không?",
+            "pinyin": "Nǐ huì shuō Hànyǔ ma?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "会，但是我今天不能来。",
+            "meaningVi": "Có, nhưng hôm nay tôi không đến được.",
+            "pinyin": "Huì, dànshì wǒ jīntiān bù néng lái.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你明天可以来吗？",
+            "meaningVi": "Ngày mai bạn có thể đến không?",
+            "pinyin": "Nǐ míngtiān kěyǐ lái ma?",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "我今天没有时间。",
+            "answerMeaningVi": "Hôm nay tôi không có thời gian.",
+            "answerPinyin": "Wǒ jīntiān méiyǒu shíjiān.",
+            "distractors": [
+              "我今天不有时间。",
+              "我今天有时间。"
+            ],
+            "explanationVi": "Đúng: 没有 phủ định 有.",
+            "promptVi": "Bạn không có thời gian hôm nay. Câu nào nói đúng “không có” theo mẫu?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "会 thường nói kỹ năng đã học, 能 nói khả năng/điều kiện, 可以 nói cho phép hoặc khả năng tùy câu; nghĩa có giao nhau, không tạo quy tắc loại trừ tuyệt đối. 想 nêu mong muốn, 要 có ý định/cần tùy câu. 不 phủ định thói quen/ý định, 没有 phủ định có hoặc việc chưa xảy ra theo ngữ cảnh. 都 đều, 也 cũng, 还 vẫn/còn, 再 lần tiếp theo. 有的/有些 nói một số, không bằng tất cả. 不要 trong yêu cầu là đừng. 对 trong đáp ngắn là đúng.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我会说汉语。我想明天来，但是今天没有时间。",
+              "modelAnswerMeaningVi": "Tôi biết nói tiếng Trung. Tôi muốn đến ngày mai nhưng hôm nay không có thời gian.",
+              "modelAnswerPinyin": "Wǒ huì shuō Hànyǔ. Wǒ xiǎng míngtiān lái, dànshì jīntiān méiyǒu shíjiān.",
+              "promptVi": "Bạn đã biết nói tiếng Trung, muốn đến ngày mai, nhưng hôm nay không có thời gian. Nói đủ ba ý, không viết thành không biết nói."
+            },
+            "modelExample": {
+              "hanzi": "我会说汉语，但是今天没有时间。",
+              "meaningVi": "Tôi biết nói tiếng Trung nhưng hôm nay không có thời gian.",
+              "pinyin": "Wǒ huì shuō Hànyǔ, dànshì jīntiān méiyǒu shíjiān."
+            },
+            "pattern": "我会 + kỹ năng。／我没有 + danh từ。"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một nhóm học muốn nói tiếng Trung, nhưng có người chưa biết và có người hôm nay không tham gia được. Phân biệt kỹ năng với điều kiện và sự cho phép.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "但是 (dànshì) — nhưng; 汉语 (Hànyǔ) — tiếng Trung; 今天 (jīntiān) — hôm nay; 来 (lái) — đến; 明天 (míngtiān) — ngày mai; 时间 (shíjiān) — thời gian; 在这里 (zài zhèlǐ) — ở đây.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "survival-7:v2:context",
+              "illustration": {
+                "alt": "Nhóm học trò chuyện và một người bạn cần rời đi",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/conversation-invitation-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Tách kỹ năng, mong muốn và điều kiện"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你会说汉语吗？",
+                  "id": "survival-7:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn biết nói tiếng Trung không?",
+                  "pinyin": "Nǐ huì shuō Hànyǔ ma?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "会，但是我今天不能来。",
+                  "id": "survival-7:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có, nhưng hôm nay tôi không đến được.",
+                  "pinyin": "Huì, dànshì wǒ jīntiān bù néng lái.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你明天可以来吗？",
+                  "id": "survival-7:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai bạn có thể đến không?",
+                  "pinyin": "Nǐ míngtiān kěyǐ lái ma?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "survival-7:v2:dialogue",
+              "illustration": {
+                "alt": "Nhóm học trò chuyện và một người bạn cần rời đi",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-21 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/conversation-invitation-v1.webp"
+              },
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "会 thường nói kỹ năng đã học, 能 nói khả năng/điều kiện, 可以 nói cho phép hoặc khả năng tùy câu; nghĩa có giao nhau, không tạo quy tắc loại trừ tuyệt đối. 想 nêu mong muốn, 要 có ý định/cần tùy câu. 不 phủ định thói quen/ý định, 没有 phủ định có hoặc việc chưa xảy ra theo ngữ cảnh. 都 đều, 也 cũng, 还 vẫn/còn, 再 lần tiếp theo. 有的/有些 nói một số, không bằng tất cả. 不要 trong yêu cầu là đừng. 对 trong đáp ngắn là đúng.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我会说汉语，但是今天没有时间。",
+                  "id": "survival-7:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi biết nói tiếng Trung nhưng hôm nay không có thời gian.",
+                  "pinyin": "Wǒ huì shuō Hànyǔ, dànshì jīntiān méiyǒu shíjiān.",
+                  "provenance": "",
+                  "title": "我会 + kỹ năng。／我没有 + danh từ。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không dùng 不有 để nói không có. 说汉语 là nói tiếng Trung, 说话 nói chuyện; không ghép 说话汉语. Không lấy transcript làm điểm phát âm.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "survival-7:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Tách kỹ năng, mong muốn và điều kiện"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "không",
+                  "hanzi": "我不是老师。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00013",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi không phải giáo viên.",
+                  "pinyin": "Wǒ bú shì lǎoshī.",
+                  "provenance": "",
+                  "title": "不 · bù"
+                },
+                {
+                  "alt": "",
+                  "body": "đừng; không được",
+                  "hanzi": "不要说话。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00015",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng nói chuyện.",
+                  "pinyin": "Bú yào shuōhuà.",
+                  "provenance": "",
+                  "title": "不要 · bùyào"
+                },
+                {
+                  "alt": "",
+                  "body": "đều; tất cả",
+                  "hanzi": "我们都是学生。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00041",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng tôi đều là học sinh.",
+                  "pinyin": "Wǒmen dōu shì xuéshēng.",
+                  "provenance": "",
+                  "title": "都 · dōu"
+                },
+                {
+                  "alt": "",
+                  "body": "đúng; đối với",
+                  "hanzi": "对，我是学生。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00044",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, tôi là học sinh.",
+                  "pinyin": "Duì, wǒ shì xuésheng.",
+                  "provenance": "",
+                  "title": "对 · duì"
+                },
+                {
+                  "alt": "",
+                  "body": "còn; vẫn; cũng",
+                  "hanzi": "我还没有时间。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00067",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi vẫn chưa có thời gian.",
+                  "pinyin": "Wǒ hái méiyǒu shíjiān.",
+                  "provenance": "",
+                  "title": "还 · hái"
+                }
+              ],
+              "id": "survival-7:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "biết; có thể (do có kỹ năng)",
+                  "hanzi": "我会说汉语。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00082",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi biết nói tiếng Trung.",
+                  "pinyin": "Wǒ huì shuō Hànyǔ.",
+                  "provenance": "",
+                  "title": "会 · huì"
+                },
+                {
+                  "alt": "",
+                  "body": "có thể; được phép",
+                  "hanzi": "可以。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00102",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Được.",
+                  "pinyin": "Kěyǐ.",
+                  "provenance": "",
+                  "title": "可以 · kěyǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "không có; chưa",
+                  "hanzi": "我今天没有时间。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00122",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Hôm nay tôi không có thời gian.",
+                  "pinyin": "Wǒ jīntiān méiyǒu shíjiān.",
+                  "provenance": "",
+                  "title": "没有 · méiyǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "có thể; có khả năng",
+                  "hanzi": "他能来。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00145",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy có thể đến.",
+                  "pinyin": "Tā néng lái.",
+                  "provenance": "",
+                  "title": "能 · néng"
+                },
+                {
+                  "alt": "",
+                  "body": "nói",
+                  "hanzi": "我想说汉语。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00196",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn nói tiếng Trung.",
+                  "pinyin": "Wǒ xiǎng shuō Hànyǔ.",
+                  "provenance": "",
+                  "title": "说 · shuō"
+                }
+              ],
+              "id": "survival-7:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "nói chuyện",
+                  "hanzi": "不要说话。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00197",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đừng nói chuyện.",
+                  "pinyin": "Bú yào shuōhuà.",
+                  "provenance": "",
+                  "title": "说话 · shuōhuà"
+                },
+                {
+                  "alt": "",
+                  "body": "muốn; nghĩ",
+                  "hanzi": "我想喝茶。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00233",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi muốn uống trà.",
+                  "pinyin": "Wǒ xiǎng hē chá.",
+                  "provenance": "",
+                  "title": "想 · xiǎng"
+                },
+                {
+                  "alt": "",
+                  "body": "muốn; cần; phải; sắp",
+                  "hanzi": "我要去学校。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00252",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi định đi đến trường.",
+                  "pinyin": "Wǒ yào qù xuéxiào.",
+                  "provenance": "",
+                  "title": "要 · yào"
+                },
+                {
+                  "alt": "",
+                  "body": "cũng",
+                  "hanzi": "你也听歌吗？",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00253",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn cũng nghe nhạc không?",
+                  "pinyin": "Nǐ yě tīng gē ma?",
+                  "provenance": "",
+                  "title": "也 · yě"
+                },
+                {
+                  "alt": "",
+                  "body": "một số; có người/có cái",
+                  "hanzi": "有的是老师，有的是学生。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00264",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Có người là giáo viên, có người là học sinh.",
+                  "pinyin": "Yǒude shì lǎoshī, yǒude shì xuéshēng.",
+                  "provenance": "",
+                  "title": "有的 · yǒude"
+                }
+              ],
+              "id": "survival-7:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "một số; hơi; có phần",
+                  "hanzi": "有些学生在读书。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00266",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Một số học sinh đang đọc sách.",
+                  "pinyin": "Yǒuxiē xuéshēng zài dúshū.",
+                  "provenance": "",
+                  "title": "有些 · yǒuxiē"
+                },
+                {
+                  "alt": "",
+                  "body": "lại; nữa; rồi mới",
+                  "hanzi": "我明天再来。",
+                  "id": "survival-7:v2:block:word-hsk-vocab-00270",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngày mai tôi lại đến.",
+                  "pinyin": "Wǒ míngtiān zài lái.",
+                  "provenance": "",
+                  "title": "再 · zài"
+                }
+              ],
+              "id": "survival-7:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "id": "survival-7:r81:modal:practice",
+              "title": "会 · 能 · 可以: kỹ năng, điều kiện và xin phép",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:modal:note",
+                  "kind": "explanation",
+                  "title": "会 · 能 · 可以: kỹ năng, điều kiện và xin phép",
+                  "body": "会 trong 我会说汉语 nhấn kỹ năng đã học. 不能来 trong 今天不能来 nói điều kiện hôm nay không cho phép đến, không phủ định kỹ năng nói tiếng Trung. 可以 dùng để xin/cho phép như 可以在这里坐吗？ Các từ có nghĩa giao nhau; bài chọn câu theo toàn bộ tình huống, không bắt chỉ một từ đúng khi nhiều cách nói hợp lý. Modal đứng trước động từ, không thêm 是: 我会说汉语.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:modal:sample:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我会说汉语，但是今天不能来。",
+                  "pinyin": "Wǒ huì shuō Hànyǔ, dànshì jīntiān bù néng lái.",
+                  "meaningVi": "Tôi biết nói tiếng Trung nhưng hôm nay không đến được.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:modal:sample:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我可以在这里坐吗？可以。",
+                  "pinyin": "Wǒ kěyǐ zài zhèlǐ zuò ma? Kěyǐ.",
+                  "meaningVi": "Tôi ngồi ở đây được không? Được.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:modal:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Bạn đã học nói tiếng Trung nhưng hôm nay không đến được. Câu nào giữ cả hai ý?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我不会说汉语。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我会说汉语，但是今天不能来。",
+                        "feedback": "不能来 phủ định điều kiện đến, không phủ định kỹ năng bằng 不会说汉语."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我今天一定来。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不能来 phủ định điều kiện đến, không phủ định kỹ năng bằng 不会说汉语.",
+                    "learningTarget": {
+                      "objective": "会 · 能 · 可以: kỹ năng, điều kiện và xin phép",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00082",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "survival-7:r81:modal:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Bạn muốn xin phép ngồi ở chỗ này. Câu nào đúng mục đích?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我可以在这里坐吗？",
+                        "feedback": "可以…吗 là lời xin phép trong ngữ cảnh này. Các câu khác hỏi kỹ năng hoặc nói không có sách."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我会说汉语吗？",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我没有书。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "可以…吗 là lời xin phép trong ngữ cảnh này. Các câu khác hỏi kỹ năng hoặc nói không có sách.",
+                    "learningTarget": {
+                      "objective": "会 · 能 · 可以: kỹ năng, điều kiện và xin phép",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00082",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:modal:transfer",
+              "title": "Vận dụng · 会 · 能 · 可以: kỹ năng, điều kiện và xin phép",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:modal:produce",
+                  "kind": "activity",
+                  "title": "Viết trước khi xem mẫu",
+                  "body": "Tình huống mới: bạn đã biết viết chữ Hán (写汉字 xiě Hànzì), nhưng hôm nay tay đau (手疼 shǒu téng) nên không viết được. Viết hai ý. Không nói mất luôn kỹ năng đã học.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我会写汉字，但是今天手疼，不能写。\nWǒ huì xiě Hànzì, dànshì jīntiān shǒu téng, bù néng xiě.\nTôi biết viết chữ Hán, nhưng hôm nay tay đau nên không viết được.\nTự đối chiếu chưa phải điểm viết/nói độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "会 giữ kỹ năng đã học.",
+                        "guidance": "会 giữ kỹ năng đã học."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "今天手疼 là điều kiện hôm nay; 不能写 không đồng nghĩa 不会写.",
+                        "guidance": "今天手疼 là điều kiện hôm nay; 不能写 không đồng nghĩa 不会写."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không tự thêm chẩn đoán hoặc kết luận không bao giờ viết được.",
+                        "guidance": "Không tự thêm chẩn đoán hoặc kết luận không bao giờ viết được."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "会 · 能 · 可以: kỹ năng, điều kiện và xin phép",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00082",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:scope:practice",
+              "title": "都 · 不都 · 都不: phạm vi phủ định",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:scope:note",
+                  "kind": "explanation",
+                  "title": "都 · 不都 · 都不: phạm vi phủ định",
+                  "body": "我们都喜欢猫: mọi người trong nhóm đều thích mèo. 我们不都喜欢猫: không phải ai cũng thích, chỉ biết có ít nhất một người không thích. 我们都不喜欢猫: tất cả đều không thích. Vị trí 不 thay đổi phạm vi. 有的/有些 chỉ một số người/vật theo ngữ cảnh, không đủ để suy tất cả. 都 thường sau chủ ngữ và trước động từ/tính từ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:scope:sample:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我们都喜欢猫。",
+                  "pinyin": "Wǒmen dōu xǐhuan māo.",
+                  "meaningVi": "Chúng tôi đều thích mèo.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:scope:sample:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我们不都喜欢猫。我们都不喜欢狗。",
+                  "pinyin": "Wǒmen bù dōu xǐhuan māo. Wǒmen dōu bù xǐhuan gǒu.",
+                  "meaningVi": "Không phải tất cả chúng tôi đều thích mèo. Tất cả chúng tôi đều không thích chó.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:scope:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Nhóm ba người: hai người thích mèo, một người không thích. Chọn câu giữ đúng phạm vi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我们都喜欢猫。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我们不都喜欢猫。",
+                        "feedback": "Một người không thích: không phải tất cả đều thích. Không thể nói cả nhóm đều không thích."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我们都不喜欢猫。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Một người không thích: không phải tất cả đều thích. Không thể nói cả nhóm đều không thích.",
+                    "learningTarget": {
+                      "objective": "都 · 不都 · 都不: phạm vi phủ định",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00041",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "survival-7:r81:scope:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Ba người đều không thích chó. Chọn câu nói rõ cả ba đều không thích.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我们都不喜欢狗。",
+                        "feedback": "都不 phủ định cho toàn bộ nhóm. 不都 chỉ không phải tất cả, không diễn đạt rõ cả ba đều không."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我们不都喜欢狗。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "有些人喜欢狗。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "都不 phủ định cho toàn bộ nhóm. 不都 chỉ không phải tất cả, không diễn đạt rõ cả ba đều không.",
+                    "learningTarget": {
+                      "objective": "都 · 不都 · 都不: phạm vi phủ định",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00041",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:scope:transfer",
+              "title": "Vận dụng · 都 · 不都 · 都不: phạm vi phủ định",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:scope:produce",
+                  "kind": "activity",
+                  "title": "Viết trước khi xem mẫu",
+                  "body": "Nhóm mới có hai người: cả hai thích đọc sách (读书 dúshū), cả hai đều không thích hát (唱歌 chànggē). Viết hai câu với 都, không đổi thành chỉ một số người.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n我们都喜欢读书。我们都不喜欢唱歌。\nWǒmen dōu xǐhuan dúshū. Wǒmen dōu bù xǐhuan chànggē.\nChúng tôi đều thích đọc sách. Chúng tôi đều không thích hát.\nTự đối chiếu chưa phải điểm viết/nói độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "都 sau 我们, trước 喜欢.",
+                        "guidance": "都 sau 我们, trước 喜欢."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "都不 nêu cả nhóm đều không thích hát.",
+                        "guidance": "都不 nêu cả nhóm đều không thích hát."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không dùng 不都 hoặc 有些 làm yếu thông tin tất cả.",
+                        "guidance": "Không dùng 不都 hoặc 有些 làm yếu thông tin tất cả."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "都 · 不都 · 都不: phạm vi phủ định",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00041",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:also-still:practice",
+              "title": "也 và 还: thêm cùng ý hoặc tiếp diễn",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:also-still:note",
+                  "kind": "explanation",
+                  "title": "也 và 还: thêm cùng ý hoặc tiếp diễn",
+                  "body": "A thích trà, B cũng thích trà: B dùng 也 trước 喜欢. 还 trong 还在上课 nói vẫn đang học; trong 我还想喝茶 nói thêm một mong muốn. 还 và 也 có thể cùng phù hợp ở một số câu thêm ý, nên không chấm chúng loại trừ nếu thiếu ngữ cảnh. 再 nói lần tiếp theo/chưa thực hiện trong 我明天再来; không nhầm 再 với 在 chỉ vị trí/tiến hành.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:also-still:sample:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "她喜欢茶，我也喜欢茶。",
+                  "pinyin": "Tā xǐhuan chá, wǒ yě xǐhuan chá.",
+                  "meaningVi": "Cô ấy thích trà, tôi cũng thích trà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:also-still:sample:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "他还在上课。我明天再来。",
+                  "pinyin": "Tā hái zài shàngkè. Wǒ míngtiān zài lái.",
+                  "meaningVi": "Anh ấy vẫn đang học. Ngày mai tôi sẽ đến lại.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:also-still:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "A đã nói thích trà. B muốn nói mình cũng thích trà. Chọn câu đúng thông tin.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我也喜欢茶。",
+                        "feedback": "也 trước 喜欢 nối sở thích giống nhau; các câu khác phủ định sở thích hoặc việc có trà."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我不喜欢茶。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我没有茶。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "也 trước 喜欢 nối sở thích giống nhau; các câu khác phủ định sở thích hoặc việc có trà.",
+                    "learningTarget": {
+                      "objective": "也 và 还: thêm cùng ý hoặc tiếp diễn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00253",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "survival-7:r81:also-still:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Người ấy vẫn đang học; bạn đề nghị ngày mai đến lại. Cặp nào đúng?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "他还在上课。我明天再来。",
+                        "feedback": "还在 giữ trạng thái đang tiếp diễn; 明天再来 là lần đến sau, chưa khẳng định đã đến."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "他下课了。我昨天来了。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "他不喜欢上课。我今天不来。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "还在 giữ trạng thái đang tiếp diễn; 明天再来 là lần đến sau, chưa khẳng định đã đến.",
+                    "learningTarget": {
+                      "objective": "也 và 还: thêm cùng ý hoặc tiếp diễn",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00253",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:also-still:transfer",
+              "title": "Vận dụng · 也 và 还: thêm cùng ý hoặc tiếp diễn",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:also-still:produce",
+                  "kind": "activity",
+                  "title": "Viết trước khi xem mẫu",
+                  "body": "Tình huống mới: mẹ thích nghe nhạc (听歌 tīng gē), bạn cũng thích. Mẹ vẫn đang ngủ (睡觉 shuìjiào), nên bạn định buổi chiều gọi điện lại (打电话 dǎ diànhuà). Viết ba ý, giữ “cũng”, “vẫn” và lần gọi sau.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n妈妈喜欢听歌，我也喜欢。妈妈还在睡觉。我下午再给她打电话。\nMāma xǐhuan tīng gē, wǒ yě xǐhuan. Māma hái zài shuìjiào. Wǒ xiàwǔ zài gěi tā dǎ diànhuà.\nMẹ thích nghe nhạc, tôi cũng thích. Mẹ vẫn đang ngủ. Buổi chiều tôi sẽ gọi điện lại cho mẹ.\nTự đối chiếu chưa phải điểm viết/nói độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "也 nêu sở thích giống mẹ.",
+                        "guidance": "也 nêu sở thích giống mẹ."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "还在睡觉 giữ nghĩa vẫn đang ngủ.",
+                        "guidance": "还在睡觉 giữ nghĩa vẫn đang ngủ."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "下午再… là lần gọi sau, không kể cuộc gọi đã xảy ra.",
+                        "guidance": "下午再… là lần gọi sau, không kể cuộc gọi đã xảy ra."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "也 và 还: thêm cùng ý hoặc tiếp diễn",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00253",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:a-not-a:practice",
+              "title": "Câu hỏi chính phản: 会不会 và 有没有",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:a-not-a:note",
+                  "kind": "explanation",
+                  "title": "Câu hỏi chính phản: 会不会 và 有没有",
+                  "body": "Câu hỏi chính phản đặt dạng khẳng định/phủ định cạnh nhau: 会不会, 能不能, 有没有. Cấu trúc đã hỏi có/không nên mẫu cơ bản không thêm 吗 cuối câu. 你会说汉语吗？ và 你会不会说汉语？ cùng hỏi có biết nói tiếng Trung không. Có/không có dùng 有没有, không 有不有. Trả lời bằng động từ phù hợp: 会/不会, 有/没有; không buộc mọi câu hỏi đáp 是/不是.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:a-not-a:sample:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "你会不会说汉语？会。",
+                  "pinyin": "Nǐ huì bu huì shuō Hànyǔ? Huì.",
+                  "meaningVi": "Bạn có biết nói tiếng Trung không? Có.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:a-not-a:sample:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "你有没有时间？没有。",
+                  "pinyin": "Nǐ yǒu méiyǒu shíjiān? Méiyǒu.",
+                  "meaningVi": "Bạn có thời gian không? Không có.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "survival-7:r81:a-not-a:q:0",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 1",
+                  "body": "Chọn mẫu chính phản cơ bản hỏi có thời gian không.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "你有不有时间？",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "你有没有时间？",
+                        "feedback": "有没有 là dạng có/không có; mẫu chính phản cơ bản không thêm 吗."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "你有没有时间吗？",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "有没有 là dạng có/không có; mẫu chính phản cơ bản không thêm 吗.",
+                    "learningTarget": {
+                      "objective": "Câu hỏi chính phản: 会不会 và 有没有",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00122",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "survival-7:r81:a-not-a:q:1",
+                  "kind": "activity",
+                  "title": "Khảo Luyện 2",
+                  "body": "Hỏi 你会不会说汉语？ Người nghe đã biết nói. Đáp ngắn phù hợp?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "没有。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "会。",
+                        "feedback": "Câu hỏi kỹ năng với 会 đáp 会/不会. Không dùng 没有 hoặc 不是 làm mẫu đáp kỹ năng này."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不是。",
+                        "feedback": "Đọc lại dữ kiện và phạm vi của câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Câu hỏi kỹ năng với 会 đáp 会/不会. Không dùng 没有 hoặc 不是 làm mẫu đáp kỹ năng này.",
+                    "learningTarget": {
+                      "objective": "Câu hỏi chính phản: 会不会 và 有没有",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00122",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "survival-7:r81:a-not-a:transfer",
+              "title": "Vận dụng · Câu hỏi chính phản: 会不会 và 有没有",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "survival-7:r81:a-not-a:produce",
+                  "kind": "activity",
+                  "title": "Viết trước khi xem mẫu",
+                  "body": "Tình huống mới: hỏi người quen có muốn uống trà không bằng 想不想 (xiǎng bu xiǎng); họ muốn. Viết câu hỏi và đáp ngắn, không thêm 吗 vào câu chính phản.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "explanation": "Một cách diễn đạt:\n你想不想喝茶？想。\nNǐ xiǎng bu xiǎng hē chá? Xiǎng.\nBạn có muốn uống trà không? Có.\nTự đối chiếu chưa phải điểm viết/nói độc lập.",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "想不想 trước 喝茶.",
+                        "guidance": "想不想 trước 喝茶."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Không thêm 吗 ở mẫu chính phản.",
+                        "guidance": "Không thêm 吗 ở mẫu chính phản."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Đáp 想 giữ mong muốn; không suy đã uống.",
+                        "guidance": "Đáp 想 giữ mong muốn; không suy đã uống."
+                      }
+                    ],
+                    "learningTarget": {
+                      "objective": "Câu hỏi chính phản: 会不会 và 有没有",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00122",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: 没有 phủ định 有. Không dùng 不有 để nói không có. 说汉语 là nói tiếng Trung, 说话 nói chuyện; không ghép 说话汉语. Không lấy transcript làm điểm phát âm.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Chọn câu 我今天没有时间 để phủ định việc có thời gian hôm nay. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00122",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Không dùng 不有 trong mẫu này.",
+                        "id": "option-0",
+                        "text": "我今天不有时间。"
+                      },
+                      {
+                        "feedback": "Đúng: 没有 phủ định 有.",
+                        "id": "option-1",
+                        "text": "我今天没有时间。"
+                      },
+                      {
+                        "feedback": "Nói có thời gian, trái với thông tin không có thời gian.",
+                        "id": "option-2",
+                        "text": "我今天有时间。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn không có thời gian hôm nay. Câu nào nói đúng “không có” theo mẫu?",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "survival-7:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "没有"
+                    ],
+                    "answerIds": [],
+                    "explanation": "没有 phủ định 有. Không nói 不有; việc không có thời gian không đồng nghĩa không biết nói.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "learningTarget": {
+                      "objective": "Điền 没有 để phủ định 有 trong câu nói không có thời gian, không dùng 不有. Đây là câu có gợi ý/ngữ cảnh trong bài, không phải recall độc lập.",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk-vocab-00122",
+                          "kind": "vocabulary"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền 没有 hoặc 不 để nói không có thời gian: 我今天____时间。",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "survival-7:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn đã biết nói tiếng Trung, muốn đến ngày mai, nhưng hôm nay không có thời gian. Nói đủ ba ý, không viết thành không biết nói.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我会说汉语。我想明天来，但是今天没有时间。\nWǒ huì shuō Hànyǔ. Wǒ xiǎng míngtiān lái, dànshì jīntiān méiyǒu shíjiān.\nTôi biết nói tiếng Trung. Tôi muốn đến ngày mai nhưng hôm nay không có thời gian.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết câu về khả năng, dự định và điều kiện thời gian; phân biệt 会, 想 và 没有. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk1-guided-task:hsk1-pe-07-ability-intention-negation",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "会 giữ kỹ năng đã biết.",
+                        "id": "criterion-0",
+                        "label": "会 giữ kỹ năng đã biết."
+                      },
+                      {
+                        "guidance": "想 nêu mong muốn, không tự khẳng định đã đến.",
+                        "id": "criterion-1",
+                        "label": "想 nêu mong muốn, không tự khẳng định đã đến."
+                      },
+                      {
+                        "guidance": "没有时间 đúng phủ định có.",
+                        "id": "criterion-2",
+                        "label": "没有时间 đúng phủ định có."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "survival-7:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "会 giữ kỹ năng đã biết.\n想 nêu mong muốn, không tự khẳng định đã đến.\n没有时间 đúng phủ định có.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "survival-7:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "survival-7:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/60-REVIEW-SURVIVAL-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "af17efdd-fd59-4f61-a961-2e67e35da031",
+          "reviewedAt": "2026-09-29",
+          "scope": "Nine HSK1 survival lessons: exact vocabulary, grammar and task targets for choice, cloze and self-review writing.",
+          "targetPlanSha256": "sha256:2db6af1f5850bad4c30a57ec8195f1d142e2531bde80c0b0ff49d93c052b3ab4"
+        },
+        "objectiveVi": "Nói điều có thể, mong muốn hoặc không xảy ra bằng động từ năng nguyện.",
+        "pitfallVi": "Không dùng 不有 để nói không có. 说汉语 là nói tiếng Trung, 说话 nói chuyện; không ghép 说话汉语. Không lấy transcript làm điểm phát âm.",
+        "prerequisites": [
+          "survival-6"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "会 thường nói kỹ năng đã học, 能 nói khả năng/điều kiện, 可以 nói cho phép hoặc khả năng tùy câu; nghĩa có giao nhau, không tạo quy tắc loại trừ tuyệt đối. 想 nêu mong muốn, 要 có ý định/cần tùy câu. 不 phủ định thói quen/ý định, 没有 phủ định có hoặc việc chưa xảy ra theo ngữ cảnh. 都 đều, 也 cũng, 还 vẫn/còn, 再 lần tiếp theo. 有的/有些 nói một số, không bằng tất cả. 不要 trong yêu cầu là đừng. 对 trong đáp ngắn là đúng.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-004",
+          "hsk1-grammar-row-005",
+          "hsk1-grammar-row-006",
+          "hsk1-grammar-row-016",
+          "hsk1-grammar-row-019",
+          "hsk1-grammar-row-020",
+          "hsk1-grammar-row-048",
+          "hsk1-grammar-row-056",
+          "hsk1-grammar-row-057"
+        ],
+        "sourceLessonIds": [
+          "survival-7"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-pe-07-ability-intention-negation"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00013",
+          "hsk-vocab-00015",
+          "hsk-vocab-00041",
+          "hsk-vocab-00044",
+          "hsk-vocab-00067",
+          "hsk-vocab-00082",
+          "hsk-vocab-00102",
+          "hsk-vocab-00122",
+          "hsk-vocab-00145",
+          "hsk-vocab-00196",
+          "hsk-vocab-00197",
+          "hsk-vocab-00233",
+          "hsk-vocab-00252",
+          "hsk-vocab-00253",
+          "hsk-vocab-00264",
+          "hsk-vocab-00266",
+          "hsk-vocab-00270"
+        ],
+        "targetLessonId": "survival-7",
+        "titleZh": "能力、意愿和否定",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/68-REVIEW-SURVIVAL-DIALOGUE-VISUALS.md",
+          "humanReviewed": false,
+          "scope": "Nine individually reviewed dialogue illustrations; no learning content change.",
+          "sourceRevisionId": "8dfe6f53-401d-44b8-aca9-89fdc3dfe910"
+        },
+        "vocabulary": [
+          "hsk-vocab-00013",
+          "hsk-vocab-00015",
+          "hsk-vocab-00041",
+          "hsk-vocab-00044",
+          "hsk-vocab-00067",
+          "hsk-vocab-00082",
+          "hsk-vocab-00102",
+          "hsk-vocab-00122",
+          "hsk-vocab-00145",
+          "hsk-vocab-00196",
+          "hsk-vocab-00197",
+          "hsk-vocab-00233",
+          "hsk-vocab-00252",
+          "hsk-vocab-00253",
+          "hsk-vocab-00264",
+          "hsk-vocab-00266",
+          "hsk-vocab-00270"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    }
+  ]
+}

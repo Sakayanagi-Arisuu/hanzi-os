@@ -3,6 +3,7 @@ import {
   getRichLessonContent,
   RICH_LESSON_DISCLOSURE,
 } from "./richLessonContent";
+import { getPremiumRichLesson, listPremiumRichLessons } from "../server/premiumRichLesson";
 
 describe("learner-facing rich lesson adapter", () => {
   it("exposes the locally authorized HSK1 presentation", () => {
@@ -75,8 +76,10 @@ describe("learner-facing rich lesson adapter", () => {
     )?.tasks).toHaveLength(1);
   });
 
-  it("exposes all seventy-eight HSK4 lessons through the shared rich UI", () => {
-    expect(getRichLessonContent(
+  it("keeps all seventy-eight HSK4 rich lessons on the server", () => {
+    expect(listPremiumRichLessons()).toHaveLength(78);
+    expect(getRichLessonContent("hsk4-personal-community-analysis-concept-actor-map")).toBeNull();
+    expect(getPremiumRichLesson(
       "hsk4-personal-community-analysis-concept-actor-map",
     )).toMatchObject({
       dialogue: expect.arrayContaining([
@@ -86,12 +89,12 @@ describe("learner-facing rich lesson adapter", () => {
         expect.objectContaining({ id: "hsk4-topic-001" }),
       ]),
     });
-    expect(getRichLessonContent(
+    expect(getPremiumRichLesson(
       "hsk4-precision-reference-quantity-lesson-01",
     )?.grammar).toEqual(expect.arrayContaining([
       expect.objectContaining({ id: "hsk4-grammar-row-001" }),
     ]));
-    expect(getRichLessonContent(
+    expect(getPremiumRichLesson(
       "hsk4-timed-sectional-rehearsal-lesson-03",
     )?.tasks).toHaveLength(1);
   });

@@ -30,4 +30,10 @@ describe('authored lesson activities',()=>{
     expect(isEditableLessonPageDocument({...doc,version:2})).toBe(false);
     expect(validateLessonActivity({...choice(),options:[]})).not.toEqual([]);
   });
+  it('accepts a bounded self-practice clock without changing rubric scoring',()=>{
+    const timed={...choice(),type:'rubric' as const,timeLimitSeconds:180,rubric:[{id:'evidence',label:'Dẫn chứng',guidance:'Ghi đoạn nguồn.'}]};
+    expect(validateLessonActivity(timed)).toEqual([]);
+    expect(evaluateLessonActivity(timed,{text:'Bản tự viết'})).toBe('self-review');
+    for(const seconds of [0,29,1801,90.5])expect(validateLessonActivity({...timed,timeLimitSeconds:seconds})).not.toEqual([]);
+  });
 });

@@ -1,0 +1,96 @@
+{
+  "mode": "apply",
+  "backup": "D:\\Projects\\hanzi-os\\.wrangler\\demo-backups\\before-hsk1-dictionary-context-round90-2026-10-05T03-38-36-050Z.sqlite",
+  "protectedTables": 43,
+  "releases": [
+    {
+      "stableKey": "thien-lo-v2-journey-1",
+      "revisionId": "9b18baf4-39e4-48a9-8b42-55d41c4a1c11"
+    },
+    {
+      "stableKey": "thien-lo-v2-journey-2",
+      "revisionId": "197c88e2-060a-4c44-aa87-71f6b9179298"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-1",
+      "revisionId": "292f8610-016f-4223-9047-cde97bbfedb8"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-3",
+      "revisionId": "efe2e257-409a-4f3c-a928-f88a5993df11"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-4",
+      "revisionId": "b5677e23-fbf7-43ce-a13a-f5e7bc1319c2"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-5",
+      "revisionId": "44fe5ca2-f723-4b91-bc2a-0b0b7b533d27"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-6",
+      "revisionId": "0dd3007e-73af-42b4-81bf-4cfdaf7558fc"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-7",
+      "revisionId": "728a8f13-25e9-46ee-a916-ce8e003959d9"
+    },
+    {
+      "stableKey": "thien-lo-v2-survival-8",
+      "revisionId": "0eee6b14-10e7-4725-a2e8-3b929ac8c34b"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00001",
+      "revisionId": "4be3c94c-7d07-4890-9c2e-21106a154460"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00067",
+      "revisionId": "1a4e0224-749c-4ccd-83cf-ebffe703f817"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00099",
+      "revisionId": "ce38f6d6-8adf-4215-8088-023194748547"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00165",
+      "revisionId": "0fb8154f-b2a9-4f49-a71c-72f435bb4b1f"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00166",
+      "revisionId": "580c040e-6ce4-483d-9dd5-c7f47cdd994c"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00199",
+      "revisionId": "4e861bda-f29f-4b80-9317-14b49dfee055"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00219",
+      "revisionId": "5f014eb5-d4b1-46b2-b422-999e6aa63c84"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00263",
+      "revisionId": "39d781d5-8470-473c-8567-6f70b9e1a433"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00265",
+      "revisionId": "001aff9a-3651-4ae5-8c1b-c5a83f5b609c"
+    },
+    {
+      "stableKey": "curriculum-word-hsk-vocab-00298",
+      "revisionId": "3316c414-a75b-46f9-bdbc-aff51f612e4c"
+    },
+    {
+      "stableKey": "curriculum-word-er",
+      "revisionId": "65e57d18-651d-4b56-91b5-18da657333eb"
+    },
+    {
+      "stableKey": "curriculum-word-ren",
+      "revisionId": "a9191805-3526-49c1-9d48-5346f88fbfd6"
+    },
+    {
+      "stableKey": "curriculum-word-yi",
+      "revisionId": "0382d81d-1648-4e50-8e99-f633191b98ce"
+    }
+  ],
+  "completed": 22
+}

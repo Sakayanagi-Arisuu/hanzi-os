@@ -1,0 +1,2020 @@
+{
+  "version": 1,
+  "humanReviewed": false,
+  "scope": "Only context-page illustration; all learning content and identities unchanged.",
+  "items": [
+    {
+      "lessonId": "survival-2",
+      "title": "Đại từ và nhóm người",
+      "baseRevisionId": "178c849f-cce1-424b-b716-7dccb2485401",
+      "baseContentSha256": "sha256:d51373025e7e780ba0dc8a8ddf5a085536f888b1d7798577b793bb001b179c59",
+      "changedPageIds": [
+        "survival-2:v2:context"
+      ],
+      "status": "prepared-not-imported-not-published",
+      "content": {
+        "checkpointVi": "Bạn đang nói thay một nhóm học sinh. Chào một giáo viên lịch sự, giới thiệu “chúng tôi là học sinh”, rồi viết một câu nói hai bạn nữ cũng là học sinh.",
+        "conceptVi": "Theo dõi điểm nhìn và đối tượng",
+        "dialogue": [
+          {
+            "hanzi": "大家好！我们是学生。",
+            "meaningVi": "Chào mọi người! Chúng tôi là học sinh.",
+            "pinyin": "Dàjiā hǎo! Wǒmen shì xuésheng.",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "她们也是学生吗？",
+            "meaningVi": "Họ (nhóm nữ) cũng là học sinh phải không?",
+            "pinyin": "Tāmen yě shì xuésheng ma?",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "是，她们是学生。",
+            "meaningVi": "Đúng, họ là học sinh.",
+            "pinyin": "Shì, tāmen shì xuésheng.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "它们",
+            "answerMeaningVi": "chúng nó (vật/động vật)",
+            "answerPinyin": "tāmen",
+            "distractors": [
+              "她们",
+              "我们"
+            ],
+            "explanationVi": "Đúng: nhóm động vật trong ngữ cảnh này.",
+            "promptVi": "Bạn viết về hai con mèo, không nhân hóa chúng. Đại từ số nhiều nào phù hợp?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "我/你 đổi theo người nói/nghe. 他/她/它 cùng âm tā nhưng chỉ nam/nữ/vật hoặc động vật. 他们 có thể nhóm nam hoặc hỗn hợp; 她们 nhóm nữ; 它们 nhóm vật/động vật. 们 gắn với đại từ người trong 我们/你们; không thêm vào mọi danh từ. 大家 đã nghĩa mọi người. 您 là cách gọi lịch sự; dùng 您好 khi phù hợp.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "您好！我们是学生。她们也是学生。",
+              "modelAnswerMeaningVi": "Chào thầy/cô! Chúng tôi là học sinh. Họ cũng là học sinh.",
+              "modelAnswerPinyin": "Nín hǎo! Wǒmen shì xuésheng. Tāmen yě shì xuésheng.",
+              "promptVi": "Bạn đang nói thay một nhóm học sinh. Chào một giáo viên lịch sự, giới thiệu “chúng tôi là học sinh”, rồi viết một câu nói hai bạn nữ cũng là học sinh."
+            },
+            "modelExample": {
+              "hanzi": "我们是学生。她们也是学生。",
+              "meaningVi": "Chúng tôi là học sinh. Họ (nhóm nữ) cũng là học sinh.",
+              "pinyin": "Wǒmen shì xuésheng. Tāmen yě shì xuésheng."
+            },
+            "pattern": "Đại từ + 是 + danh từ; đại từ + 也 + 是 + danh từ"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn giới thiệu nhóm học gồm hai bạn nữ và một nhóm đồ chơi hình mèo. Nghe tā không đủ để biết phải viết chữ nào; cần nhìn người/vật đang được nói tới.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "也 (yě) — cũng; 学生 (xuésheng) — học sinh; 老师 (lǎoshī) — giáo viên; 猫 (māo) — mèo; 两 (liǎng) — hai; 个 (ge) — lượng từ người trong mẫu; 好 (hǎo) — tốt/chào trong 你好.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "survival-2:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Theo dõi điểm nhìn và đối tượng",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/pronoun-group-v1.webp",
+                "alt": "Nhóm học sinh giới thiệu với giáo viên, có mô hình mèo trên bàn",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "大家好！我们是学生。",
+                  "id": "survival-2:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chào mọi người! Chúng tôi là học sinh.",
+                  "pinyin": "Dàjiā hǎo! Wǒmen shì xuésheng.",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她们也是学生吗？",
+                  "id": "survival-2:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Họ (nhóm nữ) cũng là học sinh phải không?",
+                  "pinyin": "Tāmen yě shì xuésheng ma?",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "是，她们是学生。",
+                  "id": "survival-2:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đúng, họ là học sinh.",
+                  "pinyin": "Shì, tāmen shì xuésheng.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "survival-2:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "我/你 đổi theo người nói/nghe. 他/她/它 cùng âm tā nhưng chỉ nam/nữ/vật hoặc động vật. 他们 có thể nhóm nam hoặc hỗn hợp; 她们 nhóm nữ; 它们 nhóm vật/động vật. 们 gắn với đại từ người trong 我们/你们; không thêm vào mọi danh từ. 大家 đã nghĩa mọi người. 您 là cách gọi lịch sự; dùng 您好 khi phù hợp.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我们是学生。她们也是学生。",
+                  "id": "survival-2:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng tôi là học sinh. Họ (nhóm nữ) cũng là học sinh.",
+                  "pinyin": "Wǒmen shì xuésheng. Tāmen yě shì xuésheng.",
+                  "provenance": "",
+                  "title": "Đại từ + 是 + danh từ; đại từ + 也 + 是 + danh từ"
+                },
+                {
+                  "alt": "",
+                  "body": "Không viết 大家们 hoặc 两个人们. 吗 đặt cuối mẫu hỏi đúng/sai 你是学生吗？; không tự thêm vào mọi câu hỏi.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "survival-2:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Theo dõi điểm nhìn và đối tượng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "mọi người",
+                  "hanzi": "大家好！",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00026",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào mọi người!",
+                  "pinyin": "Dàjiā hǎo!",
+                  "provenance": "",
+                  "title": "大家 · dàjiā"
+                },
+                {
+                  "alt": "",
+                  "body": "à; không (trợ từ tạo câu hỏi có/không)",
+                  "hanzi": "你买吗？",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00115",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn mua không?",
+                  "pinyin": "Nǐ mǎi ma?",
+                  "provenance": "",
+                  "title": "吗 · ma"
+                },
+                {
+                  "alt": "",
+                  "body": "hậu tố số nhiều chỉ người",
+                  "hanzi": "我们走吧。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00124",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng ta đi nhé.",
+                  "pinyin": "Wǒmen zǒu ba.",
+                  "provenance": "",
+                  "title": "们 · men"
+                },
+                {
+                  "alt": "",
+                  "body": "bạn",
+                  "hanzi": "你好！",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00146",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Xin chào!",
+                  "pinyin": "Nǐ hǎo!",
+                  "provenance": "",
+                  "title": "你 · nǐ"
+                },
+                {
+                  "alt": "",
+                  "body": "các bạn",
+                  "hanzi": "你们都是学生吗？",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00148",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Các bạn đều là học sinh phải không?",
+                  "pinyin": "Nǐmen dōu shì xuéshēng ma?",
+                  "provenance": "",
+                  "title": "你们 · nǐmen"
+                }
+              ],
+              "id": "survival-2:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "ngài; ông; bà (cách xưng hô lịch sự)",
+                  "hanzi": "您叫什么名字？",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00150",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngài tên là gì?",
+                  "pinyin": "Nín jiào shénme míngzi?",
+                  "provenance": "",
+                  "title": "您 · nín"
+                },
+                {
+                  "alt": "",
+                  "body": "người",
+                  "hanzi": "你是哪国人？",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00170",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn là người nước nào?",
+                  "pinyin": "Nǐ shì nǎ guó rén?",
+                  "provenance": "",
+                  "title": "人 · rén"
+                },
+                {
+                  "alt": "",
+                  "body": "là",
+                  "hanzi": "他是老师。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00188",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy là giáo viên.",
+                  "pinyin": "Tā shì lǎoshī.",
+                  "provenance": "",
+                  "title": "是 · shì"
+                },
+                {
+                  "alt": "",
+                  "body": "anh ấy; ông ấy",
+                  "hanzi": "他能来。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00200",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy có thể đến.",
+                  "pinyin": "Tā néng lái.",
+                  "provenance": "",
+                  "title": "他 · tā"
+                },
+                {
+                  "alt": "",
+                  "body": "nó (chỉ vật hoặc động vật)",
+                  "hanzi": "它是一只猫。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00201",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Nó là một con mèo.",
+                  "pinyin": "Tā shì yì zhī māo.",
+                  "provenance": "",
+                  "title": "它 · tā"
+                }
+              ],
+              "id": "survival-2:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "cô ấy; bà ấy",
+                  "hanzi": "她很漂亮。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00202",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy rất xinh đẹp.",
+                  "pinyin": "Tā hěn piàoliang.",
+                  "provenance": "",
+                  "title": "她 · tā"
+                },
+                {
+                  "alt": "",
+                  "body": "họ (nam hoặc nhóm hỗn hợp)",
+                  "hanzi": "他们认识她。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00203",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Họ quen cô ấy.",
+                  "pinyin": "Tāmen rènshi tā.",
+                  "provenance": "",
+                  "title": "他们 · tāmen"
+                },
+                {
+                  "alt": "",
+                  "body": "chúng nó (chỉ vật hoặc động vật)",
+                  "hanzi": "它们都是小狗。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00204",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng đều là chó con.",
+                  "pinyin": "Tāmen dōu shì xiǎogǒu.",
+                  "provenance": "",
+                  "title": "它们 · tāmen"
+                },
+                {
+                  "alt": "",
+                  "body": "họ (nhóm nữ)",
+                  "hanzi": "她们在学校学习。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00205",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Họ đang học ở trường.",
+                  "pinyin": "Tāmen zài xuéxiào xuéxí.",
+                  "provenance": "",
+                  "title": "她们 · tāmen"
+                },
+                {
+                  "alt": "",
+                  "body": "tôi; mình",
+                  "hanzi": "我很忙。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00221",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi rất bận.",
+                  "pinyin": "Wǒ hěn máng.",
+                  "provenance": "",
+                  "title": "我 · wǒ"
+                }
+              ],
+              "id": "survival-2:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:word-note-15",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "chúng tôi; chúng ta",
+                  "hanzi": "我们走吧。",
+                  "id": "survival-2:v2:block:word-hsk-vocab-00222",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chúng ta đi nhé.",
+                  "pinyin": "Wǒmen zǒu ba.",
+                  "provenance": "",
+                  "title": "我们 · wǒmen"
+                }
+              ],
+              "id": "survival-2:v2:words-15",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 4"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: nhóm động vật trong ngữ cảnh này. Không viết 大家们 hoặc 两个人们. 吗 đặt cuối mẫu hỏi đúng/sai 你是学生吗？; không tự thêm vào mọi câu hỏi.",
+                    "hint": "",
+                    "options": [
+                      {
+                        "feedback": "Dùng cho nhóm nữ, không phải mèo trong đề.",
+                        "id": "option-0",
+                        "text": "她们"
+                      },
+                      {
+                        "feedback": "Đúng: nhóm động vật trong ngữ cảnh này.",
+                        "id": "option-1",
+                        "text": "它们"
+                      },
+                      {
+                        "feedback": "Chỉ nhóm có người đang nói, không đúng đối tượng.",
+                        "id": "option-2",
+                        "text": "我们"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn viết về hai con mèo, không nhân hóa chúng. Đại từ số nhiều nào phù hợp?",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "survival-2:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "她们"
+                    ],
+                    "answerIds": [],
+                    "explanation": "她们 chỉ nhóm nữ được nói đến. 我们 phải bao gồm người nói; 你们 chỉ nhóm người nghe.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Nhóm nữ được nhắc tới không có người nói. Điền đại từ: ____也是学生。",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "survival-2:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn đang nói thay một nhóm học sinh. Chào một giáo viên lịch sự, giới thiệu “chúng tôi là học sinh”, rồi viết một câu nói hai bạn nữ cũng là học sinh.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n您好！我们是学生。她们也是学生。\nNín hǎo! Wǒmen shì xuésheng. Tāmen yě shì xuésheng.\nChào thầy/cô! Chúng tôi là học sinh. Họ cũng là học sinh.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 我们 cho nhóm có mình.",
+                        "id": "criterion-0",
+                        "label": "Dùng 我们 cho nhóm có mình."
+                      },
+                      {
+                        "guidance": "Dùng 她们 cho nhóm nữ được nhắc đến.",
+                        "id": "criterion-1",
+                        "label": "Dùng 她们 cho nhóm nữ được nhắc đến."
+                      },
+                      {
+                        "guidance": "Dùng 您 phù hợp người nghe, không thêm 们 vào 大家.",
+                        "id": "criterion-2",
+                        "label": "Dùng 您 phù hợp người nghe, không thêm 们 vào 大家."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "survival-2:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng 我们 cho nhóm có mình.\nDùng 她们 cho nhóm nữ được nhắc đến.\nDùng 您 phù hợp người nghe, không thêm 们 vào 大家.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "survival-2:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "survival-2:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/13-REVIEW-SURVIVAL-BATCH.md",
+          "humanReviewed": false,
+          "lessonId": "survival-2",
+          "reviewedAt": "2026-09-13",
+          "scope": "Nine personal communication lessons for local study; page activities remain self-feedback, not mastery evidence.",
+          "sourceContentSha256": "sha256:8e2c64bad3976c677b066dde39ef27a26dec3d139272945a33e523b8da5fe38e"
+        },
+        "objectiveVi": "Phân biệt ngôi xưng, số nhiều và đại từ cho người, vật.",
+        "pitfallVi": "Không viết 大家们 hoặc 两个人们. 吗 đặt cuối mẫu hỏi đúng/sai 你是学生吗？; không tự thêm vào mọi câu hỏi.",
+        "prerequisites": [
+          "survival-1"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "我/你 đổi theo người nói/nghe. 他/她/它 cùng âm tā nhưng chỉ nam/nữ/vật hoặc động vật. 他们 có thể nhóm nam hoặc hỗn hợp; 她们 nhóm nữ; 它们 nhóm vật/động vật. 们 gắn với đại từ người trong 我们/你们; không thêm vào mọi danh từ. 大家 đã nghĩa mọi người. 您 là cách gọi lịch sự; dùng 您好 khi phù hợp.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-009",
+          "hsk1-grammar-row-035",
+          "hsk1-grammar-row-046",
+          "hsk1-grammar-row-049"
+        ],
+        "sourceLessonIds": [
+          "survival-2"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-pe-02-pronouns-and-groups"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00026",
+          "hsk-vocab-00115",
+          "hsk-vocab-00124",
+          "hsk-vocab-00146",
+          "hsk-vocab-00148",
+          "hsk-vocab-00150",
+          "hsk-vocab-00170",
+          "hsk-vocab-00188",
+          "hsk-vocab-00200",
+          "hsk-vocab-00201",
+          "hsk-vocab-00202",
+          "hsk-vocab-00203",
+          "hsk-vocab-00204",
+          "hsk-vocab-00205",
+          "hsk-vocab-00221",
+          "hsk-vocab-00222"
+        ],
+        "targetLessonId": "survival-2",
+        "titleZh": "代词和人群",
+        "vocabulary": [
+          "hsk-vocab-00026",
+          "hsk-vocab-00115",
+          "hsk-vocab-00124",
+          "hsk-vocab-00146",
+          "hsk-vocab-00148",
+          "hsk-vocab-00150",
+          "hsk-vocab-00170",
+          "hsk-vocab-00188",
+          "hsk-vocab-00200",
+          "hsk-vocab-00201",
+          "hsk-vocab-00202",
+          "hsk-vocab-00203",
+          "hsk-vocab-00204",
+          "hsk-vocab-00205",
+          "hsk-vocab-00221",
+          "hsk-vocab-00222"
+        ]
+      }
+    },
+    {
+      "lessonId": "survival-3",
+      "title": "Tên, danh tính và tuổi",
+      "baseRevisionId": "4b27aaaf-7f2a-45a3-96a4-05546255d6cd",
+      "baseContentSha256": "sha256:7790bf047f7f5cfff20f95d729378eb3486e2902077960e1d681349cdbeeb26d",
+      "changedPageIds": [
+        "survival-3:v2:context"
+      ],
+      "status": "prepared-not-imported-not-published",
+      "content": {
+        "checkpointVi": "Đóng vai Lý Mai, nữ, 21 tuổi. Giới thiệu tên và tuổi; hỏi người mới tên gì. Viết thêm cách gọi lịch sự bà Vương bằng họ và danh xưng.",
+        "conceptVi": "Khớp câu hỏi với loại thông tin",
+        "dialogue": [
+          {
+            "hanzi": "你叫什么名字？",
+            "meaningVi": "Bạn tên là gì?",
+            "pinyin": "Nǐ jiào shénme míngzi?",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "我叫王小明。",
+            "meaningVi": "Tôi tên là Vương Tiểu Minh.",
+            "pinyin": "Wǒ jiào Wáng Xiǎomíng.",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "你是哪国人？",
+            "meaningVi": "Bạn là người nước nào?",
+            "pinyin": "Nǐ shì nǎ guó rén?",
+            "speaker": "Lượt 3"
+          },
+          {
+            "hanzi": "我是中国人，今年二十岁。",
+            "meaningVi": "Tôi là người Trung Quốc, năm nay hai mươi tuổi.",
+            "pinyin": "Wǒ shì Zhōngguó rén, jīnnián èrshí suì.",
+            "speaker": "Lượt 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "你的名字怎么写？",
+            "answerMeaningVi": "Tên bạn viết thế nào?",
+            "answerPinyin": "Nǐ de míngzi zěnme xiě?",
+            "distractors": [
+              "你是谁？",
+              "你今天怎么样？"
+            ],
+            "explanationVi": "Đúng: 怎么写 hỏi viết thế nào.",
+            "promptVi": "Bạn cần biết cách viết tên người đối diện. Câu hỏi nào phù hợp?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "你叫什么名字？ hỏi tên; 我叫… trả lời. 谁 hỏi ai. 国 chỉ quốc gia trong 哪国/中国, không tự ghép 我是国. 你多大？ hỏi tuổi; 我二十岁 không cần 是. 先生/女士 đi sau họ: 王先生/王女士. 男/女 là nam/nữ trên hồ sơ. 怎么 hỏi cách làm; 怎么样 hỏi tình trạng/đánh giá, không thay 什么 để hỏi tên.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "我叫李梅，今年二十一岁。你叫什么名字？王女士。",
+              "modelAnswerMeaningVi": "Tôi tên Lý Mai, năm nay 21 tuổi. Bạn tên gì? Bà Vương.",
+              "modelAnswerPinyin": "Wǒ jiào Lǐ Méi, jīnnián èrshíyī suì. Nǐ jiào shénme míngzi? Wáng nǚshì.",
+              "promptVi": "Đóng vai Lý Mai, nữ, 21 tuổi. Giới thiệu tên và tuổi; hỏi người mới tên gì. Viết thêm cách gọi lịch sự bà Vương bằng họ và danh xưng."
+            },
+            "modelExample": {
+              "hanzi": "我叫李梅。我二十一岁。",
+              "meaningVi": "Tôi tên Lý Mai. Tôi hai mươi mốt tuổi.",
+              "pinyin": "Wǒ jiào Lǐ Méi. Wǒ èrshíyī suì."
+            },
+            "pattern": "我叫 + tên。／我 + số tuổi + 岁。"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Bạn điền hồ sơ nhân vật giả định: họ Vương, tên Tiểu Minh, nam, 20 tuổi, người Trung Quốc. Bạn học cách hỏi đúng loại thông tin, không buộc chia sẻ dữ liệu thật.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "今年 (jīnnián) — năm nay; 哪 (nǎ) — nào; 中国 (Zhōngguó) — Trung Quốc; 二十 (èrshí) — hai mươi; 多大 (duō dà) — bao nhiêu tuổi; 写 (xiě) — viết; 今天 (jīntiān) — hôm nay.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "survival-3:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Khớp câu hỏi với loại thông tin",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/fictional-profile-v1.webp",
+                "alt": "Hai học viên trao đổi thẻ tên và tập điền hồ sơ giả định",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你叫什么名字？",
+                  "id": "survival-3:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn tên là gì?",
+                  "pinyin": "Nǐ jiào shénme míngzi?",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我叫王小明。",
+                  "id": "survival-3:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi tên là Vương Tiểu Minh.",
+                  "pinyin": "Wǒ jiào Wáng Xiǎomíng.",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "你是哪国人？",
+                  "id": "survival-3:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn là người nước nào?",
+                  "pinyin": "Nǐ shì nǎ guó rén?",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我是中国人，今年二十岁。",
+                  "id": "survival-3:v2:block:turn-3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi là người Trung Quốc, năm nay hai mươi tuổi.",
+                  "pinyin": "Wǒ shì Zhōngguó rén, jīnnián èrshí suì.",
+                  "provenance": "",
+                  "title": "Lượt 4"
+                }
+              ],
+              "id": "survival-3:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "你叫什么名字？ hỏi tên; 我叫… trả lời. 谁 hỏi ai. 国 chỉ quốc gia trong 哪国/中国, không tự ghép 我是国. 你多大？ hỏi tuổi; 我二十岁 không cần 是. 先生/女士 đi sau họ: 王先生/王女士. 男/女 là nam/nữ trên hồ sơ. 怎么 hỏi cách làm; 怎么样 hỏi tình trạng/đánh giá, không thay 什么 để hỏi tên.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "我叫李梅。我二十一岁。",
+                  "id": "survival-3:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi tên Lý Mai. Tôi hai mươi mốt tuổi.",
+                  "pinyin": "Wǒ jiào Lǐ Méi. Wǒ èrshíyī suì.",
+                  "provenance": "",
+                  "title": "我叫 + tên。／我 + số tuổi + 岁。"
+                },
+                {
+                  "alt": "",
+                  "body": "Không thêm 吗 vào mẫu 什么/谁. Không nói 我是二十岁 theo mẫu tuổi cơ bản. Hỏi tuổi cần phù hợp quan hệ; bài dùng vai giả định.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "survival-3:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Khớp câu hỏi với loại thông tin"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "nước; quốc gia",
+                  "hanzi": "你是哪国人？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00066",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn là người nước nào?",
+                  "pinyin": "Nǐ shì nǎ guó rén?",
+                  "provenance": "",
+                  "title": "国 · guó"
+                },
+                {
+                  "alt": "",
+                  "body": "gọi; tên là",
+                  "hanzi": "我叫李安。",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00091",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi tên là Lý An.",
+                  "pinyin": "Wǒ jiào Lǐ Ān.",
+                  "provenance": "",
+                  "title": "叫 · jiào"
+                },
+                {
+                  "alt": "",
+                  "body": "tên",
+                  "hanzi": "你叫什么名字？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00130",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn tên là gì?",
+                  "pinyin": "Nǐ jiào shénme míngzi?",
+                  "provenance": "",
+                  "title": "名字 · míngzi"
+                },
+                {
+                  "alt": "",
+                  "body": "nam",
+                  "hanzi": "他是男学生。",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00142",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cậu ấy là học sinh nam.",
+                  "pinyin": "Tā shì nán xuéshēng.",
+                  "provenance": "",
+                  "title": "男 · nán"
+                },
+                {
+                  "alt": "",
+                  "body": "nữ",
+                  "hanzi": "她是女老师。",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00152",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy là giáo viên nữ.",
+                  "pinyin": "Tā shì nǚ lǎoshī.",
+                  "provenance": "",
+                  "title": "女 · nǚ"
+                }
+              ],
+              "id": "survival-3:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "quý cô; bà",
+                  "hanzi": "那位女士是老师。",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00155",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Người phụ nữ kia là giáo viên.",
+                  "pinyin": "Nà wèi nǚshì shì lǎoshī.",
+                  "provenance": "",
+                  "title": "女士 · nǚshì"
+                },
+                {
+                  "alt": "",
+                  "body": "ai",
+                  "hanzi": "他是谁？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00181",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy là ai?",
+                  "pinyin": "Tā shì shéi?",
+                  "provenance": "",
+                  "title": "谁 · shéi"
+                },
+                {
+                  "alt": "",
+                  "body": "gì; cái gì",
+                  "hanzi": "这是什么？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00182",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là gì?",
+                  "pinyin": "Zhè shì shénme?",
+                  "provenance": "",
+                  "title": "什么 · shénme"
+                },
+                {
+                  "alt": "",
+                  "body": "tuổi",
+                  "hanzi": "我二十岁。",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00199",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi hai mươi tuổi.",
+                  "pinyin": "Wǒ èrshí suì.",
+                  "provenance": "",
+                  "title": "岁 · suì"
+                },
+                {
+                  "alt": "",
+                  "body": "ông; ngài; anh; tiên sinh",
+                  "hanzi": "您是王先生吗？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00231",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Ngài là ông Vương phải không?",
+                  "pinyin": "Nín shì Wáng xiānsheng ma?",
+                  "provenance": "",
+                  "title": "先生 · xiānsheng"
+                }
+              ],
+              "id": "survival-3:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "thế nào; làm sao; tại sao",
+                  "hanzi": "你怎么了？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00276",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bạn bị làm sao?",
+                  "pinyin": "Nǐ zěnme le?",
+                  "provenance": "",
+                  "title": "怎么 · zěnme"
+                },
+                {
+                  "alt": "",
+                  "body": "thế nào; ra sao",
+                  "hanzi": "她怎么样？",
+                  "id": "survival-3:v2:block:word-hsk-vocab-00277",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy thế nào?",
+                  "pinyin": "Tā zěnmeyàng?",
+                  "provenance": "",
+                  "title": "怎么样 · zěnmeyàng"
+                }
+              ],
+              "id": "survival-3:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "explanation": "Đúng: 怎么写 hỏi viết thế nào. Không thêm 吗 vào mẫu 什么/谁. Không nói 我是二十岁 theo mẫu tuổi cơ bản. Hỏi tuổi cần phù hợp quan hệ; bài dùng vai giả định.",
+                    "hint": "",
+                    "options": [
+                      {
+                        "feedback": "Đúng: 怎么写 hỏi viết thế nào.",
+                        "id": "option-0",
+                        "text": "你的名字怎么写？"
+                      },
+                      {
+                        "feedback": "Hỏi ai, chưa hỏi cách viết tên.",
+                        "id": "option-1",
+                        "text": "你是谁？"
+                      },
+                      {
+                        "feedback": "Hỏi tình trạng hôm nay, chưa hỏi cách viết.",
+                        "id": "option-2",
+                        "text": "你今天怎么样？"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Bạn cần biết cách viết tên người đối diện. Câu hỏi nào phù hợp?",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "survival-3:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "写"
+                    ],
+                    "answerIds": [],
+                    "explanation": "怎么写 hỏi viết thế nào. 什么名字 hỏi tên gì; 怎么样 hỏi tình trạng hoặc đánh giá.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền động từ hỏi cách viết: 你的名字怎么____？",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "survival-3:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đóng vai Lý Mai, nữ, 21 tuổi. Giới thiệu tên và tuổi; hỏi người mới tên gì. Viết thêm cách gọi lịch sự bà Vương bằng họ và danh xưng.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n我叫李梅，今年二十一岁。你叫什么名字？王女士。\nWǒ jiào Lǐ Méi, jīnnián èrshíyī suì. Nǐ jiào shénme míngzi? Wáng nǚshì.\nTôi tên Lý Mai, năm nay 21 tuổi. Bạn tên gì? Bà Vương.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 叫 với tên, 岁 với tuổi.",
+                        "id": "criterion-0",
+                        "label": "Dùng 叫 với tên, 岁 với tuổi."
+                      },
+                      {
+                        "guidance": "Hỏi tên bằng 什么, không nhầm 怎么样.",
+                        "id": "criterion-1",
+                        "label": "Hỏi tên bằng 什么, không nhầm 怎么样."
+                      },
+                      {
+                        "guidance": "Họ trước 女士.",
+                        "id": "criterion-2",
+                        "label": "Họ trước 女士."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "survival-3:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng 叫 với tên, 岁 với tuổi.\nHỏi tên bằng 什么, không nhầm 怎么样.\nHọ trước 女士.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "survival-3:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "survival-3:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/13-REVIEW-SURVIVAL-BATCH.md",
+          "humanReviewed": false,
+          "lessonId": "survival-3",
+          "reviewedAt": "2026-09-13",
+          "scope": "Nine personal communication lessons for local study; page activities remain self-feedback, not mastery evidence.",
+          "sourceContentSha256": "sha256:36eb7762a68a0974e5242c8fb14d8418cdce7821bb3095a70186ef7e882823ae"
+        },
+        "objectiveVi": "Hỏi và trả lời tên, giới tính, quốc gia và tuổi bằng câu đơn.",
+        "pitfallVi": "Không thêm 吗 vào mẫu 什么/谁. Không nói 我是二十岁 theo mẫu tuổi cơ bản. Hỏi tuổi cần phù hợp quan hệ; bài dùng vai giả định.",
+        "prerequisites": [
+          "survival-2"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "你叫什么名字？ hỏi tên; 我叫… trả lời. 谁 hỏi ai. 国 chỉ quốc gia trong 哪国/中国, không tự ghép 我是国. 你多大？ hỏi tuổi; 我二十岁 không cần 是. 先生/女士 đi sau họ: 王先生/王女士. 男/女 là nam/nữ trên hồ sơ. 怎么 hỏi cách làm; 怎么样 hỏi tình trạng/đánh giá, không thay 什么 để hỏi tên.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-008",
+          "hsk1-grammar-row-047"
+        ],
+        "sourceLessonIds": [
+          "survival-3"
+        ],
+        "sourceTaskIds": [
+          "hsk1-task-01"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-001"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00066",
+          "hsk-vocab-00091",
+          "hsk-vocab-00130",
+          "hsk-vocab-00142",
+          "hsk-vocab-00152",
+          "hsk-vocab-00155",
+          "hsk-vocab-00181",
+          "hsk-vocab-00182",
+          "hsk-vocab-00199",
+          "hsk-vocab-00231",
+          "hsk-vocab-00276",
+          "hsk-vocab-00277"
+        ],
+        "targetLessonId": "survival-3",
+        "titleZh": "姓名、身份和年龄",
+        "vocabulary": [
+          "hsk-vocab-00066",
+          "hsk-vocab-00091",
+          "hsk-vocab-00130",
+          "hsk-vocab-00142",
+          "hsk-vocab-00152",
+          "hsk-vocab-00155",
+          "hsk-vocab-00181",
+          "hsk-vocab-00182",
+          "hsk-vocab-00199",
+          "hsk-vocab-00231",
+          "hsk-vocab-00276",
+          "hsk-vocab-00277"
+        ]
+      }
+    },
+    {
+      "lessonId": "survival-4",
+      "title": "Gia đình",
+      "baseRevisionId": "0c663161-4b6c-4250-bd13-44383d4386ef",
+      "baseContentSha256": "sha256:5a273974d2ef49b766934f20e9059f539aef726bdd1976d0648ee0cb3901c22a",
+      "changedPageIds": [
+        "survival-4:v2:context"
+      ],
+      "status": "prepared-not-imported-not-published",
+      "content": {
+        "checkpointVi": "Đóng vai có một chị gái và một em trai. Giới thiệu hai người bằng 是 và nói mình có em trai bằng 有. Sau đó từ vai người mẹ, gọi bé gái là con gái.",
+        "conceptVi": "Đọc quan hệ từ điểm nhìn người nói",
+        "dialogue": [
+          {
+            "hanzi": "这是我的家人。",
+            "meaningVi": "Đây là người nhà của tôi.",
+            "pinyin": "Zhè shì wǒ de jiārén.",
+            "speaker": "Lượt 1"
+          },
+          {
+            "hanzi": "她是你的姐姐吗？",
+            "meaningVi": "Cô ấy là chị gái của bạn phải không?",
+            "pinyin": "Tā shì nǐ de jiějie ma?",
+            "speaker": "Lượt 2"
+          },
+          {
+            "hanzi": "不是，她是我的妹妹。",
+            "meaningVi": "Không, cô ấy là em gái của tôi.",
+            "pinyin": "Bú shì, tā shì wǒ de mèimei.",
+            "speaker": "Lượt 3"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "弟弟",
+            "answerMeaningVi": "em trai",
+            "answerPinyin": "dìdi",
+            "distractors": [
+              "哥哥",
+              "儿子"
+            ],
+            "explanationVi": "Đúng: em trai nhỏ tuổi hơn.",
+            "promptVi": "Một bé trai nhỏ tuổi hơn bạn và cùng cha mẹ trong vai này. Bạn gọi là gì?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "爸爸/妈妈 là bố/mẹ; 哥哥/姐姐 lớn tuổi hơn mình, 弟弟/妹妹 nhỏ tuổi hơn. 儿子/女儿 là con trai/con gái nhìn từ cha mẹ. 孩子 là trẻ/con, 家人 người nhà, 家 nhà hoặc gia đình tùy câu. 我的 + quan hệ diễn đạt của tôi; quan hệ gần có thể lược 的 như 我妈妈. 有 nói có thành viên, không thay 是 khi giới thiệu một người.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "她是我的姐姐。他是我的弟弟。我有一个弟弟。她是我的女儿。",
+              "modelAnswerMeaningVi": "Cô ấy là chị tôi. Cậu ấy là em trai tôi. Tôi có một em trai. Cô bé là con gái tôi (vai mẹ).",
+              "modelAnswerPinyin": "Tā shì wǒ de jiějie. Tā shì wǒ de dìdi. Wǒ yǒu yí ge dìdi. Tā shì wǒ de nǚér.",
+              "promptVi": "Đóng vai có một chị gái và một em trai. Giới thiệu hai người bằng 是 và nói mình có em trai bằng 有. Sau đó từ vai người mẹ, gọi bé gái là con gái."
+            },
+            "modelExample": {
+              "hanzi": "这是我的姐姐。我有一个弟弟。",
+              "meaningVi": "Đây là chị gái tôi. Tôi có một em trai.",
+              "pinyin": "Zhè shì wǒ de jiějie. Wǒ yǒu yí ge dìdi."
+            },
+            "pattern": "这是我的 + quan hệ。／我有 + số lượng + thành viên。"
+          }
+        ],
+        "lessonPages": {
+          "art": "campus",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Nhìn gia đình giả định của Tiểu Lan: có bố mẹ, một anh trai và một em gái. Khi mẹ kể về Tiểu Lan, quan hệ “con gái” khác với “chị/em gái”.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:scene",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tình huống của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "这 (zhè) — đây; 一 (yī) — một; 个 (ge) — lượng từ trong mẫu người; 她 (tā) — cô ấy; 他 (tā) — anh ấy; 我 (wǒ) — tôi.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ trước khi bắt đầu"
+                }
+              ],
+              "id": "survival-4:v2:context",
+              "layout": "scene",
+              "stage": "context",
+              "title": "Đọc quan hệ từ điểm nhìn người nói",
+              "illustration": {
+                "src": "/lessons/ngoc-dien/family-album-v1.webp",
+                "alt": "Các thành viên gia đình cùng xem album ảnh",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false"
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这是我的家人。",
+                  "id": "survival-4:v2:block:turn-0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là người nhà của tôi.",
+                  "pinyin": "Zhè shì wǒ de jiārén.",
+                  "provenance": "",
+                  "title": "Lượt 1"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "她是你的姐姐吗？",
+                  "id": "survival-4:v2:block:turn-1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Cô ấy là chị gái của bạn phải không?",
+                  "pinyin": "Tā shì nǐ de jiějie ma?",
+                  "provenance": "",
+                  "title": "Lượt 2"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "不是，她是我的妹妹。",
+                  "id": "survival-4:v2:block:turn-2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Không, cô ấy là em gái của tôi.",
+                  "pinyin": "Bú shì, tā shì wǒ de mèimei.",
+                  "provenance": "",
+                  "title": "Lượt 3"
+                }
+              ],
+              "id": "survival-4:v2:dialogue",
+              "layout": "dialogue",
+              "stage": "context",
+              "title": "Theo dõi mục đích từng lượt nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "爸爸/妈妈 là bố/mẹ; 哥哥/姐姐 lớn tuổi hơn mình, 弟弟/妹妹 nhỏ tuổi hơn. 儿子/女儿 là con trai/con gái nhìn từ cha mẹ. 孩子 là trẻ/con, 家人 người nhà, 家 nhà hoặc gia đình tùy câu. 我的 + quan hệ diễn đạt của tôi; quan hệ gần có thể lược 的 như 我妈妈. 有 nói có thành viên, không thay 是 khi giới thiệu một người.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Hiểu cách dùng trong tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "这是我的姐姐。我有一个弟弟。",
+                  "id": "survival-4:v2:block:pattern",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đây là chị gái tôi. Tôi có một em trai.",
+                  "pinyin": "Zhè shì wǒ de jiějie. Wǒ yǒu yí ge dìdi.",
+                  "provenance": "",
+                  "title": "这是我的 + quan hệ。／我有 + số lượng + thành viên。"
+                },
+                {
+                  "alt": "",
+                  "body": "Một người có thể là 女儿 với mẹ nhưng 姐姐 với em. Không suy tuổi chỉ từ giới tính. Dùng vai giả định nếu không muốn nói gia đình thật.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điểm dễ hiểu nhầm"
+                }
+              ],
+              "id": "survival-4:v2:meaning",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc quan hệ từ điểm nhìn người nói"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:word-note-0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "bố; ba",
+                  "hanzi": "爸爸和妈妈都在家。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00003",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bố và mẹ đều ở nhà.",
+                  "pinyin": "Bàba hé māma dōu zài jiā.",
+                  "provenance": "",
+                  "title": "爸爸 · bàba"
+                },
+                {
+                  "alt": "",
+                  "body": "của; trợ từ nối định ngữ với danh từ",
+                  "hanzi": "漂亮的衣服。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00030",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Bộ quần áo đẹp.",
+                  "pinyin": "Piàoliang de yīfu.",
+                  "provenance": "",
+                  "title": "的 · de"
+                },
+                {
+                  "alt": "",
+                  "body": "em trai",
+                  "hanzi": "我弟弟是学生。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00032",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Em trai tôi là học sinh.",
+                  "pinyin": "Wǒ dìdi shì xuéshēng.",
+                  "provenance": "",
+                  "title": "弟弟 · dìdi"
+                },
+                {
+                  "alt": "",
+                  "body": "con trai",
+                  "hanzi": "她儿子今年八岁。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00048",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Con trai cô ấy năm nay tám tuổi.",
+                  "pinyin": "Tā érzi jīnnián bā suì.",
+                  "provenance": "",
+                  "title": "儿子 · érzi"
+                },
+                {
+                  "alt": "",
+                  "body": "anh trai",
+                  "hanzi": "是，他是我哥哥。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00059",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vâng, anh ấy là anh trai tôi.",
+                  "pinyin": "Shì, tā shì wǒ gēge.",
+                  "provenance": "",
+                  "title": "哥哥 · gēge"
+                }
+              ],
+              "id": "survival-4:v2:words-0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 1"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:word-note-5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "trẻ em; con cái",
+                  "hanzi": "这个孩子很高兴。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00068",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đứa trẻ này rất vui.",
+                  "pinyin": "Zhège háizi hěn gāoxìng.",
+                  "provenance": "",
+                  "title": "孩子 · háizi"
+                },
+                {
+                  "alt": "",
+                  "body": "nhà; gia đình",
+                  "hanzi": "他在家吃饭。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00086",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh ấy ăn cơm ở nhà.",
+                  "pinyin": "Tā zài jiā chīfàn.",
+                  "provenance": "",
+                  "title": "家 · jiā"
+                },
+                {
+                  "alt": "",
+                  "body": "người nhà",
+                  "hanzi": "我的家人都在越南。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00087",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Gia đình tôi đều ở Việt Nam.",
+                  "pinyin": "Wǒ de jiārén dōu zài Yuènán.",
+                  "provenance": "",
+                  "title": "家人 · jiārén"
+                },
+                {
+                  "alt": "",
+                  "body": "chị gái",
+                  "hanzi": "我姐姐在大学学习。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00092",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Chị gái tôi học ở đại học.",
+                  "pinyin": "Wǒ jiějie zài dàxué xuéxí.",
+                  "provenance": "",
+                  "title": "姐姐 · jiějie"
+                },
+                {
+                  "alt": "",
+                  "body": "mẹ",
+                  "hanzi": "妈妈做饭呢。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00114",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mẹ đang nấu cơm đấy.",
+                  "pinyin": "Māma zuòfàn ne.",
+                  "provenance": "",
+                  "title": "妈妈 · māma"
+                }
+              ],
+              "id": "survival-4:v2:words-5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 2"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:word-note-10",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tra và nối lại với tình huống"
+                },
+                {
+                  "alt": "",
+                  "body": "em gái",
+                  "hanzi": "是，她是我妹妹。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00123",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Vâng, cô ấy là em gái tôi.",
+                  "pinyin": "Shì, tā shì wǒ mèimei.",
+                  "provenance": "",
+                  "title": "妹妹 · mèimei"
+                },
+                {
+                  "alt": "",
+                  "body": "con gái",
+                  "hanzi": "他们的女儿很漂亮。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00153",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Con gái của họ rất xinh.",
+                  "pinyin": "Tāmen de nǚ'ér hěn piàoliang.",
+                  "provenance": "",
+                  "title": "女儿 · nǚér"
+                },
+                {
+                  "alt": "",
+                  "body": "có",
+                  "hanzi": "我有一个妹妹。",
+                  "id": "survival-4:v2:block:word-hsk-vocab-00263",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tôi có một em gái.",
+                  "pinyin": "Wǒ yǒu yí ge mèimei.",
+                  "provenance": "",
+                  "title": "有 · yǒu"
+                }
+              ],
+              "id": "survival-4:v2:words-10",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ dùng trong bài · nhóm 3"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "explanation": "Đúng: em trai nhỏ tuổi hơn. Một người có thể là 女儿 với mẹ nhưng 姐姐 với em. Không suy tuổi chỉ từ giới tính. Dùng vai giả định nếu không muốn nói gia đình thật.",
+                    "hint": "",
+                    "options": [
+                      {
+                        "feedback": "Anh trai phải lớn tuổi hơn.",
+                        "id": "option-0",
+                        "text": "哥哥"
+                      },
+                      {
+                        "feedback": "Đúng: em trai nhỏ tuổi hơn.",
+                        "id": "option-1",
+                        "text": "弟弟"
+                      },
+                      {
+                        "feedback": "Con trai là quan hệ cha/mẹ với con, không phải anh chị em ở đây.",
+                        "id": "option-2",
+                        "text": "儿子"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Một bé trai nhỏ tuổi hơn bạn và cùng cha mẹ trong vai này. Bạn gọi là gì?",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn lời nói phù hợp"
+                }
+              ],
+              "id": "survival-4:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Quyết định theo thông tin đã cho"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "姐姐"
+                    ],
+                    "answerIds": [],
+                    "explanation": "姐姐 là chị gái lớn tuổi hơn mình; 妹妹 là em gái. 女儿 dùng từ điểm nhìn cha mẹ.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Trong gia đình giả định, cô ấy là chị gái lớn tuổi hơn bạn. Điền từ quan hệ: 她是我的____。",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền và tự kiểm"
+                }
+              ],
+              "id": "survival-4:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Hoàn thành mẫu theo ngữ cảnh"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Đóng vai có một chị gái và một em trai. Giới thiệu hai người bằng 是 và nói mình có em trai bằng 有. Sau đó từ vai người mẹ, gọi bé gái là con gái.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Thông tin mới dành cho vai của bạn"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n她是我的姐姐。他是我的弟弟。我有一个弟弟。她是我的女儿。\nTā shì wǒ de jiějie. Tā shì wǒ de dìdi. Wǒ yǒu yí ge dìdi. Tā shì wǒ de nǚér.\nCô ấy là chị tôi. Cậu ấy là em trai tôi. Tôi có một em trai. Cô bé là con gái tôi (vai mẹ).\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt lớn/nhỏ và nam/nữ.",
+                        "id": "criterion-0",
+                        "label": "Phân biệt lớn/nhỏ và nam/nữ."
+                      },
+                      {
+                        "guidance": "Dùng 有 nói có, 是 giới thiệu.",
+                        "id": "criterion-1",
+                        "label": "Dùng 有 nói có, 是 giới thiệu."
+                      },
+                      {
+                        "guidance": "Câu 女儿 đổi rõ sang điểm nhìn mẹ.",
+                        "id": "criterion-2",
+                        "label": "Câu 女儿 đổi rõ sang điểm nhìn mẹ."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:produce",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự diễn đạt trước khi xem mẫu"
+                }
+              ],
+              "id": "survival-4:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Thử trong tình huống khác"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Phân biệt lớn/nhỏ và nam/nữ.\nDùng 有 nói có, 是 giới thiệu.\nCâu 女儿 đổi rõ sang điểm nhìn mẹ.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "id": "survival-4:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điều cần mang sang lần dùng tiếp"
+                }
+              ],
+              "id": "survival-4:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự kiểm trước khi vào Thử Luyện"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/13-REVIEW-SURVIVAL-BATCH.md",
+          "humanReviewed": false,
+          "lessonId": "survival-4",
+          "reviewedAt": "2026-09-13",
+          "scope": "Nine personal communication lessons for local study; page activities remain self-feedback, not mastery evidence.",
+          "sourceContentSha256": "sha256:3f99e40e8dc1807ba6863d1d940c04e1d2fc24342380bd4931ed2ac701bafd92"
+        },
+        "objectiveVi": "Giới thiệu thành viên gia đình và quan hệ thân thuộc.",
+        "pitfallVi": "Một người có thể là 女儿 với mẹ nhưng 姐姐 với em. Không suy tuổi chỉ từ giới tính. Dùng vai giả định nếu không muốn nói gia đình thật.",
+        "prerequisites": [
+          "survival-3"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "爸爸/妈妈 là bố/mẹ; 哥哥/姐姐 lớn tuổi hơn mình, 弟弟/妹妹 nhỏ tuổi hơn. 儿子/女儿 là con trai/con gái nhìn từ cha mẹ. 孩子 là trẻ/con, 家人 người nhà, 家 nhà hoặc gia đình tùy câu. 我的 + quan hệ diễn đạt của tôi; quan hệ gần có thể lược 的 như 我妈妈. 有 nói có thành viên, không thay 是 khi giới thiệu một người.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "grammar",
+          "speaking"
+        ],
+        "sourceGrammarIds": [
+          "hsk1-grammar-row-024",
+          "hsk1-grammar-row-050"
+        ],
+        "sourceLessonIds": [
+          "survival-4"
+        ],
+        "sourceTaskIds": [
+          "hsk1-guided-task:hsk1-pe-04-family"
+        ],
+        "sourceTopicIds": [
+          "hsk1-topic-002"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00003",
+          "hsk-vocab-00030",
+          "hsk-vocab-00032",
+          "hsk-vocab-00048",
+          "hsk-vocab-00059",
+          "hsk-vocab-00068",
+          "hsk-vocab-00086",
+          "hsk-vocab-00087",
+          "hsk-vocab-00092",
+          "hsk-vocab-00114",
+          "hsk-vocab-00123",
+          "hsk-vocab-00153",
+          "hsk-vocab-00263"
+        ],
+        "targetLessonId": "survival-4",
+        "titleZh": "家庭成员",
+        "vocabulary": [
+          "hsk-vocab-00003",
+          "hsk-vocab-00030",
+          "hsk-vocab-00032",
+          "hsk-vocab-00048",
+          "hsk-vocab-00059",
+          "hsk-vocab-00068",
+          "hsk-vocab-00086",
+          "hsk-vocab-00087",
+          "hsk-vocab-00092",
+          "hsk-vocab-00114",
+          "hsk-vocab-00123",
+          "hsk-vocab-00153",
+          "hsk-vocab-00263"
+        ]
+      }
+    }
+  ]
+}

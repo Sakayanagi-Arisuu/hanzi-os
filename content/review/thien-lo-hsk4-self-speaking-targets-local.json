@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+  "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-01",
+      "parentRevisionId": "fbedcb3c-1ee1-4abf-9fad-d133d4475c57",
+      "parentContentSha256": "sha256:548145001088294e3cbc4e9b075e34ec5cc52c6fb24cbb9b95a992402282f4ba",
+      "proposedContentSha256": "sha256:817d41fb2bf350c9f52eda70e6eba231369f8e9b00f7ad238897baf61bef91b5",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-02",
+      "parentRevisionId": "2be03359-219d-4e30-991d-8da7074c4f90",
+      "parentContentSha256": "sha256:5a1d24ac2cc66098b4527c1dba40dfdb1750a9eb68d6dc16ea84b9217dbf5614",
+      "proposedContentSha256": "sha256:7d5a1698bb3bf4670467b097b3f144199fbf5c8a902400d48a5f18fdc1720f4e",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-03",
+      "parentRevisionId": "15537501-181e-4bca-8e90-9f5ea76cedda",
+      "parentContentSha256": "sha256:c1cad993d6c685e6dc6ed977904041e0f61f02982913b3d920f38c3f1a522615",
+      "proposedContentSha256": "sha256:b8dfe63a953c2682fd14cc3b703aa89e7fc17df7f809c7a4ce2039ee53335e94",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-04",
+      "parentRevisionId": "8511b283-06d9-4204-b460-1eae3bbe3cc3",
+      "parentContentSha256": "sha256:d2b015dae53e9ca9c3ba6800bf5ab95e2aed194702656dfc592c93f2b3681b08",
+      "proposedContentSha256": "sha256:7e760e61c439e4bde714837a1a85c1bd9e010e4d661139c7922fa97cc4a88ecd",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-05",
+      "parentRevisionId": "cbeede75-c4ff-44d5-857f-f3d0d1c3cc88",
+      "parentContentSha256": "sha256:a22a4a4484e21f37de1405951267cd5b506921826f295e5b24886923e0245b6b",
+      "proposedContentSha256": "sha256:41e95f4a8841302d8714f6aa0818bda45c1c7a9ab6d891fb9eebd0bae4d86892",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-precision-reference-quantity-lesson-06",
+      "parentRevisionId": "b27dc2c7-fcfb-4dad-8f55-1d48ed5b95e6",
+      "parentContentSha256": "sha256:144a2c82f8aa3756e143ac8c8df9730193a7bcf2d7f2c7a299e606536f0373f0",
+      "proposedContentSha256": "sha256:b6a4f9cda3641c849211143fcd75f532cccee1d2c64f640be98b77563eca7797",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-01",
+      "parentRevisionId": "934b3712-651f-4349-9482-9516a79cbb8c",
+      "parentContentSha256": "sha256:f4847fa80d96a5205b349f0aa7c141f74772dd4396b67196354d0445592eccf0",
+      "proposedContentSha256": "sha256:ab0d7e43a73e854005981844f9577e1bfef454e8515e23a6404716fb18153788",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-02",
+      "parentRevisionId": "df3cfe04-3e79-4404-8ed2-828e4620b66e",
+      "parentContentSha256": "sha256:59310b5e4b75fc69edbea5b44eef56132c74cda1a5e80a4907764eceddd25f25",
+      "proposedContentSha256": "sha256:27acd7441f55a8297a6d133f4a26b4e6d755bde3486d05c0c82d9c5a333f2511",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-03",
+      "parentRevisionId": "61fc3513-3ca5-4533-8767-24ae955eace8",
+      "parentContentSha256": "sha256:347e004da2613bcbecd35332866c1e23868f95c8286fa6e391d939851cefc546",
+      "proposedContentSha256": "sha256:32fe9905333442fe6e1715e5cb6488a16b726eb3ee7852612fbbf2c86ee41245",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-04",
+      "parentRevisionId": "b8f00b52-6ef9-40dd-b4a5-1fd96fab7dd2",
+      "parentContentSha256": "sha256:49ce485d1be39ce1ccf415eb6bf8c3a9c36bab13df49acef2ba17564c050a754",
+      "proposedContentSha256": "sha256:e8b3adba01cbbb3df4323894e649e09eafdcd079d1059007ef2c4416be032466",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-stance-comparison-rhetoric-lesson-05",
+      "parentRevisionId": "d6c336a7-b5cd-425c-9c25-2d9517dd6b9a",
+      "parentContentSha256": "sha256:5f0d55b029fd2d3eea1ed033ce09bf1a297d86daaa9a2faa90ffc3b0f0ec6dae",
+      "proposedContentSha256": "sha256:855b9d48851c3d1d972a2524fbf9822d36aae3dd957ce41bb3ae5e56f51cffed",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-01",
+      "parentRevisionId": "88cc06a9-5d65-4e57-b1db-cde1b2b55f4c",
+      "parentContentSha256": "sha256:31f4162cd355b62c09669912b688b9ad2a4428587110b0aa7312b5d5684a891b",
+      "proposedContentSha256": "sha256:7b0d96048e379d4b457a3310c42f96c97d32c676159e732dda373714625646eb",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-02",
+      "parentRevisionId": "410f370a-5cd2-4835-a4b0-8c74c6a40d6d",
+      "parentContentSha256": "sha256:0e201d271ba1f843c942ddac01ef26656795e157a7360501cec84d5f51d9523c",
+      "proposedContentSha256": "sha256:e058fec2618bd7b38b5021616bca767d4f48a5a5ebeba2c4d5879ab7146e4ba8",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-03",
+      "parentRevisionId": "8d0e4de0-1903-4a54-80a1-7787edd97570",
+      "parentContentSha256": "sha256:6666e297ea9e86f9254c4d3b544561ef7a4b4838c15bd8d7435c8b26f8d3b65d",
+      "proposedContentSha256": "sha256:a11b8939e3a6d899bc2fca4633444564271738dd9cd63f944b92461b3beb243f",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-event-agency-voice-lesson-04",
+      "parentRevisionId": "81e6a730-2c2b-4df3-9ff7-a8e4ae159912",
+      "parentContentSha256": "sha256:365d1208ed68d0aa1201beda4e75ce71949f173a116588026443a660b6fc7662",
+      "proposedContentSha256": "sha256:7283e6627db28c1eae87453964ca73db8af24f3d81d35c5777bea42ca0d9d84b",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-01",
+      "parentRevisionId": "0d04ee97-c980-4463-a256-917e11155cb8",
+      "parentContentSha256": "sha256:15e94ca00ca643be342e28c3c1ef3afd5d13db962348b80120595234964e51b4",
+      "proposedContentSha256": "sha256:e11141b86ffe11c63a355360eb4498cbb4883b3b5cab0ccad9f4bb8217fe342d",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-02",
+      "parentRevisionId": "8a635715-da94-4b95-a17c-2b5f062261ef",
+      "parentContentSha256": "sha256:9dbe2a3ec02ae4a0d79602c5d319d836604791d05b270004cf6819590ecabb6c",
+      "proposedContentSha256": "sha256:02f25b1067c9d8a3bd12b7eba277c66faf83e30ac9c0a0559e42871ee9a55732",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-03",
+      "parentRevisionId": "445abf2c-e91b-457d-9a1e-fd0016990c21",
+      "parentContentSha256": "sha256:d4995ce361d8ce65684a064cd1c92350d1adde7734c51bdeeb61a9ede0556a6b",
+      "proposedContentSha256": "sha256:0290b7a29dfc8e61a9c36e78afede2bed37048f6ca62caec9ad3f9ce0a432ffd",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-04",
+      "parentRevisionId": "3cd85ad1-5080-4804-8be6-dec8f665784f",
+      "parentContentSha256": "sha256:71ac9b8f1b220fffa8a96017b77c80c8127243ae3fe1d038aaa85b59c9521397",
+      "proposedContentSha256": "sha256:71b4fbbce1eb487631e91cb1dfeac9176052e40d64d9ec83438796e090706bb6",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-information-order-cohesion-lesson-05",
+      "parentRevisionId": "1289068c-603f-4085-9e9f-499fa9fd0465",
+      "parentContentSha256": "sha256:0841fd0aa387d3b048880b486699539d3d9efebf704000914d1c00f75301f16f",
+      "proposedContentSha256": "sha256:2f75bbdbf56d7a29842162c85144f621e2386cec5a953189f2b10337badc0b45",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-01",
+      "parentRevisionId": "39a60e47-cb11-463f-b8e9-9919d65ae812",
+      "parentContentSha256": "sha256:5f498c3a3ad52f5a946dc5af23cb7defe38519998e29edcdecf5792d16c275ad",
+      "proposedContentSha256": "sha256:6b920426e2254106b08e28bbf56aa0ad3d06148f3a0be2619d04bde7ff2aedff",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-02",
+      "parentRevisionId": "9842158a-f58c-4da3-9f59-3431db9f81d2",
+      "parentContentSha256": "sha256:64287a4a2bff410527542eeedc22480d5cf861520c1478e9521b6c300e1d3385",
+      "proposedContentSha256": "sha256:6d5594a72bb84c31b2daf6f8c77a65b82469ed81f611849371db6d71de271396",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-03",
+      "parentRevisionId": "40ad08c2-14b8-4e17-a5b8-ba3f070b0923",
+      "parentContentSha256": "sha256:b784e15821d3e6566a5b8071181e4a840010ac79eaafc2c853eb95a6dfcb97fc",
+      "proposedContentSha256": "sha256:c34ad4fcea0dec18149aa83de99f0b78c496f1839fcab2634267b729abbccb96",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-argument-logic-concession-lesson-04",
+      "parentRevisionId": "20ab9d7b-add3-4903-a7ca-572081657a8c",
+      "parentContentSha256": "sha256:4691140cc4c076b155d6c6ee1fc4a3480bc21e36668e9df17901e2f4a9a2f764",
+      "proposedContentSha256": "sha256:66202c4c1ab68c88ea4d1104e377b5d32051a7fd2d6788e3e6f382b7558ef00c",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-01",
+      "parentRevisionId": "ef229568-3fa0-4d12-983f-615d932f8483",
+      "parentContentSha256": "sha256:bb24a370b3b2a97891e47276c7e70364b020094bd78fe1cfc4bc6e95ee3da94b",
+      "proposedContentSha256": "sha256:3a8ad3c399c095c5ba504c01006d17f47be86160730d816cd5eedbf92212b49a",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-02",
+      "parentRevisionId": "c0006671-6bbc-4c7d-bfd4-0f0a90887749",
+      "parentContentSha256": "sha256:339824a98f5457c083701b270655528234c299d1f1a67796e2a392ba3329f0ce",
+      "proposedContentSha256": "sha256:b0a72d50c5a1680d50c228e3d12960e93d05a3f3a27454d00e08d9587d14bda4",
+      "targetCount": 2
+    },
+    {
+      "lessonId": "hsk4-structured-spoken-defense-lesson-03",
+      "parentRevisionId": "f1792832-4bc4-4588-aadd-d5c7648dd89e",
+      "parentContentSha256": "sha256:c4764efac9a888c41ef0bcb6865b4c62b073f0aac8c709361909d031bcb2eb66",
+      "proposedContentSha256": "sha256:9fa4d26b7b96635add88094c04b1013cdbf85a5fd6189f77c6e2a7c2f16d171e",
+      "targetCount": 3
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-01",
+      "parentRevisionId": "bdd328cb-f0e6-4716-a392-1ff7ee50f715",
+      "parentContentSha256": "sha256:018b5179f4c222eae982c1497f1e1dedc0521c1e598bc801a26d8c165bbe05fd",
+      "proposedContentSha256": "sha256:651d32d6197853243fc1a324996df841aa7e911f375ce1ea001e7de050575155",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-02",
+      "parentRevisionId": "787b63e3-abf8-4a0a-864b-261bab4acd56",
+      "parentContentSha256": "sha256:a9b1f22d3b45b86efd40c8e3cd5c26ea36c7076e7726f0304b165bc6fa8dc2fc",
+      "proposedContentSha256": "sha256:7dd5758d5ab8a73e18b6eebba178d12e09798be30b6ba1427297bb152d2900c8",
+      "targetCount": 1
+    },
+    {
+      "lessonId": "hsk4-timed-sectional-rehearsal-lesson-03",
+      "parentRevisionId": "e0267ae5-cee8-4103-805a-66df45ebc759",
+      "parentContentSha256": "sha256:01ceeaaca536dd7acc0249c7552f23740d86fff6372431d31faf8bdb52e7a791",
+      "proposedContentSha256": "sha256:c711cca0a0657f5fbd8c55582448b96c85a98d70746b3938bed8ce5bd1b8d31a",
+      "targetCount": 1
+    }
+  ]
+}

@@ -57,6 +57,31 @@ const metadata={title:'Campus',alt:'Cây và trường học',caption:'',provena
 const dataBase64='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=';
 function setup(){const db=new SQLiteD1();db.sqlite.prepare("INSERT INTO users(id,status,created_at,updated_at) VALUES('editor','active',1,1)").run();return {db,repo:new LessonMediaRepository(db)};}
 describe('lesson media storage',()=>{
+ it('gates only HSK4 lesson media while preserving other HSK4 and shared media',async()=>{
+   const sqlite=new DatabaseSync(':memory:');
+   try{
+     sqlite.exec('CREATE TABLE content_release_packages (package_json TEXT NOT NULL)');
+     const db={
+       prepare(query:string){return new SQLiteStatement(sqlite.prepare(query),query);},
+       async batch<T = Record<string,unknown>>(statements:D1PreparedStatement[]){return Promise.all(statements.map(statement=>statement.run<T>()));},
+     } as D1Database;
+     const repo=new LessonMediaRepository(db);
+     const insert=sqlite.prepare('INSERT INTO content_release_packages(package_json) VALUES (?)');
+     expect(await repo.releaseAccess('/media/unreleased')).toBe('unreleased');
+     insert.run(JSON.stringify({level:'hsk4',itemType:'lesson',content:{imageSrc:'/media/paid'}}));
+     expect(await repo.releaseAccess('/media/paid')).toBe('premium');
+     expect(await repo.isReleased('/media/paid')).toBe(true);
+     insert.run(JSON.stringify({level:'hsk3',itemType:'lesson',content:{imageSrc:'/media/free'}}));
+     expect(await repo.releaseAccess('/media/free')).toBe('free');
+     insert.run(JSON.stringify({level:'hsk4',itemType:'lesson',content:{imageSrc:'/media/shared'}}));
+     insert.run(JSON.stringify({level:'hsk2',itemType:'lesson',content:{imageSrc:'/media/shared'}}));
+     expect(await repo.releaseAccess('/media/shared')).toBe('free');
+     insert.run(JSON.stringify({level:'hsk4',itemType:'character',content:{imageSrc:'/media/character'}}));
+     expect(await repo.releaseAccess('/media/character')).toBe('free');
+     insert.run(JSON.stringify({content:{imageSrc:'/media/unknown'}}));
+     expect(await repo.releaseAccess('/media/unknown')).toBe('unknown');
+   }finally{sqlite.close();}
+ });
  it('pages beyond 100 assets without dropping equal timestamps and filters before paging',async()=>{const {db,repo}=setup();try{
    const insert=db.sqlite.prepare('INSERT INTO lesson_media_assets(id,content_sha256,mime_type,byte_length,metadata_json,created_by,created_at) VALUES(?,?,?,?,?,?,?)');
    for(let i=0;i<105;i++)insert.run(`00000000-0000-4000-8000-${String(i).padStart(12,'0')}`,'fixture','image/png',1,JSON.stringify({...metadata,title:i===0?'Unique oldest illustration':`Asset ${i}`}), 'editor',100);

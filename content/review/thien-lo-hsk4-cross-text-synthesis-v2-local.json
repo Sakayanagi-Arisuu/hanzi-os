@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Three HSK4 cross-text-synthesis integrated-study lessons; multiple bound source texts, evidence-limited task models, editable rubrics and untimed guided practice. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check and clock do not grant mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/56-REVIEW-HSK4-INTEGRATION.md",
+  "items": [
+    {
+      "lessonId": "hsk4-cross-text-synthesis-lesson-01",
+      "sourceContentSha256": "sha256:9cf0ddf317ac89a6e83c0a6211ea650dc0f985d32c702bc7c3a1e65ca2049415",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-cross-text-synthesis-lesson-02",
+      "sourceContentSha256": "sha256:016c72940a10199c2acff5a57392bb21d36b55a3e3313d0529358d833817d8e1",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-cross-text-synthesis-lesson-03",
+      "sourceContentSha256": "sha256:b8101f214dde1138d184c6c305307ca5da16bec9db1d438dce95fcee64a75650",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

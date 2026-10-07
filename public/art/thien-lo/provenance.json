@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-06",
+  "tool": "Built-in image_gen",
+  "assets": [
+    {
+      "file": "jade-dragon-seal-v1.png",
+      "prompt": "Use case: stylized-concept. Production web UI asset for original HANZI.OS Vietnamese Mandarin-learning fantasy cultivation dashboard. One exquisite circular jade-and-antique-gold rank medallion, front-facing perfectly centered, symmetric circular outer frame with restrained layered gold engraving and polished dark emerald jade, luminous mint details. Subject: a poised jade dragon curled around a small radiant pearl, refined sculptural relief, dignified eastern fantasy artifact, premium game art with clear strong silhouette at 120px. Keep medallion within central 82% of square with identical generous transparent margins all sides. Dramatic but controlled jade illumination, fine material craftsmanship, elegant rather than cartoon. Single emblem only. No text, letters, numerals, UI, labels, pedestal, background scene, additional badges or watermark. Transparent background with clean alpha, no square backdrop. This is the HSK0 awakening seal.",
+      "runtime": "jade-dragon-seal-v1.webp",
+      "source": "Original AI-generated HSK0 asset for HANZI.OS. Four other levels have distinct generated creature images. Original PNG preserved; WebP resized/encoded with Sharp, alpha retained."
+    },
+    {
+      "file": "celestial-scroll-v2.png",
+      "prompt": "Use case: precise-object-edit. Input is an original HANZI.OS web hero background, edit target. Preserve the dark emerald and antique gold celestial scroll, both jade scroll rollers, luminous thin gold/mint edges and delicate mountains. REMOVE ALL typography, numbers, HSK labels, the five small badges, the hanging vertical lesson pennant on the right, and the circular progress badge. Replace those with a seamless open dark emerald scroll surface: calm negative space in center and right for real HTML text and progress UI. Extend delicate distant jade mountain linework and mist subtly along bottom edge only. No text, symbols that resemble text, logos, badges, or UI metrics anywhere. Wide cinematic horizontal 3:1 composition, refined deep dark green background edge, beautiful scroll silhouette. This will be used as an actual webpage background with code-rendered interactive contents. Keep center very dark and uncluttered.",
+      "runtime": "celestial-scroll-v2.webp",
+      "source": "Edited from project-owned path-celestial-scroll-g.png; no fixed text or progress metrics remain in the image. Original PNG preserved; WebP resized/encoded for delivery."
+    }
+  ]
+}

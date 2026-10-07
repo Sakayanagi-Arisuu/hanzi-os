@@ -67,6 +67,7 @@ export type PronunciationMissionInput = {
   unlockedLessonIds?: ReadonlySet<string> | null;
   requestedLessonId?: string | null;
   date?: Date;
+  presentationVersion?: string;
 };
 
 const dateKey = (date: Date) =>
@@ -79,7 +80,7 @@ const maxLength = (hsk: number) => hsk === 1 ? 12 : hsk === 2 ? 18 : 28;
 const invalidExample = /本课|本单元|这课|该课|重点词语|词汇项目|[／｜|/]/u;
 const canonical = (value: string) => value.replace(/[^\p{Script=Han}]/gu, "");
 
-const isEligibleChallengeWord = (word: VocabularyItem, cap: number) => {
+export const isEligibleChallengeWord = (word: VocabularyItem, cap: number) => {
   const key = canonical(word.example);
   return word.hsk >= 1
     && word.hsk <= cap
@@ -148,6 +149,7 @@ export const selectDailyPronunciationMission = ({
   unlockedLessonIds = null,
   requestedLessonId = null,
   date = new Date(),
+  presentationVersion,
 }: PronunciationMissionInput): PronunciationDailyMission => {
   const cap = unlockedLessonIds ? 4 : hskCap(state.profile.startingLevel);
   const day = dateKey(date);
@@ -215,7 +217,7 @@ export const selectDailyPronunciationMission = ({
   // explicit learner choice, so a session must never silently mix older units.
   const selected = pool.slice(0, PRONUNCIATION_DAILY_CHALLENGE_COUNT);
   const challenges = selected.map(({ word, lesson }) => {
-    const activityId = `pronunciation:${CONTENT_VERSION}:${word.id}`;
+    const activityId = `pronunciation:${CONTENT_VERSION}:${word.id}${presentationVersion ? `:${presentationVersion}` : ""}`;
     const lessonCompleted = lessonIsPassed(lesson);
     return {
       id: activityId,

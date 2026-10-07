@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-28",
+  "scope": "Three HSK4 inference-evidence-check integrated-study lessons; multiple bound source texts, evidence-limited task models, editable rubrics and untimed guided practice. AI-assisted local review only. Source B is transcript reading, not native listening evidence; self-check and clock do not grant mastery.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/56-REVIEW-HSK4-INTEGRATION.md",
+  "items": [
+    {
+      "lessonId": "hsk4-inference-evidence-check-lesson-01",
+      "sourceContentSha256": "sha256:e4e0b329463223c6db4c04bbcb31eb1309e6150dad05ba20beb788e89a4d9883",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-inference-evidence-check-lesson-02",
+      "sourceContentSha256": "sha256:c30934c52b1eba79abfb821c8fda3fabe512910a2a2ba1981309a691464cc2f9",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk4-inference-evidence-check-lesson-03",
+      "sourceContentSha256": "sha256:31bd1f07c4687e2468b26bcfc35674bd32f850342458ebcb5f98e0989b8af8bd",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

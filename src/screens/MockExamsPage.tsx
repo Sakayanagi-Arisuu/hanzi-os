@@ -51,6 +51,8 @@ import { allocateDeviceSequence } from "../sync/indexedDb";
 import { readExactNormalizedLessonEnvironment } from "../sync/normalizedLessonEnvironment";
 
 type CatalogEntry = {
+  accessTier?: 'free' | 'premium';
+  locked?: boolean;
   examLevel: "hsk1" | "hsk2" | "hsk3" | "hsk4";
   formKey: MockExamClientForm;
   title: string;
@@ -365,12 +367,16 @@ function MockExamCatalog() {
   const [activeLevel, setActiveLevel] = useState<ExamLevel>("hsk1");
   const [activeForm, setActiveForm] = useState<ExamFormKey>("a");
   useEffect(() => {
-    requestJson<{ forms: CatalogEntry[] }>("/api/exams/catalog")
+    const controller = new AbortController();
+    requestJson<{ forms: CatalogEntry[]; accessAvailable?: boolean }>("/api/exams/catalog",{signal:controller.signal})
       .then((result) => {
+        if (controller.signal.aborted) return;
         setForms(result.forms);
+        setError(result.accessAvailable === false ? 'Chưa xác minh được quyền các cửa. Hãy kết nối lại và tải lại trang.' : null);
       })
-      .catch(() => setError("Cổng thử luyện chưa phản hồi. Hãy thử tải lại trang."));
-  }, []);
+      .catch(() => {if (!controller.signal.aborted) setError("Cổng thử luyện chưa phản hồi. Hãy thử tải lại trang.");});
+    return () => controller.abort();
+  }, [sync.session?.accountKey]);
   useEffect(() => {
     catalogRef.current?.scrollTo({ top: 0, left: 0 });
   }, [activeForm, activeLevel]);
@@ -460,7 +466,8 @@ function MockExamCatalog() {
                     role="radio"
                     data-radio-index={openIndex}
                     aria-checked={activeForm === entry.formKey}
-                    aria-label={`Cửa ${entry.formKey.toUpperCase()}, ${routeNames[routeIndex] ?? "Tuyến bí mật"}`}
+                    aria-label={`Cửa ${entry.formKey.toUpperCase()}, ${routeNames[routeIndex] ?? "Tuyến bí mật"}${entry.accessTier === 'premium' ? ', Premium' : ', miễn phí'}`}
+                    data-premium={entry.accessTier === 'premium'}
                     className={activeForm === entry.formKey ? "active" : ""}
                     key={entry.formKey}
                     onKeyDown={(event) => handleRadioGroupKeyDown(event, {
@@ -473,9 +480,10 @@ function MockExamCatalog() {
                     })}
                     onClick={() => setActiveForm(entry.formKey)}
                   >
-                    <span><DoorOpen size={18} /> CỬA</span>
+                    <span>{entry.locked ? <Crown size={18} /> : <DoorOpen size={18} />} CỬA</span>
                     <strong>{entry.formKey.toUpperCase()}</strong>
                     <small>{routeNames[routeIndex] ?? "Tuyến bí mật"}</small>
+                    <small>{entry.accessTier === 'premium' ? 'Premium' : 'Miễn phí'}</small>
                   </button>
                 );
               })}
@@ -493,7 +501,9 @@ function MockExamCatalog() {
             <div className="dungeon-deployment-status">
               {error && <p className="dungeon-inline-error" role="alert">{error}</p>}
             </div>
-            {sync.session?.authenticated ? definition ? (
+            {error ? <button className="primary-button dungeon-enter" disabled type="button">Chưa xác minh được cửa ải</button> : definition?.locked && definition.accessTier === 'premium' ? (
+              <Link className="primary-button dungeon-enter" to="/profile/premium"><Crown size={18} /> Mở Premium để vào Cửa {activeForm.toUpperCase()}</Link>
+            ) : sync.session?.authenticated ? definition ? (
               <Link className="primary-button dungeon-enter" to={destination}>
                 Bước vào Cửa {activeForm.toUpperCase()} <ArrowRight size={18} />
               </Link>
@@ -563,6 +573,7 @@ function MockExamRunner() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [timeoutRetryRequired, setTimeoutRetryRequired] = useState(false);
+  const [premiumDenied, setPremiumDenied] = useState(false);
   const questionStartedAt = useRef(Date.now());
   const timeoutSubmittedSession = useRef<string | null>(null);
   const autoStartAttempted = useRef(false);
@@ -655,6 +666,7 @@ function MockExamRunner() {
       }
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Không thể kiểm tra phiên đang mở.");
+      setPremiumDenied(reason instanceof MockExamRequestError && reason.code === 'PREMIUM_REQUIRED');
       setDefinitionLoadState("error");
     }
   }, [endpoint, form, level, navigate, routeSupported, sync.session?.authenticated]);
@@ -667,6 +679,7 @@ function MockExamRunner() {
     setError(null);
     setDefinitionLoadState(routeSupported ? "loading" : "not-found");
     setTimeoutRetryRequired(false);
+    setPremiumDenied(false);
     timeoutSubmittedSession.current = null;
     autoStartAttempted.current = false;
   }, [form, level, routeSupported]);
@@ -984,6 +997,9 @@ function MockExamRunner() {
   if (definitionLoadState === "loading") {
     return <div className="lesson-state-screen dungeon-state" role="status"><Sparkles className="spin" size={42} /><span className="system-kicker">ĐỊA THÀNH ĐANG MỞ</span><h1>Đang gọi lại cửa ải…</h1><p>Phiên đang dở sẽ tiếp tục đúng vị trí trước đó.</p></div>;
   }
+  if (premiumDenied) {
+    return <div className="lesson-state-screen dungeon-state"><Crown size={42}/><span className="system-kicker">CỬA PREMIUM</span><h1>Cửa {form.toUpperCase()} dành cho Premium</h1><p>{error}</p><Link className="primary-button" to="/profile/premium">Khám phá Premium</Link><Link to="/exams">Chọn cửa miễn phí</Link></div>;
+  }
   if (definitionLoadState === "error" && !definition) {
     return (
       <div className="lesson-state-screen dungeon-state">
@@ -1075,8 +1091,8 @@ function MockExamRunner() {
       </header>
 
       <div className="dungeon-question-scroll">
-        <section className="dungeon-question" aria-labelledby="dungeon-question-title">
-          <div className="dungeon-room-heading"><span>PHẦN {sectionIndex + 1}</span><CurrentRoomIcon size={21} /><strong>{skillLabel[currentItem.skill] ?? currentRoom.skill}</strong><small>Câu {sectionQuestion}/{session.definition.sections[sectionIndex]?.itemCount ?? 0}</small></div>
+        <section className="dungeon-question" data-motion-scene={currentItem.position} aria-labelledby="dungeon-question-title">
+          <div className="dungeon-room-heading"><div className="realm-emblem realm-emblem-compact" aria-hidden="true" /><span>PHẦN {sectionIndex + 1}</span><CurrentRoomIcon size={21} /><strong>{skillLabel[currentItem.skill] ?? currentRoom.skill}</strong><small>Câu {sectionQuestion}/{session.definition.sections[sectionIndex]?.itemCount ?? 0}</small></div>
           <h1 id="dungeon-question-title">{currentItem.prompt}</h1>
           {currentItem.modality === "synthetic-tts-selection" && currentItem.stimulusText && (
             <div className="dungeon-audio-cue">

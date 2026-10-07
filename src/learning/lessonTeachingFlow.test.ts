@@ -3,6 +3,7 @@ import { RELEASED_LESSONS } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
 import { getLessonTeachingGuide } from "./lessonPedagogy";
 import { getRichLessonContent, RELEASED_RICH_LESSONS } from "./richLessonContent";
+import { getPremiumRichLesson, listPremiumRichLessons } from "../server/premiumRichLesson";
 import {
   buildLessonTeachingFlow,
   learnerFacingCopy,
@@ -17,7 +18,7 @@ describe("lesson teaching flow", () => {
       lessonId: lesson.id,
       objective: lesson.objective,
       guide: getLessonTeachingGuide(lesson.id, getLessonGuide(lesson.id)),
-      richContent: getRichLessonContent(lesson.id),
+      richContent: getRichLessonContent(lesson.id) ?? getPremiumRichLesson(lesson.id),
     }));
 
     for (const flow of flows) {
@@ -34,9 +35,10 @@ describe("lesson teaching flow", () => {
   });
 
   it("keeps every rich lesson source available to the teaching canvas", () => {
-    expect(RELEASED_RICH_LESSONS).toHaveLength(213);
+    expect(RELEASED_RICH_LESSONS).toHaveLength(135);
+    expect(listPremiumRichLessons()).toHaveLength(78);
 
-    for (const lesson of RELEASED_RICH_LESSONS) {
+    for (const lesson of [...RELEASED_RICH_LESSONS, ...listPremiumRichLessons()]) {
       expect(lesson.dialogue.length).toBeGreaterThan(0);
       expect(lesson.grammar.length).toBeGreaterThan(0);
       expect(lesson.tasks.length).toBeGreaterThan(0);

@@ -251,7 +251,8 @@ export const buildHsk1CurriculumScope = (root = process.cwd()) => {
 };
 
 export const serializeHsk1CurriculumScope = (scope) =>
-  `${JSON.stringify(scope)}\n`;
+  // Existing runtime projections pin these CRLF bytes on every platform.
+  `${JSON.stringify(scope)}\r\n`;
 
 const main = () => {
   const root = process.cwd();

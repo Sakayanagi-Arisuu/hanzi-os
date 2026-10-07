@@ -7,12 +7,13 @@ import { learnerGrammarLabel } from './lessonTeachingFlow';
 import { lessonPresentation } from './lessonPresentation';
 import { WORD_BY_ID } from '../data/curriculum';
 
-export type LessonBlock = { id: string; kind: 'explanation' | 'dialogue' | 'image' | 'reflection' | 'activity' | 'audio' | 'diagram' | 'reading'; reading?:LessonReading; diagram?:LessonDiagram; media?: {src:string;mimeType:string;metadata:LessonMediaMetadata}; activity?: LessonActivity; title: string; body: string; hanzi: string; pinyin: string; meaningVi: string; imageSrc: string; alt: string; provenance: string };
-export type LessonPageDocument = { version: 1; art?: import('./lessonPresentation').LessonArtKey; pages: Array<{ id: string; title: string; layout: 'focus' | 'split' | 'scene' | 'dialogue' | 'workshop'; stage?: 'context' | 'understand' | 'practice' | 'transfer'; blocks: LessonBlock[] }> };
+export type LessonBlock = { id: string; kind: 'explanation' | 'dialogue' | 'image' | 'reflection' | 'activity' | 'audio' | 'diagram' | 'reading' | 'dictation'; reading?:LessonReading; diagram?:LessonDiagram; media?: {src:string;mimeType:string;metadata:LessonMediaMetadata}; activity?: LessonActivity; title: string; body: string; hanzi: string; pinyin: string; meaningVi: string; imageSrc: string; alt: string; provenance: string };
+export type LessonPageDocument = { version: 1; art?: import('./lessonPresentation').LessonArtKey; pages: Array<{ id: string; title: string; illustration?: {src:string;alt:string;provenance:string;caption?:string;focalX?:number;focalY?:number}; layout: 'focus' | 'split' | 'scene' | 'dialogue' | 'workshop'; stage?: 'context' | 'understand' | 'practice' | 'transfer'; blocks: LessonBlock[] }> };
 export const emptyLessonBlock = (id: string): LessonBlock => ({ id, kind: 'explanation', title: '', body: '', hanzi: '', pinyin: '', meaningVi: '', imageSrc: '', alt: '', provenance: '' });
 const rec = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
 export const safeLessonImage = (v: string) => /^\/(?!\/)[a-zA-Z0-9_./-]+\.(png|webp|jpg|jpeg|avif)$/i.test(v) && !v.split('/').includes('..');
 const validBlockMedia = (v:unknown) => rec(v) && typeof v.src==='string' && typeof v.mimeType==='string' && /^\/api\/content\/media\/[0-9a-f-]{36}\.(png|jpg|webp|mp3|wav|ogg)$/.test(v.src) && v.src.endsWith('.'+mediaExtension(v.mimeType)) && validateMediaMetadata(v.metadata,v.mimeType);
+const validIllustration=(v:unknown)=>rec(v)&&typeof v.src==='string'&&safeLessonImage(v.src)&&typeof v.alt==='string'&&!!v.alt.trim()&&v.alt.length<=12000&&typeof v.provenance==='string'&&!!v.provenance.trim()&&v.provenance.length<=12000&&(v.caption===undefined||(typeof v.caption==='string'&&v.caption.length<=12000))&&['focalX','focalY'].every(key=>v[key]===undefined||(typeof v[key]==='number'&&Number.isFinite(v[key])&&v[key]>=0&&v[key]<=100));
 export function validateLessonPages(value: unknown): string[] {
   if (!rec(value) || value.version !== 1 || !Array.isArray(value.pages) || !value.pages.length || value.pages.length > 80) return ['Cấu trúc bài cần từ 1 đến 80 trang.'];
   const errors: string[] = []; const ids = new Set<string>();
@@ -21,16 +22,21 @@ export function validateLessonPages(value: unknown): string[] {
   value.pages.forEach((p, i) => {
     if (!rec(p)) { errors.push('Trang không hợp lệ.'); return; }
     id(p.id);
+    if(p.illustration!==undefined&&!validIllustration(p.illustration))errors.push('Minh họa trang cần ảnh nội bộ, mô tả và nguồn sử dụng.');
     if (typeof p.title !== 'string' || !p.title.trim() || p.title.length > 160 || !['focus','split','scene','dialogue','workshop'].includes(String(p.layout))) errors.push(`Trang ${i+1}: cần tên và bố cục hợp lệ.`);
     if (p.stage !== undefined && !['context','understand','practice','transfer'].includes(String(p.stage))) errors.push('Chặng học không hợp lệ.');
     if (!Array.isArray(p.blocks) || !p.blocks.length || p.blocks.length > 40) { errors.push(`Trang ${i+1}: cần 1–40 khối.`); return; }
     p.blocks.forEach(b => {
       if (!rec(b)) { errors.push('Khối không hợp lệ.'); return; } id(b.id);
-      if (!['explanation','dialogue','image','reflection','activity','audio','diagram','reading'].includes(String(b.kind))) errors.push('Loại khối chưa được hỗ trợ.');
+      if (!['explanation','dialogue','image','reflection','activity','audio','diagram','reading','dictation'].includes(String(b.kind))) errors.push('Loại khối chưa được hỗ trợ.');
       for (const field of ['title','body','hanzi','pinyin','meaningVi','imageSrc','alt','provenance']) if (typeof b[field] !== 'string' || String(b[field]).length > 12000) errors.push(`Trường ${field} không hợp lệ.`);
       if (b.media !== undefined && !validBlockMedia(b.media)) errors.push('Học liệu đính kèm chưa hợp lệ.');
       if (b.kind==='image' && rec(b.media) && (!String(b.media.mimeType).startsWith('image/') || b.media.src!==b.imageSrc)) errors.push('Ảnh phải khớp học liệu được chọn.');
       if (b.kind === 'audio' && (!rec(b.media) || !String(b.media.mimeType).startsWith('audio/'))) errors.push('Khối audio cần tệp âm thanh và transcript.');
+      if (b.kind==='dictation') {
+        if (!b.body || !b.hanzi || !b.pinyin || !b.meaningVi) errors.push('Nghe–chép cần yêu cầu, lời chép, Pinyin và nghĩa Việt.');
+        if (b.media !== undefined && (!rec(b.media) || !String(b.media.mimeType).startsWith('audio/') || !rec(b.media.metadata) || b.media.metadata.transcript !== b.hanzi)) errors.push('Âm thanh nghe–chép phải có lời thoại khớp đáp án.');
+      }
       if (b.kind==='reading') errors.push(...validateLessonReading(b.reading));
       if (b.kind==='diagram') errors.push(...validateLessonDiagram(b.diagram));
       if (b.kind === 'activity') { if (!b.body) errors.push('Bài tập cần yêu cầu rõ.'); errors.push(...validateLessonActivity(b.activity)); }
@@ -66,5 +72,5 @@ export function isEditableLessonPageDocument(v:unknown):v is LessonPageDocument 
  if(!rec(v)||v.version!==1||!Array.isArray(v.pages)||!v.pages.length||v.pages.length>80)return false;
  if(v.art!==undefined&&!['campus','city','work','reading','sound'].includes(String(v.art)))return false;
  const ids=new Set<string>();const id=(v:unknown)=>{if(typeof v!=='string'||!v||ids.has(v))return false;ids.add(v);return true;};
- return v.pages.every(p=>rec(p)&&id(p.id)&&typeof p.title==='string'&&p.title.length<=160&&['focus','split','scene','dialogue','workshop'].includes(String(p.layout))&&(p.stage===undefined||['context','understand','practice','transfer'].includes(String(p.stage)))&&Array.isArray(p.blocks)&&p.blocks.length>0&&p.blocks.length<=40&&p.blocks.every(b=>rec(b)&&id(b.id)&&['explanation','dialogue','image','reflection','activity','audio','diagram','reading'].includes(String(b.kind))&&['title','body','hanzi','pinyin','meaningVi','imageSrc','alt','provenance'].every(k=>typeof b[k]==='string'&&String(b[k]).length<=12000)&&(b.activity===undefined||isEditableLessonActivity(b.activity))&&(b.media===undefined||validBlockMedia(b.media))&&(b.diagram===undefined||isEditableLessonDiagram(b.diagram))&&(b.reading===undefined||isEditableLessonReading(b.reading))));
+ return v.pages.every(p=>rec(p)&&id(p.id)&&(p.illustration===undefined||validIllustration(p.illustration))&&typeof p.title==='string'&&p.title.length<=160&&['focus','split','scene','dialogue','workshop'].includes(String(p.layout))&&(p.stage===undefined||['context','understand','practice','transfer'].includes(String(p.stage)))&&Array.isArray(p.blocks)&&p.blocks.length>0&&p.blocks.length<=40&&p.blocks.every(b=>rec(b)&&id(b.id)&&['explanation','dialogue','image','reflection','activity','audio','diagram','reading','dictation'].includes(String(b.kind))&&['title','body','hanzi','pinyin','meaningVi','imageSrc','alt','provenance'].every(k=>typeof b[k]==='string'&&String(b[k]).length<=12000)&&(b.activity===undefined||isEditableLessonActivity(b.activity))&&(b.media===undefined||validBlockMedia(b.media))&&(b.diagram===undefined||isEditableLessonDiagram(b.diagram))&&(b.reading===undefined||isEditableLessonReading(b.reading))));
 }

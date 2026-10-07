@@ -40,7 +40,7 @@ export type AppliedSyncOperation = {
   cursor: number;
 };
 
-export const ACCOUNT_EXPORT_SCHEMA_VERSION = 8 as const;
+export const ACCOUNT_EXPORT_SCHEMA_VERSION = 12 as const;
 
 export const ACCOUNT_EXPORT_TABLES = [
   "users",
@@ -56,6 +56,13 @@ export const ACCOUNT_EXPORT_TABLES = [
   "idempotency_records",
   "learning_documents",
   "lesson_sessions",
+  "lesson_page_attempts",
+  "learner_access_days",
+  "commerce_sandbox_orders",
+  "hanzi_wallets",
+  "hanzi_wallet_entries",
+  "hanzi_premium_orders",
+  "premium_support_tickets",
   "reader_sessions",
   "reader_item_exposures",
   "assessment_sessions",
@@ -94,6 +101,7 @@ const EXPORT_OMITTED_COLUMNS: Partial<Record<
     "response_json",
   ]),
   assessment_attempts: new Set(["outcome", "score"]),
+  lesson_page_attempts: new Set(["request_hash"]),
   outbox_events: new Set([
     "last_error",
     "lease_token",
@@ -108,6 +116,7 @@ const EXPORT_JSON_COLUMNS: Partial<Record<
   passkey_credentials: new Set(["public_key_jwk_json", "transports_json"]),
   learning_documents: new Set(["document_json"]),
   lesson_sessions: new Set(["form_manifest_json"]),
+  lesson_page_attempts: new Set(["response_json"]),
   reader_sessions: new Set(["form_manifest_json"]),
   assessment_sessions: new Set(["form_manifest_json"]),
   assessment_attempts: new Set(["response_json"]),
@@ -608,6 +617,13 @@ export class SyncRepository {
     // Explicit child-first deletion avoids relying on SQLite cascade ordering
     // when several user-owned rows also have restrictive composite FKs.
     const childTables = [
+      "premium_support_tickets",
+      "hanzi_wallet_entries",
+      "hanzi_premium_orders",
+      "hanzi_wallets",
+      "commerce_sandbox_orders",
+      "lesson_page_attempts",
+      "learner_access_days",
       "review_logs",
       "learning_evidence",
       "reader_session_attempts",

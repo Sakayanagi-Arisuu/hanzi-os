@@ -1,3 +1,13 @@
+import dictationEvidence from './fixtures/dictation-prerequisite-evidence.json' with {type:'json'};
+import dictationBatch from '../content/drafts/thien-lo-hsk2-dictation-v2.json' with {type:'json'};
+import referenceEvidence from './fixtures/reference-prerequisite-evidence.json' with {type:'json'};
+import referenceBatch from '../content/drafts/thien-lo-hsk2-reference-v2.json' with {type:'json'};
+import grammarEvidence from './fixtures/grammar-prerequisite-evidence.json' with {type:'json'};
+import grammarBatch from '../content/drafts/thien-lo-hsk2-grammar-v2.json' with {type:'json'};
+import studyWorkEvidence from './fixtures/study-work-prerequisite-evidence.json' with {type:'json'};
+import studyWorkBatch from '../content/drafts/thien-lo-hsk2-study-work-v2.json' with {type:'json'};
+import environmentEvidence from './fixtures/environment-prerequisite-evidence.json' with {type:'json'};
+import environmentBatch from '../content/drafts/thien-lo-hsk2-environment-v2.json' with {type:'json'};
 import { expect, test } from '@playwright/test';
 import {readIndexedDbStore,type OwnerScopedCacheRecord} from './indexedDb';
 import characterBatch from '../content/drafts/thien-lo-character-batch-v2.json' with {type:'json'};
@@ -10,20 +20,24 @@ import healthBatch from '../content/drafts/thien-lo-hsk2-health-v2.json' with {t
 import familyDirections from '../content/drafts/thien-lo-hsk2-family-directions-v2.json' with {type:'json'};
 import motionMeeting from '../content/drafts/thien-lo-hsk2-motion-meeting-v2.json' with {type:'json'};
 import motionMeetingEvidence from './fixtures/motion-meeting-prerequisite-evidence.json' with {type:'json'};
+import travelLeisure from '../content/drafts/thien-lo-hsk2-travel-leisure-v2.json' with {type:'json'};
+import personEvents from '../content/drafts/thien-lo-hsk2-person-events-v2.json' with {type:'json'};
+import travelLeisureEvidence from './fixtures/travel-leisure-prerequisite-evidence.json' with {type:'json'};
+import personEventsEvidence from './fixtures/person-events-prerequisite-evidence.json' with {type:'json'};
 
-for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'health',items:healthBatch.items},{name:'family and directions',items:familyDirections.items},{name:'motion and meeting',items:motionMeeting.items}])test(`released HSK2 ${batch.name} lessons expose their own decisions and restore answers`,async({page,request})=>{
+for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'health',items:healthBatch.items},{name:'family and directions',items:familyDirections.items},{name:'motion and meeting',items:motionMeeting.items},{name:'travel and leisure',items:travelLeisure.items},{name:'person and events',items:personEvents.items},{name:'environment',items:environmentBatch.items},{name:'study and work',items:studyWorkBatch.items},{name:'grammar synthesis',items:grammarBatch.items},{name:'reference and reconstruction',items:referenceBatch.items}])test(`released HSK2 ${batch.name} lessons expose their own decisions and restore answers`,async({page,request})=>{
  await page.goto('/onboarding');
  await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();
  await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();
  await page.getByRole('button',{name:'Bắt đầu Khảo Nghiệm Căn Cơ',exact:true}).click();
- if(batch.name==='motion and meeting'){
+ if(batch.name==='motion and meeting'||batch.name==='travel and leisure'||batch.name==='person and events'||batch.name==='environment'||batch.name==='study and work'||batch.name==='grammar synthesis'||batch.name==='reference and reconstruction'){
   await page.goto(`/lesson/${batch.items[1].lessonId}`);
   await expect(page.getByRole('heading',{name:'Thử Luyện này chưa khai mở',exact:true})).toBeVisible();
   // Only this fresh Playwright guest receives synthetic prerequisite evidence.
   await page.evaluate(evidence=>{
    const key='hanzi-os-learning-state-v1';const state=JSON.parse(localStorage.getItem(key)!);
    state.evidence.push(...evidence);localStorage.setItem(key,JSON.stringify(state));
-  },motionMeetingEvidence);
+  },batch.name==='reference and reconstruction'?referenceEvidence:batch.name==='grammar synthesis'?grammarEvidence:batch.name==='study and work'?studyWorkEvidence:batch.name==='environment'?environmentEvidence:batch.name==='person and events'?personEventsEvidence:batch.name==='travel and leisure'?travelLeisureEvidence:motionMeetingEvidence);
  }else{
  const accounts=await(await request.post('/api/auth/hanzi/demo-accounts',{headers:{origin:'http://localhost:3000'}})).json();
  const account=accounts.accounts.find((a:{username:string})=>a.username==='learner.demo');
@@ -42,6 +56,17 @@ for(const batch of [{name:'food and shopping',items:foodShopping.items},{name:'h
   await expect(reader.getByRole('status')).toContainText(activity.explanation);
   await page.reload();
   await expect(reader.getByRole('button',{name:answer,exact:true})).toHaveAttribute('aria-pressed','true');
+  if(batch.name==='reference and reconstruction'&&item.lessonId.includes('sentence-reconstruction')){
+   const orderPage=(item.lessonPages as LessonPageDocument).pages.find(p=>p.id.endsWith(':reconstruct-0'))!;
+   const order=orderPage.blocks[0].activity!;
+   await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(orderPage.id);
+   const expected=order.answerIds.map(id=>order.options.find(o=>o.id===id)!.text);
+   for(const text of expected)await reader.getByRole('group',{name:'Các mảnh còn lại'}).getByRole('button',{name:text,exact:true}).click();
+   await reader.getByRole('button',{name:'Kiểm tra câu trả lời',exact:true}).click();
+   await expect(reader.getByRole('status')).toContainText('Đúng với đáp án');
+   await page.reload();
+   await expect(reader.getByRole('group',{name:'Câu đang sắp xếp'}).getByRole('button')).toHaveText(expected);
+  }
   await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(`${item.lessonId}:v2:transfer`);
   await reader.getByRole('combobox',{name:'Chọn mục trong trang'}).selectOption('1');
   await reader.getByLabel('Bản viết của bạn').fill('Tôi tự viết theo thông tin mới rồi đối chiếu.');
@@ -445,19 +470,23 @@ for(const pass of [false,true])test(`lesson study keeps navigation visible throu
   }
   const result=page.getByTestId('lesson-quest-result');
   await expect(result).toBeVisible();
+  if(!pass)await expect(result.getByRole('link',{name:'Xem câu cần ôn',exact:true})).toHaveAttribute('href','/mistakes');
   await expect(result).not.toContainText('BOOT-1');
   if(pass){
     await expect(result).toContainText('CỬA ẢI HOÀN TẤT');
     const chest=result.getByRole('button',{name:/Mở rương nhận/});
     await expect(chest).toBeVisible();
+    await page.setViewportSize({width:375,height:812});
+    await expect(chest).toBeInViewport();
     await chest.click();
-    await expect(result.getByRole('status',{name:/Đã nhận.*EXP/})).toBeVisible();
+    await expect(result.locator('.path-clear-reward')).toContainText('Phần thưởng đã ghi vào hành trình');
     await expect(chest).toHaveCount(0);
   }
   await result.getByText('Hiểu kết quả và bước ôn tiếp',{exact:true}).click();
   await expect(result).toContainText('Vượt ải chưa có nghĩa đã thành thạo lâu dài');
   for(const viewport of [{width:1440,height:900},{width:375,height:812},{width:812,height:375}]){
     await page.setViewportSize(viewport);
+    if(viewport.width<=760||viewport.height<=500)await expect(result.locator('.path-clear-map')).toBeHidden();
     await expect.poll(()=>result.locator('.path-clear-actions').evaluate(el=>{const r=el.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight&&document.documentElement.scrollWidth<=innerWidth;})).toBe(true);
     await expect.poll(()=>result.locator('.path-clear-content').evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);
     await page.screenshot({path:`tmp/lesson-result-jade-${pass?'reward':'retry'}-${viewport.width}.png`});
@@ -555,4 +584,40 @@ test('lesson items fit independently and restore their place and response',async
   await reader.getByRole('button',{name:'Mục trước',exact:true}).click();
   await expect(reader.getByRole('button',{name:'Thanh 4',exact:true})).toHaveAttribute('aria-pressed','true');
   await expect(reader.getByRole('status')).toContainText('Đúng với đáp án');
+});
+
+
+test('dictation lessons restore drafts and support history with distinct illustrations',async({page})=>{
+ await page.goto('/onboarding');
+ await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();
+ await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();
+ await page.getByRole('button',{name:'Bắt đầu Khảo Nghiệm Căn Cơ',exact:true}).click();
+ await page.goto(`/lesson/${dictationBatch.items[0].lessonId}`);
+ await expect(page.getByRole('heading',{name:'Thử Luyện này chưa khai mở',exact:true})).toBeVisible();
+ await page.evaluate(evidence=>{const key='hanzi-os-learning-state-v1';const state=JSON.parse(localStorage.getItem(key)!);state.evidence.push(...evidence);localStorage.setItem(key,JSON.stringify(state));},dictationEvidence);
+ const runtime=await(await page.request.get('/api/content/runtime?projection=learning')).json();
+ for(const item of dictationBatch.items){
+  expect(runtime.items[0].find((row:[string,unknown])=>row[0]===item.lessonId)?.[1]?.richContent?.lessonPages).toEqual(item.lessonPages);
+  await page.goto(`/lesson/${item.lessonId}`);
+  const reader=page.locator('.lesson-page-reader');
+  await expect(reader.locator('.jade-scene img')).toHaveAttribute('src',item.lessonPages.pages[0].illustration!.src);
+  const practice=(item.lessonPages as LessonPageDocument).pages.find(p=>p.blocks[0].kind==='dictation')!;
+  await reader.getByRole('combobox',{name:'Chọn trang học'}).selectOption(practice.id);
+  await expect(reader.locator('.jade-reveal')).toHaveCount(0);
+  await reader.getByRole('button',{name:'Nghe đoạn cần chép · giọng tổng hợp',exact:true}).click();
+  await reader.getByRole('textbox',{name:'Câu trả lời của bạn'}).fill('我的草稿');
+  await reader.getByRole('button',{name:'Tôi đã dùng Pinyin / gợi ý bàn phím',exact:true}).click();
+  await reader.getByRole('button',{name:'Đối chiếu câu',exact:true}).click();
+  await expect(reader.getByRole('status')).toContainText('Bản chép khác lời mẫu');
+  await reader.getByRole('button',{name:'Cần xem mẫu',exact:true}).click();
+  await expect(reader.locator('.jade-reveal')).toContainText(practice.blocks[0].hanzi);
+  await reader.getByRole('button',{name:'Thu mẫu lại',exact:true}).click();
+  await page.reload();
+  await expect(reader.getByRole('textbox',{name:'Câu trả lời của bạn'})).toHaveValue('我的草稿');
+  await expect(reader.getByRole('button',{name:'Đã ghi nhận dùng Pinyin / gợi ý bàn phím',exact:true})).toBeDisabled();
+  await expect(reader.locator('.jade-reveal')).toHaveCount(0);
+  await reader.getByRole('textbox',{name:'Câu trả lời của bạn'}).fill(practice.blocks[0].hanzi);
+  await reader.getByRole('button',{name:'Đối chiếu câu',exact:true}).click();
+  await expect(reader.getByRole('status')).toContainText('Bản chép khớp lời mẫu');
+ }
 });

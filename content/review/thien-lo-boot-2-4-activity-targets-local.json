@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-29",
+  "scope": "HSK0 boot-2/3/4 activity target metadata; visual rule recognition and self-review only, no listening or pronunciation score.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/57-REVIEW-BOOT-2-4-TARGETS.md",
+  "targetPlanSha256": "sha256:68e48b31c98bf070fae8fe987bfb4562ffb5d3b45d6f74474d45f8683b68b80e",
+  "aiSelfReview": {
+    "accuracy": true,
+    "levelFit": true,
+    "pedagogy": true,
+    "answerIntegrity": true,
+    "originality": true
+  },
+  "items": [
+    {
+      "lessonId": "boot-2",
+      "parentRevisionId": "53480f2a-1d57-4991-88b1-a9bb0e50ddbd",
+      "parentContentSha256": "sha256:79bbc103b991637105d556184056a3c7fedffce6c3d88cd262fdfab3ee6b6995",
+      "proposedContentSha256": "sha256:a42593f91ce71d5fee3d9b08c4c971c1228a327af9cea143aaa87177de8d7de1",
+      "targetCount": 4
+    },
+    {
+      "lessonId": "boot-3",
+      "parentRevisionId": "c24dee44-9162-4021-8b83-b5cbc5ae3864",
+      "parentContentSha256": "sha256:59dcfac4bae885e5c562648691b625d5a6df073e34f18c55e83af1832076f348",
+      "proposedContentSha256": "sha256:1fd3badc1d31f3b2bfb95c1265815f2d603df52c9d8933e4435629c71c5ca8c9",
+      "targetCount": 5
+    },
+    {
+      "lessonId": "boot-4",
+      "parentRevisionId": "e7513d81-d687-4e39-ac18-c92228d81131",
+      "parentContentSha256": "sha256:efb22b471eb32865f1390fe426a6c65ee7daa9e6e26540d2067e9aa0b83ff316",
+      "proposedContentSha256": "sha256:c4f0982c53cf4a61ba6903ad21384e99e65e217fa3d765c7c8d209dc9d91a725",
+      "targetCount": 5
+    }
+  ]
+}

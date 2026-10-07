@@ -10,6 +10,9 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router";
+import "./PathLevelArt.css";
+import "./PathBannerInformation.css";
+import { PathBannerInformation, PathBannerSeal } from "../components/PathBannerInformation";
 import { useEffect, useMemo, useState } from "react";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import {
@@ -29,6 +32,7 @@ import {
   isLessonReleased,
 } from "../lib/adaptive";
 import { useLearning } from "../store/LearningStore";
+import { useCommerce } from "../commerce/CommerceProvider";
 import { useLearningJourney } from "../store/LearningJourneyStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 
@@ -44,19 +48,17 @@ function LessonSkillSigil({ index }: { index: number }) {
   );
 }
 
-function SpiritBeastSeal({ index }: { index: number }) {
-  const realmGlyphs = ["零", "壹", "贰", "叁", "肆"];
-  return (
-    <svg className="spirit-beast-seal" viewBox="0 0 120 120" aria-hidden="true">
-      <circle className="spirit-beast-seal-orbit" cx="60" cy="60" r="48" />
-      <circle className="spirit-beast-seal-orbit is-inner" cx="60" cy="60" r="39" />
-      <path className="spirit-beast-seal-flare" d="M60 2v13M60 105v13M2 60h13M105 60h13M18 18l9 9M93 93l9 9M102 18l-9 9M27 93l-9 9" />
-      <path className="spirit-beast-seal-body" d="M77 29c-13-7-30-2-36 11-6 14 1 29 15 34 11 4 23-1 27-11 4-9 0-19-9-23-8-4-18 0-21 8-2 7 2 14 9 16 6 2 13-1 14-7" />
-      <path className="spirit-beast-seal-body" d="M77 29l9-8-2 12 9 3-12 4M41 40l-10 3 8 6-7 8 13-2M55 75l-8 12 13-5 6 11 3-15" />
-      <circle className="spirit-beast-seal-eye" cx="78" cy="35" r="2.4" />
-      <text x="60" y="65" textAnchor="middle">{realmGlyphs[index] ?? String(index)}</text>
-    </svg>
-  );
+const HSK_SEAL_ART: Record<string, string> = {
+  hsk0: "jade-dragon-seal-v1.webp",
+  hsk1: "jade-crane-seal-v1.webp",
+  hsk2: "jade-tiger-seal-v1.webp",
+  hsk3: "jade-phoenix-seal-v1.webp",
+  hsk4: "jade-qilin-seal-v1.webp",
+};
+
+function SpiritBeastSeal({ level }: { level: string }) {
+  return <img className="path-level-art" src={`/art/thien-lo/${HSK_SEAL_ART[level]}`}
+    width="512" height="512" alt="" aria-hidden="true" loading="lazy" decoding="async" />;
 }
 
 function ChapterSeal() {
@@ -98,6 +100,7 @@ function CurrentLessonAutoAnchor({ lessonId }: { lessonId: string }) {
 }
 
 export function PathPage() {
+  const commerce = useCommerce();
   const [expansionIndex, setExpansionIndex] = useState<PathExpansionIndex | null>(null);
   const { state, sync } = useLearning();
   const { checkpoint, currentStep, recordReceipt } = useLearningJourney();
@@ -190,7 +193,11 @@ export function PathPage() {
     <div className="content-page path-page">
       {currentLesson && <CurrentLessonAutoAnchor lessonId={currentLesson.id} />}
       <header className="path-route-banner" aria-labelledby="path-route-title">
-        <img className="path-route-art" src="/path-celestial-scroll-g.png" alt="" aria-hidden="true" />
+        <div className="path-route-picture" aria-hidden="true">
+          <img className="path-route-art" src="/path-celestial-scroll-g.png" alt="" />
+          <span className="path-banner-compact-seal path-banner-compact-current"><PathBannerSeal /></span>
+          <span className="path-banner-compact-seal path-banner-compact-total"><PathBannerSeal /></span>
+        </div>
         <div className="visually-hidden">
           <h1 id="path-route-title">Thiên Lộ</h1>
           <p>Lộ trình tu luyện HSK0–HSK4, từ khai âm nhập môn đến HSK4.</p>
@@ -198,14 +205,8 @@ export function PathPage() {
             {catalogGroups.map(({ path }) => <li key={path.id}>{path.id.toUpperCase()}</li>)}
           </ol>
         </div>
-        <span className="path-route-current" aria-live="polite">
-          <small>{currentLesson ? "ĐANG TU LUYỆN" : "ĐÃ THÔNG QUAN"}</small>
-          <strong>{currentLesson?.title ?? "Hoàn tất Thiên Lộ"}</strong>
-        </span>
-        <span className="path-route-total" aria-live="polite">
-          <span><strong>{completedCount}</strong><i>/</i>{catalogLessonCount}</span>
-          <small>bài đã<br />thông qua</small>
-        </span>
+        <PathBannerInformation title={currentLesson?.title ?? "Hoàn tất Thiên Lộ"}
+          completed={completedCount} total={catalogLessonCount} finished={!currentLesson} />
       </header>
       <p className="visually-hidden">Toàn bộ {catalogLessonCount} bài từ HSK0 đến HSK4; {completedCount} bài đã thông qua, tiến độ chặng {selectedPath.label} là {progress}%.</p>
 
@@ -247,16 +248,18 @@ export function PathPage() {
           const levelCleared = groupLessons.length > 0 && completedInGroup === groupLessons.length;
           const levelStatus = isActive ? "active" : isFuture ? "locked" : levelCleared ? "cleared" : "foundation";
           const levelStatusLabel = isActive ? "TIÊN MÔN ĐANG KHAI MỞ" : isFuture ? "HIỆN ĐỂ XEM TRƯỚC · CHƯA MỞ" : levelCleared ? "ĐÃ THÔNG QUA" : "CĂN CƠ CẦN BỒI ĐẮP";
+          const premiumLocked = path.id === "hsk4" && !commerce.snapshot?.active;
           const LevelStatusIcon = isActive ? Sparkles : isFuture ? LockKeyhole : levelCleared ? Check : CircleDot;
           const levelProgress = groupLessons.length === 0 ? 0 : Math.round((completedInGroup / groupLessons.length) * 100);
           return (
             <section className="path-realm-group" data-level-status={levelStatus} data-realm-index={groupIndex} key={path.id}>
               <header className="path-realm-level">
                 <div className="path-realm-level-index" aria-hidden="true">
-                  <SpiritBeastSeal index={groupIndex} />
+                  <SpiritBeastSeal level={path.id} />
                 </div>
                 <div className="path-realm-level-copy">
                   <span className="path-realm-level-status"><LevelStatusIcon size={15} /> {levelStatusLabel}</span>
+                  {path.id === "hsk4" && <a className="premium-level-label" href="/profile/premium">{commerce.snapshot?.freeHsk4LessonIds?.length ? "BÀI HỌC HSK4 · Free/Premium theo từng bài" : premiumLocked ? "BÀI HỌC PREMIUM · Xem gói" : "BÀI HỌC PREMIUM · Đang hiệu lực"}</a>}
                   <h2><span>MỤC HSK · </span>{path.label}</h2>
                   <strong className="path-realm-level-subtitle">{path.title}</strong>
                   <p>{path.description}</p>
@@ -323,6 +326,7 @@ export function PathPage() {
                               <span className="lesson-node-copy">
                                 <small>{lesson.chineseTitle} · {unit.stage}</small>
                                 <strong>{lesson.title}</strong>
+                                {path.id === "hsk4" && <small>{commerce.snapshot?.freeHsk4LessonIds?.includes(lesson.id) ? "FREE" : "PREMIUM"}</small>}
                                 <span>{lesson.objective}</span>
                               </span>
                               <span className="lesson-node-meta">

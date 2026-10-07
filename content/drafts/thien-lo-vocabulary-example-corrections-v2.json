@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "items": [
+    {
+      "itemType": "vocabulary",
+      "stableKey": "curriculum-word-hsk-vocab-00480",
+      "title": "有时 · đôi khi",
+      "level": "hsk2",
+      "content": {
+        "hanzi": "有时",
+        "pinyin": "yǒushí",
+        "meaningVi": "đôi khi",
+        "examples": [
+          {
+            "hanzi": "有时我做饭，有时丈夫做。",
+            "pinyin": "Yǒushí wǒ zuòfàn, yǒushí zhàngfu zuò.",
+            "meaningVi": "Có khi tôi nấu cơm, có khi chồng nấu."
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-05"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00480"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "expectedSourceContent": {
+        "hanzi": "有时",
+        "pinyin": "yǒushí",
+        "meaningVi": "đôi khi",
+        "examples": [
+          {
+            "hanzi": "现在我有时间。",
+            "pinyin": "Xiànzài wǒ yǒu shíjiān.",
+            "meaningVi": "Bây giờ tôi có thời gian."
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-05"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00480"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      }
+    },
+    {
+      "itemType": "vocabulary",
+      "stableKey": "curriculum-word-hsk-vocab-00351",
+      "title": "过 · trợ từ chỉ trải nghiệm đã từng",
+      "level": "hsk2",
+      "content": {
+        "hanzi": "过",
+        "pinyin": "guo",
+        "meaningVi": "trợ từ chỉ trải nghiệm đã từng",
+        "examples": [
+          {
+            "hanzi": "我没去过北京。",
+            "pinyin": "Wǒ méi qùguo Běijīng.",
+            "meaningVi": "Tôi chưa từng đến Bắc Kinh."
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-01",
+          "hsk2-aspect-time-experience-lesson-02",
+          "hsk2-complements-and-motion-lesson-01",
+          "hsk2-reference-description-comparison-lesson-02",
+          "hsk2-travel-leisure-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00351"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "expectedSourceContent": {
+        "hanzi": "过",
+        "pinyin": "guo",
+        "meaningVi": "trợ từ chỉ trải nghiệm đã từng",
+        "examples": [
+          {
+            "hanzi": "过",
+            "pinyin": "guò",
+            "meaningVi": "qua; vượt qua"
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-01",
+          "hsk2-aspect-time-experience-lesson-02",
+          "hsk2-complements-and-motion-lesson-01",
+          "hsk2-reference-description-comparison-lesson-02",
+          "hsk2-travel-leisure-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00351"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      }
+    },
+    {
+      "itemType": "vocabulary",
+      "stableKey": "curriculum-word-hsk-vocab-00490",
+      "title": "着 · trợ từ chỉ trạng thái đang tiếp diễn",
+      "level": "hsk2",
+      "content": {
+        "hanzi": "着",
+        "pinyin": "zhe",
+        "meaningVi": "trợ từ chỉ trạng thái đang tiếp diễn",
+        "examples": [
+          {
+            "hanzi": "我拿着球等你。",
+            "pinyin": "Wǒ názhe qiú děng nǐ.",
+            "meaningVi": "Tôi cầm bóng đợi bạn."
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-01",
+          "hsk2-aspect-time-experience-lesson-02",
+          "hsk2-picture-description-lesson-02",
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00490"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "expectedSourceContent": {
+        "hanzi": "着",
+        "pinyin": "zhe",
+        "meaningVi": "trợ từ chỉ trạng thái đang tiếp diễn",
+        "examples": [
+          {
+            "hanzi": "别着急。",
+            "pinyin": "Bié zháojí.",
+            "meaningVi": "Đừng vội."
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-aspect-time-experience-lesson-01",
+          "hsk2-aspect-time-experience-lesson-02",
+          "hsk2-picture-description-lesson-02",
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00490"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      }
+    },
+    {
+      "itemType": "vocabulary",
+      "stableKey": "curriculum-word-hsk-vocab-00477",
+      "title": "游 · bơi",
+      "level": "hsk2",
+      "content": {
+        "hanzi": "游",
+        "pinyin": "yóu",
+        "meaningVi": "bơi",
+        "examples": [
+          {
+            "hanzi": "他在水里游。",
+            "pinyin": "Tā zài shuǐ lǐ yóu.",
+            "meaningVi": "Anh ấy bơi trong nước."
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00477"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "expectedSourceContent": {
+        "hanzi": "游",
+        "pinyin": "yóu",
+        "meaningVi": "bơi",
+        "examples": [
+          {
+            "hanzi": "旅游",
+            "pinyin": "lǚyóu",
+            "meaningVi": "du lịch"
+          }
+        ],
+        "sourceLessonIds": [
+          "hsk2-travel-leisure-lesson-04"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00477"
+        ],
+        "provenance": {
+          "source": "HANZI.OS released curriculum",
+          "contentVersion": "foundation-2026.08.7",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      }
+    }
+  ]
+}

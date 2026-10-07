@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "humanReviewed": false,
+  "lessonIds": ["boot-2", "boot-3", "boot-4"],
+  "targets": {
+    "boot-2": {
+      "boot-2:v2:role-check": {"skill":"vocabulary","objective":"Chọn 你 cho người đang được nói trực tiếp và phân biệt với 我 của người nói; đây là nhận diện điểm nhìn có phương án, không phải nhớ chữ độc lập.","sources":[{"kind":"vocabulary","id":"ni"},{"kind":"vocabulary","id":"wo"}]},
+      "boot-2:v2:reply": {"skill":"vocabulary","objective":"Chọn 你好 để đáp lời chào trực tiếp và bác bỏ 我好 hoặc đảo thứ tự trong ngữ cảnh này.","sources":[{"kind":"vocabulary","id":"ni"},{"kind":"vocabulary","id":"hao"}]},
+      "boot-2:v2:assemble": {"skill":"vocabulary","objective":"Xếp 你 trước 好 thành lời chào 你好; hoạt động có sẵn hai chữ nên chưa kiểm hồi tưởng độc lập.","sources":[{"kind":"vocabulary","id":"ni"},{"kind":"vocabulary","id":"hao"}]},
+      "boot-2:v2:your-turn": {"skill":"vocabulary","objective":"Tự viết hoặc ghi Pinyin cho hai lượt chào và đối chiếu cách dùng 你好 với vai trò 你/我; rubric tự soát không cấp điểm nói hay viết độc lập.","sources":[{"kind":"vocabulary","id":"ni"},{"kind":"vocabulary","id":"hao"},{"kind":"vocabulary","id":"wo"}]}
+    },
+    "boot-3": {
+      "boot-3:v2:block:group": {"skill":"pronunciation","objective":"Nhận biết qua mô tả vị trí mặt trước lưỡi gần ngạc cứng của âm x trong xièxie; không đo sản xuất âm.","sources":[{"kind":"pronunciation","id":"initial-contrast-jqx-zhchsh-zcs"}]},
+      "boot-3:v2:block:aspiration": {"skill":"pronunciation","objective":"Chọn j/q là cặp cùng vùng tạo âm nhưng khác mức bật hơi dựa trên mô tả bằng chữ; không đo nghe phân biệt.","sources":[{"kind":"pronunciation","id":"initial-contrast-jqx-zhchsh-zcs"}]},
+      "boot-3:v2:block:front": {"skill":"pronunciation","objective":"Phân biệt z và zh theo vị trí đầu lưỡi thay vì âm lượng hoặc thanh điệu; đây là nhận diện quy tắc.","sources":[{"kind":"pronunciation","id":"initial-contrast-jqx-zhchsh-zcs"}]},
+      "boot-3:v2:block:self-observe": {"skill":"pronunciation","objective":"Tự ghi cảm nhận luồng hơi khi thử jī/qī và chỉ ra khi cần mẫu người nói; rubric tự nhận xét không chấm chất lượng phát âm.","sources":[{"kind":"pronunciation","id":"initial-contrast-jqx-zhchsh-zcs"}]},
+      "boot-3:v2:block:transfer": {"skill":"vocabulary","objective":"Dùng 谢谢 để cảm ơn trong tình huống mới và tự đối chiếu âm đầu x; tự nói/viết bằng Pinyin được hỗ trợ, không tạo điểm phát âm.","sources":[{"kind":"vocabulary","id":"xiexie"},{"kind":"pronunciation","id":"initial-contrast-jqx-zhchsh-zcs"}]}
+    },
+    "boot-4": {
+      "boot-4:v2:block:bu-check": {"skill":"pronunciation","objective":"Chọn bú cho 不 trước shì thanh 4 từ Pinyin và quy tắc biến điệu; không đo nghe hoặc âm nói thực.","sources":[{"kind":"pronunciation","id":"sandhi-bu-before-fourth"}]},
+      "boot-4:v2:block:yi-check": {"skill":"pronunciation","objective":"Chọn yì trong 一本书 vì běn mang thanh 3; nhận diện cách đọc liền bằng chữ.","sources":[{"kind":"pronunciation","id":"sandhi-yi-before-1-2-3"}]},
+      "boot-4:v2:block:ordinal": {"skill":"pronunciation","objective":"Giữ yī trong số thứ tự 第一 thay vì áp biến điệu của 一 trước danh từ; nhận diện ngoại lệ bằng chữ.","sources":[{"kind":"pronunciation","id":"sandhi-yi-before-1-2-3"}]},
+      "boot-4:v2:block:third-check": {"skill":"pronunciation","objective":"Chọn ké yǐ khi đọc liền hai thanh 3 của 可以, đổi âm tiết đầu và giữ âm tiết sau; chưa đo sản xuất âm.","sources":[{"kind":"pronunciation","id":"sandhi-third-third"}]},
+      "boot-4:v2:block:transfer": {"skill":"pronunciation","objective":"Dự đoán yì qǐ từ thanh 3 của qǐ rồi đối chiếu ngoại lệ dì yī trong 第一; rubric tự soát không cấp điểm phát âm.","sources":[{"kind":"pronunciation","id":"sandhi-yi-before-1-2-3"}]}
+    }
+  }
+}

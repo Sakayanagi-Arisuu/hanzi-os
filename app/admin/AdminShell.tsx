@@ -9,7 +9,8 @@ export type AdminNavKey =
   | "access"
   | "security"
   | "configuration"
-  | "activity";
+  | "activity"
+  | "premium";
 
 type AdminNavItem = {
   key: AdminNavKey;
@@ -41,6 +42,7 @@ export const ADMIN_NAV_GROUPS: readonly AdminNavGroup[] = [
       { key: "security", href: "/admin/security", label: "Phiên đăng nhập", description: "Thiết bị và bảo mật", glyph: "PN" },
       { key: "configuration", href: "/admin/configuration", label: "Cấu hình", description: "Thiết lập vận hành", glyph: "CH" },
       { key: "activity", href: "/admin/activity", label: "Nhật ký hoạt động", description: "Lịch sử thay đổi", glyph: "NK" },
+      { key: "premium", href: "/admin/premium", label: "Premium thử nghiệm", description: "Gói và giao dịch local", glyph: "PR" },
     ],
   },
 ] as const;

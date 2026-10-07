@@ -1,0 +1,36 @@
+{
+  "humanReviewed": false,
+  "provider": "OpenAI imagegen",
+  "items": [
+    {
+      "key": "club-portrait",
+      "prompt": "Original HANZI.OS Mandarin lesson image landscape 3:2 painterly jade cream warm editorial style. Exactly three adult women stand side by side on same flat ground, full bodies visible, same distance to camera: LEFT shortest with long hair, MIDDLE slightly taller with short hair, RIGHT tallest with shoulder length hair. Neutral pleasant expressions, simple contemporary clothes, club courtyard. Educational fictional group portrait for relative height and hair. No heels, no perspective distortion, no text names or labels.",
+      "sourcePath": "C:\\Users\\quyng\\.codex\\generated_images\\01a08f32-76fa-7e41-a05a-022b4803be88\\exec-bb369a52-c2a6-421c-9367-8394c20e1931.png",
+      "asset": "hsk2-club-portrait-v1.webp"
+    },
+    {
+      "key": "bus-delay",
+      "prompt": "Original HANZI.OS Mandarin lesson image landscape 3:2 soft painterly jade cream muted city palette. Adult student at city bus stop waiting with backpack, glancing down at wristwatch, EMPTY bus lane and no arriving bus, a taxi visible approaching far side of street suggesting alternative transport. Calm frustration, morning daylight. Do not depict cause as traffic jam, cause unknown. No readable timetable, numbers, clock dial or text, no logos.",
+      "sourcePath": "C:\\Users\\quyng\\.codex\\generated_images\\01a08f32-76fa-7e41-a05a-022b4803be88\\exec-fec1a5a8-78bd-4960-8e8a-42ad890adff8.png",
+      "asset": "hsk2-bus-delay-v1.webp"
+    },
+    {
+      "key": "red-green-shirts",
+      "prompt": "Original HANZI.OS Mandarin lesson image landscape 3:2 soft painterly jade cream shop. Two shirts of same adult size hang side by side with shoulders aligned on rail: RED on LEFT longer hem, GREEN on RIGHT noticeably shorter hem by small amount. Entire shirts visible, store assistant and customer quietly comparing. No price tags, no numbers, no measurement marks; exact lengths/prices will be editable text. No other featured colored clothes, no logos.",
+      "sourcePath": "C:\\Users\\quyng\\.codex\\generated_images\\01a08f32-76fa-7e41-a05a-022b4803be88\\exec-b4131ab1-4ae1-4897-b979-4c579b863708.png",
+      "asset": "hsk2-red-green-shirts-v1.webp"
+    },
+    {
+      "key": "weather-plan",
+      "prompt": "Original HANZI.OS Mandarin lesson image landscape 3:2 soft painterly jade cream style. Two adult friends indoors near window looking at simple forecast icons on tablet while discussing tomorrow outing. Through window current sky overcast, grey clouds, chilly-looking trees, NOT raining. Tablet shows a small sun icon followed by cloud and rain icon, absolutely no text. Closed umbrella by doorway indicates backup planning. No split scene showing rain already happening, no numbers or logos.",
+      "sourcePath": "C:\\Users\\quyng\\.codex\\generated_images\\01a08f32-76fa-7e41-a05a-022b4803be88\\exec-eeab9eef-5156-45ec-8a1d-2f291dde551c.png",
+      "asset": "hsk2-weather-plan-v1.webp"
+    },
+    {
+      "key": "bedroom-window",
+      "prompt": "Original HANZI.OS Mandarin lesson image landscape 3:2 soft painterly jade cream warm wood. Small tidy bedroom with exactly ONE bed and ONE study desk. Desk directly beside large window, unobstructed clear spatial relationship. Bed on other side of room, soft daylight, books on desk. No second table, no exterior geographic claims, no text or logos. Educational spatial vocabulary, depict room interior only.",
+      "sourcePath": "C:\\Users\\quyng\\.codex\\generated_images\\01a08f32-76fa-7e41-a05a-022b4803be88\\exec-a3f51a28-dcbd-4166-b307-0c36a6084787.png",
+      "asset": "hsk2-bedroom-window-v1.webp"
+    }
+  ]
+}

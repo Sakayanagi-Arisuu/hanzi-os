@@ -1,6 +1,7 @@
 "use client";
 
 import { lazy, Suspense } from "react";
+import { JourneyLoading } from "../src/components/JourneyLoading";
 import { SystemErrorBoundary } from "../src/components/SystemErrorBoundary";
 import { SystemFeedbackProvider } from "../src/components/SystemFeedback";
 import { shouldGateLearningBootstrap } from "../src/lib/bootstrapPrivacy";
@@ -21,20 +22,6 @@ const FirstRunExperience = lazy(async () => ({
   ).FirstRunExperience,
 }));
 
-function RuntimeLoadingState({ message }: { message: string }) {
-  return (
-    <main
-      className="route-loader route-loader--fullscreen"
-      role="status"
-      aria-busy="true"
-      aria-live="polite"
-    >
-      <span aria-hidden="true" />
-      <strong>{message}</strong>
-    </main>
-  );
-}
-
 function LearningExperience() {
   const { state, sync, stateLoadSource } = useLearning();
   const setupRequested = typeof window !== "undefined" && (
@@ -44,7 +31,7 @@ function LearningExperience() {
 
   if (shouldGateLearningBootstrap(sync.phase)) {
     return (
-      <RuntimeLoadingState
+      <JourneyLoading fullscreen
         message={stateLoadSource === "default"
           ? "Đang mở HANZI.OS..."
           : "Đang khôi phục tiến độ trên thiết bị..."}
@@ -55,7 +42,7 @@ function LearningExperience() {
   return (
     <Suspense
       fallback={(
-        <RuntimeLoadingState
+        <JourneyLoading fullscreen
           message={state.profile.onboarded
             ? "Đang mở không gian học..."
             : "Đang mở trang giới thiệu..."}

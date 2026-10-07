@@ -1,4 +1,5 @@
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
+import { lexicalBaseExerciseId } from "../content/lexicalEditorialCatalog";
 import {
   CONTENT_VERSION,
   LESSON_BY_ID,
@@ -477,13 +478,15 @@ const hasExactServerFormCoverage = (
 ) => {
   if (
     activities.length
-      !== Math.min(catalog.length, MAX_NORMALIZED_LESSON_ACTIVITIES)
+      !== Math.min(new Set(catalog.map(exercise => lexicalBaseExerciseId(exercise.id))).size, MAX_NORMALIZED_LESSON_ACTIVITIES)
   ) return false;
-  const issuedIds = new Set(activities.map((activity) => activity.activityId));
-  return catalog
-    .filter((exercise) => exercise.requiredForPass === true)
-    .slice(0, MAX_NORMALIZED_LESSON_ACTIVITIES)
-    .every((exercise) => issuedIds.has(`${lessonId}:${exercise.id}`));
+  const issuedIds = new Set(activities.map((activity) =>
+    `${lessonId}:${lexicalBaseExerciseId(activity.activityId.slice(lessonId.length + 1))}`
+  ));
+  const requiredIds = [...new Set(catalog.filter(exercise => exercise.requiredForPass === true)
+    .map(exercise => `${lessonId}:${lexicalBaseExerciseId(exercise.id)}`))];
+  return requiredIds.slice(0, MAX_NORMALIZED_LESSON_ACTIVITIES)
+    .every(id => issuedIds.has(id));
 };
 
 /**

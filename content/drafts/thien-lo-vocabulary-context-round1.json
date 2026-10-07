@@ -1,0 +1,3530 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/94-REVIEW-VOCABULARY-CONTEXT-ROUND1.md",
+  "entries": [
+    {
+      "sourceRevisionId": "23ef636b-6892-4a86-b886-54a037c97c02",
+      "sourceContentSha256": "sha256:e3a45bff6c5efd2e8eeec83e0af9e2b48d31e866d40734193ad4fb1d2e7a2387",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "她 quy chiếu bà Lý.\nChỉ bà Lý được nêu không uống trà.\nChụp ảnh trước, ăn sau.",
+        "conceptVi": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu",
+        "dialogue": [
+          {
+            "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+            "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+            "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi.",
+            "speaker": "Nguồn 1"
+          },
+          {
+            "hanzi": "星期五，妈妈和小雨买了水果和两种月饼。妈妈说，月饼是这次聚会的一种节日食物，不是每个人都一定要吃。",
+            "meaningVi": "Thứ Sáu mẹ và Tiểu Vũ mua trái cây cùng hai loại bánh Trung thu. Mẹ nói bánh là một món dịp lễ trong buổi gặp này; không phải ai cũng buộc phải ăn.",
+            "pinyin": "Xīngqīwǔ, māma hé Xiǎo Yǔ mǎi le shuǐguǒ hé liǎng zhǒng yuèbǐng. Māma shuō, yuèbǐng shì zhè cì jùhuì de yì zhǒng jiérì shíwù, bú shì měi ge rén dōu yídìng yào chī.",
+            "speaker": "Nguồn 2"
+          },
+          {
+            "hanzi": "周六晚上，客人来了。大家先吃饭，再到外面看月亮。一个客人不吃月饼，小雨就请他吃水果。",
+            "meaningVi": "Tối thứ Bảy khách tới. Mọi người ăn trước rồi ra ngoài ngắm trăng. Một người khách không ăn bánh; Tiểu Vũ mời người ấy trái cây.",
+            "pinyin": "Zhōuliù wǎnshang, kèrén lái le. Dàjiā xiān chī fàn, zài dào wàimiàn kàn yuèliang. Yí ge kèrén bù chī yuèbǐng, Xiǎo Yǔ jiù qǐng tā chī shuǐguǒ.",
+            "speaker": "Nguồn 3"
+          },
+          {
+            "hanzi": "聚会结束以后，小雨写下了家里的安排，想明年再看。她记录的是这一次的做法，没有说每个家庭都一样。",
+            "meaningVi": "Sau buổi gặp, Tiểu Vũ ghi lại lịch nhà mình để năm sau xem. Em ghi cách làm lần này, không nói mọi gia đình đều giống thế.",
+            "pinyin": "Jùhuì jiéshù yǐhòu, Xiǎo Yǔ xiě xià le jiālǐ de ānpái, xiǎng míngnián zài kàn. Tā jìlù de shì zhè yí cì de zuòfǎ, méiyǒu shuō měi ge jiātíng dōu yíyàng.",
+            "speaker": "Nguồn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "不吃月饼的客人。",
+            "answerMeaningVi": "Vị khách không ăn bánh Trung thu.",
+            "answerPinyin": "Bù chī yuèbǐng de kèrén.",
+            "distractors": [
+              "小雨的爸爸。",
+              "每一个家庭。"
+            ],
+            "explanationVi": "Đúng: vị khách không ăn bánh ở ngay vế trước.",
+            "promptVi": "Trong 小雨就请他吃水果, 他 chỉ ai?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Tìm danh từ gần nhất có nghĩa phù hợp trước khi giải “anh ấy/cô ấy”. Chọn từ nối theo quan hệ: 再 cho bước sau, 就 cho xử lý trong tình huống. Không dùng thời gian được nhắc sau để đảo trình tự việc xảy ra.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "李阿姨不喝茶。小安就请她喝水。大家先拍照，再吃饭。",
+              "modelAnswerMeaningVi": "Bà Lý không uống trà. An mời bà nước. Mọi người chụp ảnh trước rồi ăn.",
+              "modelAnswerPinyin": "Lǐ āyí bù hē chá. Xiǎo Ān jiù qǐng tā hē shuǐ. Dàjiā xiān pāizhào, zài chīfàn.",
+              "promptVi": "Tình huống mới: bà Lý không uống trà; An mời bà nước. Mọi người chụp ảnh trước rồi ăn. Viết ba câu với đại từ rõ và 先…再…, không đổi bà Lý thành mọi người."
+            },
+            "modelExample": {
+              "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+              "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+              "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi.",
+              "speaker": "Nguồn 1"
+            },
+            "pattern": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "Lễ hội truyền thống và phong tục. Nội dung nguồn xuất hiện ngay ở trang tiếp theo; mở lại bài gốc từ Thiên Lộ khi cần.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:source-link",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Bài đã học cần dùng lại"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:reading",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc từng đoạn, tìm dữ kiện liên quan. Phần Pinyin và nghĩa Việt là trợ giúp; đọc lại không tự chứng minh đã nhớ độc lập.",
+                    "notePrompt": "他 trong lời mời ăn trái cây chỉ ai? 先…再… nối hai hoạt động nào?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+                        "id": "hsk3-cohesion-reconstruction-lesson-02:source-0-0",
+                        "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+                        "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi."
+                      },
+                      {
+                        "hanzi": "星期五，妈妈和小雨买了水果和两种月饼。妈妈说，月饼是这次聚会的一种节日食物，不是每个人都一定要吃。",
+                        "id": "hsk3-cohesion-reconstruction-lesson-02:source-0-1",
+                        "meaningVi": "Thứ Sáu mẹ và Tiểu Vũ mua trái cây cùng hai loại bánh Trung thu. Mẹ nói bánh là một món dịp lễ trong buổi gặp này; không phải ai cũng buộc phải ăn.",
+                        "pinyin": "Xīngqīwǔ, māma hé Xiǎo Yǔ mǎi le shuǐguǒ hé liǎng zhǒng yuèbǐng. Māma shuō, yuèbǐng shì zhè cì jùhuì de yì zhǒng jiérì shíwù, bú shì měi ge rén dōu yídìng yào chī."
+                      },
+                      {
+                        "hanzi": "周六晚上，客人来了。大家先吃饭，再到外面看月亮。一个客人不吃月饼，小雨就请他吃水果。",
+                        "id": "hsk3-cohesion-reconstruction-lesson-02:source-0-2",
+                        "meaningVi": "Tối thứ Bảy khách tới. Mọi người ăn trước rồi ra ngoài ngắm trăng. Một người khách không ăn bánh; Tiểu Vũ mời người ấy trái cây.",
+                        "pinyin": "Zhōuliù wǎnshang, kèrén lái le. Dàjiā xiān chī fàn, zài dào wàimiàn kàn yuèliang. Yí ge kèrén bù chī yuèbǐng, Xiǎo Yǔ jiù qǐng tā chī shuǐguǒ."
+                      },
+                      {
+                        "hanzi": "聚会结束以后，小雨写下了家里的安排，想明年再看。她记录的是这一次的做法，没有说每个家庭都一样。",
+                        "id": "hsk3-cohesion-reconstruction-lesson-02:source-0-3",
+                        "meaningVi": "Sau buổi gặp, Tiểu Vũ ghi lại lịch nhà mình để năm sau xem. Em ghi cách làm lần này, không nói mọi gia đình đều giống thế.",
+                        "pinyin": "Jùhuì jiéshù yǐhòu, Xiǎo Yǔ xiě xià le jiālǐ de ānpái, xiǎng míngnián zài kàn. Tā jìlù de shì zhè yí cì de zuòfǎ, méiyǒu shuō měi ge jiātíng dōu yíyàng."
+                      }
+                    ]
+                  },
+                  "title": "Ngữ liệu đã học · dùng lại trong nhiệm vụ mới"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc nguồn và đánh dấu bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu. Sơ đồ chỉ giữ dữ kiện trong văn bản; đối chiếu từng mục với đoạn nguồn trước khi kết luận.",
+                    "nodes": [
+                      {
+                        "id": "step-0",
+                        "label": "顺序一",
+                        "meaningVi": "Thứ Sáu: mua đồ",
+                        "note": "Tìm câu làm bằng chứng.",
+                        "pinyin": "shùnxù yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "step-1",
+                        "label": "顺序二",
+                        "meaningVi": "Tối thứ Bảy: ăn trước",
+                        "note": "Tìm câu làm bằng chứng.",
+                        "pinyin": "shùnxù èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "step-2",
+                        "label": "顺序三",
+                        "meaningVi": "Sau bữa: ngắm trăng",
+                        "note": "Tìm câu làm bằng chứng.",
+                        "pinyin": "shùnxù sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "step-3",
+                        "label": "顺序四",
+                        "meaningVi": "Kết thúc: ghi lại một lần tổ chức",
+                        "note": "Kiểm lại phạm vi kết luận.",
+                        "pinyin": "shùnxù sì",
+                        "x": 1,
+                        "y": 1
+                      }
+                    ],
+                    "type": "sequence"
+                  },
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Đặt dữ kiện đúng quan hệ"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:diagram",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Sơ đồ dữ kiện"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tìm danh từ gần nhất có nghĩa phù hợp trước khi giải “anh ấy/cô ấy”. Chọn từ nối theo quan hệ: 再 cho bước sau, 就 cho xử lý trong tình huống. Không dùng thời gian được nhắc sau để đảo trình tự việc xảy ra.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:method",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Làm từng bước"
+                },
+                {
+                  "alt": "",
+                  "body": "他 trong lời mời ăn trái cây chỉ ai? 先…再… nối hai hoạt động nào?",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bằng chứng"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:method",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Cách xử lý nhiệm vụ"
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:page:teach",
+              "stage": "understand",
+              "title": "Mô tả chiều cao, không suy tính cách",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:note",
+                  "kind": "explanation",
+                  "title": "矮",
+                  "body": "矮 (ǎi) tả chiều cao thấp của người hoặc vật; đối chiếu 高 (gāo). 个子矮 nói về vóc người, không nói người đó sợ độ cao hay kém năng lực. Khi giới thiệu người, chỉ nêu chiều cao nếu cần nhận diện, tránh bình phẩm. Trong câu so sánh dùng A 比 B 矮, không thêm 很 ngay trước 矮.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "小周比哥哥矮，但是比弟弟高。",
+                  "pinyin": "Xiǎo Zhōu bǐ gēge ǎi, dànshì bǐ dìdi gāo.",
+                  "meaningVi": "Tiểu Châu thấp hơn anh trai nhưng cao hơn em trai.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这张桌子太矮了，孩子坐在这里写字不舒服。",
+                  "pinyin": "Zhè zhāng zhuōzi tài ǎi le, háizi zuò zài zhèlǐ xiě zì bù shūfu.",
+                  "meaningVi": "Bàn này thấp quá, trẻ ngồi đây viết không thoải mái.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 矮",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Theo câu về Tiểu Châu, thứ tự nào đúng từ cao đến thấp?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "哥哥、小周、弟弟",
+                        "feedback": "比哥哥矮 đặt Tiểu Châu dưới anh; 比弟弟高 đặt Tiểu Châu trên em. Không có thông tin về sợ độ cao."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "小周、哥哥、弟弟",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "弟弟、小周、哥哥",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "比哥哥矮 đặt Tiểu Châu dưới anh; 比弟弟高 đặt Tiểu Châu trên em. Không có thông tin về sợ độ cao.",
+                    "learningTarget": {
+                      "objective": "Mô tả chiều cao, không suy tính cách",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00502"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đúng: vị khách không ăn bánh ở ngay vế trước.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Trong 小雨就请他吃水果, 他 chỉ ai?",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-cohesion-reconstruction-lesson-02:prompt-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: vị khách không ăn bánh ở ngay vế trước.",
+                        "id": "o-0",
+                        "text": "不吃月饼的客人。"
+                      },
+                      {
+                        "feedback": "Sai: không có thông tin bố là người từ chối bánh.",
+                        "id": "o-1",
+                        "text": "小雨的爸爸。"
+                      },
+                      {
+                        "feedback": "Sai: 他 ở đây chỉ một người khách.",
+                        "id": "o-2",
+                        "text": "每一个家庭。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Trong 小雨就请他吃水果, 他 chỉ ai?",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn câu có căn cứ"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Kiểm tra cách hiểu"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "再"
+                    ],
+                    "answerIds": [],
+                    "explanation": "先…再… giữ ăn trước rồi ngắm trăng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Nối hai bước theo bài: 大家先吃饭，___到外面看月亮。",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-cohesion-reconstruction-lesson-02:prompt-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Nối hai bước theo bài: 大家先吃饭，___到外面看月亮。",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:guided",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền rồi tự giải thích"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Luyện một quan hệ then chốt"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án tham khảo:\n李阿姨不喝茶。小安就请她喝水。大家先拍照，再吃饭。\nLǐ āyí bù hē chá. Xiǎo Ān jiù qǐng tā hē shuǐ. Dàjiā xiān pāizhào, zài chīfàn.\nBà Lý không uống trà. An mời bà nước. Mọi người chụp ảnh trước rồi ăn.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Bản chữ và tự đối chiếu không phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-cohesion-reconstruction-lesson-02:prompt-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "她 quy chiếu bà Lý.",
+                        "id": "criterion-0",
+                        "label": "她 quy chiếu bà Lý."
+                      },
+                      {
+                        "guidance": "Chỉ bà Lý được nêu không uống trà.",
+                        "id": "criterion-1",
+                        "label": "Chỉ bà Lý được nêu không uống trà."
+                      },
+                      {
+                        "guidance": "Chụp ảnh trước, ăn sau.",
+                        "id": "criterion-2",
+                        "label": "Chụp ảnh trước, ăn sau."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tình huống mới: bà Lý không uống trà; An mời bà nước. Mọi người chụp ảnh trước rồi ăn. Viết ba câu với đại từ rõ và 先…再…, không đổi bà Lý thành mọi người.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự làm trước khi xem mẫu"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Vận dụng với dữ kiện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "她 quy chiếu bà Lý.\nChỉ bà Lý được nêu không uống trà.\nChụp ảnh trước, ăn sau.\nSửa ít nhất một chỗ chưa rõ, rồi thử lại khi che nguồn và mẫu. Xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Checklist trước khi tiếp tục"
+                }
+              ],
+              "id": "hsk3-cohesion-reconstruction-lesson-02:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Sửa và thử lại"
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 矮 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-cohesion-reconstruction-lesson-02:vocab-context-r1:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Ở buổi gặp khác, Lan cao 160 cm, Mai cao 170 cm. Viết hai câu dùng 矮 và 高 để so sánh. Không suy ra tuổi, khả năng hay tính cách từ chiều cao.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Đặt đúng người cao/thấp theo số liệu.",
+                        "guidance": "Đặt đúng người cao/thấp theo số liệu."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Dùng 比 với 矮/高; không suy thêm tính cách.",
+                        "guidance": "Dùng 比 với 矮/高; không suy thêm tính cách."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n小兰比小梅矮。小梅比小兰高。\nXiǎo Lán bǐ Xiǎo Méi ǎi. Xiǎo Méi bǐ Xiǎo Lán gāo.\nLan thấp hơn Mai. Mai cao hơn Lan.\nĐặt đúng người cao/thấp theo số liệu.\nDùng 比 với 矮/高; không suy thêm tính cách.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Mô tả chiều cao, không suy tính cách",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00502"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/44-REVIEW-HSK3-PRODUCTION.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-cohesion-reconstruction-lesson-02",
+          "reviewedAt": "2026-09-28",
+          "scope": "Fourteen HSK3 production manuscripts. Source-linked notes, cohesion, retelling, guided writing and bounded explanation. AI-assisted self-review for local study; written self-assessment does not grant speaking or writing mastery.",
+          "sourceContentSha256": "sha256:de76d52b123130165d2e3792ee6755dbeb7678ad0903a94f113de85db985459d"
+        },
+        "objectiveVi": "Khôi phục từ nối và chỉ rõ đại từ quy chiếu",
+        "pitfallVi": "他 trong lời mời ăn trái cây chỉ ai? 先…再… nối hai hoạt động nào?",
+        "prerequisites": [
+          "hsk3-cohesion-reconstruction-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tìm danh từ gần nhất có nghĩa phù hợp trước khi giải “anh ấy/cô ấy”. Chọn từ nối theo quan hệ: 再 cho bước sau, 就 cho xử lý trong tình huống. Không dùng thời gian được nhắc sau để đảo trình tự việc xảy ra.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-cohesion-reconstruction-lesson-02"
+        ],
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-02",
+          "hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "sourceTaskIds": [
+          "hsk3-cohesion-reconstruction-lesson-02:prompt-01"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00510",
+          "hsk-vocab-00621",
+          "hsk-vocab-00724",
+          "hsk-vocab-00737",
+          "hsk-vocab-00970",
+          "hsk-vocab-00993",
+          "hsk-vocab-00579",
+          "hsk-vocab-00606",
+          "hsk-vocab-00644",
+          "hsk-vocab-00662",
+          "hsk-vocab-00667",
+          "hsk-vocab-00721",
+          "hsk-vocab-00729",
+          "hsk-vocab-00801",
+          "hsk-vocab-00832",
+          "hsk-vocab-00839",
+          "hsk-vocab-00896",
+          "hsk-vocab-00922",
+          "hsk-vocab-00971",
+          "hsk-vocab-00994",
+          "hsk-vocab-00519",
+          "hsk-vocab-00522",
+          "hsk-vocab-00561",
+          "hsk-vocab-00562",
+          "hsk-vocab-00645",
+          "hsk-vocab-00664",
+          "hsk-vocab-00670",
+          "hsk-vocab-00671",
+          "hsk-vocab-00700",
+          "hsk-vocab-00754",
+          "hsk-vocab-00759",
+          "hsk-vocab-00760",
+          "hsk-vocab-00803",
+          "hsk-vocab-00847",
+          "hsk-vocab-00908",
+          "hsk-vocab-00966",
+          "hsk-vocab-00531",
+          "hsk-vocab-00537",
+          "hsk-vocab-00564",
+          "hsk-vocab-00583",
+          "hsk-vocab-00608",
+          "hsk-vocab-00663",
+          "hsk-vocab-00676",
+          "hsk-vocab-00701",
+          "hsk-vocab-00751",
+          "hsk-vocab-00752",
+          "hsk-vocab-00796",
+          "hsk-vocab-00820",
+          "hsk-vocab-00858",
+          "hsk-vocab-00898",
+          "hsk-vocab-00948",
+          "hsk-vocab-00974",
+          "hsk-vocab-00989",
+          "hsk-vocab-00509",
+          "hsk-vocab-00533",
+          "hsk-vocab-00575",
+          "hsk-vocab-00609",
+          "hsk-vocab-00631",
+          "hsk-vocab-00633",
+          "hsk-vocab-00688",
+          "hsk-vocab-00730",
+          "hsk-vocab-00746",
+          "hsk-vocab-00758",
+          "hsk-vocab-00821",
+          "hsk-vocab-00829",
+          "hsk-vocab-00830",
+          "hsk-vocab-00834",
+          "hsk-vocab-00877",
+          "hsk-vocab-00879",
+          "hsk-vocab-00897",
+          "hsk-vocab-00986",
+          "hsk-vocab-00543",
+          "hsk-vocab-00550",
+          "hsk-vocab-00614",
+          "hsk-vocab-00692",
+          "hsk-vocab-00698",
+          "hsk-vocab-00833",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00984",
+          "hsk-vocab-00807",
+          "hsk-vocab-00840",
+          "hsk-vocab-00853",
+          "hsk-vocab-00978",
+          "hsk-vocab-00588",
+          "hsk-vocab-00678",
+          "hsk-vocab-00864",
+          "hsk-vocab-00934",
+          "hsk-vocab-00514",
+          "hsk-vocab-00587",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00771",
+          "hsk-vocab-00544",
+          "hsk-vocab-00650",
+          "hsk-vocab-00734",
+          "hsk-vocab-00745",
+          "hsk-vocab-00629",
+          "hsk-vocab-00988",
+          "hsk-vocab-00507",
+          "hsk-vocab-00955",
+          "hsk-vocab-00589",
+          "hsk-vocab-00591",
+          "hsk-vocab-00597",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00880",
+          "hsk-vocab-00560",
+          "hsk-vocab-00586",
+          "hsk-vocab-00593",
+          "hsk-vocab-00845",
+          "hsk-vocab-00992",
+          "hsk-vocab-00511",
+          "hsk-vocab-00605",
+          "hsk-vocab-00648",
+          "hsk-vocab-00526",
+          "hsk-vocab-00528",
+          "hsk-vocab-00529",
+          "hsk-vocab-00680",
+          "hsk-vocab-00757",
+          "hsk-vocab-00997",
+          "hsk-vocab-00875",
+          "hsk-vocab-00906",
+          "hsk-vocab-00949",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00902",
+          "hsk-vocab-00972",
+          "hsk-vocab-00584",
+          "hsk-vocab-00617",
+          "hsk-vocab-00646",
+          "hsk-vocab-00893",
+          "hsk-vocab-00926",
+          "hsk-vocab-00504",
+          "hsk-vocab-00641",
+          "hsk-vocab-00715",
+          "hsk-vocab-00914",
+          "hsk-vocab-00520",
+          "hsk-vocab-00551",
+          "hsk-vocab-00619",
+          "hsk-vocab-00635",
+          "hsk-vocab-00668",
+          "hsk-vocab-00818",
+          "hsk-vocab-00503",
+          "hsk-vocab-00542",
+          "hsk-vocab-00570",
+          "hsk-vocab-00594",
+          "hsk-vocab-00625",
+          "hsk-vocab-00656",
+          "hsk-vocab-00659",
+          "hsk-vocab-00708",
+          "hsk-vocab-00709",
+          "hsk-vocab-00711",
+          "hsk-vocab-00748",
+          "hsk-vocab-00814",
+          "hsk-vocab-00843",
+          "hsk-vocab-00867",
+          "hsk-vocab-00890",
+          "hsk-vocab-00903",
+          "hsk-vocab-00911",
+          "hsk-vocab-00959",
+          "hsk-vocab-00983",
+          "hsk-vocab-00505",
+          "hsk-vocab-00521",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00642",
+          "hsk-vocab-00661",
+          "hsk-vocab-00685",
+          "hsk-vocab-00719",
+          "hsk-vocab-00750",
+          "hsk-vocab-00773",
+          "hsk-vocab-00793",
+          "hsk-vocab-00816",
+          "hsk-vocab-00854",
+          "hsk-vocab-00868",
+          "hsk-vocab-00892",
+          "hsk-vocab-00915",
+          "hsk-vocab-00939",
+          "hsk-vocab-00962",
+          "hsk-vocab-00981",
+          "hsk-vocab-00502",
+          "hsk-vocab-00540",
+          "hsk-vocab-00566",
+          "hsk-vocab-00592",
+          "hsk-vocab-00638",
+          "hsk-vocab-00655",
+          "hsk-vocab-00658",
+          "hsk-vocab-00704",
+          "hsk-vocab-00738",
+          "hsk-vocab-00749",
+          "hsk-vocab-00790",
+          "hsk-vocab-00809",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865",
+          "hsk-vocab-00878",
+          "hsk-vocab-00913",
+          "hsk-vocab-00936",
+          "hsk-vocab-00958",
+          "hsk-vocab-00982",
+          "hsk-vocab-00990",
+          "hsk-vocab-00999"
+        ],
+        "targetLessonId": "hsk3-cohesion-reconstruction-lesson-02",
+        "titleZh": "HSK三级 · 45",
+        "vocabulary": [
+          "hsk-vocab-00510",
+          "hsk-vocab-00621",
+          "hsk-vocab-00724",
+          "hsk-vocab-00737",
+          "hsk-vocab-00970",
+          "hsk-vocab-00993",
+          "hsk-vocab-00579",
+          "hsk-vocab-00606",
+          "hsk-vocab-00644",
+          "hsk-vocab-00662",
+          "hsk-vocab-00667",
+          "hsk-vocab-00721",
+          "hsk-vocab-00729",
+          "hsk-vocab-00801",
+          "hsk-vocab-00832",
+          "hsk-vocab-00839",
+          "hsk-vocab-00896",
+          "hsk-vocab-00922",
+          "hsk-vocab-00971",
+          "hsk-vocab-00994",
+          "hsk-vocab-00519",
+          "hsk-vocab-00522",
+          "hsk-vocab-00561",
+          "hsk-vocab-00562",
+          "hsk-vocab-00645",
+          "hsk-vocab-00664",
+          "hsk-vocab-00670",
+          "hsk-vocab-00671",
+          "hsk-vocab-00700",
+          "hsk-vocab-00754",
+          "hsk-vocab-00759",
+          "hsk-vocab-00760",
+          "hsk-vocab-00803",
+          "hsk-vocab-00847",
+          "hsk-vocab-00908",
+          "hsk-vocab-00966",
+          "hsk-vocab-00531",
+          "hsk-vocab-00537",
+          "hsk-vocab-00564",
+          "hsk-vocab-00583",
+          "hsk-vocab-00608",
+          "hsk-vocab-00663",
+          "hsk-vocab-00676",
+          "hsk-vocab-00701",
+          "hsk-vocab-00751",
+          "hsk-vocab-00752",
+          "hsk-vocab-00796",
+          "hsk-vocab-00820",
+          "hsk-vocab-00858",
+          "hsk-vocab-00898",
+          "hsk-vocab-00948",
+          "hsk-vocab-00974",
+          "hsk-vocab-00989",
+          "hsk-vocab-00509",
+          "hsk-vocab-00533",
+          "hsk-vocab-00575",
+          "hsk-vocab-00609",
+          "hsk-vocab-00631",
+          "hsk-vocab-00633",
+          "hsk-vocab-00688",
+          "hsk-vocab-00730",
+          "hsk-vocab-00746",
+          "hsk-vocab-00758",
+          "hsk-vocab-00821",
+          "hsk-vocab-00829",
+          "hsk-vocab-00830",
+          "hsk-vocab-00834",
+          "hsk-vocab-00877",
+          "hsk-vocab-00879",
+          "hsk-vocab-00897",
+          "hsk-vocab-00986",
+          "hsk-vocab-00543",
+          "hsk-vocab-00550",
+          "hsk-vocab-00614",
+          "hsk-vocab-00692",
+          "hsk-vocab-00698",
+          "hsk-vocab-00833",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00984",
+          "hsk-vocab-00807",
+          "hsk-vocab-00840",
+          "hsk-vocab-00853",
+          "hsk-vocab-00978",
+          "hsk-vocab-00588",
+          "hsk-vocab-00678",
+          "hsk-vocab-00864",
+          "hsk-vocab-00934",
+          "hsk-vocab-00514",
+          "hsk-vocab-00587",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00771",
+          "hsk-vocab-00544",
+          "hsk-vocab-00650",
+          "hsk-vocab-00734",
+          "hsk-vocab-00745",
+          "hsk-vocab-00629",
+          "hsk-vocab-00988",
+          "hsk-vocab-00507",
+          "hsk-vocab-00955",
+          "hsk-vocab-00589",
+          "hsk-vocab-00591",
+          "hsk-vocab-00597",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00880",
+          "hsk-vocab-00560",
+          "hsk-vocab-00586",
+          "hsk-vocab-00593",
+          "hsk-vocab-00845",
+          "hsk-vocab-00992",
+          "hsk-vocab-00511",
+          "hsk-vocab-00605",
+          "hsk-vocab-00648",
+          "hsk-vocab-00526",
+          "hsk-vocab-00528",
+          "hsk-vocab-00529",
+          "hsk-vocab-00680",
+          "hsk-vocab-00757",
+          "hsk-vocab-00997",
+          "hsk-vocab-00875",
+          "hsk-vocab-00906",
+          "hsk-vocab-00949",
+          "hsk-vocab-00975",
+          "hsk-vocab-00731",
+          "hsk-vocab-00902",
+          "hsk-vocab-00972",
+          "hsk-vocab-00584",
+          "hsk-vocab-00617",
+          "hsk-vocab-00646",
+          "hsk-vocab-00893",
+          "hsk-vocab-00926",
+          "hsk-vocab-00504",
+          "hsk-vocab-00641",
+          "hsk-vocab-00715",
+          "hsk-vocab-00914",
+          "hsk-vocab-00520",
+          "hsk-vocab-00551",
+          "hsk-vocab-00619",
+          "hsk-vocab-00635",
+          "hsk-vocab-00668",
+          "hsk-vocab-00818",
+          "hsk-vocab-00503",
+          "hsk-vocab-00542",
+          "hsk-vocab-00570",
+          "hsk-vocab-00594",
+          "hsk-vocab-00625",
+          "hsk-vocab-00656",
+          "hsk-vocab-00659",
+          "hsk-vocab-00708",
+          "hsk-vocab-00709",
+          "hsk-vocab-00711",
+          "hsk-vocab-00748",
+          "hsk-vocab-00814",
+          "hsk-vocab-00843",
+          "hsk-vocab-00867",
+          "hsk-vocab-00890",
+          "hsk-vocab-00903",
+          "hsk-vocab-00911",
+          "hsk-vocab-00959",
+          "hsk-vocab-00983",
+          "hsk-vocab-00505",
+          "hsk-vocab-00521",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00642",
+          "hsk-vocab-00661",
+          "hsk-vocab-00685",
+          "hsk-vocab-00719",
+          "hsk-vocab-00750",
+          "hsk-vocab-00773",
+          "hsk-vocab-00793",
+          "hsk-vocab-00816",
+          "hsk-vocab-00854",
+          "hsk-vocab-00868",
+          "hsk-vocab-00892",
+          "hsk-vocab-00915",
+          "hsk-vocab-00939",
+          "hsk-vocab-00962",
+          "hsk-vocab-00981",
+          "hsk-vocab-00502",
+          "hsk-vocab-00540",
+          "hsk-vocab-00566",
+          "hsk-vocab-00592",
+          "hsk-vocab-00638",
+          "hsk-vocab-00655",
+          "hsk-vocab-00658",
+          "hsk-vocab-00704",
+          "hsk-vocab-00738",
+          "hsk-vocab-00749",
+          "hsk-vocab-00790",
+          "hsk-vocab-00809",
+          "hsk-vocab-00838",
+          "hsk-vocab-00865",
+          "hsk-vocab-00878",
+          "hsk-vocab-00913",
+          "hsk-vocab-00936",
+          "hsk-vocab-00958",
+          "hsk-vocab-00982",
+          "hsk-vocab-00990",
+          "hsk-vocab-00999"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "f4b2a44a-b376-4b50-b06b-35131ae996c2",
+      "sourceContentSha256": "sha256:ba258b3ca4176e7eb53ad23d02f5d2523e6dda7d51684e8f6e23891f906ee97f",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Thứ Bảy mua hoa, Chủ nhật mới đón khách.\nGiữ thứ tự ăn trưa trước, chụp ảnh sau.\nCó lựa chọn đồ uống cho khách và giới hạn một gia đình.",
+        "conceptVi": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình",
+        "dialogue": [
+          {
+            "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+            "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+            "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "星期五，妈妈和小雨买了水果和两种月饼。妈妈说，月饼是这次聚会的一种节日食物，不是每个人都一定要吃。",
+            "meaningVi": "Thứ Sáu mẹ và Tiểu Vũ mua trái cây cùng hai loại bánh Trung thu. Mẹ nói bánh là một món dịp lễ trong buổi gặp này; không phải ai cũng buộc phải ăn.",
+            "pinyin": "Xīngqīwǔ, māma hé Xiǎo Yǔ mǎi le shuǐguǒ hé liǎng zhǒng yuèbǐng. Māma shuō, yuèbǐng shì zhè cì jùhuì de yì zhǒng jiérì shíwù, bú shì měi ge rén dōu yídìng yào chī.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "周六晚上，客人来了。大家先吃饭，再到外面看月亮。一个客人不吃月饼，小雨就请他吃水果。",
+            "meaningVi": "Tối thứ Bảy khách tới. Mọi người ăn trước rồi ra ngoài ngắm trăng. Một người khách không ăn bánh; Tiểu Vũ mời người ấy trái cây.",
+            "pinyin": "Zhōuliù wǎnshang, kèrén lái le. Dàjiā xiān chī fàn, zài dào wàimiàn kàn yuèliang. Yí ge kèrén bù chī yuèbǐng, Xiǎo Yǔ jiù qǐng tā chī shuǐguǒ.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "聚会结束以后，小雨写下了家里的安排，想明年再看。她记录的是这一次的做法，没有说每个家庭都一样。",
+            "meaningVi": "Sau buổi gặp, Tiểu Vũ ghi lại lịch nhà mình để năm sau xem. Em ghi cách làm lần này, không nói mọi gia đình đều giống thế.",
+            "pinyin": "Jùhuì jiéshù yǐhòu, Xiǎo Yǔ xiě xià le jiālǐ de ānpái, xiǎng míngnián zài kàn. Tā jìlù de shì zhè yí cì de zuòfǎ, méiyǒu shuō měi ge jiātíng dōu yíyàng.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "先吃饭，再到外面看月亮。",
+            "answerMeaningVi": "Ăn trước rồi ra ngoài ngắm trăng.",
+            "answerPinyin": "Xiān chī fàn, zài dào wàimiàn kàn yuèliang.",
+            "distractors": [
+              "先看月亮，星期五才买水果。",
+              "每个客人都先吃月饼。"
+            ],
+            "explanationVi": "Đúng: ăn trước, ngắm trăng sau.",
+            "promptVi": "Trong tối thứ Bảy, mọi người làm gì theo thứ tự?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "快到了 và 打算 chỉ việc sắp đến/dự định; thứ Sáu đã mua đồ; tối thứ Bảy đã ăn rồi ngắm trăng. 先…再… xác định thứ tự. 节日食物 không đồng nghĩa mọi khách phải ăn.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "星期六，这家人买了花。星期天，客人来了以后，大家先吃午饭，再一起拍照。一个客人不喝茶，主人就请他喝水。这只是这家人的生日安排。",
+              "modelAnswerMeaningVi": "Thứ Bảy nhà này mua hoa. Chủ nhật sau khi khách tới, mọi người ăn trưa rồi chụp ảnh. Một khách không uống trà nên chủ mời nước. Đây chỉ là lịch sinh nhật của gia đình ấy.",
+              "modelAnswerPinyin": "Xīngqīliù, zhè jiā rén mǎi le huā. Xīngqītiān, kèrén lái le yǐhòu, dàjiā xiān chī wǔfàn, zài yìqǐ pāizhào. Yí ge kèrén bù hē chá, zhǔrén jiù qǐng tā hē shuǐ. Zhè zhǐ shì zhè jiā rén de shēngrì ānpái.",
+              "promptVi": "Gia đình khác mừng sinh nhật Chủ nhật: thứ Bảy mua hoa, Chủ nhật đón khách, ăn trưa rồi chụp ảnh. Một khách không uống trà và được mời nước. Viết 3–4 câu theo mốc, không nói mọi gia đình đều làm vậy."
+            },
+            "modelExample": {
+              "hanzi": "周六晚上，客人来了。大家先吃饭，再到外面看月亮。一个客人不吃月饼，小雨就请他吃水果。",
+              "meaningVi": "Tối thứ Bảy khách tới. Mọi người ăn trước rồi ra ngoài ngắm trăng. Một người khách không ăn bánh; Tiểu Vũ mời người ấy trái cây.",
+              "pinyin": "Zhōuliù wǎnshang, kèrén lái le. Dàjiā xiān chī fàn, zài dào wàimiàn kàn yuèliang. Yí ge kèrén bù chī yuèbǐng, Xiǎo Yǔ jiù qǐng tā chī shuǐguǒ.",
+              "speaker": "Đoạn 3"
+            },
+            "pattern": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình. Đọc các đoạn, đánh dấu bằng chứng rồi viết lại theo dữ kiện mới.",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ đọc của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "过节 guòjié — đón lễ; 月饼 yuèbǐng — bánh Trung thu; 中秋节 Zhōngqiū Jié — Tết Trung thu. Đây là lịch của gia đình trong chuyện.",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc bốn đoạn. Chọn câu/đoạn làm bằng chứng cho ghi chú; có thể mở Pinyin và nghĩa khi cần.",
+                    "notePrompt": "Ghi người, việc thay đổi, lý do và kết quả. Điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+                        "id": "hsk3-culture-tradition-descriptions-festivals-customs:paragraph-0",
+                        "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+                        "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi."
+                      },
+                      {
+                        "hanzi": "星期五，妈妈和小雨买了水果和两种月饼。妈妈说，月饼是这次聚会的一种节日食物，不是每个人都一定要吃。",
+                        "id": "hsk3-culture-tradition-descriptions-festivals-customs:paragraph-1",
+                        "meaningVi": "Thứ Sáu mẹ và Tiểu Vũ mua trái cây cùng hai loại bánh Trung thu. Mẹ nói bánh là một món dịp lễ trong buổi gặp này; không phải ai cũng buộc phải ăn.",
+                        "pinyin": "Xīngqīwǔ, māma hé Xiǎo Yǔ mǎi le shuǐguǒ hé liǎng zhǒng yuèbǐng. Māma shuō, yuèbǐng shì zhè cì jùhuì de yì zhǒng jiérì shíwù, bú shì měi ge rén dōu yídìng yào chī."
+                      },
+                      {
+                        "hanzi": "周六晚上，客人来了。大家先吃饭，再到外面看月亮。一个客人不吃月饼，小雨就请他吃水果。",
+                        "id": "hsk3-culture-tradition-descriptions-festivals-customs:paragraph-2",
+                        "meaningVi": "Tối thứ Bảy khách tới. Mọi người ăn trước rồi ra ngoài ngắm trăng. Một người khách không ăn bánh; Tiểu Vũ mời người ấy trái cây.",
+                        "pinyin": "Zhōuliù wǎnshang, kèrén lái le. Dàjiā xiān chī fàn, zài dào wàimiàn kàn yuèliang. Yí ge kèrén bù chī yuèbǐng, Xiǎo Yǔ jiù qǐng tā chī shuǐguǒ."
+                      },
+                      {
+                        "hanzi": "聚会结束以后，小雨写下了家里的安排，想明年再看。她记录的是这一次的做法，没有说每个家庭都一样。",
+                        "id": "hsk3-culture-tradition-descriptions-festivals-customs:paragraph-3",
+                        "meaningVi": "Sau buổi gặp, Tiểu Vũ ghi lại lịch nhà mình để năm sau xem. Em ghi cách làm lần này, không nói mọi gia đình đều giống thế.",
+                        "pinyin": "Jùhuì jiéshù yǐhòu, Xiǎo Yǔ xiě xià le jiālǐ de ānpái, xiǎng míngnián zài kàn. Tā jìlù de shì zhè yí cì de zuòfǎ, méiyǒu shuō měi ge jiātíng dōu yíyàng."
+                      }
+                    ]
+                  },
+                  "title": "Lễ hội truyền thống và phong tục"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc và giữ bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "diagram": {
+                    "description": "Thứ Sáu mua đồ; tối thứ Bảy khách đến, ăn rồi ngắm trăng. Một khách chọn trái cây thay bánh. Đây chỉ là lịch một gia đình.",
+                    "nodes": [
+                      {
+                        "id": "fri",
+                        "label": "星期五",
+                        "meaningVi": "thứ Sáu",
+                        "note": "Mua trái cây và hai loại bánh.",
+                        "pinyin": "Xīngqīwǔ",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "arrival",
+                        "label": "周六晚上",
+                        "meaningVi": "tối thứ Bảy",
+                        "note": "Khách đến.",
+                        "pinyin": "Zhōuliù wǎnshang",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "meal",
+                        "label": "先吃饭",
+                        "meaningVi": "ăn trước",
+                        "note": "Một khách không ăn bánh.",
+                        "pinyin": "xiān chī fàn",
+                        "x": 0,
+                        "y": 2
+                      },
+                      {
+                        "id": "moon",
+                        "label": "再看月亮",
+                        "meaningVi": "ngắm trăng sau",
+                        "note": "Mọi người ra ngoài.",
+                        "pinyin": "zài kàn yuèliang",
+                        "x": 0,
+                        "y": 3
+                      }
+                    ],
+                    "type": "timeline"
+                  },
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Lịch gặp của gia đình Tiểu Vũ"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:diagram",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Lịch gặp của gia đình Tiểu Vũ"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "快到了 và 打算 chỉ việc sắp đến/dự định; thứ Sáu đã mua đồ; tối thứ Bảy đã ăn rồi ngắm trăng. 先…再… xác định thứ tự. 节日食物 không đồng nghĩa mọi khách phải ăn.",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách nối ý và giới hạn của thông tin"
+                },
+                {
+                  "alt": "",
+                  "body": "Không nói tối thứ Sáu đã ngắm trăng. Không biến lịch một gia đình thành phong tục bắt buộc của tất cả người Trung Quốc.",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không suy quá bằng chứng"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:connections",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hiểu quan hệ giữa các câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "ngày lễ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "星期五，妈妈和小雨买了水果和两种月饼。妈妈说，月饼是这次聚会的一种节日食物，不是每个人都一定要吃。",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:word-hsk-vocab-00711",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Thứ Sáu mẹ và Tiểu Vũ mua trái cây cùng hai loại bánh Trung thu. Mẹ nói bánh là một món dịp lễ trong buổi gặp này; không phải ai cũng buộc phải ăn.",
+                  "pinyin": "Xīngqīwǔ, māma hé Xiǎo Yǔ mǎi le shuǐguǒ hé liǎng zhǒng yuèbǐng. Māma shuō, yuèbǐng shì zhè cì jùhuì de yì zhǒng jiérì shíwù, bú shì měi ge rén dōu yídìng yào chī.",
+                  "provenance": "",
+                  "title": "节日 · jiérì"
+                },
+                {
+                  "alt": "",
+                  "body": "mặt trăng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "周六晚上，客人来了。大家先吃饭，再到外面看月亮。一个客人不吃月饼，小雨就请他吃水果。",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:word-hsk-vocab-00959",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tối thứ Bảy khách tới. Mọi người ăn trước rồi ra ngoài ngắm trăng. Một người khách không ăn bánh; Tiểu Vũ mời người ấy trái cây.",
+                  "pinyin": "Zhōuliù wǎnshang, kèrén lái le. Dàjiā xiān chī fàn, zài dào wàimiàn kàn yuèliang. Yí ge kèrén bù chī yuèbǐng, Xiǎo Yǔ jiù qǐng tā chī shuǐguǒ.",
+                  "provenance": "",
+                  "title": "月亮 · yuèliang"
+                },
+                {
+                  "alt": "",
+                  "body": "khách; khách hàng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:word-hsk-vocab-00737",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+                  "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi.",
+                  "provenance": "",
+                  "title": "客人 · kèrén"
+                },
+                {
+                  "alt": "",
+                  "body": "trước; đầu tiên\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "中秋节快到了，小雨一家打算周六晚上一起吃饭。爸爸先问客人有没有不能吃的东西。",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:word-hsk-vocab-00890",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tết Trung thu sắp tới, nhà Tiểu Vũ dự định ăn cùng nhau tối thứ Bảy. Bố hỏi khách trước xem có món gì không thể ăn.",
+                  "pinyin": "Zhōngqiū Jié kuài dào le, Xiǎo Yǔ yì jiā dǎsuàn Zhōuliù wǎnshang yìqǐ chī fàn. Bàba xiān wèn kèrén yǒu méiyǒu bù néng chī de dōngxi.",
+                  "provenance": "",
+                  "title": "先 · xiān"
+                },
+                {
+                  "alt": "",
+                  "body": "kết thúc\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "聚会结束以后，小雨写下了家里的安排，想明年再看。她记录的是这一次的做法，没有说每个家庭都一样。",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:word-hsk-vocab-00712",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Sau buổi gặp, Tiểu Vũ ghi lại lịch nhà mình để năm sau xem. Em ghi cách làm lần này, không nói mọi gia đình đều giống thế.",
+                  "pinyin": "Jùhuì jiéshù yǐhòu, Xiǎo Yǔ xiě xià le jiālǐ de ānpái, xiǎng míngnián zài kàn. Tā jìlù de shì zhè yí cì de zuòfǎ, méiyǒu shuō měi ge jiātíng dōu yíyàng.",
+                  "provenance": "",
+                  "title": "结束 · jiéshù"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:core-words",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ trọng tâm trong văn bản"
+            },
+            {
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:page:teach",
+              "stage": "understand",
+              "title": "Giới thiệu người bạn đời trong dịp gặp mặt",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:note",
+                  "kind": "explanation",
+                  "title": "爱人",
+                  "body": "Trong cách giới thiệu gia đình ở Mainland Mandarin, 爱人 (àiren, 人 thanh nhẹ) thường chỉ vợ hoặc chồng, không xác định giới tính. Không dùng mặc định để gọi bạn trai/bạn gái chưa kết hôn: có thể dùng 男朋友/女朋友. 丈夫/妻子 nêu rõ chồng/vợ; 老公/老婆 thân mật hơn. Cách gọi phụ thuộc người nói và hoàn cảnh, không phải mọi gia đình đều dùng 爱人.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "王老师和爱人结婚十年了。今年中秋节，他们一起回家看父母。",
+                  "pinyin": "Wáng lǎoshī hé àiren jiéhūn shí nián le. Jīnnián Zhōngqiū Jié, tāmen yìqǐ huí jiā kàn fùmǔ.",
+                  "meaningVi": "Thầy Vương và người bạn đời đã kết hôn mười năm. Tết Trung thu năm nay, họ cùng về nhà thăm bố mẹ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这是我爱人，她在附近的学校工作。",
+                  "pinyin": "Zhè shì wǒ àiren, tā zài fùjìn de xuéxiào gōngzuò.",
+                  "meaningVi": "Đây là vợ tôi, cô ấy làm việc ở trường gần đây.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 爱人",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Trong câu về thầy Vương, 爱人 chỉ ai?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Một người bạn cùng trường",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Người vợ hoặc chồng đã kết hôn với thầy",
+                        "feedback": "结婚十年了 xác nhận hai người đã kết hôn mười năm. Riêng từ 爱人 không cho biết giới tính người bạn đời."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Người đang hẹn hò, chắc chắn chưa kết hôn",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "结婚十年了 xác nhận hai người đã kết hôn mười năm. Riêng từ 爱人 không cho biết giới tính người bạn đời.",
+                    "learningTarget": {
+                      "objective": "Giới thiệu người bạn đời trong dịp gặp mặt",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00503"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "explanation": "Đúng: ăn trước, ngắm trăng sau.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-culture-tradition-descriptions-festivals-customs",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng: ăn trước, ngắm trăng sau.",
+                        "id": "o-0",
+                        "text": "先吃饭，再到外面看月亮。"
+                      },
+                      {
+                        "feedback": "Sai: trái cây đã mua thứ Sáu và thứ tự tối thứ Bảy ngược lại.",
+                        "id": "o-1",
+                        "text": "先看月亮，星期五才买水果。"
+                      },
+                      {
+                        "feedback": "Sai: một khách không ăn bánh.",
+                        "id": "o-2",
+                        "text": "每个客人都先吃月饼。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Trong tối thứ Bảy, mọi người làm gì theo thứ tự?",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn kết luận có căn cứ"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Đọc để quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "再"
+                    ],
+                    "answerIds": [],
+                    "explanation": "先…再… ghi trình tự hai việc trong buổi gặp.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-culture-tradition-descriptions-festivals-customs",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền từ chỉ bước sau: 大家先吃饭，___到外面看月亮。",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền theo quan hệ được yêu cầu"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự nối lại ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n星期六，这家人买了花。星期天，客人来了以后，大家先吃午饭，再一起拍照。一个客人不喝茶，主人就请他喝水。这只是这家人的生日安排。\nXīngqīliù, zhè jiā rén mǎi le huā. Xīngqītiān, kèrén lái le yǐhòu, dàjiā xiān chī wǔfàn, zài yìqǐ pāizhào. Yí ge kèrén bù hē chá, zhǔrén jiù qǐng tā hē shuǐ. Zhè zhǐ shì zhè jiā rén de shēngrì ānpái.\nThứ Bảy nhà này mua hoa. Chủ nhật sau khi khách tới, mọi người ăn trưa rồi chụp ảnh. Một khách không uống trà nên chủ mời nước. Đây chỉ là lịch sinh nhật của gia đình ấy.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Tự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-culture-tradition-descriptions-festivals-customs",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Thứ Bảy mua hoa, Chủ nhật mới đón khách.",
+                        "id": "criterion-0",
+                        "label": "Thứ Bảy mua hoa, Chủ nhật mới đón khách."
+                      },
+                      {
+                        "guidance": "Giữ thứ tự ăn trưa trước, chụp ảnh sau.",
+                        "id": "criterion-1",
+                        "label": "Giữ thứ tự ăn trưa trước, chụp ảnh sau."
+                      },
+                      {
+                        "guidance": "Có lựa chọn đồ uống cho khách và giới hạn một gia đình.",
+                        "id": "criterion-2",
+                        "label": "Có lựa chọn đồ uống cho khách và giới hạn một gia đình."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Gia đình khác mừng sinh nhật Chủ nhật: thứ Bảy mua hoa, Chủ nhật đón khách, ăn trưa rồi chụp ảnh. Một khách không uống trà và được mời nước. Viết 3–4 câu theo mốc, không nói mọi gia đình đều làm vậy.",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Viết với dữ kiện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Thứ Bảy mua hoa, Chủ nhật mới đón khách.\nGiữ thứ tự ăn trưa trước, chụp ảnh sau.\nCó lựa chọn đồ uống cho khách và giới hạn một gia đình.\nSửa ít nhất một điểm chưa rõ trong bản viết, rồi thử kể lại khi không nhìn mẫu. Dùng Tra từ trong bài để ôn từ liên quan; xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bài viết"
+                }
+              ],
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự sửa trước khi tiếp tục"
+            },
+            {
+              "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 爱人 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-culture-tradition-descriptions-festivals-customs:vocab-context-r1:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Trong buổi giới thiệu với hàng xóm mới, cô Trần muốn nói: đây là chồng tôi, anh ấy làm việc tại bệnh viện. Dùng 爱人 viết một câu. Nếu hai người chỉ đang hẹn hò thì cần đổi cách gọi thế nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Dùng 爱人 cho người phối ngẫu; 他 đúng dữ kiện chồng.",
+                        "guidance": "Dùng 爱人 cho người phối ngẫu; 他 đúng dữ kiện chồng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Nếu chỉ hẹn hò, dùng 男朋友 trong tình huống này.",
+                        "guidance": "Nếu chỉ hẹn hò, dùng 男朋友 trong tình huống này."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n这是我爱人，他在医院工作。\nZhè shì wǒ àiren, tā zài yīyuàn gōngzuò.\nĐây là chồng tôi, anh ấy làm việc ở bệnh viện.\nDùng 爱人 cho người phối ngẫu; 他 đúng dữ kiện chồng.\nNếu chỉ hẹn hò, dùng 男朋友 trong tình huống này.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Giới thiệu người bạn đời trong dịp gặp mặt",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00503"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/40-REVIEW-HSK3-CULTURE.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
+          "reviewedAt": "2026-09-27",
+          "scope": "Five original, bounded HSK3 culture narratives with editable factual diagrams and transfer writing. Local AI-assisted review; no human/native-audio/mastery sign-off.",
+          "sourceContentSha256": "sha256:07754bf86a48e4aba15dcac708908eef010b8ec47ea962bb69357b0f1e9b6873"
+        },
+        "objectiveVi": "Kể đúng trình tự chuẩn bị và thực hiện một dịp lễ của gia đình",
+        "pitfallVi": "Không nói tối thứ Sáu đã ngắm trăng. Không biến lịch một gia đình thành phong tục bắt buộc của tất cả người Trung Quốc.",
+        "prerequisites": [
+          "hsk3-culture-tradition-descriptions-tableware-etiquette"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "快到了 và 打算 chỉ việc sắp đến/dự định; thứ Sáu đã mua đồ; tối thứ Bảy đã ăn rồi ngắm trăng. 先…再… xác định thứ tự. 节日食物 không đồng nghĩa mọi khách phải ăn.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "sourceTaskIds": [
+          "hsk3-paragraph-task:hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "sourceTopicIds": [
+          "hsk3-topic-053"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00503",
+          "hsk-vocab-00542",
+          "hsk-vocab-00570",
+          "hsk-vocab-00594",
+          "hsk-vocab-00625",
+          "hsk-vocab-00656",
+          "hsk-vocab-00659",
+          "hsk-vocab-00708",
+          "hsk-vocab-00709",
+          "hsk-vocab-00711",
+          "hsk-vocab-00748",
+          "hsk-vocab-00814",
+          "hsk-vocab-00843",
+          "hsk-vocab-00867",
+          "hsk-vocab-00890",
+          "hsk-vocab-00903",
+          "hsk-vocab-00911",
+          "hsk-vocab-00959",
+          "hsk-vocab-00983",
+          "hsk-vocab-00510",
+          "hsk-vocab-00621",
+          "hsk-vocab-00724",
+          "hsk-vocab-00737",
+          "hsk-vocab-00801",
+          "hsk-vocab-00922",
+          "hsk-vocab-00834",
+          "hsk-vocab-00682",
+          "hsk-vocab-00885",
+          "hsk-vocab-00941",
+          "hsk-vocab-00678",
+          "hsk-vocab-00514",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00980",
+          "hsk-vocab-00544",
+          "hsk-vocab-00745",
+          "hsk-vocab-00589",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00593",
+          "hsk-vocab-00992",
+          "hsk-vocab-00695",
+          "hsk-vocab-00680",
+          "hsk-vocab-00975",
+          "hsk-vocab-00546",
+          "hsk-vocab-00703",
+          "hsk-vocab-00731",
+          "hsk-vocab-00712",
+          "hsk-vocab-00926",
+          "hsk-vocab-00914",
+          "hsk-vocab-00965",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00685",
+          "hsk-vocab-00719",
+          "hsk-vocab-00658",
+          "hsk-vocab-00865",
+          "hsk-vocab-00913"
+        ],
+        "targetLessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
+        "titleZh": "HSK三级 · 23",
+        "vocabulary": [
+          "hsk-vocab-00503",
+          "hsk-vocab-00542",
+          "hsk-vocab-00570",
+          "hsk-vocab-00594",
+          "hsk-vocab-00625",
+          "hsk-vocab-00656",
+          "hsk-vocab-00659",
+          "hsk-vocab-00708",
+          "hsk-vocab-00709",
+          "hsk-vocab-00711",
+          "hsk-vocab-00748",
+          "hsk-vocab-00814",
+          "hsk-vocab-00843",
+          "hsk-vocab-00867",
+          "hsk-vocab-00890",
+          "hsk-vocab-00903",
+          "hsk-vocab-00911",
+          "hsk-vocab-00959",
+          "hsk-vocab-00983",
+          "hsk-vocab-00510",
+          "hsk-vocab-00621",
+          "hsk-vocab-00724",
+          "hsk-vocab-00737",
+          "hsk-vocab-00801",
+          "hsk-vocab-00922",
+          "hsk-vocab-00834",
+          "hsk-vocab-00682",
+          "hsk-vocab-00885",
+          "hsk-vocab-00941",
+          "hsk-vocab-00678",
+          "hsk-vocab-00514",
+          "hsk-vocab-00677",
+          "hsk-vocab-00683",
+          "hsk-vocab-00980",
+          "hsk-vocab-00544",
+          "hsk-vocab-00745",
+          "hsk-vocab-00589",
+          "hsk-vocab-00624",
+          "hsk-vocab-00652",
+          "hsk-vocab-00593",
+          "hsk-vocab-00992",
+          "hsk-vocab-00695",
+          "hsk-vocab-00680",
+          "hsk-vocab-00975",
+          "hsk-vocab-00546",
+          "hsk-vocab-00703",
+          "hsk-vocab-00731",
+          "hsk-vocab-00712",
+          "hsk-vocab-00926",
+          "hsk-vocab-00914",
+          "hsk-vocab-00965",
+          "hsk-vocab-00541",
+          "hsk-vocab-00578",
+          "hsk-vocab-00685",
+          "hsk-vocab-00719",
+          "hsk-vocab-00658",
+          "hsk-vocab-00865",
+          "hsk-vocab-00913"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "d148041d-4269-456a-9c08-fc536188d49d",
+      "sourceContentSha256": "sha256:4a3d1fe7c1f547a365f3aaf1039d9e5a8ecd8ba35f6e3441c3fcdc7acce6a402",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Giữ 9 giờ xuất phát, 10:05 đến và chuyến cũ 10 giờ.\nNêu tắc đường dẫn đến lỡ tàu, khác truyện An.\nĐổi vé 11 giờ; không tự khẳng định đã lên chuyến mới.",
+        "conceptVi": "Theo dõi lịch trình dự kiến và kết quả thực tế",
+        "dialogue": [
+          {
+            "hanzi": "小安打算坐九点的火车去看朋友。他根据地图，决定八点坐出租车出发。",
+            "meaningVi": "Tiểu An định đi tàu 9 giờ thăm bạn. Dựa trên bản đồ, anh quyết định xuất phát bằng taxi lúc 8 giờ.",
+            "pinyin": "Xiǎo Ān dǎsuàn zuò jiǔ diǎn de huǒchē qù kàn péngyou. Tā gēnjù dìtú, juédìng bā diǎn zuò chūzūchē chūfā.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "到了一个路口，前面堵车了。司机说，换一条路可能快一点儿，小安同意了。",
+            "meaningVi": "Đến một giao lộ, phía trước tắc đường. Tài xế nói đổi đường có thể nhanh hơn một chút, Tiểu An đồng ý.",
+            "pinyin": "Dào le yí ge lùkǒu, qiánmian dǔchē le. Sījī shuō, huàn yì tiáo lù kěnéng kuài yìdiǎnr, Xiǎo Ān tóngyì le.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "他们绕路以后，八点四十分到了火车站。小安先找到了入口，再拿出车票。",
+            "meaningVi": "Sau khi đi vòng, họ đến ga lúc 8:40. Tiểu An tìm được lối vào trước rồi lấy vé ra.",
+            "pinyin": "Tāmen ràolù yǐhòu, bā diǎn sìshí fēn dào le huǒchēzhàn. Xiǎo Ān xiān zhǎo dào le rùkǒu, zài ná chū chēpiào.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "八点五十分开始检票。虽然路上耽误了一些时间，小安最后还是坐上了九点的火车。",
+            "meaningVi": "8:50 bắt đầu kiểm vé. Dù trên đường mất thêm thời gian, cuối cùng Tiểu An vẫn lên được tàu 9 giờ.",
+            "pinyin": "Bā diǎn wǔshí fēn kāishǐ jiǎnpiào. Suīrán lùshang dānwu le yìxiē shíjiān, Xiǎo Ān zuìhòu háishi zuò shàng le jiǔ diǎn de huǒchē.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "小安八点四十分到站，后来坐上了九点的火车。",
+            "answerMeaningVi": "An đến ga 8:40, sau đó lên được tàu 9 giờ.",
+            "answerPinyin": "Xiǎo Ān bā diǎn sìshí fēn dào zhàn, hòulái zuò shàng le jiǔ diǎn de huǒchē.",
+            "distractors": [
+              "小安没赶上九点的火车。",
+              "绕路一定比原来的路快四十分钟。"
+            ],
+            "explanationVi": "Đúng: giữ đúng giờ đến và kết quả.",
+            "promptVi": "Thông tin nào được văn bản xác nhận?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Tách giờ xuất phát 8:00, đến ga 8:40, kiểm vé 8:50 và tàu 9:00. 根据 nêu căn cứ ra quyết định. 可能 chỉ khả năng của đường vòng, không đảm bảo nhanh hơn. 虽然…还是… nối trở ngại với kết quả đạt được. 坐上了 cho biết đã lên được, không chỉ dự định 坐.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "小梅打算坐十点的火车，九点就出发了。因为路上堵车，她十点零五分才到火车站。她没赶上十点的火车。后来，她换了十一点的车票。",
+              "modelAnswerMeaningVi": "Mai định đi tàu 10 giờ, đã xuất phát lúc 9 giờ. Vì tắc đường, 10:05 cô mới đến ga. Cô lỡ tàu 10 giờ. Sau đó cô đổi vé sang 11 giờ.",
+              "modelAnswerPinyin": "Xiǎo Méi dǎsuàn zuò shí diǎn de huǒchē, jiǔ diǎn jiù chūfā le. Yīnwèi lùshang dǔchē, tā shí diǎn líng wǔ fēn cái dào huǒchēzhàn. Tā méi gǎn shàng shí diǎn de huǒchē. Hòulái, tā huàn le shíyī diǎn de chēpiào.",
+              "promptVi": "Dữ kiện mới: Mai định đi tàu 10 giờ, xuất phát 9 giờ nhưng đến ga 10:05 vì tắc đường. Sau đó đổi vé sang 11 giờ. Viết 4 câu phân biệt kế hoạch, nguyên nhân, lỡ chuyến và giải pháp; không giữ kết quả lên tàu đúng chuyến của An."
+            },
+            "modelExample": {
+              "hanzi": "他们绕路以后，八点四十分到了火车站。小安先找到了入口，再拿出车票。",
+              "meaningVi": "Sau khi đi vòng, họ đến ga lúc 8:40. Tiểu An tìm được lối vào trước rồi lấy vé ra.",
+              "pinyin": "Tāmen ràolù yǐhòu, bā diǎn sìshí fēn dào le huǒchēzhàn. Xiǎo Ān xiān zhǎo dào le rùkǒu, zài ná chū chēpiào.",
+              "speaker": "Đoạn 3"
+            },
+            "pattern": "Theo dõi lịch trình dự kiến và kết quả thực tế"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Theo dõi lịch trình dự kiến và kết quả thực tế. Đọc các đoạn, đánh dấu bằng chứng rồi viết lại theo dữ kiện mới. Ảnh chỉ minh họa bối cảnh, không cung cấp thêm sự kiện.",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ đọc của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "出租车 chūzūchē — taxi; 堵车 dǔchē — tắc đường; 绕路 ràolù — đi vòng; 入口 rùkǒu — lối vào. Giờ giấc trong văn bản là dữ kiện bài, ảnh không có đồng hồ để đọc.\n耽误 dānwu — làm chậm; 赶上 gǎn shàng — kịp; 打算 dǎsuàn — dự định; 可能 kěnéng — có thể.",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:context",
+              "illustration": {
+                "alt": "Bối cảnh: Lịch trình, phương tiện và quy tắc đi lại",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk3-travel-detour-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Theo dõi lịch trình dự kiến và kết quả thực tế"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc bốn đoạn. Chọn câu/đoạn làm bằng chứng cho ghi chú; có thể mở Pinyin và nghĩa khi cần.",
+                    "notePrompt": "Ghi người, việc thay đổi, lý do và kết quả. Điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "小安打算坐九点的火车去看朋友。他根据地图，决定八点坐出租车出发。",
+                        "id": "hsk3-personal-life-narratives-travel-transport:paragraph-0",
+                        "meaningVi": "Tiểu An định đi tàu 9 giờ thăm bạn. Dựa trên bản đồ, anh quyết định xuất phát bằng taxi lúc 8 giờ.",
+                        "pinyin": "Xiǎo Ān dǎsuàn zuò jiǔ diǎn de huǒchē qù kàn péngyou. Tā gēnjù dìtú, juédìng bā diǎn zuò chūzūchē chūfā."
+                      },
+                      {
+                        "hanzi": "到了一个路口，前面堵车了。司机说，换一条路可能快一点儿，小安同意了。",
+                        "id": "hsk3-personal-life-narratives-travel-transport:paragraph-1",
+                        "meaningVi": "Đến một giao lộ, phía trước tắc đường. Tài xế nói đổi đường có thể nhanh hơn một chút, Tiểu An đồng ý.",
+                        "pinyin": "Dào le yí ge lùkǒu, qiánmian dǔchē le. Sījī shuō, huàn yì tiáo lù kěnéng kuài yìdiǎnr, Xiǎo Ān tóngyì le."
+                      },
+                      {
+                        "hanzi": "他们绕路以后，八点四十分到了火车站。小安先找到了入口，再拿出车票。",
+                        "id": "hsk3-personal-life-narratives-travel-transport:paragraph-2",
+                        "meaningVi": "Sau khi đi vòng, họ đến ga lúc 8:40. Tiểu An tìm được lối vào trước rồi lấy vé ra.",
+                        "pinyin": "Tāmen ràolù yǐhòu, bā diǎn sìshí fēn dào le huǒchēzhàn. Xiǎo Ān xiān zhǎo dào le rùkǒu, zài ná chū chēpiào."
+                      },
+                      {
+                        "hanzi": "八点五十分开始检票。虽然路上耽误了一些时间，小安最后还是坐上了九点的火车。",
+                        "id": "hsk3-personal-life-narratives-travel-transport:paragraph-3",
+                        "meaningVi": "8:50 bắt đầu kiểm vé. Dù trên đường mất thêm thời gian, cuối cùng Tiểu An vẫn lên được tàu 9 giờ.",
+                        "pinyin": "Bā diǎn wǔshí fēn kāishǐ jiǎnpiào. Suīrán lùshang dānwu le yìxiē shíjiān, Xiǎo Ān zuìhòu háishi zuò shàng le jiǔ diǎn de huǒchē."
+                      }
+                    ]
+                  },
+                  "title": "Lịch trình, phương tiện và quy tắc đi lại"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc và giữ bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Tách giờ xuất phát 8:00, đến ga 8:40, kiểm vé 8:50 và tàu 9:00. 根据 nêu căn cứ ra quyết định. 可能 chỉ khả năng của đường vòng, không đảm bảo nhanh hơn. 虽然…还是… nối trở ngại với kết quả đạt được. 坐上了 cho biết đã lên được, không chỉ dự định 坐.",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách nối ý và giới hạn của thông tin"
+                },
+                {
+                  "alt": "",
+                  "body": "Tắc đường không đồng nghĩa lỡ tàu. Không suy đường vòng mất đúng 40 phút: 40 phút là toàn hành trình từ lúc xuất phát. Không biến lời dự đoán tài xế thành kết quả đo được.",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không suy quá bằng chứng"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:connections",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hiểu quan hệ giữa các câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "căn cứ vào; theo\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小安打算坐九点的火车去看朋友。他根据地图，决定八点坐出租车出发。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00645",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tiểu An định đi tàu 9 giờ thăm bạn. Dựa trên bản đồ, anh quyết định xuất phát bằng taxi lúc 8 giờ.",
+                  "pinyin": "Xiǎo Ān dǎsuàn zuò jiǔ diǎn de huǒchē qù kàn péngyou. Tā gēnjù dìtú, juédìng bā diǎn zuò chūzūchē chūfā.",
+                  "provenance": "",
+                  "title": "根据 · gēnjù"
+                },
+                {
+                  "alt": "",
+                  "body": "bản đồ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小安打算坐九点的火车去看朋友。他根据地图，决定八点坐出租车出发。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00592",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tiểu An định đi tàu 9 giờ thăm bạn. Dựa trên bản đồ, anh quyết định xuất phát bằng taxi lúc 8 giờ.",
+                  "pinyin": "Xiǎo Ān dǎsuàn zuò jiǔ diǎn de huǒchē qù kàn péngyou. Tā gēnjù dìtú, juédìng bā diǎn zuò chūzūchē chūfā.",
+                  "provenance": "",
+                  "title": "地图 · dìtú"
+                },
+                {
+                  "alt": "",
+                  "body": "quyết định; đưa ra quyết định\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小安打算坐九点的火车去看朋友。他根据地图，决定八点坐出租车出发。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00724",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tiểu An định đi tàu 9 giờ thăm bạn. Dựa trên bản đồ, anh quyết định xuất phát bằng taxi lúc 8 giờ.",
+                  "pinyin": "Xiǎo Ān dǎsuàn zuò jiǔ diǎn de huǒchē qù kàn péngyou. Tā gēnjù dìtú, juédìng bā diǎn zuò chūzūchē chūfā.",
+                  "provenance": "",
+                  "title": "决定 · juédìng"
+                },
+                {
+                  "alt": "",
+                  "body": "xuất phát\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小安打算坐九点的火车去看朋友。他根据地图，决定八点坐出租车出发。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00562",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tiểu An định đi tàu 9 giờ thăm bạn. Dựa trên bản đồ, anh quyết định xuất phát bằng taxi lúc 8 giờ.",
+                  "pinyin": "Xiǎo Ān dǎsuàn zuò jiǔ diǎn de huǒchē qù kàn péngyou. Tā gēnjù dìtú, juédìng bā diǎn zuò chūzūchē chūfā.",
+                  "provenance": "",
+                  "title": "出发 · chūfā"
+                },
+                {
+                  "alt": "",
+                  "body": "ngã đường; giao lộ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "到了一个路口，前面堵车了。司机说，换一条路可能快一点儿，小安同意了。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00763",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đến một giao lộ, phía trước tắc đường. Tài xế nói đổi đường có thể nhanh hơn một chút, Tiểu An đồng ý.",
+                  "pinyin": "Dào le yí ge lùkǒu, qiánmian dǔchē le. Sījī shuō, huàn yì tiáo lù kěnéng kuài yìdiǎnr, Xiǎo Ān tóngyì le.",
+                  "provenance": "",
+                  "title": "路口 · lùkǒu"
+                },
+                {
+                  "alt": "",
+                  "body": "tài xế\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "到了一个路口，前面堵车了。司机说，换一条路可能快一点儿，小安同意了。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00847",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đến một giao lộ, phía trước tắc đường. Tài xế nói đổi đường có thể nhanh hơn một chút, Tiểu An đồng ý.",
+                  "pinyin": "Dào le yí ge lùkǒu, qiánmian dǔchē le. Sījī shuō, huàn yì tiáo lù kěnéng kuài yìdiǎnr, Xiǎo Ān tóngyì le.",
+                  "provenance": "",
+                  "title": "司机 · sījī"
+                },
+                {
+                  "alt": "",
+                  "body": "đổi; thay\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "到了一个路口，前面堵车了。司机说，换一条路可能快一点儿，小安同意了。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00680",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Đến một giao lộ, phía trước tắc đường. Tài xế nói đổi đường có thể nhanh hơn một chút, Tiểu An đồng ý.",
+                  "pinyin": "Dào le yí ge lùkǒu, qiánmian dǔchē le. Sījī shuō, huàn yì tiáo lù kěnéng kuài yìdiǎnr, Xiǎo Ān tóngyì le.",
+                  "provenance": "",
+                  "title": "换 · huàn"
+                },
+                {
+                  "alt": "",
+                  "body": "kiểm vé\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "八点五十分开始检票。虽然路上耽误了一些时间，小安最后还是坐上了九点的火车。",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:word-hsk-vocab-00700",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "8:50 bắt đầu kiểm vé. Dù trên đường mất thêm thời gian, cuối cùng Tiểu An vẫn lên được tàu 9 giờ.",
+                  "pinyin": "Bā diǎn wǔshí fēn kāishǐ jiǎnpiào. Suīrán lùshang dānwu le yìxiē shíjiān, Xiǎo Ān zuìhòu háishi zuò shàng le jiǔ diǎn de huǒchē.",
+                  "provenance": "",
+                  "title": "检票 · jiǎnpiào"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:core-words",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ trọng tâm trong văn bản"
+            },
+            {
+              "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:page:teach",
+              "stage": "understand",
+              "title": "Mang sổ tay hay máy tính khi đi xa?",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:note",
+                  "kind": "explanation",
+                  "title": "笔记本",
+                  "body": "笔记本 (bǐjìběn) có thể là sổ tay/vở ghi; trong ngữ cảnh thiết bị còn là cách nói tắt của 笔记本电脑, máy tính xách tay. 一本笔记本 thường là một quyển sổ; 一台笔记本电脑 là một máy tính. 写在…上, 页 và 笔 giúp nhận nghĩa sổ; 开机, 充电 và 电脑 giúp nhận nghĩa máy tính. Khi chưa rõ, hỏi lại thay vì chỉ dựa vào một từ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "出发以前，我把车次和时间写在笔记本上。",
+                  "pinyin": "Chūfā yǐqián, wǒ bǎ chēcì hé shíjiān xiě zài bǐjìběn shàng.",
+                  "meaningVi": "Trước khi xuất phát, tôi ghi số hiệu chuyến tàu và giờ vào sổ tay.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我的笔记本电脑没电了，到了酒店再充电。",
+                  "pinyin": "Wǒ de bǐjìběn diànnǎo méi diàn le, dào le jiǔdiàn zài chōngdiàn.",
+                  "meaningVi": "Máy tính xách tay của tôi hết pin rồi, tới khách sạn sẽ sạc.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 笔记本",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Bạn cần một quyển sổ giấy để ghi lịch tàu. Cách hỏi mua nào rõ nhất?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我想买一台笔记本电脑。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我想买一本写字用的笔记本。",
+                        "feedback": "一本 và 写字用的 làm rõ sổ để viết. 一台笔记本电脑 là máy tính; 没电了 chỉ tình trạng hết điện."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我的电脑没电了。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "一本 và 写字用的 làm rõ sổ để viết. 一台笔记本电脑 là máy tính; 没电了 chỉ tình trạng hết điện.",
+                    "learningTarget": {
+                      "objective": "Mang sổ tay hay máy tính khi đi xa?",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00522"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "explanation": "Đúng: giữ đúng giờ đến và kết quả.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi lịch trình dự kiến và kết quả thực tế",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-personal-life-narratives-travel-transport",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Sai: kết thúc nói đã lên tàu 9 giờ.",
+                        "id": "o-0",
+                        "text": "小安没赶上九点的火车。"
+                      },
+                      {
+                        "feedback": "Sai: không có thời gian tuyến cũ để so sánh.",
+                        "id": "o-1",
+                        "text": "绕路一定比原来的路快四十分钟。"
+                      },
+                      {
+                        "feedback": "Đúng: giữ đúng giờ đến và kết quả.",
+                        "id": "o-2",
+                        "text": "小安八点四十分到站，后来坐上了九点的火车。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Thông tin nào được văn bản xác nhận?",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn kết luận có căn cứ"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Đọc để quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "还是"
+                    ],
+                    "answerIds": [],
+                    "explanation": "还是 trong 虽然…还是… nghĩa là vẫn. Không dùng 或者 (hoặc) để nối kết quả này.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi lịch trình dự kiến và kết quả thực tế",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-personal-life-narratives-travel-transport",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền từ giữ kết quả trái trở ngại: 虽然路上堵车，小安最后___坐上了火车。",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền theo quan hệ được yêu cầu"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự nối lại ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n小梅打算坐十点的火车，九点就出发了。因为路上堵车，她十点零五分才到火车站。她没赶上十点的火车。后来，她换了十一点的车票。\nXiǎo Méi dǎsuàn zuò shí diǎn de huǒchē, jiǔ diǎn jiù chūfā le. Yīnwèi lùshang dǔchē, tā shí diǎn líng wǔ fēn cái dào huǒchēzhàn. Tā méi gǎn shàng shí diǎn de huǒchē. Hòulái, tā huàn le shíyī diǎn de chēpiào.\nMai định đi tàu 10 giờ, đã xuất phát lúc 9 giờ. Vì tắc đường, 10:05 cô mới đến ga. Cô lỡ tàu 10 giờ. Sau đó cô đổi vé sang 11 giờ.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Tự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Theo dõi lịch trình dự kiến và kết quả thực tế",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-personal-life-narratives-travel-transport",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Giữ 9 giờ xuất phát, 10:05 đến và chuyến cũ 10 giờ.",
+                        "id": "criterion-0",
+                        "label": "Giữ 9 giờ xuất phát, 10:05 đến và chuyến cũ 10 giờ."
+                      },
+                      {
+                        "guidance": "Nêu tắc đường dẫn đến lỡ tàu, khác truyện An.",
+                        "id": "criterion-1",
+                        "label": "Nêu tắc đường dẫn đến lỡ tàu, khác truyện An."
+                      },
+                      {
+                        "guidance": "Đổi vé 11 giờ; không tự khẳng định đã lên chuyến mới.",
+                        "id": "criterion-2",
+                        "label": "Đổi vé 11 giờ; không tự khẳng định đã lên chuyến mới."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Dữ kiện mới: Mai định đi tàu 10 giờ, xuất phát 9 giờ nhưng đến ga 10:05 vì tắc đường. Sau đó đổi vé sang 11 giờ. Viết 4 câu phân biệt kế hoạch, nguyên nhân, lỡ chuyến và giải pháp; không giữ kết quả lên tàu đúng chuyến của An.",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Viết với dữ kiện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Giữ 9 giờ xuất phát, 10:05 đến và chuyến cũ 10 giờ.\nNêu tắc đường dẫn đến lỡ tàu, khác truyện An.\nĐổi vé 11 giờ; không tự khẳng định đã lên chuyến mới.\nSửa ít nhất một điểm chưa rõ trong bản viết, rồi thử kể lại khi không nhìn mẫu. Dùng Tra từ trong bài để ôn từ liên quan; xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-personal-life-narratives-travel-transport:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bài viết"
+                }
+              ],
+              "id": "hsk3-personal-life-narratives-travel-transport:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự sửa trước khi tiếp tục"
+            },
+            {
+              "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 笔记本 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-personal-life-narratives-travel-transport:vocab-context-r1:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Sang ngữ cảnh lớp học: bạn có sổ giấy để ghi từ mới, còn máy tính dùng làm bài tập. Viết hai câu, một câu dùng 笔记本 và một câu dùng đầy đủ 笔记本电脑 để tránh nhầm.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Ngữ cảnh viết vào sổ giấy rõ ràng.",
+                        "guidance": "Ngữ cảnh viết vào sổ giấy rõ ràng."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Viết đủ 笔记本电脑 khi nói máy tính; diễn đạt khác đúng nghĩa vẫn phù hợp.",
+                        "guidance": "Viết đủ 笔记本电脑 khi nói máy tính; diễn đạt khác đúng nghĩa vẫn phù hợp."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n我在笔记本上记生词，用笔记本电脑做作业。\nWǒ zài bǐjìběn shàng jì shēngcí, yòng bǐjìběn diànnǎo zuò zuòyè.\nTôi ghi từ mới vào sổ tay và dùng máy tính xách tay làm bài tập.\nNgữ cảnh viết vào sổ giấy rõ ràng.\nViết đủ 笔记本电脑 khi nói máy tính; diễn đạt khác đúng nghĩa vẫn phù hợp.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Mang sổ tay hay máy tính khi đi xa?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00522"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/36-REVIEW-HSK3-PERSONAL.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-personal-life-narratives-travel-transport",
+          "reviewedAt": "2026-09-22",
+          "scope": "Five HSK3 personal narratives: evidence reading and guided writing; no independent mastery claim.",
+          "sourceContentSha256": "sha256:818c9c1e67fa766eaa02bc78f5936d3ed044afae7e8583c56a8b2efb0de7787a"
+        },
+        "objectiveVi": "Theo dõi lịch trình dự kiến và kết quả thực tế",
+        "pitfallVi": "Tắc đường không đồng nghĩa lỡ tàu. Không suy đường vòng mất đúng 40 phút: 40 phút là toàn hành trình từ lúc xuất phát. Không biến lời dự đoán tài xế thành kết quả đo được.",
+        "prerequisites": [
+          "hsk3-personal-life-narratives-food-shopping"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách giờ xuất phát 8:00, đến ga 8:40, kiểm vé 8:50 và tàu 9:00. 根据 nêu căn cứ ra quyết định. 可能 chỉ khả năng của đường vòng, không đảm bảo nhanh hơn. 虽然…还是… nối trở ngại với kết quả đạt được. 坐上了 cho biết đã lên được, không chỉ dự định 坐.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-personal-life-narratives-travel-transport"
+        ],
+        "sourceLessonIds": [
+          "hsk3-personal-life-narratives-travel-transport"
+        ],
+        "sourceTaskIds": [
+          "hsk3-paragraph-task:hsk3-personal-life-narratives-travel-transport"
+        ],
+        "sourceTopicIds": [
+          "hsk3-topic-010",
+          "hsk3-topic-011",
+          "hsk3-topic-012",
+          "hsk3-topic-013"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00519",
+          "hsk-vocab-00522",
+          "hsk-vocab-00561",
+          "hsk-vocab-00562",
+          "hsk-vocab-00645",
+          "hsk-vocab-00664",
+          "hsk-vocab-00670",
+          "hsk-vocab-00671",
+          "hsk-vocab-00700",
+          "hsk-vocab-00754",
+          "hsk-vocab-00759",
+          "hsk-vocab-00760",
+          "hsk-vocab-00762",
+          "hsk-vocab-00763",
+          "hsk-vocab-00765",
+          "hsk-vocab-00803",
+          "hsk-vocab-00847",
+          "hsk-vocab-00908",
+          "hsk-vocab-00943",
+          "hsk-vocab-00966",
+          "hsk-vocab-00724",
+          "hsk-vocab-00832",
+          "hsk-vocab-00531",
+          "hsk-vocab-00533",
+          "hsk-vocab-00633",
+          "hsk-vocab-00986",
+          "hsk-vocab-00543",
+          "hsk-vocab-00614",
+          "hsk-vocab-00692",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00588",
+          "hsk-vocab-00678",
+          "hsk-vocab-00764",
+          "hsk-vocab-00589",
+          "hsk-vocab-00560",
+          "hsk-vocab-00680",
+          "hsk-vocab-00997",
+          "hsk-vocab-00906",
+          "hsk-vocab-00617",
+          "hsk-vocab-00520",
+          "hsk-vocab-00890",
+          "hsk-vocab-00719",
+          "hsk-vocab-00981",
+          "hsk-vocab-00592"
+        ],
+        "targetLessonId": "hsk3-personal-life-narratives-travel-transport",
+        "titleZh": "HSK三级 · 03",
+        "vocabulary": [
+          "hsk-vocab-00519",
+          "hsk-vocab-00522",
+          "hsk-vocab-00561",
+          "hsk-vocab-00562",
+          "hsk-vocab-00645",
+          "hsk-vocab-00664",
+          "hsk-vocab-00670",
+          "hsk-vocab-00671",
+          "hsk-vocab-00700",
+          "hsk-vocab-00754",
+          "hsk-vocab-00759",
+          "hsk-vocab-00760",
+          "hsk-vocab-00762",
+          "hsk-vocab-00763",
+          "hsk-vocab-00765",
+          "hsk-vocab-00803",
+          "hsk-vocab-00847",
+          "hsk-vocab-00908",
+          "hsk-vocab-00943",
+          "hsk-vocab-00966",
+          "hsk-vocab-00724",
+          "hsk-vocab-00832",
+          "hsk-vocab-00531",
+          "hsk-vocab-00533",
+          "hsk-vocab-00633",
+          "hsk-vocab-00986",
+          "hsk-vocab-00543",
+          "hsk-vocab-00614",
+          "hsk-vocab-00692",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00588",
+          "hsk-vocab-00678",
+          "hsk-vocab-00764",
+          "hsk-vocab-00589",
+          "hsk-vocab-00560",
+          "hsk-vocab-00680",
+          "hsk-vocab-00997",
+          "hsk-vocab-00906",
+          "hsk-vocab-00617",
+          "hsk-vocab-00520",
+          "hsk-vocab-00890",
+          "hsk-vocab-00719",
+          "hsk-vocab-00981",
+          "hsk-vocab-00592"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "0aa8219d-9469-456d-89da-f863d38beeb5",
+      "sourceContentSha256": "sha256:a1bb5ca39a03dca4af6498f9b64a019413cb426003794d4c6713f8ea5a30b825",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "Phân biệt chép nguyên đoạn và ghi ba ý.\nKết quả chỉ trên chuyện cũ.\nBài mới là bước tiếp theo, không phải đã làm.",
+        "conceptVi": "Phân biệt cách học, kết quả và điều chưa kiểm tra",
+        "dialogue": [
+          {
+            "hanzi": "小林以前读中文的时候，遇到不认识的字就马上查词典。读完一段以后，他常常忘了前面的内容。",
+            "meaningVi": "Trước đây, khi đọc tiếng Trung, Tiểu Lâm gặp chữ lạ là tra ngay. Đọc xong một đoạn, anh thường quên nội dung phía trước.",
+            "pinyin": "Xiǎo Lín yǐqián dú Zhōngwén de shíhou, yù dào bù rènshi de zì jiù mǎshàng chá cídiǎn. Dú wán yí duàn yǐhòu, tā chángcháng wàng le qiánmian de nèiróng.",
+            "speaker": "Đoạn 1"
+          },
+          {
+            "hanzi": "老师建议他先读一遍，记下谁做了什么，再标出不懂的句子。第二遍才查影响理解的重要词语。",
+            "meaningVi": "Giáo viên khuyên đọc một lượt trước, ghi ai làm gì, rồi đánh dấu câu chưa hiểu. Lượt thứ hai mới tra từ quan trọng ảnh hưởng cách hiểu.",
+            "pinyin": "Lǎoshī jiànyì tā xiān dú yí biàn, jì xià shéi zuò le shénme, zài biāo chū bù dǒng de jùzi. Dì èr biàn cái chá yǐngxiǎng lǐjiě de zhòngyào cíyǔ.",
+            "speaker": "Đoạn 2"
+          },
+          {
+            "hanzi": "小林试了这个方法，把每段的意思写在笔记里。一周后，他能说清楚故事的顺序，但是仍然需要查几个词。",
+            "meaningVi": "Tiểu Lâm thử cách này, ghi ý từng đoạn vào vở. Sau một tuần, anh kể rõ được thứ tự câu chuyện nhưng vẫn cần tra vài từ.",
+            "pinyin": "Xiǎo Lín shì le zhège fāngfǎ, bǎ měi duàn de yìsi xiě zài bǐjì lǐ. Yì zhōu hòu, tā néng shuō qīngchu gùshi de shùnxù, dànshì réngrán xūyào chá jǐ ge cí.",
+            "speaker": "Đoạn 3"
+          },
+          {
+            "hanzi": "他觉得新方法有用，准备下周换一篇文章再试。老师提醒他，记住这篇文章还不等于能读懂所有文章。",
+            "meaningVi": "Anh thấy cách mới hữu ích và định tuần sau thử bài khác. Giáo viên nhắc nhớ bài này chưa có nghĩa đọc hiểu được mọi bài.",
+            "pinyin": "Tā juéde xīn fāngfǎ yǒuyòng, zhǔnbèi xià zhōu huàn yì piān wénzhāng zài shì. Lǎoshī tíxǐng tā, jì zhù zhè piān wénzhāng hái bù děngyú néng dú dǒng suǒyǒu wénzhāng.",
+            "speaker": "Đoạn 4"
+          }
+        ],
+        "exercises": [
+          {
+            "answer": "他能说清楚这篇故事的顺序。",
+            "answerMeaningVi": "Anh kể rõ được thứ tự câu chuyện này.",
+            "answerPinyin": "Tā néng shuō qīngchu zhè piān gùshi de shùnxù.",
+            "distractors": [
+              "他已经能读懂所有中文文章。",
+              "他再也不需要查词典了。"
+            ],
+            "explanationVi": "Đúng: đây là kết quả sau một tuần.",
+            "promptVi": "Kết quả nào đã được kiểm tra trong chuyện?"
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "先…再… nêu thứ tự thao tác. 第二遍才… giới hạn lúc tra từ, không cấm tra từ hoàn toàn. 把每段的意思写在… đưa ý từng đoạn lên trước hành động ghi. 能说清楚 chỉ năng lực đã quan sát trên bài này; 准备…再试 là kế hoạch kiểm tra trên bài mới.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "小梅以前抄整段文章，可是不能复述。后来，她只记三个要点。现在她不看书也能讲这个故事了。她还没试过新文章，准备明天再试。",
+              "modelAnswerMeaningVi": "Mai trước đây chép cả đoạn nhưng không kể lại được. Sau đó cô chỉ ghi ba ý. Hiện không nhìn sách cô cũng kể được chuyện này. Cô chưa thử bài mới, định mai thử.",
+              "modelAnswerPinyin": "Xiǎo Méi yǐqián chāo zhěng duàn wénzhāng, kěshì bù néng fùshù. Hòulái, tā zhǐ jì sān ge yàodiǎn. Xiànzài tā bú kàn shū yě néng jiǎng zhège gùshi le. Tā hái méi shì guo xīn wénzhāng, zhǔnbèi míngtiān zài shì.",
+              "promptVi": "Mai trước đây chép nguyên đoạn nhưng không kể lại được. Cô đổi sang ghi ba ý, đã kể được chuyện cũ không nhìn sách, chưa thử bài mới. Viết 4 câu về khó khăn, thay đổi, kết quả và bước kiểm tra tiếp theo."
+            },
+            "modelExample": {
+              "hanzi": "小林试了这个方法，把每段的意思写在笔记里。一周后，他能说清楚故事的顺序，但是仍然需要查几个词。",
+              "meaningVi": "Tiểu Lâm thử cách này, ghi ý từng đoạn vào vở. Sau một tuần, anh kể rõ được thứ tự câu chuyện nhưng vẫn cần tra vài từ.",
+              "pinyin": "Xiǎo Lín shì le zhège fāngfǎ, bǎ měi duàn de yìsi xiě zài bǐjì lǐ. Yì zhōu hòu, tā néng shuō qīngchu gùshi de shùnxù, dànshì réngrán xūyào chá jǐ ge cí.",
+              "speaker": "Đoạn 3"
+            },
+            "pattern": "Phân biệt cách học, kết quả và điều chưa kiểm tra"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Phân biệt cách học, kết quả và điều chưa kiểm tra. Đọc các đoạn, đánh dấu bằng chứng rồi viết lại theo dữ kiện mới. Ảnh chỉ minh họa bối cảnh, không cung cấp thêm sự kiện.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ đọc của bạn"
+                },
+                {
+                  "alt": "",
+                  "body": "逐字 zhúzì — từng chữ; 标出 biāo chū — đánh dấu; 猜 cāi — đoán; 复述 fùshù — kể lại; 顺序 shùnxù — thứ tự; 仍然 réngrán — vẫn.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:support",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Từ hỗ trợ"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:context",
+              "illustration": {
+                "alt": "Bối cảnh: Môn học, phương pháp và tiến trình học",
+                "provenance": "OpenAI imagegen · nguyên bản HANZI.OS · 2026-09-22 · AI-assisted, humanReviewed:false",
+                "src": "/lessons/ngoc-dien/hsk3-reading-notes-v1.webp"
+              },
+              "layout": "scene",
+              "stage": "context",
+              "title": "Phân biệt cách học, kết quả và điều chưa kiểm tra"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:text",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc bốn đoạn. Chọn câu/đoạn làm bằng chứng cho ghi chú; có thể mở Pinyin và nghĩa khi cần.",
+                    "notePrompt": "Ghi người, việc thay đổi, lý do và kết quả. Điều gì còn chưa biết?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "小林以前读中文的时候，遇到不认识的字就马上查词典。读完一段以后，他常常忘了前面的内容。",
+                        "id": "hsk3-study-work-accounts-courses-learning:paragraph-0",
+                        "meaningVi": "Trước đây, khi đọc tiếng Trung, Tiểu Lâm gặp chữ lạ là tra ngay. Đọc xong một đoạn, anh thường quên nội dung phía trước.",
+                        "pinyin": "Xiǎo Lín yǐqián dú Zhōngwén de shíhou, yù dào bù rènshi de zì jiù mǎshàng chá cídiǎn. Dú wán yí duàn yǐhòu, tā chángcháng wàng le qiánmian de nèiróng."
+                      },
+                      {
+                        "hanzi": "老师建议他先读一遍，记下谁做了什么，再标出不懂的句子。第二遍才查影响理解的重要词语。",
+                        "id": "hsk3-study-work-accounts-courses-learning:paragraph-1",
+                        "meaningVi": "Giáo viên khuyên đọc một lượt trước, ghi ai làm gì, rồi đánh dấu câu chưa hiểu. Lượt thứ hai mới tra từ quan trọng ảnh hưởng cách hiểu.",
+                        "pinyin": "Lǎoshī jiànyì tā xiān dú yí biàn, jì xià shéi zuò le shénme, zài biāo chū bù dǒng de jùzi. Dì èr biàn cái chá yǐngxiǎng lǐjiě de zhòngyào cíyǔ."
+                      },
+                      {
+                        "hanzi": "小林试了这个方法，把每段的意思写在笔记里。一周后，他能说清楚故事的顺序，但是仍然需要查几个词。",
+                        "id": "hsk3-study-work-accounts-courses-learning:paragraph-2",
+                        "meaningVi": "Tiểu Lâm thử cách này, ghi ý từng đoạn vào vở. Sau một tuần, anh kể rõ được thứ tự câu chuyện nhưng vẫn cần tra vài từ.",
+                        "pinyin": "Xiǎo Lín shì le zhège fāngfǎ, bǎ měi duàn de yìsi xiě zài bǐjì lǐ. Yì zhōu hòu, tā néng shuō qīngchu gùshi de shùnxù, dànshì réngrán xūyào chá jǐ ge cí."
+                      },
+                      {
+                        "hanzi": "他觉得新方法有用，准备下周换一篇文章再试。老师提醒他，记住这篇文章还不等于能读懂所有文章。",
+                        "id": "hsk3-study-work-accounts-courses-learning:paragraph-3",
+                        "meaningVi": "Anh thấy cách mới hữu ích và định tuần sau thử bài khác. Giáo viên nhắc nhớ bài này chưa có nghĩa đọc hiểu được mọi bài.",
+                        "pinyin": "Tā juéde xīn fāngfǎ yǒuyòng, zhǔnbèi xià zhōu huàn yì piān wénzhāng zài shì. Lǎoshī tíxǐng tā, jì zhù zhè piān wénzhāng hái bù děngyú néng dú dǒng suǒyǒu wénzhāng."
+                      }
+                    ]
+                  },
+                  "title": "Môn học, phương pháp và tiến trình học"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:reading",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Đọc và giữ bằng chứng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "先…再… nêu thứ tự thao tác. 第二遍才… giới hạn lúc tra từ, không cấm tra từ hoàn toàn. 把每段的意思写在… đưa ý từng đoạn lên trước hành động ghi. 能说清楚 chỉ năng lực đã quan sát trên bài này; 准备…再试 là kế hoạch kiểm tra trên bài mới.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:rule",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Cách nối ý và giới hạn của thông tin"
+                },
+                {
+                  "alt": "",
+                  "body": "Không tóm tắt rằng anh không còn tra từ hoặc đã đọc hiểu mọi văn bản. “Hữu ích” là đánh giá của nhân vật trên lần thử, không phải bảo đảm một phương pháp phù hợp mọi người.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:pitfall",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Không suy quá bằng chứng"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:connections",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Hiểu quan hệ giữa các câu"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "phương pháp; cách làm\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小林试了这个方法，把每段的意思写在笔记里。一周后，他能说清楚故事的顺序，但是仍然需要查几个词。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00621",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tiểu Lâm thử cách này, ghi ý từng đoạn vào vở. Sau một tuần, anh kể rõ được thứ tự câu chuyện nhưng vẫn cần tra vài từ.",
+                  "pinyin": "Xiǎo Lín shì le zhège fāngfǎ, bǎ měi duàn de yìsi xiě zài bǐjì lǐ. Yì zhōu hòu, tā néng shuō qīngchu gùshi de shùnxù, dànshì réngrán xūyào chá jǐ ge cí.",
+                  "provenance": "",
+                  "title": "方法 · fāngfǎ"
+                },
+                {
+                  "alt": "",
+                  "body": "lượt; lần cho một hành động\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "老师建议他先读一遍，记下谁做了什么，再标出不懂的句子。第二遍才查影响理解的重要词语。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00527",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên khuyên đọc một lượt trước, ghi ai làm gì, rồi đánh dấu câu chưa hiểu. Lượt thứ hai mới tra từ quan trọng ảnh hưởng cách hiểu.",
+                  "pinyin": "Lǎoshī jiànyì tā xiān dú yí biàn, jì xià shéi zuò le shénme, zài biāo chū bù dǒng de jùzi. Dì èr biàn cái chá yǐngxiǎng lǐjiě de zhòngyào cíyǔ.",
+                  "provenance": "",
+                  "title": "遍 · biàn"
+                },
+                {
+                  "alt": "",
+                  "body": "đoạn; giai đoạn; lượng từ cho đoạn\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小林以前读中文的时候，遇到不认识的字就马上查词典。读完一段以后，他常常忘了前面的内容。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00607",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trước đây, khi đọc tiếng Trung, Tiểu Lâm gặp chữ lạ là tra ngay. Đọc xong một đoạn, anh thường quên nội dung phía trước.",
+                  "pinyin": "Xiǎo Lín yǐqián dú Zhōngwén de shíhou, yù dào bù rènshi de zì jiù mǎshàng chá cídiǎn. Dú wán yí duàn yǐhòu, tā chángcháng wàng le qiánmian de nèiróng.",
+                  "provenance": "",
+                  "title": "段 · duàn"
+                },
+                {
+                  "alt": "",
+                  "body": "tra cứu; kiểm tra\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小林以前读中文的时候，遇到不认识的字就马上查词典。读完一段以后，他常常忘了前面的内容。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00550",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Trước đây, khi đọc tiếng Trung, Tiểu Lâm gặp chữ lạ là tra ngay. Đọc xong một đoạn, anh thường quên nội dung phía trước.",
+                  "pinyin": "Xiǎo Lín yǐqián dú Zhōngwén de shíhou, yù dào bù rènshi de zì jiù mǎshàng chá cídiǎn. Dú wán yí duàn yǐhòu, tā chángcháng wàng le qiánmian de nèiróng.",
+                  "provenance": "",
+                  "title": "查 · chá"
+                },
+                {
+                  "alt": "",
+                  "body": "ghi; nhớ\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "老师建议他先读一遍，记下谁做了什么，再标出不懂的句子。第二遍才查影响理解的重要词语。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00692",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên khuyên đọc một lượt trước, ghi ai làm gì, rồi đánh dấu câu chưa hiểu. Lượt thứ hai mới tra từ quan trọng ảnh hưởng cách hiểu.",
+                  "pinyin": "Lǎoshī jiànyì tā xiān dú yí biàn, jì xià shéi zuò le shénme, zài biāo chū bù dǒng de jùzi. Dì èr biàn cái chá yǐngxiǎng lǐjiě de zhòngyào cíyǔ.",
+                  "provenance": "",
+                  "title": "记 · jì"
+                },
+                {
+                  "alt": "",
+                  "body": "ghi chép; ghi chú\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "小林试了这个方法，把每段的意思写在笔记里。一周后，他能说清楚故事的顺序，但是仍然需要查几个词。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00520",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tiểu Lâm thử cách này, ghi ý từng đoạn vào vở. Sau một tuần, anh kể rõ được thứ tự câu chuyện nhưng vẫn cần tra vài từ.",
+                  "pinyin": "Xiǎo Lín shì le zhège fāngfǎ, bǎ měi duàn de yìsi xiě zài bǐjì lǐ. Yì zhōu hòu, tā néng shuō qīngchu gùshi de shùnxù, dànshì réngrán xūyào chá jǐ ge cí.",
+                  "provenance": "",
+                  "title": "笔记 · bǐjì"
+                },
+                {
+                  "alt": "",
+                  "body": "quan trọng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "老师建议他先读一遍，记下谁做了什么，再标出不懂的句子。第二遍才查影响理解的重要词语。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00985",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giáo viên khuyên đọc một lượt trước, ghi ai làm gì, rồi đánh dấu câu chưa hiểu. Lượt thứ hai mới tra từ quan trọng ảnh hưởng cách hiểu.",
+                  "pinyin": "Lǎoshī jiànyì tā xiān dú yí biàn, jì xià shéi zuò le shénme, zài biāo chū bù dǒng de jùzi. Dì èr biàn cái chá yǐngxiǎng lǐjiě de zhòngyào cíyǔ.",
+                  "provenance": "",
+                  "title": "重要 · zhòngyào"
+                },
+                {
+                  "alt": "",
+                  "body": "có ích; hữu dụng\nTừ trọng tâm của bài; các từ liên quan còn lại vẫn có trong Tra từ trong bài.",
+                  "hanzi": "他觉得新方法有用，准备下周换一篇文章再试。老师提醒他，记住这篇文章还不等于能读懂所有文章。",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:word-hsk-vocab-00948",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Anh thấy cách mới hữu ích và định tuần sau thử bài khác. Giáo viên nhắc nhớ bài này chưa có nghĩa đọc hiểu được mọi bài.",
+                  "pinyin": "Tā juéde xīn fāngfǎ yǒuyòng, zhǔnbèi xià zhōu huàn yì piān wénzhāng zài shì. Lǎoshī tíxǐng tā, jì zhù zhè piān wénzhāng hái bù děngyú néng dú dǒng suǒyǒu wénzhāng.",
+                  "provenance": "",
+                  "title": "有用 · yǒuyòng"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:core-words",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Từ trọng tâm trong văn bản"
+            },
+            {
+              "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:page:teach",
+              "stage": "understand",
+              "title": "Nêu một ví dụ đúng với ý khái quát",
+              "layout": "split",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:note",
+                  "kind": "explanation",
+                  "title": "比如",
+                  "body": "比如 (bǐrú) nghĩa là “ví dụ như/chẳng hạn”, dẫn một hoặc vài trường hợp minh họa cho ý vừa nêu. Ví dụ phải thuộc nhóm đó; không biến một ví dụ thành danh sách đầy đủ. 比 như trong 比我高 dùng so sánh; 比如 không có chức năng ấy. Có thể theo sau 比如 bằng danh từ hoặc cả mệnh đề.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:example-0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "复习的方法很多，比如先读课文，再用自己的话说一遍。",
+                  "pinyin": "Fùxí de fāngfǎ hěn duō, bǐrú xiān dú kèwén, zài yòng zìjǐ de huà shuō yí biàn.",
+                  "meaningVi": "Có nhiều cách ôn tập, chẳng hạn đọc bài trước rồi kể lại một lượt bằng lời của mình.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:example-1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我喜欢球类运动，比如篮球和足球。",
+                  "pinyin": "Wǒ xǐhuan qiúlèi yùndòng, bǐrú lánqiú hé zúqiú.",
+                  "meaningVi": "Tôi thích các môn thể thao với bóng, ví dụ bóng rổ và bóng đá.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:page:practice",
+              "stage": "practice",
+              "title": "Khảo Luyện · hiểu 比如",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:choice",
+                  "kind": "activity",
+                  "title": "Chọn theo ngữ cảnh",
+                  "body": "Câu nào minh họa hợp lý cho “có nhiều cách ôn tập”?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "复习的方法很多，比如今天星期二。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "复习的方法很多，比如她比我高。",
+                        "feedback": "Đối chiếu lại nghĩa và dữ kiện trong câu."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "复习的方法很多，比如用新词写句子。",
+                        "feedback": "Dùng từ mới viết câu là một cách ôn. Thứ trong tuần và chiều cao không minh họa cho nhóm “cách ôn tập”."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Dùng từ mới viết câu là một cách ôn. Thứ trong tuần và chiều cao không minh họa cho nhóm “cách ôn tập”.",
+                    "learningTarget": {
+                      "objective": "Nêu một ví dụ đúng với ý khái quát",
+                      "skill": "vocabulary",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00523"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "explanation": "Đúng: đây là kết quả sau một tuần.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt cách học, kết quả và điều chưa kiểm tra",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-courses-learning",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa có kiểm tra trên mọi bài.",
+                        "id": "o-0",
+                        "text": "他已经能读懂所有中文文章。"
+                      },
+                      {
+                        "feedback": "Đúng: đây là kết quả sau một tuần.",
+                        "id": "o-1",
+                        "text": "他能说清楚这篇故事的顺序。"
+                      },
+                      {
+                        "feedback": "Sai: anh vẫn cần tra vài từ.",
+                        "id": "o-2",
+                        "text": "他再也不需要查词典了。"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "Kết quả nào đã được kiểm tra trong chuyện?",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:choice",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Chọn kết luận có căn cứ"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:choice",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Đọc để quyết định"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [
+                      "才"
+                    ],
+                    "answerIds": [],
+                    "explanation": "才 nhấn mạnh mốc sau bước đọc lấy ý. Không đồng nghĩa không bao giờ tra.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt cách học, kết quả và điều chưa kiểm tra",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-courses-learning",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [],
+                    "type": "cloze"
+                  },
+                  "alt": "",
+                  "body": "Điền từ nhấn mạnh đến lượt thứ hai mới tra: 第二遍___查重要的词语。",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:cloze",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Điền theo quan hệ được yêu cầu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:guided",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Tự nối lại ý"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một phương án để đối chiếu:\n小梅以前抄整段文章，可是不能复述。后来，她只记三个要点。现在她不看书也能讲这个故事了。她还没试过新文章，准备明天再试。\nXiǎo Méi yǐqián chāo zhěng duàn wénzhāng, kěshì bù néng fùshù. Hòulái, tā zhǐ jì sān ge yàodiǎn. Xiànzài tā bú kàn shū yě néng jiǎng zhège gùshi le. Tā hái méi shì guo xīn wénzhāng, zhǔnbèi míngtiān zài shì.\nMai trước đây chép cả đoạn nhưng không kể lại được. Sau đó cô chỉ ghi ba ý. Hiện không nhìn sách cô cũng kể được chuyện này. Cô chưa thử bài mới, định mai thử.\nCách diễn đạt khác đúng dữ kiện vẫn có thể phù hợp. Tự đối chiếu không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Phân biệt cách học, kết quả và điều chưa kiểm tra",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk3-paragraph-task:hsk3-study-work-accounts-courses-learning",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt chép nguyên đoạn và ghi ba ý.",
+                        "id": "criterion-0",
+                        "label": "Phân biệt chép nguyên đoạn và ghi ba ý."
+                      },
+                      {
+                        "guidance": "Kết quả chỉ trên chuyện cũ.",
+                        "id": "criterion-1",
+                        "label": "Kết quả chỉ trên chuyện cũ."
+                      },
+                      {
+                        "guidance": "Bài mới là bước tiếp theo, không phải đã làm.",
+                        "id": "criterion-2",
+                        "label": "Bài mới là bước tiếp theo, không phải đã làm."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Mai trước đây chép nguyên đoạn nhưng không kể lại được. Cô đổi sang ghi ba ý, đã kể được chuyện cũ không nhìn sách, chưa thử bài mới. Viết 4 câu về khó khăn, thay đổi, kết quả và bước kiểm tra tiếp theo.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:transfer",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tự viết trước khi mở mẫu"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:transfer",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Viết với dữ kiện mới"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Phân biệt chép nguyên đoạn và ghi ba ý.\nKết quả chỉ trên chuyện cũ.\nBài mới là bước tiếp theo, không phải đã làm.\nSửa ít nhất một điểm chưa rõ trong bản viết, rồi thử kể lại khi không nhìn mẫu. Dùng Tra từ trong bài để ôn từ liên quan; xem hết trang không đồng nghĩa thành thạo.",
+                  "hanzi": "",
+                  "id": "hsk3-study-work-accounts-courses-learning:v2:block:recap",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Kiểm lại bài viết"
+                }
+              ],
+              "id": "hsk3-study-work-accounts-courses-learning:v2:recap",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Tự sửa trước khi tiếp tục"
+            },
+            {
+              "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:page:transfer",
+              "stage": "transfer",
+              "title": "Vận dụng 比如 trong tình huống mới",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk3-study-work-accounts-courses-learning:vocab-context-r1:write",
+                  "kind": "activity",
+                  "title": "Tự viết trước khi xem mẫu",
+                  "body": "Gợi ý cho một người bạn về hoạt động cuối tuần: nêu một nhóm hoạt động và hai ví dụ phù hợp bằng 比如. Đổi khỏi ngữ cảnh học tập; đừng nói chỉ có hai lựa chọn ấy.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Có nhóm khái quát và ví dụ thật sự thuộc nhóm.",
+                        "guidance": "Có nhóm khái quát và ví dụ thật sự thuộc nhóm."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Dùng 比如 để minh họa, không để so sánh; không coi ví dụ là toàn bộ lựa chọn.",
+                        "guidance": "Dùng 比如 để minh họa, không để so sánh; không coi ví dụ là toàn bộ lựa chọn."
+                      }
+                    ],
+                    "explanation": "Một cách diễn đạt:\n周末可以做一些运动，比如游泳和打篮球。\nZhōumò kěyǐ zuò yìxiē yùndòng, bǐrú yóuyǒng hé dǎ lánqiú.\nCuối tuần có thể vận động, chẳng hạn bơi và chơi bóng rổ.\nCó nhóm khái quát và ví dụ thật sự thuộc nhóm.\nDùng 比如 để minh họa, không để so sánh; không coi ví dụ là toàn bộ lựa chọn.\nTự đối chiếu không phải điểm viết độc lập.",
+                    "learningTarget": {
+                      "objective": "Nêu một ví dụ đúng với ý khái quát",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "kind": "vocabulary",
+                          "id": "hsk-vocab-00523"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "evidenceDocument": "docs/thien-lo-redesign-review/37-REVIEW-HSK3-STUDY-WORK.md",
+          "humanReviewed": false,
+          "lessonId": "hsk3-study-work-accounts-courses-learning",
+          "reviewedAt": "2026-09-22",
+          "scope": "Five HSK3 study and work narratives: evidence reading and guided writing; no independent mastery claim.",
+          "sourceContentSha256": "sha256:de7e142eb16ff05c467fc25d4e2414f74fa433e5af9781c570b76a10316fd8bf"
+        },
+        "objectiveVi": "Phân biệt cách học, kết quả và điều chưa kiểm tra",
+        "pitfallVi": "Không tóm tắt rằng anh không còn tra từ hoặc đã đọc hiểu mọi văn bản. “Hữu ích” là đánh giá của nhân vật trên lần thử, không phải bảo đảm một phương pháp phù hợp mọi người.",
+        "prerequisites": [
+          "hsk3-personal-life-narratives-home-family-leisure"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "先…再… nêu thứ tự thao tác. 第二遍才… giới hạn lúc tra từ, không cấm tra từ hoàn toàn. 把每段的意思写在… đưa ý từng đoạn lên trước hành động ghi. 能说清楚 chỉ năng lực đã quan sát trên bài này; 准备…再试 là kế hoạch kiểm tra trên bài mới.",
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk3-pattern:hsk3-study-work-accounts-courses-learning"
+        ],
+        "sourceLessonIds": [
+          "hsk3-study-work-accounts-courses-learning"
+        ],
+        "sourceTaskIds": [
+          "hsk3-paragraph-task:hsk3-study-work-accounts-courses-learning"
+        ],
+        "sourceTopicIds": [
+          "hsk3-topic-027",
+          "hsk3-topic-028",
+          "hsk3-topic-030"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00506",
+          "hsk-vocab-00508",
+          "hsk-vocab-00517",
+          "hsk-vocab-00523",
+          "hsk-vocab-00527",
+          "hsk-vocab-00543",
+          "hsk-vocab-00550",
+          "hsk-vocab-00581",
+          "hsk-vocab-00607",
+          "hsk-vocab-00614",
+          "hsk-vocab-00627",
+          "hsk-vocab-00630",
+          "hsk-vocab-00682",
+          "hsk-vocab-00692",
+          "hsk-vocab-00693",
+          "hsk-vocab-00698",
+          "hsk-vocab-00705",
+          "hsk-vocab-00706",
+          "hsk-vocab-00717",
+          "hsk-vocab-00722",
+          "hsk-vocab-00735",
+          "hsk-vocab-00768",
+          "hsk-vocab-00780",
+          "hsk-vocab-00788",
+          "hsk-vocab-00797",
+          "hsk-vocab-00811",
+          "hsk-vocab-00828",
+          "hsk-vocab-00833",
+          "hsk-vocab-00885",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00984",
+          "hsk-vocab-01000",
+          "hsk-vocab-00621",
+          "hsk-vocab-00970",
+          "hsk-vocab-00908",
+          "hsk-vocab-00966",
+          "hsk-vocab-00583",
+          "hsk-vocab-00948",
+          "hsk-vocab-00834",
+          "hsk-vocab-00831",
+          "hsk-vocab-00678",
+          "hsk-vocab-00942",
+          "hsk-vocab-00587",
+          "hsk-vocab-00626",
+          "hsk-vocab-00683",
+          "hsk-vocab-00980",
+          "hsk-vocab-00538",
+          "hsk-vocab-00745",
+          "hsk-vocab-00629",
+          "hsk-vocab-00518",
+          "hsk-vocab-00624",
+          "hsk-vocab-00554",
+          "hsk-vocab-00593",
+          "hsk-vocab-00992",
+          "hsk-vocab-00605",
+          "hsk-vocab-00695",
+          "hsk-vocab-00819",
+          "hsk-vocab-00526",
+          "hsk-vocab-00997",
+          "hsk-vocab-00875",
+          "hsk-vocab-00975",
+          "hsk-vocab-00546",
+          "hsk-vocab-00972",
+          "hsk-vocab-00646",
+          "hsk-vocab-00932",
+          "hsk-vocab-00951",
+          "hsk-vocab-00985",
+          "hsk-vocab-00520",
+          "hsk-vocab-00890"
+        ],
+        "targetLessonId": "hsk3-study-work-accounts-courses-learning",
+        "titleZh": "HSK三级 · 06",
+        "vocabulary": [
+          "hsk-vocab-00506",
+          "hsk-vocab-00508",
+          "hsk-vocab-00517",
+          "hsk-vocab-00523",
+          "hsk-vocab-00527",
+          "hsk-vocab-00543",
+          "hsk-vocab-00550",
+          "hsk-vocab-00581",
+          "hsk-vocab-00607",
+          "hsk-vocab-00614",
+          "hsk-vocab-00627",
+          "hsk-vocab-00630",
+          "hsk-vocab-00682",
+          "hsk-vocab-00692",
+          "hsk-vocab-00693",
+          "hsk-vocab-00698",
+          "hsk-vocab-00705",
+          "hsk-vocab-00706",
+          "hsk-vocab-00717",
+          "hsk-vocab-00722",
+          "hsk-vocab-00735",
+          "hsk-vocab-00768",
+          "hsk-vocab-00780",
+          "hsk-vocab-00788",
+          "hsk-vocab-00797",
+          "hsk-vocab-00811",
+          "hsk-vocab-00828",
+          "hsk-vocab-00833",
+          "hsk-vocab-00885",
+          "hsk-vocab-00941",
+          "hsk-vocab-00956",
+          "hsk-vocab-00967",
+          "hsk-vocab-00984",
+          "hsk-vocab-01000",
+          "hsk-vocab-00621",
+          "hsk-vocab-00970",
+          "hsk-vocab-00908",
+          "hsk-vocab-00966",
+          "hsk-vocab-00583",
+          "hsk-vocab-00948",
+          "hsk-vocab-00834",
+          "hsk-vocab-00831",
+          "hsk-vocab-00678",
+          "hsk-vocab-00942",
+          "hsk-vocab-00587",
+          "hsk-vocab-00626",
+          "hsk-vocab-00683",
+          "hsk-vocab-00980",
+          "hsk-vocab-00538",
+          "hsk-vocab-00745",
+          "hsk-vocab-00629",
+          "hsk-vocab-00518",
+          "hsk-vocab-00624",
+          "hsk-vocab-00554",
+          "hsk-vocab-00593",
+          "hsk-vocab-00992",
+          "hsk-vocab-00605",
+          "hsk-vocab-00695",
+          "hsk-vocab-00819",
+          "hsk-vocab-00526",
+          "hsk-vocab-00997",
+          "hsk-vocab-00875",
+          "hsk-vocab-00975",
+          "hsk-vocab-00546",
+          "hsk-vocab-00972",
+          "hsk-vocab-00646",
+          "hsk-vocab-00932",
+          "hsk-vocab-00951",
+          "hsk-vocab-00985",
+          "hsk-vocab-00520",
+          "hsk-vocab-00890"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "a43f6a3a-cdf8-48b9-ad6c-04eee9f0f682",
+      "sourceContentSha256": "sha256:70b3bcd9d3a4e2b777a947b216859f5d1b94c28a808dbecbebc91dba18205efd",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "小周比哥哥矮，但是比弟弟高。",
+            "pinyin": "Xiǎo Zhōu bǐ gēge ǎi, dànshì bǐ dìdi gāo.",
+            "meaningVi": "Tiểu Châu thấp hơn anh trai nhưng cao hơn em trai."
+          },
+          {
+            "hanzi": "这张桌子太矮了，孩子坐在这里写字不舒服。",
+            "pinyin": "Zhè zhāng zhuōzi tài ǎi le, háizi zuò zài zhèlǐ xiě zì bù shūfu.",
+            "meaningVi": "Bàn này thấp quá, trẻ ngồi đây viết không thoải mái."
+          }
+        ],
+        "hanzi": "矮",
+        "meaningVi": "thấp; lùn",
+        "pinyin": "ǎi",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-02",
+          "hsk3-culture-tradition-descriptions-customs-comparison",
+          "hsk3-event-retelling-lesson-03",
+          "hsk3-structured-explanation-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00502"
+        ]
+      }
+    },
+    {
+      "sourceRevisionId": "8848d22c-9673-4ea3-9ca2-79ee99b949a9",
+      "sourceContentSha256": "sha256:9da10613c67f54de0faa8cfd11ea45c721d9677291724a66c7025ac28f6f23e9",
+      "sourceWorkflowState": "draft",
+      "content": {
+        "examples": [
+          {
+            "hanzi": "王老师和爱人结婚十年了。今年中秋节，他们一起回家看父母。",
+            "pinyin": "Wáng lǎoshī hé àiren jiéhūn shí nián le. Jīnnián Zhōngqiū Jié, tāmen yìqǐ huí jiā kàn fùmǔ.",
+            "meaningVi": "Thầy Vương và người bạn đời đã kết hôn mười năm. Tết Trung thu năm nay, họ cùng về nhà thăm bố mẹ."
+          },
+          {
+            "hanzi": "这是我爱人，她在附近的学校工作。",
+            "pinyin": "Zhè shì wǒ àiren, tā zài fùjìn de xuéxiào gōngzuò.",
+            "meaningVi": "Đây là vợ tôi, cô ấy làm việc ở trường gần đây."
+          }
+        ],
+        "hanzi": "爱人",
+        "meaningVi": "vợ hoặc chồng",
+        "pinyin": "àiren",
+        "provenance": {
+          "contentVersion": "foundation-2026.08.7",
+          "source": "HANZI.OS released curriculum",
+          "transformation": "Source-preserving import; contextual recall prompts added; pending editorial review."
+        },
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "sourceLessonIds": [
+          "hsk3-cohesion-reconstruction-lesson-01",
+          "hsk3-cohesion-reconstruction-lesson-02",
+          "hsk3-culture-tradition-descriptions-festivals-customs",
+          "hsk3-event-retelling-lesson-03",
+          "hsk3-guided-paragraph-lesson-01",
+          "hsk3-structured-explanation-lesson-02",
+          "hsk3-structured-explanation-lesson-03"
+        ],
+        "sourceVocabularyIds": [
+          "hsk-vocab-00503"
+        ]
+      }
+    }
+  ]
+}

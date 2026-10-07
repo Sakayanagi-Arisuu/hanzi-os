@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-20",
+  "scope": "Six HSK2 grammar lessons, 39 source-specific teaching decisions and contextual transfer.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/31-REVIEW-HSK2-GRAMMAR.md",
+  "items": [
+    {
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "sourceContentSha256": "sha256:20957b2f029e932bf4ca170080dce9a3d799205927903daea1f538e59e052727",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "sourceContentSha256": "sha256:161ac5f555900fd70e57530fa6a3b6ab81ef666d6f48fbfe1c8d8c6413bb74cb",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "sourceContentSha256": "sha256:9258fd5e375cd6761541276dce1aacd1f44d9faa17c35fa7d2595e31a521f1c9",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "sourceContentSha256": "sha256:632ba16c07ae20bda88694c6956bb329b23dde48632b387977220794eadb0118",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "sourceContentSha256": "sha256:dc1fa9f5895193e094d1baab1bdee0d97511c31ee214e5c4dc766acd568e8c5f",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "sourceContentSha256": "sha256:3715a78b975cd605f85e367f4a07714042fd84fec31f1d12f2c62d71dd151865",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

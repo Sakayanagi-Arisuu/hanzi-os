@@ -17,11 +17,12 @@ describe("Cổng Quản Trị navigation", () => {
       </AdminShell>,
     );
 
-    expect(html.match(/class="admin-nav-item(?: |")/g)).toHaveLength(8);
+    expect(html.match(/class="admin-nav-item(?: |")/g)).toHaveLength(9);
     expect(html).toContain("Công việc hàng ngày");
     expect(html).toContain("Quản trị hệ thống");
     expect(html).toContain('href="/admin/workflow"');
     expect(html).toContain('href="/admin/access"');
+    expect(html).toContain('href="/admin/premium"');
     expect(html).toContain('aria-current="page"');
     expect(html).toContain("2");
     expect(html).not.toContain("#admin-users");

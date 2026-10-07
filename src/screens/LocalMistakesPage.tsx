@@ -59,6 +59,8 @@ const toObservatoryItem = (mistake: MistakeRecord): RemediationObservatoryItem =
   const fromReview = mistake.lessonId === "review";
   return {
     id: mistake.id,
+    referenceWordId: mistake.wordId,
+    referenceLessonId: mistake.lessonId,
     skill: mistake.skill,
     skillLabel: skillLabels[mistake.skill],
     kindLabel: kindLabels[mistake.kind],

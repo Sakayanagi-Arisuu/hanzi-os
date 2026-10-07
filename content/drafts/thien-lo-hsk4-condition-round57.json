@@ -1,0 +1,1743 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/150-REVIEW-HSK4-CONDITION-ROUND57.md",
+  "entries": [
+    {
+      "sourceRevisionId": "5f775a72-a9bf-4df7-ae37-96d0a1eb997a",
+      "sourceContentSha256": "sha256:63e586c41f7e06b810a8852279ea250c00a3ef14246a11aef5f846715b2c87e7",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "phân biệt tình huống khẩn và thay đổi có thể thử\nquy trình tiệm bánh\nđiều kiện lễ hội\nphản biện về chi phí/chậm trễ\nkết luận có tiêu chí và mốc đánh giá",
+        "conceptVi": "Paraphrase không đổi phạm vi: Xây lập luận chuyển ý, giả thiết, điều kiện, nhân quả, mục đích và nhượng bộ với quan hệ logic có thể kiểm chứng.",
+        "dialogue": [
+          {
+            "hanzi": "老街有一家叫作“春和”的点心店，三代人使用同一配方。年轻顾客减少后，店主保证保留核心味道，同时记录他们不购买的原因。访谈显示，包装太大、成分不清和营业时间短各自影响不同人。",
+            "meaningVi": "Phố cũ có tiệm bánh tên Xuân Hòa, ba thế hệ dùng cùng công thức. Khi khách trẻ giảm, chủ bảo đảm giữ vị lõi và ghi lý do họ không mua. Phỏng vấn cho thấy gói quá lớn, thành phần không rõ và giờ bán ngắn ảnh hưởng các nhóm khác nhau.",
+            "pinyin": "Lǎojiē yǒu yì jiā jiàozuò “Chūnhé” de diǎnxīndiàn, sān dài rén shǐyòng tóng yì pèifāng. Niánqīng gùkè jiǎnshǎo hòu, diànzhǔ bǎozhèng bǎoliú héxīn wèidào, tóngshí jìlù tāmen bù gòumǎi de yuányīn. Fǎngtán xiǎnshì, bāozhuāng tài dà, chéngfèn bù qīng hé yíngyè shíjiān duǎn gèzì yǐngxiǎng bùtóng rén.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "第二年，店里先推出小包装并标明原料，之后延长周末时间。销售恢复，但传统顾客担心品牌变得普通。店主用两种颜色区别经典和改良产品，并邀请老人比较味道，而不是把所有变化一次完成。",
+            "meaningVi": "Năm hai, tiệm ra gói nhỏ và ghi nguyên liệu, sau đó kéo dài giờ cuối tuần. Bán hàng hồi phục nhưng khách truyền thống lo thương hiệu trở nên bình thường. Chủ dùng hai màu phân biệt sản phẩm kinh điển và cải tiến, mời người lớn tuổi so vị, không làm mọi thay đổi cùng lúc.",
+            "pinyin": "Dì èr nián, diàn lǐ xiān tuīchū xiǎo bāozhuāng bìng biāomíng yuánliào, zhīhòu yáncháng zhōumò shíjiān. Xiāoshòu huīfù, dàn chuántǒng gùkè dānxīn pǐnpái biàn de pǔtōng. Diànzhǔ yòng liǎng zhǒng yánsè qūbié jīngdiǎn hé gǎiliáng chǎnpǐn, bìng yāoqǐng lǎorén bǐjiào wèidào, ér bú shì bǎ suǒyǒu biànhuà yí cì wánchéng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "第三年数据显示，小包装吸引新顾客，经典产品销量基本不变。团队认为改变值得继续，却只对这家店和三年观察负责。过程不是“传统或现代”的一次选择，而是保留、试验、区分和再次测量。",
+            "meaningVi": "Dữ liệu năm ba cho thấy gói nhỏ hút khách mới, doanh số dòng kinh điển gần không đổi. Nhóm cho rằng thay đổi đáng tiếp tục nhưng chỉ chịu trách nhiệm cho một tiệm và ba năm quan sát. Quá trình không phải chọn một lần 'truyền thống hay hiện đại' mà là giữ, thử, phân biệt và đo lại.",
+            "pinyin": "Dì sān nián shùjù xiǎnshì, xiǎo bāozhuāng xīyǐn xīn gùkè, jīngdiǎn chǎnpǐn xiāoliàng jīběn bú biàn. Tuánduì rènwéi gǎibiàn zhídé jìxù, què zhǐ duì zhè jiā diàn hé sān nián guānchá fùzé. Guòchéng bú shì “chuántǒng huò xiàndài” de yí cì xuǎnzé, ér shì bǎoliú, shìyàn, qūfēn hé zàicì cèliáng.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "河城灯会原来晚上八点左右开始，游客赶上下班后入场。近年人数增加，清洁队发现夜里垃圾集中，末班车也过于拥挤。交通部门提醒主办方，若不改变散场方式，安全风险会继续上升。",
+            "meaningVi": "Lễ hội đèn Hà Thành vốn bắt đầu khoảng tám giờ tối để khách kịp đến sau giờ làm. Gần đây người tăng, đội vệ sinh thấy rác tập trung ban đêm và chuyến xe cuối quá đông. Giao thông nhắc ban tổ chức rằng nếu không đổi cách tan hội, rủi ro an toàn sẽ tăng.",
+            "pinyin": "Héchéng dēnghuì yuánlái wǎnshang bā diǎn zuǒyòu kāishǐ, yóukè gǎn shàng xià bān hòu rùchǎng. Jìnnián rénshù zēngjiā, qīngjiéduì fāxiàn yè lǐ lājī jízhōng, mòbānchē yě guòyú yōngjǐ. Jiāotōng bùmén tíxǐng zhǔbànfāng, ruò bù gǎibiàn sànchǎng fāngshì, ānquán fēngxiǎn huì jìxù shàngshēng.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "第二年，灯会不得不提前一小时，并把表演分成两轮。主办方增加垃圾回收点，车站也延长服务。早到家庭增加，但部分夜班工人赶不上第一轮；一个问题缓解时，另一个群体受到影响。",
+            "meaningVi": "Năm hai, lễ hội buộc phải sớm một giờ và chia biểu diễn hai lượt. Ban tổ chức thêm điểm thu rác, ga kéo dài phục vụ. Gia đình đến sớm tăng nhưng một số người làm ca đêm không kịp lượt đầu; khi một vấn đề giảm, nhóm khác bị ảnh hưởng.",
+            "pinyin": "Dì èr nián, dēnghuì bù dé bù tíqián yì xiǎoshí, bìng bǎ biǎoyǎn fēn chéng liǎng lún. Zhǔbànfāng zēngjiā lājī huíshōudiǎn, chēzhàn yě yáncháng fúwù. Zǎo dào jiātíng zēngjiā, dàn bùfen yèbān gōngrén gǎn bu shàng dì yī lún; yí ge wèntí huǎnjiě shí, lìng yí ge qúntǐ shòudào yǐngxiǎng.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "第三年保留两轮，并允许晚班工人预约第二轮。垃圾量按每千人计算后下降，末班车拥挤也减轻。不过天气比前一年好，不能把全部改善都归给时间调整。节日变化包含安全、清洁和参与公平三条线。",
+            "meaningVi": "Năm ba giữ hai lượt và cho người ca đêm đặt lượt sau. Rác tính theo mỗi nghìn người giảm, chuyến cuối bớt đông. Tuy nhiên thời tiết tốt hơn năm trước nên chưa thể quy toàn bộ cải thiện cho đổi giờ. Thay đổi lễ hội gồm ba tuyến: an toàn, vệ sinh và công bằng tham gia.",
+            "pinyin": "Dì sān nián bǎoliú liǎng lún, bìng yǔnxǔ wǎnbān gōngrén yùyuē dì èr lún. Lājīliàng àn měi qiān rén jìsuàn hòu xiàjiàng, mòbānchē yōngjǐ yě jiǎnqīng. Búguò tiānqì bǐ qián yì nián hǎo, bù néng bǎ quánbù gǎishàn dōu guī gěi shíjiān tiáozhěng. Jiérì biànhuà bāohán ānquán, qīngjié hé cānyù gōngpíng sān tiáo xiàn.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:a4f86f5b3b4c2d2c45f226d8139075ae8a5f0062a67a626a735e5d336648df5f",
+          "evidenceDocument": "docs/thien-lo-redesign-review/149-REVIEW-HSK4-TRADITION-CONTEXT-ROUND56.md",
+          "humanReviewed": false,
+          "scope": "Correct six shared bakery and lantern paragraphs plus yongji tone in current lesson copies; preserve Hanzi, meaning, IDs and keys.",
+          "sourceContentSha256": "sha256:4621fabaffc6a8b93835dceed2fcf4bcacff86e26c77ceba4ea32e5471692b44",
+          "sourceRevisionId": "35e7bc4f-4de3-4779-9492-61f30f7602c5"
+        },
+        "exercises": [
+          {
+            "answer": "老街有一家叫作“春和”的点心店，三代人使用同一配方。年轻顾客减少后，店主保证保留核心味道，同时记录他们不购买的原因。访谈显示，包装太大、成分不清和营业时间短各自影响不同人。",
+            "answerMeaningVi": "Phố cũ có tiệm bánh tên Xuân Hòa, ba thế hệ dùng cùng công thức. Khi khách trẻ giảm, chủ bảo đảm giữ vị lõi và ghi lý do họ không mua. Phỏng vấn cho thấy gói quá lớn, thành phần không rõ và giờ bán ngắn ảnh hưởng các nhóm khác nhau.",
+            "answerPinyin": "Lǎojiē yǒu yì jiā jiàozuò “Chūnhé” de diǎnxīndiàn, sān dài rén shǐyòng tóng yì pèifāng. Niánqīng gùkè jiǎnshǎo hòu, diànzhǔ bǎozhèng bǎoliú héxīn wèidào, tóngshí jìlù tāmen bù gòumǎi de yuányīn. Fǎngtán xiǎnshì, bāozhuāng tài dà, chéngfèn bù qīng hé yíngyè shíjiān duǎn gèzì yǐngxiǎng bùtóng rén.",
+            "distractors": [
+              "第二年，店里先推出小包装并标明原料，之后延长周末时间。销售恢复，但传统顾客担心品牌变得普通。店主用两种颜色区别经典和改良产品，并邀请老人比较味道，而不是把所有变化一次完成。",
+              "第三年数据显示，小包装吸引新顾客，经典产品销量基本不变。团队认为改变值得继续，却只对这家店和三年观察负责。过程不是“传统或现代”的一次选择，而是保留、试验、区分和再次测量。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "否则 fǒuzé nối lời nhắc/điều kiện trước với hệ quả nếu không làm hoặc điều kiện không có. 请早点儿出发，否则可能迟到: hãy đi sớm, nếu không có thể muộn. Không phải liên từ tương phản chung như 但是. Hệ quả có thể chắc theo quy định, hoặc chỉ là nguy cơ với 可能; không tự nâng nguy cơ thành tất yếu. Nguồn tiệm bánh không nói đã ghi công thức và thử mẻ nhỏ, nên không dùng những việc đó như bằng chứng đã xảy ra.",
+            "guidedPractice": {
+              "promptVi": "Nội quy mới yêu cầu xuất trình thẻ thư viện để mượn sách. Viết lời nhắc mang thẻ với 否则; không nói không có thẻ thì không được đọc bất kỳ sách nào.",
+              "modelAnswerHanzi": "请带上借书证，否则不能借书。",
+              "modelAnswerPinyin": "Qǐng dài shàng jièshūzhèng, fǒuzé bù néng jiè shū.",
+              "modelAnswerMeaningVi": "Hãy mang thẻ thư viện, nếu không sẽ không được mượn sách."
+            },
+            "modelExample": {
+              "hanzi": "请早点儿出发，否则可能迟到。",
+              "pinyin": "Qǐng zǎo diǎnr chūfā, fǒuzé kěnéng chídào.",
+              "meaningVi": "Hãy xuất phát sớm hơn, nếu không có thể đến muộn.",
+              "speaker": "A"
+            },
+            "pattern": "……，否则……"
+          },
+          {
+            "explanationVi": "要是 yàoshi gần nghĩa 如果, phổ biến trong khẩu ngữ. Vế đầu đặt điều kiện, 就 đứng trước vị từ vế hệ quả. Cùng chủ ngữ: 我明天要是有空，就去看你. Khác chủ ngữ: 要是你有空，我们就见面. Mệnh đề điều kiện không tự nói điều đó đã xảy ra. Không dùng 因为 thay 要是 nếu chưa biết điều kiện có đúng hay không.",
+            "guidedPractice": {
+              "promptVi": "Nếu trời đẹp cuối tuần, bạn và bạn học dự định đi công viên. Viết câu điều kiện, không dự báo chắc chắn thời tiết.",
+              "modelAnswerHanzi": "周末要是天气好，我们就去公园。",
+              "modelAnswerPinyin": "Zhōumò yàoshi tiānqì hǎo, wǒmen jiù qù gōngyuán.",
+              "modelAnswerMeaningVi": "Cuối tuần nếu thời tiết đẹp thì chúng tôi đi công viên."
+            },
+            "modelExample": {
+              "hanzi": "我明天要是有空，就去看你。",
+              "pinyin": "Wǒ míngtiān yàoshi yǒu kòng, jiù qù kàn nǐ.",
+              "meaningVi": "Ngày mai nếu rảnh thì tôi đến thăm bạn.",
+              "speaker": "A"
+            },
+            "pattern": "要是……，就……"
+          },
+          {
+            "explanationVi": "要是…就… nêu nhánh khi điều kiện đúng; 否则 nêu nhánh khi điều kiện đó không đúng. Cần xác định rõ 否则 phủ định điều gì. Có thể dùng cho hai lựa chọn do người nói quyết định, như có chỗ thì ngồi trong nhà, không có thì ngồi ngoài. Không dùng hai nhánh để khẳng định đời thực chỉ có hai cách thu thập bằng chứng hoặc giải quyết vấn đề.",
+            "guidedPractice": {
+              "promptVi": "Bạn lập kế hoạch: nếu mai không mưa thì đi bộ tới thư viện, nếu không thì đi xe buýt. Viết đủ hai nhánh.",
+              "modelAnswerHanzi": "要是明天不下雨，我就走路去图书馆，否则就坐公共汽车去。",
+              "modelAnswerPinyin": "Yàoshi míngtiān bú xià yǔ, wǒ jiù zǒu lù qù túshūguǎn, fǒuzé jiù zuò gōnggòng qìchē qù.",
+              "modelAnswerMeaningVi": "Nếu mai không mưa thì tôi đi bộ tới thư viện, nếu không thì đi xe buýt."
+            },
+            "modelExample": {
+              "hanzi": "要是店里有空位，我们就坐里面，否则就坐外面。",
+              "pinyin": "Yàoshi diàn lǐ yǒu kòngwèi, wǒmen jiù zuò lǐmiàn, fǒuzé jiù zuò wàimiàn.",
+              "meaningVi": "Nếu trong quán còn chỗ thì chúng ta ngồi trong, nếu không thì ngồi ngoài.",
+              "speaker": "A"
+            },
+            "pattern": "要是……，（就）……，否则……"
+          },
+          {
+            "explanationVi": "不管 bùguǎn thường đi với từ nghi vấn chỉ mọi khả năng (谁、什么时候、多忙) hoặc lựa chọn A不A/A还是B. Vế sau 都/也 nói điều giữ nguyên: 不管谁来，我都欢迎. Khác 要是: kết quả không chỉ phụ thuộc một nhánh. Phạm vi vẫn do ngữ cảnh quyết định; 不管 không cho phép bỏ quy tắc an toàn hay mở rộng kết luận về mọi người ngoài nguồn.",
+            "guidedPractice": {
+              "promptVi": "Thông báo mới: dù đăng ký online hay tại quầy, ai cũng cần ghi số điện thoại. Viết 不管…还是…都… đúng phạm vi đăng ký.",
+              "modelAnswerHanzi": "不管在网上还是在柜台报名，都要填写电话号码。",
+              "modelAnswerPinyin": "Bùguǎn zài wǎngshàng háishi zài guìtái bàomíng, dōu yào tiánxiě diànhuà hàomǎ.",
+              "modelAnswerMeaningVi": "Dù đăng ký trên mạng hay tại quầy, đều phải điền số điện thoại."
+            },
+            "modelExample": {
+              "hanzi": "不管谁来，我都欢迎。",
+              "pinyin": "Bùguǎn shéi lái, wǒ dōu huānyíng.",
+              "meaningVi": "Bất kể ai đến, tôi đều hoan nghênh.",
+              "speaker": "A"
+            },
+            "pattern": "不管……，都/也……"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng paraphrase không đổi phạm vi để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Paraphrase không đổi phạm vi: Xây lập luận chuyển ý, giả thiết, điều kiện, nhân quả, mục đích và nhượng bộ với quan hệ logic có thể kiểm chứng."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "老街有一家叫作“春和”的点心店，三代人使用同一配方。年轻顾客减少后，店主保证保留核心味道，同时记录他们不购买的原因。访谈显示，包装太大、成分不清和营业时间短各自影响不同人。",
+                        "id": "hsk4-argument-logic-concession-lesson-02:source-0-0",
+                        "meaningVi": "Phố cũ có tiệm bánh tên Xuân Hòa, ba thế hệ dùng cùng công thức. Khi khách trẻ giảm, chủ bảo đảm giữ vị lõi và ghi lý do họ không mua. Phỏng vấn cho thấy gói quá lớn, thành phần không rõ và giờ bán ngắn ảnh hưởng các nhóm khác nhau.",
+                        "pinyin": "Lǎojiē yǒu yì jiā jiàozuò “Chūnhé” de diǎnxīndiàn, sān dài rén shǐyòng tóng yì pèifāng. Niánqīng gùkè jiǎnshǎo hòu, diànzhǔ bǎozhèng bǎoliú héxīn wèidào, tóngshí jìlù tāmen bù gòumǎi de yuányīn. Fǎngtán xiǎnshì, bāozhuāng tài dà, chéngfèn bù qīng hé yíngyè shíjiān duǎn gèzì yǐngxiǎng bùtóng rén."
+                      },
+                      {
+                        "hanzi": "第二年，店里先推出小包装并标明原料，之后延长周末时间。销售恢复，但传统顾客担心品牌变得普通。店主用两种颜色区别经典和改良产品，并邀请老人比较味道，而不是把所有变化一次完成。",
+                        "id": "hsk4-argument-logic-concession-lesson-02:source-0-1",
+                        "meaningVi": "Năm hai, tiệm ra gói nhỏ và ghi nguyên liệu, sau đó kéo dài giờ cuối tuần. Bán hàng hồi phục nhưng khách truyền thống lo thương hiệu trở nên bình thường. Chủ dùng hai màu phân biệt sản phẩm kinh điển và cải tiến, mời người lớn tuổi so vị, không làm mọi thay đổi cùng lúc.",
+                        "pinyin": "Dì èr nián, diàn lǐ xiān tuīchū xiǎo bāozhuāng bìng biāomíng yuánliào, zhīhòu yáncháng zhōumò shíjiān. Xiāoshòu huīfù, dàn chuántǒng gùkè dānxīn pǐnpái biàn de pǔtōng. Diànzhǔ yòng liǎng zhǒng yánsè qūbié jīngdiǎn hé gǎiliáng chǎnpǐn, bìng yāoqǐng lǎorén bǐjiào wèidào, ér bú shì bǎ suǒyǒu biànhuà yí cì wánchéng."
+                      },
+                      {
+                        "hanzi": "第三年数据显示，小包装吸引新顾客，经典产品销量基本不变。团队认为改变值得继续，却只对这家店和三年观察负责。过程不是“传统或现代”的一次选择，而是保留、试验、区分和再次测量。",
+                        "id": "hsk4-argument-logic-concession-lesson-02:source-0-2",
+                        "meaningVi": "Dữ liệu năm ba cho thấy gói nhỏ hút khách mới, doanh số dòng kinh điển gần không đổi. Nhóm cho rằng thay đổi đáng tiếp tục nhưng chỉ chịu trách nhiệm cho một tiệm và ba năm quan sát. Quá trình không phải chọn một lần 'truyền thống hay hiện đại' mà là giữ, thử, phân biệt và đo lại.",
+                        "pinyin": "Dì sān nián shùjù xiǎnshì, xiǎo bāozhuāng xīyǐn xīn gùkè, jīngdiǎn chǎnpǐn xiāoliàng jīběn bú biàn. Tuánduì rènwéi gǎibiàn zhídé jìxù, què zhǐ duì zhè jiā diàn hé sān nián guānchá fùzé. Guòchéng bú shì “chuántǒng huò xiàndài” de yí cì xuǎnzé, ér shì bǎoliú, shìyàn, qūfēn hé zàicì cèliáng."
+                      }
+                    ]
+                  },
+                  "title": "Một tiệm bánh truyền thống thay đổi thế nào"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Một tiệm bánh truyền thống thay đổi thế nào"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "河城灯会原来晚上八点左右开始，游客赶上下班后入场。近年人数增加，清洁队发现夜里垃圾集中，末班车也过于拥挤。交通部门提醒主办方，若不改变散场方式，安全风险会继续上升。",
+                        "id": "hsk4-argument-logic-concession-lesson-02:source-1-0",
+                        "meaningVi": "Lễ hội đèn Hà Thành vốn bắt đầu khoảng tám giờ tối để khách kịp đến sau giờ làm. Gần đây người tăng, đội vệ sinh thấy rác tập trung ban đêm và chuyến xe cuối quá đông. Giao thông nhắc ban tổ chức rằng nếu không đổi cách tan hội, rủi ro an toàn sẽ tăng.",
+                        "pinyin": "Héchéng dēnghuì yuánlái wǎnshang bā diǎn zuǒyòu kāishǐ, yóukè gǎn shàng xià bān hòu rùchǎng. Jìnnián rénshù zēngjiā, qīngjiéduì fāxiàn yè lǐ lājī jízhōng, mòbānchē yě guòyú yōngjǐ. Jiāotōng bùmén tíxǐng zhǔbànfāng, ruò bù gǎibiàn sànchǎng fāngshì, ānquán fēngxiǎn huì jìxù shàngshēng."
+                      },
+                      {
+                        "hanzi": "第二年，灯会不得不提前一小时，并把表演分成两轮。主办方增加垃圾回收点，车站也延长服务。早到家庭增加，但部分夜班工人赶不上第一轮；一个问题缓解时，另一个群体受到影响。",
+                        "id": "hsk4-argument-logic-concession-lesson-02:source-1-1",
+                        "meaningVi": "Năm hai, lễ hội buộc phải sớm một giờ và chia biểu diễn hai lượt. Ban tổ chức thêm điểm thu rác, ga kéo dài phục vụ. Gia đình đến sớm tăng nhưng một số người làm ca đêm không kịp lượt đầu; khi một vấn đề giảm, nhóm khác bị ảnh hưởng.",
+                        "pinyin": "Dì èr nián, dēnghuì bù dé bù tíqián yì xiǎoshí, bìng bǎ biǎoyǎn fēn chéng liǎng lún. Zhǔbànfāng zēngjiā lājī huíshōudiǎn, chēzhàn yě yáncháng fúwù. Zǎo dào jiātíng zēngjiā, dàn bùfen yèbān gōngrén gǎn bu shàng dì yī lún; yí ge wèntí huǎnjiě shí, lìng yí ge qúntǐ shòudào yǐngxiǎng."
+                      },
+                      {
+                        "hanzi": "第三年保留两轮，并允许晚班工人预约第二轮。垃圾量按每千人计算后下降，末班车拥挤也减轻。不过天气比前一年好，不能把全部改善都归给时间调整。节日变化包含安全、清洁和参与公平三条线。",
+                        "id": "hsk4-argument-logic-concession-lesson-02:source-1-2",
+                        "meaningVi": "Năm ba giữ hai lượt và cho người ca đêm đặt lượt sau. Rác tính theo mỗi nghìn người giảm, chuyến cuối bớt đông. Tuy nhiên thời tiết tốt hơn năm trước nên chưa thể quy toàn bộ cải thiện cho đổi giờ. Thay đổi lễ hội gồm ba tuyến: an toàn, vệ sinh và công bằng tham gia.",
+                        "pinyin": "Dì sān nián bǎoliú liǎng lún, bìng yǔnxǔ wǎnbān gōngrén yùyuē dì èr lún. Lājīliàng àn měi qiān rén jìsuàn hòu xiàjiàng, mòbānchē yōngjǐ yě jiǎnqīng. Búguò tiānqì bǐ qián yì nián hǎo, bù néng bǎ quánbù gǎishàn dōu guī gěi shíjiān tiáozhěng. Jiérì biànhuà bāohán ānquán, qīngjié hé cānyù gōngpíng sān tiáo xiàn."
+                      }
+                    ]
+                  },
+                  "title": "Vì sao lễ hội đèn buộc phải đổi thời gian"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Vì sao lễ hội đèn buộc phải đổi thời gian"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn có ghi lý do khách không mua và thay đổi theo giai đoạn, nhưng không nói thử làm mẻ bánh hay hương vị mới. Câu ghép thêm 试做 nên không phải toàn bộ là dữ kiện được nói rõ.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tiệm bánh truyền thống thay đổi sản phẩm từng bước qua ghi chép, thử làm và phản hồi khách.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn có ghi lý do khách không mua và thay đổi theo giai đoạn, nhưng không nói thử làm mẻ bánh hay hương vị mới. Câu ghép thêm 试做 nên không phải toàn bộ là dữ kiện được nói rõ.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn có ghi lý do khách không mua và thay đổi theo giai đoạn, nhưng không nói thử làm mẻ bánh hay hương vị mới. Câu ghép thêm 试做 nên không phải toàn bộ là dữ kiện được nói rõ.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "传统点心店通过记录、试做和顾客反馈逐步改变产品。\nTiệm bánh truyền thống thay đổi sản phẩm từng bước qua ghi chép, thử làm và phản hồi khách.\nĐối chiếu nguồn A: đặc biệt xem có nói thử làm sản phẩm hay không.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn nêu rác tập trung, xe cuối đông và cảnh báo an toàn; không nêu thái độ coi thường truyền thống. Thời tiết tốt hơn là yếu tố có thể ảnh hưởng kết quả năm ba, không phải nguyên nhân đổi giờ được nêu.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lễ hội đèn đổi giờ cho thấy ban tổ chức không coi trọng truyền thống.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn nêu rác tập trung, xe cuối đông và cảnh báo an toàn; không nêu thái độ coi thường truyền thống. Thời tiết tốt hơn là yếu tố có thể ảnh hưởng kết quả năm ba, không phải nguyên nhân đổi giờ được nêu.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn nêu rác tập trung, xe cuối đông và cảnh báo an toàn; không nêu thái độ coi thường truyền thống. Thời tiết tốt hơn là yếu tố có thể ảnh hưởng kết quả năm ba, không phải nguyên nhân đổi giờ được nêu.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "灯会改时间说明主办方不重视传统。\nLễ hội đèn đổi giờ cho thấy ban tổ chức không coi trọng truyền thống.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n春和点心店先了解年轻人不购买的原因。第二年推出小包装、标明原料，再延长周末营业时间，并用颜色区分两类产品。第三年，小包装吸引了新顾客，经典产品销量基本不变。这些结果只来自一家店的三年观察。\nChūnhé diǎnxīndiàn xiān liǎojiě niánqīng rén bù gòumǎi de yuányīn. Dì èr nián tuīchū xiǎo bāozhuāng, biāomíng yuánliào, zài yáncháng zhōumò yíngyè shíjiān, bìng yòng yánsè qūfēn liǎng lèi chǎnpǐn. Dì sān nián, xiǎo bāozhuāng xīyǐn le xīn gùkè, jīngdiǎn chǎnpǐn xiāoliàng jīběn bú biàn. Zhèxiē jiéguǒ zhǐ láizì yì jiā diàn de sān nián guānchá.\nTiệm Xuân Hòa trước tìm hiểu vì sao người trẻ không mua. Năm hai ra gói nhỏ, ghi nguyên liệu rồi kéo dài giờ cuối tuần, dùng màu phân biệt hai dòng sản phẩm. Năm ba, gói nhỏ thu hút khách mới, lượng bán dòng kinh điển gần như không đổi. Kết quả chỉ từ ba năm quan sát một tiệm.\nĐối chiếu nguồn và tự sửa; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase quá trình đổi tiệm bánh, phân biệt phần giữ, phần thử và kết quả quan sát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Nêu lý do khách trẻ không mua, không bịa ghi công thức/thử hương vị mới.",
+                        "id": "point-0",
+                        "label": "Nêu lý do khách trẻ không mua, không bịa ghi công thức/thử hương vị mới."
+                      },
+                      {
+                        "guidance": "Năm hai: gói nhỏ, nhãn nguyên liệu, giờ cuối tuần, phân biệt hai dòng.",
+                        "id": "point-1",
+                        "label": "Năm hai: gói nhỏ, nhãn nguyên liệu, giờ cuối tuần, phân biệt hai dòng."
+                      },
+                      {
+                        "guidance": "Năm ba: khách mới và lượng bán dòng kinh điển.",
+                        "id": "point-2",
+                        "label": "Năm ba: khách mới và lượng bán dòng kinh điển."
+                      },
+                      {
+                        "guidance": "Giới hạn một tiệm và ba năm quan sát.",
+                        "id": "point-3",
+                        "label": "Giới hạn một tiệm và ba năm quan sát."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase quá trình đổi tiệm bánh, phân biệt phần giữ, phần thử và kết quả quan sát.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n人数增加后，夜间垃圾和末班车拥挤带来了问题。第二年灯会提前一小时，表演分成两轮，同时增加垃圾回收点并延长车站服务。第三年允许晚班工人预约第二轮。每千人的垃圾量下降，末班车也不那么挤了；但天气也更好，不能把改善全归给时间调整。\nRénshù zēngjiā hòu, yèjiān lājī hé mòbānchē yōngjǐ dài lái le wèntí. Dì èr nián dēnghuì tíqián yì xiǎoshí, biǎoyǎn fēn chéng liǎng lún, tóngshí zēngjiā lājī huíshōudiǎn bìng yáncháng chēzhàn fúwù. Dì sān nián yǔnxǔ wǎnbān gōngrén yùyuē dì èr lún. Měi qiān rén de lājīliàng xiàjiàng, mòbānchē yě bù nàme jǐ le; dàn tiānqì yě gèng hǎo, bù néng bǎ gǎishàn quán guī gěi shíjiān tiáozhěng.\nKhi người tăng, rác ban đêm và chuyến xe cuối đông gây vấn đề. Năm hai lễ hội sớm một giờ, chia hai lượt, thêm điểm thu rác và kéo dài phục vụ tại ga. Năm ba cho công nhân ca muộn đặt lượt hai. Rác trên mỗi nghìn người giảm, xe cuối bớt đông; nhưng thời tiết cũng tốt hơn nên không quy tất cả cho đổi giờ.\nĐối chiếu nguồn và tự sửa; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại lý do đổi giờ và cách giảm gián đoạn, không gán thái độ với truyền thống.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Rác tập trung và xe cuối đông dẫn tới lo ngại an toàn.",
+                        "id": "point-0",
+                        "label": "Rác tập trung và xe cuối đông dẫn tới lo ngại an toàn."
+                      },
+                      {
+                        "guidance": "Giờ sớm, hai lượt, thêm điểm thu rác và kéo dài dịch vụ ga.",
+                        "id": "point-1",
+                        "label": "Giờ sớm, hai lượt, thêm điểm thu rác và kéo dài dịch vụ ga."
+                      },
+                      {
+                        "guidance": "Giữ nhu cầu ca muộn, đơn vị mỗi nghìn người và yếu tố thời tiết.",
+                        "id": "point-2",
+                        "label": "Giữ nhu cầu ca muộn, đơn vị mỗi nghìn người và yếu tố thời tiết."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại lý do đổi giờ và cách giảm gián đoạn, không gán thái độ với truyền thống.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "否则 fǒuzé nối lời nhắc/điều kiện trước với hệ quả nếu không làm hoặc điều kiện không có. 请早点儿出发，否则可能迟到: hãy đi sớm, nếu không có thể muộn. Không phải liên từ tương phản chung như 但是. Hệ quả có thể chắc theo quy định, hoặc chỉ là nguy cơ với 可能; không tự nâng nguy cơ thành tất yếu. Nguồn tiệm bánh không nói đã ghi công thức và thử mẻ nhỏ, nên không dùng những việc đó như bằng chứng đã xảy ra.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "否则: nếu không thì"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "请早点儿出发，否则可能迟到。",
+                  "pinyin": "Qǐng zǎo diǎnr chūfā, fǒuzé kěnéng chídào.",
+                  "meaningVi": "Hãy xuất phát sớm hơn, nếu không có thể đến muộn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "请带上门票，否则不能入场。",
+                  "pinyin": "Qǐng dài shàng ménpiào, fǒuzé bù néng rùchǎng.",
+                  "meaningVi": "Hãy mang vé, nếu không sẽ không được vào.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "否则: nếu không thì"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:0:practice",
+              "title": "Khảo Luyện · 否则: nếu không thì",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "否则可能迟到 nói gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chắc chắn đã muộn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Nếu không thì có nguy cơ muộn",
+                        "feedback": "可能 giữ mức có thể, không khẳng định kết quả đã xảy ra."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Dù đi lúc nào cũng muộn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "可能 giữ mức có thể, không khẳng định kết quả đã xảy ra.",
+                    "learningTarget": {
+                      "objective": "否则: nếu không thì",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Bạn thấy rẻ nhưng xa, cần nối hai nhận xét. Chọn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "便宜，否则很远。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "便宜，否则已经远。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "很便宜，但是离家很远。",
+                        "feedback": "Đây là tương phản ưu/nhược điểm, không phải hệ quả nếu không thực hiện việc trước."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Đây là tương phản ưu/nhược điểm, không phải hệ quả nếu không thực hiện việc trước.",
+                    "learningTarget": {
+                      "objective": "否则: nếu không thì",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:0:transfer",
+              "title": "Vận dụng · 否则: nếu không thì",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n请带上借书证，否则不能借书。\nQǐng dài shàng jièshūzhèng, fǒuzé bù néng jiè shū.\nHãy mang thẻ thư viện, nếu không sẽ không được mượn sách.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "否则: nếu không thì",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu mang thẻ trước, hệ quả không mượn sau 否则.",
+                        "guidance": "Nêu mang thẻ trước, hệ quả không mượn sau 否则."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Giữ giới hạn mượn sách của nội quy.",
+                        "guidance": "Giữ giới hạn mượn sách của nội quy."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm cấm đọc mọi sách.",
+                        "guidance": "Không thêm cấm đọc mọi sách."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Nội quy mới yêu cầu xuất trình thẻ thư viện để mượn sách. Viết lời nhắc mang thẻ với 否则; không nói không có thẻ thì không được đọc bất kỳ sách nào.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "要是 yàoshi gần nghĩa 如果, phổ biến trong khẩu ngữ. Vế đầu đặt điều kiện, 就 đứng trước vị từ vế hệ quả. Cùng chủ ngữ: 我明天要是有空，就去看你. Khác chủ ngữ: 要是你有空，我们就见面. Mệnh đề điều kiện không tự nói điều đó đã xảy ra. Không dùng 因为 thay 要是 nếu chưa biết điều kiện có đúng hay không.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "要是……就……: nếu…thì…"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我明天要是有空，就去看你。",
+                  "pinyin": "Wǒ míngtiān yàoshi yǒu kòng, jiù qù kàn nǐ.",
+                  "meaningVi": "Ngày mai nếu rảnh thì tôi đến thăm bạn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "要是你有空，我们就见面。",
+                  "pinyin": "Yàoshi nǐ yǒu kòng, wǒmen jiù jiàn miàn.",
+                  "meaningVi": "Nếu bạn rảnh thì chúng ta gặp nhau.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "要是……就……: nếu…thì…"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:1:practice",
+              "title": "Khảo Luyện · 要是……就……: nếu…thì…",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Câu 我明天要是有空，就去看你 có xác nhận mai rảnh không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, chỉ đặt điều kiện",
+                        "feedback": "要是 đánh dấu điều kiện, không phải thông báo đã rảnh hoặc đã đi."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, chắc chắn rảnh",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có, đã đến thăm",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "要是 đánh dấu điều kiện, không phải thông báo đã rảnh hoặc đã đi.",
+                    "learningTarget": {
+                      "objective": "要是……就……: nếu…thì…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Chọn trật tự tự nhiên.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "要是你有空，我们就见面。",
+                        "feedback": "Điều kiện trước, chủ ngữ 我们 rồi 就 và vị từ 见面."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "你就有空，要是我们见面。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "要是你有空，我们见面要是。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Điều kiện trước, chủ ngữ 我们 rồi 就 và vị từ 见面.",
+                    "learningTarget": {
+                      "objective": "要是……就……: nếu…thì…",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:1:transfer",
+              "title": "Vận dụng · 要是……就……: nếu…thì…",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n周末要是天气好，我们就去公园。\nZhōumò yàoshi tiānqì hǎo, wǒmen jiù qù gōngyuán.\nCuối tuần nếu thời tiết đẹp thì chúng tôi đi công viên.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "要是……就……: nếu…thì…",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "要是 đặt điều kiện thời tiết.",
+                        "guidance": "要是 đặt điều kiện thời tiết."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "我们就去 nêu dự định có điều kiện.",
+                        "guidance": "我们就去 nêu dự định có điều kiện."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không nói thời tiết chắc đẹp.",
+                        "guidance": "Không nói thời tiết chắc đẹp."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Nếu trời đẹp cuối tuần, bạn và bạn học dự định đi công viên. Viết câu điều kiện, không dự báo chắc chắn thời tiết.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "要是…就… nêu nhánh khi điều kiện đúng; 否则 nêu nhánh khi điều kiện đó không đúng. Cần xác định rõ 否则 phủ định điều gì. Có thể dùng cho hai lựa chọn do người nói quyết định, như có chỗ thì ngồi trong nhà, không có thì ngồi ngoài. Không dùng hai nhánh để khẳng định đời thực chỉ có hai cách thu thập bằng chứng hoặc giải quyết vấn đề.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "要是……就……，否则……: hai nhánh của kế hoạch"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "要是店里有空位，我们就坐里面，否则就坐外面。",
+                  "pinyin": "Yàoshi diàn lǐ yǒu kòngwèi, wǒmen jiù zuò lǐmiàn, fǒuzé jiù zuò wàimiàn.",
+                  "meaningVi": "Nếu trong quán còn chỗ thì chúng ta ngồi trong, nếu không thì ngồi ngoài.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:2:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "要是今天能完成，我就今晚发给你，否则明早再发。",
+                  "pinyin": "Yàoshi jīntiān néng wánchéng, wǒ jiù jīnwǎn fā gěi nǐ, fǒuzé míngzǎo zài fā.",
+                  "meaningVi": "Nếu hôm nay làm xong được thì tối nay tôi gửi bạn, nếu không thì sáng mai gửi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "要是……就……，否则……: hai nhánh của kế hoạch"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:2:practice",
+              "title": "Khảo Luyện · 要是……就……，否则……: hai nhánh của kế hoạch",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:2:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "否则 ở câu chỗ ngồi phủ định điều gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Quán tồn tại",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Trong quán có chỗ trống",
+                        "feedback": "Nếu trong quán không có chỗ thì chọn ngồi ngoài theo kế hoạch này."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Chúng ta muốn ngồi",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Nếu trong quán không có chỗ thì chọn ngồi ngoài theo kế hoạch này.",
+                    "learningTarget": {
+                      "objective": "要是……就……，否则……: hai nhánh của kế hoạch",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:2:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Câu gửi tài liệu có chứng minh tối nay sẽ nhận được không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có vì có 就",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có vì có 今天",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không, còn điều kiện hoàn thành",
+                        "feedback": "Kế hoạch có nhánh khác; chưa xác nhận đã hoàn thành."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Kế hoạch có nhánh khác; chưa xác nhận đã hoàn thành.",
+                    "learningTarget": {
+                      "objective": "要是……就……，否则……: hai nhánh của kế hoạch",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:2:transfer",
+              "title": "Vận dụng · 要是……就……，否则……: hai nhánh của kế hoạch",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n要是明天不下雨，我就走路去图书馆，否则就坐公共汽车去。\nYàoshi míngtiān bú xià yǔ, wǒ jiù zǒu lù qù túshūguǎn, fǒuzé jiù zuò gōnggòng qìchē qù.\nNếu mai không mưa thì tôi đi bộ tới thư viện, nếu không thì đi xe buýt.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "要是……就……，否则……: hai nhánh của kế hoạch",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nhánh đi bộ gắn điều kiện không mưa.",
+                        "guidance": "Nhánh đi bộ gắn điều kiện không mưa."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "否则 ở đây là nếu mưa, không phải nếu không đi thư viện.",
+                        "guidance": "否则 ở đây là nếu mưa, không phải nếu không đi thư viện."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Giữ cùng điểm đến và hai phương tiện dự định.",
+                        "guidance": "Giữ cùng điểm đến và hai phương tiện dự định."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn lập kế hoạch: nếu mai không mưa thì đi bộ tới thư viện, nếu không thì đi xe buýt. Viết đủ hai nhánh.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不管 bùguǎn thường đi với từ nghi vấn chỉ mọi khả năng (谁、什么时候、多忙) hoặc lựa chọn A不A/A还是B. Vế sau 都/也 nói điều giữ nguyên: 不管谁来，我都欢迎. Khác 要是: kết quả không chỉ phụ thuộc một nhánh. Phạm vi vẫn do ngữ cảnh quyết định; 不管 không cho phép bỏ quy tắc an toàn hay mở rộng kết luận về mọi người ngoài nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "不管……都/也……: kết quả giữ nguyên qua các điều kiện"
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-example:3",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "不管谁来，我都欢迎。",
+                  "pinyin": "Bùguǎn shéi lái, wǒ dōu huānyíng.",
+                  "meaningVi": "Bất kể ai đến, tôi đều hoan nghênh.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:3:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "不管下不下雨，活动都在室内举行。",
+                  "pinyin": "Bùguǎn xià bu xià yǔ, huódòng dōu zài shìnèi jǔxíng.",
+                  "meaningVi": "Dù mưa hay không, hoạt động đều tổ chức trong nhà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:3:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "不管多忙，我也要给家里打个电话。",
+                  "pinyin": "Bùguǎn duō máng, wǒ yě yào gěi jiā lǐ dǎ ge diànhuà.",
+                  "meaningVi": "Dù bận thế nào, tôi cũng phải gọi một cuộc về nhà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "不管……都/也……: kết quả giữ nguyên qua các điều kiện"
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:3:practice",
+              "title": "Khảo Luyện · 不管……都/也……: kết quả giữ nguyên qua các điều kiện",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:3:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "不管下不下雨，活动都在室内举行 khác gì “nếu mưa thì ở trong”?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Chỉ tổ chức nếu mưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Cả mưa lẫn không mưa đều ở trong",
+                        "feedback": "不管…都… giữ địa điểm không đổi ở cả hai khả năng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Khẳng định đã mưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不管…都… giữ địa điểm không đổi ở cả hai khả năng.",
+                    "learningTarget": {
+                      "objective": "不管……都/也……: kết quả giữ nguyên qua các điều kiện",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:3:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Chọn câu giữ quyết định học dù bận thế nào.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "不管多忙，我都要学习。",
+                        "feedback": "多忙 nêu mọi mức bận; 都要学习 giữ ý định."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "要是多忙，我都不管。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不管很忙，所以谁学习。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "多忙 nêu mọi mức bận; 都要学习 giữ ý định.",
+                    "learningTarget": {
+                      "objective": "不管……都/也……: kết quả giữ nguyên qua các điều kiện",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-argument-logic-concession-lesson-02:condition-r57:3:transfer",
+              "title": "Vận dụng · 不管……都/也……: kết quả giữ nguyên qua các điều kiện",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n不管在网上还是在柜台报名，都要填写电话号码。\nBùguǎn zài wǎngshàng háishi zài guìtái bàomíng, dōu yào tiánxiě diànhuà hàomǎ.\nDù đăng ký trên mạng hay tại quầy, đều phải điền số điện thoại.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "不管……都/也……: kết quả giữ nguyên qua các điều kiện",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Nêu hai cách đăng ký với 还是.",
+                        "guidance": "Nêu hai cách đăng ký với 还是."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "都要 giữ cùng yêu cầu.",
+                        "guidance": "都要 giữ cùng yêu cầu."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không mở rộng yêu cầu cho người không đăng ký.",
+                        "guidance": "Không mở rộng yêu cầu cho người không đăng ký."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Thông báo mới: dù đăng ký online hay tại quầy, ai cũng cần ghi số điện thoại. Viết 不管…还是…都… đúng phạm vi đăng ký.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n两份材料都描述了分阶段调整。点心店了解顾客不购买的原因后，改变包装、原料说明和周末营业时间；第三年新顾客增加，经典产品销量基本不变。灯会为缓解垃圾集中和交通拥挤，提前开场并分成两轮，后来又照顾晚班工人的需要。每千人的垃圾量和末班车拥挤有所改善，但天气也是可能影响结果的因素。两例支持根据问题调整做法，却不能证明所有传统都应采用同样办法。\nLiǎng fèn cáiliào dōu miáoshù le fēn jiēduàn tiáozhěng. Diǎnxīndiàn liǎojiě gùkè bù gòumǎi de yuányīn hòu, gǎibiàn bāozhuāng, yuánliào shuōmíng hé zhōumò yíngyè shíjiān; dì sān nián xīn gùkè zēngjiā, jīngdiǎn chǎnpǐn xiāoliàng jīběn bú biàn. Dēnghuì wèi huǎnjiě lājī jízhōng hé jiāotōng yōngjǐ, tíqián kāichǎng bìng fēn chéng liǎng lún, hòulái yòu zhàogu wǎnbān gōngrén de xūyào. Měi qiān rén de lājīliàng hé mòbānchē yōngjǐ yǒu suǒ gǎishàn, dàn tiānqì yě shì kěnéng yǐngxiǎng jiéguǒ de yīnsù. Liǎng lì zhīchí gēnjù wèntí tiáozhěng zuòfǎ, què bù néng zhèngmíng suǒyǒu chuántǒng dōu yīng cǎiyòng tóngyàng bànfǎ.\nHai nguồn đều mô tả điều chỉnh theo giai đoạn. Tiệm tìm hiểu lý do không mua rồi đổi bao bì, thông tin nguyên liệu và giờ cuối tuần; năm ba khách mới tăng, lượng bán dòng kinh điển gần như không đổi. Lễ hội đổi giờ và chia hai lượt để giảm rác tập trung, ùn người; sau đó chú ý nhu cầu công nhân ca muộn. Rác trên mỗi nghìn người và mức đông chuyến cuối cải thiện, nhưng thời tiết cũng có thể ảnh hưởng. Hai trường hợp ủng hộ điều chỉnh theo vấn đề, không chứng minh mọi truyền thống phải dùng cùng cách.\nĐối chiếu nguồn và tự sửa; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt hai quá trình thay đổi truyền thống, nêu điều kiện kích hoạt, bước thử/điều chỉnh và giới hạn kết quả.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Nguyên nhân khách trẻ không mua.",
+                        "id": "criterion-0",
+                        "label": "Nguyên nhân khách trẻ không mua."
+                      },
+                      {
+                        "guidance": "Điều chỉnh theo giai đoạn và kết quả tiệm bánh trong ba năm.",
+                        "id": "criterion-1",
+                        "label": "Điều chỉnh theo giai đoạn và kết quả tiệm bánh trong ba năm."
+                      },
+                      {
+                        "guidance": "Nguyên nhân đổi giờ, hai lượt và nhu cầu ca muộn.",
+                        "id": "criterion-2",
+                        "label": "Nguyên nhân đổi giờ, hai lượt và nhu cầu ca muộn."
+                      },
+                      {
+                        "guidance": "Rác trên mỗi nghìn người; thời tiết là yếu tố khác.",
+                        "id": "criterion-3",
+                        "label": "Rác trên mỗi nghìn người; thời tiết là yếu tố khác."
+                      },
+                      {
+                        "guidance": "Không quy toàn bộ cải thiện cho đổi giờ hoặc khái quát mọi truyền thống.",
+                        "id": "criterion-4",
+                        "label": "Không quy toàn bộ cải thiện cho đổi giờ hoặc khái quát mọi truyền thống."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt hai quá trình thay đổi truyền thống, nêu điều kiện kích hoạt, bước thử/điều chỉnh và giới hạn kết quả.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n我认为应根据风险和反馈决定改变的速度。点心店先了解顾客的需要，再分阶段调整；灯会则在交通部门提醒安全风险后改变开场和散场安排。这说明不同问题需要不同措施。有人担心分阶段会增加成本，这值得考虑。但材料没有比较各种方案的总成本，不能据此断定一次全部改变更好。我建议事先确定复查时间，观察新老顾客或不同班次工人的需要。这是我的建议，不是材料已经实施的措施。两例都有三年记录，却不足以确定所有传统的最佳调整速度。\nWǒ rènwéi yīng gēnjù fēngxiǎn hé fǎnkuì juédìng gǎibiàn de sùdù. Diǎnxīndiàn xiān liǎojiě gùkè de xūyào, zài fēn jiēduàn tiáozhěng; dēnghuì zé zài jiāotōng bùmén tíxǐng ānquán fēngxiǎn hòu gǎibiàn kāichǎng hé sànchǎng ānpái. Zhè shuōmíng bùtóng wèntí xūyào bùtóng cuòshī. Yǒu rén dānxīn fēn jiēduàn huì zēngjiā chéngběn, zhè zhídé kǎolǜ. Dàn cáiliào méiyǒu bǐjiào gè zhǒng fāng’àn de zǒng chéngběn, bù néng jù cǐ duàndìng yí cì quánbù gǎibiàn gèng hǎo. Wǒ jiànyì shìxiān quèdìng fùchá shíjiān, guānchá xīn lǎo gùkè huò bùtóng bāncì gōngrén de xūyào. Zhè shì wǒ de jiànyì, bú shì cáiliào yǐjīng shíshī de cuòshī. Liǎng lì dōu yǒu sān nián jìlù, què bù zú yǐ quèdìng suǒyǒu chuántǒng de zuì jiā tiáozhěng sùdù.\nTôi cho rằng nên quyết định tốc độ theo rủi ro và phản hồi. Tiệm tìm hiểu nhu cầu rồi đổi từng giai đoạn; lễ hội đổi cách bắt đầu và tan hội sau cảnh báo an toàn của ngành giao thông. Vấn đề khác nhau cần biện pháp khác nhau. Lo ngại làm từng bước tăng chi phí đáng cân nhắc, nhưng nguồn chưa so tổng chi phí các phương án nên chưa thể kết luận đổi hết một lần tốt hơn. Tôi đề xuất định ngày đánh giá lại, quan sát nhu cầu khách cũ/mới và người làm các ca. Đây là đề xuất của tôi, không phải biện pháp nguồn nói đã làm. Cả hai có ba năm ghi nhận, vẫn chưa đủ xác định tốc độ tối ưu cho mọi truyền thống.\nĐối chiếu nguồn và tự sửa; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: khi an toàn hoặc nhu cầu mới xuất hiện, thay đổi truyền thống nên diễn ra nhanh hay qua thử nghiệm từng bước?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt rủi ro an toàn và nhu cầu mới; không suy có sự cố khẩn cấp đã xảy ra.",
+                        "id": "criterion-0",
+                        "label": "Phân biệt rủi ro an toàn và nhu cầu mới; không suy có sự cố khẩn cấp đã xảy ra."
+                      },
+                      {
+                        "guidance": "Dùng điều chỉnh bao bì/nhãn/giờ bán và kết quả ba năm, không thêm thử mẻ nhỏ.",
+                        "id": "criterion-1",
+                        "label": "Dùng điều chỉnh bao bì/nhãn/giờ bán và kết quả ba năm, không thêm thử mẻ nhỏ."
+                      },
+                      {
+                        "guidance": "điều kiện lễ hội",
+                        "id": "criterion-2",
+                        "label": "điều kiện lễ hội"
+                      },
+                      {
+                        "guidance": "phản biện về chi phí/chậm trễ",
+                        "id": "criterion-3",
+                        "label": "phản biện về chi phí/chậm trễ"
+                      },
+                      {
+                        "guidance": "kết luận có tiêu chí và mốc đánh giá",
+                        "id": "criterion-4",
+                        "label": "kết luận có tiêu chí và mốc đánh giá"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Thử nghiệm từng bước kéo dài bất định và tăng chi phí; đôi khi quyết định dứt khoát giúp cộng đồng thích nghi nhanh hơn.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất nguyên tắc theo rủi ro/khả năng đảo ngược; nguồn không xác định thời hạn tối ưu cho mọi phong tục.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất nguyên tắc theo rủi ro/khả năng đảo ngược; nguồn không xác định thời hạn tối ưu cho mọi phong tục."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: khi an toàn hoặc nhu cầu mới xuất hiện, thay đổi truyền thống nên diễn ra nhanh hay qua thử nghiệm từng bước?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu:\n我建议把安全风险和恢复原状的难度分开考虑。灯会涉及散场安全，点心店涉及顾客需求；不能把两者当成同一种风险。可以先试行容易调整的安排，同时定期了解不同群体的反馈。这是未来方案，材料没有给出完整的风险等级、恢复成本或最佳期限。\nWǒ jiànyì bǎ ānquán fēngxiǎn hé huīfù yuánzhuàng de nándù fēn kāi kǎolǜ. Dēnghuì shèjí sànchǎng ānquán, diǎnxīndiàn shèjí gùkè xūqiú; bù néng bǎ liǎng zhě dàngchéng tóng yì zhǒng fēngxiǎn. Kěyǐ xiān shìxíng róngyì tiáozhěng de ānpái, tóngshí dìngqī liǎojiě bùtóng qúntǐ de fǎnkuì. Zhè shì wèilái fāng’àn, cáiliào méiyǒu gěi chū wánzhěng de fēngxiǎn děngjí, huīfù chéngběn huò zuì jiā qīxiàn.\nTôi đề xuất xét riêng rủi ro an toàn và độ khó khôi phục trạng thái cũ. Lễ hội liên quan an toàn tan hội, tiệm liên quan nhu cầu khách; không coi hai loại rủi ro là một. Có thể thử cách dễ điều chỉnh và định kỳ hỏi phản hồi các nhóm. Đây là phương án tương lai; nguồn không cho đủ mức rủi ro, chi phí khôi phục hay thời hạn tối ưu.\nĐối chiếu nguồn và tự sửa; mẫu không cấp điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Vận dụng: đề xuất cách cân nhắc tốc độ thay đổi và khả năng khôi phục cho một lần tổ chức sau. Dẫn hai nguồn nhưng phân biệt dữ kiện đã có với tiêu chí và mốc đánh giá do bạn đề xuất.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-argument-logic-concession-lesson-02",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt rủi ro an toàn và nhu cầu khách.",
+                        "id": "move-0",
+                        "label": "Phân biệt rủi ro an toàn và nhu cầu khách."
+                      },
+                      {
+                        "guidance": "Nêu khả năng đảo ngược như tiêu chí đề xuất, không phải số liệu nguồn.",
+                        "id": "move-1",
+                        "label": "Nêu khả năng đảo ngược như tiêu chí đề xuất, không phải số liệu nguồn."
+                      },
+                      {
+                        "guidance": "Đề xuất mốc đánh giá và phản hồi, không kể như việc đã làm.",
+                        "id": "move-2",
+                        "label": "Đề xuất mốc đánh giá và phản hồi, không kể như việc đã làm."
+                      },
+                      {
+                        "guidance": "Thừa nhận chưa có đủ chi phí hoặc thời hạn tối ưu.",
+                        "id": "move-3",
+                        "label": "Thừa nhận chưa có đủ chi phí hoặc thời hạn tối ưu."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Vận dụng: đề xuất cách cân nhắc tốc độ thay đổi và khả năng khôi phục cho một lần tổ chức sau. Dẫn hai nguồn nhưng phân biệt dữ kiện đã có với tiêu chí và mốc đánh giá do bạn đề xuất.\nTự nói hoặc ghi dàn ý; màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "baseline",
+                        "label": "线索一",
+                        "meaningVi": "Công thức cũ và khách trẻ giảm.",
+                        "note": "Ban đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "reasons",
+                        "label": "线索二",
+                        "meaningVi": "Gói, thông tin và giờ bán.",
+                        "note": "Nguyên nhân · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "changes",
+                        "label": "线索三",
+                        "meaningVi": "Gói nhỏ, nhãn và giờ cuối tuần.",
+                        "note": "Thử nghiệm · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "separation",
+                        "label": "线索四",
+                        "meaningVi": "Màu khác cho cổ điển và cải tiến.",
+                        "note": "Phân dòng · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "outcome",
+                        "label": "线索五",
+                        "meaningVi": "Khách mới tăng, dòng cũ ổn định.",
+                        "note": "Năm ba · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-process-timeline; revision 20f39923-fa6f-408b-9efe-07362a34751d; humanReviewed:false",
+                  "title": "Một tiệm bánh truyền thống thay đổi thế nào"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "baseline",
+                        "label": "线索一",
+                        "meaningVi": "Khoảng tám giờ và một lượt.",
+                        "note": "Lịch cũ · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "risks",
+                        "label": "线索二",
+                        "meaningVi": "Rác tập trung và chuyến cuối đông.",
+                        "note": "Rủi ro · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "first-change",
+                        "label": "线索三",
+                        "meaningVi": "Sớm hơn và chia hai lượt.",
+                        "note": "Năm hai · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "access-gap",
+                        "label": "线索四",
+                        "meaningVi": "Người ca đêm lỡ lượt đầu.",
+                        "note": "Khoảng trống · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "second-change",
+                        "label": "线索五",
+                        "meaningVi": "Đặt lượt sau và đo chuẩn hóa.",
+                        "note": "Năm ba · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-argument-logic-concession-lesson-02:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-process-timeline; revision 20f39923-fa6f-408b-9efe-07362a34751d; humanReviewed:false",
+                  "title": "Vì sao lễ hội đèn buộc phải đổi thời gian"
+                }
+              ],
+              "id": "hsk4-argument-logic-concession-lesson-02:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "9842158a-f58c-4da3-9f59-3431db9f81d2",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng paraphrase không đổi phạm vi để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-argument-logic-concession-lesson-01"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-081",
+          "hsk4-grammar-row-082",
+          "hsk4-grammar-row-083",
+          "hsk4-grammar-row-084"
+        ],
+        "sourceLessonIds": [
+          "hsk4-argument-logic-concession-lesson-02",
+          "hsk4-culture-history-interpretation-process-timeline"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-28"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01015",
+          "hsk-vocab-01266",
+          "hsk-vocab-01378",
+          "hsk-vocab-01594",
+          "hsk-vocab-01947",
+          "hsk-vocab-01051",
+          "hsk-vocab-01231",
+          "hsk-vocab-01448",
+          "hsk-vocab-01731",
+          "hsk-vocab-01990"
+        ],
+        "targetLessonId": "hsk4-argument-logic-concession-lesson-02",
+        "titleZh": "HSK四级 · 58",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "1cb8aa6f-ff07-4f8d-b0ab-623b22bd0f64"
+        },
+        "vocabulary": [
+          "hsk-vocab-01015",
+          "hsk-vocab-01266",
+          "hsk-vocab-01378",
+          "hsk-vocab-01594",
+          "hsk-vocab-01947",
+          "hsk-vocab-01051",
+          "hsk-vocab-01231",
+          "hsk-vocab-01448",
+          "hsk-vocab-01731",
+          "hsk-vocab-01990"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 4,
+          "netPages": 8
+        }
+      ]
+    }
+  ]
+}

@@ -442,53 +442,6 @@
 .studio-stage-body { padding: 20px; display: grid; gap: 16px; }
 .studio-stage-guidance { margin: 0; color: var(--studio-dim); font-size: 11px; line-height: 1.55; }
 
-html[data-theme="light"] {
-  --studio-bg: #e7f2ee;
-  --studio-panel: rgba(243, 249, 246, .97);
-  --studio-panel-strong: #edf6f2;
-  --studio-line: rgba(33, 85, 67, .18);
-  --studio-line-strong: rgba(8, 124, 90, .46);
-  --studio-jade: #087c5a;
-  --studio-cyan: #087a9d;
-  --studio-gold: #8c6410;
-  --studio-coral: #b83b30;
-  --studio-text: #17241f;
-  --studio-muted: #4f675e;
-  --studio-dim: #6c8179;
-}
-html[data-theme="light"] .studio-page { background: radial-gradient(circle at 8% -8%, rgba(8, 124, 90, .12), transparent 32%), linear-gradient(145deg, #e5f1ed, #edf5f1 54%, #e1eeea); }
-html[data-theme="light"] .studio-nav a,
-html[data-theme="light"] .studio-secondary-link,
-html[data-theme="light"] .studio-section,
-html[data-theme="light"] .studio-authoring-group,
-html[data-theme="light"] .studio-task-card,
-html[data-theme="light"] .studio-help,
-html[data-theme="light"] .studio-help li,
-html[data-theme="light"] .studio-revision-card,
-html[data-theme="light"] .studio-filter-panel,
-html[data-theme="light"] .studio-bulk-bar,
-html[data-theme="light"] .studio-bulk-select,
-html[data-theme="light"] .studio-pagination > span,
-html[data-theme="light"] .studio-editor-heading,
-html[data-theme="light"] .studio-form-section,
-html[data-theme="light"] .studio-quality-panel { background: #f3f9f6; }
-html[data-theme="light"] .studio-baseline-strip,
-html[data-theme="light"] .studio-baseline-strip > div { background: #f3f9f6; }
-html[data-theme="light"] .studio-welcome,
-html[data-theme="light"] .studio-compose-hero { background: linear-gradient(135deg, #e2f2eb, #f7faf8); box-shadow: 0 18px 45px rgba(24, 66, 51, .08); }
-html[data-theme="light"] .studio-task-card:hover,
-html[data-theme="light"] .studio-task-card:focus-visible,
-html[data-theme="light"] .studio-group-link:hover,
-html[data-theme="light"] .studio-group-link:focus-visible,
-html[data-theme="light"] .studio-compose-steps li.current { background: #e5f3ed; }
-html[data-theme="light"] .studio-editor-heading { background: linear-gradient(115deg, #dceee7, #eff7f3); }
-html[data-theme="light"] .studio-form-section:nth-child(even) { background: #edf6f2; }
-html[data-theme="light"] .studio-page :is(input:not([type="checkbox"]), textarea, select) { color: var(--studio-text); background: #fbfdfc; }
-html[data-theme="light"] .studio-draft-guard { color: #365d51; border-color: rgba(8, 122, 157, .28); background: #e1f1f2; }
-html[data-theme="light"] .studio-alert { color: #086747; background: #e5f4ed; }
-html[data-theme="light"] .studio-alert.error { color: #9f2f26; background: #fae9e6; }
-html[data-theme="light"] .studio-permission-note { color: #77520a; background: #faf2dd; }
-
 @media (max-width: 620px) {
   .studio-topbar { min-height: 58px; padding-right: 48px; }
   .studio-brand small { display: none; }

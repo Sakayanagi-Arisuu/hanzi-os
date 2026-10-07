@@ -133,53 +133,6 @@
 .admin-pagination span[aria-disabled="true"] { color: var(--authority-dim); }
 .admin-pagination strong { color: var(--authority-muted); font-size: 11px; text-align: center; }
 
-html[data-theme="light"] .admin-page {
-  --authority-bg: #e6f1ed;
-  --authority-surface: #f2f8f5;
-  --authority-raised: #e1efe9;
-  --authority-soft: rgba(239, 247, 243, .94);
-  --authority-text: #17241f;
-  --authority-muted: #4f675e;
-  --authority-dim: #5f746c;
-  --authority-line: rgba(33, 85, 67, .18);
-  --authority-strong: rgba(8, 124, 90, .42);
-  --authority-jade: #087c5a;
-  --authority-cyan: #087a9d;
-  --authority-gold: #8c6410;
-  --authority-coral: #b83b30;
-  background: radial-gradient(circle at 88% -10%, rgba(8, 124, 90, .13), transparent 34%), linear-gradient(145deg, #e3efea, #edf5f1 58%, #dfede7);
-}
-html[data-theme="light"] .admin-page :is(input:not([type=hidden]), select, textarea) { background: #fbfdfc; }
-html[data-theme="light"] .admin-nav-item.is-active { background: #e5f3ed; }
-html[data-theme="light"] :is(
-  .admin-task-card,
-  .admin-metric-card,
-  .admin-card,
-  .admin-content-group,
-  .admin-content-method,
-  .admin-release-card,
-  .admin-technical-detail,
-  .admin-empty-state
-) { color: var(--authority-text); background: #f3f9f6; }
-html[data-theme="light"] :is(.admin-task-card, .admin-metric-card, .admin-content-method):hover { background: #f0f7f3; }
-html[data-theme="light"] .admin-button.is-primary,
-html[data-theme="light"] .admin-primary-action { color: #ffffff; }
-html[data-theme="light"] .admin-button.is-secondary { background: #e5f3ed; }
-html[data-theme="light"] .admin-button.is-danger { color: #9f2f26; background: #fae9e6; }
-html[data-theme="light"] .admin-card-note { color: #9f2f26; background: #fae9e6; }
-html[data-theme="light"] .admin-setting-current { background: #edf6f8; }
-html[data-theme="light"] .admin-inline-warning { color: #76520b; background: #faf2dd; }
-html[data-theme="light"] .admin-tag.neutral { background: #edf2f0; }
-html[data-theme="light"] .admin-tag.jade { background: #e2f3ec; }
-html[data-theme="light"] .admin-tag.cyan { background: #e3f1f5; }
-html[data-theme="light"] .admin-tag.gold { background: #f7eed8; }
-html[data-theme="light"] .admin-tag.coral { background: #f9e5e1; }
-html[data-theme="light"] .admin-inline-status.updated { color: #086747; background: #e5f4ed; }
-html[data-theme="light"] .admin-inline-status.error { color: #9f2f26; background: #fae9e6; }
-html[data-theme="light"] .admin-capability-row > span { background: #f4f9f7; }
-html[data-theme="light"] .admin-capability-row:nth-child(even) > span { background: #edf6f2; }
-html[data-theme="light"] .admin-separation-note { color: #5d4a1a; background: #f6edda; }
-
 @media(max-width:980px) {
   .admin-chart-grid, .admin-system-chart-grid { grid-template-columns: 1fr; }
 }

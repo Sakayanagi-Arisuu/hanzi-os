@@ -1,0 +1,7 @@
+# Mục tiêu hoạt động 10 bài đời sống, thời gian và vị trí HSK1 · 29/09/2026
+
+Phạm vi: 30 hoạt động còn thiếu target trong `daily-1..4` và sáu bài `hsk1-time-place-events-01..06`. Kế hoạch exact lesson/block/source ở `content/drafts/thien-lo-everyday-activity-targets.json`. Đây là AI tự rà, `humanReviewed:false`.
+
+Đã đối chiếu từng prompt với đáp án, nhiễu và phản hồi: tính tiền và lượng từ táo; gọi nước thay trà; tiền thừa và vai mua/bán; bệnh viện/người khám; 二/两; ngày hẹn từ lịch giả định; chiều thứ hai/Chủ nhật; giờ đồng hồ/thời lượng; mốc trên/dưới và câu 在; nơi cư trú/thời tiết. Target nối từ vựng, mẫu ngữ pháp hoặc nhiệm vụ đúng bài. Cụm 一杯水 của `daily-2` dùng nhiệm vụ gọi món vì exact source 杯 không nằm trong vocabulary của bài. Câu điền 在 của bài vị trí nối mẫu giới thiệu nơi chốn vì 在 không có exact vocabulary source ở đó. Không lấy từ có cùng chủ đề ở bài khác để tăng chỉ số.
+
+Mười rubric vận dụng có nhiệm vụ riêng theo từng cảnh, giữ quyền dùng Pinyin và từ hỗ trợ. Bản tự viết và tiêu chí tự soát không tạo điểm viết/nói độc lập. Choice/cloze có ngữ cảnh và phản hồi ngay, chưa phải recall không hỗ trợ. Bản gắn target không đổi prompt, đáp án, rubric, page/block/lesson IDs hay ảnh đã phát hành. Trước local apply: guard parent head, review hash, validator, rehearsal rollback, backup D1, bảo vệ bảng người học, head khác và khóa ngoại. Chất lượng toàn bài và đủ HSK vẫn cần rà riêng ngoài việc lấp metadata target.

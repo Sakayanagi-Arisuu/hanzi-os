@@ -3,6 +3,7 @@ import {survivalManuscripts} from './survival-batch-manuscripts';
 import {survivalPractice} from './survival-batch-practice';
 import {survivalExamples} from './survival-batch-examples';
 import {buildAuthoredBatch} from './build-authored-batch';
+import {correctSurvivalPoliteness} from './survival-politeness-correction.mjs';
 const answerReadings:Record<string,[string,string]>={
  'survival-1':['Duìbuqǐ.','Xin lỗi.'],
  'survival-2':['tāmen','chúng nó (vật/động vật)'],
@@ -15,5 +16,10 @@ const answerReadings:Record<string,[string,string]>={
  'survival-9':['Wǒ hái méi qǐchuáng.','Tôi vẫn chưa dậy.'],
 };
 const items=buildAuthoredBatch({manuscripts:survivalManuscripts,practiceByLesson:survivalPractice,examples:survivalExamples,answerReadings});
+for(const item of items)if(item.lessonId==='survival-1'){
+ const corrected=correctSurvivalPoliteness(item.studioContent);
+ item.studioContent=corrected;
+ item.lessonPages=corrected.lessonPages;
+}
 writeFileSync('content/drafts/thien-lo-survival-batch-v2.json',JSON.stringify({schemaVersion:1,humanReviewed:false,status:'draft-not-published',items},null,2)+'\n');
 console.log({lessons:items.length,pages:items.reduce((n,i)=>n+i.lessonPages.pages.length,0),status:'draft-not-published'});

@@ -32,6 +32,9 @@ export const HSK_LEVEL_CHECK_SESSION_STORAGE_KEYS = [
 export const getPlacementGateSessionStorageKey = (levelCheckStorageKey: string) =>
   `${levelCheckStorageKey}${PLACEMENT_GATE_SESSION_STORAGE_SUFFIX}`;
 
+export const getOwnedPlacementStorageKey = (key: string, ownerKey: string) =>
+  `${key}:owner:${encodeURIComponent(ownerKey)}`;
+
 export const isLegacyLearningResumeStorageKey = (key: string) =>
   key === ASSESSMENT_SESSION_STORAGE_KEY
   || key.startsWith(LESSON_SESSION_STORAGE_FAMILY_PREFIX);
@@ -44,6 +47,7 @@ export const isLearningProgressStorageKey = (key: string) =>
   || key === LEARNING_OWNER_STORAGE_KEY
   || HSK_LEVEL_CHECK_SESSION_STORAGE_KEYS.some((levelCheckKey) =>
     key === levelCheckKey || key === getPlacementGateSessionStorageKey(levelCheckKey)
+      || key.startsWith(`${getPlacementGateSessionStorageKey(levelCheckKey)}:owner:`)
   )
   || isLegacyLearningResumeStorageKey(key);
 

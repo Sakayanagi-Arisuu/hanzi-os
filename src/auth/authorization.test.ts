@@ -30,6 +30,7 @@ describe("application authorization", () => {
         "admin:settings:read",
         "admin:settings:write",
         "admin:audit:read",
+        "commerce:manage",
       ],
     });
   });
@@ -46,6 +47,7 @@ describe("application authorization", () => {
       "content:submit",
     ]);
     expect(hasPermission(authorization, "admin:users:read")).toBe(false);
+    expect(hasPermission(authorization, "commerce:manage")).toBe(false);
     expect(hasPermission(authorization, "content:publish")).toBe(false);
   });
 

@@ -56,7 +56,9 @@ export function LessonQuestResult({
   const rawScore = Math.round((correctCount / Math.max(1, totalCount)) * 100);
   const hasAssistedCorrectAnswers = rawScore > gateScore;
   const resultDescription = passed
-    ? "Cửa ải đã được ghi lên bản đồ. Bạn có thể luyện lại ngay hoặc mang bài này sang Vạn Âm Điện."
+    ? continueDestination
+      ? "Cửa ải đã được ghi lên bản đồ. Tiếp tục bước học được gợi ý bên dưới hoặc luyện lại bài này."
+      : "Cửa ải đã được ghi lên bản đồ. Bạn có thể luyện lại ngay hoặc mang bài này sang Vạn Âm Điện để luyện nói."
     : !requiredPassed
       ? "Phần cốt lõi còn thiếu dấu ấn. Xem lại manh mối rồi thử một lượt mới."
       : hasAssistedCorrectAnswers
@@ -194,7 +196,7 @@ export function LessonQuestResult({
                 ?? `/pronunciation?lesson=${encodeURIComponent(lessonId)}`}
               onClick={onNavigate}
             >
-              <Volume2 aria-hidden="true" /> {continueDestinationLabel
+              {continueDestination ? <ArrowRight aria-hidden="true" /> : <Volume2 aria-hidden="true" />} {continueDestinationLabel
                 ?? "Luyện tại Vạn Âm Điện"} <ArrowRight aria-hidden="true" />
             </Link>
           </>

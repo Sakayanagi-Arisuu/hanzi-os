@@ -40,6 +40,7 @@ import "./GlyphGuild.css";
 import "./GuildReference.css";
 import { GuildJourney } from "../components/GuildJourney";
 import { loadHanziStrokeData } from "../characters/hanziStrokeData";
+import { usePremiumCharacters } from "../commerce/usePremiumCharacters";
 
 const levels = ["all", "hsk0", "hsk1", "hsk2", "hsk3", "hsk4"] as const;
 type CharacterLevel = typeof levels[number];
@@ -112,10 +113,11 @@ export function CharactersPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const publishedCharacters = usePublishedStudioCharacters();
+  const premiumCharacters = usePremiumCharacters(sync.ownerKey);
   const characterEntries = useMemo(() => mergePublishedStudioCharacters(
-    RELEASED_CHARACTER_PRACTICE,
+    [...RELEASED_CHARACTER_PRACTICE, ...premiumCharacters],
     publishedCharacters.entries,
-  ), [publishedCharacters.entries]);
+  ), [premiumCharacters, publishedCharacters.entries]);
   const uniqueCharacters = useMemo(
     () => getUniqueReleasedCharacterEntries(characterEntries),
     [characterEntries],

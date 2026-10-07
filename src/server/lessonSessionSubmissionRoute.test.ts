@@ -81,7 +81,9 @@ beforeEach(() => {
     fullName: null,
   });
   getD1Database.mockReset();
-  getD1Database.mockResolvedValue({});
+  getD1Database.mockResolvedValue({
+    prepare: () => ({ bind: () => ({ first: async () => ({ lessonId: lesson.id }) }) }),
+  });
   syncRepository.resolveUser.mockReset();
   syncRepository.resolveUser.mockResolvedValue("user-route");
   consumeMutationRateLimit.mockReset();

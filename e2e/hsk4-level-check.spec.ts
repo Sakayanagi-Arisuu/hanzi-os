@@ -84,19 +84,17 @@ const installLocalHsk4Profile = async (
   }, { state });
 };
 
-test("opens the first HSK4 lesson with the shared rich Lesson UI", async ({
+test("gates only the Thiên Lộ HSK4 lesson, leaving the level check open", async ({
   page,
 }) => {
   await installLocalHsk4Profile(page, true);
   await page.goto("/lesson/hsk4-personal-community-analysis-concept-actor-map");
-  await expect(page.getByText("03 · ỨNG DỤNG CHUYÊN SÂU", { exact: true }))
+  await expect(page.getByRole("heading", { name: "Bài học Thiên Lộ HSK4 thuộc gói Premium" }))
     .toBeVisible({ timeout: 20_000 });
-  await expect(page.getByText(
-    "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
-    { exact: true },
-  ).first()).toBeVisible();
-  await expect(page.getByText("个人信息", { exact: true })).toBeVisible();
-  await expect(page.locator("body")).not.toContainText("humanReviewed=false");
+  await page.goto("/assessment/placement/hsk4");
+  await expect(page.getByTestId("hsk4-level-check-intro")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Bài học Thiên Lộ HSK4 thuộc gói Premium" }))
+    .toHaveCount(0);
 });
 
 test("shows the complete HSK4 path and completes its 72-item local level check without mastery", async ({

@@ -1,0 +1,1414 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/146-REVIEW-HSK4-ROLE-CAUSATIVE-ROUND53.md",
+  "entries": [
+    {
+      "sourceRevisionId": "1d8b8417-783a-449b-9f50-e2b01a9101b3",
+      "sourceContentSha256": "sha256:1f0eccdc9019c30f1995c881c9cada0b66f2ba72497a4c6ca7a81afb6800acf5",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm về bộ chỉ số phân vai\nchuỗi quyết định của tiệm hoa\ncầu, truyền thông và hoạt động lễ\nphản biện về một chỉ số dễ hiểu\ngiới hạn về quan hệ nhân quả",
+        "conceptVi": "Nêu phản biện và điều kiện: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp.",
+        "dialogue": [
+          {
+            "hanzi": "一家郊区花店原来只做附近生意，产品多样却很少进入市区。第一年店主推出周末配送，先用十种耐运输鲜花测试。订单增加，但路线太长，损坏率也高。",
+            "meaningVi": "Tiệm hoa ngoại ô vốn bán gần, sản phẩm đa dạng nhưng ít vào nội thành. Năm đầu chủ ra mắt giao cuối tuần, thử mười loại chịu vận chuyển. Đơn tăng nhưng tuyến dài, hư hỏng cao.",
+            "pinyin": "Yì jiā jiāoqū huādiàn yuánlái zhǐ zuò fùjìn shēngyi, chǎnpǐn duōyàng què hěn shǎo jìnrù shìqū. Dì yī nián diànzhǔ tuīchū zhōumò pèisòng, xiān yòng shí zhǒng nài yùnshū xiānhuā cèshì. Dìngdān zēngjiā, dàn lùxiàn tài cháng, sǔnhuàilǜ yě gāo.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "第二年，店主与市区两家咖啡店合作设取货点，把配送距离缩短。第三年又增加线上订花和回收花瓶。每次改变前都保留旧路线作比较，而不是同时替换全部流程。",
+            "meaningVi": "Năm hai hợp tác hai quán nội thành làm điểm nhận, rút khoảng giao. Năm ba thêm đặt online và thu hồi bình. Mỗi đổi giữ tuyến cũ để so, không thay mọi quy trình cùng lúc.",
+            "pinyin": "Dì èr nián, diànzhǔ yǔ shìqū liǎng jiā kāfēidiàn hézuò shè qǔhuòdiǎn, bǎ pèisòng jùlí suōduǎn. Dì sān nián yòu zēngjiā xiànshàng dìng huā hé huíshōu huāpíng. Měi cì gǎibiàn qián dōu bǎoliú jiù lùxiàn zuò bǐjiào, ér bú shì tóngshí tìhuàn quánbù liúchéng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "第四年市区订单超过郊区，但利润没有同样增长，因为取货点和包装增加成本。花店决定按地区分别报告订单、损坏和利润。过程说明扩大市场不等于每个结果都变好，也解释了为什么订单、损坏和利润必须分开观察。",
+            "meaningVi": "Năm bốn đơn nội thành vượt ngoại ô nhưng lợi nhuận không tăng tương ứng vì điểm nhận/đóng gói tăng phí. Tiệm báo riêng đơn, hư hỏng, lợi nhuận theo vùng. Mở thị trường không đồng nghĩa mọi kết quả tốt; ba chỉ số phải được quan sát riêng.",
+            "pinyin": "Dì sì nián shìqū dìngdān chāoguò jiāoqū, dàn lìrùn méiyǒu tóngyàng zēngzhǎng, yīnwèi qǔhuòdiǎn hé bāozhuāng zēngjiā chéngběn. Huādiàn juédìng àn dìqū fēnbié bàogào dìngdān, sǔnhuài hé lìrùn. Guòchéng shuōmíng kuòdà shìchǎng bù děngyú měi ge jiéguǒ dōu biàn hǎo, yě jiěshì le wèishénme dìngdān, sǔnhuài hé lìrùn bìxū fēnkāi guānchá.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "河边村开通新桥后，去市区时间从九十分钟降到四十分钟。网友及时转发美景图片，村子很快成为周末目的地。第一个月游客翻倍，商户认为桥直接带来增长。",
+            "meaningVi": "Sau cầu mới, thời gian từ làng ven sông vào thành phố giảm 90 xuống 40 phút. Cư dân mạng chia sẻ kịp ảnh đẹp, làng thành điểm đến cuối tuần. Tháng đầu khách gấp đôi, tiểu thương cho rằng cầu trực tiếp tạo tăng trưởng.",
+            "pinyin": "Hébiān cūn kāitōng xīn qiáo hòu, qù shìqū shíjiān cóng jiǔshí fēnzhōng jiàng dào sìshí fēnzhōng. Wǎngyǒu jíshí zhuǎnfā měijǐng túpiàn, cūnzi hěn kuài chéngwéi zhōumò mùdìdì. Dì yī ge yuè yóukè fānbèi, shānghù rènwéi qiáo zhíjiē dài lái zēngzhǎng.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "半年记录显示过程更复杂：桥改善交通，图片传播提高知名度，节假日活动也同时开始。雨季没有活动时，游客仍高于从前，却低于节日高峰。三项变化的时间接近，不能只看前后就决定唯一原因。",
+            "meaningVi": "Hồ sơ nửa năm phức tạp hơn: cầu cải thiện giao thông, ảnh tăng nhận biết, hoạt động lễ bắt đầu cùng lúc. Mùa mưa không hoạt động, khách vẫn hơn trước nhưng dưới đỉnh lễ. Ba thay đổi gần thời gian nên không thể chỉ nhìn trước sau chọn một nguyên nhân.",
+            "pinyin": "Bàn nián jìlù xiǎnshì guòchéng gèng fùzá: qiáo gǎishàn jiāotōng, túpiàn chuánbō tígāo zhīmíngdù, jiéjiàrì huódòng yě tóngshí kāishǐ. Yǔjì méiyǒu huódòng shí, yóukè réng gāo yú cóngqián, què dī yú jiérì gāofēng. Sān xiàng biànhuà de shíjiān jiējìn, bù néng zhǐ kàn qiánhòu jiù juédìng wéiyī yuányīn.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "村委会下一年将分别记录过桥车辆、网络来源和活动报名，并询问游客选择目的地的理由。现有证据支持桥是重要条件，也支持传播与活动有作用；它不支持“只有桥才带来游客”。",
+            "meaningVi": "Năm sau làng ghi xe qua cầu, nguồn online, đăng ký hoạt động và hỏi lý do chọn điểm đến. Bằng chứng hỗ trợ cầu là điều kiện quan trọng, truyền thông/hoạt động cũng có vai trò; không hỗ trợ 'chỉ cầu mang khách'.",
+            "pinyin": "Cūnwěihuì xià yì nián jiāng fēnbié jìlù guò qiáo chēliàng, wǎngluò láiyuán hé huódòng bàomíng, bìng xúnwèn yóukè xuǎnzé mùdìdì de lǐyóu. Xiànyǒu zhèngjù zhīchí qiáo shì zhòngyào tiáojiàn, yě zhīchí chuánbō yǔ huódòng yǒu zuòyòng; tā bù zhīchí “zhǐyǒu qiáo cái dài lái yóukè”.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:10187bb8cec47c4bd8ed97ef02a7b1f0cec1fbe8151112a61e186799113329ef",
+          "evidenceDocument": "docs/thien-lo-redesign-review/145-REVIEW-HSK4-MARKET-CONTEXT-ROUND52.md",
+          "humanReviewed": false,
+          "scope": "Correct contextual Pinyin for six shared flower-shop and bridge-tourism paragraphs; preserve source Hanzi, meaning, IDs and keys.",
+          "sourceContentSha256": "sha256:6efec20dec0c70476b96cf81eb8e6ca0a4b048382bf886247f43663b7bd97c31",
+          "sourceRevisionId": "556cc7dd-ef2c-477d-b0d2-122cfa217017"
+        },
+        "exercises": [
+          {
+            "answer": "一家郊区花店原来只做附近生意，产品多样却很少进入市区。第一年店主推出周末配送，先用十种耐运输鲜花测试。订单增加，但路线太长，损坏率也高。",
+            "answerMeaningVi": "Tiệm hoa ngoại ô vốn bán gần, sản phẩm đa dạng nhưng ít vào nội thành. Năm đầu chủ ra mắt giao cuối tuần, thử mười loại chịu vận chuyển. Đơn tăng nhưng tuyến dài, hư hỏng cao.",
+            "answerPinyin": "Yì jiā jiāoqū huādiàn yuánlái zhǐ zuò fùjìn shēngyi, chǎnpǐn duōyàng què hěn shǎo jìnrù shìqū. Dì yī nián diànzhǔ tuīchū zhōumò pèisòng, xiān yòng shí zhǒng nài yùnshū xiānhuā cèshì. Dìngdān zēngjiā, dàn lùxiàn tài cháng, sǔnhuàilǜ yě gāo.",
+            "distractors": [
+              "第二年，店主与市区两家咖啡店合作设取货点，把配送距离缩短。第三年又增加线上订花和回收花瓶。每次改变前都保留旧路线作比较，而不是同时替换全部流程。",
+              "第四年市区订单超过郊区，但利润没有同样增长，因为取货点和包装增加成本。花店决定按地区分别报告订单、损坏和利润。过程说明扩大市场不等于每个结果都变好，也解释了为什么订单、损坏和利润必须分开观察。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "选 + người + 当/做/为 + vai trò nói chọn ai đảm nhiệm vị trí: 选小王当组长. 为 trang trọng hơn 当/做 trong kiểu câu này. 收…为… thường là nhận vào quan hệ như thầy nhận học trò: 收他为徒; không dùng 收 thay 选 cho mọi việc bầu người. Người sau 选/收 là người mang vai trò cuối câu. Được chọn không tự chứng minh người ấy đã hoàn thành nhiệm vụ. Bài nguồn không nói tiệm hoa đã chọn một nhân viên phụ trách dữ liệu; không kể mẫu giả định đó như sự kiện.",
+            "guidedPractice": {
+              "promptVi": "Ở câu lạc bộ mới, mọi người chọn Tiểu Lý làm đại diện; một nghệ nhân nhận Tiểu Lý làm học trò. Viết hai câu, chọn 选/收 phù hợp.",
+              "modelAnswerHanzi": "大家选小李当代表。一位师傅收小李为徒。",
+              "modelAnswerPinyin": "Dàjiā xuǎn Xiǎolǐ dāng dàibiǎo. Yí wèi shīfu shōu Xiǎolǐ wéi tú.",
+              "modelAnswerMeaningVi": "Mọi người chọn Tiểu Lý làm đại diện. Một người thầy nhận Tiểu Lý làm học trò."
+            },
+            "modelExample": {
+              "hanzi": "大家选小王当组长。",
+              "pinyin": "Dàjiā xuǎn Xiǎowáng dāng zǔzhǎng.",
+              "meaningVi": "Mọi người chọn Tiểu Vương làm trưởng nhóm.",
+              "speaker": "A"
+            },
+            "pattern": "（2）表称谓或认定义：主语+收/选+宾语1+ / 做/当/为+宾语2"
+          },
+          {
+            "explanationVi": "使 thường dùng văn viết để nói khiến, 让 phổ biến hơn trong khẩu ngữ: 这条消息使我放心了 / 这条消息让我放心了. Sau 使/让 có đối tượng chịu tác động rồi cụm vị từ. 让 còn là cho phép/yêu cầu như 妈妈让我出去玩; 使 không thay tự nhiên trong mọi câu cho phép. Khác câu bị động: 我的杯子让他打破了 đặt vật bị làm vỡ đầu câu. Nêu một nguyên nhân không có nghĩa đó là nguyên nhân duy nhất. Nguồn cầu mới chỉ cho thời gian đi giảm; không ghi tiểu thương đã sắp lại dịch vụ cuối tuần.",
+            "guidedPractice": {
+              "promptVi": "Tình huống mới: thông báo rõ giúp bạn hiểu giờ hẹn, bạn cũng được trưởng nhóm cho phép về sớm. Viết một câu 使/让 chỉ tác động và một câu 让 chỉ cho phép.",
+              "modelAnswerHanzi": "清楚的通知让我知道了见面的时间。组长让我早点儿回家。",
+              "modelAnswerPinyin": "Qīngchu de tōngzhī ràng wǒ zhīdào le jiàn miàn de shíjiān. Zǔzhǎng ràng wǒ zǎo diǎnr huí jiā.",
+              "modelAnswerMeaningVi": "Thông báo rõ giúp tôi biết giờ gặp. Trưởng nhóm cho tôi về nhà sớm hơn."
+            },
+            "modelExample": {
+              "hanzi": "这条消息使我放心了。",
+              "pinyin": "Zhè tiáo xiāoxi shǐ wǒ fàngxīn le.",
+              "meaningVi": "Tin này khiến tôi yên tâm.",
+              "speaker": "A"
+            },
+            "pattern": "（3）表致使：主语+使/让+人称代词+动词短 / 语"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng nêu phản biện và điều kiện để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Nêu phản biện và điều kiện: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "一家郊区花店原来只做附近生意，产品多样却很少进入市区。第一年店主推出周末配送，先用十种耐运输鲜花测试。订单增加，但路线太长，损坏率也高。",
+                        "id": "hsk4-event-agency-voice-lesson-04:source-0-0",
+                        "meaningVi": "Tiệm hoa ngoại ô vốn bán gần, sản phẩm đa dạng nhưng ít vào nội thành. Năm đầu chủ ra mắt giao cuối tuần, thử mười loại chịu vận chuyển. Đơn tăng nhưng tuyến dài, hư hỏng cao.",
+                        "pinyin": "Yì jiā jiāoqū huādiàn yuánlái zhǐ zuò fùjìn shēngyi, chǎnpǐn duōyàng què hěn shǎo jìnrù shìqū. Dì yī nián diànzhǔ tuīchū zhōumò pèisòng, xiān yòng shí zhǒng nài yùnshū xiānhuā cèshì. Dìngdān zēngjiā, dàn lùxiàn tài cháng, sǔnhuàilǜ yě gāo."
+                      },
+                      {
+                        "hanzi": "第二年，店主与市区两家咖啡店合作设取货点，把配送距离缩短。第三年又增加线上订花和回收花瓶。每次改变前都保留旧路线作比较，而不是同时替换全部流程。",
+                        "id": "hsk4-event-agency-voice-lesson-04:source-0-1",
+                        "meaningVi": "Năm hai hợp tác hai quán nội thành làm điểm nhận, rút khoảng giao. Năm ba thêm đặt online và thu hồi bình. Mỗi đổi giữ tuyến cũ để so, không thay mọi quy trình cùng lúc.",
+                        "pinyin": "Dì èr nián, diànzhǔ yǔ shìqū liǎng jiā kāfēidiàn hézuò shè qǔhuòdiǎn, bǎ pèisòng jùlí suōduǎn. Dì sān nián yòu zēngjiā xiànshàng dìng huā hé huíshōu huāpíng. Měi cì gǎibiàn qián dōu bǎoliú jiù lùxiàn zuò bǐjiào, ér bú shì tóngshí tìhuàn quánbù liúchéng."
+                      },
+                      {
+                        "hanzi": "第四年市区订单超过郊区，但利润没有同样增长，因为取货点和包装增加成本。花店决定按地区分别报告订单、损坏和利润。过程说明扩大市场不等于每个结果都变好，也解释了为什么订单、损坏和利润必须分开观察。",
+                        "id": "hsk4-event-agency-voice-lesson-04:source-0-2",
+                        "meaningVi": "Năm bốn đơn nội thành vượt ngoại ô nhưng lợi nhuận không tăng tương ứng vì điểm nhận/đóng gói tăng phí. Tiệm báo riêng đơn, hư hỏng, lợi nhuận theo vùng. Mở thị trường không đồng nghĩa mọi kết quả tốt; ba chỉ số phải được quan sát riêng.",
+                        "pinyin": "Dì sì nián shìqū dìngdān chāoguò jiāoqū, dàn lìrùn méiyǒu tóngyàng zēngzhǎng, yīnwèi qǔhuòdiǎn hé bāozhuāng zēngjiā chéngběn. Huādiàn juédìng àn dìqū fēnbié bàogào dìngdān, sǔnhuài hé lìrùn. Guòchéng shuōmíng kuòdà shìchǎng bù děngyú měi ge jiéguǒ dōu biàn hǎo, yě jiěshì le wèishénme dìngdān, sǔnhuài hé lìrùn bìxū fēnkāi guānchá."
+                      }
+                    ]
+                  },
+                  "title": "Kinh doanh hoa từ ngoại ô vào nội thành"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Kinh doanh hoa từ ngoại ô vào nội thành"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "河边村开通新桥后，去市区时间从九十分钟降到四十分钟。网友及时转发美景图片，村子很快成为周末目的地。第一个月游客翻倍，商户认为桥直接带来增长。",
+                        "id": "hsk4-event-agency-voice-lesson-04:source-1-0",
+                        "meaningVi": "Sau cầu mới, thời gian từ làng ven sông vào thành phố giảm 90 xuống 40 phút. Cư dân mạng chia sẻ kịp ảnh đẹp, làng thành điểm đến cuối tuần. Tháng đầu khách gấp đôi, tiểu thương cho rằng cầu trực tiếp tạo tăng trưởng.",
+                        "pinyin": "Hébiān cūn kāitōng xīn qiáo hòu, qù shìqū shíjiān cóng jiǔshí fēnzhōng jiàng dào sìshí fēnzhōng. Wǎngyǒu jíshí zhuǎnfā měijǐng túpiàn, cūnzi hěn kuài chéngwéi zhōumò mùdìdì. Dì yī ge yuè yóukè fānbèi, shānghù rènwéi qiáo zhíjiē dài lái zēngzhǎng."
+                      },
+                      {
+                        "hanzi": "半年记录显示过程更复杂：桥改善交通，图片传播提高知名度，节假日活动也同时开始。雨季没有活动时，游客仍高于从前，却低于节日高峰。三项变化的时间接近，不能只看前后就决定唯一原因。",
+                        "id": "hsk4-event-agency-voice-lesson-04:source-1-1",
+                        "meaningVi": "Hồ sơ nửa năm phức tạp hơn: cầu cải thiện giao thông, ảnh tăng nhận biết, hoạt động lễ bắt đầu cùng lúc. Mùa mưa không hoạt động, khách vẫn hơn trước nhưng dưới đỉnh lễ. Ba thay đổi gần thời gian nên không thể chỉ nhìn trước sau chọn một nguyên nhân.",
+                        "pinyin": "Bàn nián jìlù xiǎnshì guòchéng gèng fùzá: qiáo gǎishàn jiāotōng, túpiàn chuánbō tígāo zhīmíngdù, jiéjiàrì huódòng yě tóngshí kāishǐ. Yǔjì méiyǒu huódòng shí, yóukè réng gāo yú cóngqián, què dī yú jiérì gāofēng. Sān xiàng biànhuà de shíjiān jiējìn, bù néng zhǐ kàn qiánhòu jiù juédìng wéiyī yuányīn."
+                      },
+                      {
+                        "hanzi": "村委会下一年将分别记录过桥车辆、网络来源和活动报名，并询问游客选择目的地的理由。现有证据支持桥是重要条件，也支持传播与活动有作用；它不支持“只有桥才带来游客”。",
+                        "id": "hsk4-event-agency-voice-lesson-04:source-1-2",
+                        "meaningVi": "Năm sau làng ghi xe qua cầu, nguồn online, đăng ký hoạt động và hỏi lý do chọn điểm đến. Bằng chứng hỗ trợ cầu là điều kiện quan trọng, truyền thông/hoạt động cũng có vai trò; không hỗ trợ 'chỉ cầu mang khách'.",
+                        "pinyin": "Cūnwěihuì xià yì nián jiāng fēnbié jìlù guò qiáo chēliàng, wǎngluò láiyuán hé huódòng bàomíng, bìng xúnwèn yóukè xuǎnzé mùdìdì de lǐyóu. Xiànyǒu zhèngjù zhīchí qiáo shì zhòngyào tiáojiàn, yě zhīchí chuánbō yǔ huódòng yǒu zuòyòng; tā bù zhīchí “zhǐyǒu qiáo cái dài lái yóukè”."
+                      }
+                    ]
+                  },
+                  "title": "Một cây cầu làm thay đổi điểm đến mới"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Một cây cầu làm thay đổi điểm đến mới"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Nguồn nêu trực tiếp tiến trình bốn năm, mức đơn và nguyên nhân chi phí làm lợi nhuận không tăng tương ứng. Giới hạn: Không thể từ đó nói mở rộng thất bại hoàn toàn; đơn, hư hỏng và lợi nhuận phải được đánh giá riêng theo vùng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Sau khi tiệm hoa vào nội thành, đơn vượt ngoại ô nhưng chi phí điểm nhận và đóng gói khiến lợi nhuận không tăng tương ứng.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Nguồn nêu trực tiếp tiến trình bốn năm, mức đơn và nguyên nhân chi phí làm lợi nhuận không tăng tương ứng.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn nêu trực tiếp tiến trình bốn năm, mức đơn và nguyên nhân chi phí làm lợi nhuận không tăng tương ứng.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "花店进入市区后订单超过郊区，但取货点和包装成本使利润没有同样增长。\nSau khi tiệm hoa vào nội thành, đơn vượt ngoại ô nhưng chi phí điểm nhận và đóng gói khiến lợi nhuận không tăng tương ứng.\nĐối chiếu Nguồn A · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Hồ sơ nửa năm cho thấy cầu, ảnh trên mạng và hoạt động lễ xuất hiện gần nhau; nguồn bác bỏ nguyên nhân duy nhất. Giới hạn: Có thể gọi cầu là điều kiện quan trọng vì giảm thời gian đi, nhưng cần tách phương tiện, nguồn mạng, hoạt động và lý do khách.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Khách tăng gấp đôi cho thấy cầu mới là nguyên nhân duy nhất khiến làng trở thành điểm đến cuối tuần.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Có thể gọi cầu là điều kiện quan trọng vì giảm thời gian đi, nhưng cần tách phương tiện, nguồn mạng, hoạt động và lý do khách.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Hồ sơ nửa năm cho thấy cầu, ảnh trên mạng và hoạt động lễ xuất hiện gần nhau; nguồn bác bỏ nguyên nhân duy nhất.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "游客翻倍说明新桥是村子成为周末目的地的唯一原因。\nKhách tăng gấp đôi cho thấy cầu mới là nguyên nhân duy nhất khiến làng trở thành điểm đến cuối tuần.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n店主先测试周末配送，再与两家咖啡店设置取货点，后来增加线上订花和花瓶回收。市区订单最终超过郊区，但成本上升使利润没有同步增长。\nChủ tiệm trước hết thử giao cuối tuần, rồi cùng hai quán cà phê đặt điểm nhận, sau đó thêm đặt hoa online và thu hồi bình. Cuối cùng đơn nội thành vượt ngoại ô, nhưng chi phí tăng khiến lợi nhuận không tăng đồng bộ.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại bốn năm mở rộng của tiệm hoa, giữ tác nhân của từng thay đổi và ba chỉ số kết quả tách biệt.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Các thay đổi diễn ra theo thứ tự qua nhiều năm.",
+                        "id": "point-0",
+                        "label": "Các thay đổi diễn ra theo thứ tự qua nhiều năm."
+                      },
+                      {
+                        "guidance": "Tuyến cũ được giữ để so chứ không thay toàn bộ cùng lúc.",
+                        "id": "point-1",
+                        "label": "Tuyến cũ được giữ để so chứ không thay toàn bộ cùng lúc."
+                      },
+                      {
+                        "guidance": "Đơn tăng và lợi nhuận không tăng tương ứng.",
+                        "id": "point-2",
+                        "label": "Đơn tăng và lợi nhuận không tăng tương ứng."
+                      },
+                      {
+                        "guidance": "Không nói hợp tác quán cà phê tự tạo lợi nhuận hoặc mở rộng thị trường cải thiện mọi kết quả.",
+                        "id": "point-3",
+                        "label": "Không nói hợp tác quán cà phê tự tạo lợi nhuận hoặc mở rộng thị trường cải thiện mọi kết quả."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại bốn năm mở rộng của tiệm hoa, giữ tác nhân của từng thay đổi và ba chỉ số kết quả tách biệt.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n新桥把进城时间从九十分钟缩短到四十分钟，网络图片和节日活动也在相近时间吸引游客。村委会将分别记录车辆、网络来源、报名和游客理由，以判断各因素的作用。\nCầu mới rút thời gian vào thành phố từ chín mươi xuống bốn mươi phút; ảnh mạng và hoạt động lễ cũng thu hút khách gần cùng thời điểm. Làng sẽ ghi riêng xe, nguồn mạng, đăng ký và lý do của khách để xét vai trò từng yếu tố.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase tác động của cầu cùng các yếu tố đồng thời, giữ số thời gian và kế hoạch thu thập dữ liệu năm sau.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Thời gian đi giảm từ chín mươi xuống bốn mươi phút.",
+                        "id": "point-0",
+                        "label": "Thời gian đi giảm từ chín mươi xuống bốn mươi phút."
+                      },
+                      {
+                        "guidance": "Ba thay đổi diễn ra gần nhau.",
+                        "id": "point-1",
+                        "label": "Ba thay đổi diễn ra gần nhau."
+                      },
+                      {
+                        "guidance": "Kế hoạch năm sau tách bốn loại dữ liệu.",
+                        "id": "point-2",
+                        "label": "Kế hoạch năm sau tách bốn loại dữ liệu."
+                      },
+                      {
+                        "guidance": "Không nói kế hoạch thu thập tương lai đã chứng minh trọng số nhân quả hoặc cầu là yếu tố duy nhất.",
+                        "id": "point-3",
+                        "label": "Không nói kế hoạch thu thập tương lai đã chứng minh trọng số nhân quả hoặc cầu là yếu tố duy nhất."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase tác động của cầu cùng các yếu tố đồng thời, giữ số thời gian và kế hoạch thu thập dữ liệu năm sau.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "选 + người + 当/做/为 + vai trò nói chọn ai đảm nhiệm vị trí: 选小王当组长. 为 trang trọng hơn 当/做 trong kiểu câu này. 收…为… thường là nhận vào quan hệ như thầy nhận học trò: 收他为徒; không dùng 收 thay 选 cho mọi việc bầu người. Người sau 选/收 là người mang vai trò cuối câu. Được chọn không tự chứng minh người ấy đã hoàn thành nhiệm vụ. Bài nguồn không nói tiệm hoa đã chọn một nhân viên phụ trách dữ liệu; không kể mẫu giả định đó như sự kiện.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "选……当/做/为…… và 收……为……"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "大家选小王当组长。",
+                  "pinyin": "Dàjiā xuǎn Xiǎowáng dāng zǔzhǎng.",
+                  "meaningVi": "Mọi người chọn Tiểu Vương làm trưởng nhóm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我们选她做代表。",
+                  "pinyin": "Wǒmen xuǎn tā zuò dàibiǎo.",
+                  "meaningVi": "Chúng tôi chọn cô ấy làm đại diện.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "师傅收他为徒。",
+                  "pinyin": "Shīfu shōu tā wéi tú.",
+                  "meaningVi": "Người thầy nhận anh ấy làm học trò.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "选……当/做/为…… và 收……为……"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:practice",
+              "title": "Khảo Luyện · 选……当/做/为…… và 收……为……",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Trong 大家选小王当组长, ai trở thành trưởng nhóm?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Tiểu Vương",
+                        "feedback": "小王 là người được chọn và là người đảm nhiệm vai trò 组长."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mọi người cùng làm trưởng nhóm",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Người thầy",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "小王 là người được chọn và là người đảm nhiệm vai trò 组长.",
+                    "learningTarget": {
+                      "objective": "选……当/做/为…… và 收……为……",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "收他为徒 biểu thị gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Bầu anh làm thị trưởng",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Nhận anh làm học trò",
+                        "feedback": "收…为徒 diễn đạt quan hệ nhận học trò, không thay 选 trong mọi hoàn cảnh."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Anh đã dạy xong mọi lớp",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "收…为徒 diễn đạt quan hệ nhận học trò, không thay 选 trong mọi hoàn cảnh.",
+                    "learningTarget": {
+                      "objective": "选……当/做/为…… và 收……为……",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Được chọn làm đại diện có chứng minh đã giải quyết mọi vấn đề không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có nếu dùng 为",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không, mới xác định vai trò",
+                        "feedback": "Vai trò được giao khác kết quả công việc."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Vai trò được giao khác kết quả công việc.",
+                    "learningTarget": {
+                      "objective": "选……当/做/为…… và 收……为……",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:0:transfer",
+              "title": "Vận dụng · 选……当/做/为…… và 收……为……",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n大家选小李当代表。一位师傅收小李为徒。\nDàjiā xuǎn Xiǎolǐ dāng dàibiǎo. Yí wèi shīfu shōu Xiǎolǐ wéi tú.\nMọi người chọn Tiểu Lý làm đại diện. Một người thầy nhận Tiểu Lý làm học trò.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "选……当/做/为…… và 收……为……",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "选…当代表 nói chọn vai trò.",
+                        "guidance": "选…当代表 nói chọn vai trò."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "收…为徒 nói nhận học trò.",
+                        "guidance": "收…为徒 nói nhận học trò."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm kết quả năng lực hoặc nhiệm vụ đã xong.",
+                        "guidance": "Không thêm kết quả năng lực hoặc nhiệm vụ đã xong."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Ở câu lạc bộ mới, mọi người chọn Tiểu Lý làm đại diện; một nghệ nhân nhận Tiểu Lý làm học trò. Viết hai câu, chọn 选/收 phù hợp.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "使 thường dùng văn viết để nói khiến, 让 phổ biến hơn trong khẩu ngữ: 这条消息使我放心了 / 这条消息让我放心了. Sau 使/让 có đối tượng chịu tác động rồi cụm vị từ. 让 còn là cho phép/yêu cầu như 妈妈让我出去玩; 使 không thay tự nhiên trong mọi câu cho phép. Khác câu bị động: 我的杯子让他打破了 đặt vật bị làm vỡ đầu câu. Nêu một nguyên nhân không có nghĩa đó là nguyên nhân duy nhất. Nguồn cầu mới chỉ cho thời gian đi giảm; không ghi tiểu thương đã sắp lại dịch vụ cuối tuần.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "使/让 + người + cụm vị từ: khiến hoặc cho phép"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "这条消息使我放心了。",
+                  "pinyin": "Zhè tiáo xiāoxi shǐ wǒ fàngxīn le.",
+                  "meaningVi": "Tin này khiến tôi yên tâm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "这张地图让游客更容易找到入口。",
+                  "pinyin": "Zhè zhāng dìtú ràng yóukè gèng róngyì zhǎo dào rùkǒu.",
+                  "meaningVi": "Bản đồ này giúp khách dễ tìm lối vào hơn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "妈妈让我出去玩。",
+                  "pinyin": "Māma ràng wǒ chū qù wán.",
+                  "meaningVi": "Mẹ cho tôi ra ngoài chơi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "使/让 + người + cụm vị từ: khiến hoặc cho phép"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:practice",
+              "title": "Khảo Luyện · 使/让 + người + cụm vị từ: khiến hoặc cho phép",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Trong 消息使我放心, ai yên tâm?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Tin tức",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Tôi",
+                        "feedback": "我 là người chịu tác động và có trạng thái 放心."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Mẹ",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "我 là người chịu tác động và có trạng thái 放心.",
+                    "learningTarget": {
+                      "objective": "使/让 + người + cụm vị từ: khiến hoặc cho phép",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Ở 妈妈让我出去玩, 让 có thể mang nghĩa nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Mẹ bị tôi chơi",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Chỉ có bị động",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Mẹ cho phép tôi ra chơi",
+                        "feedback": "让 có nghĩa cho phép trong ngữ cảnh này; không thay máy móc bằng 使."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "让 có nghĩa cho phép trong ngữ cảnh này; không thay máy móc bằng 使.",
+                    "learningTarget": {
+                      "objective": "使/让 + người + cụm vị từ: khiến hoặc cho phép",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Cầu làm thời gian đi giảm. Có thể thêm “mọi khách chỉ vì cầu mà tới” không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Không, đã thêm tính duy nhất và phạm vi mọi khách",
+                        "feedback": "Cấu trúc khiến không xóa các yếu tố khác hoặc tự mở rộng đối tượng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có vì dùng 使",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Có vì thời gian giảm là thật",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Cấu trúc khiến không xóa các yếu tố khác hoặc tự mở rộng đối tượng.",
+                    "learningTarget": {
+                      "objective": "使/让 + người + cụm vị từ: khiến hoặc cho phép",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-04:role-causative-r53:1:transfer",
+              "title": "Vận dụng · 使/让 + người + cụm vị từ: khiến hoặc cho phép",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n清楚的通知让我知道了见面的时间。组长让我早点儿回家。\nQīngchu de tōngzhī ràng wǒ zhīdào le jiàn miàn de shíjiān. Zǔzhǎng ràng wǒ zǎo diǎnr huí jiā.\nThông báo rõ giúp tôi biết giờ gặp. Trưởng nhóm cho tôi về nhà sớm hơn.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "使/让 + người + cụm vị từ: khiến hoặc cho phép",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-04",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Câu đầu nêu tác động thông tin lên tôi.",
+                        "guidance": "Câu đầu nêu tác động thông tin lên tôi."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Câu sau giữ nghĩa cho phép của 让.",
+                        "guidance": "Câu sau giữ nghĩa cho phép của 让."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm rằng đã về nhà nếu chỉ được cho phép.",
+                        "guidance": "Không thêm rằng đã về nhà nếu chỉ được cho phép."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tình huống mới: thông báo rõ giúp bạn hiểu giờ hẹn, bạn cũng được trưởng nhóm cho phép về sớm. Viết một câu 使/让 chỉ tác động và một câu 让 chỉ cho phép.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n花店先测试周末配送，同市区咖啡店设置取货点，增加线上订花和花瓶回收。第四年市区订单超过郊区，取货与包装成本却使利润没有同样增长，因此店主决定按地区分开报告订单、损坏和利润。河边村的新桥把进城时间从九十分钟缩短到四十分钟；网络图片和节日活动也提高了村子知名度。半年资料支持桥是重要条件，却不能把游客增加只归因于桥。村委会下一年将分别记录车辆、网络来源、活动报名和游客理由，再判断各行动的作用。\nTiệm hoa ngoại ô thử giao cuối tuần, hợp tác quán cà phê làm điểm nhận, rồi thêm đặt online và thu hồi bình. Năm bốn đơn nội thành vượt ngoại ô nhưng phí điểm nhận/đóng gói khiến lợi nhuận không tăng tương ứng, nên chủ tiệm báo riêng đơn, hư hỏng và lợi nhuận theo vùng. Cầu làng rút thời gian từ chín mươi xuống bốn mươi phút, nhưng ảnh mạng và hoạt động lễ cũng cùng tăng nhận biết. Dữ liệu nửa năm chỉ hỗ trợ cầu là điều kiện quan trọng, không phải nguyên nhân duy nhất. Năm sau làng sẽ ghi riêng xe, nguồn mạng, đăng ký và lý do khách.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách các tác nhân mở rộng thị trường và điểm đến, nêu chuỗi hành động, kết quả tách biệt và nguyên nhân chưa thể kết luận.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "các bước mở rộng của tiệm hoa",
+                        "id": "criterion-0",
+                        "label": "các bước mở rộng của tiệm hoa"
+                      },
+                      {
+                        "guidance": "đơn, hư hỏng và lợi nhuận tách biệt",
+                        "id": "criterion-1",
+                        "label": "đơn, hư hỏng và lợi nhuận tách biệt"
+                      },
+                      {
+                        "guidance": "cầu, truyền thông và hoạt động đồng thời",
+                        "id": "criterion-2",
+                        "label": "cầu, truyền thông và hoạt động đồng thời"
+                      },
+                      {
+                        "guidance": "kế hoạch ghi dữ liệu theo tác nhân",
+                        "id": "criterion-3",
+                        "label": "kế hoạch ghi dữ liệu theo tác nhân"
+                      },
+                      {
+                        "guidance": "Không đồng nhất đơn với lợi nhuận, không gán toàn bộ khách tăng cho cầu hoặc coi dữ liệu tương lai là kết quả đã có.",
+                        "id": "criterion-4",
+                        "label": "Không đồng nhất đơn với lợi nhuận, không gán toàn bộ khách tăng cho cầu hoặc coi dữ liệu tương lai là kết quả đã có."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách các tác nhân mở rộng thị trường và điểm đến, nêu chuỗi hành động, kết quả tách biệt và nguyên nhân chưa thể kết luận.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n多个行动者同时改变市场时，一个主要结果容易传播，却不足以分配责任或选择下一步。花店的市区订单超过郊区，但取货点和包装提高了成本，所以企业必须按地区分别看订单、损坏和利润。若只因订单表扬负责人，报告就会隐藏路线与包装的影响。河边村的新桥缩短了路程，网络图片和节日活动也在相近时间提高关注，第一个月游客翻倍不能确定唯一行动者。有人认为只看订单或游客能帮助管理者快速决定，也便于公众理解。我同意可以选择主要目标，但必须同时报告各组负责的条件和成本：花店记录损坏与利润，村子记录车辆、网络来源、报名和游客理由。两项案例没有给出最佳权重，只说明一个数字不能独自决定功劳或责任。\nKhi nhiều tác nhân cùng đổi thị trường, một kết quả chính dễ truyền đạt nhưng không đủ giao trách nhiệm hay chọn bước sau. Tiệm hoa có đơn nội thành vượt ngoại ô nhưng điểm nhận và đóng gói tăng phí, nên cần tách đơn, hư hỏng và lợi nhuận theo vùng. Ở làng ven sông, cầu rút thời gian, trong khi ảnh mạng và hoạt động lễ cùng tăng chú ý; khách tăng gấp đôi chưa xác định tác nhân duy nhất. Một chỉ số giúp quyết định nhanh và dễ hiểu là phản biện hợp lý, nhưng nên đi cùng chỉ số điều kiện và chi phí do từng nhóm kiểm. Hai trường hợp chưa cho trọng số tối ưu; chúng chỉ cho thấy một con số không đủ quy công hay trách nhiệm.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: khi nhiều tác nhân cùng thay đổi một thị trường địa phương, người quản lý nên đánh giá thành công theo một kết quả chính hay một bộ chỉ số phân vai?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm về bộ chỉ số phân vai",
+                        "id": "criterion-0",
+                        "label": "luận điểm về bộ chỉ số phân vai"
+                      },
+                      {
+                        "guidance": "chuỗi quyết định của tiệm hoa",
+                        "id": "criterion-1",
+                        "label": "chuỗi quyết định của tiệm hoa"
+                      },
+                      {
+                        "guidance": "cầu, truyền thông và hoạt động lễ",
+                        "id": "criterion-2",
+                        "label": "cầu, truyền thông và hoạt động lễ"
+                      },
+                      {
+                        "guidance": "phản biện về một chỉ số dễ hiểu",
+                        "id": "criterion-3",
+                        "label": "phản biện về một chỉ số dễ hiểu"
+                      },
+                      {
+                        "guidance": "giới hạn về quan hệ nhân quả",
+                        "id": "criterion-4",
+                        "label": "giới hạn về quan hệ nhân quả"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Chọn một chỉ số chính như đơn hàng hoặc lượt khách giúp nhà quản lý ra quyết định nhanh, tránh bảng đo phức tạp và truyền thông rõ hơn.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất mục tiêu chính kèm chỉ số điều kiện và chi phí; hai nguồn không xác định công thức chấm thành công hay trọng số nhân quả.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất mục tiêu chính kèm chỉ số điều kiện và chi phí; hai nguồn không xác định công thức chấm thành công hay trọng số nhân quả."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: khi nhiều tác nhân cùng thay đổi một thị trường địa phương, người quản lý nên đánh giá thành công theo một kết quả chính hay một bộ chỉ số phân vai?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n花店老板、咖啡店和线上渠道分别改变配送、取货和订购。\n市区订单增加时，包装与取货成本让利润没有同步提高。\n新桥缩短时间，网络传播和节日活动也在相近时期发生。\n一个主要指标可以保留，但必须配合成本、条件和责任数据。\n村委会还要记录车辆、网络来源、活动报名和游客理由，才能比较作用。\nChủ tiệm, quán cà phê và kênh online lần lượt đổi giao hàng, nhận hàng và đặt hàng.\nKhi đơn nội thành tăng, phí đóng gói/điểm nhận khiến lợi nhuận không tăng cùng.\nCầu rút thời gian nhưng truyền thông mạng và lễ hội cũng xảy ra gần lúc đó.\nCó thể giữ một chỉ số chính nhưng phải kèm dữ liệu chi phí, điều kiện và trách nhiệm.\nLàng còn cần ghi xe, nguồn mạng, đăng ký và lý do khách mới so được tác động.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Bảo vệ cách quy công và giao trách nhiệm khi một kết quả xuất hiện sau nhiều hành động gần nhau. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-04",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "lập bản đồ tác nhân và hành động",
+                        "id": "move-0",
+                        "label": "lập bản đồ tác nhân và hành động"
+                      },
+                      {
+                        "guidance": "tách đầu ra khỏi chi phí hoặc điều kiện",
+                        "id": "move-1",
+                        "label": "tách đầu ra khỏi chi phí hoặc điều kiện"
+                      },
+                      {
+                        "guidance": "đáp lại yêu cầu chọn một chỉ số duy nhất",
+                        "id": "move-2",
+                        "label": "đáp lại yêu cầu chọn một chỉ số duy nhất"
+                      },
+                      {
+                        "guidance": "nêu dữ liệu cần thu thêm trước kết luận",
+                        "id": "move-3",
+                        "label": "nêu dữ liệu cần thu thêm trước kết luận"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bảo vệ cách quy công và giao trách nhiệm khi một kết quả xuất hiện sau nhiều hành động gần nhau.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "start",
+                        "label": "线索一",
+                        "meaningVi": "Chợ ngoại ô, ít vào nội thành.",
+                        "note": "Ban đầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "pilot",
+                        "label": "线索二",
+                        "meaningVi": "Giao cuối tuần mười loại.",
+                        "note": "Năm 1 · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "hub",
+                        "label": "线索三",
+                        "meaningVi": "Điểm nhận giảm khoảng.",
+                        "note": "Năm 2 · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "digital",
+                        "label": "线索四",
+                        "meaningVi": "Đặt online và thu bình.",
+                        "note": "Năm 3 · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "outcome",
+                        "label": "线索五",
+                        "meaningVi": "Đơn tăng, lợi nhuận không cùng tăng.",
+                        "note": "Năm 4 · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-society-economy-argument-process-timeline; revision 79320132-8192-433f-bc2f-844fc33a586c; humanReviewed:false",
+                  "title": "Kinh doanh hoa từ ngoại ô vào nội thành"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "bridge",
+                        "label": "线索一",
+                        "meaningVi": "Giảm thời gian đi.",
+                        "note": "Cầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "network",
+                        "label": "线索二",
+                        "meaningVi": "Tăng nhận biết qua ảnh.",
+                        "note": "Mạng · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "events",
+                        "label": "线索三",
+                        "meaningVi": "Tạo đỉnh ngày lễ.",
+                        "note": "Hoạt động · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "variation",
+                        "label": "线索四",
+                        "meaningVi": "Mùa mưa vẫn hơn cũ nhưng thấp hơn đỉnh.",
+                        "note": "Biến thiên · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "next",
+                        "label": "线索五",
+                        "meaningVi": "Xe, nguồn online, đăng ký, lý do.",
+                        "note": "Đo tiếp · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-04:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-society-economy-argument-process-timeline; revision 79320132-8192-433f-bc2f-844fc33a586c; humanReviewed:false",
+                  "title": "Một cây cầu làm thay đổi điểm đến mới"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-04:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "81e6a730-2c2b-4df3-9ff7-a8e4ae159912",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng nêu phản biện và điều kiện để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-event-agency-voice-lesson-03"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-061",
+          "hsk4-grammar-row-062"
+        ],
+        "sourceLessonIds": [
+          "hsk4-event-agency-voice-lesson-04",
+          "hsk4-society-economy-argument-process-timeline"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-21"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01182",
+          "hsk-vocab-01649",
+          "hsk-vocab-01674",
+          "hsk-vocab-01371",
+          "hsk-vocab-01795",
+          "hsk-vocab-01325",
+          "hsk-vocab-01362",
+          "hsk-vocab-01581",
+          "hsk-vocab-01971",
+          "hsk-vocab-01519"
+        ],
+        "targetLessonId": "hsk4-event-agency-voice-lesson-04",
+        "titleZh": "HSK四级 · 51",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "eeb55ad1-8d06-4ca0-9512-9e4c50689a74"
+        },
+        "vocabulary": [
+          "hsk-vocab-01182",
+          "hsk-vocab-01649",
+          "hsk-vocab-01674",
+          "hsk-vocab-01371",
+          "hsk-vocab-01795",
+          "hsk-vocab-01325",
+          "hsk-vocab-01362",
+          "hsk-vocab-01581",
+          "hsk-vocab-01971",
+          "hsk-vocab-01519"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 2,
+          "netPages": 4
+        }
+      ]
+    }
+  ]
+}

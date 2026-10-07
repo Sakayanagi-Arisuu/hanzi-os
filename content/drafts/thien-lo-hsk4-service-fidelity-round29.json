@@ -1,0 +1,2163 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/122-REVIEW-HSK4-SERVICE-FIDELITY-ROUND29.md",
+  "entries": [
+    {
+      "sourceRevisionId": "a682e554-54d8-4b8b-be62-0675033eca13",
+      "sourceContentSha256": "sha256:a7f4222ca84bb210a68d14aaef488a3f34d54ec9799de7154685225efda0d4f6",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm có phạm vi\nít nhất một bằng chứng từ mỗi nguồn\ngiải thích quan hệ giữa vai trò và tiêu chí\nphản biện ý kiến ưu tiên một chuẩn để dễ quản lý\nkết luận giới hạn ở tình huống nguồn",
+        "conceptVi": "Tách dữ kiện và diễn giải: Kiểm soát phạm vi, thời gian, thái độ, lượng, cấu trúc cố định và số liệu để diễn đạt thông tin chính xác.",
+        "dialogue": [
+          {
+            "hanzi": "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
+            "meaningVi": "Sau khi chuyển đến khu Minh Hà, cư dân mới thường không biết phải giải quyết công việc ở đâu. Trung tâm cộng đồng lập một bảng gồm dịch vụ y tế, sửa chữa, tư vấn giao thông và chăm sóc người cao tuổi, đồng thời ghi rõ người phụ trách cùng cách liên hệ. Cư dân tra mục cần thiết trước rồi chọn nhắn trực tuyến hoặc trình bày tại quầy.",
+            "pinyin": "Xīn jūmín bān jìn mínghé shèqū hòu, chángcháng bù zhīdào gāi qù nǎlǐ bànshì. Shèqū zhōngxīn bǎ yīliáo, xiūlǐ, jiāotōng zīxún hé lǎorén zhàogù děng fúwù liè chéng yì zhāng biǎo, bìng zài měi xiàng fúwù hòu xiě míng fùzé rén de xìngmíng hé liánxì fāngshì. Jūmín kěyǐ xiān cházhǎo xūyào de xiàngmù, zài juédìng zàixiàn liúyán háishì dào fúwù tái shuōmíng qíngkuàng.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "表上看起来只有几个名字，实际工作却由多方合作完成。工作人员收到问题后先分类，再请志愿者回复一般咨询；如果涉及道路安全，就转给交警。如果老人行动不便，维修人员或医生还可以预约上门。这样，每个人的角色不同，但信息不会停在一个人手里。",
+            "meaningVi": "Trên bảng chỉ có vài cái tên nhưng công việc thực tế do nhiều bên phối hợp. Nhân viên phân loại yêu cầu, tình nguyện viên trả lời tư vấn thông thường, còn vấn đề an toàn đường bộ được chuyển cho cảnh sát giao thông. Nếu người cao tuổi đi lại khó khăn, thợ sửa chữa hoặc bác sĩ có thể hẹn đến tận nhà; vai trò khác nhau nhưng thông tin không bị giữ ở một người.",
+            "pinyin": "Biǎo shàng kàn qǐlái zhǐyǒu jǐ gè míngzì, shíjì gōngzuò què yóu duōfāng hézuò wánchéng. Gōngzuò rényuán shōu dào wèntí hòu xiān fēnlèi, zài qǐng zhìyuàn zhě huífù yībān zīxún; rúguǒ shèjí dàolù ānquán, jiù zhuǎn gěi jiāojǐng. Rúguǒ lǎorén xíngdòng bùbiàn, wéixiū rényuán huò yīshēng hái kěyǐ yùyuē shàngmén. Zhèyàng, měi gèrén de juésè bùtóng, dàn xìnxī bù huì tíng zài yīgè rénshǒu lǐ.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "三个月后，中心发现大多数问题能在一天内得到回复，不过也有居民把紧急求助写成普通留言。于是中心在表上增加了“紧急程度”和“是否需要上门”两栏，并安排值班人员电话确认。新办法没有减少参与者，却让居民更容易看清谁负责判断、谁负责处理、谁负责继续跟进。",
+            "meaningVi": "Ba tháng sau, trung tâm nhận thấy phần lớn vấn đề được hồi đáp trong một ngày, nhưng một số cư dân vẫn ghi yêu cầu khẩn như lời nhắn thường. Vì vậy bảng được thêm hai cột “mức khẩn cấp” và “có cần đến tận nơi không”, kèm người trực gọi xác nhận. Cách mới không giảm số người tham gia mà làm rõ ai đánh giá, ai xử lý và ai theo dõi tiếp.",
+            "pinyin": "Sān gè yuè hòu, zhōngxīn fāxiàn dà duōshù wèntí néng zài yītiān nèi dédào huífù, bùguò yěyǒu jūmín bǎ jǐnjí qiúzhù xiěchéng pǔtōng liúyán. Yúshì zhōngxīn zài biǎo shàng zēngjiāle “jǐnjí chéngdù” hé “shìfǒu xūyào shàngmén” liǎng lán, bìng ānpái zhíbān rényuán diànhuà quèrèn. Xīn bànfǎ méiyǒu jiǎnshǎo cānyù zhě, què ràng jūmín gèng róngyì kàn qīng shéi fùzé pànduàn, shéi fùzé chǔlǐ, shéi fùzé jìxù gēn jìn.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "长途车站过去只有两家快餐店，许多旅客为了赶车，只能买已经装好的套餐。车站经理发现，老人和带孩子的家庭常常吃不完，而需要清淡饮食的人也很难找到合适的中餐。有人因此选择不吃午饭，也有人把没吃完的食品直接扔掉。",
+            "meaningVi": "Bến xe đường dài trước đây chỉ có hai cửa hàng đồ ăn nhanh; nhiều hành khách vì vội lên xe chỉ có thể mua suất đóng sẵn. Người cao tuổi, gia đình có trẻ nhỏ thường ăn không hết, còn người cần đồ thanh đạm khó tìm món Trung phù hợp. Có người bỏ bữa, có người vứt phần thức ăn thừa.",
+            "pinyin": "Chángtú chēzhàn guòqù zhǐyǒu liǎng jiā kuàicān diàn, xǔduō lǚkè wéi le gǎnchē, zhǐ néng mǎi yǐjīng zhuāng hǎo de tàocān. Chēzhàn jīnglǐ fǎ xiàn, lǎorén hé dài háizǐ de jiātíng chángcháng chī bù wán, ér xūyào qīngdàn yǐnshí de rén yě hěn nán zhǎodào héshì de zhōngcān. Yǒurén yīncǐ xuǎn zhái bu chī wǔfàn, yěyǒu rén bǎ méi chī wán de shípǐn zhíjiē rēng diào.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "后来，车站邀请三类人一起讨论：旅客代表说明时间和价格要求，厨师介绍哪些美食能提前准备，卫生人员则提醒大家鲜菜和热菜不能在常温下放太久。他们最后决定设置小份窗口，并把每份菜的主要材料、重量和制作时间写在电子牌上。",
+            "meaningVi": "Sau đó, bến xe mời ba nhóm cùng thảo luận: đại diện hành khách nêu yêu cầu về thời gian và giá, đầu bếp giới thiệu món ngon có thể chuẩn bị trước, còn nhân viên vệ sinh nhắc rằng rau tươi và món nóng không được để lâu ở nhiệt độ thường. Họ quyết định mở quầy phần nhỏ và ghi nguyên liệu, trọng lượng, thời gian chế biến trên bảng điện tử.",
+            "pinyin": "Hòulái, chēzhàn yāoqǐng sān lèi rén yīqǐ tǎolùn: Lǚkè dàibiǎo shuōmíng shíjiān hé jiàgé yāoqiú, chúshī jièshào nǎxiē měishí néng tíqián zhǔnbèi, wèishēng rényuán zé tíxǐng dàjiā xiān cài hé rè cài bùnéng zài chángwēn xiàfàng tài jiǔ. Tāmen zuìhòu juédìng shèzhì xiǎo fèn chuāngkǒu, bìng bǎ měi fèn cài de zhǔyào cáiliào, zhòngliàng hé zhìzuò shíjiān xiě zài diànzǐ pái shàng.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "试行一个月后，窗口前排队的人比预想的多，但食品浪费明显减少。经理没有因此认定方案已经完美，因为调查只覆盖工作日中午，也没有记录旅客是否真正喜欢这些口味。车站准备在周末继续收集意见，再决定是否增加晚餐和地方特色菜。",
+            "meaningVi": "Sau một tháng thử nghiệm, số người xếp hàng đông hơn dự kiến nhưng lãng phí thực phẩm giảm rõ. Quản lý không coi phương án đã hoàn hảo vì khảo sát mới phủ buổi trưa ngày thường và chưa ghi nhận hành khách có thực sự thích hương vị không. Bến xe sẽ tiếp tục lấy ý kiến cuối tuần trước khi quyết định thêm bữa tối và món địa phương.",
+            "pinyin": "Shìxíng yīgè yuè hòu, chuāngkǒu qián páiduì de rén bǐ yùxiǎng de duō, dàn shípǐn làngfèi míngxiǎn jiǎnshǎo. Jīnglǐ méiyǒu yīncǐ rèndìng fāng'àn yǐjīng wánměi, yīnwèi diàochá zhǐ fùgài gōngzuò rì zhōngwǔ, yě méiyǒu jìlù lǚkè shìfǒu zhēnzhèng xǐhuān zhèxiē kǒuwèi. Chēzhàn zhǔnbèi zài zhōumò jìxù shōují yìjiàn, zài juédìng shìfǒu zēngjiā wǎncān hé dìfāng tèsè cài.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:e0094090bb4519a09f70cb1f64639e7f4eeb72e615ca5fb8f8cdb3b374a72960",
+          "evidenceDocument": "docs/thien-lo-redesign-review/117-REVIEW-HSK4-RUBRIC-ROUND24.md",
+          "humanReviewed": false,
+          "scope": "Clarify counterargument rubric instructions in 24 HSK4 lessons; preserve claims and stable IDs.",
+          "sourceContentSha256": "sha256:368d81164953f310276aa39a8f6bb9c1ced003ed2eeafabbd04950f352653382",
+          "sourceRevisionId": "c984d7d3-2a53-4cca-ad9a-6be8a84fd726"
+        },
+        "exercises": [
+          {
+            "answer": "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
+            "answerMeaningVi": "Sau khi chuyển đến khu Minh Hà, cư dân mới thường không biết phải giải quyết công việc ở đâu. Trung tâm cộng đồng lập một bảng gồm dịch vụ y tế, sửa chữa, tư vấn giao thông và chăm sóc người cao tuổi, đồng thời ghi rõ người phụ trách cùng cách liên hệ. Cư dân tra mục cần thiết trước rồi chọn nhắn trực tuyến hoặc trình bày tại quầy.",
+            "answerPinyin": "Xīn jūmín bān jìn mínghé shèqū hòu, chángcháng bù zhīdào gāi qù nǎlǐ bànshì. Shèqū zhōngxīn bǎ yīliáo, xiūlǐ, jiāotōng zīxún hé lǎorén zhàogù děng fúwù liè chéng yì zhāng biǎo, bìng zài měi xiàng fúwù hòu xiě míng fùzé rén de xìngmíng hé liánxì fāngshì. Jūmín kěyǐ xiān cházhǎo xūyào de xiàngmù, zài juédìng zàixiàn liúyán háishì dào fúwù tái shuōmíng qíngkuàng.",
+            "distractors": [
+              "表上看起来只有几个名字，实际工作却由多方合作完成。工作人员收到问题后先分类，再请志愿者回复一般咨询；如果涉及道路安全，就转给交警。如果老人行动不便，维修人员或医生还可以预约上门。这样，每个人的角色不同，但信息不会停在一个人手里。",
+              "三个月后，中心发现大多数问题能在一天内得到回复，不过也有居民把紧急求助写成普通留言。于是中心在表上增加了“紧急程度”和“是否需要上门”两栏，并安排值班人员电话确认。新办法没有减少参与者，却让居民更容易看清谁负责判断、谁负责处理、谁负责继续跟进。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "Dùng 敢 để nêu mức sẵn sàng hành động của một chủ thể, không biến sự sẵn sàng thành kết quả đã xảy ra. “敢” chỉ thái độ hoặc khả năng chấp nhận rủi ro; không được suy ra hành động đã thành công. Câu mẫu có thể là tình huống giả định.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "社区志愿者敢提出新办法，但表格还没有证明服务已经改善。",
+              "modelAnswerMeaningVi": "Tình nguyện viên cộng đồng dám đề xuất cách mới, nhưng bảng biểu chưa chứng minh dịch vụ đã được cải thiện.",
+              "modelAnswerPinyin": "Shèqū zhìyuàn zhě gǎn tíchū xīn bànfǎ, dàn biǎogé hái méiyǒu zhèngmíng fúwù yǐjīng gǎishàn.",
+              "promptVi": "Viết một câu dùng mục ngữ pháp “敢” để diễn đạt bằng chứng hoặc giới hạn từ gói nguồn; sau đó đối chiếu câu mẫu."
+            },
+            "modelExample": {
+              "hanzi": "社区志愿者敢提出新办法，但表格还没有证明服务已经改善。",
+              "meaningVi": "Tình nguyện viên cộng đồng dám đề xuất cách mới, nhưng bảng biểu chưa chứng minh dịch vụ đã được cải thiện.",
+              "pinyin": "Shèqū zhìyuàn zhě gǎn tíchū xīn bànfǎ, dàn biǎogé hái méiyǒu zhèngmíng fúwù yǐjīng gǎishàn.",
+              "speaker": "A"
+            },
+            "pattern": "敢"
+          },
+          {
+            "explanationVi": "Dùng 各、各种、任何、此 để xác định phạm vi nhóm hoặc đối tượng trước khi khái quát. Từ chỉ định phải khớp tập hợp thật trong nguồn; “任何” trong câu phủ định không cho phép khái quát sang toàn bộ hệ thống. Câu mẫu có thể là tình huống giả định.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "各位乘客可以比较各种午餐，但此调查不能代表任何车站。",
+              "modelAnswerMeaningVi": "Mỗi hành khách có thể so sánh nhiều loại bữa trưa, nhưng khảo sát này không thể đại diện cho mọi nhà ga.",
+              "modelAnswerPinyin": "Gèwèi chéngkè kěyǐ bǐjiào gè zhǒng wǔcān, dàn cǐ diàochá bùnéng dàibiǎo rènhé chēzhàn.",
+              "promptVi": "Viết một câu dùng mục ngữ pháp “各、各位、各种、任何、此” để diễn đạt bằng chứng hoặc giới hạn từ gói nguồn; sau đó đối chiếu câu mẫu."
+            },
+            "modelExample": {
+              "hanzi": "各位乘客可以比较各种午餐，但此调查不能代表任何车站。",
+              "meaningVi": "Mỗi hành khách có thể so sánh nhiều loại bữa trưa, nhưng khảo sát này không thể đại diện cho mọi nhà ga.",
+              "pinyin": "Gèwèi chéngkè kěyǐ bǐjiào gè zhǒng wǔcān, dàn cǐ diàochá bùnéng dàibiǎo rènhé chēzhàn.",
+              "speaker": "A"
+            },
+            "pattern": "各、各位、各种、任何、此"
+          },
+          {
+            "explanationVi": "Dùng lượng từ chuyên dụng để giữ chính xác đơn vị đếm của dữ kiện. Không thay lượng từ bằng đơn vị khác nếu nguồn không cung cấp cách quy đổi. Câu mẫu có thể là tình huống giả định.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "服务站准备了两台电脑、三袋材料和一幅社区地图。",
+              "modelAnswerMeaningVi": "Điểm dịch vụ chuẩn bị hai máy tính, ba túi tài liệu và một bản đồ cộng đồng.",
+              "modelAnswerPinyin": "Fúwù zhàn zhǔnbèile liǎng tái diànnǎo, sān dài cáiliào hé yī fú shèqū dìtú.",
+              "promptVi": "Viết một câu dùng mục ngữ pháp “（1）专用名量词：打、袋、棵、台、幅” để diễn đạt bằng chứng hoặc giới hạn từ gói nguồn; sau đó đối chiếu câu mẫu."
+            },
+            "modelExample": {
+              "hanzi": "服务站准备了两台电脑、三袋材料和一幅社区地图。",
+              "meaningVi": "Điểm dịch vụ chuẩn bị hai máy tính, ba túi tài liệu và một bản đồ cộng đồng.",
+              "pinyin": "Fúwù zhàn zhǔnbèile liǎng tái diànnǎo, sān dài cáiliào hé yī fú shèqū dìtú.",
+              "speaker": "A"
+            },
+            "pattern": "（1）专用名量词：打、袋、棵、台、幅"
+          },
+          {
+            "explanationVi": "Dùng lượng từ vay mượn khi danh từ chuyển thành đơn vị đếm trong ngữ cảnh cụ thể. Cấu trúc tạo hình ảnh số lượng, không cho biết mẫu có đại diện hay không. Câu mẫu có thể là tình huống giả định.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "桌上一盒意见卡和一屋子居民都不能自动证明计划有效。",
+              "modelAnswerMeaningVi": "Một hộp phiếu góp ý trên bàn và cả phòng cư dân không tự động chứng minh kế hoạch có hiệu quả.",
+              "modelAnswerPinyin": "Zhuō shàng yī hé yìjiàn kǎ hé yī wūzǐ jūmín dōu bùnéng zìdòng zhèngmíng jìhuà yǒuxiào.",
+              "promptVi": "Viết một câu dùng mục ngữ pháp “（2）借用名量词：脸、手、盒、屋子、桌子” để diễn đạt bằng chứng hoặc giới hạn từ gói nguồn; sau đó đối chiếu câu mẫu."
+            },
+            "modelExample": {
+              "hanzi": "桌上一盒意见卡和一屋子居民都不能自动证明计划有效。",
+              "meaningVi": "Một hộp phiếu góp ý trên bàn và cả phòng cư dân không tự động chứng minh kế hoạch có hiệu quả.",
+              "pinyin": "Zhuō shàng yī hé yìjiàn kǎ hé yī wūzǐ jūmín dōu bùnéng zìdòng zhèngmíng jìhuà yǒuxiào.",
+              "speaker": "A"
+            },
+            "pattern": "（2）借用名量词：脸、手、盒、屋子、桌子"
+          },
+          {
+            "explanationVi": "Dùng 场、顿、趟 để phân biệt sự kiện, bữa ăn và lượt di chuyển. Lượng từ sự kiện chỉ đếm lần xảy ra; không tự nói chất lượng hoặc tác động. Câu mẫu có thể là tình huống giả định.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "一次调查记录了一场讨论、一顿午餐和两趟换乘。",
+              "modelAnswerMeaningVi": "Một khảo sát ghi lại một cuộc thảo luận, một bữa trưa và hai lượt chuyển tuyến.",
+              "modelAnswerPinyin": "Yīcì tiáo chá jìlùle yī chǎng tǎolùn, yī dùn wǔcān hé liǎng tàng huàn chéng.",
+              "promptVi": "Viết một câu dùng mục ngữ pháp “场、顿、趟” để diễn đạt bằng chứng hoặc giới hạn từ gói nguồn; sau đó đối chiếu câu mẫu."
+            },
+            "modelExample": {
+              "hanzi": "一次调查记录了一场讨论、一顿午餐和两趟换乘。",
+              "meaningVi": "Một khảo sát ghi lại một cuộc thảo luận, một bữa trưa và hai lượt chuyển tuyến.",
+              "pinyin": "Yīcì tiáo chá jìlùle yī chǎng tǎolùn, yī dùn wǔcān hé liǎng tàng huàn chéng.",
+              "speaker": "A"
+            },
+            "pattern": "场、顿、趟"
+          },
+          {
+            "explanationVi": "Dùng phó từ mức độ để so sánh có điều kiện, tránh đổi quan sát tương đối thành kết luận tuyệt đối. “稍微、更加、尤其” cần một chuẩn so sánh; không được bổ sung chuẩn không có trong nguồn. Câu mẫu có thể là tình huống giả định.",
+            "guidedPractice": {
+              "modelAnswerHanzi": "午餐价格稍微低一些，尤其适合时间紧的乘客，但未必更加健康。",
+              "modelAnswerMeaningVi": "Giá bữa trưa thấp hơn một chút, đặc biệt hợp người gấp thời gian, nhưng chưa chắc lành mạnh hơn.",
+              "modelAnswerPinyin": "Wǔcān jiàgé shāowéi dī yīxiē, yóuqí shìhé shíjiān jǐn de chéngkè, dàn wèibì gèngjiā jiànkāng.",
+              "promptVi": "Viết một câu dùng mục ngữ pháp “十分、更加、稍、稍微、尤其、多么” để diễn đạt bằng chứng hoặc giới hạn từ gói nguồn; sau đó đối chiếu câu mẫu."
+            },
+            "modelExample": {
+              "hanzi": "午餐价格稍微低一些，尤其适合时间紧的乘客，但未必更加健康。",
+              "meaningVi": "Giá bữa trưa thấp hơn một chút, đặc biệt hợp người gấp thời gian, nhưng chưa chắc lành mạnh hơn.",
+              "pinyin": "Wǔcān jiàgé shāowéi dī yīxiē, yóuqí shìhé shíjiān jǐn de chéngkè, dàn wèibì gèngjiā jiànkāng.",
+              "speaker": "A"
+            },
+            "pattern": "十分、更加、稍、稍微、尤其、多么"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Tách dữ kiện và diễn giải: Kiểm soát phạm vi, thời gian, thái độ, lượng, cấu trúc cố định và số liệu để diễn đạt thông tin chính xác."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "新居民搬进明河社区后，常常不知道该去哪里办事。社区中心把医疗、修理、交通咨询和老人照顾等服务列成一张表，并在每项服务后写明负责人的姓名和联系方式。居民可以先查找需要的项目，再决定在线留言还是到服务台说明情况。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-0-0",
+                        "meaningVi": "Sau khi chuyển đến khu Minh Hà, cư dân mới thường không biết phải giải quyết công việc ở đâu. Trung tâm cộng đồng lập một bảng gồm dịch vụ y tế, sửa chữa, tư vấn giao thông và chăm sóc người cao tuổi, đồng thời ghi rõ người phụ trách cùng cách liên hệ. Cư dân tra mục cần thiết trước rồi chọn nhắn trực tuyến hoặc trình bày tại quầy.",
+                        "pinyin": "Xīn jūmín bān jìn mínghé shèqū hòu, chángcháng bù zhīdào gāi qù nǎlǐ bànshì. Shèqū zhōngxīn bǎ yīliáo, xiūlǐ, jiāotōng zīxún hé lǎorén zhàogù děng fúwù liè chéng yì zhāng biǎo, bìng zài měi xiàng fúwù hòu xiě míng fùzé rén de xìngmíng hé liánxì fāngshì. Jūmín kěyǐ xiān cházhǎo xūyào de xiàngmù, zài juédìng zàixiàn liúyán háishì dào fúwù tái shuōmíng qíngkuàng."
+                      },
+                      {
+                        "hanzi": "表上看起来只有几个名字，实际工作却由多方合作完成。工作人员收到问题后先分类，再请志愿者回复一般咨询；如果涉及道路安全，就转给交警。如果老人行动不便，维修人员或医生还可以预约上门。这样，每个人的角色不同，但信息不会停在一个人手里。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-0-1",
+                        "meaningVi": "Trên bảng chỉ có vài cái tên nhưng công việc thực tế do nhiều bên phối hợp. Nhân viên phân loại yêu cầu, tình nguyện viên trả lời tư vấn thông thường, còn vấn đề an toàn đường bộ được chuyển cho cảnh sát giao thông. Nếu người cao tuổi đi lại khó khăn, thợ sửa chữa hoặc bác sĩ có thể hẹn đến tận nhà; vai trò khác nhau nhưng thông tin không bị giữ ở một người.",
+                        "pinyin": "Biǎo shàng kàn qǐlái zhǐyǒu jǐ gè míngzì, shíjì gōngzuò què yóu duōfāng hézuò wánchéng. Gōngzuò rényuán shōu dào wèntí hòu xiān fēnlèi, zài qǐng zhìyuàn zhě huífù yībān zīxún; rúguǒ shèjí dàolù ānquán, jiù zhuǎn gěi jiāojǐng. Rúguǒ lǎorén xíngdòng bùbiàn, wéixiū rényuán huò yīshēng hái kěyǐ yùyuē shàngmén. Zhèyàng, měi gèrén de juésè bùtóng, dàn xìnxī bù huì tíng zài yīgè rénshǒu lǐ."
+                      },
+                      {
+                        "hanzi": "三个月后，中心发现大多数问题能在一天内得到回复，不过也有居民把紧急求助写成普通留言。于是中心在表上增加了“紧急程度”和“是否需要上门”两栏，并安排值班人员电话确认。新办法没有减少参与者，却让居民更容易看清谁负责判断、谁负责处理、谁负责继续跟进。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-0-2",
+                        "meaningVi": "Ba tháng sau, trung tâm nhận thấy phần lớn vấn đề được hồi đáp trong một ngày, nhưng một số cư dân vẫn ghi yêu cầu khẩn như lời nhắn thường. Vì vậy bảng được thêm hai cột “mức khẩn cấp” và “có cần đến tận nơi không”, kèm người trực gọi xác nhận. Cách mới không giảm số người tham gia mà làm rõ ai đánh giá, ai xử lý và ai theo dõi tiếp.",
+                        "pinyin": "Sān gè yuè hòu, zhōngxīn fāxiàn dà duōshù wèntí néng zài yītiān nèi dédào huífù, bùguò yěyǒu jūmín bǎ jǐnjí qiúzhù xiěchéng pǔtōng liúyán. Yúshì zhōngxīn zài biǎo shàng zēngjiāle “jǐnjí chéngdù” hé “shìfǒu xūyào shàngmén” liǎng lán, bìng ānpái zhíbān rényuán diànhuà quèrèn. Xīn bànfǎ méiyǒu jiǎnshǎo cānyù zhě, què ràng jūmín gèng róngyì kàn qīng shéi fùzé pànduàn, shéi fùzé chǔlǐ, shéi fùzé jìxù gēn jìn."
+                      }
+                    ]
+                  },
+                  "title": "Sự phối hợp đằng sau một bảng dịch vụ cộng đồng"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Sự phối hợp đằng sau một bảng dịch vụ cộng đồng"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "长途车站过去只有两家快餐店，许多旅客为了赶车，只能买已经装好的套餐。车站经理发现，老人和带孩子的家庭常常吃不完，而需要清淡饮食的人也很难找到合适的中餐。有人因此选择不吃午饭，也有人把没吃完的食品直接扔掉。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-1-0",
+                        "meaningVi": "Bến xe đường dài trước đây chỉ có hai cửa hàng đồ ăn nhanh; nhiều hành khách vì vội lên xe chỉ có thể mua suất đóng sẵn. Người cao tuổi, gia đình có trẻ nhỏ thường ăn không hết, còn người cần đồ thanh đạm khó tìm món Trung phù hợp. Có người bỏ bữa, có người vứt phần thức ăn thừa.",
+                        "pinyin": "Chángtú chēzhàn guòqù zhǐyǒu liǎng jiā kuàicān diàn, xǔduō lǚkè wéi le gǎnchē, zhǐ néng mǎi yǐjīng zhuāng hǎo de tàocān. Chēzhàn jīnglǐ fǎ xiàn, lǎorén hé dài háizǐ de jiātíng chángcháng chī bù wán, ér xūyào qīngdàn yǐnshí de rén yě hěn nán zhǎodào héshì de zhōngcān. Yǒurén yīncǐ xuǎn zhái bu chī wǔfàn, yěyǒu rén bǎ méi chī wán de shípǐn zhíjiē rēng diào."
+                      },
+                      {
+                        "hanzi": "后来，车站邀请三类人一起讨论：旅客代表说明时间和价格要求，厨师介绍哪些美食能提前准备，卫生人员则提醒大家鲜菜和热菜不能在常温下放太久。他们最后决定设置小份窗口，并把每份菜的主要材料、重量和制作时间写在电子牌上。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-1-1",
+                        "meaningVi": "Sau đó, bến xe mời ba nhóm cùng thảo luận: đại diện hành khách nêu yêu cầu về thời gian và giá, đầu bếp giới thiệu món ngon có thể chuẩn bị trước, còn nhân viên vệ sinh nhắc rằng rau tươi và món nóng không được để lâu ở nhiệt độ thường. Họ quyết định mở quầy phần nhỏ và ghi nguyên liệu, trọng lượng, thời gian chế biến trên bảng điện tử.",
+                        "pinyin": "Hòulái, chēzhàn yāoqǐng sān lèi rén yīqǐ tǎolùn: Lǚkè dàibiǎo shuōmíng shíjiān hé jiàgé yāoqiú, chúshī jièshào nǎxiē měishí néng tíqián zhǔnbèi, wèishēng rényuán zé tíxǐng dàjiā xiān cài hé rè cài bùnéng zài chángwēn xiàfàng tài jiǔ. Tāmen zuìhòu juédìng shèzhì xiǎo fèn chuāngkǒu, bìng bǎ měi fèn cài de zhǔyào cáiliào, zhòngliàng hé zhìzuò shíjiān xiě zài diànzǐ pái shàng."
+                      },
+                      {
+                        "hanzi": "试行一个月后，窗口前排队的人比预想的多，但食品浪费明显减少。经理没有因此认定方案已经完美，因为调查只覆盖工作日中午，也没有记录旅客是否真正喜欢这些口味。车站准备在周末继续收集意见，再决定是否增加晚餐和地方特色菜。",
+                        "id": "hsk4-precision-reference-quantity-lesson-01:source-1-2",
+                        "meaningVi": "Sau một tháng thử nghiệm, số người xếp hàng đông hơn dự kiến nhưng lãng phí thực phẩm giảm rõ. Quản lý không coi phương án đã hoàn hảo vì khảo sát mới phủ buổi trưa ngày thường và chưa ghi nhận hành khách có thực sự thích hương vị không. Bến xe sẽ tiếp tục lấy ý kiến cuối tuần trước khi quyết định thêm bữa tối và món địa phương.",
+                        "pinyin": "Shìxíng yīgè yuè hòu, chuāngkǒu qián páiduì de rén bǐ yùxiǎng de duō, dàn shípǐn làngfèi míngxiǎn jiǎnshǎo. Jīnglǐ méiyǒu yīncǐ rèndìng fāng'àn yǐjīng wánměi, yīnwèi diàochá zhǐ fùgài gōngzuò rì zhōngwǔ, yě méiyǒu jìlù lǚkè shìfǒu zhēnzhèng xǐhuān zhèxiē kǒuwèi. Chēzhàn zhǔnbèi zài zhōumò jìxù shōují yìjiàn, zài juédìng shìfǒu zēngjiā wǎncān hé dìfāng tèsè cài."
+                      }
+                    ]
+                  },
+                  "title": "Lựa chọn bữa trưa trong nhà ga"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Lựa chọn bữa trưa trong nhà ga"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Bảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "服务表在每项服务后写明负责人的姓名和联系方式。\nBảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.\nĐối chiếu Nguồn A · đoạn1.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "食品浪费减少，证明所有旅客都喜欢小份窗口的饭菜。\nLãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.\nĐối chiếu Nguồn B · đoạn3.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n社区中心把服务、负责人和联系方式列成表。实际工作由工作人员、志愿者等多方合作完成。三个月后，中心又增加紧急程度和上门需求两栏，并安排电话确认，让判断、处理和跟进的责任更清楚。\nShèqū zhōngxīn bǎ fúwù, fùzérén hé liánxì fāngshì liè chéng biǎo. Shíjì gōngzuò yóu gōngzuò rényuán, zhìyuànzhě děng duō fāng hézuò wánchéng. Sān ge yuè hòu, zhōngxīn yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú liǎng lán, bìng ānpái diànhuà quèrèn, ràng pànduàn, chǔlǐ hé gēnjìn de zérèn gèng qīngchu.\nTrung tâm liệt kê dịch vụ, người phụ trách và cách liên hệ thành bảng. Công việc thực tế do nhân viên, tình nguyện viên và các bên phối hợp. Ba tháng sau, trung tâm thêm hai cột mức khẩn cấp và nhu cầu đến tận nhà, đồng thời gọi xác nhận để rõ trách nhiệm đánh giá, xử lý và theo dõi.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Phân biệt các mục trên bảng với công việc thực tế của các bên.",
+                        "id": "point-0",
+                        "label": "Phân biệt các mục trên bảng với công việc thực tế của các bên."
+                      },
+                      {
+                        "guidance": "Sự phối hợp xuất hiện trong trường hợp được mô tả.",
+                        "id": "point-1",
+                        "label": "Sự phối hợp xuất hiện trong trường hợp được mô tả."
+                      },
+                      {
+                        "guidance": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn.",
+                        "id": "point-2",
+                        "label": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn."
+                      },
+                      {
+                        "guidance": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng.",
+                        "id": "point-3",
+                        "label": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n过去，长途车站的套餐不能满足所有旅客的需要。旅客代表、厨师和卫生人员讨论后，车站设置小份窗口，并公布材料、重量和制作时间。试行后浪费减少了，但调查只覆盖工作日中午，还没有记录口味偏好，所以不能说方案已经完美。\nGuòqù, chángtú chēzhàn de tàocān bù néng mǎnzú suǒyǒu lǚkè de xūyào. Lǚkè dàibiǎo, chúshī hé wèishēng rényuán tǎolùn hòu, chēzhàn shèzhì xiǎo fèn chuāngkǒu, bìng gōngbù cáiliào, zhòngliàng hé zhìzuò shíjiān. Shìxíng hòu làngfèi jiǎnshǎo le, dàn diàochá zhǐ fùgài gōngzuòrì zhōngwǔ, hái méiyǒu jìlù kǒuwèi piānhào, suǒyǐ bù néng shuō fāng’àn yǐjīng wánměi.\nTrước đây suất ăn ở bến xe đường dài chưa đáp ứng mọi hành khách. Sau thảo luận giữa đại diện hành khách, đầu bếp và nhân sự vệ sinh, bến xe mở quầy phần nhỏ, công bố nguyên liệu, trọng lượng và giờ chế biến. Thử nghiệm giúp giảm lãng phí, nhưng khảo sát chỉ ở trưa ngày thường và chưa ghi sở thích hương vị nên chưa thể nói phương án hoàn hảo.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Diễn đạt lại cải tiến quầy ăn tại bến xe, giữ kết quả và giới hạn dữ liệu.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Có nhiều hơn một tiêu chí lựa chọn.",
+                        "id": "point-0",
+                        "label": "Có nhiều hơn một tiêu chí lựa chọn."
+                      },
+                      {
+                        "guidance": "Nhu cầu của hành khách không giống nhau.",
+                        "id": "point-1",
+                        "label": "Nhu cầu của hành khách không giống nhau."
+                      },
+                      {
+                        "guidance": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo.",
+                        "id": "point-2",
+                        "label": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại quá trình bến xe mở quầy phần nhỏ, giữ nhu cầu, vai trò, kết quả thử nghiệm và giới hạn dữ liệu.\nDẫn chứng: Nguồn B · đoạn1–3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng 敢 để nêu mức sẵn sàng hành động của một chủ thể, không biến sự sẵn sàng thành kết quả đã xảy ra.\nGiới hạn: “敢” chỉ thái độ hoặc khả năng chấp nhận rủi ro; không được suy ra hành động đã thành công.\nCâu mẫu sau là tình huống giả định để luyện cấu trúc, không phải dữ kiện trong hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "敢"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "社区志愿者敢提出新办法，但表格还没有证明服务已经改善。",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:0",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Tình nguyện viên cộng đồng dám đề xuất cách mới, nhưng bảng biểu chưa chứng minh dịch vụ đã được cải thiện.",
+                  "pinyin": "Shèqū zhìyuàn zhě gǎn tíchū xīn bànfǎ, dàn biǎogé hái méiyǒu zhèngmíng fúwù yǐjīng gǎishàn.",
+                  "provenance": "",
+                  "title": "Câu giả định"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Câu mẫu cấu trúc: 社区志愿者敢提出新办法，但表格还没有证明服务已经改善。\nTình nguyện viên cộng đồng dám đề xuất cách mới, nhưng bảng biểu chưa chứng minh dịch vụ đã được cải thiện.\nMẫu có thể chứa tình huống giả định, không thay thế câu bạn tự viết từ nguồn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng 敢 để nêu mức sẵn sàng hành động của một chủ thể, không biến sự sẵn sàng thành kết quả đã xảy ra.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 敢 để nêu mức sẵn sàng hành động của một chủ thể, không biến sự sẵn sàng thành kết quả đã xảy ra.",
+                        "id": "form",
+                        "label": "Dùng 敢 đúng chức năng"
+                      },
+                      {
+                        "guidance": "Câu mới phải kiểm được ở nguồn A hoặc B.",
+                        "id": "evidence",
+                        "label": "Dẫn đúng đoạn nguồn"
+                      },
+                      {
+                        "guidance": "“敢” chỉ thái độ hoặc khả năng chấp nhận rủi ro; không được suy ra hành động đã thành công.",
+                        "id": "scope",
+                        "label": "Không suy quá phạm vi"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết một câu dùng 敢 để diễn đạt dữ kiện thật từ hai nguồn. Ghi đoạn nguồn; không sao chép chi tiết giả định của câu mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo câu mới từ nguồn thật"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Diễn đạt chính xác · 敢"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng 各、各种、任何、此 để xác định phạm vi nhóm hoặc đối tượng trước khi khái quát.\nGiới hạn: Từ chỉ định phải khớp tập hợp thật trong nguồn; “任何” trong câu phủ định không cho phép khái quát sang toàn bộ hệ thống.\nCâu mẫu sau là tình huống giả định để luyện cấu trúc, không phải dữ kiện trong hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "各、各位、各种、任何、此"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "各位乘客可以比较各种午餐，但此调查不能代表任何车站。",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:1",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Mỗi hành khách có thể so sánh nhiều loại bữa trưa, nhưng khảo sát này không thể đại diện cho mọi nhà ga.",
+                  "pinyin": "Gèwèi chéngkè kěyǐ bǐjiào gè zhǒng wǔcān, dàn cǐ diàochá bùnéng dàibiǎo rènhé chēzhàn.",
+                  "provenance": "",
+                  "title": "Câu giả định"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Câu mẫu cấu trúc: 各位乘客可以比较各种午餐，但此调查不能代表任何车站。\nMỗi hành khách có thể so sánh nhiều loại bữa trưa, nhưng khảo sát này không thể đại diện cho mọi nhà ga.\nMẫu có thể chứa tình huống giả định, không thay thế câu bạn tự viết từ nguồn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng 各、各种、任何、此 để xác định phạm vi nhóm hoặc đối tượng trước khi khái quát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 各、各种、任何、此 để xác định phạm vi nhóm hoặc đối tượng trước khi khái quát.",
+                        "id": "form",
+                        "label": "Dùng 各、各位、各种、任何、此 đúng chức năng"
+                      },
+                      {
+                        "guidance": "Câu mới phải kiểm được ở nguồn A hoặc B.",
+                        "id": "evidence",
+                        "label": "Dẫn đúng đoạn nguồn"
+                      },
+                      {
+                        "guidance": "Từ chỉ định phải khớp tập hợp thật trong nguồn; “任何” trong câu phủ định không cho phép khái quát sang toàn bộ hệ thống.",
+                        "id": "scope",
+                        "label": "Không suy quá phạm vi"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết một câu dùng 各、各位、各种、任何、此 để diễn đạt dữ kiện thật từ hai nguồn. Ghi đoạn nguồn; không sao chép chi tiết giả định của câu mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo câu mới từ nguồn thật"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Diễn đạt chính xác · 各、各位、各种、任何、此"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng lượng từ chuyên dụng để giữ chính xác đơn vị đếm của dữ kiện.\nGiới hạn: Không thay lượng từ bằng đơn vị khác nếu nguồn không cung cấp cách quy đổi.\nCâu mẫu sau là tình huống giả định để luyện cấu trúc, không phải dữ kiện trong hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:2",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "（1）专用名量词：打、袋、棵、台、幅"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "服务站准备了两台电脑、三袋材料和一幅社区地图。",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:2",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Điểm dịch vụ chuẩn bị hai máy tính, ba túi tài liệu và một bản đồ cộng đồng.",
+                  "pinyin": "Fúwù zhàn zhǔnbèile liǎng tái diànnǎo, sān dài cáiliào hé yī fú shèqū dìtú.",
+                  "provenance": "",
+                  "title": "Câu giả định"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Câu mẫu cấu trúc: 服务站准备了两台电脑、三袋材料和一幅社区地图。\nĐiểm dịch vụ chuẩn bị hai máy tính, ba túi tài liệu và một bản đồ cộng đồng.\nMẫu có thể chứa tình huống giả định, không thay thế câu bạn tự viết từ nguồn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng lượng từ chuyên dụng để giữ chính xác đơn vị đếm của dữ kiện.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng lượng từ chuyên dụng để giữ chính xác đơn vị đếm của dữ kiện.",
+                        "id": "form",
+                        "label": "Dùng （1）专用名量词：打、袋、棵、台、幅 đúng chức năng"
+                      },
+                      {
+                        "guidance": "Câu mới phải kiểm được ở nguồn A hoặc B.",
+                        "id": "evidence",
+                        "label": "Dẫn đúng đoạn nguồn"
+                      },
+                      {
+                        "guidance": "Không thay lượng từ bằng đơn vị khác nếu nguồn không cung cấp cách quy đổi.",
+                        "id": "scope",
+                        "label": "Không suy quá phạm vi"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết một câu dùng （1）专用名量词：打、袋、棵、台、幅 để diễn đạt dữ kiện thật từ hai nguồn. Ghi đoạn nguồn; không sao chép chi tiết giả định của câu mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:2",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo câu mới từ nguồn thật"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:2",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Diễn đạt chính xác · （1）专用名量词：打、袋、棵、台、幅"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng lượng từ vay mượn khi danh từ chuyển thành đơn vị đếm trong ngữ cảnh cụ thể.\nGiới hạn: Cấu trúc tạo hình ảnh số lượng, không cho biết mẫu có đại diện hay không.\nCâu mẫu sau là tình huống giả định để luyện cấu trúc, không phải dữ kiện trong hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:3",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "（2）借用名量词：脸、手、盒、屋子、桌子"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "桌上一盒意见卡和一屋子居民都不能自动证明计划有效。",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:3",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Một hộp phiếu góp ý trên bàn và cả phòng cư dân không tự động chứng minh kế hoạch có hiệu quả.",
+                  "pinyin": "Zhuō shàng yī hé yìjiàn kǎ hé yī wūzǐ jūmín dōu bùnéng zìdòng zhèngmíng jìhuà yǒuxiào.",
+                  "provenance": "",
+                  "title": "Câu giả định"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Câu mẫu cấu trúc: 桌上一盒意见卡和一屋子居民都不能自动证明计划有效。\nMột hộp phiếu góp ý trên bàn và cả phòng cư dân không tự động chứng minh kế hoạch có hiệu quả.\nMẫu có thể chứa tình huống giả định, không thay thế câu bạn tự viết từ nguồn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng lượng từ vay mượn khi danh từ chuyển thành đơn vị đếm trong ngữ cảnh cụ thể.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng lượng từ vay mượn khi danh từ chuyển thành đơn vị đếm trong ngữ cảnh cụ thể.",
+                        "id": "form",
+                        "label": "Dùng （2）借用名量词：脸、手、盒、屋子、桌子 đúng chức năng"
+                      },
+                      {
+                        "guidance": "Câu mới phải kiểm được ở nguồn A hoặc B.",
+                        "id": "evidence",
+                        "label": "Dẫn đúng đoạn nguồn"
+                      },
+                      {
+                        "guidance": "Cấu trúc tạo hình ảnh số lượng, không cho biết mẫu có đại diện hay không.",
+                        "id": "scope",
+                        "label": "Không suy quá phạm vi"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết một câu dùng （2）借用名量词：脸、手、盒、屋子、桌子 để diễn đạt dữ kiện thật từ hai nguồn. Ghi đoạn nguồn; không sao chép chi tiết giả định của câu mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:3",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo câu mới từ nguồn thật"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:3",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Diễn đạt chính xác · （2）借用名量词：脸、手、盒、屋子、桌子"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng 场、顿、趟 để phân biệt sự kiện, bữa ăn và lượt di chuyển.\nGiới hạn: Lượng từ sự kiện chỉ đếm lần xảy ra; không tự nói chất lượng hoặc tác động.\nCâu mẫu sau là tình huống giả định để luyện cấu trúc, không phải dữ kiện trong hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:4",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "场、顿、趟"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "一次调查记录了一场讨论、一顿午餐和两趟换乘。",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:4",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Một khảo sát ghi lại một cuộc thảo luận, một bữa trưa và hai lượt chuyển tuyến.",
+                  "pinyin": "Yīcì tiáo chá jìlùle yī chǎng tǎolùn, yī dùn wǔcān hé liǎng tàng huàn chéng.",
+                  "provenance": "",
+                  "title": "Câu giả định"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Câu mẫu cấu trúc: 一次调查记录了一场讨论、一顿午餐和两趟换乘。\nMột khảo sát ghi lại một cuộc thảo luận, một bữa trưa và hai lượt chuyển tuyến.\nMẫu có thể chứa tình huống giả định, không thay thế câu bạn tự viết từ nguồn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng 场、顿、趟 để phân biệt sự kiện, bữa ăn và lượt di chuyển.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng 场、顿、趟 để phân biệt sự kiện, bữa ăn và lượt di chuyển.",
+                        "id": "form",
+                        "label": "Dùng 场、顿、趟 đúng chức năng"
+                      },
+                      {
+                        "guidance": "Câu mới phải kiểm được ở nguồn A hoặc B.",
+                        "id": "evidence",
+                        "label": "Dẫn đúng đoạn nguồn"
+                      },
+                      {
+                        "guidance": "Lượng từ sự kiện chỉ đếm lần xảy ra; không tự nói chất lượng hoặc tác động.",
+                        "id": "scope",
+                        "label": "Không suy quá phạm vi"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết một câu dùng 场、顿、趟 để diễn đạt dữ kiện thật từ hai nguồn. Ghi đoạn nguồn; không sao chép chi tiết giả định của câu mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:4",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo câu mới từ nguồn thật"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:4",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Diễn đạt chính xác · 场、顿、趟"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Dùng phó từ mức độ để so sánh có điều kiện, tránh đổi quan sát tương đối thành kết luận tuyệt đối.\nGiới hạn: “稍微、更加、尤其” cần một chuẩn so sánh; không được bổ sung chuẩn không có trong nguồn.\nCâu mẫu sau là tình huống giả định để luyện cấu trúc, không phải dữ kiện trong hai nguồn.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-rule:5",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "十分、更加、稍、稍微、尤其、多么"
+                },
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "午餐价格稍微低一些，尤其适合时间紧的乘客，但未必更加健康。",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-example:5",
+                  "imageSrc": "",
+                  "kind": "dialogue",
+                  "meaningVi": "Giá bữa trưa thấp hơn một chút, đặc biệt hợp người gấp thời gian, nhưng chưa chắc lành mạnh hơn.",
+                  "pinyin": "Wǔcān jiàgé shāowéi dī yīxiē, yóuqí shìhé shíjiān jǐn de chéngkè, dàn wèibì gèngjiā jiànkāng.",
+                  "provenance": "",
+                  "title": "Câu giả định"
+                },
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Câu mẫu cấu trúc: 午餐价格稍微低一些，尤其适合时间紧的乘客，但未必更加健康。\nGiá bữa trưa thấp hơn một chút, đặc biệt hợp người gấp thời gian, nhưng chưa chắc lành mạnh hơn.\nMẫu có thể chứa tình huống giả định, không thay thế câu bạn tự viết từ nguồn.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Dùng phó từ mức độ để so sánh có điều kiện, tránh đổi quan sát tương đối thành kết luận tuyệt đối.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Dùng phó từ mức độ để so sánh có điều kiện, tránh đổi quan sát tương đối thành kết luận tuyệt đối.",
+                        "id": "form",
+                        "label": "Dùng 十分、更加、稍、稍微、尤其、多么 đúng chức năng"
+                      },
+                      {
+                        "guidance": "Câu mới phải kiểm được ở nguồn A hoặc B.",
+                        "id": "evidence",
+                        "label": "Dẫn đúng đoạn nguồn"
+                      },
+                      {
+                        "guidance": "“稍微、更加、尤其” cần một chuẩn so sánh; không được bổ sung chuẩn không có trong nguồn.",
+                        "id": "scope",
+                        "label": "Không suy quá phạm vi"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết một câu dùng 十分、更加、稍、稍微、尤其、多么 để diễn đạt dữ kiện thật từ hai nguồn. Ghi đoạn nguồn; không sao chép chi tiết giả định của câu mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:grammar-write:5",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Tạo câu mới từ nguồn thật"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:grammar:5",
+              "layout": "split",
+              "stage": "understand",
+              "title": "Diễn đạt chính xác · 十分、更加、稍、稍微、尤其、多么"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n明河社区列出服务和负责人，由工作人员、志愿者等合作处理问题，三个月后又增加紧急程度和上门需求。长途车站听取旅客、厨师和卫生人员的意见，开设小份窗口并公布食品信息。两处都按不同需要调整服务，但社区的经验不能直接推广，车站也缺少周末和口味偏好的资料。\nMínghé shèqū liè chū fúwù hé fùzérén, yóu gōngzuò rényuán, zhìyuànzhě děng hézuò chǔlǐ wèntí, sān ge yuè hòu yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú. Chángtú chēzhàn tīngqǔ lǚkè, chúshī hé wèishēng rényuán de yìjiàn, kāishè xiǎo fèn chuāngkǒu bìng gōngbù shípǐn xìnxī. Liǎng chù dōu àn bùtóng xūyào tiáozhěng fúwù, dàn shèqū de jīngyàn bù néng zhíjiē tuīguǎng, chēzhàn yě quēshǎo zhōumò hé kǒuwèi piānhào de zīliào.\nKhu Minh Hà ghi dịch vụ và người phụ trách, các bên phối hợp xử lý; ba tháng sau thêm mức khẩn cấp và nhu cầu đến tận nhà. Bến xe nghe hành khách, đầu bếp và nhân sự vệ sinh, mở quầy phần nhỏ, công bố thông tin thức ăn. Cả hai điều chỉnh theo nhu cầu khác nhau; kinh nghiệm cộng đồng chưa thể áp dụng thẳng nơi khác, còn bến xe thiếu dữ liệu cuối tuần và sở thích hương vị.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà.",
+                        "id": "criterion-0",
+                        "label": "Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà."
+                      },
+                      {
+                        "guidance": "Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn.",
+                        "id": "criterion-1",
+                        "label": "Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn."
+                      },
+                      {
+                        "guidance": "điểm chung về nhu cầu khác nhau",
+                        "id": "criterion-2",
+                        "label": "điểm chung về nhu cầu khác nhau"
+                      },
+                      {
+                        "guidance": "một giới hạn phạm vi của mỗi nguồn",
+                        "id": "criterion-3",
+                        "label": "một giới hạn phạm vi của mỗi nguồn"
+                      },
+                      {
+                        "guidance": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát.",
+                        "id": "criterion-4",
+                        "label": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n我认为服务可以有共同要求，也需要回应不同需求。社区中心统一列出服务和联系方式，但普通咨询与道路安全问题交给不同的人处理。车站也没有只看速度和价格，而是听取旅客、厨师与卫生人员的意见，设置小份窗口。统一标准确实便于管理，例如食品安全要求不能随意降低。不过，份量和上门服务可以按需要调整。试行后食品浪费减少，并不说明所有旅客都满意，因为调查还缺少周末和口味方面的记录。因此，我建议保留共同要求，同时明确不同选择和负责人员，再继续收集意见。这个建议基于两个具体场所，推广前还需要更多资料。\nWǒ rènwéi fúwù kěyǐ yǒu gòngtóng yāoqiú, yě xūyào huíyìng bùtóng xūqiú. Shèqū zhōngxīn tǒngyī liè chū fúwù hé liánxì fāngshì, dàn pǔtōng zīxún yǔ dàolù ānquán wèntí jiāo gěi bùtóng de rén chǔlǐ. Chēzhàn yě méiyǒu zhǐ kàn sùdù hé jiàgé, ér shì tīngqǔ lǚkè, chúshī yǔ wèishēng rényuán de yìjiàn, shèzhì xiǎo fèn chuāngkǒu. Tǒngyī biāozhǔn quèshí biànyú guǎnlǐ, lìrú shípǐn ānquán yāoqiú bù néng suíyì jiàngdī. Búguò, fènliàng hé shàngmén fúwù kěyǐ àn xūyào tiáozhěng. Shìxíng hòu shípǐn làngfèi jiǎnshǎo, bìng bù shuōmíng suǒyǒu lǚkè dōu mǎnyì, yīnwèi diàochá hái quēshǎo zhōumò hé kǒuwèi fāngmiàn de jìlù. Yīncǐ, wǒ jiànyì bǎoliú gòngtóng yāoqiú, tóngshí míngquè bùtóng xuǎnzé hé fùzé rényuán, zài jìxù shōují yìjiàn. Zhège jiànyì jīyú liǎng ge jùtǐ chǎngsuǒ, tuīguǎng qián hái xūyào gèng duō zīliào.\nTôi cho rằng dịch vụ có thể có yêu cầu chung và vẫn đáp ứng nhu cầu khác nhau. Trung tâm thống nhất bảng liên hệ nhưng chuyển tư vấn thường và an toàn đường bộ cho người khác nhau. Bến xe không chỉ xét tốc độ, giá mà còn nghe ba nhóm để mở quầy phần nhỏ. Chuẩn chung giúp quản lý, chẳng hạn không tùy tiện hạ yêu cầu an toàn thực phẩm. Tuy nhiên khẩu phần và dịch vụ tại nhà có thể tùy nhu cầu. Giảm lãng phí chưa có nghĩa mọi khách hài lòng vì còn thiếu ghi nhận cuối tuần và khẩu vị. Tôi đề nghị giữ yêu cầu chung, nêu rõ lựa chọn và người phụ trách, rồi lấy thêm ý kiến. Đề nghị dựa vào hai địa điểm cụ thể, cần thêm tài liệu trước khi áp dụng rộng.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm có phạm vi",
+                        "id": "criterion-0",
+                        "label": "luận điểm có phạm vi"
+                      },
+                      {
+                        "guidance": "ít nhất một bằng chứng từ mỗi nguồn",
+                        "id": "criterion-1",
+                        "label": "ít nhất một bằng chứng từ mỗi nguồn"
+                      },
+                      {
+                        "guidance": "giải thích quan hệ giữa vai trò và tiêu chí",
+                        "id": "criterion-2",
+                        "label": "giải thích quan hệ giữa vai trò và tiêu chí"
+                      },
+                      {
+                        "guidance": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý",
+                        "id": "criterion-3",
+                        "label": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý"
+                      },
+                      {
+                        "guidance": "kết luận giới hạn ở tình huống nguồn",
+                        "id": "criterion-4",
+                        "label": "kết luận giới hạn ở tình huống nguồn"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Một tiêu chí thống nhất giúp quản lý nhanh, so sánh dễ và tránh quyết định tùy tiện.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác.",
+                        "id": "criterion-6",
+                        "label": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n我的建议是保留共同要求，同时说明不同选择由谁负责。社区把普通咨询和道路安全问题分别处理；车站兼顾时间、价格、份量和食品安全。统一要求不等于所有人只能选同一份套餐。两个案例范围有限，尤其不能把浪费减少当成所有旅客满意。\nWǒ de jiànyì shì bǎoliú gòngtóng yāoqiú, tóngshí shuōmíng bùtóng xuǎnzé yóu shéi fùzé. Shèqū bǎ pǔtōng zīxún hé dàolù ānquán wèntí fēnbié chǔlǐ; chēzhàn jiāngù shíjiān, jiàgé, fènliàng hé shípǐn ānquán. Tǒngyī yāoqiú bù děngyú suǒyǒu rén zhǐ néng xuǎn tóng yí fèn tàocān. Liǎng ge ànlì fànwéi yǒuxiàn, yóuqí bù néng bǎ làngfèi jiǎnshǎo dàng chéng suǒyǒu lǚkè mǎnyì.\nTôi đề nghị giữ yêu cầu chung và nói rõ ai phụ trách mỗi lựa chọn. Cộng đồng tách xử lý tư vấn thường với an toàn đường bộ; bến xe xét thời gian, giá, khẩu phần và an toàn thức ăn. Chuẩn chung không có nghĩa mọi người chỉ được chọn một suất giống nhau. Hai trường hợp có phạm vi hẹp, nhất là không coi giảm lãng phí là tất cả khách hài lòng.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu quy tắc chính",
+                        "id": "move-0",
+                        "label": "nêu quy tắc chính"
+                      },
+                      {
+                        "guidance": "dẫn một chi tiết từ mỗi nguồn",
+                        "id": "move-1",
+                        "label": "dẫn một chi tiết từ mỗi nguồn"
+                      },
+                      {
+                        "guidance": "trả lời phản biện về sự phức tạp",
+                        "id": "move-2",
+                        "label": "trả lời phản biện về sự phức tạp"
+                      },
+                      {
+                        "guidance": "nêu giới hạn dữ liệu",
+                        "id": "move-3",
+                        "label": "nêu giới hạn dữ liệu"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 3; Nguồn B · đoạn 1, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "need",
+                        "label": "线索一",
+                        "meaningVi": "Cư dân mới cần biết nơi và người giải quyết từng việc.",
+                        "note": "Nhu cầu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "intake",
+                        "label": "线索二",
+                        "meaningVi": "Bảng dịch vụ và nhân viên tiếp nhận giúp xác định loại yêu cầu.",
+                        "note": "Tiếp nhận · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "routing",
+                        "label": "线索三",
+                        "meaningVi": "Tình nguyện viên, cảnh sát, bác sĩ hoặc thợ nhận phần phù hợp.",
+                        "note": "Chuyển việc · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "gap",
+                        "label": "线索四",
+                        "meaningVi": "Yêu cầu khẩn đôi khi bị ghi như lời nhắn thường.",
+                        "note": "Khoảng trống · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "revision",
+                        "label": "线索五",
+                        "meaningVi": "Thêm mức khẩn, nhu cầu đến nhà và cuộc gọi xác nhận.",
+                        "note": "Điều chỉnh · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-personal-community-analysis-concept-actor-map; revision 9c0fe382-73cf-474f-a678-89326b88e425; humanReviewed:false",
+                  "title": "Sự phối hợp đằng sau một bảng dịch vụ cộng đồng"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "problem",
+                        "label": "线索一",
+                        "meaningVi": "Suất ăn cố định gây khó chọn và tạo thức ăn thừa.",
+                        "note": "Vấn đề · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "traveler",
+                        "label": "线索二",
+                        "meaningVi": "Cần nhanh, đúng giá và có phần phù hợp.",
+                        "note": "Góc nhìn hành khách · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "kitchen",
+                        "label": "线索三",
+                        "meaningVi": "Chọn món có thể chuẩn bị trước nhưng vẫn bảo đảm độ tươi.",
+                        "note": "Góc nhìn bếp · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "trial",
+                        "label": "线索四",
+                        "meaningVi": "Mở quầy phần nhỏ với bảng nguyên liệu và thời gian.",
+                        "note": "Thử nghiệm · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "limit",
+                        "label": "线索五",
+                        "meaningVi": "Chưa có cuối tuần và chưa đo mức thích hương vị.",
+                        "note": "Giới hạn dữ liệu · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-personal-community-analysis-concept-actor-map; revision 9c0fe382-73cf-474f-a678-89326b88e425; humanReviewed:false",
+                  "title": "Lựa chọn bữa trưa trong nhà ga"
+                }
+              ],
+              "id": "hsk4-precision-reference-quantity-lesson-01:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "fbedcb3c-1ee1-4abf-9fad-d133d4475c57",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-culture-history-interpretation-viewpoint-synthesis"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-001",
+          "hsk4-grammar-row-002",
+          "hsk4-grammar-row-003",
+          "hsk4-grammar-row-004",
+          "hsk4-grammar-row-005",
+          "hsk4-grammar-row-006"
+        ],
+        "sourceLessonIds": [
+          "hsk4-precision-reference-quantity-lesson-01",
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-01",
+          "hsk4-task-02"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01033",
+          "hsk-vocab-01069",
+          "hsk-vocab-01307",
+          "hsk-vocab-01369",
+          "hsk-vocab-01632",
+          "hsk-vocab-01442",
+          "hsk-vocab-01489",
+          "hsk-vocab-01504",
+          "hsk-vocab-01794",
+          "hsk-vocab-01957"
+        ],
+        "targetLessonId": "hsk4-precision-reference-quantity-lesson-01",
+        "titleZh": "HSK四级 · 37",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/87-REVIEW-HSK4-PRECISION-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific diagrams for post-writing review; existing pages and exercises preserved.",
+          "sourceRevisionId": "e53cece7-02ec-48b4-acf0-7811560021f1"
+        },
+        "vocabulary": [
+          "hsk-vocab-01033",
+          "hsk-vocab-01069",
+          "hsk-vocab-01307",
+          "hsk-vocab-01369",
+          "hsk-vocab-01632",
+          "hsk-vocab-01442",
+          "hsk-vocab-01489",
+          "hsk-vocab-01504",
+          "hsk-vocab-01794",
+          "hsk-vocab-01957"
+        ]
+      },
+      "changes": [
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:paraphrase:0",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n这张表把居民的需要、志愿者的帮助和工作人员的安排分开记录，也显示三方需要合作。它能说明本次社区服务怎样运行，却不能证明别的社区也会得到同样结果。\nBảng tách nhu cầu cư dân, hỗ trợ của tình nguyện viên và sắp xếp của nhân viên, đồng thời cho thấy ba bên cần phối hợp. Nó giải thích lần vận hành này chứ không chứng minh cộng đồng khác sẽ có cùng kết quả.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "Ba vai trò được ghi riêng.",
+                  "id": "point-0",
+                  "label": "Ba vai trò được ghi riêng."
+                },
+                {
+                  "guidance": "Sự phối hợp xuất hiện trong trường hợp được mô tả.",
+                  "id": "point-1",
+                  "label": "Sự phối hợp xuất hiện trong trường hợp được mô tả."
+                },
+                {
+                  "guidance": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn.",
+                  "id": "point-2",
+                  "label": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn."
+                },
+                {
+                  "guidance": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng.",
+                  "id": "point-3",
+                  "label": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:0",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết lại rồi kiểm nguồn"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n社区中心把服务、负责人和联系方式列成表。实际工作由工作人员、志愿者等多方合作完成。三个月后，中心又增加紧急程度和上门需求两栏，并安排电话确认，让判断、处理和跟进的责任更清楚。\nShèqū zhōngxīn bǎ fúwù, fùzérén hé liánxì fāngshì liè chéng biǎo. Shíjì gōngzuò yóu gōngzuò rényuán, zhìyuànzhě děng duō fāng hézuò wánchéng. Sān ge yuè hòu, zhōngxīn yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú liǎng lán, bìng ānpái diànhuà quèrèn, ràng pànduàn, chǔlǐ hé gēnjìn de zérèn gèng qīngchu.\nTrung tâm liệt kê dịch vụ, người phụ trách và cách liên hệ thành bảng. Công việc thực tế do nhân viên, tình nguyện viên và các bên phối hợp. Ba tháng sau, trung tâm thêm hai cột mức khẩn cấp và nhu cầu đến tận nhà, đồng thời gọi xác nhận để rõ trách nhiệm đánh giá, xử lý và theo dõi.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "Phân biệt các mục trên bảng với công việc thực tế của các bên.",
+                  "id": "point-0",
+                  "label": "Phân biệt các mục trên bảng với công việc thực tế của các bên."
+                },
+                {
+                  "guidance": "Sự phối hợp xuất hiện trong trường hợp được mô tả.",
+                  "id": "point-1",
+                  "label": "Sự phối hợp xuất hiện trong trường hợp được mô tả."
+                },
+                {
+                  "guidance": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn.",
+                  "id": "point-2",
+                  "label": "Phạm vi chỉ là cộng đồng và hoạt động trong nguồn."
+                },
+                {
+                  "guidance": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng.",
+                  "id": "point-3",
+                  "label": "Không được khẳng định biểu mẫu làm tăng chất lượng dịch vụ trên diện rộng."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Viết lại kết luận của bảng dịch vụ bằng 2–3 câu, giữ riêng vai trò và giới hạn quan sát.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:0",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết lại rồi kiểm nguồn"
+          }
+        },
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:paraphrase:1",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n乘客在车站选择午餐时同时考虑价格、时间和营养。材料只说明不同需要会带来不同选择，并没有说某一种午餐对所有乘客最好。\nKhi chọn bữa trưa ở ga, hành khách đồng thời cân nhắc giá, thời gian và dinh dưỡng. Tư liệu chỉ cho thấy nhu cầu khác nhau dẫn đến lựa chọn khác nhau, không nói một món tốt nhất cho mọi hành khách.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Paraphrase lựa chọn bữa trưa, giữ các tiêu chí và không biến lựa chọn cá nhân thành quy luật.",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "Có nhiều hơn một tiêu chí lựa chọn.",
+                  "id": "point-0",
+                  "label": "Có nhiều hơn một tiêu chí lựa chọn."
+                },
+                {
+                  "guidance": "Nhu cầu của hành khách không giống nhau.",
+                  "id": "point-1",
+                  "label": "Nhu cầu của hành khách không giống nhau."
+                },
+                {
+                  "guidance": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo.",
+                  "id": "point-2",
+                  "label": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Paraphrase lựa chọn bữa trưa, giữ các tiêu chí và không biến lựa chọn cá nhân thành quy luật.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:1",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết lại rồi kiểm nguồn"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n过去，长途车站的套餐不能满足所有旅客的需要。旅客代表、厨师和卫生人员讨论后，车站设置小份窗口，并公布材料、重量和制作时间。试行后浪费减少了，但调查只覆盖工作日中午，还没有记录口味偏好，所以不能说方案已经完美。\nGuòqù, chángtú chēzhàn de tàocān bù néng mǎnzú suǒyǒu lǚkè de xūyào. Lǚkè dàibiǎo, chúshī hé wèishēng rényuán tǎolùn hòu, chēzhàn shèzhì xiǎo fèn chuāngkǒu, bìng gōngbù cáiliào, zhòngliàng hé zhìzuò shíjiān. Shìxíng hòu làngfèi jiǎnshǎo le, dàn diàochá zhǐ fùgài gōngzuòrì zhōngwǔ, hái méiyǒu jìlù kǒuwèi piānhào, suǒyǐ bù néng shuō fāng’àn yǐjīng wánměi.\nTrước đây suất ăn ở bến xe đường dài chưa đáp ứng mọi hành khách. Sau thảo luận giữa đại diện hành khách, đầu bếp và nhân sự vệ sinh, bến xe mở quầy phần nhỏ, công bố nguyên liệu, trọng lượng và giờ chế biến. Thử nghiệm giúp giảm lãng phí, nhưng khảo sát chỉ ở trưa ngày thường và chưa ghi sở thích hương vị nên chưa thể nói phương án hoàn hảo.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Diễn đạt lại cải tiến quầy ăn tại bến xe, giữ kết quả và giới hạn dữ liệu.",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "Có nhiều hơn một tiêu chí lựa chọn.",
+                  "id": "point-0",
+                  "label": "Có nhiều hơn một tiêu chí lựa chọn."
+                },
+                {
+                  "guidance": "Nhu cầu của hành khách không giống nhau.",
+                  "id": "point-1",
+                  "label": "Nhu cầu của hành khách không giống nhau."
+                },
+                {
+                  "guidance": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo.",
+                  "id": "point-2",
+                  "label": "Không xếp hạng món ăn hoặc suy ra tác động sức khỏe dài hạn nếu nguồn không đo."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Viết lại quá trình bến xe mở quầy phần nhỏ, giữ nhu cầu, vai trò, kết quả thử nghiệm và giới hạn dữ liệu.\nDẫn chứng: Nguồn B · đoạn1–3. Viết trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:paraphrase:1",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết lại rồi kiểm nguồn"
+          }
+        },
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:summary",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một bản để đối chiếu:\n社区服务表把居民、志愿者和工作人员的任务分开：居民提出需要，志愿者提供帮助，工作人员安排时间与资源。车站午餐材料则把价格、等待时间和营养列为不同标准，乘客会按自己的情况选择。两份材料都说明，决定不是由一个因素自动产生，而要先明确谁在行动、需要什么、依据什么。不过，服务表只记录明河社区的有限情况，午餐讨论也只发生在特定车站，不能代表所有社区或乘客。\nBảng dịch vụ tách nhiệm vụ cư dân, tình nguyện viên và nhân viên: cư dân nêu nhu cầu, tình nguyện viên hỗ trợ, nhân viên xếp thời gian và nguồn lực. Tư liệu ở ga lại tách giá, thời gian chờ và dinh dưỡng; hành khách chọn theo hoàn cảnh. Cả hai cho thấy phải xác định chủ thể, nhu cầu và căn cứ. Tuy vậy, mỗi nguồn chỉ phản ánh một cộng đồng cụ thể hoặc một nhà ga.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "ba vai trong dịch vụ cộng đồng",
+                  "id": "criterion-0",
+                  "label": "ba vai trong dịch vụ cộng đồng"
+                },
+                {
+                  "guidance": "các tiêu chí chọn bữa trưa",
+                  "id": "criterion-1",
+                  "label": "các tiêu chí chọn bữa trưa"
+                },
+                {
+                  "guidance": "điểm chung về nhu cầu khác nhau",
+                  "id": "criterion-2",
+                  "label": "điểm chung về nhu cầu khác nhau"
+                },
+                {
+                  "guidance": "một giới hạn phạm vi của mỗi nguồn",
+                  "id": "criterion-3",
+                  "label": "một giới hạn phạm vi của mỗi nguồn"
+                },
+                {
+                  "guidance": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát.",
+                  "id": "criterion-4",
+                  "label": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:summary",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết tóm tắt"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n明河社区列出服务和负责人，由工作人员、志愿者等合作处理问题，三个月后又增加紧急程度和上门需求。长途车站听取旅客、厨师和卫生人员的意见，开设小份窗口并公布食品信息。两处都按不同需要调整服务，但社区的经验不能直接推广，车站也缺少周末和口味偏好的资料。\nMínghé shèqū liè chū fúwù hé fùzérén, yóu gōngzuò rényuán, zhìyuànzhě děng hézuò chǔlǐ wèntí, sān ge yuè hòu yòu zēngjiā jǐnjí chéngdù hé shàngmén xūqiú. Chángtú chēzhàn tīngqǔ lǚkè, chúshī hé wèishēng rényuán de yìjiàn, kāishè xiǎo fèn chuāngkǒu bìng gōngbù shípǐn xìnxī. Liǎng chù dōu àn bùtóng xūyào tiáozhěng fúwù, dàn shèqū de jīngyàn bù néng zhíjiē tuīguǎng, chēzhàn yě quēshǎo zhōumò hé kǒuwèi piānhào de zīliào.\nKhu Minh Hà ghi dịch vụ và người phụ trách, các bên phối hợp xử lý; ba tháng sau thêm mức khẩn cấp và nhu cầu đến tận nhà. Bến xe nghe hành khách, đầu bếp và nhân sự vệ sinh, mở quầy phần nhỏ, công bố thông tin thức ăn. Cả hai điều chỉnh theo nhu cầu khác nhau; kinh nghiệm cộng đồng chưa thể áp dụng thẳng nơi khác, còn bến xe thiếu dữ liệu cuối tuần và sở thích hương vị.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà.",
+                  "id": "criterion-0",
+                  "label": "Bảng liên hệ, phân luồng xử lý và bổ sung mức khẩn cấp/nhu cầu tại nhà."
+                },
+                {
+                  "guidance": "Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn.",
+                  "id": "criterion-1",
+                  "label": "Nhu cầu hành khách, an toàn thực phẩm, quầy phần nhỏ và kết quả có giới hạn."
+                },
+                {
+                  "guidance": "điểm chung về nhu cầu khác nhau",
+                  "id": "criterion-2",
+                  "label": "điểm chung về nhu cầu khác nhau"
+                },
+                {
+                  "guidance": "một giới hạn phạm vi của mỗi nguồn",
+                  "id": "criterion-3",
+                  "label": "một giới hạn phạm vi của mỗi nguồn"
+                },
+                {
+                  "guidance": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát.",
+                  "id": "criterion-4",
+                  "label": "Không tuyên bố mô hình phối hợp hay lựa chọn bữa trưa có hiệu quả phổ quát."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Tóm tắt cách hai nguồn phân chia vai trò, nhu cầu và tiêu chí quyết định trong 100–180 chữ Hán.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:summary",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết tóm tắt"
+          }
+        },
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:argument",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một bản để đối chiếu:\n在社区服务和车站餐饮这类日常事务中，我主张先保留多个需要，再用公开规则协调，而不是只设一个标准。社区服务表之所以有用，是因为它把居民、志愿者和工作人员的责任分开，让资源安排能够回应真实需要。车站午餐也不能只看价格：赶时间的人重视速度，另一些人还会考虑营养。有人认为统一标准更容易管理，这一点有道理，例如必须公布开放时间和基本价格。但是，如果管理者把“方便”当成唯一目标，就可能忽略健康或无法使用服务的人。因此，较合理的办法是规定最低共同条件，同时记录不同群体的需求并说明取舍。这个结论只适用于材料中的社区活动和车站选择，还需要更多地区、更多使用者的数据才能推广。\nTrong dịch vụ cộng đồng và ăn uống ở ga, tôi chủ trương giữ nhiều nhu cầu rồi phối hợp bằng quy tắc công khai, thay vì chỉ một chuẩn. Bảng dịch vụ hữu ích vì tách trách nhiệm; bữa trưa cũng không thể chỉ xét giá. Ý kiến cho rằng chuẩn thống nhất dễ quản lý có lý ở các điều kiện tối thiểu, nhưng nếu tiện lợi là mục tiêu duy nhất sẽ bỏ sót sức khỏe hoặc người khó tiếp cận. Nên có chuẩn chung tối thiểu, ghi nhu cầu khác nhau và giải thích đánh đổi. Kết luận chỉ áp dụng cho hai trường hợp nguồn.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "luận điểm có phạm vi",
+                  "id": "criterion-0",
+                  "label": "luận điểm có phạm vi"
+                },
+                {
+                  "guidance": "ít nhất một bằng chứng từ mỗi nguồn",
+                  "id": "criterion-1",
+                  "label": "ít nhất một bằng chứng từ mỗi nguồn"
+                },
+                {
+                  "guidance": "giải thích quan hệ giữa vai trò và tiêu chí",
+                  "id": "criterion-2",
+                  "label": "giải thích quan hệ giữa vai trò và tiêu chí"
+                },
+                {
+                  "guidance": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý",
+                  "id": "criterion-3",
+                  "label": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý"
+                },
+                {
+                  "guidance": "kết luận giới hạn ở tình huống nguồn",
+                  "id": "criterion-4",
+                  "label": "kết luận giới hạn ở tình huống nguồn"
+                },
+                {
+                  "guidance": "Ý kiến để cân nhắc: “Một tiêu chí thống nhất giúp quản lý nhanh, so sánh dễ và tránh quyết định tùy tiện.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                  "id": "criterion-5",
+                  "label": "Trình bày và phản hồi một ý kiến đối lập"
+                },
+                {
+                  "guidance": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác.",
+                  "id": "criterion-6",
+                  "label": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:argument",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết lập luận"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n我认为服务可以有共同要求，也需要回应不同需求。社区中心统一列出服务和联系方式，但普通咨询与道路安全问题交给不同的人处理。车站也没有只看速度和价格，而是听取旅客、厨师与卫生人员的意见，设置小份窗口。统一标准确实便于管理，例如食品安全要求不能随意降低。不过，份量和上门服务可以按需要调整。试行后食品浪费减少，并不说明所有旅客都满意，因为调查还缺少周末和口味方面的记录。因此，我建议保留共同要求，同时明确不同选择和负责人员，再继续收集意见。这个建议基于两个具体场所，推广前还需要更多资料。\nWǒ rènwéi fúwù kěyǐ yǒu gòngtóng yāoqiú, yě xūyào huíyìng bùtóng xūqiú. Shèqū zhōngxīn tǒngyī liè chū fúwù hé liánxì fāngshì, dàn pǔtōng zīxún yǔ dàolù ānquán wèntí jiāo gěi bùtóng de rén chǔlǐ. Chēzhàn yě méiyǒu zhǐ kàn sùdù hé jiàgé, ér shì tīngqǔ lǚkè, chúshī yǔ wèishēng rényuán de yìjiàn, shèzhì xiǎo fèn chuāngkǒu. Tǒngyī biāozhǔn quèshí biànyú guǎnlǐ, lìrú shípǐn ānquán yāoqiú bù néng suíyì jiàngdī. Búguò, fènliàng hé shàngmén fúwù kěyǐ àn xūyào tiáozhěng. Shìxíng hòu shípǐn làngfèi jiǎnshǎo, bìng bù shuōmíng suǒyǒu lǚkè dōu mǎnyì, yīnwèi diàochá hái quēshǎo zhōumò hé kǒuwèi fāngmiàn de jìlù. Yīncǐ, wǒ jiànyì bǎoliú gòngtóng yāoqiú, tóngshí míngquè bùtóng xuǎnzé hé fùzé rényuán, zài jìxù shōují yìjiàn. Zhège jiànyì jīyú liǎng ge jùtǐ chǎngsuǒ, tuīguǎng qián hái xūyào gèng duō zīliào.\nTôi cho rằng dịch vụ có thể có yêu cầu chung và vẫn đáp ứng nhu cầu khác nhau. Trung tâm thống nhất bảng liên hệ nhưng chuyển tư vấn thường và an toàn đường bộ cho người khác nhau. Bến xe không chỉ xét tốc độ, giá mà còn nghe ba nhóm để mở quầy phần nhỏ. Chuẩn chung giúp quản lý, chẳng hạn không tùy tiện hạ yêu cầu an toàn thực phẩm. Tuy nhiên khẩu phần và dịch vụ tại nhà có thể tùy nhu cầu. Giảm lãng phí chưa có nghĩa mọi khách hài lòng vì còn thiếu ghi nhận cuối tuần và khẩu vị. Tôi đề nghị giữ yêu cầu chung, nêu rõ lựa chọn và người phụ trách, rồi lấy thêm ý kiến. Đề nghị dựa vào hai địa điểm cụ thể, cần thêm tài liệu trước khi áp dụng rộng.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?",
+                "skill": "writing",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "luận điểm có phạm vi",
+                  "id": "criterion-0",
+                  "label": "luận điểm có phạm vi"
+                },
+                {
+                  "guidance": "ít nhất một bằng chứng từ mỗi nguồn",
+                  "id": "criterion-1",
+                  "label": "ít nhất một bằng chứng từ mỗi nguồn"
+                },
+                {
+                  "guidance": "giải thích quan hệ giữa vai trò và tiêu chí",
+                  "id": "criterion-2",
+                  "label": "giải thích quan hệ giữa vai trò và tiêu chí"
+                },
+                {
+                  "guidance": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý",
+                  "id": "criterion-3",
+                  "label": "phản biện ý kiến ưu tiên một chuẩn để dễ quản lý"
+                },
+                {
+                  "guidance": "kết luận giới hạn ở tình huống nguồn",
+                  "id": "criterion-4",
+                  "label": "kết luận giới hạn ở tình huống nguồn"
+                },
+                {
+                  "guidance": "Ý kiến để cân nhắc: “Một tiêu chí thống nhất giúp quản lý nhanh, so sánh dễ và tránh quyết định tùy tiện.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                  "id": "criterion-5",
+                  "label": "Trình bày và phản hồi một ý kiến đối lập"
+                },
+                {
+                  "guidance": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác.",
+                  "id": "criterion-6",
+                  "label": "Chỉ khuyến nghị cơ chế ra quyết định trong hai bối cảnh được mô tả; chưa chứng minh hiệu quả ở nơi khác."
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Viết 160–280 chữ Hán bàn luận: quyết định dịch vụ có nên ưu tiên một tiêu chí thống nhất hay cho phép nhiều nhu cầu cùng tồn tại?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:argument",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Viết lập luận"
+          }
+        },
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:defense",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n我的规则是先分清角色和需要，再公布共同底线。\n社区表说明居民、志愿者和工作人员承担不同任务。\n车站午餐说明价格、时间和营养不能互相代替。\n统一底线并不等于只留一个标准，反而能说明取舍。\n两个案例范围有限，推广前还要比较更多地点。\nQuy tắc của tôi là tách vai trò và nhu cầu rồi công bố chuẩn tối thiểu.\nBảng cộng đồng cho thấy ba nhóm có nhiệm vụ khác nhau.\nBữa trưa ở ga cho thấy giá, thời gian và dinh dưỡng không thay thế nhau.\nChuẩn tối thiểu chung không đồng nghĩa chỉ giữ một tiêu chí.\nHai trường hợp còn hẹp; cần so sánh thêm nơi khác trước khi mở rộng.\nĐây là tự luyện, không có điểm nói độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                "skill": "speaking",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "nêu quy tắc chính",
+                  "id": "move-0",
+                  "label": "nêu quy tắc chính"
+                },
+                {
+                  "guidance": "dẫn một chi tiết từ mỗi nguồn",
+                  "id": "move-1",
+                  "label": "dẫn một chi tiết từ mỗi nguồn"
+                },
+                {
+                  "guidance": "trả lời phản biện về sự phức tạp",
+                  "id": "move-2",
+                  "label": "trả lời phản biện về sự phức tạp"
+                },
+                {
+                  "guidance": "nêu giới hạn dữ liệu",
+                  "id": "move-3",
+                  "label": "nêu giới hạn dữ liệu"
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 3; Nguồn B · đoạn 1, 3. Màn này không ghi/chấm phát âm.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:defense",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Nói theo dàn ý của bạn"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [],
+              "explanation": "Một cách diễn đạt để đối chiếu sau khi tự làm:\n我的建议是保留共同要求，同时说明不同选择由谁负责。社区把普通咨询和道路安全问题分别处理；车站兼顾时间、价格、份量和食品安全。统一要求不等于所有人只能选同一份套餐。两个案例范围有限，尤其不能把浪费减少当成所有旅客满意。\nWǒ de jiànyì shì bǎoliú gòngtóng yāoqiú, tóngshí shuōmíng bùtóng xuǎnzé yóu shéi fùzé. Shèqū bǎ pǔtōng zīxún hé dàolù ānquán wèntí fēnbié chǔlǐ; chēzhàn jiāngù shíjiān, jiàgé, fènliàng hé shípǐn ānquán. Tǒngyī yāoqiú bù děngyú suǒyǒu rén zhǐ néng xuǎn tóng yí fèn tàocān. Liǎng ge ànlì fànwéi yǒuxiàn, yóuqí bù néng bǎ làngfèi jiǎnshǎo dàng chéng suǒyǒu lǚkè mǎnyì.\nTôi đề nghị giữ yêu cầu chung và nói rõ ai phụ trách mỗi lựa chọn. Cộng đồng tách xử lý tư vấn thường với an toàn đường bộ; bến xe xét thời gian, giá, khẩu phần và an toàn thức ăn. Chuẩn chung không có nghĩa mọi người chỉ được chọn một suất giống nhau. Hai trường hợp có phạm vi hẹp, nhất là không coi giảm lãng phí là tất cả khách hài lòng.\nBám đúng nguồn và giới hạn. Mẫu không phải đáp án duy nhất hoặc điểm kỹ năng độc lập.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                "skill": "speaking",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [],
+              "rubric": [
+                {
+                  "guidance": "nêu quy tắc chính",
+                  "id": "move-0",
+                  "label": "nêu quy tắc chính"
+                },
+                {
+                  "guidance": "dẫn một chi tiết từ mỗi nguồn",
+                  "id": "move-1",
+                  "label": "dẫn một chi tiết từ mỗi nguồn"
+                },
+                {
+                  "guidance": "trả lời phản biện về sự phức tạp",
+                  "id": "move-2",
+                  "label": "trả lời phản biện về sự phức tạp"
+                },
+                {
+                  "guidance": "nêu giới hạn dữ liệu",
+                  "id": "move-3",
+                  "label": "nêu giới hạn dữ liệu"
+                }
+              ],
+              "type": "rubric"
+            },
+            "alt": "",
+            "body": "Chuẩn bị 120 giây và nói 180 giây để bảo vệ một quy tắc ra quyết định có thể dùng cho cả dịch vụ cộng đồng và lựa chọn bữa trưa.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 3; Nguồn B · đoạn 1, 3. Màn này không ghi/chấm phát âm.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:defense",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Nói theo dàn ý của bạn"
+          }
+        },
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:audit:0",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [
+                "fact"
+              ],
+              "explanation": "Hai đoạn đầu trực tiếp mô tả các vai và việc phối hợp; đây là dữ kiện trong văn bản. Giới hạn: Có thể nói các vai được ghi nhận, chưa thể nói mô hình này hiệu quả ở mọi cộng đồng.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Bảng dịch vụ ghi lại trách nhiệm khác nhau của cư dân, tình nguyện viên và nhân viên.",
+                "skill": "reading",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [
+                {
+                  "feedback": "Đúng. Hai đoạn đầu trực tiếp mô tả các vai và việc phối hợp; đây là dữ kiện trong văn bản.",
+                  "id": "fact",
+                  "text": "Dữ kiện được nguồn nói rõ"
+                },
+                {
+                  "feedback": "Chưa đúng. Hai đoạn đầu trực tiếp mô tả các vai và việc phối hợp; đây là dữ kiện trong văn bản.",
+                  "id": "interpretation",
+                  "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                }
+              ],
+              "rubric": [],
+              "type": "choice"
+            },
+            "alt": "",
+            "body": "服务表记录了居民、志愿者和工作人员的不同责任。\nBảng dịch vụ ghi lại trách nhiệm khác nhau của cư dân, tình nguyện viên và nhân viên.\nĐối chiếu Nguồn A · đoạn 1, 2 trước khi chọn.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:audit:0",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Dữ kiện hay diễn giải?"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [
+                "fact"
+              ],
+              "explanation": "Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Bảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.",
+                "skill": "reading",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [
+                {
+                  "feedback": "Đúng. Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                  "id": "fact",
+                  "text": "Dữ kiện được nguồn nói rõ"
+                },
+                {
+                  "feedback": "Chưa đúng. Đoạn1 ghi rõ tên người phụ trách và cách liên hệ sau mỗi dịch vụ. Các vai trò phối hợp được giải thích trong đoạn2; không mặc định mọi vai đều là cột của bảng.",
+                  "id": "interpretation",
+                  "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                }
+              ],
+              "rubric": [],
+              "type": "choice"
+            },
+            "alt": "",
+            "body": "服务表在每项服务后写明负责人的姓名和联系方式。\nBảng dịch vụ ghi người phụ trách và cách liên hệ cho từng dịch vụ.\nĐối chiếu Nguồn A · đoạn1.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:audit:0",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Dữ kiện hay diễn giải?"
+          }
+        },
+        {
+          "blockId": "hsk4-precision-reference-quantity-lesson-01:audit:1",
+          "before": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [
+                "interpretation"
+              ],
+              "explanation": "Nguồn mô tả nhiều tiêu chí và sự đánh đổi; thứ tự ưu tiên tuyệt đối là diễn giải thêm. Giới hạn: Chỉ được kết luận người nói cân nhắc thời gian, giá và dinh dưỡng trong tình huống đã nêu.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Lựa chọn bữa trưa ở nhà ga cho thấy sự tiện lợi chắc chắn quan trọng hơn dinh dưỡng.",
+                "skill": "reading",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [
+                {
+                  "feedback": "Chưa đúng. Chỉ được kết luận người nói cân nhắc thời gian, giá và dinh dưỡng trong tình huống đã nêu.",
+                  "id": "fact",
+                  "text": "Dữ kiện được nguồn nói rõ"
+                },
+                {
+                  "feedback": "Đúng. Nguồn mô tả nhiều tiêu chí và sự đánh đổi; thứ tự ưu tiên tuyệt đối là diễn giải thêm.",
+                  "id": "interpretation",
+                  "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                }
+              ],
+              "rubric": [],
+              "type": "choice"
+            },
+            "alt": "",
+            "body": "车站午餐选择说明方便一定比营养重要。\nLựa chọn bữa trưa ở nhà ga cho thấy sự tiện lợi chắc chắn quan trọng hơn dinh dưỡng.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:audit:1",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Dữ kiện hay diễn giải?"
+          },
+          "after": {
+            "activity": {
+              "acceptedAnswers": [],
+              "answerIds": [
+                "interpretation"
+              ],
+              "explanation": "Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+              "hint": "",
+              "learningTarget": {
+                "objective": "Lãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.",
+                "skill": "reading",
+                "sources": [
+                  {
+                    "id": "hsk4-local-task:hsk4-precision-reference-quantity-lesson-01",
+                    "kind": "task"
+                  }
+                ]
+              },
+              "options": [
+                {
+                  "feedback": "Chưa đúng. Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                  "id": "fact",
+                  "text": "Dữ kiện được nguồn nói rõ"
+                },
+                {
+                  "feedback": "Đúng. Nguồn nói lãng phí giảm nhưng chưa ghi khách có thích hương vị hay không. Hai kết quả khác nhau; không suy sự hài lòng của mọi người từ lượng đồ thừa.",
+                  "id": "interpretation",
+                  "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                }
+              ],
+              "rubric": [],
+              "type": "choice"
+            },
+            "alt": "",
+            "body": "食品浪费减少，证明所有旅客都喜欢小份窗口的饭菜。\nLãng phí giảm chứng minh tất cả hành khách đều thích các món ở quầy phần nhỏ.\nĐối chiếu Nguồn B · đoạn3.",
+            "hanzi": "",
+            "id": "hsk4-precision-reference-quantity-lesson-01:audit:1",
+            "imageSrc": "",
+            "kind": "activity",
+            "meaningVi": "",
+            "pinyin": "",
+            "provenance": "",
+            "title": "Dữ kiện hay diễn giải?"
+          }
+        }
+      ]
+    }
+  ]
+}

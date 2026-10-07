@@ -1,10 +1,9 @@
 import { RELEASED_LESSONS, RELEASED_STORIES } from "../data/curriculum";
 import { isMasteryEligibleEvidence } from "../lib/evidence";
 import type { LearningAttemptCommandV1 } from "../learning/attemptProtocol";
-import { answersMatch, buildExerciseCatalog } from "../lib/exerciseGeneration";
+import { answersMatch } from "../lib/exerciseGeneration";
 import type { EvidenceOutcome, Skill } from "../types";
 import { getAuthoritativeLessonAnswer } from "./authoritativeItemBank";
-import { remediationLessonSupport } from "./remediationLessonSupport";
 import {
   CURRENT_AUTHORITATIVE_READER_STORIES,
   authoritativeReaderItemByVersion,
@@ -18,7 +17,6 @@ export type ObjectiveAttemptScore = {
   outcome: Extract<EvidenceOutcome, "correct" | "incorrect">;
   score: 0 | 100;
   verified: true;
-  remediationFeedback?: { correctAnswer: string; explanation: string };
   baseMasteryEligible: boolean;
   requiredForPass: boolean;
   scoringVersion: string;
@@ -172,16 +170,8 @@ const scoreMistakeAttempt = (
         source: "lesson",
         sessionId: "remediation-origin-validation",
       });
-  // Reveal the released explanation only after authoritative scoring, never in the queue.
-  const activity = parseActivityId(command.activityId);
-  const lesson = originSource === "lesson" && activity
-    ? RELEASED_LESSONS.find(candidate => candidate.id === activity[0]) : undefined;
-  const exercise = lesson && activity
-    ? buildExerciseCatalog(lesson, "simplified", () => 0.5).find(candidate => candidate.id === activity[1] && candidate.activityVersion === command.activityVersion)
-    : undefined;
   return {
     ...originScore,
-    ...(exercise ? { remediationFeedback: { correctAnswer: exercise.correct, explanation: remediationLessonSupport(exercise)?.explanation ?? exercise.explanation } } : {}),
     baseMasteryEligible: false,
     requiredForPass: false,
     sessionBinding: null,

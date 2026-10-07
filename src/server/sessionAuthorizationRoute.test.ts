@@ -58,6 +58,7 @@ describe("first-party session authorization response", () => {
           "learning:use",
           "admin:users:read",
           "admin:roles:write",
+          "commerce:manage",
         ]),
       },
     });

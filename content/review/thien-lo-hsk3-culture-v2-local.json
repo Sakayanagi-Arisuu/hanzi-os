@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-27",
+  "scope": "Five original, bounded HSK3 culture narratives with editable factual diagrams and transfer writing. Local AI-assisted review; no human/native-audio/mastery sign-off.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/40-REVIEW-HSK3-CULTURE.md",
+  "items": [
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-regional-cuisine",
+      "sourceContentSha256": "sha256:e31e8d56f1798780ea1c32749a8886179c5645e59795d5cc508c8cb5f4a6c763",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-tableware-etiquette",
+      "sourceContentSha256": "sha256:e0526780204fd69acdb8350c1f46282be37d2526929633443579b2fecd0f2290",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
+      "sourceContentSha256": "sha256:07754bf86a48e4aba15dcac708908eef010b8ec47ea962bb69357b0f1e9b6873",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-regional-differences",
+      "sourceContentSha256": "sha256:e5af88b37f176bfff26a2ab923097cef7952672994933ff84150de0279c6d45f",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-culture-tradition-descriptions-customs-comparison",
+      "sourceContentSha256": "sha256:3d05e5895d8e10c2f7e8b4b3024ca60067013df36bf164d39fddf6147e41f184",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

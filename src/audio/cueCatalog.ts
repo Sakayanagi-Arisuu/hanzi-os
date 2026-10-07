@@ -1,6 +1,8 @@
+import type { MotionFamily } from "../system/awakeningMotion";
 import type { SystemSignalType } from "../system/systemSignals";
 
 export type SoundCueId =
+  | `realm.${MotionFamily}`
   | "system.boot" | "system.online" | "system.open" | "system.close"
   | "ui.select" | "ui.navigate" | "ui.confirm" | "ui.warning"
   | "quest.scan" | "quest.accepted" | "quest.activated"
@@ -26,7 +28,7 @@ export type CueDefinition = {
 
 const tone = (tones: readonly CueTone[], gain = 0.12, cooldown = 80, priority: 1 | 2 | 3 = 1, sweep?: number): CueDefinition => {
   const lastTone = tones[tones.length - 1]!;
-  const duration = lastTone[1] + lastTone[2] + .025;
+  const duration = Math.max(lastTone[1] + lastTone[2], ...tones.map(note => note[1] + note[2])) + .025;
   return {
     channel: "effects",
     tones,
@@ -40,7 +42,30 @@ const tone = (tones: readonly CueTone[], gain = 0.12, cooldown = 80, priority: 1
   };
 };
 
+// Original pentatonic motifs: timed to gathering, reveal, then the expanding ring.
+const realm = (notes: readonly number[], sweep = 1.02) => tone([
+  [notes[0] / 4, 0, .48, "sine"],
+  [notes[0], .12, .42, "triangle"],
+  [notes[1], .34, .42, "sine"],
+  [notes[2], .58, .66, "sine"],
+  [notes[2] * 2.01, .6, .34, "sine"],
+], .065, 1900, 1, sweep);
+
 export const CUE_CATALOG: Record<SoundCueId, CueDefinition> = {
+  "realm.awakening": realm([294, 440, 587]),
+  "realm.path": realm([392, 587, 784], 1.12),
+  "realm.lesson": realm([330, 392, 660]),
+  "realm.memory": realm([523, 784, 1047], 1.005),
+  "realm.repair": realm([220, 330, 440]),
+  "realm.voice": realm([440, 660, 880], 1.04),
+  "realm.forge": realm([196, 587, 1174], .93),
+  "realm.reader": realm([262, 330, 523]),
+  "realm.lexicon": realm([349, 523, 698]),
+  "realm.trial": realm([147, 220, 440], 1.08),
+  "realm.oracle": realm([370, 554, 740], 1.03),
+  "realm.profile": realm([294, 587, 880]),
+  "realm.premium": realm([262, 392, 1047]),
+
   "system.boot": tone([[72, 0, .42, "sine"], [144, .08, .52, "triangle"], [288, .22, .48], [576, .42, .42]], .18, 1200, 3, 1.12),
   "system.online": tone([[110, 0, .26], [220, .06, .32, "triangle"], [440, .16, .34], [880, .28, .23]], .16, 900, 3, 1.06),
   "system.open": tone([[130, 0, .22], [260, .05, .28, "triangle"], [520, .14, .31]], .14, 250, 2, 1.05),

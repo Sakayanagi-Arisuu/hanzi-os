@@ -6,6 +6,16 @@ import {captureLessonPageFirstAttempt} from './lessonPageAttempt';
 const document: LessonPageDocument = {version:1,pages:[{id:'page',title:'Tự nói',layout:'workshop',blocks:[{...emptyLessonBlock('answer'),kind:'reflection',body:'Hãy giới thiệu bản thân.'}]}]};
 const session = () => ({...emptyReadingPosition(),version:1,lessonId:'lesson',document,drafts:{answer:{text:'我是学生。',revealed:false,compared:true,everRevealed:true}}});
 describe('lesson reading resume',()=>{
+  it('restores dictation text and reveal history after closing the answer',()=>{
+    const value=session();
+    const dictationDocument:LessonPageDocument={version:1,pages:[{id:'page',title:'Nghe chép',layout:'workshop',blocks:[{...emptyLessonBlock('answer'),kind:'dictation',body:'Nghe rồi viết.',hanzi:'我是学生。',pinyin:'Wǒ shì xuésheng.',meaningVi:'Tôi là học sinh.'}]}]};
+    const saved={...value,document:dictationDocument};
+    const restored=parseLessonReadingSession(JSON.parse(JSON.stringify(saved)),'lesson');
+    expect(restored).toEqual(saved);
+    expect(restored?.drafts.answer).toMatchObject({text:'我是学生。',revealed:false,everRevealed:true});
+    expect(parseLessonReadingSession({...saved,document:{...dictationDocument,pages:[{...dictationDocument.pages[0],blocks:[{...dictationDocument.pages[0].blocks[0],hanzi:''}]}]}},'lesson')).toBeNull();
+  });
+
   it('restores first-attempt snapshots and rejects malformed ones without replacing the session',()=>{
     const value=session();
     const answer=captureLessonPageFirstAttempt(value.drafts.answer,'2026-09-14T10:00:00Z');
@@ -35,5 +45,11 @@ describe('lesson reading resume',()=>{
     const current={...old,document:documentWithTwoItems,blockIndex:1};
     expect(parseLessonReadingSession(current,'lesson')).toEqual(current);
     for(const blockIndex of [-1,2,1.5,'1'])expect(parseLessonReadingSession({...current,blockIndex},'lesson')).toBeNull();
+  });
+  it('restores a running self-practice clock with the draft',()=>{
+    const value=session();
+    const timed={...value,drafts:{answer:{...value.drafts.answer,timerStartedAt:'2026-09-29T03:00:00.000Z'}}};
+    expect(parseLessonReadingSession(JSON.parse(JSON.stringify(timed)),'lesson')).toEqual(timed);
+    expect(parseLessonReadingSession({...timed,drafts:{answer:{...timed.drafts.answer,timerStartedAt:'not-a-date'}}},'lesson')).toBeNull();
   });
 });

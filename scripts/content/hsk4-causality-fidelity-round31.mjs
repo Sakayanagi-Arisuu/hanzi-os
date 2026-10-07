@@ -1,0 +1,37 @@
+const id='hsk4-precision-reference-quantity-lesson-03';
+const models={
+ 'paraphrase:0':[
+ '古桥原来免费，但客流增加后出现排队和安全问题。讨论后，管理方实行预约分时进入，并按人群设置收费或免费条件。队伍变短了，但节日名额不足。管理方把改善归于人数限制、现场引导和居民参与，而不是只归于收费。',
+ 'Gǔqiáo yuánlái miǎnfèi, dàn kèliú zēngjiā hòu chūxiàn pái duì hé ānquán wèntí. Tǎolùn hòu, guǎnlǐfāng shíxíng yùyuē fēn shí jìnrù, bìng àn rénqún shèzhì shōufèi huò miǎnfèi tiáojiàn. Duìwǔ biàn duǎn le, dàn jiérì míng’é bù zú. Guǎnlǐfāng bǎ gǎishàn guī yú rénshù xiànzhì, xiànchǎng yǐndǎo hé jūmín cānyù, ér bú shì zhǐ guī yú shōufèi.',
+ 'Cầu cổ vốn miễn phí nhưng khách tăng gây xếp hàng và vấn đề an toàn. Sau thảo luận, ban quản lý cho đặt lịch theo giờ, quy định phí hoặc miễn phí theo nhóm. Hàng chờ ngắn hơn nhưng ngày lễ thiếu suất. Ban quản lý giải thích cải thiện nhờ giới hạn người, hướng dẫn tại chỗ và cư dân tham gia, không chỉ nhờ phí.'
+ ],
+ 'paraphrase:1':[
+ '陈老师咳嗽加重后去看医生。除了用药，他还按建议记录睡眠和咳嗽次数，注意教室湿度，并在连续说话后休息；学校也请同事代了两节课。两周后他基本恢复，但他认为这些记录只反映个人情况，不能当成医学证明。',
+ 'Chén lǎoshī késou jiāzhòng hòu qù kàn yīshēng. Chúle yòng yào, tā hái àn jiànyì jìlù shuìmián hé késou cìshù, zhùyì jiàoshì shīdù, bìng zài liánxù shuō huà hòu xiūxi; xuéxiào yě qǐng tóngshì dài le liǎng jié kè. Liǎng zhōu hòu tā jīběn huīfù, dàn tā rènwéi zhèxiē jìlù zhǐ fǎnyìng gèrén qíngkuàng, bù néng dàng chéng yīxué zhèngmíng.',
+ 'Thầy Trần đi khám sau khi ho nặng hơn. Ngoài thuốc, thầy theo lời khuyên ghi giấc ngủ và số lần ho, chú ý độ ẩm lớp, nghỉ sau khi nói liên tục; trường còn nhờ đồng nghiệp dạy thay hai tiết. Hai tuần sau thầy gần hồi phục, nhưng coi ghi chép chỉ phản ánh cá nhân, không phải bằng chứng y học.'
+ ],
+ summary:[
+ '古桥实行预约分时进入后，队伍变短，但收费不是唯一改变：人数限制、现场引导和居民参与也在起作用，这是管理方的解释。陈老师在医生指导下用药、记录睡眠和咳嗽、调整湿度与休息，学校还安排代课。两周后他基本恢复，但记录不能确定每项措施的作用。两份材料都不支持把改善只归给一个因素，也不能直接推广到所有游客或患者。',
+ 'Gǔqiáo shíxíng yùyuē fēn shí jìnrù hòu, duìwǔ biàn duǎn, dàn shōufèi bú shì wéiyī gǎibiàn: rénshù xiànzhì, xiànchǎng yǐndǎo hé jūmín cānyù yě zài qǐ zuòyòng, zhè shì guǎnlǐfāng de jiěshì. Chén lǎoshī zài yīshēng zhǐdǎo xià yòng yào, jìlù shuìmián hé késou, tiáozhěng shīdù yǔ xiūxi, xuéxiào hái ānpái dài kè. Liǎng zhōu hòu tā jīběn huīfù, dàn jìlù bù néng quèdìng měi xiàng cuòshī de zuòyòng. Liǎng fèn cáiliào dōu bù zhīchí bǎ gǎishàn zhǐ guī gěi yí ge yīnsù, yě bù néng zhíjiē tuīguǎng dào suǒyǒu yóukè huò huànzhě.',
+ 'Sau khi cầu cổ đặt lịch theo giờ, hàng chờ ngắn hơn, nhưng thu phí không phải thay đổi duy nhất: giới hạn khách, hướng dẫn và cư dân tham gia cũng có tác dụng theo giải thích của ban quản lý. Thầy Trần dùng thuốc theo bác sĩ, ghi giấc ngủ và ho, điều chỉnh độ ẩm và nghỉ; trường sắp người dạy thay. Hai tuần sau thầy gần hồi phục, nhưng ghi chép không xác định tác dụng riêng từng biện pháp. Hai nguồn không cho phép quy cải thiện chỉ cho một yếu tố hay áp dụng thẳng cho mọi khách hoặc người bệnh.'
+ ],
+ argument:[
+ '结果在改变之后出现，不足以证明该改变就是主要原因。古桥的新办法不只是收费，还包括预约、人数限制和现场引导。管理方认为这些条件共同起作用，但材料没有分别比较它们的效果。陈老师也不只改变了一种习惯：医生给药并提出记录、湿度和休息建议，学校还安排代课。因此，不能把恢复只归给休息或任何一项措施。有人说实际决定不能一直等研究完成，我同意需要及时行动，但行动依据和结论强度应分开说明。古桥可以继续评估，个人健康问题则应按医生建议处理。两份材料提供了值得追问的关系，并没有证明一个适用于所有人的主要原因。',
+ 'Jiéguǒ zài gǎibiàn zhīhòu chūxiàn, bù zú yǐ zhèngmíng gāi gǎibiàn jiù shì zhǔyào yuányīn. Gǔqiáo de xīn bànfǎ bù zhǐshì shōufèi, hái bāokuò yùyuē, rénshù xiànzhì hé xiànchǎng yǐndǎo. Guǎnlǐfāng rènwéi zhèxiē tiáojiàn gòngtóng qǐ zuòyòng, dàn cáiliào méiyǒu fēnbié bǐjiào tāmen de xiàoguǒ. Chén lǎoshī yě bù zhǐ gǎibiàn le yì zhǒng xíguàn: yīshēng gěi yào bìng tíchū jìlù, shīdù hé xiūxi jiànyì, xuéxiào hái ānpái dài kè. Yīncǐ, bù néng bǎ huīfù zhǐ guī gěi xiūxi huò rènhé yí xiàng cuòshī. Yǒu rén shuō shíjì juédìng bù néng yìzhí děng yánjiū wánchéng, wǒ tóngyì xūyào jíshí xíngdòng, dàn xíngdòng yījù hé jiélùn qiángdù yīng fēnkāi shuōmíng. Gǔqiáo kěyǐ jìxù pínggū, gèrén jiànkāng wèntí zé yīng àn yīshēng jiànyì chǔlǐ. Liǎng fèn cáiliào tígōng le zhídé zhuīwèn de guānxì, bìng méiyǒu zhèngmíng yí ge shìyòng yú suǒyǒu rén de zhǔyào yuányīn.',
+ 'Kết quả xuất hiện sau thay đổi chưa đủ chứng minh nguyên nhân chính. Cách mới ở cầu cổ gồm phí, đặt lịch, giới hạn khách và hướng dẫn. Ban quản lý cho rằng chúng cùng có tác dụng, nhưng nguồn không so riêng hiệu quả từng phần. Thầy Trần cũng không chỉ đổi một thói quen: bác sĩ cho thuốc và lời khuyên về ghi chép, độ ẩm, nghỉ; trường bố trí dạy thay. Vì vậy không quy hồi phục riêng cho nghỉ hay biện pháp nào. Có ý kiến không thể đợi nghiên cứu xong mới quyết định; tôi đồng ý cần hành động kịp thời nhưng phải tách căn cứ hành động với mức chắc chắn của kết luận. Cầu cổ có thể đánh giá tiếp, vấn đề sức khỏe cá nhân cần theo bác sĩ. Nguồn gợi quan hệ cần tìm hiểu, chưa chứng minh nguyên nhân chính áp dụng cho mọi người.'
+ ],
+ defense:[
+ '第一，列出改变和后来观察到的结果。第二，核对同时出现的措施，如古桥的人数限制、现场引导，以及陈老师的用药、休息和课堂调整。第三，区分管理方的解释与已经比较过的证据。第四，说明还缺哪些资料，继续评估，不把个人恢复当成医学证明。',
+ 'Dì yī, liè chū gǎibiàn hé hòulái guānchá dào de jiéguǒ. Dì èr, héduì tóngshí chūxiàn de cuòshī, rú gǔqiáo de rénshù xiànzhì, xiànchǎng yǐndǎo, yǐjí Chén lǎoshī de yòng yào, xiūxi hé kètáng tiáozhěng. Dì sān, qūfēn guǎnlǐfāng de jiěshì yǔ yǐjīng bǐjiào guo de zhèngjù. Dì sì, shuōmíng hái quē nǎxiē zīliào, jìxù pínggū, bù bǎ gèrén huīfù dàng chéng yīxué zhèngmíng.',
+ 'Một, liệt kê thay đổi và kết quả quan sát sau đó. Hai, đối chiếu các biện pháp đồng thời: giới hạn khách, hướng dẫn ở cầu cổ; thuốc, nghỉ và điều chỉnh tiết dạy của thầy Trần. Ba, phân biệt giải thích của ban quản lý với bằng chứng đã được so sánh. Bốn, nêu tài liệu còn thiếu, tiếp tục đánh giá, không coi hồi phục cá nhân là bằng chứng y học.'
+ ]
+};
+export function correctCausality31(source){
+ const content=structuredClone(source),changes=[];if(content.targetLessonId!==id)return {content,changes};
+ const blocks=content.lessonPages.pages.flatMap(p=>p.blocks);
+ if(!blocks.some(b=>b.reading?.paragraphs?.some(p=>p.hanzi.includes('医生没有只给药'))))throw Error('Source changed');
+ const edit=(key,fn)=>{const b=blocks.find(b=>b.id===`${id}:${key}`);if(!b?.activity)throw Error('Missing activity');const before=structuredClone(b);fn(b);changes.push({blockId:b.id,before,after:structuredClone(b)});};
+ for(const [key,triple] of Object.entries(models))edit(key,b=>{b.activity.explanation=`Một cách diễn đạt để đối chiếu:\n${triple.join('\n')}\nPhân biệt quan sát, lời giải thích của nhân vật và kết luận của bạn. Đây là tự đối chiếu, không phải điểm viết/nói độc lập.`;if(key==='paraphrase:0'){const labels=['Giữ sự thay đổi từ miễn phí sang đặt lịch theo giờ với điều kiện phí khác nhau.','Nêu giới hạn người, hướng dẫn tại chỗ, cư dân tham gia; không thêm thời tiết hay lịch sự kiện.','Gắn lời giải thích về tác dụng với ban quản lý; chưa có so sánh riêng từng biện pháp.','Giữ vấn đề thiếu suất ngày lễ và kế hoạch đánh giá lại.'];b.activity.rubric=b.activity.rubric.map((r,i)=>({...r,label:labels[i],guidance:labels[i]}));}if(key==='paraphrase:1'){b.activity.rubric[1].label=b.activity.rubric[1].guidance='Nêu thuốc, ghi chép, độ ẩm, nghỉ và dạy thay theo nguồn; không tự thêm uống nước hoặc thông gió.';}});
+ edit('audit:0',b=>{const vi='Sau hai cuộc thảo luận công khai, ban quản lý chuyển sang đặt lịch tham quan theo khung giờ.';b.body=`经过两次公开讨论，管理方改为预约分时进入。\n${vi}\nĐối chiếu Nguồn A · đoạn2.`;b.activity.learningTarget.objective=vi;b.activity.explanation='Đoạn2 nêu trực tiếp hai lần thảo luận và thay đổi sang đặt lịch theo giờ. Câu này chưa kết luận hiệu quả hay nguyên nhân duy nhất.';for(const o of b.activity.options)o.feedback=(o.id==='fact'?'Đúng. ':'Chưa đúng. ')+b.activity.explanation;});
+ return {content,changes};
+}

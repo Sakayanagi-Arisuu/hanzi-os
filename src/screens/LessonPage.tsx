@@ -22,6 +22,7 @@ import { LessonQuestResult } from "../components/LessonQuestResult";
 import { LessonTheoryPanel } from "../components/LessonTheoryPanel";
 import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
+import { EDITORIAL_WORD_BY_ID, isEditorialLessonSession, LEXICAL_SESSION_MARKER } from "../content/lexicalEditorialCatalog";
 import { getLessonGuide } from "../data/lessonGuides";
 import { getLessonTeachingGuide } from "../learning/lessonPedagogy";
 import { learnerFacingCopy } from "../learning/lessonTeachingFlow";
@@ -72,6 +73,9 @@ import {
 } from "../sync/learningResumeStore";
 import type { VocabularyItem } from "../types";
 import { AuthenticatedLessonPage } from "./AuthenticatedLessonPage";
+import { getHskLessonPathId } from "../data/hskCurriculumGraph";
+import { usePremiumRichLesson } from "../commerce/usePremiumRichLesson";
+import { useCommerce } from "../commerce/CommerceProvider";
 
 const exerciseIcon = (kind: Exercise["kind"]) => {
   if (kind === "listening") return Headphones;
@@ -83,7 +87,13 @@ const exerciseIcon = (kind: Exercise["kind"]) => {
 export function LessonPage() {
   const { lessonId } = useParams();
   const { sync } = useLearning();
+  const commerce = useCommerce();
   const publishedLessons = usePublishedStudioLessons();
+  const premium = usePremiumRichLesson(
+    lessonId,
+    Boolean(lessonId && getHskLessonPathId(lessonId) === "hsk4"
+      && (sync.session?.authenticated || commerce.snapshot?.freeHsk4LessonIds?.includes(lessonId))),
+  );
   if (sync.session === null) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
@@ -93,14 +103,18 @@ export function LessonPage() {
       </div>
     );
   }
+  if (premium.loading) return <div className="lesson-state-screen" role="status"><BrainCircuit size={44} /><h1>Đang tải nội dung HSK4</h1><p>Tiến độ học của bạn vẫn được giữ nguyên.</p></div>;
+  if (premium.error) return <div className="lesson-state-screen" role="alert"><h1>Chưa mở được bài HSK4</h1><p>{premium.error}</p><button type="button" onClick={premium.retry}>Thử lại</button></div>;
   return sync.session.authenticated
     ? <AuthenticatedLessonPage
+        premiumRichContent={premium.content}
         publishedLesson={lessonId ? publishedLessons.lessons.get(lessonId) : undefined}
         publishedLessonEnhancement={lessonId ? publishedLessons.enhancements.get(lessonId) : undefined}
         publishedLessonStatus={publishedLessons.status}
         retryPublishedLesson={publishedLessons.retry}
       />
     : <LocalLessonPage
+        premiumRichContent={premium.content}
         publishedLesson={lessonId ? publishedLessons.lessons.get(lessonId) : undefined}
         publishedLessonEnhancement={lessonId ? publishedLessons.enhancements.get(lessonId) : undefined}
         publishedLessonStatus={publishedLessons.status}
@@ -109,11 +123,13 @@ export function LessonPage() {
 }
 
 function LocalLessonPage({
+  premiumRichContent,
   publishedLesson,
   publishedLessonEnhancement,
   publishedLessonStatus,
   retryPublishedLesson,
 }: {
+  premiumRichContent?: import("../learning/richLessonContent").RichLessonContent | null;
   publishedLesson?: PublishedStudioLesson;
   publishedLessonEnhancement?: PublishedStudioLessonEnhancement;
   publishedLessonStatus: "loading" | "ready" | "fallback";
@@ -136,7 +152,7 @@ function LocalLessonPage({
   const [resumeStatus, setResumeStatus] = useState<"loading" | "ready">("loading");
   const [resumeScope, setResumeScope] = useState<OwnerScopedCacheScope | null>(null);
   const [sessionId, setSessionId] = useState(() =>
-    makeIdempotencyKey(`lesson-session:${lesson?.id ?? "unknown"}`)
+    makeIdempotencyKey(`lesson-session:${lesson?.id ?? "unknown"}:${LEXICAL_SESSION_MARKER}`)
   );
   const [phase, setPhase] = useState<LessonResumePhase>("briefing");
   const [exercises, setExercises] = useState<Exercise[]>([]);
@@ -160,8 +176,8 @@ function LocalLessonPage({
     [lesson?.id, publishedLesson],
   );
   const lessonWords = useMemo(
-    () => lesson?.wordIds.map((id) => WORD_BY_ID.get(id)).filter((word): word is VocabularyItem => Boolean(word)) ?? [],
-    [lesson],
+    () => lesson?.wordIds.map((id) => (isEditorialLessonSession(lesson.id, sessionId) ? EDITORIAL_WORD_BY_ID : WORD_BY_ID).get(id)).filter((word): word is VocabularyItem => Boolean(word)) ?? [],
+    [lesson, sessionId],
   );
   const localRuntime = useMemo(() => {
     if (!lesson) return null;
@@ -198,7 +214,7 @@ function LocalLessonPage({
 
     const applySession = (restored: LessonResumeV5 | null) => {
       const nextSessionId = restored?.sessionId
-        ?? makeIdempotencyKey(`lesson-session:${lesson.id}`);
+        ?? makeIdempotencyKey(`lesson-session:${lesson.id}:${LEXICAL_SESSION_MARKER}`);
       const runtimeResult = materializeLocalLessonRuntime(
         lesson,
         state.profile.script,
@@ -325,7 +341,7 @@ function LocalLessonPage({
   };
 
   const restart = () => {
-    const nextSessionId = makeIdempotencyKey(`lesson-session:${lesson.id}`);
+    const nextSessionId = makeIdempotencyKey(`lesson-session:${lesson.id}:${LEXICAL_SESSION_MARKER}`);
     const runtimeResult = materializeLocalLessonRuntime(
       lesson,
       state.profile.script,
@@ -360,7 +376,7 @@ function LocalLessonPage({
               </Link>
               <strong>{lesson.minutes} phút</strong>
             </header>
-            <div className="briefing-hero-copy">
+            <div className="briefing-hero-copy"><div className="realm-emblem" aria-hidden="true" />
               <span className="system-kicker"><BrainCircuit size={16} /> MỤC TIÊU BÀI HỌC</span>
               <h1>{presentedLesson?.title}</h1>
               <p className="briefing-chinese">{presentedLesson?.chineseTitle}</p>
@@ -379,7 +395,7 @@ function LocalLessonPage({
             script={state.profile.script}
             practiceKinds={exercises.map((exercise) => exercise.kind)}
             practiceWordIds={exercises.map((exercise) => exercise.wordId)}
-            contentOverride={publishedLesson?.richContent}
+            contentOverride={publishedLesson?.richContent ?? premiumRichContent ?? undefined}
             enhancement={publishedLessonEnhancement}
             ready={theoryReady || answers.length > 0 || index > 0}
             onReadinessChange={setTheoryReady}
@@ -597,12 +613,12 @@ function LocalLessonPage({
             script={state.profile.script}
             practiceKinds={exercises.map((exercise) => exercise.kind)}
             practiceWordIds={exercises.map((exercise) => exercise.wordId)}
-            contentOverride={publishedLesson?.richContent}
+            contentOverride={publishedLesson?.richContent ?? premiumRichContent ?? undefined}
             enhancement={publishedLessonEnhancement}
           />
         ) : (
           <>
-        <div className={`exercise-prompt kind-${current.kind}`}>
+        <div className={`exercise-prompt kind-${current.kind}`} data-motion-scene={`${current.id}:${checked ? "feedback" : "question"}`}><div className="realm-emblem realm-emblem-compact" aria-hidden="true" />
           {current.kind === "listening" ? (
             <button className="sound-orb" type="button" onClick={() => currentSpeechText && speakMandarin(currentSpeechText)} aria-label="Phát âm thanh">
               <Volume2 size={38} />

@@ -19,12 +19,13 @@ import {
 } from "../../../../../../src/server/hskMockExamRepository";
 import { ASSESSMENT_SESSION_OPEN_MUTATION_POLICY } from "../../../../../../src/server/mutationRateLimit";
 import { noStoreJsonHeaders } from "../../../../../../src/sync/protocol";
+import { requireMockExamAccess } from '../../../../../../src/server/mockExamAccessHttp';
 
 export const dynamic = "force-dynamic";
 
 type Context = { params: Promise<{ level: string; form: string }> };
 
-export async function GET(_request: Request, context: Context) {
+export async function GET(request: Request, context: Context) {
   const { level, form } = await context.params;
   const legacyDefinition = getLegacyHskMockExamDefinition(level, form);
   const authorized = await authorizeMockExamLearner();
@@ -36,6 +37,8 @@ export async function GET(_request: Request, context: Context) {
       form,
     );
     if (!definition && !legacyDefinition) return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
+    const denied = await requireMockExamAccess(request, (definition ?? legacyDefinition)!, authorized.database);
+    if (denied) return denied;
     const repository = new HskMockExamRepository(
       authorized.database,
     );
@@ -70,6 +73,8 @@ export async function POST(request: Request, context: Context) {
     }
   }
   if (!definition) return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
+  const denied = await requireMockExamAccess(request, definition);
+  if (denied) return denied;
   return handleAssessmentMutation<
     OpenAssessmentSessionCommandV1,
     OpenAssessmentSessionReceiptV1 & {

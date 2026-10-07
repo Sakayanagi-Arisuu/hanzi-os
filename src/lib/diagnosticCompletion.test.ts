@@ -78,4 +78,17 @@ describe("diagnostic completion", () => {
     expect(result.diagnostic).toMatchObject({ completed: true, score: 75 });
     expect(result.activityLog.at(-1)?.id).toBe("diagnostic-placement:test");
   });
+
+  it("keeps the path and recommendation when progress exists outside the compatibility state", () => {
+    const state = structuredClone(INITIAL_LEARNING_STATE);
+    state.profile.startingLevel = "hsk2";
+    state.diagnostic.recommendedLessonId = "daily-1";
+    const result = applyAcceptedDiagnosticPlacement(state, "zero", 0,
+      "2026-10-06T06:00:00.000Z", "diagnostic-placement:existing-session", true);
+    expect(result.profile.startingLevel).toBe("hsk2");
+    expect(result.diagnostic.recommendedLessonId).toBe("daily-1");
+    expect(result.completedLessons).toEqual(state.completedLessons);
+    expect(result.reviewCount).toBe(state.reviewCount);
+    expect(result.diagnostic.completed).toBe(true);
+  });
 });

@@ -1,4 +1,5 @@
 import { RemediationAtlas } from "./RemediationAtlas";
+import { PublishedVocabularyReference } from "./PublishedVocabularyReference";
 import {
   AudioWaveform,
   ArrowLeft,
@@ -270,6 +271,7 @@ function FeedbackView({
             <article><Lightbulb size={19} /><div><strong>Vì sao?</strong><p>{feedback.explanation}</p></div></article>
             <article><CircleAlert size={19} /><div><strong>Bạn đã trả lời</strong><p>{feedback.answer}</p>{!positive && displayedCorrectAnswer && <p>Đối chiếu với đáp án đúng: {displayedCorrectAnswer}</p>}</div></article>
             <article><BookOpenText size={19} /><div><strong>Luyện lại trong ngữ cảnh</strong><p>{item.originLabel} · {item.originDetail}. Đọc lại câu hỏi và tự giải thích nghĩa trước lượt tiếp theo.</p></div></article>
+            <PublishedVocabularyReference key={item.id} wordId={item.referenceWordId} lessonId={item.referenceLessonId} />
           </section>
         </article>
       </div>

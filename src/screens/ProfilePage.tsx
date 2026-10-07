@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router";
+import { Crown } from "lucide-react";
 import "./SystemGuild.css";
 import {
   authorizationLabel,
@@ -83,10 +84,10 @@ const startingLevels = HSK_STARTING_LEVEL_OPTIONS.map((item) => ({
 const dailyMinuteOptions = [10, 20, 30] as const;
 const scriptOptions = ["simplified", "traditional"] as const;
 const motionModes: Array<{ id: SystemMotionMode; label: string; description: string }> = [
-  { id: "auto", label: "Tự động", description: "Theo thiết bị và tùy chọn giảm chuyển động." },
-  { id: "balanced", label: "Cân bằng", description: "Chiều sâu rõ, ít chuyển động nền." },
-  { id: "cinematic", label: "Điện ảnh", description: "Nghi thức và không gian đầy đủ hơn." },
-  { id: "reduced", label: "Giảm chuyển động", description: "Tắt tilt, parallax và chuyển động nền lặp lại." },
+  { id: "auto", label: "Tự động", description: "Hoạt ảnh riêng từng khu; tự giảm hiệu ứng khi thiết bị chậm." },
+  { id: "balanced", label: "Cân bằng", description: "Giữ nhịp khai mở và phản hồi gọn, ít lớp hoạt ảnh hơn." },
+  { id: "cinematic", label: "Điện ảnh", description: "Cuộn ngọc, ký ức, cộng hưởng và đóng ấn theo từng khu." },
+  { id: "reduced", label: "Giảm chuyển động", description: "Giảm hiệu ứng chuyển động và chuyển trang." },
 ];
 const soundPresets: Array<{ id: SystemSoundPreset; label: string }> = [
   { id: "quiet", label: "Ẩn hành" },
@@ -352,13 +353,14 @@ export function ProfilePage() {
   return (
     <div className={`content-page profile-page sys-guild sys-${view}`}>
       <header className="page-hero profile-hero">
-        <div>
+        <div><div className="realm-emblem" aria-hidden="true" />
           <span className="system-kicker"><CircleUserRound size={18} /> {view === "overview" ? "BẢNG THUỘC TÍNH" : `CẤU HÌNH HỆ THỐNG · ${heading[0].toUpperCase()}`}</span>
           <h1>{heading[0]}</h1>
           <p>{heading[1]}</p>
         </div>
         <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(displayedLevel).padStart(2, "0")}</strong><small>{interactionXp.pending ? "Đang hợp nhất EXP" : `${rank.title} · ${interactionXp.totalXp} XP tương tác`}</small></div>
       </header>
+      {view === "overview" && <Link className="premium-profile-link" to="/profile/premium"><Crown size={24} aria-hidden="true" /><span><strong>Mở bài Thiên Lộ HSK4 với Premium</strong><small>Bài HSK0–HSK3 miễn phí · Xem gói và mua bằng Ví Hanzi</small></span><span className="premium-profile-action">Xem gói <ChevronRight size={20} aria-hidden="true" /></span></Link>}
       {view !== "overview" && <button className="sys-back" onClick={() => openView("overview")} type="button"><ArrowLeft size={18} /> Tổng quan</button>}
       {view === "overview" && <div className="sys-overview-grid">
         <nav aria-label="Các mục cấu hình hệ thống" className="sys-category-list">

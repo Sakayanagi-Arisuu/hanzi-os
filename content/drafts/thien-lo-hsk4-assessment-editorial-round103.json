@@ -1,0 +1,2081 @@
+{
+  "humanReviewed": false,
+  "sourceFiles": [
+    {
+      "path": "content/runtime/hsk-mock-exam-alternate-local.json",
+      "sha256": "1be65713114416a7345691305c034c2030af9940766126cee1ce665c5071f97d"
+    },
+    {
+      "path": "scripts/content/hsk4-assessment-editorial-round103.mjs",
+      "sha256": "db1e7d35598b59ee4f83f30a092610bca74252c9d9d37b9479a474e82c120538"
+    },
+    {
+      "path": "content/drafts/thien-lo-hsk4-assessment-editorial-round91.json",
+      "sha256": "5293fc919e4cb0ce390bbe44fa09d1044ceb74108b05b71cd2e9edbb7b099508"
+    },
+    {
+      "path": "docs/thien-lo-redesign-review/185-REVIEW-HSK4-ASSESSMENT-ROUND91.json",
+      "sha256": "23417a08bc2d8c90dd08fd3c3d002a175c0ea8ec4c0674ed75a2b1b67d6bc221"
+    }
+  ],
+  "entries": [
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-01",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 01",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:01:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ có nghĩa “cách thức/kênh thực hiện”.",
+        "hanzi": "居民还可以选择电话、纸条或应用三种____反映。",
+        "options": [
+          "方式",
+          "管理",
+          "情况",
+          "结果"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "方式 là cách thức; điện thoại, giấy và ứng dụng là ba cách phản ánh ý kiến.",
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:01",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-02",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 02",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:02:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Hoàn thành từ chỉ người quản lý bếp dùng chung.",
+        "hanzi": "小区共享厨房改用网上预约后，____员负责检查各时段的使用情况。",
+        "options": [
+          "管理",
+          "情况",
+          "结果",
+          "方式"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "管理员 là người quản lý; 管理 kết hợp với hậu tố员.",
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:02",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-03",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 03",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:03:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ có nghĩa “tình hình” cần tiếp tục quan sát.",
+        "hanzi": "下一轮还要观察考试季和夏季开窗时的____。",
+        "options": [
+          "情况",
+          "结果",
+          "方式",
+          "管理"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "情况 là tình hình trong mùa thi và khi mở cửa sổ mùa hè; không phải kết quả đã có.",
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:03",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-01",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 01",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:01:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Diễn đạt nhượng bộ: khiếu nại trên ứng dụng giảm, nhưng hồ sơ điện thoại tăng.",
+        "hanzi": "____应用投诉减少了，____电话记录略有增加。",
+        "options": [
+          "尽管……但是……",
+          "只要……就……",
+          "不但……而且……",
+          "由于……因此……"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "尽管…但是… nối hai thực tế trái với kỳ vọng; không suy quan hệ nhân quả.",
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:01",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-02",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 02",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:02:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Diễn đạt việc ghi bối cảnh áp dụng với mọi kênh phản ánh.",
+        "hanzi": "____居民用电话、纸条还是应用，委员会____要记录事件背景。",
+        "options": [
+          "因为……所以……",
+          "与其……不如……",
+          "除了……还……",
+          "无论……都……"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "无论…都… bao quát mọi lựa chọn; 用电话、纸条还是应用 liệt kê các kênh.",
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:02",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-03",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 03",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:03:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu khả năng có thể bỏ sót, không khẳng định chắc chắn.",
+        "hanzi": "只看网上预约，____会漏掉不会扫码的实际使用者。",
+        "options": [
+          "互相",
+          "更加",
+          "说不定",
+          "按时"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "说不定 diễn đạt khả năng chưa chắc chắn; chỉ nhìn đặt trực tuyến có thể bỏ sót người không quét mã.",
+        "sourceLessonIds": [
+          "hsk4-personal-community-analysis-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:03",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-04",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 04",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:04:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ cuộc khảo sát ẩn danh.",
+        "hanzi": "经理起初认为他们准备不足，但匿名____显示，会议常临时改变议题，远程成员很难提前整理例子。",
+        "options": [
+          "课程",
+          "能力",
+          "结果",
+          "调查"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "匿名调查 là khảo sát ẩn danh; kết quả khảo sát cung cấp thông tin về thiết kế cuộc họp.",
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:04",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-05",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 05",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:05:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Nêu thống kê ở cấp khóa học, không phải ghi âm từng cá nhân.",
+        "hanzi": "教师只看____层面的统计，不查看个人录音。",
+        "options": [
+          "能力",
+          "结果",
+          "调查",
+          "课程"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "课程层面 là ở cấp khóa học; 课程 chỉ phạm vi thống kê.",
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:05",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-06",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 06",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:06:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ năng lực của mỗi cá nhân.",
+        "hanzi": "经理也承认，发言少可能来自会议设计，而不只是个人____。",
+        "options": [
+          "结果",
+          "调查",
+          "课程",
+          "能力"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "个人能力 là năng lực cá nhân; 发言少 có thể do thiết kế cuộc họp, không chỉ do năng lực.",
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:06",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-04",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 04",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:04:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu việc tách riêng hai chỉ số đã hoàn thành, với 已经 và 把.",
+        "hanzi": "系统已经把登录和完成____。",
+        "options": [
+          "被分开记录",
+          "正在分开",
+          "分开吗",
+          "分开记录了"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "把登录和完成分开记录了 đưa hai đối tượng lên trước động từ và nêu kết quả đã thực hiện.",
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:04",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-05",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 05",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:05:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu nhóm dự án chịu trách nhiệm ghi nhận tỷ lệ áp dụng.",
+        "hanzi": "建议采用率____项目组统一记录。",
+        "options": [
+          "对",
+          "跟",
+          "由",
+          "把"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "由项目组统一记录 nêu đơn vị thực hiện; 由 dẫn tác nhân hoặc bên phụ trách.",
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:05",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-06",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 06",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:06:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu đối tượng mà khung giờ mở có ý nghĩa đặc biệt.",
+        "hanzi": "____网络不稳的学生，开放时段尤其重要。",
+        "options": [
+          "由于",
+          "对于",
+          "按照",
+          "随着"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "对于网络不稳的学生 là đối với học sinh có mạng không ổn định; không nêu nguyên nhân bằng 由于.",
+        "sourceLessonIds": [
+          "hsk4-education-work-evaluation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:06",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-07",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 07",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:07:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ nơi camera tập trung: gần đường đi.",
+        "hanzi": "修改后，错误标签减少，但相机仍集中在____附近，可能更容易拍到喜欢走路的动物。",
+        "options": [
+          "数量",
+          "结果",
+          "道路",
+          "及时"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "道路 là đường đi; vị trí camera có thể gây thiên lệch lấy mẫu.",
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:07",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-08",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 08",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:08:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ mang nghĩa “kịp thời” trước 保护.",
+        "hanzi": "系统还要在不过度打扰和____保护之间找到可以说明的平衡。",
+        "options": [
+          "结果",
+          "道路",
+          "及时",
+          "数量"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "及时保护 là bảo vệ kịp thời; 及时 nêu thời điểm phù hợp để can thiệp.",
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:08",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-09",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 09",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:09:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ số lượng ảnh, không phải số động vật.",
+        "hanzi": "第一个月，系统标出一千二百张“野猪”照片，____比人工记录高很多。",
+        "options": [
+          "道路",
+          "及时",
+          "数量",
+          "结果"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "数量 là số lượng ảnh được hệ thống gắn nhãn; một con vật có thể xuất hiện trong nhiều ảnh.",
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:09",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-07",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 07",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:07:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu giả thiết và hệ quả nếu coi số ảnh là số động vật.",
+        "hanzi": "____把照片数直接当成动物数，____容易得出错误结论。",
+        "options": [
+          "虽然……但是……",
+          "除了……还……",
+          "要是……就……",
+          "既……又……"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "要是…就… diễn đạt nếu làm vậy thì dễ kết luận sai; không khẳng định đã mắc lỗi.",
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:07",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-08",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 08",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:08:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu hệ quả của việc camera tập trung gần đường.",
+        "hanzi": "相机位置集中在道路附近，____报告必须说明取样限制。",
+        "options": [
+          "逐渐",
+          "因此",
+          "反而",
+          "未必"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "因此 là vì vậy: giới hạn vị trí camera dẫn tới yêu cầu giải thích giới hạn lấy mẫu.",
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:08",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-09",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 09",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:09:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu quy trình: nếu hai cảm biến ổn định thì báo chính thức, nếu không thì kiểm tra trước.",
+        "hanzi": "____两个传感器都稳定，____发正式警报，____先请值班员检查。",
+        "options": [
+          "要是……就……否则……",
+          "即使……也……并且……",
+          "不仅……还……因此……",
+          "虽然……但是……于是……"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "要是…就…否则… phân hai nhánh của quy trình; 否则 là nếu không thỏa điều kiện vừa nêu.",
+        "sourceLessonIds": [
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:09",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-10",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 10",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:10:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ chi phí đi xe máy đến trạm.",
+        "hanzi": "他们说，到站的摩托车____有时比公交票还高。",
+        "options": [
+          "结果",
+          "费用",
+          "交通",
+          "收入"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "费用 là chi phí phải trả; không phải thu nhập hay kết quả.",
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:10",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-11",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 11",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:11:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ hạn chế về giao thông và việc đi lại.",
+        "hanzi": "把“不使用”解释成“不需要”，会漏掉时间和____限制。",
+        "options": [
+          "费用",
+          "交通",
+          "收入",
+          "结果"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "交通限制 là hạn chế về giao thông; không sử dụng chưa chắc có nghĩa không cần.",
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:11",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-12",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 12",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:12:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Nêu khoản thu nhập mà mức phí tối thiểu chiếm một tỷ lệ lớn.",
+        "hanzi": "合作社按货物重量收费，大农户认为规则清楚，小农户却说自己每次货少，最低收费占____的比例更高。",
+        "options": [
+          "交通",
+          "收入",
+          "结果",
+          "费用"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "收入 là thu nhập; 占收入的比例 nói tỷ lệ của phí so với thu nhập, không phải tỷ lệ phí trong chính chi phí.",
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:12",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-10",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 10",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:10:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Lấy việc giá vé không phải chi phí duy nhất làm tiền đề đã biết để suy ra kết luận.",
+        "hanzi": "____票价不是唯一成本，____不能只按价格解释使用变化。",
+        "options": [
+          "不但……而且……",
+          "既然……就……",
+          "尽管……仍……",
+          "一边……一边……"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "既然…就… dùng tiền đề đã biết để đưa ra kết luận; không chỉ nêu hai đặc điểm song song.",
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:10",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-11",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 11",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:11:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu hậu quả nếu không ghi quãng đường tới trạm.",
+        "hanzi": "评估必须记录到站距离，____会高估远村居民得到的帮助。",
+        "options": [
+          "否则",
+          "因此",
+          "尤其",
+          "逐渐"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "否则 là nếu không làm việc vừa nêu; thiếu khoảng cách có thể khiến đánh giá hỗ trợ bị cao quá.",
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:11",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-12",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 12",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:12:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Dùng câu hỏi phản vấn để nghi ngờ rằng vé rẻ giải quyết mọi khó khăn về khoảng cách.",
+        "hanzi": "____低价票就能解决所有到站距离问题____？",
+        "options": [
+          "即使……也",
+          "首先……其次",
+          "不是……而是",
+          "难道……吗"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "难道…吗 tạo phản vấn: người nói không tin chỉ giá vé có thể giải quyết mọi khoảng cách tới trạm.",
+        "sourceLessonIds": [
+          "hsk4-society-economy-argument-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:12",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-13",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 13",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:13:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ người huấn luyện quyết định dùng cầu thủ nào.",
+        "hanzi": "过去，____常在比分接近时只使用技术最好的孩子，结果一些替补整场坐着。",
+        "options": [
+          "教练",
+          "球队",
+          "受伤",
+          "结果"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "教练 là huấn luyện viên; cầu thủ dự bị ít được thi đấu theo quyết định chọn người.",
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:13",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-14",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 14",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:14:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Hoàn thành 足球队, nghĩa là đội bóng đá.",
+        "hanzi": "两支少年足____试行固定轮换，每名报名球员至少参加半场比赛。",
+        "options": [
+          "球队",
+          "受伤",
+          "结果",
+          "教练"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "足加球队 tạo 足球队; 球队 tự nó có nghĩa là đội bóng.",
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:14",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-15",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 15",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:15:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ việc bị chấn thương nhẹ.",
+        "hanzi": "六场比赛后，更多孩子愿意继续训练，轻微____没有增加，但球队还没遇到淘汰赛。",
+        "options": [
+          "受伤",
+          "结果",
+          "教练",
+          "球队"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "轻微受伤 là bị thương nhẹ; nguồn chỉ ghi tình hình trong sáu trận này.",
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:15",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-13",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 13",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:13:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu giới hạn trái với kỳ vọng: video hỗ trợ luyện nhưng hai buổi cuối vẫn phải có mặt.",
+        "hanzi": "网上视频可以补充练习，____最后两次合奏仍须到场。",
+        "options": [
+          "不过",
+          "于是",
+          "因此",
+          "此外"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "不过 là tuy vậy/nhưng; nó giới hạn điều có thể thay thế bằng video.",
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:13",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-14",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 14",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:14:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nhấn mạnh sự trái chiều giữa số người được ra sân tăng và việc vẫn không thể chia đều máy móc.",
+        "hanzi": "实际上场人数增加了，教练____不能机械平均每个人的时间。",
+        "options": [
+          "已",
+          "互相",
+          "重新",
+          "却"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "却 nhấn mạnh điều trái với kỳ vọng; tăng người tham gia không đồng nghĩa chia thời gian bằng nhau.",
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:14",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-15",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 15",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:15:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu thay đổi diễn ra cùng với áp lực thi đấu tăng.",
+        "hanzi": "____比赛压力提高，球队还要继续检查轮换规则。",
+        "options": [
+          "对于",
+          "根据",
+          "随着",
+          "关于"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "随着 dẫn sự thay đổi theo thời gian; 随着比赛压力提高 là cùng với áp lực tăng.",
+        "sourceLessonIds": [
+          "hsk4-arts-sports-exchange-critique-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:15",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-16",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 16",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:16:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ nhà máy trong các bức ảnh lịch sử.",
+        "hanzi": "城市档案馆展出一组一九五〇年代的____照片。",
+        "options": [
+          "目的",
+          "意见",
+          "结果",
+          "工厂"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "工厂照片 là ảnh về nhà máy; không phải ảnh của mục đích hay kết quả.",
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:16",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:16:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-17",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 17",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:17:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ mục đích chụp ảnh được bổ sung vào chú thích.",
+        "hanzi": "档案馆没有撤下照片，而是在旁边补充拍摄____、缺少的场景和口述意见。",
+        "options": [
+          "意见",
+          "结果",
+          "工厂",
+          "目的"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "拍摄目的 là mục đích chụp; biết mục đích giúp hiểu góc lựa chọn cảnh trong ảnh.",
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:17",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:17:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-vocabulary-18",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · vocabulary · 18",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:18:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn từ chỉ ý kiến được trình bày bằng lời.",
+        "hanzi": "档案馆没有撤下照片，而是在旁边补充拍摄目的、缺少的场景和口述____。",
+        "options": [
+          "结果",
+          "工厂",
+          "目的",
+          "意见"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "口述意见 là ý kiến được kể hoặc nói lại; cần phân biệt với thông tin hiện trực tiếp trong ảnh.",
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:vocabulary:18",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:18:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-16",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 16",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:16:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu mục đích cải thiện việc đi lại khiến đội bổ sung đường dốc tháo lắp được.",
+        "hanzi": "团队____改善通行____增加了可以拆除的坡道。",
+        "options": [
+          "尽管……但是……",
+          "不是……而是……",
+          "因为……所以……",
+          "为了……而……"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "为了…而… nêu mục đích và hành động phục vụ mục đích; không đảo thứ tự nguyên nhân và kết quả.",
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:16",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:16:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-17",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 17",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:17:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu thứ tự đánh giá: kiểm an toàn trước, so thời gian đi lại sau; không làm đồng thời.",
+        "hanzi": "评价老街改造时，____检查雨天安全，____比较通行时间。",
+        "options": [
+          "不是……而是……",
+          "一边……一边……",
+          "首先……其次……",
+          "即使……也……"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "首先…其次… liệt kê các bước theo thứ tự; 一边…一边… sẽ nêu hai việc đồng thời.",
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:17",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:17:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk4-assessment-r103-hsk4-level-check-form-b-grammar-18",
+      "itemType": "exam_item",
+      "title": "HSK4 · form-b · grammar · 18",
+      "level": "hsk4",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:18:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu việc thiếu bối cảnh khiến người xem hiểu nhầm.",
+        "hanzi": "缺少背景的说明____参观者误以为照片代表所有工人。",
+        "options": [
+          "按照",
+          "让",
+          "由",
+          "对于"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "让 dẫn đối tượng chịu tác động; 让参观者误以为 nghĩa là khiến người xem tưởng nhầm.",
+        "sourceLessonIds": [
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk4-level-check:form-b:grammar:18",
+          "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:18:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+        }
+      }
+    }
+  ],
+  "reused": [
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:01:1",
+      "revisionId": "b152bb8d-d310-4f85-9e60-de6b42d1ff38",
+      "contentSha256": "sha256:27957126750b7480987027fb9d24ef69321088da36e16d9413fd9e3a0de64b1a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:02:1",
+      "revisionId": "d4883d1a-e2c3-4268-a161-aab6500c8310",
+      "contentSha256": "sha256:8220d58de06d5e4d41c9f3c30bc1bbad3b4ff419acff3370f94d98f065bcab32"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:03:1",
+      "revisionId": "8d0fb9ce-0bc9-4e52-841d-db3ce468724f",
+      "contentSha256": "sha256:d86a36e8d822039a582c6bed47cd4523770a0b980e70fd5686c3660f91fa8c43"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:01:1",
+      "revisionId": "235d59af-3b67-40d0-adc0-3d6c3e673a84",
+      "contentSha256": "sha256:80a62fa65300c07b74495e94344ae3ec966300832707a53a0563ad4ca274ecb1"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:02:1",
+      "revisionId": "07d34be8-9e96-466d-948a-dffe396338b2",
+      "contentSha256": "sha256:729841608171db1363244707111dfced899fa323272cc8cefbe038bfbdc7943b"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:03:1",
+      "revisionId": "75a707ac-17f1-48f5-8c44-2439fb853cb9",
+      "contentSha256": "sha256:4999f6ed50ec5c6bb75619d31b85923bcce61d5a1ca01bb563db3fc6cd67b021"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:01:1",
+      "revisionId": "89919998-bfa8-4ecf-a460-e2c9f451e10c",
+      "contentSha256": "sha256:bd8adc74d21e44bad1f6f5065c047f4d8842201a482745bf5fc4f5d2059a48a6"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:02:1",
+      "revisionId": "0075457b-0963-4e63-887f-5d920572db49",
+      "contentSha256": "sha256:e46045bdfcbceb68f716885810e5775d6ae6b58a51f8c8c42556de958d42e90c"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:03:1",
+      "revisionId": "5e22c395-97b9-4dff-b9fd-99f18b071afd",
+      "contentSha256": "sha256:6e558518d2c80bcc321d2d544e1c9d3f42e1f46e6d6b22e8811c22a23470a52b"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:01:1",
+      "revisionId": "474365e1-61a2-46ac-91a0-1968e5e7f2f5",
+      "contentSha256": "sha256:991cbc66ef964282d1570f145e0286897b0ac74d75274096562e4acae39f014a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:02:1",
+      "revisionId": "dac623cc-fc20-44fe-ae7a-8f6eab44b964",
+      "contentSha256": "sha256:73ef6b771263ed6c8e82e25a7cbaaddfbd8c78b874f81d2f783a80cc93b1f054"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:03:1",
+      "revisionId": "afa5f8e2-19d5-45bd-93ac-ceb0b357c18b",
+      "contentSha256": "sha256:10e031811b5d68e6f5a09eb27f179d3bbe3a9b7674f0013890b7880034736c58"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:04:1",
+      "revisionId": "30a4d4c5-270a-4641-9f0c-100511edbdfc",
+      "contentSha256": "sha256:2555c33ef61e837889c6635861794093754d66f97d725e7b294ba5ab5d8e1bcd"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:05:1",
+      "revisionId": "cac02b99-ee2c-4ca2-be13-d965657b4aa0",
+      "contentSha256": "sha256:74e1747745861f98c4d08be6fa016f56b94bb993983378e18c64fcb736cf7d56"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:06:1",
+      "revisionId": "6778efb7-9bd9-4f18-8f3c-a26e60a1c4ae",
+      "contentSha256": "sha256:93e46390905b30ce582920e4d3ff22dbab71053a4373e758974e541cef8c1314"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:04:1",
+      "revisionId": "80c9e649-0665-48a7-ad8b-66b34082cb54",
+      "contentSha256": "sha256:ada47f9ce4b518e32a056c52578617f70d5d6a3d415669e39a06a7e2e22f04e1"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:05:1",
+      "revisionId": "1a4d7987-b72f-48d9-9cf3-908f83a331bf",
+      "contentSha256": "sha256:19278b33aac9752085e6eff4320eb3abae18a5ab7b1bbafeedd1ca67151d4c3a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:06:1",
+      "revisionId": "a8c69ab5-058c-485e-a12f-211330f25b3d",
+      "contentSha256": "sha256:31ed158ed2b345763d38db1a9a418790834ab4839d5c60c18d598e6f5ae8bf8d"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:04:1",
+      "revisionId": "21004cb9-5b8d-44e8-96e9-5a259d405617",
+      "contentSha256": "sha256:bb361b6394fd24c19b9360b9fe128eb2ec941511d7c79f57edce0b0ccdd42852"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:05:1",
+      "revisionId": "ce9f97e8-060f-40c0-b3ed-a35ae38bb0b9",
+      "contentSha256": "sha256:28a746208270662125daa951219ca21690d9719dfba5b2248ba88a13aa1379b9"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:06:1",
+      "revisionId": "89d7914f-5b1c-4a18-ad5d-326fff87f5fb",
+      "contentSha256": "sha256:0ceb537ad9dfa14e426defd6cacb3ed85a117bfef9241c0baed81a0b088db780"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:04:1",
+      "revisionId": "5ea14bfd-315b-4e5d-9062-335ac25af36e",
+      "contentSha256": "sha256:e22eab48151882078a192f99667dba8243403374712c97aa248f9b167d80b835"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:05:1",
+      "revisionId": "b2a4297c-512a-4eeb-a30d-1cb07d278b85",
+      "contentSha256": "sha256:13a723df31600de337e4d9b98d65b8ed72119f64b6ea223f694902d94607f2ce"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:06:1",
+      "revisionId": "2dff29f1-3382-4525-865d-8aae7f0d50b4",
+      "contentSha256": "sha256:ff51c8a5fb94a0bfb3be49fc861c7063e64a681871645068f2448daf2ae803f2"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:07:1",
+      "revisionId": "0ed6e09c-2e40-49c8-9e25-daaaa820dbba",
+      "contentSha256": "sha256:6f14ac21efd90634715f7b622fe300abdea57ecb90bdcd2562da2a64ad8200f3"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:08:1",
+      "revisionId": "3fbde4da-81ef-4e90-8c4d-4ef0dc878b43",
+      "contentSha256": "sha256:b19d332a8467aa5fad9d5e99109b366cc8b0eb2d07be364740feadecea16c78e"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:09:1",
+      "revisionId": "a35b2d87-079d-4bf1-a07b-7b64f8cd2e03",
+      "contentSha256": "sha256:d237163eaca10dba1aa4d86d459d3b40165609d048682fce9a4ce76d75a0babc"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:07:1",
+      "revisionId": "21e71e6e-909f-4a77-ba80-3d16fcfa74a8",
+      "contentSha256": "sha256:19b5e4b44fa157fa70dd4bbd32cafc63d46c7bae2fb6249357856e3987131a09"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:08:1",
+      "revisionId": "438d0475-5b40-44f0-ba3e-4713859c0272",
+      "contentSha256": "sha256:c805b0f8e6ed5e5a9a0f76edcb71d52c0e911f1f053f56d0d8f225158fea22ec"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:09:1",
+      "revisionId": "abaa80e4-0a73-491d-b304-05d386be4074",
+      "contentSha256": "sha256:16ae317ac4c2ca55f295379f9eb62c1db1958e4f77e0326f46fa478c3f246108"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:07:1",
+      "revisionId": "c20111ba-ed41-42d0-82c2-a2a4de6593de",
+      "contentSha256": "sha256:d0a8669d87f8b7652129fd89612b7394c2016452b3a30423c6e353363a8a001a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:08:1",
+      "revisionId": "8728c048-8c0a-42b6-b8ed-cf1ebf542280",
+      "contentSha256": "sha256:64bbff2d988894c97c9274d0a9fc0138396825c54de43834b2f3feeef837bec3"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:09:1",
+      "revisionId": "ae921fd9-b40a-486d-9f30-3559362d549d",
+      "contentSha256": "sha256:7623d6bf68c49977682ddb69b34fadd08b3c80164bd335c9887e300402d4b6d5"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:07:1",
+      "revisionId": "67f20623-26f7-47a5-8c49-4ef0a87fec58",
+      "contentSha256": "sha256:ceb4eaa4c4bbf801c54bd5b018c7f63deb07e2657e82c81356cbdc500afa431b"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:08:1",
+      "revisionId": "45b174c9-2cb9-45ce-8e10-b91453c0d976",
+      "contentSha256": "sha256:a4226633397fcbf1f4ef2c21038fec1be07dce78d386c8ba18b1915d3f5ac4ac"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:09:1",
+      "revisionId": "5474e71b-e985-4da8-90e2-776488ebbd1f",
+      "contentSha256": "sha256:4382710c01655e189cf644c11ad66da48129b38da4631b90b991c25a8170273f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:10:1",
+      "revisionId": "b72d110f-ba68-415a-ad54-7bc629335a58",
+      "contentSha256": "sha256:bced7199b41d7feb6fd2bec64c900144593ead8fffffdf9bc1e6db1c00bbab55"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:11:1",
+      "revisionId": "57de7ec8-b01b-4cb7-ac34-25b93874ca4a",
+      "contentSha256": "sha256:6fd2b98c69cc77a817db8f8d27ea1596633871ca2286b96788ea7fcdebd4b4fd"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:12:1",
+      "revisionId": "5fde7a99-2359-48b4-b1ff-7232729e4c4e",
+      "contentSha256": "sha256:8e3e829ef6854107d167fd44339057d2f668c1e008bb46a9e81706024537e6a1"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:10:1",
+      "revisionId": "c683444c-3568-4bda-ba98-0c7b2909993e",
+      "contentSha256": "sha256:7fcf439761c9a2c7a51359f8a4762d6f1d81d90cf375fc1f44fefdb868d3e530"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:11:1",
+      "revisionId": "66edddf2-b515-4ef4-986a-2bdd8bb13cfa",
+      "contentSha256": "sha256:755a2d296fe9149c5fa67d9af1584fdd819d5763bf61c2c0f2910cba63959e91"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:12:1",
+      "revisionId": "cedcd1aa-c7fd-4639-85fe-a5c70e012cbf",
+      "contentSha256": "sha256:3da780cd98199d6b942f850e7299cfb5f8e61f79a3c9bd13659ffdc3398cc738"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:10:1",
+      "revisionId": "c51bce4d-f5dc-4826-9f0f-db0b13a6c704",
+      "contentSha256": "sha256:ed217fdd71d404bf681a7fd7fe70342d12fb703b26abb20c9c12ebba6b4c30e6"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:11:1",
+      "revisionId": "44204087-8ddd-43ea-9463-78c52f856467",
+      "contentSha256": "sha256:881e1c86f5a08ebf9575930aec56e5517ef2c2ddde25d359a55729da8ea57b0d"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:12:1",
+      "revisionId": "ed552120-025f-4a88-8287-e10360184f60",
+      "contentSha256": "sha256:3275d1697280428b0e4853f08b46a4e3f49c670680387ab847a62c26e5397d3c"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:10:1",
+      "revisionId": "001f6648-2729-4ccf-aed5-ecdc8c3582a4",
+      "contentSha256": "sha256:56ba7a2dd0c6b087d6d6fc04867bb731f23c405017f010dcac52d1d26d1eb47f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:11:1",
+      "revisionId": "5965cf58-668e-4dfc-a346-27499a44912f",
+      "contentSha256": "sha256:29e2fdfa1ef0eed3ef3c231c5c3565b5af0a1b5430d69bde5d5b858d0f238476"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:12:1",
+      "revisionId": "6dd20804-2bdb-4351-8435-ba91ca3fe0fb",
+      "contentSha256": "sha256:5a0341aa9f01156bad69e5a34fd886a4116293fa2f11e25a8dba2d0e1a69aa12"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:13:1",
+      "revisionId": "0a4054ae-15e4-4ab9-bc2e-e8cc9dc2320c",
+      "contentSha256": "sha256:d79dc461db94c58a97f7a7a7a7053b292fbec30f5afb9f9dd772256e2f130ff5"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:14:1",
+      "revisionId": "ac1c0041-8b78-40ad-b703-069daf9f7973",
+      "contentSha256": "sha256:77ccf6e367bcd88d3a590937c752d53ce1b51f2437991a90bd65c829b10ddc2a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:15:1",
+      "revisionId": "94c3cc6c-1a63-476e-94a4-b71a0e63cd59",
+      "contentSha256": "sha256:cb0e85f03f42147280e44d7efcef893c4833548a76807e285796e39510bf6ada"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:13:1",
+      "revisionId": "977fe61c-ff4c-4c40-94c0-61ce453019f0",
+      "contentSha256": "sha256:3f8c2c8feb10bf6f89871e866eb0fe7f4179f3f3072decbf3d8f025d140d5347"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:14:1",
+      "revisionId": "2ef6e59a-01c5-4275-ba63-d13b2e069ce0",
+      "contentSha256": "sha256:3a7eb62efb22a31c3d5211fafcc76ed0b577ac02569e8019d625c00568061f25"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:15:1",
+      "revisionId": "ad6a778f-cf35-4746-889f-e7b8ab7acb60",
+      "contentSha256": "sha256:10e341738e2ab5323bd8d90b17b429f69d307457635b99392093a25528311dd5"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:13:1",
+      "revisionId": "83f3738f-f0cc-4732-a561-297ed34bf679",
+      "contentSha256": "sha256:8de444d1da2ff588785e53befa2f2c5cfa601b9d5ddd8d336e7080b89e3b2d7a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:14:1",
+      "revisionId": "41e8cc8d-c973-4e64-8b01-191bb9cbe742",
+      "contentSha256": "sha256:04959b9620f98f255d91d91ce09ac7f165d80d71ffddae899f083b1ef3803ae1"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:15:1",
+      "revisionId": "00e007ce-a5ed-4e60-a4d4-1e96e36e41ba",
+      "contentSha256": "sha256:f0c02be42d893519abd87571962cab553c25e342059a3408064a57793daa55e8"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:13:1",
+      "revisionId": "10d0970c-16f9-4d3c-a157-803750f087fc",
+      "contentSha256": "sha256:7a95180ba0f42bf1f5e4c867b261710d4db3a850dc5811c6486fe089c32d2751"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:14:1",
+      "revisionId": "462ec8ad-1850-4de7-9ac6-82a6e1069e1a",
+      "contentSha256": "sha256:c44ce7b44408633d9f1a352f63a1431cd59191d7b731d9014d4410db407ebc0c"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:15:1",
+      "revisionId": "a5c9aa3c-d989-4010-a90d-d77f0c4ddce2",
+      "contentSha256": "sha256:b6da10d050e2be13bb364930eec30fb7f188b45b7f87d9675f0df35aa9c1ff51"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:16:1",
+      "revisionId": "10df5fd4-29a3-433d-a7d6-b3135f4dda0c",
+      "contentSha256": "sha256:4dfa11cd17439b0a9a83c0a4e6c7191be7272146186d0cee2aa24c1eff3fcc86"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:17:1",
+      "revisionId": "79484369-6cb5-4344-b3c1-1e195c174276",
+      "contentSha256": "sha256:483060ecf6b8815f60a1bafd0e94606feb6f65fa3219b92d55a58d5cbff091ef"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:18:1",
+      "revisionId": "64f6c897-17cf-417a-8de9-9932e59da001",
+      "contentSha256": "sha256:eb1300dc8d20b1cb6ed9003bf8ae8d08f28a56aa391cad9050d80e30f814d1e9"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:16:1",
+      "revisionId": "b5f67a32-565e-4211-89b1-02f29787adfc",
+      "contentSha256": "sha256:0d7eaa66d0d352a0e4174dcf5b4e6fcb9a871f34c1a41e635ab4ca318a016be7"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:17:1",
+      "revisionId": "9883c834-cee2-49ba-a9ef-d0e3a66c83eb",
+      "contentSha256": "sha256:c1aa7a7aa5cb64b5d77b1beb5746b6216f8f9e30b4002bc93075abae98a264e9"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:18:1",
+      "revisionId": "144aff96-886e-4f0a-a530-2317d94dc56f",
+      "contentSha256": "sha256:785d2184384c0beb68be1e164b08e0193ecd152663d89269a0f2a0383fa7e2c3"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:16:1",
+      "revisionId": "a3af33cf-447f-4cf5-b1b9-1d20891f330f",
+      "contentSha256": "sha256:1556c045b8acc1c7ff4c2ee570b4fe8ce94f4a02e0ec92c8835f2604279a7bfd"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:17:1",
+      "revisionId": "611521fa-dfc8-4605-9fed-5fc1a68882a7",
+      "contentSha256": "sha256:5df338aad07789bfb1e2db90b6e6d47ffaa8388570d611dc1a4396ba2d7b978c"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:18:1",
+      "revisionId": "55d2b482-aa2e-4cbd-976c-4c7d03a94a3f",
+      "contentSha256": "sha256:609660ef2cf64421e872885bbcaa3b549870c187c6f509b5654a17ebbdc295fb"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:16:1",
+      "revisionId": "412f468e-e910-45a7-a9f5-12b0bcba34aa",
+      "contentSha256": "sha256:506745d55e9a373df1f225348d31f8dc72b64d230dc386b856fdfd7491639e09"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:17:1",
+      "revisionId": "06326551-cc13-4083-827a-4ea414adadaf",
+      "contentSha256": "sha256:615a0e5c998788be9b095ed6c0a4106d61f741150ddf402ea1f55c059019c5f0"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:18:1",
+      "revisionId": "bda1bb18-5e81-4bd2-b1d1-4ca3383e832f",
+      "contentSha256": "sha256:8687d8c808c6b143ae488a67e092397fbc89d23072a5080f12e8b1370cb7ee93"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:01:1",
+      "revisionId": "b6c4a34a-7718-4d22-89bf-c68ecca1d837",
+      "contentSha256": "sha256:d5ff4a4bdadf4f359ce729be5035c9909447982d4aefabb6f782ef2cba8f7199"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:02:1",
+      "revisionId": "e2d8860a-e0ea-44b3-ab91-e2628b3b6ca0",
+      "contentSha256": "sha256:74e301748af74612cfd9a6abbf69d38931c1e89e0db4a33f7ecd16b207e620f8"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:03:1",
+      "revisionId": "c6baec9d-944b-49b8-8c12-47c8f72ab898",
+      "contentSha256": "sha256:e354711f47a38c5dc9a842ba899c88d5b3749669e99867bfbf530416ef54e572"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:01:1",
+      "revisionId": "624e4d32-e19b-4af8-970a-dbf41d57200d",
+      "contentSha256": "sha256:7fd9f9c052d45cd5a8127fe933842d54740eaf86d8e3eff912db1f3aa3969eb0"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:02:1",
+      "revisionId": "d6a6a3d8-c140-445d-a698-f5abb30eaf4c",
+      "contentSha256": "sha256:819cdf2cbc24f21feb9c5d8cebbad09d944cf665f647e57b31d1b70c4b40ff1a"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:03:1",
+      "revisionId": "d502eaef-d24b-4706-b1a6-c51b102fc8eb",
+      "contentSha256": "sha256:18ad43d8a69e822bb964d2c7ccb3b5e68cbce34ef3617cf7234580ce6a0df691"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:04:1",
+      "revisionId": "ef2802c9-8614-461d-a2e2-64964ce54f23",
+      "contentSha256": "sha256:e9ca7f70392d12f69909fb58495ff1936899ff658bac1b0a17c0592f58577a7b"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:05:1",
+      "revisionId": "86442d27-42cf-4bfd-91d5-4a76de1d382b",
+      "contentSha256": "sha256:d8f29ca4338f0e5d709f881513607b30a1360830acaaf019d341b733282cee7f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:06:1",
+      "revisionId": "3e66e8aa-eff1-4868-9860-2742dacac49f",
+      "contentSha256": "sha256:2d91daca460b6d63c996b9e319c82fde668f72e373392e10047ce40b2182389b"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:04:1",
+      "revisionId": "36c16c84-ce4a-4bbd-add1-ab0c7f82837d",
+      "contentSha256": "sha256:cc3e8c7509f2486a3e32828cad4dc9b406d223ecaedbfe9aaa205f780aafee44"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:05:1",
+      "revisionId": "be601e80-9b13-4549-a300-efda3cc018ab",
+      "contentSha256": "sha256:56ed31dbf2acd3475a1d0a9f801de4a08f17ec859665c40b21e6f057f741a6d8"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:06:1",
+      "revisionId": "235263d1-6caf-4ea4-96c0-7cb46e6aa6fc",
+      "contentSha256": "sha256:3d8f5c3f81bcb7613ea7e59616129aa23d50b3bb2689a499c21ef066f76205e2"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:07:1",
+      "revisionId": "45c92b92-7ecf-4e48-8e62-93887db9a1b0",
+      "contentSha256": "sha256:986c304eb936c0134673c4a7ef743701a76a91be407185dce2bea5b7b832fc0e"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:08:1",
+      "revisionId": "fb2b6eb2-d088-4eaf-a82b-961a58588f6f",
+      "contentSha256": "sha256:7935301d6c60db8c5e464a42df94cbd3f6124e315eba0c20e1c29f1f190b7b11"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:09:1",
+      "revisionId": "44a0b84a-4bbb-457a-aa83-92ae3673a11e",
+      "contentSha256": "sha256:dc49d7ff9cb877b960b7c12c11b686e3485976498c123188b589f88b30f7870f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:07:1",
+      "revisionId": "65716f09-cd24-4b44-82a8-dd76008e79c7",
+      "contentSha256": "sha256:3a07a2e5e4a30fd23872758ced06f4891d399a1770139d3405627968014f1e4e"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:08:1",
+      "revisionId": "87b24f62-1307-43e9-b3cb-b4f645ddca92",
+      "contentSha256": "sha256:4e1778d26f8849a6f76677602d2670fc6c20b67110d573de608e212f66afab5f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:09:1",
+      "revisionId": "402490e9-ced2-4343-af0b-6695c876a9fc",
+      "contentSha256": "sha256:de3f3ffe5f812a294137dd69c2e5c8627c3e13e7d08fa46e480e6a27a1816bb0"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:10:1",
+      "revisionId": "e0492e59-5550-4090-b64c-b9fe98eeae4a",
+      "contentSha256": "sha256:364795eef25a087d893b6e2539187fd391c67655cb5ef682a979446bb5feb364"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:11:1",
+      "revisionId": "bd993b04-b487-4bdb-a118-706f02571e94",
+      "contentSha256": "sha256:1e545ff8fb5be7bce42074e3ebf301d6b17257104448df0ee2ae8b01cc3c2e6f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:12:1",
+      "revisionId": "f19b75bb-f35a-47bb-bf01-2a9072bd60b1",
+      "contentSha256": "sha256:4af90479cb72d1e8095842238dcf6d715833611b7180b8541cfe91d711b08683"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:10:1",
+      "revisionId": "fa5126b1-790f-4d4d-9f6b-68624ca72d24",
+      "contentSha256": "sha256:90183c48b4715ee6dff73165b0f4363b99d8ac51e03621a05c4dc7306baf5abb"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:11:1",
+      "revisionId": "79a58c17-b100-4871-91e4-bdc8e580949f",
+      "contentSha256": "sha256:63aee8751a952c221e6f2c4c2331b6e3ee888d508b97a275230adb4ee9afad51"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:12:1",
+      "revisionId": "8c7f16b9-90db-410d-bb35-b37bb5d64b49",
+      "contentSha256": "sha256:251f88f3faebfa19c75adefb98da957b166ca2ccb44de0a554403190725d3522"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:13:1",
+      "revisionId": "28e7c861-5611-4800-9f5f-a3adf851afe7",
+      "contentSha256": "sha256:2f194c8d85969c6144cc8b86cbab6e2ae181766082b779dd8070e54983b88a0c"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:14:1",
+      "revisionId": "8756f12f-9c98-4609-920c-a62defc2f416",
+      "contentSha256": "sha256:e1ddebe47c0acf3cb45ec35ef34f77d05f7995e1bf4e1910655d6c7d8debd21c"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:15:1",
+      "revisionId": "4050454f-6584-46b9-88e2-2c623a9b1fed",
+      "contentSha256": "sha256:20344b8b9dd74332f9f43403928b82bd1acbf080c43f71d9d242af50ecabdb70"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:13:1",
+      "revisionId": "2ba852d5-5ce9-4dc6-8e86-6ef214f24851",
+      "contentSha256": "sha256:b0c1fc078019d0107470c4eeb98f9ad6d618b2a9803afe5196e46dee11d89f87"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:14:1",
+      "revisionId": "e87f1468-02df-4aec-a7a4-146b3a119d60",
+      "contentSha256": "sha256:f21a9ef2e8779781cbb7cee2c1ee72794ae5f668d0ae8eddd1bbe53db1634f11"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:15:1",
+      "revisionId": "5e0b55ec-453a-4f9c-8277-014d0d93035f",
+      "contentSha256": "sha256:34bab46844344dae31c244f767fc3194695c7fe324c65c2b248e2f97595ba2b5"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:16:1",
+      "revisionId": "09c87a9f-1493-4065-8736-5c54c646397d",
+      "contentSha256": "sha256:68daf02472ba7369a77ee6fee6ae1f78ad38dfea0c4aafac79d21edb097f6eaf"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:17:1",
+      "revisionId": "48e2bf50-ca35-4431-8403-472c02d32e16",
+      "contentSha256": "sha256:45930f9ee271e55078a5d52c31b1db78c063229b42da3a6b801053ae657fd2d1"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:18:1",
+      "revisionId": "f8427548-3f26-4897-8ae0-d5fd18d94438",
+      "contentSha256": "sha256:230fbb557c656c06f576ae6faa50129f5c428cbbce29456b90a31fd2574e4ca4"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:16:1",
+      "revisionId": "8c145cf5-203e-4fb8-8006-eb50b0f3d821",
+      "contentSha256": "sha256:d458ae0b3f18cd0d1bb19aaa9bba15316a46d13248284e596da23ad969ee13cb"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:17:1",
+      "revisionId": "59e56bb8-12ea-4996-91d4-1e5e8a2ad8d0",
+      "contentSha256": "sha256:c6dbaa88ced5300fb2c9c6878a2874606fe166d062684b1d7c3b385a62385a4f"
+    },
+    {
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:18:1",
+      "revisionId": "c8f32214-a1bb-462a-a320-ae2cdb445b2f",
+      "contentSha256": "sha256:7cc91b8f8005e38ed27064f5264f86c2f6886dfb61d7a112485040be2b92b308"
+    }
+  ],
+  "selected": [
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:18:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:01:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:02:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:03:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:04:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:05:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:06:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:07:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:08:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:09:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:10:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:11:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:12:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:13:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:14:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:15:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:16:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:17:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:listening:18:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:01:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:02:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:03:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:04:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:05:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:06:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:07:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:08:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:09:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:10:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:11:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:12:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:13:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:14:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:15:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:16:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:17:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:10:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:11:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:12:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:13:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:14:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:15:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:16:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:17:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:18:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:18:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:01:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:02:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:03:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:04:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:05:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:06:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:07:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:08:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:09:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:10:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:11:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:12:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:13:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:14:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:15:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:16:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:17:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:reading:18:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:01:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:02:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:03:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:04:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:05:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:06:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:07:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:08:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:09:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:10:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:11:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:12:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:13:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:14:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:15:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:16:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:17:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:01:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:02:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:03:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:vocabulary:04:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:12:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:13:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:14:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:15:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:16:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:17:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:18:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:01:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:02:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:03:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:04:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:05:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:06:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:07:1",
+    "hsk4-level-assessment-2026.07:hsk4-level-check:form-b:grammar:08:1"
+  ],
+  "level": "hsk4",
+  "formKey": "h",
+  "timeLimitMinutes": 105,
+  "coverage": {
+    "listening": 45,
+    "reading": 40,
+    "writing": 15
+  },
+  "formStableKey": "hsk4-assessment-reviewed-round103-h",
+  "evidenceDocument": "docs/thien-lo-redesign-review/197-REVIEW-HSK4-ASSESSMENT-ROUND103.md"
+}

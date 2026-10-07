@@ -90,6 +90,7 @@ const asStartingLevel = (
 export const derivePlacementRecommendation = (
   assessedLevel: PlacementLevel,
   skillResults: readonly PlacementSkillResult[],
+  upperLevelAlreadyChecked = false,
 ): PlacementRecommendation => {
   if (skillResults.length === 0) {
     throw new Error("Placement requires at least one measured skill");
@@ -118,7 +119,7 @@ export const derivePlacementRecommendation = (
     : overallAccuracy >= 0.6
       ? "matched"
       : "step-down";
-  const nextAssessmentLevel = band === "advance" && assessedLevel < 4
+  const nextAssessmentLevel = band === "advance" && assessedLevel < 4 && !upperLevelAlreadyChecked
     ? assessedLevel + 1 as PlacementLevel
     : band === "step-down" && assessedLevel > 1
       ? assessedLevel - 1 as PlacementLevel

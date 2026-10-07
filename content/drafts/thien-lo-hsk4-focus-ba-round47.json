@@ -1,0 +1,2717 @@
+{
+  "humanReviewed": false,
+  "evidenceDocument": "docs/thien-lo-redesign-review/140-REVIEW-HSK4-FOCUS-BA-ROUND47.md",
+  "entries": [
+    {
+      "sourceRevisionId": "d184277e-1477-43c6-a58e-129ed07c1d36",
+      "sourceContentSha256": "sha256:cc9a80705873344376e0755d7f9183b5f1029ed7980cd1b6b9d1ba56637ab576",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm phân biệt chuyên môn và quyền kết luận\nvai trò của nghiên cứu viên, kiểm lâm và cư dân\nvai trò kỹ sư, giáo viên và sinh viên\nphản biện về trách nhiệm chuyên gia\ngiới hạn từ hai dự án địa phương",
+        "conceptVi": "Tách dữ kiện và diễn giải: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp.",
+        "dialogue": [
+          {
+            "hanzi": "北岭保护站研究高山植物怎样适应寒冷。这里的大自然看似无人管理，实际有研究员记录开花时间，护林员检查游客路线，附近居民报告少见变化。三类人观察同一片自然区域，却使用不同知识。",
+            "meaningVi": "Trạm Bắc Lĩnh nghiên cứu cách thực vật núi cao thích nghi lạnh giá. Thiên nhiên có vẻ không do ai quản, nhưng nhà nghiên cứu ghi mùa hoa, kiểm lâm kiểm tuyến khách, cư dân báo thay đổi hiếm. Ba nhóm quan sát cùng vùng bằng loại tri thức khác nhau.",
+            "pinyin": "Běilǐng bǎohùzhàn yánjiū gāoshān zhíwù zěnyàng shìyìng hánlěng. Zhèlǐ de dàzìrán kàn sì wú rén guǎnlǐ, shíjì yǒu yánjiūyuán jìlù kāi huā shíjiān, hùlínyuán jiǎnchá yóukè lùxiàn, fùjìn jūmín bàogào shǎojiàn biànhuà. Sān lèi rén guānchá tóng yí piàn zìrán qūyù, què shǐyòng bùtóng zhīshi.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "研究员每周固定测量，便于比较年份；护林员每天巡路，能够及时发现踩踏；居民不按表记录，却熟悉哪些植物过去常见。保护站把数据、现场行动和长期记忆放在一张角色图上，不把任何一种信息当成全部事实。",
+            "meaningVi": "Nhà nghiên cứu đo cố định hàng tuần để so các năm; kiểm lâm tuần đường hằng ngày để phát hiện giẫm đạp; cư dân không ghi theo bảng nhưng nhớ loài từng phổ biến. Trạm đặt dữ liệu, hành động hiện trường và ký ức dài hạn vào một bản đồ vai trò, không coi loại nào là toàn bộ.",
+            "pinyin": "Yánjiūyuán měi zhōu gùdìng cèliáng, biànyú bǐjiào niánfen; hùlínyuán měi tiān xún lù, nénggòu jíshí fāxiàn cǎità; jūmín bú àn biǎo jìlù, què shúxī nǎxiē zhíwù guòqù chángjiàn. Bǎohùzhàn bǎ shùjù, xiànchǎng xíngdòng hé chángqī jìyì fàng zài yì zhāng juésètú shàng, bù bǎ rènhé yì zhǒng xìnxī dàngchéng quánbù shìshí.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "去年一种花提早开放时，研究员先确认温度记录，护林员检查路线变化，居民补充过去照片。最后只能说温度与开放时间同时变化，游客影响仍不确定。角色图帮助大家知道谁提供什么证据，也提醒他们不要越过证据范围。",
+            "meaningVi": "Năm ngoái một loài hoa nở sớm, nhà nghiên cứu kiểm nhiệt độ, kiểm lâm xem tuyến, cư dân bổ sung ảnh cũ. Kết luận chỉ nói nhiệt độ và mùa nở cùng thay đổi, tác động du khách chưa rõ. Bản đồ cho biết ai cung cấp bằng chứng nào và nhắc không vượt phạm vi.",
+            "pinyin": "Qùnián yì zhǒng huā tízǎo kāifàng shí, yánjiūyuán xiān quèrèn wēndù jìlù, hùlínyuán jiǎnchá lùxiàn biànhuà, jūmín bǔchōng guòqù zhàopiàn. Zuìhòu zhǐ néng shuō wēndù yǔ kāifàng shíjiān tóngshí biànhuà, yóukè yǐngxiǎng réng bù quèdìng. Juésètú bāngzhù dàjiā zhīdào shéi tígōng shénme zhèngjù, yě tíxǐng tāmen bú yào yuèguò zhèngjù fànwéi.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "农业学校建了一座低温温室，目标不是把室内变得很热，而是减少夜间热量流失。第一个技术项目更换墙面材料，第二项在屋顶加可移动保温层，第三项使用传感器记录不同位置温度。",
+            "meaningVi": "Trường nông nghiệp xây nhà kính nhiệt độ thấp, mục tiêu không phải làm thật nóng mà giảm thất thoát nhiệt ban đêm. Hạng mục một thay vật liệu tường, hạng mục hai thêm lớp giữ nhiệt di động trên mái, hạng mục ba dùng cảm biến ghi nhiệt ở các vị trí.",
+            "pinyin": "Nóngyè xuéxiào jiàn le yí zuò dīwēn wēnshì, mùbiāo bú shì bǎ shìnèi biàn de hěn rè, ér shì jiǎnshǎo yèjiān rèliàng liúshī. Dì yī ge jìshù xiàngmù gēnghuàn qiángmiàn cáiliào, dì èr xiàng zài wūdǐng jiā kě yídòng bǎowēncéng, dì sān xiàng shǐyòng chuángǎnqì jìlù bùtóng wèizhì wēndù.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "工程师负责技术设计，教师把数据用于课程，学生能够改变开关时间并观察结果。随着冬季到来，团队发现保温层在无风夜晚作用明显，但大风时墙角仍然很冷。单看平均温度会隐藏这些位置差异。",
+            "meaningVi": "Kỹ sư thiết kế công nghệ, giáo viên dùng dữ liệu cho môn học, sinh viên đổi giờ đóng mở và quan sát. Khi mùa đông tới, lớp giữ nhiệt hiệu quả rõ vào đêm lặng gió, nhưng góc tường vẫn lạnh khi gió mạnh. Chỉ nhìn nhiệt trung bình sẽ che khác biệt vị trí.",
+            "pinyin": "Gōngchéngshī fùzé jìshù shèjì, jiàoshī bǎ shùjù yòng yú kèchéng, xuéshēng nénggòu gǎibiàn kāiguān shíjiān bìng guānchá jiéguǒ. Suízhe dōngjì dàolái, tuánduì fāxiàn bǎowēncéng zài wú fēng yèwǎn zuòyòng míngxiǎn, dàn dà fēng shí qiángjiǎo réngrán hěn lěng. Dān kàn píngjūn wēndù huì yǐncáng zhèxiē wèizhì chāyì.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "团队没有说某一种材料解决了全部问题，而是把设计、教学和维护责任分开。下一步将比较不同墙角材料，并保留原传感器作为对照。这个项目说明技术不是一个设备名称，而是材料、测量、操作和角色共同形成的系统。",
+            "meaningVi": "Nhóm không nói một vật liệu giải mọi vấn đề mà tách trách nhiệm thiết kế, dạy và bảo trì. Bước sau so vật liệu góc tường và giữ cảm biến cũ làm đối chứng. Dự án cho thấy công nghệ không chỉ là tên thiết bị, mà là hệ vật liệu, đo, thao tác và vai trò.",
+            "pinyin": "Tuánduì méiyǒu shuō mǒu yì zhǒng cáiliào jiějué le quánbù wèntí, ér shì bǎ shèjì, jiàoxué hé wéihù zérèn fēnkāi. Xià yí bù jiāng bǐjiào bùtóng qiángjiǎo cáiliào, bìng bǎoliú yuán chuángǎnqì zuòwéi duìzhào. Zhè ge xiàngmù shuōmíng jìshù bú shì yí ge shèbèi míngchēng, ér shì cáiliào, cèliáng, cāozuò hé juésè gòngtóng xíngchéng de xìtǒng.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:b86b4602f3692a6908ef0b706c7569203904cb9313a635e431266c5cd40d4a18",
+          "evidenceDocument": "docs/thien-lo-redesign-review/139-REVIEW-HSK4-SCIENCE-CONTEXT-ROUND46.md",
+          "humanReviewed": false,
+          "scope": "Correct six shared science paragraphs in Pinyin, qualify governance comparison and allow contextually clear subject omission in ba-sentences; preserve IDs and keys.",
+          "sourceContentSha256": "sha256:38fc66c03fee7bcd7ea7a2f47a35abc2646e5346eac0ab8601814d7357bd0972",
+          "sourceRevisionId": "e42c57de-f08d-4be0-a196-6ff050e78948"
+        },
+        "exercises": [
+          {
+            "answer": "北岭保护站研究高山植物怎样适应寒冷。这里的大自然看似无人管理，实际有研究员记录开花时间，护林员检查游客路线，附近居民报告少见变化。三类人观察同一片自然区域，却使用不同知识。",
+            "answerMeaningVi": "Trạm Bắc Lĩnh nghiên cứu cách thực vật núi cao thích nghi lạnh giá. Thiên nhiên có vẻ không do ai quản, nhưng nhà nghiên cứu ghi mùa hoa, kiểm lâm kiểm tuyến khách, cư dân báo thay đổi hiếm. Ba nhóm quan sát cùng vùng bằng loại tri thức khác nhau.",
+            "answerPinyin": "Běilǐng bǎohùzhàn yánjiū gāoshān zhíwù zěnyàng shìyìng hánlěng. Zhèlǐ de dàzìrán kàn sì wú rén guǎnlǐ, shíjì yǒu yánjiūyuán jìlù kāi huā shíjiān, hùlínyuán jiǎnchá yóukè lùxiàn, fùjìn jūmín bàogào shǎojiàn biànhuà. Sān lèi rén guānchá tóng yí piàn zìrán qūyù, què shǐyòng bùtóng zhīshi.",
+            "distractors": [
+              "研究员每周固定测量，便于比较年份；护林员每天巡路，能够及时发现踩踏；居民不按表记录，却熟悉哪些植物过去常见。保护站把数据、现场行动和长期记忆放在一张角色图上，不把任何一种信息当成全部事实。",
+              "去年一种花提早开放时，研究员先确认温度记录，护林员检查路线变化，居民补充过去照片。最后只能说温度与开放时间同时变化，游客影响仍不确定。角色图帮助大家知道谁提供什么证据，也提醒他们不要越过证据范围。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "把 đưa đối tượng xác định lên trước động từ và nói xử lý nó ra sao. Với động từ đơn âm tiết, 看看/看一看 thường là xem một chút hoặc lời nhờ nhẹ; 看了看 là đã xem một chút. Không đồng nhất với 看了又看 là xem đi xem lại nhiều lần. Phủ định hoặc động từ năng nguyện đặt trước 把: 没把、请把、可以把. Không dùng động từ tri giác/trạng thái bất kỳ như 把他知道; cần hành động tác động phù hợp.",
+            "guidedPractice": {
+              "promptVi": "Ở tình huống mới, bạn nhờ đồng nghiệp xem thử bảng này; sau đó kể mình đã đọc qua thư đó. Dùng một câu 请把…看一看 và một câu 把…读了读.",
+              "modelAnswerHanzi": "请把这个表看一看。我把那封信读了读。",
+              "modelAnswerPinyin": "Qǐng bǎ zhè ge biǎo kàn yi kàn. Wǒ bǎ nà fēng xìn dú le dú.",
+              "modelAnswerMeaningVi": "Hãy xem thử bảng này. Tôi đã đọc qua lá thư ấy."
+            },
+            "modelExample": {
+              "hanzi": "请把这段话读一读。",
+              "pinyin": "Qǐng bǎ zhè duàn huà dú yi dú.",
+              "meaningVi": "Hãy đọc thử đoạn này.",
+              "speaker": "A"
+            },
+            "pattern": "（1）主语+把+宾语+动词（+一/了）+动词"
+          },
+          {
+            "explanationVi": "Một số động từ có thể đứng với 了 sau 把 để nói xử lý đối tượng xong: 把旧报纸卖了、把门关了. Không suy rằng mọi động từ cứ thêm 了 là tự nhiên; thường cần kết quả/hướng/nơi chốn rõ: 把报告写完了、把书放在桌上了. Phủ định đã làm dùng 没(有) trước 把 và thường bỏ 了: 我没把门关上. 了 đọc le ở đây, khác liǎo trong khả năng 做得了. Hoàn tất một thao tác không chứng minh toàn bộ dự án thành công.",
+            "guidedPractice": {
+              "promptVi": "Bạn đã tắt đèn nhưng chưa đóng cửa sổ. Viết hai câu 把, một câu khẳng định đã làm và một câu phủ định; không đổi người thực hiện.",
+              "modelAnswerHanzi": "我把灯关了，但还没把窗户关上。",
+              "modelAnswerPinyin": "Wǒ bǎ dēng guān le, dàn hái méi bǎ chuānghu guān shàng.",
+              "modelAnswerMeaningVi": "Tôi tắt đèn rồi nhưng chưa đóng cửa sổ."
+            },
+            "modelExample": {
+              "hanzi": "我把旧报纸卖了。",
+              "pinyin": "Wǒ bǎ jiù bàozhǐ mài le.",
+              "meaningVi": "Tôi bán chỗ báo cũ rồi.",
+              "speaker": "A"
+            },
+            "pattern": "（2）主语+把+宾语+动词+了"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Tách dữ kiện và diễn giải: Biểu đạt tác nhân, đối tượng chịu tác động, bổ ngữ và quan hệ sai khiến trong mô tả sự kiện phức tạp."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "北岭保护站研究高山植物怎样适应寒冷。这里的大自然看似无人管理，实际有研究员记录开花时间，护林员检查游客路线，附近居民报告少见变化。三类人观察同一片自然区域，却使用不同知识。",
+                        "id": "hsk4-event-agency-voice-lesson-01:source-0-0",
+                        "meaningVi": "Trạm Bắc Lĩnh nghiên cứu cách thực vật núi cao thích nghi lạnh giá. Thiên nhiên có vẻ không do ai quản, nhưng nhà nghiên cứu ghi mùa hoa, kiểm lâm kiểm tuyến khách, cư dân báo thay đổi hiếm. Ba nhóm quan sát cùng vùng bằng loại tri thức khác nhau.",
+                        "pinyin": "Běilǐng bǎohùzhàn yánjiū gāoshān zhíwù zěnyàng shìyìng hánlěng. Zhèlǐ de dàzìrán kàn sì wú rén guǎnlǐ, shíjì yǒu yánjiūyuán jìlù kāi huā shíjiān, hùlínyuán jiǎnchá yóukè lùxiàn, fùjìn jūmín bàogào shǎojiàn biànhuà. Sān lèi rén guānchá tóng yí piàn zìrán qūyù, què shǐyòng bùtóng zhīshi."
+                      },
+                      {
+                        "hanzi": "研究员每周固定测量，便于比较年份；护林员每天巡路，能够及时发现踩踏；居民不按表记录，却熟悉哪些植物过去常见。保护站把数据、现场行动和长期记忆放在一张角色图上，不把任何一种信息当成全部事实。",
+                        "id": "hsk4-event-agency-voice-lesson-01:source-0-1",
+                        "meaningVi": "Nhà nghiên cứu đo cố định hàng tuần để so các năm; kiểm lâm tuần đường hằng ngày để phát hiện giẫm đạp; cư dân không ghi theo bảng nhưng nhớ loài từng phổ biến. Trạm đặt dữ liệu, hành động hiện trường và ký ức dài hạn vào một bản đồ vai trò, không coi loại nào là toàn bộ.",
+                        "pinyin": "Yánjiūyuán měi zhōu gùdìng cèliáng, biànyú bǐjiào niánfen; hùlínyuán měi tiān xún lù, nénggòu jíshí fāxiàn cǎità; jūmín bú àn biǎo jìlù, què shúxī nǎxiē zhíwù guòqù chángjiàn. Bǎohùzhàn bǎ shùjù, xiànchǎng xíngdòng hé chángqī jìyì fàng zài yì zhāng juésètú shàng, bù bǎ rènhé yì zhǒng xìnxī dàngchéng quánbù shìshí."
+                      },
+                      {
+                        "hanzi": "去年一种花提早开放时，研究员先确认温度记录，护林员检查路线变化，居民补充过去照片。最后只能说温度与开放时间同时变化，游客影响仍不确定。角色图帮助大家知道谁提供什么证据，也提醒他们不要越过证据范围。",
+                        "id": "hsk4-event-agency-voice-lesson-01:source-0-2",
+                        "meaningVi": "Năm ngoái một loài hoa nở sớm, nhà nghiên cứu kiểm nhiệt độ, kiểm lâm xem tuyến, cư dân bổ sung ảnh cũ. Kết luận chỉ nói nhiệt độ và mùa nở cùng thay đổi, tác động du khách chưa rõ. Bản đồ cho biết ai cung cấp bằng chứng nào và nhắc không vượt phạm vi.",
+                        "pinyin": "Qùnián yì zhǒng huā tízǎo kāifàng shí, yánjiūyuán xiān quèrèn wēndù jìlù, hùlínyuán jiǎnchá lùxiàn biànhuà, jūmín bǔchōng guòqù zhàopiàn. Zuìhòu zhǐ néng shuō wēndù yǔ kāifàng shíjiān tóngshí biànhuà, yóukè yǐngxiǎng réng bù quèdìng. Juésètú bāngzhù dàjiā zhīdào shéi tígōng shénme zhèngjù, yě tíxǐng tāmen bú yào yuèguò zhèngjù fànwéi."
+                      }
+                    ]
+                  },
+                  "title": "Bản đồ vai trò tại trạm bảo vệ thực vật núi cao"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Bản đồ vai trò tại trạm bảo vệ thực vật núi cao"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "农业学校建了一座低温温室，目标不是把室内变得很热，而是减少夜间热量流失。第一个技术项目更换墙面材料，第二项在屋顶加可移动保温层，第三项使用传感器记录不同位置温度。",
+                        "id": "hsk4-event-agency-voice-lesson-01:source-1-0",
+                        "meaningVi": "Trường nông nghiệp xây nhà kính nhiệt độ thấp, mục tiêu không phải làm thật nóng mà giảm thất thoát nhiệt ban đêm. Hạng mục một thay vật liệu tường, hạng mục hai thêm lớp giữ nhiệt di động trên mái, hạng mục ba dùng cảm biến ghi nhiệt ở các vị trí.",
+                        "pinyin": "Nóngyè xuéxiào jiàn le yí zuò dīwēn wēnshì, mùbiāo bú shì bǎ shìnèi biàn de hěn rè, ér shì jiǎnshǎo yèjiān rèliàng liúshī. Dì yī ge jìshù xiàngmù gēnghuàn qiángmiàn cáiliào, dì èr xiàng zài wūdǐng jiā kě yídòng bǎowēncéng, dì sān xiàng shǐyòng chuángǎnqì jìlù bùtóng wèizhì wēndù."
+                      },
+                      {
+                        "hanzi": "工程师负责技术设计，教师把数据用于课程，学生能够改变开关时间并观察结果。随着冬季到来，团队发现保温层在无风夜晚作用明显，但大风时墙角仍然很冷。单看平均温度会隐藏这些位置差异。",
+                        "id": "hsk4-event-agency-voice-lesson-01:source-1-1",
+                        "meaningVi": "Kỹ sư thiết kế công nghệ, giáo viên dùng dữ liệu cho môn học, sinh viên đổi giờ đóng mở và quan sát. Khi mùa đông tới, lớp giữ nhiệt hiệu quả rõ vào đêm lặng gió, nhưng góc tường vẫn lạnh khi gió mạnh. Chỉ nhìn nhiệt trung bình sẽ che khác biệt vị trí.",
+                        "pinyin": "Gōngchéngshī fùzé jìshù shèjì, jiàoshī bǎ shùjù yòng yú kèchéng, xuéshēng nénggòu gǎibiàn kāiguān shíjiān bìng guānchá jiéguǒ. Suízhe dōngjì dàolái, tuánduì fāxiàn bǎowēncéng zài wú fēng yèwǎn zuòyòng míngxiǎn, dàn dà fēng shí qiángjiǎo réngrán hěn lěng. Dān kàn píngjūn wēndù huì yǐncáng zhèxiē wèizhì chāyì."
+                      },
+                      {
+                        "hanzi": "团队没有说某一种材料解决了全部问题，而是把设计、教学和维护责任分开。下一步将比较不同墙角材料，并保留原传感器作为对照。这个项目说明技术不是一个设备名称，而是材料、测量、操作和角色共同形成的系统。",
+                        "id": "hsk4-event-agency-voice-lesson-01:source-1-2",
+                        "meaningVi": "Nhóm không nói một vật liệu giải mọi vấn đề mà tách trách nhiệm thiết kế, dạy và bảo trì. Bước sau so vật liệu góc tường và giữ cảm biến cũ làm đối chứng. Dự án cho thấy công nghệ không chỉ là tên thiết bị, mà là hệ vật liệu, đo, thao tác và vai trò.",
+                        "pinyin": "Tuánduì méiyǒu shuō mǒu yì zhǒng cáiliào jiějué le quánbù wèntí, ér shì bǎ shèjì, jiàoxué hé wéihù zérèn fēnkāi. Xià yí bù jiāng bǐjiào bùtóng qiángjiǎo cáiliào, bìng bǎoliú yuán chuángǎnqì zuòwéi duìzhào. Zhè ge xiàngmù shuōmíng jìshù bú shì yí ge shèbèi míngchēng, ér shì cáiliào, cèliáng, cāozuò hé juésè gòngtóng xíngchéng de xìtǒng."
+                      }
+                    ]
+                  },
+                  "title": "Nhà kính nhiệt độ thấp dùng những công nghệ nào"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Nhà kính nhiệt độ thấp dùng những công nghệ nào"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Hai đoạn đầu nêu trực tiếp ba nhóm, loại quan sát và việc trạm đặt chúng vào cùng bản đồ vai trò. Giới hạn: Dữ kiện không nói ba loại tri thức có độ chính xác bằng nhau hoặc nhóm nào có quyền quyết định cuối cùng.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Trạm bảo vệ đặt bằng chứng của nhà nghiên cứu, kiểm lâm và cư dân lên cùng một bản đồ vai trò.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Hai đoạn đầu nêu trực tiếp ba nhóm, loại quan sát và việc trạm đặt chúng vào cùng bản đồ vai trò.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Hai đoạn đầu nêu trực tiếp ba nhóm, loại quan sát và việc trạm đặt chúng vào cùng bản đồ vai trò.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "保护站把研究员、护林员和居民的证据放在同一张角色图上。\nTrạm bảo vệ đặt bằng chứng của nhà nghiên cứu, kiểm lâm và cư dân lên cùng một bản đồ vai trò.\nĐối chiếu Nguồn A · đoạn 1, 2 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn chỉ cho cảm biến ghi chênh lệch vị trí và nhóm còn phải thử vật liệu; không hề bảo đảm giải quyết mọi vấn đề. Giới hạn: Có thể nói đo lường hỗ trợ phát hiện vấn đề, không thể nói một thiết bị tự tạo ra giải pháp hay kỹ sư là tác nhân duy nhất.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Trong nhà kính nhiệt độ thấp, chỉ cần dùng cảm biến thì mọi vấn đề vật liệu đều sẽ được kỹ sư giải quyết.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Có thể nói đo lường hỗ trợ phát hiện vấn đề, không thể nói một thiết bị tự tạo ra giải pháp hay kỹ sư là tác nhân duy nhất.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn chỉ cho cảm biến ghi chênh lệch vị trí và nhóm còn phải thử vật liệu; không hề bảo đảm giải quyết mọi vấn đề.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "低温温室里只要使用传感器，任何材料问题都会被工程师解决。\nTrong nhà kính nhiệt độ thấp, chỉ cần dùng cảm biến thì mọi vấn đề vật liệu đều sẽ được kỹ sư giải quyết.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n研究员核对温度，护林员检查游客路线，居民提供旧照片。三方证据让保护站看到温度与花期同时变化，但游客是否造成影响仍然不能确定。\nNhà nghiên cứu đối chiếu nhiệt độ, kiểm lâm kiểm tra tuyến khách và cư dân cung cấp ảnh cũ. Bằng chứng ba bên giúp trạm thấy nhiệt độ và mùa hoa cùng đổi, nhưng vẫn chưa xác định được khách du lịch có gây tác động hay không.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại cách ba nhóm tạo bằng chứng và giới hạn kết luận về hoa nở sớm, giữ rõ ai quan sát việc gì.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Ba nhóm cung cấp ba loại bằng chứng khác nhau.",
+                        "id": "point-0",
+                        "label": "Ba nhóm cung cấp ba loại bằng chứng khác nhau."
+                      },
+                      {
+                        "guidance": "Nhiệt độ và mùa hoa được mô tả là cùng thay đổi.",
+                        "id": "point-1",
+                        "label": "Nhiệt độ và mùa hoa được mô tả là cùng thay đổi."
+                      },
+                      {
+                        "guidance": "Tác động của khách du lịch vẫn chưa chắc chắn.",
+                        "id": "point-2",
+                        "label": "Tác động của khách du lịch vẫn chưa chắc chắn."
+                      },
+                      {
+                        "guidance": "Không gán quan hệ nhân quả cho nhiệt độ hay khách, không nói một nhóm đã chứng minh toàn bộ hiện tượng.",
+                        "id": "point-3",
+                        "label": "Không gán quan hệ nhân quả cho nhiệt độ hay khách, không nói một nhóm đã chứng minh toàn bộ hiện tượng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại cách ba nhóm tạo bằng chứng và giới hạn kết luận về hoa nở sớm, giữ rõ ai quan sát việc gì.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n工程师设计材料和保温层，教师把测量用于课程，学生调整开关时间。无风夜晚保温效果明显，大风时墙角仍冷，所以团队还要比较材料并保留原传感器作对照。\nKỹ sư thiết kế vật liệu và lớp giữ nhiệt, giáo viên đưa phép đo vào môn học, sinh viên điều chỉnh giờ đóng mở. Đêm lặng gió cho hiệu quả rõ, nhưng góc tường vẫn lạnh khi gió mạnh, nên nhóm còn phải so vật liệu và giữ cảm biến cũ làm đối chứng.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase hệ thống nhà kính bằng câu chủ động rõ tác nhân, giữ điều kiện gió và phần việc chưa hoàn thành.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Kỹ sư, giáo viên và sinh viên đảm nhiệm các hành động khác nhau.",
+                        "id": "point-0",
+                        "label": "Kỹ sư, giáo viên và sinh viên đảm nhiệm các hành động khác nhau."
+                      },
+                      {
+                        "guidance": "Hiệu quả thay đổi theo điều kiện gió.",
+                        "id": "point-1",
+                        "label": "Hiệu quả thay đổi theo điều kiện gió."
+                      },
+                      {
+                        "guidance": "Nhóm còn một thử nghiệm vật liệu có đối chứng.",
+                        "id": "point-2",
+                        "label": "Nhóm còn một thử nghiệm vật liệu có đối chứng."
+                      },
+                      {
+                        "guidance": "Không nói lớp giữ nhiệt hiệu quả trong mọi điều kiện hoặc dự án đã tìm ra vật liệu tốt nhất.",
+                        "id": "point-3",
+                        "label": "Không nói lớp giữ nhiệt hiệu quả trong mọi điều kiện hoặc dự án đã tìm ra vật liệu tốt nhất."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase hệ thống nhà kính bằng câu chủ động rõ tác nhân, giữ điều kiện gió và phần việc chưa hoàn thành.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "把 đưa đối tượng xác định lên trước động từ và nói xử lý nó ra sao. Với động từ đơn âm tiết, 看看/看一看 thường là xem một chút hoặc lời nhờ nhẹ; 看了看 là đã xem một chút. Không đồng nhất với 看了又看 là xem đi xem lại nhiều lần. Phủ định hoặc động từ năng nguyện đặt trước 把: 没把、请把、可以把. Không dùng động từ tri giác/trạng thái bất kỳ như 把他知道; cần hành động tác động phù hợp.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "把 + đối tượng + động từ lặp: thử hoặc làm một chút"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "请把这段话读一读。",
+                  "pinyin": "Qǐng bǎ zhè duàn huà dú yi dú.",
+                  "meaningVi": "Hãy đọc thử đoạn này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "我把那张照片看了看。",
+                  "pinyin": "Wǒ bǎ nà zhāng zhàopiàn kàn le kàn.",
+                  "meaningVi": "Tôi đã xem qua tấm ảnh ấy.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "他把合同看了又看。",
+                  "pinyin": "Tā bǎ hétong kàn le yòu kàn.",
+                  "meaningVi": "Anh xem đi xem lại hợp đồng.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "把 + đối tượng + động từ lặp: thử hoặc làm một chút"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:practice",
+              "title": "Khảo Luyện · 把 + đối tượng + động từ lặp: thử hoặc làm một chút",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "看了看 khác 看了又看 ở điểm nào?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Cả hai bắt buộc xem nhiều lần như nhau",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "看了看 thường xem qua; 看了又看 nhấn lặp nhiều lần",
+                        "feedback": "了 trong 看了看 ghi hành động đã làm; 又 trong 看了又看 nhấn lặp."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "看了看 chưa xem lần nào",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "了 trong 看了看 ghi hành động đã làm; 又 trong 看了又看 nhấn lặp.",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + động từ lặp: thử hoặc làm một chút",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Chọn lời nhờ dùng 把 tự nhiên.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "请把这段话读一读。",
+                        "feedback": "Đối tượng xác định 这段话 đứng sau 把, tiếp đến động từ lặp."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "请这段话把读。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "请把知道这段话。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Đối tượng xác định 这段话 đứng sau 把, tiếp đến động từ lặp.",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + động từ lặp: thử hoặc làm một chút",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "Nếu nguồn chỉ nói kiểm hồ sơ, có tự viết 查了又查 như dữ kiện không?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Có, vì cùng là kiểm",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Có, vì câu dài hơn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Không; đã thêm nhiều lần kiểm",
+                        "feedback": "Số lần/thời lượng hành động cũng là nội dung, không tự thêm để vừa cấu trúc."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Số lần/thời lượng hành động cũng là nội dung, không tự thêm để vừa cấu trúc.",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + động từ lặp: thử hoặc làm một chút",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:0:transfer",
+              "title": "Vận dụng · 把 + đối tượng + động từ lặp: thử hoặc làm một chút",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n请把这个表看一看。我把那封信读了读。\nQǐng bǎ zhè ge biǎo kàn yi kàn. Wǒ bǎ nà fēng xìn dú le dú.\nHãy xem thử bảng này. Tôi đã đọc qua lá thư ấy.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "把 + đối tượng + động từ lặp: thử hoặc làm một chút",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Đối tượng được xác định: bảng này, thư ấy.",
+                        "guidance": "Đối tượng được xác định: bảng này, thư ấy."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "看一看 là lời nhờ, 读了读 là việc đã làm.",
+                        "guidance": "看一看 là lời nhờ, 读了读 là việc đã làm."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không biến hành động ngắn thành nhiều lần kiểm kỹ.",
+                        "guidance": "Không biến hành động ngắn thành nhiều lần kiểm kỹ."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Ở tình huống mới, bạn nhờ đồng nghiệp xem thử bảng này; sau đó kể mình đã đọc qua thư đó. Dùng một câu 请把…看一看 và một câu 把…读了读.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Một số động từ có thể đứng với 了 sau 把 để nói xử lý đối tượng xong: 把旧报纸卖了、把门关了. Không suy rằng mọi động từ cứ thêm 了 là tự nhiên; thường cần kết quả/hướng/nơi chốn rõ: 把报告写完了、把书放在桌上了. Phủ định đã làm dùng 没(有) trước 把 và thường bỏ 了: 我没把门关上. 了 đọc le ở đây, khác liǎo trong khả năng 做得了. Hoàn tất một thao tác không chứng minh toàn bộ dự án thành công.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "把……V了: đối tượng đã được xử lý"
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "我把旧报纸卖了。",
+                  "pinyin": "Wǒ bǎ jiù bàozhǐ mài le.",
+                  "meaningVi": "Tôi bán chỗ báo cũ rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "她把报告写完了。",
+                  "pinyin": "Tā bǎ bàogào xiě wán le.",
+                  "meaningVi": "Cô ấy viết xong báo cáo rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "我没把门关上。",
+                  "pinyin": "Wǒ méi bǎ mén guān shàng.",
+                  "meaningVi": "Tôi chưa đóng cửa lại.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "把……V了: đối tượng đã được xử lý"
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:practice",
+              "title": "Khảo Luyện · 把……V了: đối tượng đã được xử lý",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Chọn vị trí phủ định việc chưa đóng cửa.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "我把没门关上。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "我没把门关上。",
+                        "feedback": "没 đứng trước 把 để phủ định hành động hoàn tất."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "我把门没了关。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "没 đứng trước 把 để phủ định hành động hoàn tất.",
+                    "learningTarget": {
+                      "objective": "把……V了: đối tượng đã được xử lý",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "“把报告写完了” cho biết gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Mọi kết luận báo cáo chắc chắn đúng",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Dự án chắc chắn thành công",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Đã viết xong báo cáo",
+                        "feedback": "Hoàn thành viết không tự chứng minh tính đúng của kết luận."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Hoàn thành viết không tự chứng minh tính đúng của kết luận.",
+                    "learningTarget": {
+                      "objective": "把……V了: đối tượng đã được xử lý",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:question:2",
+                  "kind": "activity",
+                  "title": "Đối chiếu 3",
+                  "body": "了 trong 卖了 và 了 trong 卖得了 lần lượt đọc gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "le / liǎo",
+                        "feedback": "Thể hoàn thành dùng le; bổ ngữ khả năng 得了 dùng liǎo."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "liǎo / le",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "đều dé",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Thể hoàn thành dùng le; bổ ngữ khả năng 得了 dùng liǎo.",
+                    "learningTarget": {
+                      "objective": "把……V了: đối tượng đã được xử lý",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-event-agency-voice-lesson-01:focus-ba-r47:1:transfer",
+              "title": "Vận dụng · 把……V了: đối tượng đã được xử lý",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n我把灯关了，但还没把窗户关上。\nWǒ bǎ dēng guān le, dàn hái méi bǎ chuānghu guān shàng.\nTôi tắt đèn rồi nhưng chưa đóng cửa sổ.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "把……V了: đối tượng đã được xử lý",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-event-agency-voice-lesson-01",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Giữ người thực hiện là tôi.",
+                        "guidance": "Giữ người thực hiện là tôi."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "关了 với đèn đã tắt; 还没把… với cửa chưa đóng.",
+                        "guidance": "关了 với đèn đã tắt; 还没把… với cửa chưa đóng."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm 了 vào cuối câu phủ định hoàn thành này.",
+                        "guidance": "Không thêm 了 vào cuối câu phủ định hoàn thành này."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn đã tắt đèn nhưng chưa đóng cửa sổ. Viết hai câu 把, một câu khẳng định đã làm và một câu phủ định; không đổi người thực hiện.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n保护站让研究员记录温度和花期，让护林员检查游客路线，也请居民提供长期记忆与旧照片。三类证据被放进同一张角色图后，团队只能确认温度与开放时间同时变化，不能确定游客影响。低温温室也把责任分开：工程师设计，教师使用数据教学，学生改变操作时间。保温层在无风夜晚效果明显，大风时墙角仍冷。两个项目都说明，明确谁收集、谁操作和谁解释证据，可以防止把一次观察写成完整答案；材料比较与影响判断仍待后续完成。\nTrạm bảo vệ giao nhà nghiên cứu ghi nhiệt độ và mùa hoa, kiểm lâm kiểm tuyến khách, cư dân cung cấp ký ức dài hạn và ảnh cũ. Bản đồ vai trò chỉ cho phép xác nhận nhiệt độ và mùa hoa cùng đổi, chưa xác định tác động khách. Nhà kính cũng tách kỹ sư thiết kế, giáo viên dùng dữ liệu và sinh viên đổi thao tác. Lớp giữ nhiệt hiệu quả khi lặng gió nhưng góc tường còn lạnh lúc gió mạnh. Cả hai cho thấy gọi đúng người thu thập, thao tác và diễn giải giúp tránh biến một quan sát thành đáp án toàn diện; so vật liệu và xét tác động còn phải tiếp tục.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách hai dự án phân công tác nhân, xử lý bằng chứng và giới hạn kết luận; phải nêu ít nhất một việc đã làm và một việc còn bỏ ngỏ.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "ba nguồn bằng chứng tại trạm bảo vệ",
+                        "id": "criterion-0",
+                        "label": "ba nguồn bằng chứng tại trạm bảo vệ"
+                      },
+                      {
+                        "guidance": "kết luận giới hạn về hoa và nhiệt độ",
+                        "id": "criterion-1",
+                        "label": "kết luận giới hạn về hoa và nhiệt độ"
+                      },
+                      {
+                        "guidance": "ba vai trò trong nhà kính",
+                        "id": "criterion-2",
+                        "label": "ba vai trò trong nhà kính"
+                      },
+                      {
+                        "guidance": "điều kiện gió và thử nghiệm tiếp theo",
+                        "id": "criterion-3",
+                        "label": "điều kiện gió và thử nghiệm tiếp theo"
+                      },
+                      {
+                        "guidance": "Không nói nhiệt độ gây hoa nở sớm, cảm biến giải quyết vấn đề hoặc một vai trò có toàn quyền kết luận.",
+                        "id": "criterion-4",
+                        "label": "Không nói nhiệt độ gây hoa nở sớm, cảm biến giải quyết vấn đề hoặc một vai trò có toàn quyền kết luận."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách hai dự án phân công tác nhân, xử lý bằng chứng và giới hạn kết luận; phải nêu ít nhất một việc đã làm và một việc còn bỏ ngỏ.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n科学项目需要专家负责方法，却不应让一种声音代替现场证据。保护站中，研究员能够比较温度记录，护林员看到路线变化，居民补充旧照片。把三类材料合在一起后，团队仍只说温度和花期同时变化，没有把游客写成确定原因。温室项目也显示工程师、教师和学生承担不同任务：设计决定测什么，教学和操作帮助发现墙角在大风时仍冷。有人认为只有专家作结论，责任才清楚，也能避免个人记忆影响判断。这个担心合理，测量方法和报告应由受训人员核查；但是，核查不等于删除护林员、居民或学生观察。更好的制度是标出每项证据的提供者、方法和限制，再由明确负责的团队综合说明。两份材料都来自单一地点，不能证明这种分工适合所有项目，但支持明确记录分工和证据来源的建议。\nDự án khoa học cần chuyên gia chịu trách nhiệm phương pháp, nhưng không nên để một tiếng nói chuyên môn thay mọi bằng chứng hiện trường. Ở trạm núi, nhà nghiên cứu so nhiệt độ, kiểm lâm thấy thay đổi tuyến hằng ngày, cư dân bổ sung ảnh cũ; tổng hợp vẫn chỉ cho phép nói nhiệt độ và mùa hoa cùng đổi. Nhà kính cũng cho thấy thiết kế, dạy học và thao tác phát hiện các mặt khác nhau. Ý kiến giao chuyên gia kết luận để rõ trách nhiệm là hợp lý, nên phương pháp và báo cáo phải được người có đào tạo kiểm. Tuy nhiên, kiểm không có nghĩa xóa quan sát của cộng đồng. Cần ghi người cung cấp, phương pháp và giới hạn rồi để nhóm chịu trách nhiệm tổng hợp. Hai địa điểm chưa chứng minh mô hình phù hợp mọi dự án.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận: một dự án khoa học cộng đồng nên giao quyền kết luận cho chuyên gia hay phân chia quyền diễn giải giữa nhiều tác nhân?",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm phân biệt chuyên môn và quyền kết luận",
+                        "id": "criterion-0",
+                        "label": "luận điểm phân biệt chuyên môn và quyền kết luận"
+                      },
+                      {
+                        "guidance": "vai trò của nghiên cứu viên, kiểm lâm và cư dân",
+                        "id": "criterion-1",
+                        "label": "vai trò của nghiên cứu viên, kiểm lâm và cư dân"
+                      },
+                      {
+                        "guidance": "vai trò kỹ sư, giáo viên và sinh viên",
+                        "id": "criterion-2",
+                        "label": "vai trò kỹ sư, giáo viên và sinh viên"
+                      },
+                      {
+                        "guidance": "phản biện về trách nhiệm chuyên gia",
+                        "id": "criterion-3",
+                        "label": "phản biện về trách nhiệm chuyên gia"
+                      },
+                      {
+                        "guidance": "giới hạn từ hai dự án địa phương",
+                        "id": "criterion-4",
+                        "label": "giới hạn từ hai dự án địa phương"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Giao một chuyên gia toàn quyền kết luận có thể làm trách nhiệm rõ hơn và giảm ảnh hưởng của ký ức hay quan sát không chuẩn hóa.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất cơ chế phân vai và kiểm chứng minh bạch; hai nguồn không xác định mô hình quản trị tối ưu cho mọi dự án khoa học.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất cơ chế phân vai và kiểm chứng minh bạch; hai nguồn không xác định mô hình quản trị tối ưu cho mọi dự án khoa học."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận: một dự án khoa học cộng đồng nên giao quyền kết luận cho chuyên gia hay phân chia quyền diễn giải giữa nhiều tác nhân?\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n先问报告中的记录、检查和旧照片分别由谁提供。\n再区分工程师设计、教师使用数据和学生改变操作。\n专家应核查方法，但不能把其他人的现场证据写成自己的发现。\n用“把”句改写报告时，要让读者看清谁执行动作；上下文明确时可以省略主语。\n目前不能说游客造成花期变化，也不能说材料问题已经解决。\nTrước hết hỏi ai cung cấp hồ sơ, kiểm tra và ảnh cũ.\nTách việc kỹ sư thiết kế, giáo viên dùng dữ liệu và sinh viên thao tác.\nChuyên gia nên kiểm phương pháp nhưng không nhận bằng chứng hiện trường của người khác thành phát hiện riêng.\nKhi dùng câu 把 viết lại báo cáo, cần làm rõ ai thực hiện; có thể lược chủ ngữ khi ngữ cảnh đã rõ.\nHiện chưa thể nói khách gây đổi mùa hoa hay vấn đề vật liệu đã được giải quyết.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Bảo vệ một quy tắc giúp người nghe nhận ra tác nhân bị ẩn khi báo cáo kết quả khoa học cộng đồng. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-event-agency-voice-lesson-01",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "gọi tên người thu thập từng loại bằng chứng",
+                        "id": "move-0",
+                        "label": "gọi tên người thu thập từng loại bằng chứng"
+                      },
+                      {
+                        "guidance": "tách người thao tác khỏi người diễn giải",
+                        "id": "move-1",
+                        "label": "tách người thao tác khỏi người diễn giải"
+                      },
+                      {
+                        "guidance": "đối đáp ý kiến chỉ chuyên gia mới đáng tin",
+                        "id": "move-2",
+                        "label": "đối đáp ý kiến chỉ chuyên gia mới đáng tin"
+                      },
+                      {
+                        "guidance": "nêu một kết luận chưa được phép đưa ra",
+                        "id": "move-3",
+                        "label": "nêu một kết luận chưa được phép đưa ra"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bảo vệ một quy tắc giúp người nghe nhận ra tác nhân bị ẩn khi báo cáo kết quả khoa học cộng đồng.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "research",
+                        "label": "线索一",
+                        "meaningVi": "Đo định kỳ và so theo năm.",
+                        "note": "Nghiên cứu viên · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "ranger",
+                        "label": "线索二",
+                        "meaningVi": "Theo dõi tuyến và tác động hiện trường.",
+                        "note": "Kiểm lâm · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "resident",
+                        "label": "线索三",
+                        "meaningVi": "Cung cấp ký ức và ảnh dài hạn.",
+                        "note": "Cư dân · đối chiếu đoạn 1, 3",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "event",
+                        "label": "线索四",
+                        "meaningVi": "Một loài hoa nở sớm.",
+                        "note": "Hiện tượng · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "limit",
+                        "label": "线索五",
+                        "meaningVi": "Chưa xác định tác động du khách.",
+                        "note": "Giới hạn · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-nature-technology-explanation-concept-actor-map; revision ff1f6a1b-5277-4253-a6f6-0f112c847648; humanReviewed:false",
+                  "title": "Bản đồ vai trò tại trạm bảo vệ thực vật núi cao"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "goal",
+                        "label": "线索一",
+                        "meaningVi": "Giảm thất thoát nhiệt ban đêm.",
+                        "note": "Mục tiêu · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "components",
+                        "label": "线索二",
+                        "meaningVi": "Tường, mái và cảm biến.",
+                        "note": "Hạng mục · đối chiếu đoạn 1",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "roles",
+                        "label": "线索三",
+                        "meaningVi": "Kỹ sư, giáo viên và sinh viên.",
+                        "note": "Vai trò · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "finding",
+                        "label": "线索四",
+                        "meaningVi": "Gió làm góc tường lạnh.",
+                        "note": "Phát hiện · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "next",
+                        "label": "线索五",
+                        "meaningVi": "So vật liệu góc bằng hệ đo cũ.",
+                        "note": "Bước tiếp · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-event-agency-voice-lesson-01:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-nature-technology-explanation-concept-actor-map; revision ff1f6a1b-5277-4253-a6f6-0f112c847648; humanReviewed:false",
+                  "title": "Nhà kính nhiệt độ thấp dùng những công nghệ nào"
+                }
+              ],
+              "id": "hsk4-event-agency-voice-lesson-01:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "88cc06a9-5d65-4e57-b1db-cde1b2b55f4c",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng tách dữ kiện và diễn giải để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-stance-comparison-rhetoric-lesson-05"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-055",
+          "hsk4-grammar-row-056"
+        ],
+        "sourceLessonIds": [
+          "hsk4-event-agency-voice-lesson-01",
+          "hsk4-nature-technology-explanation-concept-actor-map"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-18"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01014",
+          "hsk-vocab-01130",
+          "hsk-vocab-01286",
+          "hsk-vocab-01949",
+          "hsk-vocab-01981",
+          "hsk-vocab-01061",
+          "hsk-vocab-01331",
+          "hsk-vocab-01532",
+          "hsk-vocab-01710",
+          "hsk-vocab-01810"
+        ],
+        "targetLessonId": "hsk4-event-agency-voice-lesson-01",
+        "titleZh": "HSK四级 · 48",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "8b3ef65f-ef12-471f-9099-866be0c6e68f"
+        },
+        "vocabulary": [
+          "hsk-vocab-01014",
+          "hsk-vocab-01130",
+          "hsk-vocab-01286",
+          "hsk-vocab-01949",
+          "hsk-vocab-01981",
+          "hsk-vocab-01061",
+          "hsk-vocab-01331",
+          "hsk-vocab-01532",
+          "hsk-vocab-01710",
+          "hsk-vocab-01810"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 2,
+          "netPages": 4
+        }
+      ]
+    },
+    {
+      "sourceRevisionId": "073aa223-4361-4984-8a48-9aede156785a",
+      "sourceContentSha256": "sha256:053fd65c52a8291908cb1781fce3d239076336dc7f05a762919782eecf1d4cd9",
+      "sourceWorkflowState": "published",
+      "content": {
+        "checkpointVi": "luận điểm kết hợp ý nghĩa và điều kiện dùng\nhai bối cảnh của “慢工出细活”\nbốn lớp trong thảo luận bánh trung thu\nphản biện về nhu cầu một lời giải thích ngắn, dễ nhớ\ngiới hạn lớp học, cộng đồng và theo dõi dài hạn",
+        "conceptVi": "Viết kết luận có giới hạn: Tổ chức thông tin song song, trình tự, tăng tiến và lựa chọn bằng liên từ cùng dấu hiệu liên kết diễn ngôn.",
+        "dialogue": [
+          {
+            "hanzi": "语言课讨论“慢工出细活”。一组认为它鼓励认真准备，另一组相反，担心它被用来反对及时行动。教师要求两组互相引用具体情境，而不是只重复自己的态度；另外还要说明谁说、对谁说。",
+            "meaningVi": "Lớp ngôn ngữ bàn câu 'làm chậm cho sản phẩm tinh'. Một nhóm cho rằng nó khích lệ chuẩn bị kỹ, nhóm khác ngược lại lo câu này bị dùng để phản đối hành động kịp thời. Giáo viên yêu cầu hai nhóm dẫn tình huống cụ thể của nhau, không chỉ lặp thái độ; ngoài ra phải nói ai nói với ai.",
+            "pinyin": "Yǔyánkè tǎolùn “màn gōng chū xì huó”. Yì zǔ rènwéi tā gǔlì rènzhēn zhǔnbèi, lìng yì zǔ xiāngfǎn, dānxīn tā bèi yòng lái fǎnduì jíshí xíngdòng. Jiàoshī yāoqiú liǎng zǔ hùxiāng yǐnyòng jùtǐ qíngjìng, ér bú shì zhǐ chóngfù zìjǐ de tàidu; lìngwài hái yào shuōmíng shéi shuō, duì shéi shuō.",
+            "speaker": "Nguồn A · đoạn 1"
+          },
+          {
+            "hanzi": "在学习手工时，这句话帮助学生尊重长期练习；在事故处理会上，同样的话却可能成为拖延理由。俗语本身没有自动决定行动，它的作用来自场景、说话者权力和听者需要。解释差异不是谁不懂中文，而是使用条件不同。",
+            "meaningVi": "Khi học thủ công, câu này giúp học sinh tôn trọng luyện tập dài; trong họp xử lý sự cố, cùng câu có thể thành lý do trì hoãn. Tục ngữ không tự quyết hành động; tác dụng đến từ bối cảnh, quyền lực người nói và nhu cầu người nghe. Khác biệt diễn giải không phải ai không hiểu tiếng Trung mà do điều kiện dùng khác.",
+            "pinyin": "Zài xuéxí shǒugōng shí, zhè jù huà bāngzhù xuéshēng zūnzhòng chángqī liànxí; zài shìgù chǔlǐhuì shàng, tóngyàng de huà què kěnéng chéngwéi tuōyán lǐyóu. Súyǔ běnshēn méiyǒu zìdòng juédìng xíngdòng, tā de zuòyòng láizì chǎngjǐng, shuōhuàzhě quánlì hé tīngzhě xūyào. Jiěshì chāyì bú shì shéi bù dǒng Zhōngwén, ér shì shǐyòng tiáojiàn bùtóng.",
+            "speaker": "Nguồn A · đoạn 2"
+          },
+          {
+            "hanzi": "课程最后建立角色图：说话者提出价值，听者判断风险，主持人记录场景。学生可以接受俗语的文化意义，也可以批评不合适的使用。尊重传统与分析权力并不相反，但一次课堂讨论不能代表各地所有理解。",
+            "meaningVi": "Cuối khóa lập bản đồ vai trò: người nói nêu giá trị, người nghe đánh giá rủi ro, chủ trì ghi bối cảnh. Học sinh có thể nhận ý nghĩa văn hóa và phê bình cách dùng không hợp. Tôn trọng truyền thống không trái phân tích quyền lực, nhưng một lớp không đại diện mọi cách hiểu địa phương.",
+            "pinyin": "Kèchéng zuìhòu jiànlì juésètú: shuōhuàzhě tíchū jiàzhí, tīngzhě pànduàn fēngxiǎn, zhǔchírén jìlù chǎngjǐng. Xuéshēng kěyǐ jiēshòu súyǔ de wénhuà yìyì, yě kěyǐ pīpíng bù héshì de shǐyòng. Zūnzhòng chuántǒng yǔ fēnxī quánlì bìng bù xiāngfǎn, dàn yí cì kètáng tǎolùn bù néng dàibiǎo gèdì suǒyǒu lǐjiě.",
+            "speaker": "Nguồn A · đoạn 3"
+          },
+          {
+            "hanzi": "社区健康讲座讨论月饼。营养师的目标就是减少过量糖和盐，建议看配料与份量；文化研究者关注团圆、赠礼和家庭记忆，认为月饼的价值不能只用营养数字计算。两人讨论同一种食物，却承担不同任务。",
+            "meaningVi": "Buổi sức khỏe cộng đồng bàn bánh trung thu. Mục tiêu của chuyên gia dinh dưỡng chính là giảm quá nhiều đường/muối, khuyên xem thành phần và khẩu phần; nhà nghiên cứu văn hóa chú ý đoàn viên, quà tặng, ký ức gia đình, cho rằng giá trị bánh không chỉ tính bằng số dinh dưỡng. Hai người bàn một món nhưng nhiệm vụ khác.",
+            "pinyin": "Shèqū jiànkāng jiǎngzuò tǎolùn yuèbǐng. Yíngyǎngshī de mùbiāo jiù shì jiǎnshǎo guòliàng táng hé yán, jiànyì kàn pèiliào yǔ fènliàng; wénhuà yánjiūzhě guānzhù tuányuán, zènglǐ hé jiātíng jìyì, rènwéi yuèbǐng de jiàzhí bù néng zhǐ yòng yíngyǎng shùzì jìsuàn. Liǎng rén tǎolùn tóng yì zhǒng shíwù, què chéngdān bùtóng rènwu.",
+            "speaker": "Nguồn B · đoạn 1"
+          },
+          {
+            "hanzi": "听众最初以为双方互相反对。主持人请营养师说明“少吃”不等于取消节日，也请研究者承认传统配方会随健康知识变化。讨论把选择分为食用量、配方、赠送方式和象征意义四层。",
+            "meaningVi": "Người nghe ban đầu tưởng hai bên đối lập. Chủ trì yêu cầu chuyên gia nói 'ăn ít' không phải hủy lễ, và nhà nghiên cứu thừa nhận công thức truyền thống đổi theo kiến thức sức khỏe. Thảo luận chia lựa chọn thành lượng ăn, công thức, cách tặng và ý nghĩa biểu tượng.",
+            "pinyin": "Tīngzhòng zuìchū yǐwéi shuāngfāng hùxiāng fǎnduì. Zhǔchírén qǐng yíngyǎngshī shuōmíng “shǎo chī” bù děngyú qǔxiāo jiérì, yě qǐng yánjiūzhě chéngrèn chuántǒng pèifāng huì suí jiànkāng zhīshi biànhuà. Tǎolùn bǎ xuǎnzé fēn wéi shíyòngliàng, pèifāng, zèngsòng fāngshì hé xiàngzhēng yìyì sì céng.",
+            "speaker": "Nguồn B · đoạn 2"
+          },
+          {
+            "hanzi": "讲座后，参与者更愿意选择小份，也没有减少与家人分享。结果支持健康目标和文化实践可以协调，但问卷只在一个社区完成，且没有测量长期饮食。角色图解决概念冲突，不证明所有配方都同样健康。",
+            "meaningVi": "Sau buổi nói chuyện, người tham gia sẵn sàng chọn phần nhỏ hơn mà không giảm chia sẻ gia đình. Kết quả hỗ trợ mục tiêu sức khỏe và thực hành văn hóa có thể phối hợp, nhưng khảo sát chỉ ở một cộng đồng và chưa đo ăn uống dài hạn. Bản đồ vai trò giải quyết xung đột khái niệm, không chứng minh mọi công thức đều khỏe như nhau.",
+            "pinyin": "Jiǎngzuò hòu, cānyùzhě gèng yuànyì xuǎnzé xiǎo fèn, yě méiyǒu jiǎnshǎo yǔ jiārén fēnxiǎng. Jiéguǒ zhīchí jiànkāng mùbiāo hé wénhuà shíjiàn kěyǐ xiétiáo, dàn wènjuàn zhǐ zài yí ge shèqū wánchéng, qiě méiyǒu cèliáng chángqī yǐnshí. Juésètú jiějué gàiniàn chōngtū, bù zhèngmíng suǒyǒu pèifāng dōu tóngyàng jiànkāng.",
+            "speaker": "Nguồn B · đoạn 3"
+          }
+        ],
+        "editorialCorrection": {
+          "correctedContentSha256": "sha256:c1ee60ba7a36f114a12452923a0c1fba3fec96f47fd2f6097d37a7d47635a0a7",
+          "evidenceDocument": "docs/thien-lo-redesign-review/138-REVIEW-HSK4-CULTURE-CONTEXT-ROUND45.md",
+          "humanReviewed": false,
+          "scope": "Correct six shared culture paragraphs in Pinyin and source-bound willingness, proverb rendering and malformed defense wording; preserve IDs and keys.",
+          "sourceContentSha256": "sha256:56983a2625a249600661c45372c3905dd9cdfcd04d61218c82ec26571de127eb",
+          "sourceRevisionId": "ef450d66-cdf5-4363-a227-6ac6245251fc"
+        },
+        "exercises": [
+          {
+            "answer": "语言课讨论“慢工出细活”。一组认为它鼓励认真准备，另一组相反，担心它被用来反对及时行动。教师要求两组互相引用具体情境，而不是只重复自己的态度；另外还要说明谁说、对谁说。",
+            "answerMeaningVi": "Lớp ngôn ngữ bàn câu 'làm chậm cho sản phẩm tinh'. Một nhóm cho rằng nó khích lệ chuẩn bị kỹ, nhóm khác ngược lại lo câu này bị dùng để phản đối hành động kịp thời. Giáo viên yêu cầu hai nhóm dẫn tình huống cụ thể của nhau, không chỉ lặp thái độ; ngoài ra phải nói ai nói với ai.",
+            "answerPinyin": "Yǔyánkè tǎolùn “màn gōng chū xì huó”. Yì zǔ rènwéi tā gǔlì rènzhēn zhǔnbèi, lìng yì zǔ xiāngfǎn, dānxīn tā bèi yòng lái fǎnduì jíshí xíngdòng. Jiàoshī yāoqiú liǎng zǔ hùxiāng yǐnyòng jùtǐ qíngjìng, ér bú shì zhǐ chóngfù zìjǐ de tàidu; lìngwài hái yào shuōmíng shéi shuō, duì shéi shuō.",
+            "distractors": [
+              "在学习手工时，这句话帮助学生尊重长期练习；在事故处理会上，同样的话却可能成为拖延理由。俗语本身没有自动决定行动，它的作用来自场景、说话者权力和听者需要。解释差异不是谁不懂中文，而是使用条件不同。",
+              "课程最后建立角色图：说话者提出价值，听者判断风险，主持人记录场景。学生可以接受俗语的文化意义，也可以批评不合适的使用。尊重传统与分析权力并不相反，但一次课堂讨论不能代表各地所有理解。"
+            ],
+            "explanationVi": "Đọc đúng đoạn mở đầu trước khi phân loại dữ kiện và kiểm giới hạn suy luận.",
+            "promptVi": "Chọn đoạn mở đầu nguồn A để xác định bối cảnh trước khi lập luận."
+          }
+        ],
+        "grammar": [
+          {
+            "explanationVi": "连 đặt trước phần muốn nhấn: ngay cả X cũng…; 都/也 đứng trước vị từ. Có thể nhấn chủ thể (连老师都…), tân ngữ (连午饭都没吃), hoặc cả cụm. Muốn nối 更, cần một thang so sánh hợp lý: người quen đường còn lạc thì người lần đầu tới càng dễ lạc. Không chỉ đặt hai câu bất kỳ cạnh nhau. Trong câu phủ định, dùng 连…都/也没/不…; 连 không tự mang nghĩa phủ định.",
+            "guidedPractice": {
+              "promptVi": "Đề mới: chiếc hộp nặng đến người lớn cũng thấy khó nâng; trẻ nhỏ càng khó nâng hơn. Viết câu 连…都…更…; không nói mọi trẻ đã thử nâng.",
+              "modelAnswerHanzi": "这个箱子连大人都觉得难搬，小孩子搬起来就更困难了。",
+              "modelAnswerPinyin": "Zhè ge xiāngzi lián dàren dōu juéde nán bān, xiǎoháizi bān qǐlái jiù gèng kùnnan le.",
+              "modelAnswerMeaningVi": "Hộp này ngay người lớn cũng thấy khó chuyển; trẻ nhỏ chuyển càng khó hơn."
+            },
+            "modelExample": {
+              "hanzi": "他忙得连午饭都没吃。",
+              "pinyin": "Tā máng de lián wǔfàn dōu méi chī.",
+              "meaningVi": "Anh bận đến ngay cả bữa trưa cũng chưa ăn.",
+              "speaker": "A"
+            },
+            "pattern": "连……也/都……，……更……"
+          },
+          {
+            "explanationVi": "不是A，就是B nghĩa nếu không phải A thì là B, thường nêu hai khả năng người nói khoanh vùng hoặc hai việc thường luân phiên. Người nói chưa nhất thiết biết khả năng nào đúng: 他不是在家，就是在办公室. Phân biệt 不是A，而是B đã bác A và xác định B. Không dùng 不是…就是… khi dữ kiện cho phép nhiều phương án khác mà chưa giới hạn; tránh biến vấn đề văn hóa–sức khỏe thành chỉ có hai lựa chọn.",
+            "guidedPractice": {
+              "promptVi": "Bạn biết đồng nghiệp hiện chỉ có thể ở phòng họp hoặc thư viện nhưng chưa kiểm tra. Viết hai khả năng; sau đó giả sử thấy họ ở thư viện, viết câu đính chính.",
+              "modelAnswerHanzi": "他不是在会议室，就是在图书馆。我刚看到他了，他不是在会议室，而是在图书馆。",
+              "modelAnswerPinyin": "Tā bú shì zài huìyìshì, jiù shì zài túshūguǎn. Wǒ gāng kàn dào tā le, tā bú shì zài huìyìshì, ér shì zài túshūguǎn.",
+              "modelAnswerMeaningVi": "Anh ấy nếu không ở phòng họp thì ở thư viện. Tôi vừa thấy anh rồi: không ở phòng họp mà ở thư viện."
+            },
+            "modelExample": {
+              "hanzi": "钥匙不是在包里，就是在桌上。",
+              "pinyin": "Yàoshi bú shì zài bāo lǐ, jiù shì zài zhuō shàng.",
+              "meaningVi": "Chìa khóa nếu không trong túi thì ở trên bàn.",
+              "speaker": "A"
+            },
+            "pattern": "不是……，就是……"
+          }
+        ],
+        "lessonPages": {
+          "art": "reading",
+          "pages": [
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Vận dụng viết kết luận có giới hạn để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.\nĐọc lại hai nguồn đã học; phân biệt dữ kiện, diễn giải và giả định trước khi viết.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:goal",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nhiệm vụ lập luận"
+                },
+                {
+                  "alt": "",
+                  "body": "Nguồn B hiện là transcript để đọc. Giọng đọc tổng hợp chỉ hỗ trợ luyện theo văn bản; không có điểm nghe/phát âm độc lập.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:audio-limit",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Giới hạn học liệu"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:context",
+              "layout": "focus",
+              "stage": "context",
+              "title": "Viết kết luận có giới hạn: Tổ chức thông tin song song, trình tự, tăng tiến và lựa chọn bằng liên từ cùng dấu hiệu liên kết diễn ngôn."
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:source:0",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn A và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "语言课讨论“慢工出细活”。一组认为它鼓励认真准备，另一组相反，担心它被用来反对及时行动。教师要求两组互相引用具体情境，而不是只重复自己的态度；另外还要说明谁说、对谁说。",
+                        "id": "hsk4-information-order-cohesion-lesson-05:source-0-0",
+                        "meaningVi": "Lớp ngôn ngữ bàn câu 'làm chậm cho sản phẩm tinh'. Một nhóm cho rằng nó khích lệ chuẩn bị kỹ, nhóm khác ngược lại lo câu này bị dùng để phản đối hành động kịp thời. Giáo viên yêu cầu hai nhóm dẫn tình huống cụ thể của nhau, không chỉ lặp thái độ; ngoài ra phải nói ai nói với ai.",
+                        "pinyin": "Yǔyánkè tǎolùn “màn gōng chū xì huó”. Yì zǔ rènwéi tā gǔlì rènzhēn zhǔnbèi, lìng yì zǔ xiāngfǎn, dānxīn tā bèi yòng lái fǎnduì jíshí xíngdòng. Jiàoshī yāoqiú liǎng zǔ hùxiāng yǐnyòng jùtǐ qíngjìng, ér bú shì zhǐ chóngfù zìjǐ de tàidu; lìngwài hái yào shuōmíng shéi shuō, duì shéi shuō."
+                      },
+                      {
+                        "hanzi": "在学习手工时，这句话帮助学生尊重长期练习；在事故处理会上，同样的话却可能成为拖延理由。俗语本身没有自动决定行动，它的作用来自场景、说话者权力和听者需要。解释差异不是谁不懂中文，而是使用条件不同。",
+                        "id": "hsk4-information-order-cohesion-lesson-05:source-0-1",
+                        "meaningVi": "Khi học thủ công, câu này giúp học sinh tôn trọng luyện tập dài; trong họp xử lý sự cố, cùng câu có thể thành lý do trì hoãn. Tục ngữ không tự quyết hành động; tác dụng đến từ bối cảnh, quyền lực người nói và nhu cầu người nghe. Khác biệt diễn giải không phải ai không hiểu tiếng Trung mà do điều kiện dùng khác.",
+                        "pinyin": "Zài xuéxí shǒugōng shí, zhè jù huà bāngzhù xuéshēng zūnzhòng chángqī liànxí; zài shìgù chǔlǐhuì shàng, tóngyàng de huà què kěnéng chéngwéi tuōyán lǐyóu. Súyǔ běnshēn méiyǒu zìdòng juédìng xíngdòng, tā de zuòyòng láizì chǎngjǐng, shuōhuàzhě quánlì hé tīngzhě xūyào. Jiěshì chāyì bú shì shéi bù dǒng Zhōngwén, ér shì shǐyòng tiáojiàn bùtóng."
+                      },
+                      {
+                        "hanzi": "课程最后建立角色图：说话者提出价值，听者判断风险，主持人记录场景。学生可以接受俗语的文化意义，也可以批评不合适的使用。尊重传统与分析权力并不相反，但一次课堂讨论不能代表各地所有理解。",
+                        "id": "hsk4-information-order-cohesion-lesson-05:source-0-2",
+                        "meaningVi": "Cuối khóa lập bản đồ vai trò: người nói nêu giá trị, người nghe đánh giá rủi ro, chủ trì ghi bối cảnh. Học sinh có thể nhận ý nghĩa văn hóa và phê bình cách dùng không hợp. Tôn trọng truyền thống không trái phân tích quyền lực, nhưng một lớp không đại diện mọi cách hiểu địa phương.",
+                        "pinyin": "Kèchéng zuìhòu jiànlì juésètú: shuōhuàzhě tíchū jiàzhí, tīngzhě pànduàn fēngxiǎn, zhǔchírén jìlù chǎngjǐng. Xuéshēng kěyǐ jiēshòu súyǔ de wénhuà yìyì, yě kěyǐ pīpíng bù héshì de shǐyòng. Zūnzhòng chuántǒng yǔ fēnxī quánlì bìng bù xiāngfǎn, dàn yí cì kètáng tǎolùn bù néng dàibiǎo gèdì suǒyǒu lǐjiě."
+                      }
+                    ]
+                  },
+                  "title": "Vì sao cùng một tục ngữ có diễn giải trái ngược"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:source:0",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn A · Vì sao cùng một tục ngữ có diễn giải trái ngược"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:source:1",
+                  "imageSrc": "",
+                  "kind": "reading",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "reading": {
+                    "instruction": "Đọc lại ba đoạn nguồn B và ghi dữ kiện cho bài tóm tắt.",
+                    "notePrompt": "Thông tin nào được nói rõ, thông tin nào chỉ là suy luận?",
+                    "paragraphs": [
+                      {
+                        "hanzi": "社区健康讲座讨论月饼。营养师的目标就是减少过量糖和盐，建议看配料与份量；文化研究者关注团圆、赠礼和家庭记忆，认为月饼的价值不能只用营养数字计算。两人讨论同一种食物，却承担不同任务。",
+                        "id": "hsk4-information-order-cohesion-lesson-05:source-1-0",
+                        "meaningVi": "Buổi sức khỏe cộng đồng bàn bánh trung thu. Mục tiêu của chuyên gia dinh dưỡng chính là giảm quá nhiều đường/muối, khuyên xem thành phần và khẩu phần; nhà nghiên cứu văn hóa chú ý đoàn viên, quà tặng, ký ức gia đình, cho rằng giá trị bánh không chỉ tính bằng số dinh dưỡng. Hai người bàn một món nhưng nhiệm vụ khác.",
+                        "pinyin": "Shèqū jiànkāng jiǎngzuò tǎolùn yuèbǐng. Yíngyǎngshī de mùbiāo jiù shì jiǎnshǎo guòliàng táng hé yán, jiànyì kàn pèiliào yǔ fènliàng; wénhuà yánjiūzhě guānzhù tuányuán, zènglǐ hé jiātíng jìyì, rènwéi yuèbǐng de jiàzhí bù néng zhǐ yòng yíngyǎng shùzì jìsuàn. Liǎng rén tǎolùn tóng yì zhǒng shíwù, què chéngdān bùtóng rènwu."
+                      },
+                      {
+                        "hanzi": "听众最初以为双方互相反对。主持人请营养师说明“少吃”不等于取消节日，也请研究者承认传统配方会随健康知识变化。讨论把选择分为食用量、配方、赠送方式和象征意义四层。",
+                        "id": "hsk4-information-order-cohesion-lesson-05:source-1-1",
+                        "meaningVi": "Người nghe ban đầu tưởng hai bên đối lập. Chủ trì yêu cầu chuyên gia nói 'ăn ít' không phải hủy lễ, và nhà nghiên cứu thừa nhận công thức truyền thống đổi theo kiến thức sức khỏe. Thảo luận chia lựa chọn thành lượng ăn, công thức, cách tặng và ý nghĩa biểu tượng.",
+                        "pinyin": "Tīngzhòng zuìchū yǐwéi shuāngfāng hùxiāng fǎnduì. Zhǔchírén qǐng yíngyǎngshī shuōmíng “shǎo chī” bù děngyú qǔxiāo jiérì, yě qǐng yánjiūzhě chéngrèn chuántǒng pèifāng huì suí jiànkāng zhīshi biànhuà. Tǎolùn bǎ xuǎnzé fēn wéi shíyòngliàng, pèifāng, zèngsòng fāngshì hé xiàngzhēng yìyì sì céng."
+                      },
+                      {
+                        "hanzi": "讲座后，参与者更愿意选择小份，也没有减少与家人分享。结果支持健康目标和文化实践可以协调，但问卷只在一个社区完成，且没有测量长期饮食。角色图解决概念冲突，不证明所有配方都同样健康。",
+                        "id": "hsk4-information-order-cohesion-lesson-05:source-1-2",
+                        "meaningVi": "Sau buổi nói chuyện, người tham gia sẵn sàng chọn phần nhỏ hơn mà không giảm chia sẻ gia đình. Kết quả hỗ trợ mục tiêu sức khỏe và thực hành văn hóa có thể phối hợp, nhưng khảo sát chỉ ở một cộng đồng và chưa đo ăn uống dài hạn. Bản đồ vai trò giải quyết xung đột khái niệm, không chứng minh mọi công thức đều khỏe như nhau.",
+                        "pinyin": "Jiǎngzuò hòu, cānyùzhě gèng yuànyì xuǎnzé xiǎo fèn, yě méiyǒu jiǎnshǎo yǔ jiārén fēnxiǎng. Jiéguǒ zhīchí jiànkāng mùbiāo hé wénhuà shíjiàn kěyǐ xiétiáo, dàn wènjuàn zhǐ zài yí ge shèqū wánchéng, qiě méiyǒu cèliáng chángqī yǐnshí. Juésètú jiějué gàiniàn chōngtū, bù zhèngmíng suǒyǒu pèifāng dōu tóngyàng jiànkāng."
+                      }
+                    ]
+                  },
+                  "title": "Muối trong bánh trung thu và giá trị văn hóa"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:source:1",
+              "layout": "focus",
+              "stage": "understand",
+              "title": "Nguồn B · Muối trong bánh trung thu và giá trị văn hóa"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "fact"
+                    ],
+                    "explanation": "Nguồn đọc đặt cùng câu vào hai tình huống cụ thể: một hỗ trợ luyện tập dài, một có thể thành lý do trì hoãn. Giới hạn: Dữ kiện không chứng minh câu tục ngữ luôn tốt trong học tập hoặc luôn xấu trong tình huống khẩn cấp.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Câu 'làm chậm cho sản phẩm tinh' có thể tạo tác dụng khác trong học thủ công và họp xử lý sự cố.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Đúng. Nguồn đọc đặt cùng câu vào hai tình huống cụ thể: một hỗ trợ luyện tập dài, một có thể thành lý do trì hoãn.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Chưa đúng. Nguồn đọc đặt cùng câu vào hai tình huống cụ thể: một hỗ trợ luyện tập dài, một có thể thành lý do trì hoãn.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "“慢工出细活”在手工学习和事故处理会上可能产生不同作用。\nCâu 'làm chậm cho sản phẩm tinh' có thể tạo tác dụng khác trong học thủ công và họp xử lý sự cố.\nĐối chiếu Nguồn A · đoạn 1, 2 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:audit:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:audit:0",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 1"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [
+                      "interpretation"
+                    ],
+                    "explanation": "Nguồn chỉ ghi người tham gia sẵn sàng chọn phần nhỏ hơn ở một cộng đồng, không đo ăn uống dài hạn và nói rõ không chứng minh mọi công thức như nhau. Giới hạn: Chỉ được nói mục tiêu sức khỏe và thực hành chia sẻ có thể phối hợp trong khảo sát này.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Người tham gia chọn phần nhỏ chứng minh mọi công thức bánh trung thu truyền thống đều lành mạnh như nhau.",
+                      "skill": "reading",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [
+                      {
+                        "feedback": "Chưa đúng. Chỉ được nói mục tiêu sức khỏe và thực hành chia sẻ có thể phối hợp trong khảo sát này.",
+                        "id": "fact",
+                        "text": "Dữ kiện được nguồn nói rõ"
+                      },
+                      {
+                        "feedback": "Đúng. Nguồn chỉ ghi người tham gia sẵn sàng chọn phần nhỏ hơn ở một cộng đồng, không đo ăn uống dài hạn và nói rõ không chứng minh mọi công thức như nhau.",
+                        "id": "interpretation",
+                        "text": "Diễn giải vượt hoặc thêm vào nguồn"
+                      }
+                    ],
+                    "rubric": [],
+                    "type": "choice"
+                  },
+                  "alt": "",
+                  "body": "参与者选择小份证明所有传统月饼配方都同样健康。\nNgười tham gia chọn phần nhỏ chứng minh mọi công thức bánh trung thu truyền thống đều lành mạnh như nhau.\nĐối chiếu Nguồn B · đoạn 1, 2, 3 trước khi chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:audit:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Dữ kiện hay diễn giải?"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:audit:1",
+              "layout": "focus",
+              "stage": "practice",
+              "title": "Phân biệt dữ kiện · 2"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n“慢工出细活”在手工课上能提醒学生长期练习，在事故会上却可能被用来拖延。作用不是由俗语自动决定，而与场景、说话者权力和听者需要有关。课堂允许尊重其文化意义，也允许批评不合适的使用，但不能代表各地解释。\n“Làm kỹ, không vội thì sản phẩm tinh xảo” có thể nhắc học sinh luyện lâu trong lớp thủ công nhưng cũng có thể bị dùng để trì hoãn ở họp sự cố. Tác dụng không do câu nói tự quyết mà phụ thuộc bối cảnh, quyền lực người nói và nhu cầu người nghe. Lớp cho phép tôn trọng ý nghĩa văn hóa và phê bình cách dùng không hợp, nhưng không đại diện mọi địa phương.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Viết lại hai cách hiểu tục ngữ, giữ vai trò bối cảnh, quyền lực người nói và giới hạn của một lớp học.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Cùng tục ngữ được đặt vào hai bối cảnh khác nhau.",
+                        "id": "point-0",
+                        "label": "Cùng tục ngữ được đặt vào hai bối cảnh khác nhau."
+                      },
+                      {
+                        "guidance": "Quan hệ người nói–người nghe ảnh hưởng cách dùng.",
+                        "id": "point-1",
+                        "label": "Quan hệ người nói–người nghe ảnh hưởng cách dùng."
+                      },
+                      {
+                        "guidance": "Thảo luận chỉ diễn ra trong một lớp học.",
+                        "id": "point-2",
+                        "label": "Thảo luận chỉ diễn ra trong một lớp học."
+                      },
+                      {
+                        "guidance": "Không tuyên bố tục ngữ vô nghĩa, nhóm nào hiểu đúng duy nhất hoặc kết quả lớp học đại diện mọi vùng.",
+                        "id": "point-3",
+                        "label": "Không tuyên bố tục ngữ vô nghĩa, nhóm nào hiểu đúng duy nhất hoặc kết quả lớp học đại diện mọi vùng."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Viết lại hai cách hiểu tục ngữ, giữ vai trò bối cảnh, quyền lực người nói và giới hạn của một lớp học.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:paraphrase:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:paraphrase:0",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Bản đối chiếu (không phải đáp án duy nhất):\n营养师关注糖、盐和份量，文化研究者关注团圆、赠礼与家庭记忆。主持人把选择分成食用量、配方、赠送方式和象征意义。讲座后参与者更愿选小份，也继续与家人分享；不过调查只来自一个社区。\nChuyên gia dinh dưỡng chú ý đường, muối và khẩu phần; nhà nghiên cứu văn hóa chú ý đoàn viên, quà tặng, ký ức gia đình. Chủ trì chia lựa chọn thành lượng ăn, công thức, cách tặng và ý nghĩa biểu tượng. Sau buổi nói, người tham gia thích phần nhỏ hơn và vẫn chia sẻ gia đình, nhưng khảo sát chỉ từ một cộng đồng.\nSửa bản đầu sau khi đối chiếu; mở mẫu không tự chứng minh kỹ năng viết.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Paraphrase cuộc trao đổi về bánh trung thu mà không biến sức khỏe và văn hóa thành hai phía loại trừ nhau.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "Hai chuyên gia có mục tiêu khác nhưng có thể phối hợp.",
+                        "id": "point-0",
+                        "label": "Hai chuyên gia có mục tiêu khác nhưng có thể phối hợp."
+                      },
+                      {
+                        "guidance": "Thảo luận phân vấn đề thành bốn lớp.",
+                        "id": "point-1",
+                        "label": "Thảo luận phân vấn đề thành bốn lớp."
+                      },
+                      {
+                        "guidance": "Không có đo lường chế độ ăn dài hạn.",
+                        "id": "point-2",
+                        "label": "Không có đo lường chế độ ăn dài hạn."
+                      },
+                      {
+                        "guidance": "Không nói ăn phần nhỏ giải quyết mọi vấn đề sức khỏe, truyền thống không đổi hoặc mọi công thức có dinh dưỡng giống nhau.",
+                        "id": "point-3",
+                        "label": "Không nói ăn phần nhỏ giải quyết mọi vấn đề sức khỏe, truyền thống không đổi hoặc mọi công thức có dinh dưỡng giống nhau."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Paraphrase cuộc trao đổi về bánh trung thu mà không biến sức khỏe và văn hóa thành hai phía loại trừ nhau.\nDẫn chứng: Nguồn B · đoạn 1, 2, 3. Viết trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:paraphrase:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lại rồi kiểm nguồn"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:paraphrase:1",
+              "layout": "workshop",
+              "stage": "practice",
+              "title": "Diễn đạt lại · nguồn B"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "连 đặt trước phần muốn nhấn: ngay cả X cũng…; 都/也 đứng trước vị từ. Có thể nhấn chủ thể (连老师都…), tân ngữ (连午饭都没吃), hoặc cả cụm. Muốn nối 更, cần một thang so sánh hợp lý: người quen đường còn lạc thì người lần đầu tới càng dễ lạc. Không chỉ đặt hai câu bất kỳ cạnh nhau. Trong câu phủ định, dùng 连…都/也没/不…; 连 không tự mang nghĩa phủ định.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:grammar-rule:0",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "连……都/也……，……更……: chọn điểm nhấn hợp lý"
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:grammar-example:0",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "他忙得连午饭都没吃。",
+                  "pinyin": "Tā máng de lián wǔfàn dōu méi chī.",
+                  "meaningVi": "Anh bận đến ngay cả bữa trưa cũng chưa ăn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:0:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "连熟悉这条路的人都会迷路，第一次来的人就更容易迷路了。",
+                  "pinyin": "Lián shúxī zhè tiáo lù de rén dōu huì mí lù, dì yī cì lái de rén jiù gèng róngyì mí lù le.",
+                  "meaningVi": "Ngay người quen đường cũng có thể lạc; người tới lần đầu lại càng dễ lạc.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:grammar:0",
+              "layout": "split",
+              "stage": "understand",
+              "title": "连……都/也……，……更……: chọn điểm nhấn hợp lý"
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:0:practice",
+              "title": "Khảo Luyện · 连……都/也……，……更……: chọn điểm nhấn hợp lý",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:0:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Trong “连午饭都没吃”, phần được nhấn là gì?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Bữa trưa cũng chưa ăn",
+                        "feedback": "连 đặt trước 午饭, 都没吃 phủ định việc ăn."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Mọi người ăn trưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Bữa trưa đã ăn hết",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "连 đặt trước 午饭, 都没吃 phủ định việc ăn.",
+                    "learningTarget": {
+                      "objective": "连……都/也……，……更……: chọn điểm nhấn hợp lý",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:0:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Cặp nào có tăng cấp hợp lý với 更?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Người quen đường còn lạc → người lần đầu càng dễ lạc",
+                        "feedback": "Hai vế cùng so mức dễ lạc theo kinh nghiệm đường đi; không nối hai đại lượng không liên quan."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Người quen đường còn lạc → giá sách càng rẻ",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Người quen đường còn lạc → hôm qua đã mưa",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "Hai vế cùng so mức dễ lạc theo kinh nghiệm đường đi; không nối hai đại lượng không liên quan.",
+                    "learningTarget": {
+                      "objective": "连……都/也……，……更……: chọn điểm nhấn hợp lý",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:0:transfer",
+              "title": "Vận dụng · 连……都/也……，……更……: chọn điểm nhấn hợp lý",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n这个箱子连大人都觉得难搬，小孩子搬起来就更困难了。\nZhè ge xiāngzi lián dàren dōu juéde nán bān, xiǎoháizi bān qǐlái jiù gèng kùnnan le.\nHộp này ngay người lớn cũng thấy khó chuyển; trẻ nhỏ chuyển càng khó hơn.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "连……都/也……，……更……: chọn điểm nhấn hợp lý",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "连大人都 nêu trường hợp làm mốc nổi bật.",
+                        "guidance": "连大人都 nêu trường hợp làm mốc nổi bật."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "更 so cùng việc chuyển chiếc hộp.",
+                        "guidance": "更 so cùng việc chuyển chiếc hộp."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không thêm rằng trẻ đã nâng hoặc bị thương.",
+                        "guidance": "Không thêm rằng trẻ đã nâng hoặc bị thương."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Đề mới: chiếc hộp nặng đến người lớn cũng thấy khó nâng; trẻ nhỏ càng khó nâng hơn. Viết câu 连…都…更…; không nói mọi trẻ đã thử nâng.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:grammar-write:0",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "不是A，就是B nghĩa nếu không phải A thì là B, thường nêu hai khả năng người nói khoanh vùng hoặc hai việc thường luân phiên. Người nói chưa nhất thiết biết khả năng nào đúng: 他不是在家，就是在办公室. Phân biệt 不是A，而是B đã bác A và xác định B. Không dùng 不是…就是… khi dữ kiện cho phép nhiều phương án khác mà chưa giới hạn; tránh biến vấn đề văn hóa–sức khỏe thành chỉ có hai lựa chọn.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:grammar-rule:1",
+                  "imageSrc": "",
+                  "kind": "explanation",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "不是……就是……: hai khả năng trong phạm vi đã biết"
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:grammar-example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 1",
+                  "body": "",
+                  "hanzi": "钥匙不是在包里，就是在桌上。",
+                  "pinyin": "Yàoshi bú shì zài bāo lǐ, jiù shì zài zhuō shàng.",
+                  "meaningVi": "Chìa khóa nếu không trong túi thì ở trên bàn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:1:example:1",
+                  "kind": "dialogue",
+                  "title": "Mẫu 2",
+                  "body": "",
+                  "hanzi": "他周末不是看书，就是散步。",
+                  "pinyin": "Tā zhōumò bú shì kàn shū, jiù shì sàn bù.",
+                  "meaningVi": "Cuối tuần anh ấy nếu không đọc sách thì đi dạo.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:1:example:2",
+                  "kind": "dialogue",
+                  "title": "Mẫu 3",
+                  "body": "",
+                  "hanzi": "钥匙不是在包里，而是在桌上。",
+                  "pinyin": "Yàoshi bú shì zài bāo lǐ, ér shì zài zhuō shàng.",
+                  "meaningVi": "Chìa khóa không ở trong túi mà ở trên bàn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:grammar:1",
+              "layout": "split",
+              "stage": "understand",
+              "title": "不是……就是……: hai khả năng trong phạm vi đã biết"
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:1:practice",
+              "title": "Khảo Luyện · 不是……就是……: hai khả năng trong phạm vi đã biết",
+              "stage": "practice",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:1:question:0",
+                  "kind": "activity",
+                  "title": "Đối chiếu 1",
+                  "body": "Câu dùng 就是 về chìa khóa đã khẳng định nó trên bàn chưa?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "Rồi, chắc chắn trên bàn",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "Chưa, đang nêu hai khả năng",
+                        "feedback": "不是…就是… khoanh hai khả năng, khác 不是…而是… xác định B."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "Rồi, cả hai nơi cùng lúc",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "不是…就是… khoanh hai khả năng, khác 不是…而是… xác định B.",
+                    "learningTarget": {
+                      "objective": "不是……就是……: hai khả năng trong phạm vi đã biết",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:1:question:1",
+                  "kind": "activity",
+                  "title": "Đối chiếu 2",
+                  "body": "Đã kiểm tra túi trống và thấy chìa khóa trên bàn. Muốn sửa thông tin sai, chọn.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "o-0",
+                        "text": "不是在包里，就是在桌上。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-1",
+                        "text": "不是在包里，而且在桌上。",
+                        "feedback": "Xác định quan hệ ý và đọc lại mẫu tương ứng."
+                      },
+                      {
+                        "id": "o-2",
+                        "text": "不是在包里，而是在桌上。",
+                        "feedback": "而是 sửa A thành B khi đã có căn cứ."
+                      }
+                    ],
+                    "answerIds": [
+                      "o-2"
+                    ],
+                    "acceptedAnswers": [],
+                    "rubric": [],
+                    "hint": "",
+                    "explanation": "而是 sửa A thành B khi đã có căn cứ.",
+                    "learningTarget": {
+                      "objective": "不是……就是……: hai khả năng trong phạm vi đã biết",
+                      "skill": "grammar",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk4-information-order-cohesion-lesson-05:focus-ba-r47:1:transfer",
+              "title": "Vận dụng · 不是……就是……: hai khả năng trong phạm vi đã biết",
+              "stage": "transfer",
+              "layout": "workshop",
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một cách diễn đạt:\n他不是在会议室，就是在图书馆。我刚看到他了，他不是在会议室，而是在图书馆。\nTā bú shì zài huìyìshì, jiù shì zài túshūguǎn. Wǒ gāng kàn dào tā le, tā bú shì zài huìyìshì, ér shì zài túshūguǎn.\nAnh ấy nếu không ở phòng họp thì ở thư viện. Tôi vừa thấy anh rồi: không ở phòng họp mà ở thư viện.\nTự đối chiếu, không phải điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "不是……就是……: hai khả năng trong phạm vi đã biết",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-pattern:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "grammar"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "id": "r-0",
+                        "label": "Câu đầu khoanh hai khả năng đã cho.",
+                        "guidance": "Câu đầu khoanh hai khả năng đã cho."
+                      },
+                      {
+                        "id": "r-1",
+                        "label": "Câu sau có căn cứ mới để dùng 而是.",
+                        "guidance": "Câu sau có căn cứ mới để dùng 而是."
+                      },
+                      {
+                        "id": "r-2",
+                        "label": "Không nói cùng lúc ở cả hai nơi.",
+                        "guidance": "Không nói cùng lúc ở cả hai nơi."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Bạn biết đồng nghiệp hiện chỉ có thể ở phòng họp hoặc thư viện nhưng chưa kiểm tra. Viết hai khả năng; sau đó giả sử thấy họ ở thư viện, viết câu đính chính.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:grammar-write:1",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết trong tình huống mới"
+                }
+              ]
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n“慢工出细活”在手工学习中鼓励长期练习，在事故处理中却可能成为拖延理由。同一句俗语也会因场景、说话者权力和听者需要而改变作用，所以尊重传统与批评使用并不矛盾。月饼讨论也不是健康与文化二选一：营养师关注糖盐和份量，研究者关注团圆与记忆，主持人再把选择分为食用量、配方、赠送和象征。参与者更愿选小份且继续分享，但结果只来自一个社区，没有长期饮食数据；课堂讨论也不能代表各地所有理解。\n“Làm kỹ, không vội thì sản phẩm tinh xảo” khuyến khích luyện lâu trong học thủ công nhưng có thể thành lý do trì hoãn khi xử lý sự cố. Ngay cùng một tục ngữ cũng đổi tác dụng theo bối cảnh, quyền lực người nói và nhu cầu người nghe, nên tôn trọng truyền thống không trái phê bình cách dùng. Bánh trung thu cũng không phải chọn sức khỏe hoặc văn hóa: chuyên gia nhìn đường–muối–khẩu phần, nhà nghiên cứu nhìn đoàn viên–ký ức, chủ trì chia thành bốn lớp lựa chọn. Người tham gia sẵn sàng chọn phần nhỏ hơn và vẫn chia sẻ, nhưng khảo sát một cộng đồng không có dữ liệu dài hạn; lớp học cũng không đại diện mọi vùng.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tóm tắt cách tục ngữ và thực phẩm truyền thống được giải thích theo bối cảnh, vai trò và nhiều lớp lựa chọn; giữ giới hạn lớp học và khảo sát.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "hai bối cảnh của tục ngữ",
+                        "id": "criterion-0",
+                        "label": "hai bối cảnh của tục ngữ"
+                      },
+                      {
+                        "guidance": "người nói, người nghe và quyền lực",
+                        "id": "criterion-1",
+                        "label": "người nói, người nghe và quyền lực"
+                      },
+                      {
+                        "guidance": "bốn lớp lựa chọn bánh trung thu",
+                        "id": "criterion-2",
+                        "label": "bốn lớp lựa chọn bánh trung thu"
+                      },
+                      {
+                        "guidance": "một lớp học, một cộng đồng và thiếu theo dõi dài hạn",
+                        "id": "criterion-3",
+                        "label": "một lớp học, một cộng đồng và thiếu theo dõi dài hạn"
+                      },
+                      {
+                        "guidance": "Không gán một nghĩa cố định cho mọi tình huống, không dựng đối lập sức khỏe–văn hóa và không mở rộng mẫu nhỏ thành quy luật chung.",
+                        "id": "criterion-4",
+                        "label": "Không gán một nghĩa cố định cho mọi tình huống, không dựng đối lập sức khỏe–văn hóa và không mở rộng mẫu nhỏ thành quy luật chung."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Tóm tắt cách tục ngữ và thực phẩm truyền thống được giải thích theo bối cảnh, vai trò và nhiều lớp lựa chọn; giữ giới hạn lớp học và khảo sát.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:summary",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết tóm tắt"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:summary",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tóm tắt hai nguồn"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Một bản để đối chiếu:\n介绍俗语与文化习惯时，教师应先说明传统意义，再分析现代使用条件。“慢工出细活”在手工学习中帮助学生尊重长期练习，在事故处理会上却可能支持拖延。实际作用还取决于谁说、对谁说，以及听者承担什么风险。月饼讨论同样说明健康与文化不是两个互相排斥的答案；食用量、配方、赠送方式和象征意义可以分别调整。有人认为固定而简短的解释更容易记，也能让初学者快速接近文化。这适合作为起点，但如果没有场景，学习者可能把建议当成命令，或把差异排成对错。课程可用一个基本意义、两个对比情境，再加关于权力和风险的问题。两份材料只来自一堂课和一个社区，不能规定各地的解释，也不能证明长期健康效果。\nKhi giới thiệu tục ngữ và tập quán, người dạy nên nêu ý nghĩa truyền thống trước rồi buộc phân tích điều kiện dùng hiện nay. “Làm kỹ, không vội thì sản phẩm tinh xảo” giúp người học thủ công tôn trọng luyện tập dài, nhưng trong họp xử lý sự cố có thể làm chậm hành động cần thiết. Nghĩa thực tế còn tùy ai nói, nói với ai và người nghe chịu rủi ro gì. Bánh trung thu cũng cho thấy sức khỏe và văn hóa không loại trừ nhau: lượng ăn, công thức, cách tặng và biểu tượng điều chỉnh riêng. Phản biện cho rằng giải thích cố định dễ nhớ và giúp người mới tiếp cận nhanh. Điều đó hữu ích ở bước đầu, nhưng bỏ bối cảnh khiến lời khuyên thành mệnh lệnh hoặc biến khác biệt thành đúng–sai. Bài học nên có nghĩa cơ bản, hai tình huống đối chiếu và câu hỏi về quyền lực/rủi ro. Hai nguồn chỉ là một lớp và một cộng đồng, không quy định mọi vùng hay sức khỏe dài hạn.\nĐối chiếu dữ kiện và sửa ít nhất một câu. Mẫu không cấp điểm viết độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Lập luận liệu khi giới thiệu tục ngữ và tập quán văn hóa, người dạy nên nhấn ý nghĩa truyền thống hay điều kiện sử dụng đương đại.",
+                      "skill": "writing",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "luận điểm kết hợp ý nghĩa và điều kiện dùng",
+                        "id": "criterion-0",
+                        "label": "luận điểm kết hợp ý nghĩa và điều kiện dùng"
+                      },
+                      {
+                        "guidance": "hai bối cảnh của “慢工出细活”",
+                        "id": "criterion-1",
+                        "label": "hai bối cảnh của “慢工出细活”"
+                      },
+                      {
+                        "guidance": "bốn lớp trong thảo luận bánh trung thu",
+                        "id": "criterion-2",
+                        "label": "bốn lớp trong thảo luận bánh trung thu"
+                      },
+                      {
+                        "guidance": "phản biện về nhu cầu một lời giải thích ngắn, dễ nhớ",
+                        "id": "criterion-3",
+                        "label": "phản biện về nhu cầu một lời giải thích ngắn, dễ nhớ"
+                      },
+                      {
+                        "guidance": "giới hạn lớp học, cộng đồng và theo dõi dài hạn",
+                        "id": "criterion-4",
+                        "label": "giới hạn lớp học, cộng đồng và theo dõi dài hạn"
+                      },
+                      {
+                        "guidance": "Ý kiến để cân nhắc: “Một định nghĩa truyền thống ngắn và ổn định giúp người mới nhớ nhanh, tránh làm bài học văn hóa quá phức tạp hoặc tương đối.” Nêu điểm hợp lý, rồi trả lời bằng dữ kiện và giới hạn của hai nguồn. Bạn có thể đồng ý một phần hoặc phản bác có căn cứ; không cần chép hoặc tán thành toàn bộ ý kiến này.",
+                        "id": "criterion-5",
+                        "label": "Trình bày và phản hồi một ý kiến đối lập"
+                      },
+                      {
+                        "guidance": "Chỉ đề xuất cấu trúc giảng dạy có bối cảnh; nguồn không xác định một nghĩa chuẩn cho mọi vùng hay tác động dinh dưỡng dài hạn của các lựa chọn.",
+                        "id": "criterion-6",
+                        "label": "Chỉ đề xuất cấu trúc giảng dạy có bối cảnh; nguồn không xác định một nghĩa chuẩn cho mọi vùng hay tác động dinh dưỡng dài hạn của các lựa chọn."
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Lập luận liệu khi giới thiệu tục ngữ và tập quán văn hóa, người dạy nên nhấn ý nghĩa truyền thống hay điều kiện sử dụng đương đại.\nDẫn chứng: Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Viết bản đầu trước khi mở mẫu.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:argument",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Viết lập luận"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:argument",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Lập luận có phản biện"
+            },
+            {
+              "blocks": [
+                {
+                  "activity": {
+                    "acceptedAnswers": [],
+                    "answerIds": [],
+                    "explanation": "Dàn ý gợi ý để đối chiếu sau khi nói:\n先说明“慢工出细活”重视认真准备和长期练习。\n手工学习中它能鼓励耐心，事故会上却可能支持拖延。\n判断时要问谁说、对谁说，以及听者承担什么风险。\n月饼也不是健康或文化二选一，可以分别考虑食用量、配方、赠送方式和象征意义。\n最后说明一堂课和一个社区不能代表所有解释或长期结果。\nTrước hết giải thích câu tục ngữ coi trọng chuẩn bị kỹ và luyện tập lâu.\nTrong học thủ công câu này khuyến khích kiên nhẫn, ở họp sự cố lại có thể hỗ trợ trì hoãn.\nCần hỏi ai nói, nói với ai và người nghe chịu rủi ro gì.\nBánh trung thu cũng không phải chọn sức khỏe hoặc văn hóa, mà tách lượng, công thức, quà và biểu tượng.\nKết rằng một lớp học và một cộng đồng không đại diện mọi diễn giải hay kết quả dài hạn.\nĐây là tự luyện, không có điểm nói độc lập.",
+                    "hint": "",
+                    "learningTarget": {
+                      "objective": "Tự tập trình bày hoặc ghi dàn ý theo yêu cầu: Giới thiệu một tục ngữ và bảo vệ cách giải thích có bối cảnh, rồi dùng trường hợp bánh trung thu để phản hồi tư duy hai lựa chọn. Rubric chỉ giúp đối chiếu căn cứ và phạm vi; màn này không thu âm hay chấm phát âm, độ trôi chảy hoặc năng lực nói độc lập.",
+                      "skill": "speaking",
+                      "sources": [
+                        {
+                          "id": "hsk4-local-task:hsk4-information-order-cohesion-lesson-05",
+                          "kind": "task"
+                        }
+                      ]
+                    },
+                    "options": [],
+                    "rubric": [
+                      {
+                        "guidance": "nêu nghĩa cơ bản của tục ngữ",
+                        "id": "move-0",
+                        "label": "nêu nghĩa cơ bản của tục ngữ"
+                      },
+                      {
+                        "guidance": "đối chiếu hai tình huống sử dụng",
+                        "id": "move-1",
+                        "label": "đối chiếu hai tình huống sử dụng"
+                      },
+                      {
+                        "guidance": "phân tích người nói, người nghe và rủi ro",
+                        "id": "move-2",
+                        "label": "phân tích người nói, người nghe và rủi ro"
+                      },
+                      {
+                        "guidance": "liên hệ bốn lớp lựa chọn bánh trung thu",
+                        "id": "move-3",
+                        "label": "liên hệ bốn lớp lựa chọn bánh trung thu"
+                      },
+                      {
+                        "guidance": "kết bằng giới hạn lớp học và khảo sát",
+                        "id": "move-4",
+                        "label": "kết bằng giới hạn lớp học và khảo sát"
+                      }
+                    ],
+                    "type": "rubric"
+                  },
+                  "alt": "",
+                  "body": "Giới thiệu một tục ngữ và bảo vệ cách giải thích có bối cảnh, rồi dùng trường hợp bánh trung thu để phản hồi tư duy hai lựa chọn.\nTự nói thành tiếng hoặc ghi âm bằng công cụ bạn chọn, rồi đối chiếu Nguồn A · đoạn 1, 2, 3; Nguồn B · đoạn 1, 2, 3. Màn này không ghi/chấm phát âm.",
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:defense",
+                  "imageSrc": "",
+                  "kind": "activity",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "",
+                  "title": "Nói theo dàn ý của bạn"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:defense",
+              "layout": "workshop",
+              "stage": "transfer",
+              "title": "Tự bảo vệ ý kiến"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "speaker",
+                        "label": "线索一",
+                        "meaningVi": "Đưa giá trị và có vị trí quyền lực.",
+                        "note": "Người nói · đối chiếu đoạn 1, 3",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "listener",
+                        "label": "线索二",
+                        "meaningVi": "Đánh giá nhu cầu và rủi ro.",
+                        "note": "Người nghe · đối chiếu đoạn 1, 3",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "craft",
+                        "label": "线索三",
+                        "meaningVi": "Chậm giúp luyện tập kỹ.",
+                        "note": "Thủ công · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "emergency",
+                        "label": "线索四",
+                        "meaningVi": "Chậm có thể thành trì hoãn.",
+                        "note": "Sự cố · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "scope",
+                        "label": "线索五",
+                        "meaningVi": "Một lớp không đại diện mọi vùng.",
+                        "note": "Phạm vi · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:v2:source-map-review:0:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-concept-actor-map; revision fc8b80f3-61bb-46e0-9214-d6502139fd52; humanReviewed:false",
+                  "title": "Vì sao cùng một tục ngữ có diễn giải trái ngược"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:source-map-review:0",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn A"
+            },
+            {
+              "blocks": [
+                {
+                  "alt": "",
+                  "body": "Hoàn thành bản viết của bạn trước khi xem sơ đồ. So lại từng ý với đoạn nguồn; sơ đồ hỗ trợ tự sửa, không phải đáp án duy nhất hay kết quả chấm năng lực.",
+                  "diagram": {
+                    "description": "Đối chiếu các quan hệ trong nguồn sau khi tự viết; kiểm tra phạm vi và giới hạn của từng nhận định.",
+                    "nodes": [
+                      {
+                        "id": "nutrition",
+                        "label": "线索一",
+                        "meaningVi": "Đường, muối và lượng ăn.",
+                        "note": "Dinh dưỡng · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ yī",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "culture",
+                        "label": "线索二",
+                        "meaningVi": "Đoàn viên, quà và ký ức.",
+                        "note": "Văn hóa · đối chiếu đoạn 1, 2",
+                        "pinyin": "xiànsuǒ èr",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "moderator",
+                        "label": "线索三",
+                        "meaningVi": "Tách các tầng lựa chọn.",
+                        "note": "Chủ trì · đối chiếu đoạn 2",
+                        "pinyin": "xiànsuǒ sān",
+                        "x": 0,
+                        "y": 1
+                      },
+                      {
+                        "id": "outcome",
+                        "label": "线索四",
+                        "meaningVi": "Phần nhỏ hơn, chia sẻ không giảm.",
+                        "note": "Kết quả · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ sì",
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "id": "limit",
+                        "label": "线索五",
+                        "meaningVi": "Một cộng đồng và thiếu đo dài hạn.",
+                        "note": "Giới hạn · đối chiếu đoạn 3",
+                        "pinyin": "xiànsuǒ wǔ",
+                        "x": 0,
+                        "y": 2
+                      }
+                    ],
+                    "type": "comparison"
+                  },
+                  "hanzi": "",
+                  "id": "hsk4-information-order-cohesion-lesson-05:v2:source-map-review:1:diagram",
+                  "imageSrc": "",
+                  "kind": "diagram",
+                  "meaningVi": "",
+                  "pinyin": "",
+                  "provenance": "HANZI.OS original source map; hsk4-culture-history-interpretation-concept-actor-map; revision fc8b80f3-61bb-46e0-9214-d6502139fd52; humanReviewed:false",
+                  "title": "Muối trong bánh trung thu và giá trị văn hóa"
+                }
+              ],
+              "id": "hsk4-information-order-cohesion-lesson-05:v2:source-map-review:1",
+              "layout": "focus",
+              "stage": "transfer",
+              "title": "Đối chiếu sau tự viết · Nguồn B"
+            }
+          ],
+          "version": 1
+        },
+        "localReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/59-REVIEW-HSK4-SELF-SPEAKING-TARGETS.md",
+          "humanReviewed": false,
+          "parentRevisionId": "1289068c-603f-4085-9e9f-499fa9fd0465",
+          "reviewedAt": "2026-09-29",
+          "scope": "HSK4 self-speaking rubric target metadata; no audio capture, pronunciation score or speaking mastery.",
+          "targetPlanSha256": "sha256:5d6ca56225813250a906c0b05e218e7c82fc297f5c0fbab9f5fdbc85d17028ca"
+        },
+        "objectiveVi": "Vận dụng viết kết luận có giới hạn để paraphrase và lập luận HSK4 có dẫn chứng, phản biện cùng giới hạn; rubric vẫn chờ human review.",
+        "pitfallVi": "Câu mẫu ngữ pháp giả định không phải chứng cứ; transcript/TTS không phải audio bản ngữ hay điểm nghe.",
+        "prerequisites": [
+          "hsk4-information-order-cohesion-lesson-04"
+        ],
+        "review": {
+          "aiSelfReview": {
+            "accuracy": true,
+            "answerIntegrity": true,
+            "levelFit": true,
+            "originality": true,
+            "pedagogy": true
+          },
+          "humanReviewed": false
+        },
+        "ruleVi": "Tách dữ kiện và diễn giải; giữ nguồn, đoạn và giới hạn trước khi tóm tắt hoặc lập luận.",
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "listening",
+          "reading",
+          "speaking",
+          "writing"
+        ],
+        "sourceGrammarIds": [
+          "hsk4-grammar-row-075",
+          "hsk4-grammar-row-076"
+        ],
+        "sourceLessonIds": [
+          "hsk4-information-order-cohesion-lesson-05",
+          "hsk4-culture-history-interpretation-concept-actor-map"
+        ],
+        "sourceTaskIds": [
+          "hsk4-task-26"
+        ],
+        "sourceTopicIds": [],
+        "sourceVocabularyIds": [
+          "hsk-vocab-01265",
+          "hsk-vocab-01301",
+          "hsk-vocab-01481",
+          "hsk-vocab-01804",
+          "hsk-vocab-01989",
+          "hsk-vocab-01408",
+          "hsk-vocab-01517",
+          "hsk-vocab-01844",
+          "hsk-vocab-01908",
+          "hsk-vocab-01946"
+        ],
+        "targetLessonId": "hsk4-information-order-cohesion-lesson-05",
+        "titleZh": "HSK四级 · 56",
+        "visualReview": {
+          "evidenceDocument": "docs/thien-lo-redesign-review/89-REVIEW-HSK4-SUMMARY-MAPS.md",
+          "humanReviewed": false,
+          "scope": "Source-specific review maps after argument writing; original tasks retained.",
+          "sourceRevisionId": "8880144f-5c40-4b7c-a9c4-2b0dcbefead5"
+        },
+        "vocabulary": [
+          "hsk-vocab-01265",
+          "hsk-vocab-01301",
+          "hsk-vocab-01481",
+          "hsk-vocab-01804",
+          "hsk-vocab-01989",
+          "hsk-vocab-01408",
+          "hsk-vocab-01517",
+          "hsk-vocab-01844",
+          "hsk-vocab-01908",
+          "hsk-vocab-01946"
+        ]
+      },
+      "changes": [
+        {
+          "groups": 2,
+          "netPages": 4
+        }
+      ]
+    }
+  ]
+}

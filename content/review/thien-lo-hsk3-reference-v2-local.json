@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-27",
+  "scope": "Three original HSK3 reference/quantity/journey lessons from a corrected source inventory, 21 source-linked grammar prompts, editable diagrams and transfer writing. Local AI-assisted review only.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/41-REVIEW-HSK3-REFERENCE.md",
+  "items": [
+    {
+      "lessonId": "hsk3-reference-quantity-phrase-building-lesson-01",
+      "sourceContentSha256": "sha256:88fa01e060426ea95be760d0ebc68e0d26371ebee0db227d4817fa59b48c12e4",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-reference-quantity-phrase-building-lesson-02",
+      "sourceContentSha256": "sha256:78c4af3576f75f67d62462c93c32392b5d369c90ffafbe532405e4fec77fc082",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk3-reference-quantity-phrase-building-lesson-03",
+      "sourceContentSha256": "sha256:8538e6e618344c09dcabc6847359d1c45aae78de2e02afa210e1bd6982ae4a3a",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

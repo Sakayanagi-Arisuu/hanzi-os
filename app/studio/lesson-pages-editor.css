@@ -4,7 +4,11 @@
 .jade-lesson .jade-back { min-height:44px; }
 .lesson-activity-editor input[type=radio]{width:24px;height:24px;min-height:24px;margin-right:10px}.lesson-activity-editor li{margin:8px 0}.lesson-activity-editor li>button{margin-left:8px}
 .lesson-media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.lesson-media-grid article{border:1px solid #789582;padding:12px;border-radius:8px;display:grid;gap:10px}.lesson-media-grid img{width:100%;height:160px;object-fit:cover}.lesson-media-picker audio,.jade-lesson audio{max-width:100%;width:100%}.lesson-media-picker label{display:grid;gap:8px;margin:12px 0}.lesson-media-picker textarea{width:100%;box-sizing:border-box}
+.lesson-target-queue{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 14px;border:1px solid #829988;border-radius:10px;background:#e9eee4;color:#173c30}.lesson-target-queue button{margin:0}.lesson-editor-columns fieldset[id^="lesson-editor-block-"]:has(.lesson-activity-editor){scroll-margin-block:20px}
 
 .studio-lesson-preview .lesson-page-reader{height:72dvh;max-height:800px}
 
 .studio-grammar-bound{grid-column:1/-1;min-width:0}.studio-grammar-bound label{display:grid;gap:8px;margin:12px 0}
+
+/* The editor's save bar must not cover the learner's navigation in preview. */
+form:has(.lesson-pages-editor.is-preview) .studio-editor-footer { position:static; }

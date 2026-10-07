@@ -8,6 +8,7 @@ import { LearningResetEpochConflictError } from '../../../../src/server/learning
 import { consumeMutationRateLimit, LEARNING_ATTEMPT_MUTATION_POLICY, mutationRateLimitHeaders } from '../../../../src/server/mutationRateLimit';
 import { SyncRepository } from '../../../../src/server/syncRepository';
 import { noStoreJsonHeaders } from '../../../../src/sync/protocol';
+import { requirePremiumLesson } from '../../../../src/server/premiumAccess';
 
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, status: number, headers?: HeadersInit) =>
@@ -46,6 +47,8 @@ export async function POST(request: Request) {
     if (!command || (!command.response.text.trim() && !command.response.answerIds.length)) {
       return failure(422, 'INVALID_PAGE_ATTEMPT', 'Câu trả lời chưa đầy đủ hoặc không hợp lệ.');
     }
+    const premiumGate = await requirePremiumLesson(request, command.lessonId);
+    if (premiumGate) return premiumGate;
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);
     // Share the existing attempt budget so changing endpoint cannot bypass it.

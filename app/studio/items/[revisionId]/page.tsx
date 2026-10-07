@@ -28,7 +28,6 @@ import {
   ContentStudioRepository,
 } from "../../../../src/server/contentStudioRepository";
 import { getD1Database } from "../../../../src/server/d1";
-import { hskMockExamEditorialSuggestions } from "../../../../src/server/hskMockExamBank";
 import { recentFirstPartySession } from "../../../../src/server/authHttp";
 import { StudioStructuredEditor } from "../../StudioStructuredEditor";
 
@@ -121,11 +120,8 @@ export default async function StudioRevisionPage({
     const canFork = ["published", "archived"].includes(revision.workflowState)
       && hasPermission(account.authorization, "content:drafts:write");
     const presentation = STUDIO_ITEM_PRESENTATION[revision.itemType];
-    const examFormSuggestions = revision.itemType === "exam_form"
-      ? hskMockExamEditorialSuggestions((await repository.publishedRuntime({
-        itemType: "exam_item",
-      })).items)
-      : undefined;
+    const examFormSuggestions = undefined;
+    const examQuestionChoices = undefined;
 
     return <main className="studio-page"><div className="studio-shell">
       <nav className="studio-topbar" aria-label="Điều hướng bàn biên tập">
@@ -153,7 +149,7 @@ export default async function StudioRevisionPage({
 
       {canEdit ? <section className="studio-section" aria-labelledby="editor-title">
         <header className="studio-section-heading"><div><span className="studio-kicker">BÀN SOẠN NỘI DUNG</span><h2 id="editor-title">Chỉnh sửa bằng biểu mẫu</h2></div><p>Mọi trường kỹ thuật được hệ thống tự xử lý. Hãy tập trung vào tiếng Trung, Pinyin, nghĩa Việt và chất lượng sư phạm.</p></header>
-        <StudioStructuredEditor mode="update" draftSeed={crypto.randomUUID().slice(0, 8)} revisionId={revision.id} expectedRowVersion={revision.rowVersion} initialItemType={revision.itemType} initialLevel={revision.level} initialTitle={revision.title} initialStableKey={revision.stableKey} initialContent={revision.content} examFormSuggestions={examFormSuggestions} />
+        <StudioStructuredEditor mode="update" draftSeed={crypto.randomUUID().slice(0, 8)} revisionId={revision.id} expectedRowVersion={revision.rowVersion} initialItemType={revision.itemType} initialLevel={revision.level} initialTitle={revision.title} initialStableKey={revision.stableKey} initialContent={revision.content} examFormSuggestions={examFormSuggestions} examQuestionChoices={examQuestionChoices} />
       </section> : <section className="studio-section" aria-labelledby="preview-title"><header className="studio-section-heading"><div><span className="studio-kicker">NỘI DUNG ĐÃ KHÓA</span><h2 id="preview-title">Bản xem trước</h2></div><p>Trạng thái hiện tại không cho phép sửa trực tiếp. Bạn vẫn có thể xem đúng cách nội dung xuất hiện trong giao diện học.</p></header><StudioContentPreview title={revision.title} revisionId={revision.id} itemType={revision.itemType} content={revision.content} /></section>}
 
       <section className="studio-section" aria-labelledby="impact-title">

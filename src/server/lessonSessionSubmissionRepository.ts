@@ -44,7 +44,9 @@ import {
   REVIEW_MODALITY,
   REVIEW_SCHEDULER_VERSION,
   reviewWordVersion,
+  editorialReviewWordVersion,
 } from "../learning/reviewProtocol";
+import { LEXICAL_EXERCISE_SUFFIX } from "../content/lexicalEditorialCatalog";
 import {
   createAuthoritativeReviewCard,
 } from "./reviewScheduler";
@@ -264,6 +266,8 @@ export class LessonSessionSubmissionRepository {
       );
     }
 
+    const sessionReviewWordVersion = form.activities.some(activity => activity.activityId.endsWith(LEXICAL_EXERCISE_SUFFIX))
+      ? editorialReviewWordVersion : reviewWordVersion;
     const reviewCardConflictGuards = derived.passed
       ? lesson.wordIds.map((wordId) => {
           const validActivationLessons = RELEASED_LESSONS.filter(
@@ -290,7 +294,6 @@ export class LessonSessionSubmissionRepository {
                 AND existing_card.reset_epoch = session.reset_epoch
                 AND existing_card.knowledge_item_type = 'vocabulary'
                 AND existing_card.knowledge_item_id = ?
-                AND existing_card.knowledge_item_version = ?
                 AND existing_card.modality = ?
                 AND existing_card.scheduler_version = ?
                 AND existing_card.activation_session_id IS NOT NULL
@@ -320,7 +323,6 @@ export class LessonSessionSubmissionRepository {
             )`,
             bindings: [
               wordId,
-              reviewWordVersion(wordId),
               REVIEW_MODALITY,
               REVIEW_SCHEDULER_VERSION,
               timestamp,
@@ -539,6 +541,17 @@ export class LessonSessionSubmissionRepository {
            WHERE session.id = ? AND session.user_id = ?
              AND session.reset_epoch = ? AND session.status = 'submitted'
              AND session.passed = 1
+             AND NOT EXISTS (
+               SELECT 1 FROM fsrs_cards existing_card
+               WHERE existing_card.user_id = session.user_id
+                 AND existing_card.enrollment_id = session.enrollment_id
+                 AND existing_card.reset_epoch = session.reset_epoch
+                 AND existing_card.knowledge_item_type = 'vocabulary'
+                 AND existing_card.knowledge_item_id = ?
+                 AND existing_card.modality = ?
+                 AND existing_card.scheduler_version = ?
+                 AND existing_card.activation_session_id IS NOT NULL
+             )
              AND EXISTS (
                SELECT 1 FROM idempotency_records
                WHERE id = ? AND user_id = ? AND reset_epoch = ? AND scope = ?
@@ -551,7 +564,7 @@ export class LessonSessionSubmissionRepository {
         ).bind(
           crypto.randomUUID(),
           wordId,
-          reviewWordVersion(wordId),
+          sessionReviewWordVersion(wordId),
           REVIEW_MODALITY,
           REVIEW_SCHEDULER_VERSION,
           initialCard.dueAt,
@@ -570,6 +583,9 @@ export class LessonSessionSubmissionRepository {
           session.sessionId,
           userId,
           command.resetEpoch,
+          wordId,
+          REVIEW_MODALITY,
+          REVIEW_SCHEDULER_VERSION,
           idempotencyRecordId,
           userId,
           command.resetEpoch,

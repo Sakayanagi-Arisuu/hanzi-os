@@ -58,6 +58,7 @@ type ExerciseRow = {
 type EditorMode = "create" | "update";
 
 type StudioStructuredEditorProps = {
+  examQuestionChoices?: Array<{key:string;level:string;skill:string;label:string}>;
   mode: EditorMode;
   draftSeed: string;
   initialItemType?: StudioItemType;
@@ -411,6 +412,7 @@ const buildContent = (
   return {
     ...shared,
     examLevel: first(data, "examLevel"),
+    accessTier: first(data, 'accessTier') || 'premium',
     formKey: first(data, "formKey").toLowerCase(),
     timeLimitMinutes: Number(first(data, "timeLimitMinutes")),
     itemStableKeys: values(data, "itemStableKeys"),
@@ -563,11 +565,13 @@ function ExamFormFields({
   initialLevel,
   suggestions,
   preserveStoredSelection,
+  questionChoices,
 }: {
   content: Record<string, unknown>;
   initialLevel: StudioLevel;
   suggestions?: StudioStructuredEditorProps["examFormSuggestions"];
   preserveStoredSelection: boolean;
+  questionChoices?: StudioStructuredEditorProps['examQuestionChoices'];
 }) {
   const examLevel: HskExamLevel = isHskExamLevel(initialLevel)
     ? initialLevel
@@ -585,14 +589,28 @@ function ExamFormFields({
   const [itemKeys, setItemKeys] = useState<string[]>(
     preserveStoredSelection && storedKeys.length ? storedKeys : suggestedKeys ? [...suggestedKeys] : [],
   );
+  const [loadedBank, setLoadedBank] = useState<{suggestions:NonNullable<StudioStructuredEditorProps['examFormSuggestions']>;choices:NonNullable<StudioStructuredEditorProps['examQuestionChoices']>} | null>(null);
+  const [bankError,setBankError] = useState('');
+  useEffect(()=>{
+    if (suggestions && questionChoices) return;
+    const controller=new AbortController();
+    fetch('/api/studio/exams/authoring',{cache:'no-store',signal:controller.signal}).then(async response=>{
+      if (!response.ok) throw new Error('Ngân hàng câu chưa sẵn sàng. Hãy tải lại trang để thử lại.');
+      const bank=await response.json() as NonNullable<typeof loadedBank>;
+      if (controller.signal.aborted) return;
+      setLoadedBank(bank);
+      setItemKeys(current=>current.length ? current : [...(bank.suggestions[examLevel]?.[storedFormKey] ?? [])]);
+    }).catch(()=>{if (!controller.signal.aborted) setBankError('Ngân hàng câu chưa sẵn sàng. Bản nháp đang soạn vẫn được giữ.');});
+    return ()=>controller.abort();
+  },[examLevel,storedFormKey,suggestions,questionChoices]);
   const structure = HSK_STANDARD_EXAM_STRUCTURE[examLevel];
   const expectedItemCount = hskStandardItemCount(examLevel);
   const selectSuggestion = (nextForm: HskExamFormKey) => {
-    const nextKeys = suggestions?.[examLevel]?.[nextForm];
+    const nextKeys = (suggestions ?? loadedBank?.suggestions)?.[examLevel]?.[nextForm];
     if (nextKeys) setItemKeys([...nextKeys]);
   };
   return <>
-    <section className="studio-form-section"><header><span>01</span><div><h2>Cấu trúc cửa Khảo Luyện</h2><p>Cửa mới dùng đúng số phần, số câu và thời lượng của cấp HSK; Biên tập viên không cần tự tính.</p></div></header><div className="studio-three-columns"><div className="studio-readonly-field"><span>Cấp HSK</span><strong>{examLevel.toUpperCase()}</strong><input name="examLevel" type="hidden" value={examLevel} readOnly /></div><label><span>Ký hiệu cửa</span><select name="formKey" value={formKey} onChange={(event) => {
+    <section className="studio-form-section"><header><span>01</span><div><h2>Cấu trúc cửa Khảo Luyện</h2><p>Cửa mới dùng đúng số phần, số câu và thời lượng của cấp HSK; Biên tập viên không cần tự tính.</p></div></header><label><span>Quyền truy cập khi phát hành</span><select name="accessTier" defaultValue={stringValue(content.accessTier, 'premium')}><option value="premium">Premium</option><option value="free">Miễn phí</option></select><small>Quyền chỉ áp dụng sau khi đề được duyệt và phát hành. Có thể đổi riêng từng đề tại mục Bộ đề và quyền truy cập.</small></label><div className="studio-three-columns"><div className="studio-readonly-field"><span>Cấp HSK</span><strong>{examLevel.toUpperCase()}</strong><input name="examLevel" type="hidden" value={examLevel} readOnly /></div><label><span>Ký hiệu cửa</span><select name="formKey" value={formKey} onChange={(event) => {
       const nextForm = event.target.value as HskExamFormKey;
       setFormKey(nextForm);
       selectSuggestion(nextForm);
@@ -603,6 +621,13 @@ function ExamFormFields({
       return <option disabled={occupied} key={key} value={key}>Cửa {key.toUpperCase()}{occupied ? " · đã có sẵn" : ""}</option>;
     })}</select></label><div className="studio-readonly-field"><span>Quy mô chuẩn</span><strong>{expectedItemCount} câu · {structure.timeLimitMinutes} phút</strong></div></div><input name="timeLimitMinutes" type="hidden" value={structure.timeLimitMinutes} readOnly /><div className="studio-exam-structure" aria-label={`Cấu trúc ${examLevel.toUpperCase()}`}>{structure.sections.map((section, index) => <div key={section.skill}><b>{String(index + 1).padStart(2, "0")}</b><span><strong>{section.label}</strong><small>{section.itemCount} câu · {section.minutes} phút</small></span><input name={`coverage.${section.skill}`} type="hidden" value={section.itemCount} readOnly /></div>)}{!structure.sections.some((section) => section.skill === "writing") && <input name="coverage.writing" type="hidden" value="0" readOnly />}</div></section>
     <section className="studio-form-section"><header><span>02</span><div><h2>Ngân hàng câu đã kiểm định</h2><p>Hệ thống tự ghép một bộ câu duy nhất, đúng thứ tự và đúng tỷ lệ kỹ năng cho cửa đã chọn. Biên tập viên không phải sao chép mã câu.</p></div></header>{itemKeys.map((key) => <input key={key} type="hidden" name="itemStableKeys" value={key} />)}<div className="studio-exam-selection" role="status"><CheckCircle2 size={20} /><div><strong>{itemKeys.length}/{expectedItemCount} câu đã sắp xếp</strong><p>{structure.sections.map((section) => `${section.label} ${section.itemCount}`).join(" · ")}</p></div></div>{itemKeys.length !== expectedItemCount && <p className="studio-alert error" role="alert">Chưa có bộ câu phù hợp cho cửa này. Hãy chọn một cửa G–L khác hoặc liên hệ Điều Hành Viên bổ sung ngân hàng.</p>}</section>
+    {bankError && <p className="studio-alert error" role="alert">{bankError}</p>}
+    <details className="studio-form-section"><summary>Chọn hoặc thay từng câu trong bộ đề</summary><p>Chọn theo nội dung câu, không cần nhập mã. Câu mới cần được kiểm định và phát hành trước khi xuất hiện ở đây.</p><div className="studio-repeat-stack">{itemKeys.map((key,index)=>{
+      let start = 0;
+      const section = structure.sections.find(part => {start += part.itemCount;return index < start;});
+      const choices = (questionChoices ?? loadedBank?.choices ?? []).filter(choice => choice.level === examLevel && (choice.key === key || (section?.skill === 'listening' ? choice.skill === 'listening' : choice.skill !== 'listening')));
+      return <label key={index}><span>Câu {index+1} · {section?.label}</span><select aria-label={`Nội dung câu ${index+1}`} value={key} onChange={event=>setItemKeys(current=>current.map((value,position)=>position===index?event.target.value:value))}>{!choices.some(choice=>choice.key===key) && <option value={key}>Câu đã ghim trong bản đề</option>}{choices.map(choice=><option key={choice.key} value={choice.key} disabled={choice.key !== key && itemKeys.includes(choice.key)}>{choice.label}</option>)}</select></label>;
+    })}</div></details>
   </>;
 }
 
@@ -681,7 +706,7 @@ function LessonFormFields({
   </>;
 }
 
-function ContentFields({ itemType, content, level, examFormSuggestions, mode }: { itemType: StudioItemType; content: Record<string, unknown>; level: StudioLevel; examFormSuggestions?: StudioStructuredEditorProps["examFormSuggestions"]; mode: EditorMode }) {
+function ContentFields({ itemType, content, level, examFormSuggestions, examQuestionChoices, mode }: { itemType: StudioItemType; content: Record<string, unknown>; level: StudioLevel; examFormSuggestions?: StudioStructuredEditorProps["examFormSuggestions"]; examQuestionChoices?: StudioStructuredEditorProps['examQuestionChoices']; mode: EditorMode }) {
   if (itemType === "vocabulary") {
     return <>
       <section className="studio-form-section"><header><span>01</span><div><h2>Từ mục</h2><p>Nhập đúng một từ hoặc cụm từ, không nhập cả câu vào ô Hán tự.</p></div></header><div className="studio-three-columns"><label><span>Hán tự giản thể</span><input name="hanzi" required defaultValue={stringValue(content.hanzi)} /></label><label><span>Pinyin có dấu thanh</span><input name="pinyin" required defaultValue={stringValue(content.pinyin)} /></label><label><span>Nghĩa tiếng Việt</span><input name="meaningVi" required defaultValue={stringValue(content.meaningVi)} /></label></div></section>
@@ -740,7 +765,7 @@ function ContentFields({ itemType, content, level, examFormSuggestions, mode }: 
       <section className="studio-form-section"><header><span>02</span><div><h2>Đáp án và lời giải</h2><p>Nhập mỗi lựa chọn một dòng; vị trí đáp án tính từ 1.</p></div></header><div className="studio-two-columns"><label><span>Các lựa chọn</span><textarea name="options" required defaultValue={options} /></label><label><span>Vị trí đáp án đúng</span><input name="answerIndex" type="number" min="1" max="8" required defaultValue={numberValue(content.answerIndex) + 1} /><span>Lời giải tiếng Việt</span><textarea name="explanationVi" required defaultValue={stringValue(content.explanationVi)} /></label></div></section>
     </>;
   }
-  return <ExamFormFields content={content} initialLevel={level} suggestions={examFormSuggestions} preserveStoredSelection={mode === "update"} />;
+  return <ExamFormFields content={content} initialLevel={level} suggestions={examFormSuggestions} questionChoices={examQuestionChoices} preserveStoredSelection={mode === "update"} />;
 }
 
 export function StudioStructuredEditor({
@@ -754,6 +779,7 @@ export function StudioStructuredEditor({
   revisionId,
   expectedRowVersion,
   examFormSuggestions,
+  examQuestionChoices,
 }: StudioStructuredEditorProps) {
   const [itemType, setItemType] = useState<StudioItemType>(initialItemType);
   const [level, setLevel] = useState<StudioLevel>(initialLevel);
@@ -830,7 +856,7 @@ export function StudioStructuredEditor({
       </section>
 
       <div key={`${mode}:${itemType}:${level}`} className="studio-editor-fields">
-        <ContentFields itemType={itemType} content={content} level={level} examFormSuggestions={examFormSuggestions} mode={mode} />
+        <ContentFields itemType={itemType} content={content} level={level} examFormSuggestions={examFormSuggestions} examQuestionChoices={examQuestionChoices} mode={mode} />
         <QualityChecklist initialContent={content} />
       </div>
 

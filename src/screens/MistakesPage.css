@@ -946,39 +946,6 @@ body:has(.rem-observatory) .system-voice-beacon { display: none; }
   .rem-observatory *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
 
-/* The observatory remains legible when the global learner shell uses light mode. */
-html[data-theme="light"] .content-page.rem-observatory {
-  --rem-cyan: #087f92;
-  --rem-cyan-bright: #006e80;
-  --rem-jade: #087a61;
-  --rem-gold: #8c6519;
-  --rem-danger: #bd3e34;
-  --rem-ink: #102d33;
-  --rem-muted: #59777d;
-  background:
-    radial-gradient(circle at 48% 42%, rgba(6, 126, 146, .11), transparent 31%),
-    linear-gradient(145deg, #f3fbfa 0%, #e9f6f4 52%, #f7fbfa 100%);
-}
-html[data-theme="light"] .rem-star-field { opacity: .18; }
-html[data-theme="light"] :is(.rem-radar-panel, .rem-priority-panel, .rem-question-card, .rem-feedback-card, .rem-summary-card, .rem-summary-notes > article) {
-  background: linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(233, 247, 245, .92));
-  border-color: rgba(8, 127, 146, .22);
-  box-shadow: 0 18px 45px rgba(22, 76, 77, .1), inset 0 1px #fff;
-}
-html[data-theme="light"] :is(.rem-map-heading h1, .rem-session-heading h1, .rem-signal-summary h2, .rem-question-card h2, .rem-feedback-answer h2, .rem-summary-details h2, .rem-priority-list article p, .rem-priority-empty strong) { color: #102d33; }
-html[data-theme="light"] :is(.rem-map-heading p, .rem-signal-summary p, .rem-question-card > p, .rem-feedback-explanation p, .rem-summary-notes p, .rem-priority-list article small) { color: #59777d; }
-html[data-theme="light"] :is(.rem-map-sync, .rem-live-mark, .rem-context-pills span, .rem-map-metrics > section, .rem-feedback-explanation article, .rem-answer-comparison > span) { background: rgba(239, 250, 248, .88); }
-html[data-theme="light"] .rem-signal-dial::before { background: #eff9f8; }
-html[data-theme="light"] .rem-signal-dial strong,
-html[data-theme="light"] .rem-answer-comparison strong { color: #15383e; }
-html[data-theme="light"] .rem-answer-grid button,
-html[data-theme="light"] .rem-text-answer input { color: #16383e; background: linear-gradient(145deg, #fff, #edf7f6); border-color: rgba(8, 127, 146, .23); }
-html[data-theme="light"] .rem-answer-grid button.is-selected { color: #07363f; background: linear-gradient(145deg, #d5f4f4, #e7f8f5); border-color: var(--rem-cyan); }
-html[data-theme="light"] .rem-secondary-action,
-html[data-theme="light"] .rem-icon-action { color: #174e57; background: rgba(242, 251, 249, .9); }
-html[data-theme="light"] .rem-session-stop i { color: #54757c; background: #f3faf9; }
-html[data-theme="light"] .rem-primary-action { color: #fff; background: linear-gradient(135deg, #087f92, #0a947b); border-color: #087f92; }
-
 /* ========================================================================== */
 /* THIÊN VĂN ĐÀI · 1672 × 940 precision pass                                  */
 /* ========================================================================== */

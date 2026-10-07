@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "humanReviewed": false,
+  "partial": true,
+  "lessonIds": [
+    "daily-1",
+    "daily-2",
+    "daily-3",
+    "daily-4",
+    "hsk1-time-place-events-01-numbers",
+    "hsk1-time-place-events-02-calendar",
+    "hsk1-time-place-events-03-week-and-day-parts",
+    "hsk1-time-place-events-04-clock-and-duration",
+    "hsk1-time-place-events-05-location",
+    "hsk1-time-place-events-06-weather-and-residence"
+  ],
+  "targets": {
+    "daily-1": {
+      "daily-1:v2:block:choice": {
+        "skill": "grammar",
+        "objective": "Tính đúng giá hai quả táo từ giá một quả trong hội thoại, phân biệt số lượng và số tiền. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "grammar",
+            "id": "hsk1-grammar-row-063"
+          }
+        ]
+      },
+      "daily-1:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền lượng từ 个 để đếm táo sau 两, không đặt đơn vị tiền ở vị trí lượng từ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00060"
+          }
+        ]
+      },
+      "daily-1:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Tạo lượt hỏi giá và mua số lượng mới; tự kiểm phép tính, lượng từ và đơn vị tiền. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-09"
+          }
+        ]
+      }
+    },
+    "daily-2": {
+      "daily-2:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn đơn một cốc nước theo yêu cầu không uống trà; không suy thêm thông tin thành phần không có trong thực đơn. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-07"
+          }
+        ]
+      },
+      "daily-2:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 喝 cho hành động uống sữa, phân biệt với 吃 dùng cho thức ăn. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00077"
+          }
+        ]
+      },
+      "daily-2:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Tạo đơn gọi món và lượt xác nhận phù hợp yêu cầu đồ uống/thức ăn của khách. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-07"
+          }
+        ]
+      }
+    },
+    "daily-3": {
+      "daily-3:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn câu trả mười tệ tiền thừa khi áo 20 tệ và khách đưa 30 tệ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00278"
+          }
+        ]
+      },
+      "daily-3:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 买 từ vai khách mua áo, phân biệt với 卖 từ vai người bán. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00116"
+          }
+        ]
+      },
+      "daily-3:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lượt mua bán mới, giữ đúng vai mua/bán, giá và số tiền thừa. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-03"
+          }
+        ]
+      }
+    },
+    "daily-4": {
+      "daily-4:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn câu đi bệnh viện khám bệnh, phân biệt nơi khám với nghề bác sĩ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00100"
+          }
+        ]
+      },
+      "daily-4:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 医院 là nơi đến để khám bệnh, không thay bằng 医生 là người. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00257"
+          }
+        ]
+      },
+      "daily-4:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lời báo ốm và hỏi thăm trong cảnh giả định, không tự chẩn đoán bệnh. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-10"
+          }
+        ]
+      }
+    },
+    "hsk1-time-place-events-01-numbers": {
+      "hsk1-time-place-events-01-numbers:v2:block:choice": {
+        "skill": "grammar",
+        "objective": "Chọn 两本书 cho hai quyển sách, dùng 两 trước lượng từ và không nhầm với số hai mươi. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00111"
+          }
+        ]
+      },
+      "hsk1-time-place-events-01-numbers:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 二 để viết 二十, phân biệt với 两 trước lượng từ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00049"
+          }
+        ]
+      },
+      "hsk1-time-place-events-01-numbers:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết số lượng và mã số trong hai ngữ cảnh mới, tự kiểm khi nào đọc từng chữ số. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-time-place-events:01-numbers"
+          }
+        ]
+      }
+    },
+    "hsk1-time-place-events-02-calendar": {
+      "hsk1-time-place-events-02-calendar:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Đọc lịch giả định để chọn ngày hẹn 9 tháng 5, không đảo ngày/tháng hay thay bằng ngày thật. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-02"
+          }
+        ]
+      },
+      "hsk1-time-place-events-02-calendar:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 月 vào 五月八号 để tách tháng năm và ngày tám. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00269"
+          }
+        ]
+      },
+      "hsk1-time-place-events-02-calendar:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lời xác nhận ngày hẹn từ lịch giả định, giữ đúng thứ tự năm/tháng/ngày. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-02"
+          }
+        ]
+      }
+    },
+    "hsk1-time-place-events-03-week-and-day-parts": {
+      "hsk1-time-place-events-03-week-and-day-parts:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn 星期一下午 để nói chiều thứ hai, phân biệt ngày trong tuần và buổi trong ngày. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00230"
+          }
+        ]
+      },
+      "hsk1-time-place-events-03-week-and-day-parts:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Hoàn thành 星期日 là Chủ nhật, tương đương 星期天 trong ngữ cảnh này. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00244"
+          }
+        ]
+      },
+      "hsk1-time-place-events-03-week-and-day-parts:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết thời điểm hẹn mới gồm ngày trong tuần và buổi, tự kiểm không nhầm thứ hai/chủ nhật. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-time-place-events:03-week-and-day-parts"
+          }
+        ]
+      }
+    },
+    "hsk1-time-place-events-04-clock-and-duration": {
+      "hsk1-time-place-events-04-clock-and-duration:v2:block:choice": {
+        "skill": "grammar",
+        "objective": "Tính khoảng 8:00–9:00 là 一个小时, phân biệt giờ đồng hồ với thời lượng. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00236"
+          }
+        ]
+      },
+      "hsk1-time-place-events-04-clock-and-duration:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 小时 cho thời lượng một giờ sau 一个, không dùng 点 là giờ trên đồng hồ. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00236"
+          }
+        ]
+      },
+      "hsk1-time-place-events-04-clock-and-duration:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lịch bắt đầu/kết thúc mới và thời lượng tương ứng, kiểm đơn vị giờ/phút. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-time-place-events:04-clock-and-duration"
+          }
+        ]
+      }
+    },
+    "hsk1-time-place-events-05-location": {
+      "hsk1-time-place-events-05-location:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn câu mèo ở dưới bàn theo cảnh giả định, giữ đúng đối tượng và mốc trên/dưới. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "grammar",
+            "id": "hsk1-grammar-row-003"
+          }
+        ]
+      },
+      "hsk1-time-place-events-05-location:v2:block:guided": {
+        "skill": "grammar",
+        "objective": "Điền 在 để định vị sách trên bàn; 在 không có exact vocabulary source trong bài nên nối mẫu nơi chốn đã học. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "grammar",
+            "id": "hsk1-grammar-row-021"
+          }
+        ]
+      },
+      "hsk1-time-place-events-05-location:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu xác định vị trí đồ vật mới, phân biệt câu có vật ở đâu với câu ở đâu có vật. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-05"
+          }
+        ]
+      }
+    },
+    "hsk1-time-place-events-06-weather-and-residence": {
+      "hsk1-time-place-events-06-weather-and-residence:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn 我住在北京 để nói nơi cư trú, không nhầm với vị trí hiện thời hay thời tiết. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00294"
+          }
+        ]
+      },
+      "hsk1-time-place-events-06-weather-and-residence:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 热 cho cảnh thời tiết nóng giả định, không coi đó là thời tiết thật. Câu có ngữ cảnh và hỗ trợ trong bài, chưa phải recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00169"
+          }
+        ]
+      },
+      "hsk1-time-place-events-06-weather-and-residence:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu về nơi sống và thời tiết trong cảnh giả định, tách cư trú, vị trí hiện tại và trạng thái thời tiết. Đây là bản chữ có thể dùng Pinyin/từ hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-04"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -110,32 +110,6 @@
 .locked p { max-width: 520px; color: var(--reader-muted, #9eb7af); }
 .locked a { min-height: 44px; padding: 0 18px; display: inline-flex; align-items: center; color: #052018; background: var(--reader-jade, #66e2bb); border-radius: 8px; text-decoration: none; font-weight: 850; }
 
-:global(html[data-theme="light"]) .page {
-  --reader-bg: #f4f7f5;
-  --reader-panel: #ffffff;
-  --reader-panel-strong: #f8faf9;
-  --reader-line: rgba(33, 85, 67, .18);
-  --reader-line-strong: rgba(8, 124, 90, .45);
-  --reader-text: #17241f;
-  --reader-muted: #4f675e;
-  --reader-dim: #6c8179;
-  --reader-jade: #087c5a;
-  --reader-gold: #8c6410;
-  background: radial-gradient(circle at 90% 0, rgba(8, 124, 90, .08), transparent 30%), var(--reader-bg);
-}
-:global(html[data-theme="light"]) .formHero { background: linear-gradient(135deg, #e1f2eb, #f8fbf9); }
-:global(html[data-theme="light"]) .formHero > span,
-:global(html[data-theme="light"]) .steps .currentStep b,
-:global(html[data-theme="light"]) .stepPanel > header > span,
-:global(html[data-theme="light"]) .aiAction > button:first-child,
-:global(html[data-theme="light"]) .primary,
-:global(html[data-theme="light"]) .inventory > summary strong { color: #fff; }
-:global(html[data-theme="light"]) .form input,
-:global(html[data-theme="light"]) .form select,
-:global(html[data-theme="light"]) .form textarea { background: #fff; }
-:global(html[data-theme="light"]) .error { color: #9f2f26; background: #fae9e6; }
-:global(html[data-theme="light"]) .success { color: #086747; background: #e5f4ed; }
-
 @media (max-width: 680px) {
   .page { padding: 10px 11px 40px; }
   .nav { min-height: 56px; padding-right: 48px; }

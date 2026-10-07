@@ -1,0 +1,1439 @@
+{
+  "humanReviewed": false,
+  "sourceFiles": [
+    {
+      "path": "content/runtime/hsk-mock-exam-alternate-local.json",
+      "sha256": "1be65713114416a7345691305c034c2030af9940766126cee1ce665c5071f97d"
+    },
+    {
+      "path": "scripts/content/hsk3-assessment-editorial-round102.mjs",
+      "sha256": "8cd3635f91825d410796169486a5036a00635c49fa175695eb65996b7e87ebdb"
+    },
+    {
+      "path": "content/drafts/thien-lo-hsk3-assessment-editorial-round94.json",
+      "sha256": "8960785e821b570bed63305f3ae050631138f6f66667e784cab8d186b6d733d1"
+    },
+    {
+      "path": "docs/thien-lo-redesign-review/188-REVIEW-HSK3-ASSESSMENT-ROUND94.json",
+      "sha256": "c8f4e80bdaafb2ea09cb60342c064467e2a161c2c8bedd9d7b767d6f3864cf40"
+    }
+  ],
+  "entries": [
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:08:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Trong câu này, 地点 có nghĩa gì?",
+        "hanzi": "活动地点是学校的体育馆。",
+        "options": [
+          "đông bắc",
+          "thời gian",
+          "địa điểm",
+          "phía đông"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "地点 là địa điểm diễn ra hoạt động; 体育馆 nêu nơi cụ thể. Không dùng “nơi/chỗ/vùng” làm phương án sai vì nghĩa quá gần.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-landscape-place"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:09:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Trong câu này, 双 dùng để đếm gì?",
+        "hanzi": "我买了一双鞋。",
+        "options": [
+          "tóc",
+          "một đôi, gồm hai chiếc",
+          "dưa hấu",
+          "bẩn"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "双 là lượng từ cho đôi: 一双鞋 gồm hai chiếc giày.",
+        "sourceLessonIds": [
+          "hsk3-nature-environment-explanations-environment-state"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:10:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "难过",
+        "options": [
+          "buồn; khó chịu",
+          "ghế sô-pha",
+          "đồng ý",
+          "năm kia"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "“难过”: buồn; khó chịu",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-modern-life"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:11:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "关机",
+        "options": [
+          "nói; giảng; giải thích",
+          "nhưng; song",
+          "vô cùng; cực kỳ",
+          "tắt máy"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“关机”: tắt máy",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-arts-activities"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:12:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "运动员",
+        "options": [
+          "nhận được; đạt được",
+          "kem",
+          "vận động viên",
+          "áo sơ mi"
+        ],
+        "answerIndex": 2,
+        "explanationVi": "“运动员”: vận động viên",
+        "sourceLessonIds": [
+          "hsk3-society-arts-sports-reports-sports-introduction"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-13",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 13",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:13:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "甜",
+        "options": [
+          "chuối",
+          "ngọt",
+          "lựa chọn",
+          "thẻ ngân hàng"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "“甜”: ngọt",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-regional-cuisine"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:13",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-14",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 14",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:14:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "节日",
+        "options": [
+          "ngày lễ",
+          "nhiệt tình",
+          "toán học",
+          "quà tặng"
+        ],
+        "answerIndex": 0,
+        "explanationVi": "“节日”: ngày lễ",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-festivals-customs"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:14",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-vocabulary-15",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · vocabulary · 15",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:15:1",
+      "content": {
+        "skill": "vocabulary",
+        "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+        "hanzi": "感到",
+        "options": [
+          "quốc gia",
+          "hào, đơn vị tiền",
+          "quan tâm",
+          "cảm thấy"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "“感到”: cảm thấy",
+        "sourceLessonIds": [
+          "hsk3-culture-tradition-descriptions-customs-comparison"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:vocabulary:15",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-01",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 01",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:01:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Hỏi cách thức giới thiệu bản thân khi gặp lần đầu.",
+        "hanzi": "第一次见面时，____介绍自己比较合适？",
+        "options": [
+          "什么时候",
+          "在哪儿",
+          "跟谁",
+          "怎样"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "怎样 hỏi cách thức; ba lựa chọn khác hỏi thời gian, nơi và người đi cùng.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:01",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:01:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-02",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 02",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:02:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Món ăn được bày trên đĩa, cơm được đựng trong bát. Chọn hai lượng từ theo thứ tự.",
+        "hanzi": "服务员端来两____菜和三____米饭。",
+        "options": [
+          "碗；盘",
+          "盘；碗",
+          "张；双",
+          "辆；本"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "盘 đếm đĩa món ăn; 碗 đếm bát cơm. Ngữ cảnh xác định cách đựng.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:02",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:02:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-03",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 03",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:03:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Chọn cụm làm chủ ngữ có nghĩa “xem bản đồ trước khi xuất phát”.",
+        "hanzi": "____能帮助大家少走错路。",
+        "options": [
+          "出发后看地图",
+          "忘了带地图",
+          "出发前不看地图",
+          "出发前看地图"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "Cụm hành động出发前看地图 làm chủ ngữ: việc xem bản đồ trước khi xuất phát giúp ít đi sai đường hơn.",
+        "sourceLessonIds": [
+          "hsk3-reference-quantity-phrase-building-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:03",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:03:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-04",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 04",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:04:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Diễn đạt trạng thái tốt hơn so với trước khi nghỉ.",
+        "hanzi": "休息以后，她的精神____好了。",
+        "options": [
+          "不",
+          "更",
+          "没",
+          "别"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "更 đánh dấu mức độ tăng so với trước; 精神更好了 là tinh thần/trạng thái tốt hơn.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:04",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:04:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-05",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 05",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:05:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu người nhận lời giới thiệu là bệnh nhân.",
+        "hanzi": "护士____介绍了检查的安排。",
+        "options": [
+          "从病人",
+          "在病人",
+          "把病人",
+          "向病人"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "向病人 dẫn đối tượng nhận lời giới thiệu; không phải người làm thay hay nơi giới thiệu.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:05",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:05:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-06",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 06",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:06:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu quan điểm của chính người nói, không khẳng định đây là kết quả nghiên cứu.",
+        "hanzi": "____，每天复习十分钟比周末学很久更好。",
+        "options": [
+          "根据研究结果",
+          "在我看来",
+          "对初学者来说",
+          "在老师看来"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "在我看来 là theo ý tôi; các cụm khác chuyển nguồn hoặc góc nhìn sang đối tượng khác.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:06",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:06:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-07",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 07",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:07:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Rửa tay trước bữa ăn, dọn bàn sau bữa ăn.",
+        "hanzi": "吃饭____先洗手，吃饭____再收拾桌子。",
+        "options": [
+          "以后；以前",
+          "以前；以前",
+          "以后；以后",
+          "以前；以后"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "以前 là trước, 以后 là sau; hai mốc được gắn với吃饭.",
+        "sourceLessonIds": [
+          "hsk3-modality-time-viewpoint-framing-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:07",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:07:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-08",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 08",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:08:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Diễn đạt đã gặp nhau ba lần; giữ 见面 là động từ ly hợp.",
+        "hanzi": "为了完成作业，我们____。",
+        "options": [
+          "见了三天面",
+          "见了三次面",
+          "见了三个面",
+          "见了三小时面"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "三次 đếm số lần; tân ngữ面 đứng sau lượng thời gian/số lần trong cấu trúc见了三次面.",
+        "sourceLessonIds": [
+          "hsk3-event-complements-voice-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:08",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:08:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-09",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 09",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:09:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Diễn đạt trẻ bắt đầu nhảy khi nghe nhạc.",
+        "hanzi": "听到音乐，孩子们都跳____了。",
+        "options": [
+          "下去",
+          "进来",
+          "回去",
+          "起来"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "起来 ở đây biểu thị bắt đầu hành động; không mô tả hướng nhảy vào hay quay lại.",
+        "sourceLessonIds": [
+          "hsk3-event-complements-voice-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:09",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:09:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-10",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 10",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:10:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Đổi 客户取消了会议 sang bị động, giữ khách hàng là tác nhân.",
+        "hanzi": "会议____取消了。",
+        "options": [
+          "把客户",
+          "被客户",
+          "从客户",
+          "在客户"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "被客户 đưa khách hàng vào vai tác nhân; 会议 là sự việc bị hủy.",
+        "sourceLessonIds": [
+          "hsk3-event-complements-voice-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:10",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:10:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-11",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 11",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:11:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu suy đoán dựa trên dấu hiệu đường có nước, không nói đã kiểm chứng.",
+        "hanzi": "路上都是水，____刚下过雨。",
+        "options": [
+          "最好",
+          "终于",
+          "必须",
+          "看起来"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "看起来 đánh dấu nhận định dựa trên dấu hiệu quan sát được; không biến suy đoán thành sự thật đã xác nhận.",
+        "sourceLessonIds": [
+          "hsk3-comparison-description-evaluation-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:11",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:11:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-12",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 12",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:12:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Dùng bổ ngữ chỉ mức độ lo rất cao với 急.",
+        "hanzi": "找不到孩子，妈妈____。",
+        "options": [
+          "急完了",
+          "急坏了",
+          "急好了",
+          "急掉了"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "坏了 sau tính từ急 nhấn mạnh mức độ lo lắng; không chỉ hoàn thành hành động hay làm hỏng vật.",
+        "sourceLessonIds": [
+          "hsk3-comparison-description-evaluation-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:12",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:12:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-13",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 13",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:13:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu hai phương tiện có thể chọn trong câu trần thuật.",
+        "hanzi": "可以坐地铁____公共汽车去剧院。",
+        "options": [
+          "所以",
+          "但是",
+          "还是",
+          "或者"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "或者 nêu các khả năng trong câu trần thuật; 还是 thường dùng để hỏi lựa chọn.",
+        "sourceLessonIds": [
+          "hsk3-discourse-linking-lesson-01"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:13",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:13:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-14",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 14",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:14:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Nêu đồng thời hai đặc điểm: nóng và có vị ngon/ngọt đậm.",
+        "hanzi": "这个汤____。",
+        "options": [
+          "越热越鲜",
+          "又热又鲜",
+          "一边热一边鲜",
+          "只有热才鲜"
+        ],
+        "answerIndex": 1,
+        "explanationVi": "又…又… gộp hai đặc điểm của cùng món canh; không nêu tương quan tăng mức độ hay điều kiện.",
+        "sourceLessonIds": [
+          "hsk3-discourse-linking-lesson-02"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:14",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:14:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    },
+    {
+      "stableKey": "hsk3-assessment-r102-hsk3-level-check-form-b-grammar-15",
+      "itemType": "exam_item",
+      "title": "HSK3 · form-b · grammar · 15",
+      "level": "hsk3",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:15:1",
+      "content": {
+        "skill": "grammar",
+        "promptVi": "Quy định: có vé là điều kiện cần để được vào sân.",
+        "hanzi": "____买了票，你____能进场。",
+        "options": [
+          "只要；就",
+          "虽然；但是",
+          "因为；所以",
+          "只有；才"
+        ],
+        "answerIndex": 3,
+        "explanationVi": "只有…才… diễn đạt điều kiện cần; 只要…就… nêu điều kiện đủ. Đây là quy định của tình huống này.",
+        "sourceLessonIds": [
+          "hsk3-discourse-linking-lesson-03"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": true,
+            "levelFit": true,
+            "pedagogy": true,
+            "answerIntegrity": true,
+            "originality": true
+          }
+        },
+        "editorialOrigin": {
+          "sourceItemId": "hsk3-level-check:form-b:grammar:15",
+          "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:15:1",
+          "humanReviewed": false,
+          "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+        }
+      }
+    }
+  ],
+  "reused": [
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:01:1",
+      "revisionId": "8856097a-5166-4268-9788-1102d865f15c",
+      "contentSha256": "sha256:a9a975c0ae585a17eb46292adc5bae2e9b9b407594eeb2712d14c597bf72b87e"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:02:1",
+      "revisionId": "e75b4665-df97-485a-9b7d-a4f2b389bab8",
+      "contentSha256": "sha256:328ec4e6bfd3fc4dd4a1a14947b5ba9cc5f77b8ab54234dbd92681f3801a08ad"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:03:1",
+      "revisionId": "b5340a77-c653-49e2-ba23-d656873027e1",
+      "contentSha256": "sha256:400fca98fb696cf8406a1a931a97ddcf59646f5e08d15f026d619ebc50bca5af"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:04:1",
+      "revisionId": "8fc43935-201d-44a1-ada0-6f9cdb4b8cc8",
+      "contentSha256": "sha256:da4fc9ac2733e8c71af70532fff1ae740a7919f2382d6db84b9185de75b8ea1e"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:05:1",
+      "revisionId": "1752ef2b-6801-4cd7-a642-3d1cc2a23cb0",
+      "contentSha256": "sha256:9a4c22929de616124959de65c8813bad7e5cfc7daa00e360129583f3e5a1123b"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:06:1",
+      "revisionId": "2ad796aa-fa27-4904-97d2-1bdcb1e484bb",
+      "contentSha256": "sha256:0fabcf78b5fea6fb41a95d29221d84345fe2e5d7bf29da13e1a41e2ab4d3c3e1"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:07:1",
+      "revisionId": "2bab7c72-aa7f-42e3-beda-07b95db6e723",
+      "contentSha256": "sha256:d34ef32a18f7e8a3d85283c9c15c610ba032da604265127583c40abbf52b136c"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:08:1",
+      "revisionId": "7c61ba8f-f162-47d7-8695-26869a59428f",
+      "contentSha256": "sha256:c649458f954a8eac819225248547c47ad285c6c9d617e7ece8b2e31d587e96e9"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:09:1",
+      "revisionId": "10b88911-69fd-41d6-b4e8-85c5967d76fe",
+      "contentSha256": "sha256:a82c39ed01143a1633c3f0f60821d69a626fa95682bce7d4b3e84835e5d19e56"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:10:1",
+      "revisionId": "135ab3a3-5abf-4f11-bbf3-b9a5da51fcd3",
+      "contentSha256": "sha256:26b669c14a2e5c01b10c4b799d0962c615ea2b6c3cdfb129f5a0d97044c01195"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:11:1",
+      "revisionId": "c51fabdb-6e67-4693-90fb-8497ce1843e8",
+      "contentSha256": "sha256:e4469c29cc3adf2228d1a5ff3534fc0db8f36666f5abd24e8a26b2230d147150"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:12:1",
+      "revisionId": "d5796feb-d970-4f6a-87a2-ef12a7ebcaee",
+      "contentSha256": "sha256:43480f8af55eba0ec53019a27f1b7c696dab661c2a82651c6c3a079b3103412b"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:01:1",
+      "revisionId": "1fae6f7f-ba89-4973-b87c-b7e96c715707",
+      "contentSha256": "sha256:19c98d7bfe9e2a953006a1f871345bc849392f027ab2396aeff9118b4b9090c8"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:02:1",
+      "revisionId": "050e47b0-9805-4050-8219-c013bf695226",
+      "contentSha256": "sha256:c1075d107c019c102dabd49be74355da3ea5489343953950e22ffd045fe73066"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:03:1",
+      "revisionId": "b52a420b-3de0-401d-a962-b04ed278da5c",
+      "contentSha256": "sha256:f546f890801308153ef23ed73eb0fe2c4fec7bfd13c519aa732051eda8af94d4"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:04:1",
+      "revisionId": "2f276cc5-6400-4a5f-a080-e3466e1cf8d1",
+      "contentSha256": "sha256:e64807283de20697471a2672873a6421d855034c0b43fae9b40df63af2f43055"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:05:1",
+      "revisionId": "970e6fdc-5dac-4f35-aafc-9c389a782b54",
+      "contentSha256": "sha256:127e0b2161348393c6a841a2c951888c0c39f05dd9cc783af8a99f49d45148b2"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:06:1",
+      "revisionId": "05cca2fb-2949-44b6-b543-315e024feb0e",
+      "contentSha256": "sha256:78466dd077e84f08892192fb0a07b4d99affdf5e04866d11c03871abcec8014d"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:07:1",
+      "revisionId": "37def4b4-69e3-4881-baec-dfb0fa2186be",
+      "contentSha256": "sha256:33427f8b763dbb40927b830f4738a9cf6a7271484209d898e29cba888110667a"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:08:1",
+      "revisionId": "b3a5a107-98fd-476f-8f89-382bb73d68c6",
+      "contentSha256": "sha256:3203402c58e8b14e1f1ae44cadb4dd50093425d06b9750f57ad80662d5c1f3ec"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:09:1",
+      "revisionId": "18f8266e-52ce-498c-bd2f-1f9c51074ac7",
+      "contentSha256": "sha256:68b57cc9e8c8eb1f24305f208f45676e67da778316ef8c57320b18278f41d993"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:10:1",
+      "revisionId": "923d7718-455b-41a2-be35-e0c8795dc6b5",
+      "contentSha256": "sha256:ac924c5c86dde40cf640b1a55f6d9897d867205ce1b752bfe47bbdbafe1bd042"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:11:1",
+      "revisionId": "e5966481-2ab2-4d83-8ddd-463e1e3662d6",
+      "contentSha256": "sha256:b0e4beb91896fa5cda37586de3d516e887dc564b61c54bbb36cd9fdbe94c6411"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:12:1",
+      "revisionId": "1a751bb3-99f7-4256-8639-5780de029cd0",
+      "contentSha256": "sha256:2a743bb94ca383b5115d83db6570be5ac745a7657c8f7aec3584e73b12e733cc"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:01:1",
+      "revisionId": "79e239b2-1bf1-464a-97e8-06c2ecf23e48",
+      "contentSha256": "sha256:7d7a2a1fb8ea759394e21512a79b90f4953456467590bc422b437d27f2a1eba5"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:02:1",
+      "revisionId": "ac8a3066-7728-4c2c-a850-1d6e23ea6726",
+      "contentSha256": "sha256:bb7bac6076a14a8d1ff1087a5e62bfb02ccfd15fc015d2a5c75d2a8e79e0027a"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:03:1",
+      "revisionId": "07612bea-b59a-43b6-ba0d-65200490a987",
+      "contentSha256": "sha256:dd962029f754dfdd67560a52460ed29d50b4beeb65b2666db211f52a6ffb513b"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:04:1",
+      "revisionId": "c6e409c9-b379-45af-ad8c-df5aa6b79832",
+      "contentSha256": "sha256:c86fb2945a329b7148b4c759bd1eebfe4d94cf24169fdffbd741d6991c291d84"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:05:1",
+      "revisionId": "926564cc-86c5-490c-8a9c-57ade8499708",
+      "contentSha256": "sha256:09331a113985f7e1accbaa17d440571fb509e6c3606e97e854036c194438a53a"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:06:1",
+      "revisionId": "a2f4b24a-eea9-4a05-bb50-1306d9315f96",
+      "contentSha256": "sha256:aa2b6e79c2469c692f432386a71a9ea663322844a5943a4896af1a4580ff6cc9"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:07:1",
+      "revisionId": "e43a93c2-53e7-475e-af2e-208f659c48f3",
+      "contentSha256": "sha256:cfbff93a1b92a156779ee0579121733c4c1c9f681fb5f9796ca807cc9a7af6b8"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:08:1",
+      "revisionId": "1d5a13a1-f696-4553-8a07-e9a6d7877396",
+      "contentSha256": "sha256:f4d7a07e10ea462c887d63f8675b8130ffdf5341f0d8e222dfd6b73e152c3391"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:09:1",
+      "revisionId": "d49d6722-bb5a-43fe-86f8-e9ab3cfa41b6",
+      "contentSha256": "sha256:fe908b7269d43aa7f718a98115f7c97253dfa78b958b034e7ab3d200ef51f715"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:10:1",
+      "revisionId": "89382e30-f869-4ce8-8c7c-f9801d11cc2a",
+      "contentSha256": "sha256:1b87a85a136f3d7254c567db3c9cd92029e13862bed0ee44361f8a48b67a8d05"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:11:1",
+      "revisionId": "5aa33e11-5432-4a8b-951e-22c46bbf5a8b",
+      "contentSha256": "sha256:565e1be40625de84c9d2809f00fb124abb46e3d1b3d37f7a582b3d3efd4f0139"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:12:1",
+      "revisionId": "09d816b9-5a23-44f7-9771-3444f5392f55",
+      "contentSha256": "sha256:649c6f32dc0040bb94cbcfafa944b2e8212ea6b8b9273163ebefc38b27e2815c"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:13:1",
+      "revisionId": "3195c33b-b635-4a53-be46-647ed8bde5a8",
+      "contentSha256": "sha256:f4a75f86f48f9b3168ad5261f7f93cd5a35ac714b3297fbc710fdef9e6b811f5"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:14:1",
+      "revisionId": "b13af852-2b52-4af3-bdfb-17a3c75f6735",
+      "contentSha256": "sha256:b519c621afe0d5923e9aa085bebe17e9ab89718c056af71208eef18828051a68"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:15:1",
+      "revisionId": "bd5dd72b-4d8f-495a-a8ff-f57cb2e07fa3",
+      "contentSha256": "sha256:28c96a5e7eebac71b8c62d0f50e528c382dda809e1f8f8f783d4b12e40a25d81"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:01:1",
+      "revisionId": "0c8f2632-c750-4a65-8206-94165585bbbb",
+      "contentSha256": "sha256:c607fdc3382723a264d1489969626ee6e7ec9daf46c9ad18ddefff29c9a84468"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:02:1",
+      "revisionId": "79ab6c69-64b8-4fe4-84bf-9d840c23a3d9",
+      "contentSha256": "sha256:5d4fc84dc791d690bb88c19aa6bea87b675196199b7292c0f607412e00dac5a5"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:03:1",
+      "revisionId": "b5ac181d-880f-43b3-ac64-22374e65d139",
+      "contentSha256": "sha256:7324d67a2b525ba666749e991efa65ad0cb47816bd107ccaf53ada850f7e62ff"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:04:1",
+      "revisionId": "4902093f-f139-4ac9-9fb7-87945faff317",
+      "contentSha256": "sha256:13ed59171b9a1e54b8524e9476d7f34e1a1c2238b501e3a2d29d0304064da864"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:05:1",
+      "revisionId": "2a7246dd-3d0c-4690-8f0b-11eac06487fa",
+      "contentSha256": "sha256:a40f28ff828520435903688e08e1e835968eedede2396974034de8116ab38aa1"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:06:1",
+      "revisionId": "e0a87cd5-463e-4a0e-aa62-9d630ac054ed",
+      "contentSha256": "sha256:b3a0c86a1717d27febdd34bc4eaca7688569d73d5894b1aa1f308d3c6ae93155"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:07:1",
+      "revisionId": "f180c29a-8a98-45fc-a473-f8b88936eb7b",
+      "contentSha256": "sha256:1a8fcb2d40259a6661fec94bbce9193a2190b462dd8a694d5489a04586ce3bc4"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:08:1",
+      "revisionId": "65d7bf56-d77f-4e64-bff4-74a8999b3937",
+      "contentSha256": "sha256:622ebc932f1299b3a91bc99108ba4350c9da27579446f02a123c716762f03fc7"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:09:1",
+      "revisionId": "78ae2df2-1718-4231-a123-0c23a66fe112",
+      "contentSha256": "sha256:3a72b7fe919707b961f498e852f20c9c856bef0be67111011411cf1dac62f0b7"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:10:1",
+      "revisionId": "4dce15ae-f4f2-45d8-b631-e30697004be5",
+      "contentSha256": "sha256:f802ac675cca639e78e06ab33975f9faaedc5f828f4e58dc2bb0b0483c65f6f8"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:11:1",
+      "revisionId": "5870241f-4ec7-4376-bb72-b334ec67bc98",
+      "contentSha256": "sha256:40b40ca56aaf103ab7b49054988fb163e1e81cd4fa5255cf1c78508a120320e0"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:12:1",
+      "revisionId": "8eab7f2f-ef97-40f4-9865-9dd7ae1fffd0",
+      "contentSha256": "sha256:0f5798729dd0ea9e91ee4310c2e8ab403ae04b744882013f14948fcb40afe9a2"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:13:1",
+      "revisionId": "083fe729-e055-4e63-aa78-3c1a2ed72a74",
+      "contentSha256": "sha256:2f5c474bd282b592333c885bc3226db65faff0bae3dc8a31f3c8021f6ddabc82"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:14:1",
+      "revisionId": "26b9c8f9-c28e-458f-8354-7638014171db",
+      "contentSha256": "sha256:f357186295829205abe3191bbaa44959e361738a36612b6612325e9e3fa0d4dd"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:15:1",
+      "revisionId": "e5ff9de3-2a00-4905-9545-cdd08063a85f",
+      "contentSha256": "sha256:92b8b4aaf808641135197c6fd7b7eba2a1103a52d6134a23fe20416a640cc78c"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:01:1",
+      "revisionId": "f73b9b1a-e267-4582-9527-8ad079333735",
+      "contentSha256": "sha256:7e853c2032a7789d43fad889993999bd5fb8474942ef9f13ccf92d9bfeaa5b49"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:02:1",
+      "revisionId": "c7aee5e6-fecc-4a38-b74f-bb5121da87a6",
+      "contentSha256": "sha256:12ecf142c35044f85a2f4182f5a429f9a36ca189c7637f473c7d3c94a55e07af"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:03:1",
+      "revisionId": "d0469da8-655e-442e-9f93-f133da69670d",
+      "contentSha256": "sha256:33bbc28e4c33bde2b7053c0b499123c19a34531cd22901b778770674309b6bba"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:04:1",
+      "revisionId": "1ab1906b-5a83-452a-96a1-598efdf90cbb",
+      "contentSha256": "sha256:312d8ef9acc1ff4b9a5ddd149a0da322427ebac9ae411e7445b4959c2227280c"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:05:1",
+      "revisionId": "57316455-d0e8-4afb-9d76-e64d16b97bad",
+      "contentSha256": "sha256:230767cb88ae5640727aa7513765beb6f92879c7e30689bfddd8507a2284e8ce"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:06:1",
+      "revisionId": "c821f557-bc06-432d-a50f-c8e85eb1db36",
+      "contentSha256": "sha256:187909b8012f2cfeafb0653b12f9047ce225e067da9a5271f88b7fb4aa817baa"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:07:1",
+      "revisionId": "a54c5123-4f41-4f20-87f9-f9d9b9626118",
+      "contentSha256": "sha256:068025661f94e9aae19ad76d39fbfbb175ce1f24a80f9889d9465cb1add11d46"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:08:1",
+      "revisionId": "6b0b1b4c-26de-4def-b5a5-cfe30c350180",
+      "contentSha256": "sha256:4190eab6f80ac21d795f7ca1472c59c67973f3e9ad5f7680de1ec628f4a01ac9"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:09:1",
+      "revisionId": "01bf28cc-7086-4da2-8d08-495b7a85343d",
+      "contentSha256": "sha256:0478e43e1d947b6ab6fc2bab4696ebd2632cc347d48cceb27f1dcdccb17bd748"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:10:1",
+      "revisionId": "c17ee117-ba43-4cf2-8f3f-42893d554a98",
+      "contentSha256": "sha256:bc57bfd1f14f54ee3632bb46d38dcd56f9dec45eff4024f7055594e826c7fa30"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:11:1",
+      "revisionId": "022a761d-addb-4402-b13e-7fa6455552e7",
+      "contentSha256": "sha256:c8dd71966e71fd318bb014bcac9d626bfb72b621479aa1153b34efebd245b35e"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:12:1",
+      "revisionId": "8d9aefb4-47a2-4c13-9b83-fa518f4fda0a",
+      "contentSha256": "sha256:75f62f0df9dc3b6a206c195be1bd21c9496f72f7cf5ad33b621e0fcf2eaf34ad"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:01:1",
+      "revisionId": "845feb73-4db2-4223-987d-6f95f142cb53",
+      "contentSha256": "sha256:9b1ad31aa7b2d448ad2521577ad9f93a7e4e8e1b3b99a6a7498eaac3d2c19694"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:02:1",
+      "revisionId": "d8ebf829-8423-4da6-9575-08cc5a46ab1e",
+      "contentSha256": "sha256:2b6052a8a90c44d96bfc8f886facd67d3449a16ee2b83b8c122945f859602473"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:03:1",
+      "revisionId": "3f5d85a2-1971-4caf-b176-667758600630",
+      "contentSha256": "sha256:10951b92e04679a9e91042b5defaa6112273938353076f5d267134a83fefb890"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:04:1",
+      "revisionId": "a9bed4b6-8a80-4e7d-838c-22e40cf850a4",
+      "contentSha256": "sha256:b2797055b5bf5720377ab24d17adbe5a2aa1edd0f81c4af8b9f9b5885c2b44de"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:05:1",
+      "revisionId": "9f4c458c-dce4-4da9-89ca-4344d5967ae2",
+      "contentSha256": "sha256:d9695d7cbe42ecc7cdff165e2a76f7971b40ada624bed809cddaa22aecb03693"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:06:1",
+      "revisionId": "263c49aa-4f3e-4e95-aedf-4d28cda8b098",
+      "contentSha256": "sha256:434da8e87d8480f368d649138d8d51bcf00dd446defcaba6b961d925d243e6d1"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:07:1",
+      "revisionId": "548ed3a0-73f0-4f9e-93b7-8ef6f91a8fa0",
+      "contentSha256": "sha256:8be625da20bf31316132b4376eed377efe4460c917531e28fa3370a36a6c7507"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:08:1",
+      "revisionId": "6090527b-90e1-443b-ad37-8fe3332e84a0",
+      "contentSha256": "sha256:6c7c395f551c14086c09fd57bdedcf46b0ccbf959c645fa047044137c6864bcc"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:09:1",
+      "revisionId": "0a315090-78e4-49eb-839d-88e8b5623c1a",
+      "contentSha256": "sha256:aede8545e312afa952aaf6da99b9454abb0335bb9bbce32de205988bb2a05ba2"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:10:1",
+      "revisionId": "d41b55ae-63ce-4776-8b4e-429993f2e05a",
+      "contentSha256": "sha256:f156b09249551948411e12d3ac3eb0519f50ba5f98decd2b7881ad12ed2a7d33"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:11:1",
+      "revisionId": "7e69ff16-b94f-4a0e-906e-a2136ec11e5f",
+      "contentSha256": "sha256:faa1afdec396dc62ff213461492708a11f6fa7bb48f6ae51e75174f19fa639ec"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:12:1",
+      "revisionId": "b8ad5ed0-4df8-4b13-939d-4ebeac21bfeb",
+      "contentSha256": "sha256:f2e7e481f15b031881668ec1cf92bc3ec750efdf38b46294153299ec82c10729"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:01:1",
+      "revisionId": "1423d0fb-f50d-48e2-9c7c-81a51866b086",
+      "contentSha256": "sha256:77d31f43b6c9dbf620eda3f57e161584ba983611e46c71d652315175a0b80d5a"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:02:1",
+      "revisionId": "c3c0e0df-af50-4367-99aa-79ee3d957397",
+      "contentSha256": "sha256:3750b2b2f41ccce55b8512b7c3c651dde7f1e3c5cabcaf1da84e5d26ef80e25d"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:03:1",
+      "revisionId": "a9880e2a-d18d-47d9-b01d-11be20e1adf5",
+      "contentSha256": "sha256:24d071b50fc8e0eb87346b514fbae4074ae175e69afcb9db7aec7f3bcecbd601"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:04:1",
+      "revisionId": "56e787e9-c67a-4885-8d71-6d1c9a8b6abc",
+      "contentSha256": "sha256:cbc97770d36fb9f7e2c316d4140f5682179de137063833b2a62e4c1303d46b5c"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:05:1",
+      "revisionId": "adf41063-d0e8-4066-b724-4dc9b063d9b8",
+      "contentSha256": "sha256:85e89b645c7f6863aefad05ceace855a37a066f664b751b8d39b21cd3b14ec33"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:06:1",
+      "revisionId": "12c2e923-eb54-49c9-adf1-204f5f7fc21f",
+      "contentSha256": "sha256:74f52845481fd4b716ac73222153537fbcdec4d8da8230e788d200ddbe887687"
+    },
+    {
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:07:1",
+      "revisionId": "cd7eebd2-af6c-460a-a62f-a1eccebf6031",
+      "contentSha256": "sha256:672117582b865b8d9deca081393816548cb8e80a311851adf8f28f1bfa17ffba"
+    }
+  ],
+  "selected": [
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:02:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:03:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:04:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:05:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:06:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:07:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:08:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:09:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:10:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:11:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:02:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:03:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:04:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:05:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:06:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:07:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:08:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:09:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:10:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:11:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:listening:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:13:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:14:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:15:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:02:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:03:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:04:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:05:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:06:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:07:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:08:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:09:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:10:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:11:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:02:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:03:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:04:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:05:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:06:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:07:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:08:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:09:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:10:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:11:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:02:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:03:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:04:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:05:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:06:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:07:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:08:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:09:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:10:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:11:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:reading:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:13:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:14:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:vocabulary:15:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:02:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:03:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:08:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:09:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:10:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:11:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:12:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:13:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:14:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:15:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:01:1",
+    "hsk3-level-assessment-2026.07:hsk3-level-check:form-b:grammar:02:1"
+  ],
+  "level": "hsk3",
+  "formKey": "h",
+  "timeLimitMinutes": 90,
+  "coverage": {
+    "listening": 40,
+    "reading": 30,
+    "writing": 10
+  },
+  "formStableKey": "hsk3-assessment-reviewed-round102-h",
+  "evidenceDocument": "docs/thien-lo-redesign-review/196-REVIEW-HSK3-ASSESSMENT-ROUND102.md"
+}

@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "humanReviewed": false,
+  "partial": true,
+  "lessonIds": [
+    "journey-1",
+    "journey-2",
+    "professional-1",
+    "professional-2",
+    "professional-3",
+    "professional-4"
+  ],
+  "targets": {
+    "journey-1": {
+      "journey-1:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn 我坐飞机去 theo vai hành khách đi máy bay, không nhận vai người lái. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00298"
+          }
+        ]
+      },
+      "journey-1:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 坐 khi hành khách đi máy bay, không dùng 开 chỉ điều khiển phương tiện. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00298"
+          }
+        ]
+      },
+      "journey-1:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết hành trình mới với phương tiện, hướng đi và lượt về rõ điểm nhìn. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-08"
+          }
+        ]
+      }
+    },
+    "journey-2": {
+      "journey-2:v2:block:choice": {
+        "skill": "reading",
+        "objective": "Chọn câu nói đã nghe thấy người kia nói; đây là đọc mẫu bằng chữ, không phải bài đo nghe. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00210"
+          }
+        ]
+      },
+      "journey-2:v2:block:guided": {
+        "skill": "vocabulary",
+        "objective": "Điền 电影院 là nơi đến xem phim, phân biệt với 电影 là tác phẩm. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00039"
+          }
+        ]
+      },
+      "journey-2:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết hoạt động ở nhà hoặc rạp và kết quả nhìn/nghe theo tình huống mới; không suy thành điểm nghe. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-11"
+          }
+        ]
+      }
+    },
+    "professional-1": {
+      "professional-1:v2:classification": {
+        "skill": "vocabulary",
+        "objective": "Chọn 大学生 chỉ người học ở đại học, phân biệt với 大学 chỉ nơi/bậc học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00028"
+          }
+        ]
+      },
+      "professional-1:v2:repair": {
+        "skill": "reading",
+        "objective": "Chọn 我是中学生 để giới thiệu vai học sinh trung học, không gọi bản thân là ngôi trường. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00293"
+          }
+        ]
+      },
+      "professional-1:v2:order": {
+        "skill": "grammar",
+        "objective": "Sắp xếp 我在中学上学 với 在 + nơi học trước hoạt động 上学. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "grammar",
+            "id": "hsk1-pattern:hsk1-study-work:01-school-levels"
+          }
+        ]
+      },
+      "professional-1:v2:cloze": {
+        "skill": "vocabulary",
+        "objective": "Điền 大学生 để nói bản thân là sinh viên đại học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00028"
+          }
+        ]
+      },
+      "professional-1:v2:writing": {
+        "skill": "writing",
+        "objective": "Viết lời giới thiệu trường/bậc học và một câu hỏi mới, tự kiểm phân biệt người học với nơi học. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-12"
+          }
+        ]
+      }
+    },
+    "professional-2": {
+      "professional-2:v2:block:repair": {
+        "skill": "reading",
+        "objective": "Chọn lời đính chính người đó là bạn học, không phải giáo viên. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00211"
+          }
+        ]
+      },
+      "professional-2:v2:block:choose": {
+        "skill": "reading",
+        "objective": "Chọn câu 学习写汉字 để nói học viết chữ Hán, không nhầm với tên quốc gia. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00070"
+          }
+        ]
+      },
+      "professional-2:v2:block:order": {
+        "skill": "grammar",
+        "objective": "Sắp xếp 她是我的同学 với 我的 ngay trước 同学. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00211"
+          }
+        ]
+      },
+      "professional-2:v2:block:recall": {
+        "skill": "vocabulary",
+        "objective": "Điền 汉语 hoặc 中文 để nói học tiếng Trung; cả hai đáp án được chấp nhận trong câu này. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00069"
+          },
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00290"
+          }
+        ]
+      },
+      "professional-2:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lời đính chính vai giáo viên/bạn học và nói rõ việc học tiếng Trung, chữ Hán. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-guided-task:hsk1-study-work:02-people-and-language"
+          }
+        ]
+      }
+    },
+    "professional-3": {
+      "professional-3:v2:block:write-choice": {
+        "skill": "reading",
+        "objective": "Chọn 我写汉字 khi đang viết, không nhầm với 读书 là đọc sách. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00240"
+          }
+        ]
+      },
+      "professional-3:v2:block:learning-cloze": {
+        "skill": "vocabulary",
+        "objective": "Điền 学 hoặc 学习 cho 我学汉语/我学习汉语; cả hai được nhận ở câu này. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00247"
+          },
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00249"
+          }
+        ]
+      },
+      "professional-3:v2:block:book-order": {
+        "skill": "grammar",
+        "objective": "Sắp xếp 两本书 với 本 làm lượng từ giữa số lượng và sách. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00010"
+          }
+        ]
+      },
+      "professional-3:v2:block:answer": {
+        "skill": "reading",
+        "objective": "Chọn 我不知道 khi thật sự chưa biết vị trí sách, không tự đoán nơi đặt sách. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00288"
+          }
+        ]
+      },
+      "professional-3:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết câu về sách, đọc/viết và câu trả lời trung thực khi thiếu thông tin. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-13"
+          }
+        ]
+      }
+    },
+    "professional-4": {
+      "professional-4:v2:block:pair-check": {
+        "skill": "vocabulary",
+        "objective": "Chọn 下课 là kết thúc tiết học, phân biệt với tan làm và bắt đầu tiết học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00229"
+          }
+        ]
+      },
+      "professional-4:v2:block:time-choice": {
+        "skill": "reading",
+        "objective": "Chọn giờ tan làm trong lịch vai B để trả lời 你几点下班, không lấy giờ tan học. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00228"
+          }
+        ]
+      },
+      "professional-4:v2:block:order": {
+        "skill": "grammar",
+        "objective": "Sắp xếp 我晚上七点上课 theo mẫu chủ ngữ + thời gian + hoạt động của câu. Có ngữ cảnh và hỗ trợ trong bài, chưa là recall độc lập.",
+        "sources": [
+          {
+            "kind": "vocabulary",
+            "id": "hsk-vocab-00177"
+          }
+        ]
+      },
+      "professional-4:v2:block:produce": {
+        "skill": "writing",
+        "objective": "Viết lịch vai C, không dùng lại giờ của vai B; tự kiểm mốc tan làm và vào học. Bản chữ có thể dùng từ/Pinyin hỗ trợ và chỉ tự đối chiếu, chưa chấm viết hay nói độc lập.",
+        "sources": [
+          {
+            "kind": "task",
+            "id": "hsk1-task-14"
+          }
+        ]
+      }
+    }
+  }
+}

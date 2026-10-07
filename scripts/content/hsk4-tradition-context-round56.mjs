@@ -1,0 +1,14 @@
+const readings=[
+ ['老街有一家叫作“春和”的点心店，','Lǎojiē yǒu yì jiā jiàozuò “Chūnhé” de diǎnxīndiàn, sān dài rén shǐyòng tóng yì pèifāng. Niánqīng gùkè jiǎnshǎo hòu, diànzhǔ bǎozhèng bǎoliú héxīn wèidào, tóngshí jìlù tāmen bù gòumǎi de yuányīn. Fǎngtán xiǎnshì, bāozhuāng tài dà, chéngfèn bù qīng hé yíngyè shíjiān duǎn gèzì yǐngxiǎng bùtóng rén.'],
+ ['第二年，店里先推出小包装并标明原料，','Dì èr nián, diàn lǐ xiān tuīchū xiǎo bāozhuāng bìng biāomíng yuánliào, zhīhòu yáncháng zhōumò shíjiān. Xiāoshòu huīfù, dàn chuántǒng gùkè dānxīn pǐnpái biàn de pǔtōng. Diànzhǔ yòng liǎng zhǒng yánsè qūbié jīngdiǎn hé gǎiliáng chǎnpǐn, bìng yāoqǐng lǎorén bǐjiào wèidào, ér bú shì bǎ suǒyǒu biànhuà yí cì wánchéng.'],
+ ['第三年数据显示，小包装吸引新顾客，','Dì sān nián shùjù xiǎnshì, xiǎo bāozhuāng xīyǐn xīn gùkè, jīngdiǎn chǎnpǐn xiāoliàng jīběn bú biàn. Tuánduì rènwéi gǎibiàn zhídé jìxù, què zhǐ duì zhè jiā diàn hé sān nián guānchá fùzé. Guòchéng bú shì “chuántǒng huò xiàndài” de yí cì xuǎnzé, ér shì bǎoliú, shìyàn, qūfēn hé zàicì cèliáng.'],
+ ['河城灯会原来晚上八点左右开始，','Héchéng dēnghuì yuánlái wǎnshang bā diǎn zuǒyòu kāishǐ, yóukè gǎn shàng xià bān hòu rùchǎng. Jìnnián rénshù zēngjiā, qīngjiéduì fāxiàn yè lǐ lājī jízhōng, mòbānchē yě guòyú yōngjǐ. Jiāotōng bùmén tíxǐng zhǔbànfāng, ruò bù gǎibiàn sànchǎng fāngshì, ānquán fēngxiǎn huì jìxù shàngshēng.'],
+ ['第二年，灯会不得不提前一小时，','Dì èr nián, dēnghuì bù dé bù tíqián yì xiǎoshí, bìng bǎ biǎoyǎn fēn chéng liǎng lún. Zhǔbànfāng zēngjiā lājī huíshōudiǎn, chēzhàn yě yáncháng fúwù. Zǎo dào jiātíng zēngjiā, dàn bùfen yèbān gōngrén gǎn bu shàng dì yī lún; yí ge wèntí huǎnjiě shí, lìng yí ge qúntǐ shòudào yǐngxiǎng.'],
+ ['第三年保留两轮，并允许晚班工人预约第二轮。','Dì sān nián bǎoliú liǎng lún, bìng yǔnxǔ wǎnbān gōngrén yùyuē dì èr lún. Lājīliàng àn měi qiān rén jìsuàn hòu xiàjiàng, mòbānchē yōngjǐ yě jiǎnqīng. Búguò tiānqì bǐ qián yì nián hǎo, bù néng bǎ quánbù gǎishàn dōu guī gěi shíjiān tiáozhěng. Jiérì biànhuà bāohán ānquán, qīngjié hé cānyù gōngpíng sān tiáo xiàn.']
+];
+export function correctTraditionContext56(source){const content=structuredClone(source),changes=[];
+ function walk(v,path=[]){if(!v||typeof v!=='object')return;
+  for(const[hk,pk]of [['hanzi','pinyin'],['modelAnswerHanzi','modelAnswerPinyin'],['answer','answerPinyin']]){if(typeof v[hk]!=='string'||typeof v[pk]!=='string')continue;const e=readings.find(([p])=>v[hk].startsWith(p));if(e&&v[pk]!==e[1]){changes.push({path:[...path,pk],before:v[pk],after:e[1]});v[pk]=e[1];}}
+  // Correct the same word in newly authored paired models and explanatory strings.
+  for(const[k,x]of Object.entries(v)){if(typeof x==='string'&&(k.toLowerCase().includes('pinyin')||k==='explanation')&&x.includes('yǒngjǐ')){v[k]=x.replaceAll('yǒngjǐ','yōngjǐ');changes.push({path:[...path,k],before:x,after:v[k]});}else walk(x,[...path,k]);}
+ }walk(content);return {content,changes};}

@@ -1,4 +1,5 @@
 import { CONTENT_VERSION, RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { EDITORIAL_WORD_BY_ID, LEXICAL_EDITORIAL_VERSION } from "../content/lexicalEditorialCatalog";
 import { canonicalStringify, sha256Hex } from "../sync/document";
 import { isValidLearningResetEpoch } from "./resetEpoch";
 
@@ -154,6 +155,14 @@ const canonicalTimestamp = (value: unknown): value is string => {
 
 export const reviewWordVersion = (wordId: string) =>
   `${CONTENT_VERSION}:vocabulary:${wordId}:1`;
+export const editorialReviewWordVersion = (wordId: string) =>
+  `${reviewWordVersion(wordId)}:${LEXICAL_EDITORIAL_VERSION}`;
+export const isSupportedReviewWordVersion = (wordId: string, version: unknown) =>
+  RELEASED_WORD_BY_ID.has(wordId) && (version === reviewWordVersion(wordId)
+    || version === editorialReviewWordVersion(wordId));
+export const reviewPresentationWord = (wordId: string, version: string) =>
+  version === editorialReviewWordVersion(wordId)
+    ? EDITORIAL_WORD_BY_ID.get(wordId) : RELEASED_WORD_BY_ID.get(wordId);
 
 export const parseGradeReviewCommand = (
   input: unknown,
@@ -178,7 +187,7 @@ export const parseGradeReviewCommand = (
     || !boundedString(input.cardId, 160)
     || !boundedString(input.wordId, 160)
     || !RELEASED_WORD_BY_ID.has(input.wordId)
-    || input.wordVersion !== reviewWordVersion(input.wordId)
+    || !isSupportedReviewWordVersion(input.wordId, input.wordVersion)
     || !positiveInteger(input.expectedCardRevision)
     || typeof input.rating !== "number"
     || !Number.isInteger(input.rating)
@@ -204,7 +213,7 @@ export const parseGradeReviewCommand = (
       schedulerVersion: REVIEW_SCHEDULER_VERSION,
       cardId: input.cardId,
       wordId: input.wordId,
-      wordVersion: input.wordVersion,
+      wordVersion: input.wordVersion as string,
       expectedCardRevision: input.expectedCardRevision,
       rating: input.rating as ReviewRating,
       ...(input.durationMs === undefined
@@ -240,7 +249,7 @@ export const parseReviewQueue = (input: unknown): ReviewQueueParseResult => {
       || !positiveInteger(candidate.cardRevision)
       || !boundedString(candidate.wordId, 160)
       || !RELEASED_WORD_BY_ID.has(candidate.wordId)
-      || candidate.wordVersion !== reviewWordVersion(candidate.wordId)
+      || !isSupportedReviewWordVersion(candidate.wordId, candidate.wordVersion)
       || candidate.modality !== REVIEW_MODALITY
       || !canonicalTimestamp(candidate.dueAt)
       || Date.parse(candidate.dueAt) > Date.parse(input.generatedAt)

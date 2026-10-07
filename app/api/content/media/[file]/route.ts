@@ -3,19 +3,28 @@ import { getD1Database } from '../../../../../src/server/d1';
 import { sameOriginMutation } from '../../../../../src/server/authHttp';
 import { LessonMediaRepository } from '../../../../../src/server/lessonMediaRepository';
 import { lessonMediaUrl } from '../../../../../src/content/lessonMedia';
+import { requirePremiumLevel, sandboxCommerceEnabled } from '../../../../../src/server/premiumAccess';
+import { LessonAccessRepository } from '../../../../../src/server/lessonAccessRepository';
 export const dynamic='force-dynamic';
 const fileId=(file:string)=>/^([0-9a-f-]{36})\.(png|jpg|webp|mp3|wav|ogg)$/.exec(file)?.[1];
 type Context={params:Promise<{file:string}>};
 export async function GET(request:Request,context:Context) {
   try {
     const {file}=await context.params;const id=fileId(file);if(!id)return new Response(null,{status:404});
-    const repo=new LessonMediaRepository(await getD1Database());const asset=await repo.get(id);
+    const database=await getD1Database();const repo=new LessonMediaRepository(database);const asset=await repo.get(id);
     if(!asset||lessonMediaUrl(id,asset.mimeType)!==`/api/content/media/${file}`)return new Response(null,{status:404});
-    const released=await repo.isReleased(lessonMediaUrl(id,asset.mimeType));
-    if(!released){const auth=await authorizeStudio('content:workspace:read');if(!auth.ok)return auth.response;}
+    const access=await repo.releaseAccess(lessonMediaUrl(id,asset.mimeType));
+    if(access==='premium'){
+      const lessonIds=await repo.releasedHsk4LessonIds(lessonMediaUrl(id,asset.mimeType));
+      const freeIds=await new LessonAccessRepository(database).freeHsk4LessonIds();
+      if(!sandboxCommerceEnabled(request.url)||!lessonIds.length||lessonIds.some(lessonId=>!freeIds.includes(lessonId))){
+        const gate=await requirePremiumLevel(request,'hsk4');if(gate)return gate;
+      }
+    }
+    if(access==='unreleased'||access==='unknown'){const auth=await authorizeStudio('content:workspace:read');if(!auth.ok)return auth.response;}
     const bytes=await repo.bytes(id);
     if(bytes.byteLength!==asset.byteLength)throw new Error('Học liệu chưa đọc được đầy đủ.');
-    const headers:Record<string,string>={'Content-Type':asset.mimeType,'X-Content-Type-Options':'nosniff','Cache-Control':released?'public, max-age=31536000, immutable':'private, no-store','Accept-Ranges':'bytes'};
+    const headers:Record<string,string>={'Content-Type':asset.mimeType,'X-Content-Type-Options':'nosniff','Cache-Control':access==='free'?'public, max-age=31536000, immutable':'private, no-store','Accept-Ranges':'bytes'};
     const range=request.headers.get('range');
     if(range){
       const match=/^bytes=(\d*)-(\d*)$/.exec(range);
