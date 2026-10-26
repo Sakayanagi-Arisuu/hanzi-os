@@ -921,7 +921,7 @@
     },
     {
       "file": "src/sync/activityHistory.ts",
-      "sha256": "8dbb59cb64d39b5a599958b1c981f365443478e12d5fa792d6eec3d9a19f117b",
+      "sha256": "6972ee558b334df923a8c59a48fef07417835f68d3cf2a571f1b4f96b39a44de",
       "previousSha256": null
     },
     {
@@ -991,7 +991,7 @@
     },
     {
       "file": "src/sync/indexedDb.ts",
-      "sha256": "3cf08bea6d1f15e9f0feec182c6ee8dbd201c4d8fc28e7fee8f4bed864ba3a4a",
+      "sha256": "708778b7c8b7ae66228c5959c9bded3ba83f7a6f1b87201ff7d61bac477f25f5",
       "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
     },
     {
@@ -1016,12 +1016,12 @@
     },
     {
       "file": "src/sync/localHistoryReadBatch.test.ts",
-      "sha256": "411991c9bb591dc312852ad99b91d347583906ff432e030cc19bb0b923916e2c",
+      "sha256": "add6f478b7b23df6c57d2327d7c0943bd1fb971eceef973b253f2dc91edaab4a",
       "previousSha256": null
     },
     {
       "file": "src/sync/localHistoryReadBatch.ts",
-      "sha256": "96bee30a126b5c979d757c6dd2cb1b3c0cfc818152929c4b120b20b1e79772e5",
+      "sha256": "924795abaf99cbf242468f8f4a0ef727c915fa24633cfbb7da53c8be95cf19a2",
       "previousSha256": null
     },
     {
@@ -1151,7 +1151,7 @@
     },
     {
       "file": "src/sync/reviewHistory.ts",
-      "sha256": "0f2b1808250b15dd803de25385ee2e4328fb2ec18d91f573fde7329c8c939300",
+      "sha256": "4c592da9e9ef044cbcfe1e3b1fe4e55836fd671bbec823154771fa2dde1bd143",
       "previousSha256": "39cf05bfef606c9a4b73041f5767631a96b57dcf2111cd135c06a78bf7c6517e"
     },
     {
@@ -1201,7 +1201,7 @@
     },
     {
       "file": "src/sync/workspaceSync.ts",
-      "sha256": "8d7090e2327b45eb232974b1b5b673a4497c1bc8ca272d2bc94de7c09cf2ddea",
+      "sha256": "7f20f21f693848b0bd2312be075cb5444c6174bcbd4da2568425f008ac0d99de",
       "previousSha256": "a080aae981e63259633f4e402cd524b188bc20caf1df1545cdee9fb67c205cf5"
     },
     {
@@ -3214,6 +3214,44 @@
           "file": "src/lib/serviceWorkerPolicy.test.ts",
           "previousSha256": "dda8a72306153adeee46bced504942b52d98008f00c1ccf826d9ddf60b32ab40",
           "sha256": "ba0f2ce41b25730b176f3b0cbdabe9ded25a2a8f42c203806e32db7cea402ad2"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "T03 avoid redundant canonical workspace clone in aggregate history",
+      "notes": "Use owner/reset index key cursor, fetching values except exact canonical workspace primary key only in aggregate batch. Default list and standalone readers remain compatible. Aggregate first awaits one shared canonical cooperative read with wrapper owner/reset/schema/key validation; unknown/corrupt journal and cursor/read failures reject without writes. Source projections, IDs, authority, pending/receipts/schema unchanged. Targetedv1 4files31tests and v2 5files25tests exit0, typecheckv1/lintv1 exit0. Compiled native IndexedDB fixture same4340 origin:100k unique/mastery0, current3814ms vs prior4254ms, timer1668vs1670ms/frame467vs483ms. Single desktop observation, no latency/memory/device pass; monolithic storage still unbounded. Fullv31 CHECK_EXIT0:565files/3650tests,43migrations64tables/build239JS192markers absent,advisory+388.9KiB. Full-app4327 after normal tab close/open: explicit update reloads successfully; both256px avatars/account/preferences retained; history20→40→41/41. Initial CDP input interruption observed, then semantic labeled button completed. No storage clear/unregister. T17 commit6e2204e local; push blocked by unavailable GitHub credential; no account/config changes. User subsequently chose local commits only; no further push.",
+      "changes": [
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "3cf08bea6d1f15e9f0feec182c6ee8dbd201c4d8fc28e7fee8f4bed864ba3a4a",
+          "sha256": "708778b7c8b7ae66228c5959c9bded3ba83f7a6f1b87201ff7d61bac477f25f5"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": "96bee30a126b5c979d757c6dd2cb1b3c0cfc818152929c4b120b20b1e79772e5",
+          "sha256": "924795abaf99cbf242468f8f4a0ef727c915fa24633cfbb7da53c8be95cf19a2"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.test.ts",
+          "previousSha256": "411991c9bb591dc312852ad99b91d347583906ff432e030cc19bb0b923916e2c",
+          "sha256": "add6f478b7b23df6c57d2327d7c0943bd1fb971eceef973b253f2dc91edaab4a"
+        },
+        {
+          "file": "src/sync/reviewHistory.ts",
+          "previousSha256": "0f2b1808250b15dd803de25385ee2e4328fb2ec18d91f573fde7329c8c939300",
+          "sha256": "4c592da9e9ef044cbcfe1e3b1fe4e55836fd671bbec823154771fa2dde1bd143"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "8dbb59cb64d39b5a599958b1c981f365443478e12d5fa792d6eec3d9a19f117b",
+          "sha256": "6972ee558b334df923a8c59a48fef07417835f68d3cf2a571f1b4f96b39a44de"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "8d7090e2327b45eb232974b1b5b673a4497c1bc8ca272d2bc94de7c09cf2ddea",
+          "sha256": "7f20f21f693848b0bd2312be075cb5444c6174bcbd4da2568425f008ac0d99de"
         }
       ]
     }

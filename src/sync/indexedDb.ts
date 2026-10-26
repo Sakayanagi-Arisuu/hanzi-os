@@ -864,7 +864,7 @@ export const readLessonResume = <T>(scope: OwnerScopedCacheScope) =>
 /** Read only the active owner's current reset epoch, including archived lesson
  * revisions. No other account's drafts enter the caller's analytics input.
  */
-export async function listLessonResumes(scope: ActiveOwnerLearningScope): Promise<OwnerScopedCacheRecord<unknown>[]> {
+export async function listLessonResumes(scope: ActiveOwnerLearningScope, excludeEntryKey?: string): Promise<OwnerScopedCacheRecord<unknown>[]> {
   const cacheScope={expectedOwnerGeneration:scope.ownerGeneration,resetEpoch:scope.resetEpoch,entryKey:'lesson-reading-list'};
   assertOwnerScopedCacheScope(cacheScope);
   const database=await openSyncDatabase();
@@ -872,7 +872,36 @@ export async function listLessonResumes(scope: ActiveOwnerLearningScope): Promis
   const done=transactionDone(transaction);
   try{
     await assertOwnerLearningScope(transaction,cacheScope);
-    const records=await requestResult(transaction.objectStore(LESSON_RESUME_STORE).index(OWNER_SCOPED_CACHE_OWNER_EPOCH_INDEX).getAll(IDBKeyRange.only([scope.ownerGeneration.ownerKey,scope.resetEpoch])) as IDBRequest<OwnerScopedCacheRecord<unknown>[]>);
+    const store = transaction.objectStore(LESSON_RESUME_STORE);
+    const index = store.index(OWNER_SCOPED_CACHE_OWNER_EPOCH_INDEX);
+    const range = IDBKeyRange.only([scope.ownerGeneration.ownerKey, scope.resetEpoch]);
+    let records: OwnerScopedCacheRecord<unknown>[];
+    if (excludeEntryKey === undefined) {
+      records = await requestResult(index.getAll(range) as IDBRequest<OwnerScopedCacheRecord<unknown>[]>);
+    } else {
+      // A key cursor avoids cloning the large journal that the caller reads
+      // separately. Match the actual primary key, never a row's entryKey field.
+      const excluded = ownerScopedCacheRecordKey(scope.ownerGeneration.ownerKey, scope.resetEpoch, excludeEntryKey);
+      records = await new Promise<OwnerScopedCacheRecord<unknown>[]>((resolve, reject) => {
+        const rows: OwnerScopedCacheRecord<unknown>[] = [];
+        let pending = 0, exhausted = false, count = 0;
+        const finish = () => { if (exhausted && pending === 0) resolve(rows); };
+        const cursor = index.openKeyCursor(range);
+        cursor.onerror = () => reject(cursor.error);
+        cursor.onsuccess = () => {
+          const current = cursor.result;
+          if (!current) { exhausted = true; finish(); return; }
+          if (current.primaryKey !== excluded) {
+            const position = count++;
+            pending++;
+            const read = store.get(current.primaryKey) as IDBRequest<OwnerScopedCacheRecord<unknown>>;
+            read.onerror = () => reject(read.error);
+            read.onsuccess = () => { rows[position] = read.result; pending--; finish(); };
+          }
+          current.continue();
+        };
+      });
+    }
     await done;return records;
   }catch(error){abortTransaction(transaction);await done.catch(()=>undefined);throw error;}
 }

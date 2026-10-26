@@ -1,3 +1,12 @@
+## Cá nhân hóa v2 · đọc workspace một lần trong lịch sử tổng hợp · 26/10/2026
+
+- **Module:** T03 — IN-REVIEW.
+- **Người học thấy gì:** lịch sử tổng hợp tránh clone dư journal workspace; refresh vẫn đọc mới, standalone reader giữ tương thích. Journal/schema/wrapper lỗi vẫn chặn và giữ dữ liệu để khôi phục. Không thay kết quả lịch sử, quyền hoặc lịch ôn.
+- **Đã kiểm:** targetedv1 4file/31test và v2 5file/25test exit0, typecheckv1/lintv1 exit0. Regression kiểm primary key thật, không bỏ nhầm row giả entryKey; owner/reset/generation, unknown/corrupt root/wrapper, canonical/cursor failure, retry/freshness và snapshot không đổi. Native IndexedDB4340 compiled cùng dữ liệu100k: đủ100k unique/mastery0; bản mới3814ms, baseline4254ms; timer1668/1670ms, frame467/483ms. Chỉ một cặp quan sát desktop, chưa latency/memory/device pass. Fullv31 CHECK_EXIT0:565file/3650test, typecheck/global lint/content/DB/restore43migration64table/build qua;239JS/192private markers vắng,advisory+388.9KiB. Source6file cố định trong gate. Full-app4327 session cookie+D1 clone: sau đóng/mở tab bình thường, nút Cập nhật ứng dụng đã reload thành công;0update error,Header/Profile cả2ảnh256px và10phút/Giao tiếp còn. Lịch sử20→40→41/41lượt qua; một thao tác CDP bị ngắt, quan sát lại rồi dùng nút đúng nhãn để hoàn tất. Proof tmp/personalization-t03-full-app-v31.json và ảnh full-app-{update,history}-v31. Không clear/unregister storage.
+- **Dữ liệu giữ được:** không đổi DBversion/schema/IDs/producer/scoring/FSRS/pending/receipts/outbox/owner/reset. D1 nguồn so pre-v20 giữ65/65immutable,0missing/changed,3thêm,integrityOK/FK0. HSK0 4/4 rich0/4; rich HSK1–4 40/40/55/78=213/213. Binding405/0drift, baseline content/scoring pins giữ nguyên. Không sửa docs/reports/output/.wrangler hoặc clear browser storage.
+- **Git:** T17 commit6e2204e ở local; push bị chặn vì GitHub credential không khả dụng, đã thử noninteractive và không đổi tài khoản/cấu hình. Origin còn ở79ba221. Người dùng chọn giữ commit local trước; chốt delta T03 local sau gate, không push; không deploy/APK/USER-ACCEPTED/humanReviewed.
+- **Tiếp theo:** web4327 đang bật để người dùng test; tiếp T03 bounded storage sau mốc này. Bounded storage vẫn cần thiết kế/migration riêng; T04 oversized recovery, account/device/consumer/content review/cohort và đường nâng cấp worker cũ chưa hỗ trợ protocol vẫn cần kiểm thêm; full-app lifecycle/update mới đã qua. Chưa hoàn tất toàn kế hoạch.
+
 ## Cá nhân hóa v2 · cache history theo owner/reset · 25/10/2026
 
 - **Module:** T03 — IN-REVIEW.

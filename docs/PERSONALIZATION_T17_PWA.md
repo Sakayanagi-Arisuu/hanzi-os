@@ -1,3 +1,7 @@
+## 26/10 · kiểm full app sau lifecycle bình thường · IN-REVIEW
+
+Fullv31 CHECK_EXIT0:565file/3650test. Sau hai lần timeout với worker active cũ ởv30, đóng tab theo lifecycle bình thường, giữ nguyên browser storage; buildv31/server local sẵn sàng rồi mở lại. Bấm Cập nhật ứng dụng đã reload thành công, không còn lỗi cập nhật. Tài khoản/cookie, cả2avatar256px và10phút/Giao tiếp còn; history41/41. Proof tmp/personalization-t03-full-app-update-v31.png và full-app-v31.json. Không clear/unregister/cache purge, không ép reload bằng API. Không suy ra old-worker first-click/device/cloud pass. T17 commit6e2204e ở local; người dùng chọn giữ local trước, không push thêm.
+
 ## Cá nhân hóa v2 · cập nhật PWA không bị tải nền giữ lại · 26/10/2026
 
 - **Module:** T17 — IN-REVIEW.

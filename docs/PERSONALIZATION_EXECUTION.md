@@ -1,3 +1,12 @@
+## Cá nhân hóa v2 · đọc workspace một lần trong lịch sử tổng hợp · 26/10/2026
+
+- **Module:** T03 — IN-REVIEW.
+- **Người học thấy gì:** lịch sử tổng hợp tránh clone dư journal workspace; refresh vẫn đọc mới, standalone reader giữ tương thích. Journal/schema/wrapper lỗi vẫn chặn và giữ dữ liệu để khôi phục. Không thay kết quả lịch sử, quyền hoặc lịch ôn.
+- **Đã kiểm:** targetedv1 4file/31test và v2 5file/25test exit0, typecheckv1/lintv1 exit0. Regression kiểm primary key thật, không bỏ nhầm row giả entryKey; owner/reset/generation, unknown/corrupt root/wrapper, canonical/cursor failure, retry/freshness và snapshot không đổi. Native IndexedDB4340 compiled cùng dữ liệu100k: đủ100k unique/mastery0; bản mới3814ms, baseline4254ms; timer1668/1670ms, frame467/483ms. Chỉ một cặp quan sát desktop, chưa latency/memory/device pass. Fullv31 CHECK_EXIT0:565file/3650test, typecheck/global lint/content/DB/restore43migration64table/build qua;239JS/192private markers vắng,advisory+388.9KiB. Source6file cố định trong gate. Full-app4327 session cookie+D1 clone: sau đóng/mở tab bình thường, nút Cập nhật ứng dụng đã reload thành công;0update error,Header/Profile cả2ảnh256px và10phút/Giao tiếp còn. Lịch sử20→40→41/41lượt qua; một thao tác CDP bị ngắt, quan sát lại rồi dùng nút đúng nhãn để hoàn tất. Proof tmp/personalization-t03-full-app-v31.json và ảnh full-app-{update,history}-v31. Không clear/unregister storage.
+- **Dữ liệu giữ được:** không đổi DBversion/schema/IDs/producer/scoring/FSRS/pending/receipts/outbox/owner/reset. D1 nguồn so pre-v20 giữ65/65immutable,0missing/changed,3thêm,integrityOK/FK0. HSK0 4/4 rich0/4; rich HSK1–4 40/40/55/78=213/213. Binding405/0drift, baseline content/scoring pins giữ nguyên. Không sửa docs/reports/output/.wrangler hoặc clear browser storage.
+- **Git:** T17 commit6e2204e ở local; push bị chặn vì GitHub credential không khả dụng, đã thử noninteractive và không đổi tài khoản/cấu hình. Origin còn ở79ba221. Người dùng chọn giữ commit local trước; chốt delta T03 local sau gate, không push; không deploy/APK/USER-ACCEPTED/humanReviewed.
+- **Tiếp theo:** web4327 đang bật để người dùng test; tiếp T03 bounded storage sau mốc này. Bounded storage vẫn cần thiết kế/migration riêng; T04 oversized recovery, account/device/consumer/content review/cohort và đường nâng cấp worker cũ chưa hỗ trợ protocol vẫn cần kiểm thêm; full-app lifecycle/update mới đã qua. Chưa hoàn tất toàn kế hoạch.
+
 ## Cá nhân hóa v2 · cập nhật PWA không bị tải nền giữ lại · 26/10/2026
 
 - **Module:** T17 — IN-REVIEW.
@@ -150,7 +159,7 @@ USER-ACCEPTED/humanReviewed mới. Source local khác preview và bản phát h�
 | A02 | IN-REVIEW | Private API/storage/server re-encode/UI/local offline binding implemented; targeted63test/Gradle7test/browser3journey/full app cookie save→Header/Profile256px→reload qua. Fullv29 565file/3634test, restore43migration64table/build qua; local config delta typecheck/lint/build qua. Device/picker/offline cache/cloud/human acceptance còn mở. |
 | T01 | IN-REVIEW | Lesson transaction/event/reconcile; không đổi nghiệm thu |
 | T02 | IN-REVIEW | Coverage10slice trong T02_CONTINUOUS; writing primary/first-response/support/resume mới có handoff T02_WRITING, còn gaps/source cụ thể, không khép toàn T02 |
-| T03 | IN-REVIEW | Timeline/filter/detail/cursors + scoped read sharing; keyset9/9 và native synthetic100k unique qua; Worker history thử nghiệm rút. Còn bounded storage/latency/account-D1/device và T02 coverage |
+| T03 | IN-REVIEW | Scoped batch + exact-key cursor tránh clone workspace dư; canonical wrapper/parser fail-closed. Fullv31 3650test, account history41/41 qua; native100k unique/mastery0. Còn bounded storage/memory/latency/device và T02 coverage |
 | T04 | IN-REVIEW | Device v2 local seal + guest web apply/preimage/resume/rollback/boot gate implemented; browser hai tab/reload/rollback qua; còn account/cross-reset/cache/native/conflict-resolution, chưa full-device |
 | T05 | IN-REVIEW | Profile preferences/session context/opt-out/reset riêng đã có; handoff T05, chưa runner đổi nhanh/cold-start/account-D1/native |
 | T06 | IN-REVIEW | Four-node graph/DAG/aliases + real source context hashes; policy unreviewed/null, handoff T06_T07 |
@@ -164,9 +173,9 @@ USER-ACCEPTED/humanReviewed mới. Source local khác preview và bản phát h�
 | T14 | IN-REVIEW | Composer re-entry <=5phút sau7ngày khi automatic/inference; entry opt-in/null request + guest full-shell resume/map đã kiểm; diagnostic/skip/delayed recall vẫn cần reviewed unseen items; handoff T14_LONG_TERM |
 | T15 | NOT-REVIEWED | Authoring workflow prep; expansion blocked until pilot/content review |
 | T16 | IN-REVIEW | Đã sửa banner/CTA/Profile/writing/dictionary/mistake support và năm vùng navigation; E2Ev10 6/6. Chưa audit hết learner/rich CTA/G09/device |
-| T17 | IN-REVIEW | PWA sửa install redirect bằng Worker asset resolver + worker-first routing; root controller activated, server-down reload UI qua; regression54test/buildv13 qua, fullcheckv11 CHECK_EXIT=0:547file/3507test; chưa full auth/RBAC/release/recovery/native audit |
+| T17 | IN-REVIEW | Install redirect/routing đã sửa. Explicit update dừng riêng optional preparation; native held-fetch regression qua. Fullv30/v31 pass; full-app4327 sau lifecycle đóng/mở bình thường→update/reload qua, dữ liệu còn. Legacy worker không hỗ trợ protocol vẫn có thể timeout; device/release audit còn mở |
 | T18 | IN-REVIEW | Protocol + synthetic replay/CLI/frozen input verifier đã có (14test/typecheck/CLI verify pass); còn baseline arms/reviewed item split/device performance/power/cohort/recall thật, không claim hiệu quả |
-| T19 | IN-REVIEW | Fullv29 CHECK_EXIT0:565file/3634test, restore43migration64table/build239JS192markers qua. Local config delta typecheck/lint/build qua; full app session+D1 clone avatar save/reload qua. PWA cold update prompt failed, postponed; projection409 policy giữ; bounded100k/device/human/cohort và production readiness vẫn mở. |
+| T19 | IN-REVIEW | Fullv31 CHECK_EXIT0:565file/3650test,restore43migration64table/build239JS192markers qua. Full app avatar/update/history41/41 qua. Commit mới giữ local theo người dùng; không deploy. Bounded storage/recovery/consumer/device/human/cohort và production readiness vẫn mở |
 
 ## Điểm tiếp tục
 

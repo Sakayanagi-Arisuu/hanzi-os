@@ -7,7 +7,6 @@ import { isLessonHistoryEvent, LESSON_HISTORY_ENTRY_PREFIX, projectLessonHistory
 import { type LearningCommandOutboxRecord } from './learningCommandOutbox';
 import { readActiveOwnerLearningScope, StaleOwnerGenerationError, type ActiveOwnerLearningScope } from './indexedDb';
 import { PAGE_CORRECTION_HISTORY_PREFIX } from './mistakeHistory';
-import { readWorkspaceCooperatively } from './workspaceSync';
 import { workspaceEntriesWithHistoryCooperatively, workspaceHistoryEventsCooperatively } from './workspaceHistory';
 import { readAccountLessonHistoryPage } from './lessonHistory';
 
@@ -75,7 +74,7 @@ export function commandActivityHistoryEvents(records: readonly LearningCommandOu
 export async function readLocalActivityHistory(scope: ActiveOwnerLearningScope, batch = new LocalHistoryReadBatch(scope)) {
   const owner = { ownerKey: scope.ownerGeneration.ownerKey, resetEpoch: scope.resetEpoch };
   const [records, commands, state, workspace] = await Promise.all([batch.resumes(scope),
-    batch.commands(scope), batch.state(scope), readWorkspaceCooperatively(scope)]);
+    batch.commands(scope), batch.state(scope), batch.workspace(scope)]);
   const events: LessonHistoryEventV1[] = [];
   events.push(...mockPracticeHistoryEvents(owner.ownerKey, owner.resetEpoch, await readMockPracticeRuns(scope)));
   for (const record of records) {

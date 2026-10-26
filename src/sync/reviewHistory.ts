@@ -54,7 +54,7 @@ export async function readLocalReviewHistory(scope:ActiveOwnerLearningScope,batc
 
 export async function readLocalLearningHistory(scope:ActiveOwnerLearningScope){
   const { readLocalActivityHistory } = await import('./activityHistory');
-  const batch = new LocalHistoryReadBatch(scope);
+  const batch = new LocalHistoryReadBatch(scope, true);
   const projected = await projectLessonHistoryCooperatively({ownerKey:scope.ownerGeneration.ownerKey,resetEpoch:scope.resetEpoch},[
     ...await readLocalLessonHistory(scope,batch),...await readLocalReviewHistory(scope,batch),...await readLocalActivityHistory(scope,batch)]);
   await batch.assertCurrent(scope);
