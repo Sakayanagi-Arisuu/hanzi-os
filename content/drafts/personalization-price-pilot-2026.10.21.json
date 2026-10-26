@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "bankId": "hanzi-personalization-price-pilot-2026.10.21",
+  "contentVersion": "personalization-price-draft-2026.10.21",
+  "state": "draft-not-published",
+  "humanReviewed": false,
+  "measurementEligible": false,
+  "provenance": "Original HANZI.OS pilot content, AI-assisted; no third-party lesson, media or answer bank used.",
+  "sourceLessonIds": ["hsk1-time-place-events-01-numbers", "daily-1", "daily-3"],
+  "review": {
+    "humanApprovals": [],
+    "familyIsolation": "pending-human-review",
+    "measurementPolicy": "pending-human-review",
+    "aiSelfReview": {
+      "mandarin": "Quantity, classifiers and prices checked against the intended scenario; human linguistic review remains pending.",
+      "pinyin": "Tone marks, neutral shao/fu and classifier readings checked; no claim of native audio review.",
+      "vietnamese": "Prompts and translations distinguish total price, quantity and affordability.",
+      "pedagogy": "Teaching, scaffold, production and holdout candidates remain separate; no mastery or skip authority.",
+      "coverage": "Six original items map to the four pilot goals; audio, family isolation and policy remain gaps."
+    }
+  },
+  "items": [
+    {
+      "id": "price.listen-contrast.tea-15-50",
+      "competencyId": "c.price.comprehend",
+      "familyId": "price-minimal-pair-tea",
+      "role": "practice",
+      "skill": "listening",
+      "modality": "audio",
+      "estimatedSeconds": 70,
+      "context": [{"hanzi":"这杯茶十五元。","pinyin":"Zhè bēi chá shíwǔ yuán.","meaningVi":"Cốc trà này giá mười lăm tệ."}],
+      "promptVi": "Nghe giá của cốc trà rồi chọn số tiền. Bản chữ chỉ được mở như trợ giúp sau lần trả lời đầu.",
+      "audio": {"status":"missing","mediaId":null,"sha256":null,"provenance":null},
+      "assistance": {"transcript":"reveal-after-first-response","ime":"not-applicable","priorExposure":"record-per-occurrence"},
+      "scoringAdapter": "draft-objective-not-authorized",
+      "activity": {
+        "type":"choice",
+        "options":[
+          {"id":"fifteen","text":"十五元 · 15 tệ","feedback":"Đúng: 十五 là mười lăm; giữ lại lần nghe đầu trước khi mở bản chữ."},
+          {"id":"fifty","text":"五十元 · 50 tệ","feedback":"五十 là năm mươi. Đối chiếu vị trí của 十 trong 十五 và 五十."},
+          {"id":"five","text":"五元 · 5 tệ","feedback":"Câu còn có 十 trước 五, nên giá không phải năm tệ."}
+        ],
+        "answerIds":["fifteen"],"acceptedAnswers":[],
+        "explanation":"十五 và 五十 khác vị trí của 十. Bản chữ và giọng máy chỉ là trợ giúp khi luyện nghe.",
+        "hint":"Nghe vị trí của 十.","rubric":[]
+      }
+    },
+    {
+      "id":"price.listen-new.books-total",
+      "competencyId":"c.price.comprehend",
+      "familyId":"price-bundle-books-total",
+      "role":"holdout-candidate",
+      "skill":"listening","modality":"audio","estimatedSeconds":70,
+      "context":[{"hanzi":"两本书八十元。","pinyin":"Liǎng běn shū bāshí yuán.","meaningVi":"Hai quyển sách giá tám mươi tệ."}],
+      "promptVi":"Nghe người bán nói giá của hai quyển sách. Tổng giá được nói là bao nhiêu?",
+      "audio":{"status":"missing","mediaId":null,"sha256":null,"provenance":null},
+      "assistance":{"transcript":"reveal-after-first-response","ime":"not-applicable","priorExposure":"unknown-until-family-review"},
+      "scoringAdapter":"draft-objective-not-authorized",
+      "activity":{
+        "type":"choice",
+        "options":[
+          {"id":"eighteen","text":"十八元 · 18 tệ","feedback":"十八 là mười tám, khác 八十 trong câu."},
+          {"id":"eighty","text":"八十元 · 80 tệ","feedback":"Đúng: câu nói giá của hai quyển sách là 八十元."},
+          {"id":"eight","text":"八元 · 8 tệ","feedback":"八十 có 十, nên không phải 八元."}
+        ],
+        "answerIds":["eighty"],"acceptedAnswers":[],
+        "explanation":"八十 là tám mươi; câu đã nêu giá của cả hai quyển, không cần nhân thêm lần nữa.",
+        "hint":"Giữ nguyên tổng giá được nói, không tự tính một giá khác.","rubric":[]
+      }
+    },
+    {
+      "id":"price.scaffold.two-cups",
+      "competencyId":"c.number.quantity",
+      "familyId":"quantity-tea-cups-scaffold",
+      "role":"teach",
+      "skill":"grammar","modality":"text","estimatedSeconds":55,
+      "context":[{"hanzi":"我想买茶。","pinyin":"Wǒ xiǎng mǎi chá.","meaningVi":"Tôi muốn mua trà."}],
+      "promptVi":"Bạn muốn hai cốc trà. Điền một chữ vào 我要___杯茶。 Có thể đối chiếu mẫu 两杯茶; đây là luyện có hỗ trợ.",
+      "audio":null,
+      "assistance":{"transcript":"not-applicable","ime":"record-if-used","priorExposure":"taught"},
+      "scoringAdapter":"draft-objective-not-authorized",
+      "activity":{
+        "type":"cloze","options":[],"answerIds":[],"acceptedAnswers":["两"],
+        "explanation":"Trước lượng từ 杯, dùng 两 để chỉ hai cốc: 我要两杯茶。",
+        "hint":"Đối chiếu 两杯茶; mở mẫu được ghi là trợ giúp.","rubric":[]
+      }
+    },
+    {
+      "id":"price.production.three-books",
+      "competencyId":"c.price.produce",
+      "familyId":"price-question-book-purchase",
+      "role":"practice",
+      "skill":"writing","modality":"text","estimatedSeconds":100,
+      "context":[{"hanzi":"书店","pinyin":"shūdiàn","meaningVi":"hiệu sách"}],
+      "promptVi":"Bạn muốn mua ba quyển sách. Viết lời hỏi giá một quyển rồi nói số lượng muốn mua. Có thể dùng bộ gõ tiếng Trung (IME); sau đó tự đối chiếu theo tiêu chí.",
+      "audio":null,
+      "assistance":{"transcript":"not-applicable","ime":"record-if-used","priorExposure":"record-per-occurrence"},
+      "scoringAdapter":"self-review",
+      "activity":{
+        "type":"rubric","options":[],"answerIds":[],"acceptedAnswers":[],
+        "explanation":"Một cách nói: 这本书多少钱？我要三本。 · Zhè běn shū duōshao qián? Wǒ yào sān běn. · Quyển sách này bao nhiêu tiền? Tôi muốn ba quyển.",
+        "hint":"Bạn cần một câu hỏi giá và một câu nêu số lượng; mở mẫu là trợ giúp.",
+        "rubric":[
+          {"id":"price-question","label":"Có lời hỏi giá","guidance":"Đối chiếu mẫu 这本书多少钱？; có thể dùng cách diễn đạt đúng khác."},
+          {"id":"quantity","label":"Nêu ba quyển sách với lượng từ phù hợp","guidance":"Đối chiếu 三本 hoặc 三本书; không dùng 三个书."},
+          {"id":"support","label":"Ghi nhận đúng cách luyện","guidance":"Đánh dấu IME, mẫu hoặc gợi ý đã dùng. Checklist không tạo điểm viết/nói được kiểm chứng."}
+        ]
+      }
+    },
+    {
+      "id":"quantity.probe.two-clothes",
+      "competencyId":"c.number.quantity",
+      "familyId":"quantity-clothing-written-probe",
+      "role":"holdout-candidate",
+      "skill":"grammar","modality":"text","estimatedSeconds":65,
+      "context":[{"hanzi":"衣服","pinyin":"yīfu","meaningVi":"quần áo"}],
+      "promptVi":"Thẻ tình huống ghi: 2 bộ quần áo. Viết một cụm tiếng Trung chỉ số lượng và đồ vật.",
+      "audio":null,
+      "assistance":{"transcript":"not-applicable","ime":"record-if-used","priorExposure":"unknown-until-family-review"},
+      "scoringAdapter":"draft-objective-not-authorized",
+      "activity":{
+        "type":"cloze","options":[],"answerIds":[],"acceptedAnswers":["两件衣服"],
+        "explanation":"两件衣服 · Liǎng jiàn yīfu · Hai bộ quần áo. Lượng từ ở đây là 件.",
+        "hint":"Mở gợi ý lượng từ sẽ làm lượt này thành có hỗ trợ.","rubric":[]
+      }
+    },
+    {
+      "id":"shop.transfer.budget-50",
+      "competencyId":"c.shop.transfer",
+      "familyId":"shop-budget-comparison-clothes",
+      "role":"holdout-candidate",
+      "skill":"reading","modality":"text","estimatedSeconds":85,
+      "context":[
+        {"hanzi":"我有五十元。","pinyin":"Wǒ yǒu wǔshí yuán.","meaningVi":"Tôi có năm mươi tệ."},
+        {"hanzi":"这件衣服四十五元，那件六十元。","pinyin":"Zhè jiàn yīfu sìshíwǔ yuán, nà jiàn liùshí yuán.","meaningVi":"Bộ quần áo này giá bốn mươi lăm tệ, bộ kia sáu mươi tệ."}
+      ],
+      "promptVi":"Bạn không có thêm tiền và chỉ mua một bộ. Chọn món có thể mua bằng số tiền đang có.",
+      "audio":null,
+      "assistance":{"transcript":"not-applicable","ime":"not-applicable","priorExposure":"unknown-until-family-review"},
+      "scoringAdapter":"draft-objective-not-authorized",
+      "activity":{
+        "type":"choice",
+        "options":[
+          {"id":"shirt-60","text":"那件 · 60 tệ","feedback":"Sáu mươi tệ vượt số tiền năm mươi tệ đang có."},
+          {"id":"both","text":"Mua cả hai bộ","feedback":"Tình huống chỉ cho mua một bộ và không có thêm tiền."},
+          {"id":"shirt-45","text":"这件 · 45 tệ","feedback":"Đúng: bốn mươi lăm tệ không vượt năm mươi tệ."}
+        ],
+        "answerIds":["shirt-45"],"acceptedAnswers":[],
+        "explanation":"四十五元 thấp hơn 五十元; 六十元 vượt ngân sách. Bài này giúp đối chiếu thông tin mua sắm; một lượt đúng chưa kết luận mức thành thạo.",
+        "hint":"Đối chiếu từng giá với 五十元; mở gợi ý được ghi nhận.","rubric":[]
+      }
+    }
+  ]
+}

@@ -49,9 +49,9 @@ import type {
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ConfirmModal } from "../components/SystemFeedback";
 import {
-  CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE,
   CURRENT_CONTENT_MANIFEST_SHA256,
 } from "../content/currentPackage";
+import { CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE as CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE } from '../content/clientContentAvailability';
 import type {
   ActiveAssessmentAttemptProjectionV2,
   ActiveAssessmentSessionProjectionV2,

@@ -2,6 +2,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
 import { studioStarterContent } from "../content/studioContent";
+import { loadStudioAssessmentBank } from './studioAssessmentRepository';
+import { selectAuthoritativeAssessmentForm, FOUNDATION_AUTHORITATIVE_ASSESSMENT_BLUEPRINT } from './authoritativeAssessmentItemBank';
 import { editorialBookToStudioLesson, type EditorialReaderBook } from "../reader/editorialReaderContent";
 import { EditorialReaderRepository } from "./editorialReaderRepository";
 import type { D1Database, D1PreparedStatement, D1RunResult } from "./d1";
@@ -110,6 +112,32 @@ const drainReleases = (database: SQLiteD1) => new ContentReleaseWorker(
 ).drain();
 
 describe("governed Content Studio revisions", () => {
+  it('releases private diagnostic items, keeps old answers for open sessions and excludes retired versions from new forms', async()=>{
+    const database=new SQLiteD1();addUsers(database);const repository=new ContentStudioRepository(database);
+    const content={contentKind:'assessment-item',skill:'vocabulary',prompt:'你',instruction:'Chọn nghĩa',options:['bạn','tôi','họ','cô ấy'],answerIndex:0,explanationVi:'你 nghĩa là bạn.',provenance:'Fixture nguyên bản.',stimulusText:'',review:reviewedLesson().review};
+    let draft=await repository.createDraft({actorUserId:'editor',actorSessionId:null,itemType:'exam_item',stableKey:'assessment.item.fixture',title:'Câu khảo nghiệm',level:'hsk0',content,idempotencyKey:'assessment:create'});
+    expect((await loadStudioAssessmentBank(database)).selectionBank.some(item=>item.id==='assessment.item.fixture')).toBe(false);
+    const publish=async(revision:StudioRevision)=>{
+      let current=await repository.validateRevision({actorUserId:'editor',actorSessionId:null,revisionId:revision.id,expectedRowVersion:revision.rowVersion,idempotencyKey:`assessment:validate:${revision.id}`});
+      expect(current.validation?.valid).toBe(true);
+      for(const toState of ['submitted','approved','published'] as const)current=await repository.transition({actorUserId:toState==='submitted'?'editor':'admin',actorSessionId:null,revisionId:current.id,expectedRowVersion:current.rowVersion,toState,idempotencyKey:`assessment:${toState}:${current.id}`,requestId:`assessment:req:${current.id}:${toState}`,note:'Đã rà ngôn ngữ và đáp án.'});
+      return current;
+    };
+    draft=await publish(draft);await drainReleases(database);const first=(await loadStudioAssessmentBank(database)).bank.find(item=>item.id==='assessment.item.fixture')!;
+    expect(first.correctAnswer).toBe('bạn');
+    const publicRuntime=await repository.publishedRuntime({learnerSafe:true});expect(JSON.stringify(publicRuntime)).not.toContain('assessment.item.fixture');
+    let next=await repository.forkRevision({actorUserId:'editor',actorSessionId:null,sourceRevisionId:draft.id,idempotencyKey:'assessment:fork'});
+    next=await repository.updateDraft({actorUserId:'editor',actorSessionId:null,revisionId:next.id,expectedRowVersion:next.rowVersion,title:next.title,level:next.level,content:{...content,prompt:'我',answerIndex:1,explanationVi:'我 nghĩa là tôi.'},idempotencyKey:'assessment:update'});
+    await publish(next);await drainReleases(database);const loaded=await loadStudioAssessmentBank(database);
+    expect(loaded.bank.find(item=>item.itemVersion===first.itemVersion)?.correctAnswer).toBe('bạn');
+    expect(loaded.selectionBank.filter(item=>item.id==='assessment.item.fixture')).toHaveLength(1);
+    expect(loaded.selectionBank.find(item=>item.id==='assessment.item.fixture')?.correctAnswer).toBe('tôi');
+    const selected=selectAuthoritativeAssessmentForm({bank:loaded.selectionBank,blueprint:{...FOUNDATION_AUTHORITATIVE_ASSESSMENT_BLUEPRINT,itemCount:1,skillTargets:{vocabulary:1}},exposedGroups:new Set(),random:()=>0});
+    expect(selected.kind).toBe('selected');
+    const exposed=selectAuthoritativeAssessmentForm({bank:loaded.selectionBank,blueprint:{...FOUNDATION_AUTHORITATIVE_ASSESSMENT_BLUEPRINT,itemCount:1,skillTargets:{vocabulary:1}},exposedGroups:new Set([first.exposureGroupId]),random:()=>0});
+    expect(exposed.kind).toBe('insufficient-bank');
+    database.sqlite.close();
+  });
   it('resolves offline page answers only from immutable released history after publication changes',async()=>{
     const database=new SQLiteD1();addUsers(database);
     const repository=new ContentStudioRepository(database);
@@ -155,6 +183,10 @@ describe("governed Content Studio revisions", () => {
       rights: { textProvenanceVi: "Fixture nguyên bản.", coverProvenanceVi: "Fixture, không phát hành thật.", editorAttestsRights: true }, humanReviewed: false,
     };
     const content = { ...editorialBookToStudioLesson(book), review: reviewedLesson().review };
+    const missingCoverBook = { ...book, seriesId: 'reader-missing-cover', cover: { ...book.cover, src: '/api/content/media/00000000-0000-4000-8000-000000000000.webp' } };
+    let missingCover = await repository.createDraft({ actorUserId: 'editor', actorSessionId: 'editor-session', itemType: 'lesson', stableKey: 'reader.series.reader-missing-cover', title: book.titleVi, level: 'hsk1', content: { ...editorialBookToStudioLesson(missingCoverBook), review: reviewedLesson().review }, idempotencyKey: 'reader:missing-cover' });
+    missingCover = await repository.validateRevision({ actorUserId: 'editor', actorSessionId: 'editor-session', revisionId: missingCover.id, expectedRowVersion: missingCover.rowVersion, idempotencyKey: 'reader:validate-missing-cover' });
+    expect(missingCover.validation).toMatchObject({ valid: false, errors: expect.arrayContaining([expect.objectContaining({ path: 'readerSeries.media' })]) });
     let revision = await repository.createDraft({ actorUserId: "editor", actorSessionId: "editor-session", itemType: "lesson", stableKey: `reader.series.${book.seriesId}`, title: book.titleVi, level: "hsk1", content, idempotencyKey: "reader:create" });
     revision = await repository.validateRevision({ actorUserId: "editor", actorSessionId: "editor-session", revisionId: revision.id, expectedRowVersion: revision.rowVersion, idempotencyKey: "reader:validate" });
     const reader = new EditorialReaderRepository(database);

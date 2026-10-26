@@ -1,11 +1,11 @@
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
   CURRENT_AUTHORITATIVE_COURSE_ID,
   type AuthoritativeReleasedLessonProgressV1,
 } from "../learning/authoritativeProgress";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
-import { sha256Hex } from "../sync/document";
+
 import type { OwnerGeneration } from "../sync/indexedDb";
 import type {
   EnqueueAssessmentAttemptInput,
@@ -19,26 +19,17 @@ import { ASSESSMENT_SESSION_PROTOCOL_VERSION } from "./assessmentSessionProtocol
 import { ASSESSMENT_SUBMISSION_PROTOCOL_VERSION } from "./assessmentSubmissionProtocol";
 import {
   isExactNormalizedAssessmentRuntime,
-  MAX_NORMALIZED_ASSESSMENT_ITEMS,
   type NormalizedAssessmentRuntimeV1,
 } from "./normalizedAssessmentRuntime";
 
-export const NORMALIZED_ASSESSMENT_COMMAND_ID_SCHEMA_VERSION = 1 as const;
+import { deriveStableNormalizedAssessmentCommandIds } from "./normalizedAssessmentCommandIds";
+export { deriveStableNormalizedAssessmentCommandIds, NORMALIZED_ASSESSMENT_COMMAND_ID_SCHEMA_VERSION, type StableNormalizedAssessmentCommandIds } from "./normalizedAssessmentCommandIds";
 
 export type NormalizedAssessmentQueueEnvironment = {
   ownerGeneration: OwnerGeneration;
   resetEpoch: number;
   installationId: string;
   deviceId: string;
-};
-
-export type StableNormalizedAssessmentCommandIds = {
-  schemaVersion: 1;
-  sessionAlias: string;
-  commandSeed: string;
-  attemptCommandIds: string[];
-  submitCommandId: string;
-  abandonCommandId: string;
 };
 
 export type BuildNormalizedAssessmentOpenQueueInput = {
@@ -106,42 +97,6 @@ const assertQueueScope = async (
     throw new Error("Normalized assessment runtime is stale or invalid.");
   }
 };
-
-const stableSessionDigest = async (commandSeed: string) => {
-  if (!boundedString(commandSeed, 200)) {
-    throw new Error("Normalized assessment command seed is invalid.");
-  }
-  return sha256Hex({
-    schemaVersion: NORMALIZED_ASSESSMENT_COMMAND_ID_SCHEMA_VERSION,
-    scope: "normalized-assessment-session",
-    commandSeed,
-  });
-};
-
-export async function deriveStableNormalizedAssessmentCommandIds(
-  commandSeed: string,
-  itemCount: number,
-): Promise<StableNormalizedAssessmentCommandIds> {
-  if (
-    !Number.isSafeInteger(itemCount)
-    || itemCount < 1
-    || itemCount > MAX_NORMALIZED_ASSESSMENT_ITEMS
-  ) {
-    throw new Error("Normalized assessment item count is invalid.");
-  }
-  const digest = await stableSessionDigest(commandSeed);
-  return {
-    schemaVersion: NORMALIZED_ASSESSMENT_COMMAND_ID_SCHEMA_VERSION,
-    sessionAlias: `assessment:${digest}`,
-    commandSeed,
-    attemptCommandIds: Array.from(
-      { length: itemCount },
-      (_value, position) => `assessment-attempt:${digest}:${position}`,
-    ),
-    submitCommandId: `assessment-submit:${digest}`,
-    abandonCommandId: `assessment-abandon:${digest}`,
-  };
-}
 
 export async function buildNormalizedAssessmentOpenQueueInput(
   input: BuildNormalizedAssessmentOpenQueueInput,

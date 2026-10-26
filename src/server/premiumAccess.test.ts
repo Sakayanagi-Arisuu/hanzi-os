@@ -25,6 +25,26 @@ vi.mock("./lessonAccessRepository", () => ({
 import { requestPremiumAccess, requirePremiumLesson, requirePremiumLevel, sandboxCommerceEnabled } from "./premiumAccess";
 
 describe("Premium access environment boundary", () => {
+  it("uses only paid cash orders and honors Free lessons on explicitly enabled HTTPS production", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("HANZI_CASH_LEDGER_ENABLED", "1");
+    const all = vi.fn().mockResolvedValue({ success: true, results: [{ id: "cash", userId: "learner", planId: "hsk4-month", status: "paid", paidAt: Date.now() - 1000 }] });
+    const bind = vi.fn().mockReturnValue({ all });
+    mocks.getD1Database.mockResolvedValue({ prepare: () => ({ bind }) });
+    mocks.resolveCurrentAccount.mockResolvedValue({ userId: "learner" });
+    mocks.orders.mockClear(); mocks.walletOrders.mockClear();
+    const request = new Request("https://hanzi.example/lesson/hsk4-personal-community-analysis-concept-actor-map");
+    try {
+      expect(await requestPremiumAccess(request)).toBe(true);
+      expect(bind).toHaveBeenCalledWith("learner");
+      all.mockResolvedValue({ success: true, results: [] });
+      expect(await requestPremiumAccess(request)).toBe(false);
+      expect(mocks.orders).not.toHaveBeenCalled();
+      expect(mocks.walletOrders).not.toHaveBeenCalled();
+      mocks.tier.mockResolvedValue("free");
+      expect(await requirePremiumLesson(request, "hsk4-personal-community-analysis-concept-actor-map")).toBeNull();
+    } finally { vi.unstubAllEnvs(); }
+  });
   it("never accepts sandbox orders as public entitlement", async () => {
     mocks.getD1Database.mockReset();
     mocks.resolveCurrentAccount.mockReset();

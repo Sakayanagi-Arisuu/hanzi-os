@@ -10,10 +10,14 @@ import { noStoreJsonHeaders } from "../../../../src/sync/protocol";
 import { MockExamAccessRepository } from '../../../../src/server/mockExamAccessRepository';
 import { mockExamTier, type MockExamAccessTier } from '../../../../src/assessment/mockExamAccess';
 import { requestPremiumAccess } from '../../../../src/server/premiumAccess';
+import { getAuthenticatedUser } from '../../../chatgpt-auth';
+import { learningOwnerMismatch } from '../../../../src/server/learningOwnerHttp';
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request?: Request) {
+  const mismatch = await learningOwnerMismatch(request, await getAuthenticatedUser());
+  if (mismatch) return mismatch;
   let editorialDefinitions = [] as typeof HSK_MOCK_EXAM_DEFINITIONS[number][];
   let rules = new Map<string, MockExamAccessTier>();
   let premiumActive = false;

@@ -5,6 +5,8 @@ import {
   randomBase64Url,
   toArrayBuffer,
 } from "../auth/authCrypto";
+import { hanziPasswordMeetsPolicy, HANZI_PASSWORD_POLICY_MESSAGE } from '../auth/hanziPasswordPolicy';
+export { HANZI_PASSWORD_MIN_LENGTH } from '../auth/hanziPasswordPolicy';
 
 const encoder = new TextEncoder();
 
@@ -12,7 +14,6 @@ export const HANZI_PASSWORD_ALGORITHM = "PBKDF2-SHA256" as const;
 export const HANZI_PASSWORD_ITERATIONS = 600_000;
 export const HANZI_PASSWORD_SALT_BYTES = 16;
 export const HANZI_PASSWORD_HASH_BYTES = 32;
-export const HANZI_PASSWORD_MIN_LENGTH = 12;
 
 export type HanziPasswordDigest = {
   algorithm: typeof HANZI_PASSWORD_ALGORITHM;
@@ -62,8 +63,6 @@ export function validateHanziRegistration(
   const username = normalizeHanziUsername(input.username);
   const email = normalizeHanziEmail(input.email);
   const displayName = input.displayName.trim();
-  const passwordLength = [...input.password].length;
-  const passwordBytes = encoder.encode(input.password).byteLength;
 
   if (!USERNAME_PATTERN.test(username)) {
     throw new HanziRegistrationValidationError(
@@ -76,16 +75,8 @@ export function validateHanziRegistration(
   if (displayName.length < 1 || displayName.length > 80) {
     throw new HanziRegistrationValidationError("Tên hiển thị phải có 1–80 ký tự.");
   }
-  if (
-    passwordLength < HANZI_PASSWORD_MIN_LENGTH
-    || passwordLength > 128
-    || passwordBytes > 256
-    || !/\p{L}/u.test(input.password)
-    || !/\p{N}/u.test(input.password)
-  ) {
-    throw new HanziRegistrationValidationError(
-      "Mật khẩu phải có 12–128 ký tự, gồm ít nhất một chữ và một số.",
-    );
+  if (!hanziPasswordMeetsPolicy(input.password)) {
+    throw new HanziRegistrationValidationError(HANZI_PASSWORD_POLICY_MESSAGE);
   }
   return { username, email, password: input.password, displayName };
 }

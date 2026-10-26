@@ -248,6 +248,7 @@ describe("published Studio lesson projection", () => {
     const first = refreshPublishedStudioLessons(initialFetcher);
     const second = refreshPublishedStudioLessons(initialFetcher);
     expect(second).toBe(first);
+    await vi.waitFor(() => expect(initialFetcher).toHaveBeenCalledTimes(1));
     expect(initialFetcher).toHaveBeenCalledTimes(1);
 
     resolveInitial(Response.json(learningResponse([runtimeItem()])));
@@ -263,12 +264,13 @@ describe("published Studio lesson projection", () => {
 
     expect(getPublishedStudioLessonSnapshotForTests().status).toBe("ready");
     expect(getPublishedStudioLessonSnapshotForTests().lessons.has(target.id)).toBe(true);
+    await vi.waitFor(() => expect(revalidationFetcher).toHaveBeenCalledTimes(1));
     resolveRevalidation(Response.json(learningResponse([runtimeItem({ revision: 4 })])));
     await revalidation;
     expect(getPublishedStudioLessonSnapshotForTests().lessons.get(target.id)?.source.revision).toBe(4);
   });
 
-  it("clears a cached projection when revalidation fails", async () => {
+  it("retains the accepted reading projection when revalidation is temporarily unavailable", async () => {
     const accepted = vi.fn(async () => Response.json(learningResponse([runtimeItem()]))) as typeof fetch;
     await refreshPublishedStudioLessons(accepted);
     expect(getPublishedStudioLessonSnapshotForTests().lessons.size).toBe(1);
@@ -276,6 +278,6 @@ describe("published Studio lesson projection", () => {
     const unavailable = vi.fn(async () => new Response(null, { status: 503 })) as typeof fetch;
     await refreshPublishedStudioLessons(unavailable);
     expect(getPublishedStudioLessonSnapshotForTests().status).toBe("fallback");
-    expect(getPublishedStudioLessonSnapshotForTests().lessons.size).toBe(0);
+    expect(getPublishedStudioLessonSnapshotForTests().lessons.size).toBe(1);
   });
 });

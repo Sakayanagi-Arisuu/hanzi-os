@@ -1,3 +1,4 @@
+import { BankTransferRepository, bankOrderForAccess } from "./bankTransferRepository";
 import { premiumAccess, type CommerceOrder } from "../commerce/policy";
 import type { D1Database } from "./d1";
 import { CommerceRepository } from "./commerceRepository";
@@ -7,7 +8,7 @@ import { PremiumSupportRepository } from "./premiumSupportRepository";
 
 /** Exact-match customer lookup for an authorized local commerce operator. */
 export class CommerceCustomerRepository {
-  constructor(private database: D1Database, private now = Date.now()) {}
+  constructor(private database: D1Database, private now = Date.now(), private includeCash = false) {}
 
   async find(query: string) {
     const value = query.trim();
@@ -29,8 +30,9 @@ export class CommerceCustomerRepository {
       new HanziWalletRepository(this.database).forOwner(account.userId),
       new PremiumSupportRepository(this.database).forOwner(account.userId),
     ]);
-    const orders: CommerceOrder[] = [...sandboxOrders, ...hanziOrders.map(asCommerceOrder)]
+    const cashOrders = this.includeCash ? (await new BankTransferRepository(this.database).orders(account.userId)).map(bankOrderForAccess) : [];
+    const orders: CommerceOrder[] = [...cashOrders, ...sandboxOrders, ...hanziOrders.map(asCommerceOrder)]
       .sort((a, b) => b.createdAt - a.createdAt || b.id.localeCompare(a.id));
-    return { ...account, access: premiumAccess(orders, this.now), wallet, orders, tickets };
+    return { ...account, access: premiumAccess([...sandboxOrders, ...hanziOrders.map(asCommerceOrder)], this.now), cashAccess: premiumAccess(cashOrders, this.now), wallet, orders, tickets };
   }
 }

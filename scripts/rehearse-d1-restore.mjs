@@ -3,6 +3,7 @@ import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
+import sharp from "sharp";
 import {seedThienLoRestoreFixture,readThienLoRestoreFixture,assertThienLoRestoreFixture} from "./restore-thien-lo-fixture.mjs";
 
 const workspace = process.cwd();
@@ -260,7 +261,7 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 32
+    migrations.length !== 43
     || !migrations[20]?.startsWith("0020_")
     || migrations[21] !== "0021_sleepy_gorilla_man.sql"
     || migrations[22] !== "0022_tearful_lady_ursula.sql"
@@ -273,9 +274,20 @@ try {
     || migrations[29] !== "0029_burly_midnight.sql"
     || migrations[30] !== "0030_next_talos.sql"
     || migrations[31] !== "0031_hanzi_refund_rejection.sql"
+    || migrations[32] !== "0032_mock_exam_access.sql"
+    || migrations[33] !== "0033_level_reward_coins.sql"
+    || migrations[34] !== "0034_premium_vnd_prices.sql"
+    || migrations[35] !== "0035_commerce_operations.sql"
+    || migrations[36] !== "0036_commerce_cash_event_guard.sql"
+    || migrations[37] !== "0037_bank_transfer_orders.sql"
+    || migrations[38] !== "0038_offline_workspace.sql"
+    || migrations[39] !== "0039_hosted_password_github.sql"
+    || migrations[40] !== "0040_hosted_credential_state.sql"
+    || migrations[41] !== "0041_account_deletion_jobs.sql"
+    || migrations[42] !== "0042_account_avatars.sql"
   ) {
     throw new Error(
-      `Restore rehearsal requires 32 migrations through 0031; found ${
+      `Restore rehearsal requires 43 migrations through 0042; found ${
         migrations.length
       }`,
     );
@@ -428,7 +440,12 @@ try {
         )`,
       ).run();
     }
+    const previousGraph = /^004[12]_/.test(migration) ? source.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name").all()
+      .map(({name}) => ({ name, fingerprint: digest(canonicalStringify(source.prepare(`SELECT * FROM ${name}`).all().map(canonicalStringify).sort())) })) : null;
     source.exec(await readFile(join(migrationDirectory, migration), "utf8"));
+    if (previousGraph) for (const {name, fingerprint} of previousGraph) {
+      if (digest(canonicalStringify(source.prepare(`SELECT * FROM ${name}`).all().map(canonicalStringify).sort())) !== fingerprint) throw new Error(`${migration} changed existing ${name} data`);
+    }
     if (source.prepare("PRAGMA foreign_keys").get()?.foreign_keys !== 1) {
       throw new Error(`${migration} left foreign-key enforcement disabled`);
     }
@@ -1143,7 +1160,7 @@ try {
     ).run("restore-user", now, now);
     source.prepare("INSERT INTO hanzi_wallets (user_id,balance,updated_at) VALUES ('restore-user',75,?)").run(now);
     source.prepare("INSERT INTO hanzi_wallet_entries (id,user_id,delta,kind,reference_id,actor_user_id,created_at) VALUES ('restore-wallet-entry','restore-user',75,'admin_credit','restore-wallet-ref','restore-user',?)").run(now);
-    source.prepare("INSERT INTO hanzi_plan_prices (plan_id,amount,updated_by,updated_at) VALUES ('hsk4-month',25,'restore-user',?)").run(now);
+    source.prepare("INSERT INTO hanzi_plan_prices (plan_id,amount,updated_by,updated_at) VALUES ('hsk4-month',25,'restore-user',?) ON CONFLICT(plan_id) DO UPDATE SET amount=excluded.amount, updated_by=excluded.updated_by, updated_at=excluded.updated_at").run(now);
     source.prepare("INSERT INTO hanzi_premium_orders (id,user_id,plan_id,amount,idempotency_key,status,paid_at) VALUES ('restore-hanzi-order','restore-user','hsk4-month',25,'restore-hanzi-key','paid',?)").run(now);
     source.prepare("INSERT INTO lesson_access_rules (lesson_id,tier,updated_by,updated_at) VALUES ('hsk4-lesson-restore','free','restore-user',?)").run(now);
     insertEditorialAssignmentEvent.run(
@@ -1269,6 +1286,33 @@ try {
     );
   }
   source.exec("PRAGMA wal_checkpoint(TRUNCATE)");
+  source.prepare("INSERT INTO learner_workspace_entries (user_id, reset_epoch, entry_key, value_json, changed_at, change_id) VALUES ('restore-user', 0, 'reader-position:test', ?, 100, 'restore-workspace')")
+    .run(JSON.stringify({ chapter: 3, position: 0.5 }));
+  source.exec(`INSERT INTO hosted_hanzi_aliases
+    (user_id, identity_id, project_id, firebase_uid, normalized_username, normalized_email, created_at, updated_at)
+    VALUES ('restore-user', 'restore-identity', 'restore-project', 'firebase-restore', 'restore.user', 'restore@example.invalid', 100, 100);
+    INSERT INTO hosted_credential_states(user_id,password_updated_at,valid_since,observed_at)
+    VALUES ('restore-user', 125000, 125, 126000);
+    INSERT INTO auth_login_rate_limits (key_hash, window_start, request_count, updated_at)
+    VALUES ('restore-rate-hash', 100, 3, 100);
+    INSERT INTO auth_challenges (id, kind, provider, user_id, challenge_hash, created_at, expires_at)
+    VALUES ('restore-github-challenge', 'github_signin', 'github', 'restore-user', 'restore-github-hash', 100, 999999);`);
+  source.exec(`INSERT INTO users(id,status,created_at,updated_at) VALUES('deletion-pending-owner','deletion_pending',1,1),('deletion-provider-owner','deletion_pending',1,1);
+    INSERT INTO account_deletion_jobs(id,user_id,token_hash,project_id,firebase_uid,expected_email,status,requested_at,authenticated_at,updated_at,expires_at,completed_at,attempts,next_attempt_at,last_error,lease_token,lease_expires_at)
+    VALUES('deletion-pending','deletion-pending-owner','fixture-pending-hash','restore-project','fixture-uid','fixture@example.invalid','pending',100,99,200,999999,NULL,2,300,'provider_unavailable',NULL,NULL),
+      ('deletion-provider','deletion-provider-owner','fixture-provider-hash','restore-project','fixture-provider-uid','provider@example.invalid','provider_deleted',100,99,200,999999,NULL,3,300,'graph_unavailable','fixture-lease',400),
+      ('deletion-completed','deleted-owner-no-fk','fixture-completed-hash',NULL,NULL,NULL,'completed',100,99,200,999999,200,1,300,NULL,NULL,NULL);`);
+  const deletionFingerprint = canonicalDigest(source.prepare('SELECT * FROM account_deletion_jobs ORDER BY id').all());
+  const avatarBytes = await sharp({ create: { width: 256, height: 256, channels: 3, background: '#76ab98' } }).webp().toBuffer();
+  const avatarDigest = digest(avatarBytes);
+  const avatarTables = ['learner_avatars', 'learner_avatar_chunks', 'learner_avatar_mutations'];
+  for (const [owner, hasImage] of [['restore-user', true], ['migration-legacy-user', false]]) {
+    source.prepare(`INSERT INTO learner_avatars(user_id,revision,updated_at,byte_length,content_sha256,last_operation_id,last_request_sha256,write_nonce)
+      VALUES(?,2,100,?,?,?,?,?)`).run(owner, hasImage ? avatarBytes.length : 0, hasImage ? avatarDigest : null, 'avatar-operation', avatarDigest, 'avatar-nonce');
+    source.prepare('INSERT INTO learner_avatar_mutations(user_id,operation_id,request_sha256,revision) VALUES(?,?,?,2)').run(owner, 'avatar-operation', avatarDigest);
+    if (hasImage) source.prepare('INSERT INTO learner_avatar_chunks(user_id,revision,sequence,data_base64) VALUES(?,2,0,?)').run(owner, avatarBytes.toString('base64'));
+  }
+  const avatarFingerprint = canonicalDigest(avatarTables.map(table => source.prepare(`SELECT * FROM ${table} ORDER BY user_id`).all()));
   source.exec(`VACUUM INTO ${sqlString(backupPath)}`);
   source.close();
   source = null;
@@ -1288,6 +1332,27 @@ try {
   ).all();
   const restoredThienLoFixture = assertThienLoRestoreFixture(restored, sourceThienLoFixture);
   const tableNames = new Set(tables.map((table) => table.name));
+  if (canonicalDigest(avatarTables.map(table => restored.prepare(`SELECT * FROM ${table} ORDER BY user_id`).all())) !== avatarFingerprint) throw new Error('Restore lost private avatar bytes, revision, tombstone or durable mutation receipt');
+  const avatarChunks = restored.prepare("SELECT data_base64 FROM learner_avatar_chunks WHERE user_id='restore-user' ORDER BY sequence").all();
+  if (!Buffer.from(avatarChunks.map(row => row.data_base64).join(''), 'base64').equals(avatarBytes)) throw new Error('Restored private avatar bytes differ from the original');
+  expectCheckConstraint(() => restored.prepare("UPDATE learner_avatars SET byte_length=204801 WHERE user_id='restore-user'").run(), 'CHECK constraint failed');
+  expectCheckConstraint(() => restored.prepare("UPDATE learner_avatars SET content_sha256=NULL WHERE user_id='restore-user'").run(), 'CHECK constraint failed');
+  if (canonicalDigest(restored.prepare('SELECT * FROM account_deletion_jobs ORDER BY id').all()) !== deletionFingerprint) throw new Error('Restore lost a deletion intent, retry lease, provider checkpoint or redacted completion receipt');
+  if (restored.prepare('PRAGMA foreign_key_list(account_deletion_jobs)').all().length) throw new Error('Deletion completion receipts must survive owner removal');
+  expectCheckConstraint(() => restored.prepare("UPDATE account_deletion_jobs SET status='completed' WHERE id='deletion-pending'").run(), 'CHECK constraint failed');
+  const hostedAlias = restored.prepare("SELECT identity_id, firebase_uid FROM hosted_hanzi_aliases WHERE user_id='restore-user'").get();
+  const loginLimit = restored.prepare("SELECT request_count FROM auth_login_rate_limits WHERE key_hash='restore-rate-hash'").get();
+  const githubChallenge = restored.prepare("SELECT provider, challenge_hash FROM auth_challenges WHERE id='restore-github-challenge'").get();
+  const credentialState = restored.prepare("SELECT password_updated_at,valid_since,observed_at FROM hosted_credential_states WHERE user_id='restore-user'").get();
+  if (hostedAlias?.identity_id !== 'restore-identity' || hostedAlias?.firebase_uid !== 'firebase-restore'
+    || loginLimit?.request_count !== 3 || githubChallenge?.provider !== 'github'
+    || githubChallenge?.challenge_hash !== 'restore-github-hash'
+    || credentialState?.password_updated_at !== 125000 || credentialState?.valid_since !== 125 || credentialState?.observed_at !== 126000) {
+    throw new Error('Restore lost hosted account ownership, credential revocation fence, rate limits or pending GitHub challenge');
+  }
+  const workspaceBookmark = restored.prepare("SELECT value_json, change_id FROM learner_workspace_entries WHERE user_id='restore-user' AND reset_epoch=0 AND entry_key='reader-position:test'").get();
+  if (workspaceBookmark?.value_json !== JSON.stringify({ chapter: 3, position: 0.5 })
+    || workspaceBookmark?.change_id !== 'restore-workspace') throw new Error('Restore lost the offline reading bookmark');
   const restoredSupportTicket = restored.prepare(
     "SELECT user_id AS userId, status, response FROM premium_support_tickets WHERE id='restore-support-ticket'",
   ).get();
@@ -1301,6 +1366,11 @@ try {
   if (restoredWallet?.balance !== 75 || restoredWalletEntry?.delta !== 75 || restoredHanziOrder?.amount !== 25) throw new Error("Restore rehearsal lost Hanzi wallet data");
   if (restoredLessonAccess?.tier !== "free") throw new Error("Restore rehearsal lost lesson access rule");
   const requiredIdentityTables = [
+    ...avatarTables,
+    "account_deletion_jobs",
+    "hosted_credential_states",
+    "hosted_hanzi_aliases",
+    "auth_login_rate_limits",
     "audit_events",
     "auth_challenges",
     "auth_sessions",
@@ -1322,13 +1392,19 @@ try {
     "hanzi_premium_orders",
     "lesson_access_rules",
     "premium_support_tickets",
+    "mock_exam_access_rules",
+    "premium_vnd_prices",
+    "commerce_merchant_settings",
+    "commerce_cash_orders",
+    "commerce_cash_events",
+    "learner_workspace_entries",
   ];
   if (
-    tables.length !== 51
+    tables.length !== 64
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 51 application tables including identity, content releases, visit days, lesson media, page attempts, sandbox orders, wallet, lesson access and support tickets; found ${
+      `Restore rehearsal requires 64 application tables including private avatars, hosted identity, deletion recovery, learning, commerce and offline workspace; found ${
         tables.length
       }`,
     );
@@ -1905,6 +1981,8 @@ try {
     thienLoRestore: restoredThienLoFixture,
     restoredRoles: restoredRoles.map((row) => row.role),
     hanziCredentialRestore: "fingerprint-and-constraints-ok",
+    accountDeletionRestore: "pending-provider-deleted-completed-retry-and-lease-preserved",
+    accountAvatarRestore: "exact-private-bytes-tombstone-receipts-and-constraints-preserved",
     revision: restoredDocument.revision,
     documentSha256: digest(documentJson),
     lessonFormSha256: digest(lessonFormJson),

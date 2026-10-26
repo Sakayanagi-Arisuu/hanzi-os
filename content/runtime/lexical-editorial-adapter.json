@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "baseContentVersion": "foundation-2026.08.7",
+  "derivativeVersion": "lexical-editorial-2026.10.5",
+  "humanReviewed": false,
+  "artifacts": {
+    "content/packages/foundation-2026.08.7/manifest.json": "sha256:9bbedc6fae95c19319b20d35381c5549599f00b910b341b060183196ac812050",
+    "content/packages/lexical-editorial-2026.10.5/manifest.json": "sha256:dc1579abcf04bbd9b2f48313b88baa4d854841bcf4ab9b14b7105115b26bb69a",
+    "content/packages/lexical-editorial-2026.10.5/word-catalog.json": "sha256:5096df239264d7ad56d63beaf312ab2e5aa55032beac4be8f21ebdc7d3e552da",
+    "src/content/lexicalEditorialCatalog.ts": "sha256:d60bc07740d4f48ade9dc80b572668e80f635dbcb1097be501f698170a0653a8",
+    "src/lib/editorialExerciseGeneration.ts": "sha256:9fca612850cba99642b43bce927ee5d51a24c133eda3dd1cd28cc4920d04faba",
+    "src/server/editorialItemBank.ts": "sha256:308c1ff7227ff5a765549ba8d683ddf285ada7ca1674f876b39d3fea55f78981",
+    "src/server/editorialAttemptScoring.ts": "sha256:15324c6d15ebf653452b8c5aa69e847c44790adf3d96d60c1d9b233adb088ecb"
+  }
+}

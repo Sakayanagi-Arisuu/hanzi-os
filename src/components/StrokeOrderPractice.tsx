@@ -160,6 +160,7 @@ export function StrokeOrderPractice({
   variant = "guided",
   initialAssistance,
   onAssistanceChange,
+  onSupport,
   onComplete,
   cue,
 }: {
@@ -167,10 +168,11 @@ export function StrokeOrderPractice({
   variant?: "guided" | "memory";
   initialAssistance?: number;
   onAssistanceChange?: (level: number) => void;
+  onSupport?: (kind: string, strokeIndex: number) => Promise<unknown>;
   onComplete?: (result: StrokePracticeResult) => void;
   cue?: { pinyin: string; meaning: string };
 }) {
-  const startingAssistance = variant === "memory" ? 0 : initialAssistance ?? 3;
+  const [startingAssistance] = useState(() => variant === "memory" ? 0 : initialAssistance ?? 3);
   const [data, setData] = useState<HanziStrokeData | null>(null);
   const [loadError, setLoadError] = useState("");
   const [retryToken, setRetryToken] = useState(0);
@@ -187,6 +189,7 @@ export function StrokeOrderPractice({
   const [feedbackTone, setFeedbackTone] = useState<"neutral" | "error" | "success">("neutral");
   const [demoStep, setDemoStep] = useState(-1);
   const [playing, setPlaying] = useState(false);
+  const [supportSaving, setSupportSaving] = useState(false);
   const [memoryReferenceVisible, setMemoryReferenceVisible] = useState(false);
   const [memoryStrokeHintVisible, setMemoryStrokeHintVisible] = useState(false);
   const [currentStrokeMisses, setCurrentStrokeMisses] = useState(0);
@@ -327,6 +330,14 @@ export function StrokeOrderPractice({
     }
   };
 
+  const withSupport = async (kind: string, apply: () => void) => {
+    if (supportSaving) return;
+    setSupportSaving(true);
+    try { await onSupport?.(kind, strokeIndex); apply(); }
+    catch { setFeedback('Chưa lưu được thao tác hỗ trợ. Hãy thử lưu lại trước khi tiếp tục.'); }
+    finally { setSupportSaving(false); }
+  };
+
   const playOrder = () => {
     setDemoStep(-1);
     setPlaying(true);
@@ -438,7 +449,7 @@ export function StrokeOrderPractice({
         </div>
 
         <aside className="stroke-coach" aria-label="Phản hồi và trợ giúp luyện nét">
-          {cue && variant === "memory" && <div className="guild-writing-prompt guild-panel"><strong>{cue.pinyin}</strong><button type="button" aria-label="Nghe chữ cần viết" onClick={() => speakMandarin(hanzi)}><Volume2 /></button><p>{cue.meaning}</p></div>}
+          {cue && variant === "memory" && <div className="guild-writing-prompt guild-panel"><strong>{cue.pinyin}</strong><button type="button" disabled={supportSaving} aria-label="Nghe chữ cần viết" onClick={() => { void withSupport('tts', () => speakMandarin(hanzi)); }}><Volume2 /></button><p>{cue.meaning}</p></div>}
           {cue && variant === "guided" && <ol className="guild-stroke-steps" aria-label="Thứ tự nét đang luyện">{data.strokes.map((_, index) => <li key={index} aria-current={!complete && index === strokeIndex ? "step" : undefined}>{index < strokeIndex ? <Check size={18} /> : index + 1}</li>)}</ol>}
           <div className="stroke-coach-label"><span aria-hidden="true" />{complete ? "Đã hoàn thành chữ" : `Đang luyện nét ${strokeIndex + 1}`}</div>
           <p className="stroke-feedback" data-tone={feedbackTone} role={feedbackTone === "error" ? "alert" : "status"} aria-live={feedbackTone === "error" ? "assertive" : "polite"}>
@@ -458,9 +469,9 @@ export function StrokeOrderPractice({
                 setFeedbackTone("neutral"); setFeedback("Bắt đầu viết lại. Trợ giúp đã dùng vẫn được ghi nhận.");
               }}><RotateCcw /> Viết lại</button>
             </>}
-            {variant === "memory" && <button type="button" aria-pressed={memoryReferenceVisible} onClick={toggleMemoryReference}><Eye /> {memoryReferenceVisible ? "Ẩn chữ mẫu" : "Hiện chữ mẫu"}</button>}
-            {variant === "guided" && <button type="button" onClick={playOrder} disabled={playing}><Play /> {playing ? "Đang phát…" : "Xem thứ tự"}</button>}
-            {shouldOfferStrokeRescue(variant, currentStrokeMisses) && <button className="stroke-rescue" type="button" onClick={skipStroke}><SkipForward /> Đi nét này giúp tôi</button>}
+            {variant === "memory" && <button type="button" disabled={supportSaving} aria-pressed={memoryReferenceVisible} onClick={() => { void withSupport(memoryReferenceVisible ? 'hide-reference' : 'reveal', toggleMemoryReference); }}><Eye /> {memoryReferenceVisible ? "Ẩn chữ mẫu" : "Hiện chữ mẫu"}</button>}
+            {variant === "guided" && <button type="button" onClick={() => { void withSupport('order-replay', playOrder); }} disabled={playing || supportSaving}><Play /> {playing ? "Đang phát…" : "Xem thứ tự"}</button>}
+            {shouldOfferStrokeRescue(variant, currentStrokeMisses) && <button className="stroke-rescue" type="button" disabled={supportSaving} onClick={() => { void withSupport('stroke-rescue', skipStroke); }}><SkipForward /> Đi nét này giúp tôi</button>}
           </div>}
           {cue && <p className="guild-input-note"><MousePointer2 size={24} />Dùng chuột, bút hoặc cảm ứng</p>}
         </aside>

@@ -7,8 +7,8 @@ import { contentReleasePolicyForEnvironment } from '../../src/server/contentRele
 import { LessonSessionRepository } from '../../src/server/lessonSessionRepository.ts';
 import { LessonSessionSubmissionRepository } from '../../src/server/lessonSessionSubmissionRepository.ts';
 import { AttemptRepository } from '../../src/server/attemptRepository.ts';
-import { scoreObjectiveAttempt } from '../../src/server/attemptScoring.ts';
-import { getAuthoritativeLessonAnswer } from '../../src/server/authoritativeItemBank.ts';
+import { scoreObjectiveAttempt } from '../../src/server/editorialAttemptScoring.ts';
+import { getAuthoritativeLessonAnswer } from '../../src/server/editorialItemBank.ts';
 import { LearningProjectionRepository } from '../../src/server/learningProjectionRepository.ts';
 import { ReviewRepository } from '../../src/server/reviewRepository.ts';
 import { ReviewQueueRepository } from '../../src/server/reviewQueueRepository.ts';

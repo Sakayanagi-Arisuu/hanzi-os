@@ -1,3 +1,4 @@
+import "./QueueRoute.css";
 import { BrainCircuit } from "lucide-react";
 import { lazy, Suspense, useEffect } from "react";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
@@ -18,7 +19,7 @@ const pending = (
   </div>
 );
 
-export function ReviewPage() {
+function ReviewPageContent() {
   const { sync } = useLearning();
   const { prepareMandarinSpeech } = useAudioEngine();
 
@@ -27,10 +28,14 @@ export function ReviewPage() {
   }, [prepareMandarinSpeech]);
 
   if (sync.session === null) return pending;
-  if (!sync.session.authenticated) return <LocalReviewPage />;
+  if (!sync.session.authenticated) return <LocalReviewPage key={sync.ownerKey} />;
   return (
     <Suspense fallback={pending}>
       <AuthenticatedReviewPage />
     </Suspense>
   );
+}
+
+export function ReviewPage() {
+  return <div className="queue-route"><ReviewPageContent /></div>;
 }

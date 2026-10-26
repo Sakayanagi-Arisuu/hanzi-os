@@ -555,7 +555,7 @@ describe("production readiness manifest", () => {
       /--require-source-revision --source-revision-from-head --rebuild-from-source$/u,
     );
     expect(packageJson.scripts.build).toMatch(
-      /clean-sites-build\.mjs && node scripts\/build-provenance\.mjs start && vinext build && node scripts\/build-provenance\.mjs finish/u,
+      /clean-sites-build\.mjs && node scripts\/build-provenance\.mjs start && vinext build && node scripts\/build-offline-manifest\.mjs && node scripts\/build-provenance\.mjs finish/u,
     );
   });
 

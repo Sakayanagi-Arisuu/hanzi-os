@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import { CONTENT_VERSION } from "../data/curriculum";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
@@ -8,7 +9,7 @@ import {
   type LearningAttemptCommandV1,
   type LearningAttemptReceiptV1,
 } from "../learning/attemptProtocol";
-import type { ObjectiveAttemptScore } from "./attemptScoring";
+import type { ObjectiveAttemptScore } from "./editorialAttemptScoring";
 import { remediationAttemptFeedback } from "./remediationAttemptFeedback";
 import type { D1Database } from "./d1";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
@@ -21,7 +22,7 @@ import {
   CURRENT_LESSON_SESSION_PUBLICATION_POLICY,
   type LessonSessionPublicationPolicy,
 } from "./lessonSessionRepository";
-import { isPromotedContentReleasePolicy } from "./contentReleasePolicy";
+import { isLearningContentAvailable } from "./contentReleasePolicy";
 import {
   CURRENT_LEARNING_RESET_EPOCH_SQL,
   requireCurrentLearningResetEpoch,
@@ -91,7 +92,7 @@ export class AttemptRepository {
   async commitObjectiveAttempt(
     userId: string,
     command: LearningAttemptCommandV1,
-    score: ObjectiveAttemptScore,
+    score: ObjectiveAttemptScore & { remediationFeedback?: { correctAnswer: string; explanation: string } },
   ): Promise<LearningAttemptReceiptV1> {
     const requestHash = await hashLearningAttemptCommand(command);
     await requireCurrentLearningResetEpoch(
@@ -128,7 +129,7 @@ export class AttemptRepository {
     const persistedMethod = command.source === "mistake"
       ? "remediation-recall" as const
       : command.method;
-    const remediationFeedback = remediationAttemptFeedback(command);
+    const remediationFeedback = score.remediationFeedback ?? remediationAttemptFeedback(command);
     const receipt: LearningAttemptReceiptV1 = {
       protocolVersion: ATTEMPT_PROTOCOL_VERSION,
       idempotencyKey: command.idempotencyKey,
@@ -191,7 +192,7 @@ export class AttemptRepository {
             AND enrollment.status = 'active'
             AND course.manifest_hash = ?
             AND course.release_state IN ('beta', 'published')
-            AND course.linguistic_review_status = 'approved'
+            AND ${learningReviewSql()}
             AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
             AND EXISTS (
               SELECT 1 FROM json_each(session.form_manifest_json, '$.activities') activity
@@ -209,7 +210,7 @@ export class AttemptRepository {
             AND enrollment.course_version_id = ? AND enrollment.status = 'active'
             AND course.manifest_hash = ?
             AND course.release_state IN ('beta', 'published')
-            AND course.linguistic_review_status = 'approved'
+            AND ${learningReviewSql()}
             AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
         )`;
     const transactionalGuardBindings = command.source === "lesson"
@@ -410,7 +411,7 @@ export class AttemptRepository {
     const timestamp = nowEpoch();
     await ensureCurrentCourseVersion(this.database);
     const releasedCourse = await this.database.prepare(
-      "SELECT id FROM course_versions WHERE id = ? AND manifest_hash = ? AND release_state IN ('beta', 'published') AND linguistic_review_status = 'approved' LIMIT 1",
+      `SELECT id FROM course_versions WHERE id = ? AND manifest_hash = ? AND release_state IN ('beta', 'published') AND ${learningReviewSql(undefined, "")} LIMIT 1`,
     ).bind(
       CONTENT_VERSION,
       CURRENT_CONTENT_MANIFEST_SHA256,
@@ -487,7 +488,11 @@ export class AttemptRepository {
     }
 
     if (command.source === "mistake") {
-      const verifiedOrigin = await this.database.prepare(
+      const verifiedOrigin = command.activityId.startsWith('lesson-page:')
+        ? await this.database.prepare(`SELECT id FROM lesson_page_attempts
+          WHERE user_id = ? AND reset_epoch = ? AND activity_id = ? AND activity_version = ? AND outcome = 'incorrect' LIMIT 1`)
+          .bind(userId, command.resetEpoch, command.activityId, command.activityVersion).first<{ id: string }>()
+        : await this.database.prepare(
         `SELECT attempt.id
          FROM learning_attempts attempt
          INNER JOIN learning_evidence evidence
@@ -589,7 +594,7 @@ export class AttemptRepository {
   }
 
   private requirePromotedPackage() {
-    if (!isPromotedContentReleasePolicy(this.publicationPolicy)) {
+    if (!isLearningContentAvailable(this.publicationPolicy)) {
       throw new AttemptEnrollmentUnavailableError(
         "The immutable current package has not passed promotion gates.",
       );

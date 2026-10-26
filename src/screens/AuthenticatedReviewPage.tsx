@@ -1,3 +1,5 @@
+import { createRecentQueue } from "../sync/recentQueue";
+import {reviewQueueCanComplete} from '../learning/reviewSessionStatus';
 import {
   useCallback,
   useEffect,
@@ -16,11 +18,12 @@ import {
 } from "../data/curriculum";
 import {
   REVIEW_PROTOCOL_VERSION,
-  reviewPresentationWord,
   type ReviewQueueCardV1,
   type ReviewQueueV1,
   type ReviewRating,
+  type ReviewHistoryContextV1,
 } from "../learning/reviewProtocol";
+import { reviewPresentationWord } from "../learning/reviewPresentationWord";
 import { REVIEW_INTERACTION_XP } from "../learning/interactionXp";
 import { notifyInteractionXpChanged } from "../learning/interactionXpClient";
 import { makeIdempotencyKey } from "../lib/evidence";
@@ -51,6 +54,8 @@ import {
   type FetchReviewQueueResult,
 } from "../sync/reviewQueueClient";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
+
+const recentReviewQueue = createRecentQueue<ReviewQueueV1>();
 
 const ratingOptions: ReadonlyArray<{
   rating: ReviewRating;
@@ -232,6 +237,11 @@ function AuthenticatedReviewPageScope() {
   const resetEpoch = authority.resetEpoch;
   const exactAuthority = exactProjectionAuthority(accountKey, authority);
 
+  const recentKey = exactAuthority && ownerGeneration ? JSON.stringify([
+    accountKey, ownerGeneration.generation, resetEpoch,
+    authority.projection?.cursor, CURRENT_CONTENT_MANIFEST_SHA256,
+  ]) : null;
+  const authorityRefresh = authority.refresh;
   const [queue, setQueue] = useState<ReviewQueueV1 | null>(null);
   const queueRef = useRef<ReviewQueueV1 | null>(null);
   const [verifyingQueue, setVerifyingQueue] = useState(true);
@@ -256,6 +266,7 @@ function AuthenticatedReviewPageScope() {
   const gradeKeyRef = useRef<{
     offer: string;
     idempotencyKey: string;
+    historyContext:ReviewHistoryContextV1;
   } | null>(null);
   const gradeLockRef = useRef(false);
   const cardHeadingRef = useRef<HTMLHeadingElement | null>(null);
@@ -265,6 +276,7 @@ function AuthenticatedReviewPageScope() {
   }, [queue]);
 
   const refresh = useCallback(() => {
+    recentReviewQueue.clear();
     setRefreshVersion((current) => current + 1);
   }, []);
 
@@ -345,6 +357,13 @@ function AuthenticatedReviewPageScope() {
       setQueueNotice(null);
       setRetryAfterMs(null);
       try {
+        const recent = recentReviewQueue.read(recentKey);
+        if (recent) {
+          setQueue(recent);
+          setQueuePhase("ready");
+          setNetworkVerified(true);
+          return;
+        }
         const cached = await readValidCachedReviewQueue(
           ownerGeneration,
           resetEpoch,
@@ -355,7 +374,7 @@ function AuthenticatedReviewPageScope() {
           setQueue(cached.value);
           setQueuePhase("ready");
           setQueueNotice(
-            "Đang hiển thị cache đúng owner/reset; cần xác minh mạng trước khi ghi đánh giá.",
+            "Đang dùng thẻ ôn đã lưu. Đánh giá sẽ được đồng bộ khi kết nối lại.",
           );
         }
 
@@ -366,6 +385,7 @@ function AuthenticatedReviewPageScope() {
         });
         if (!active) return;
         if (result.state === "updated") {
+          recentReviewQueue.write(recentKey, result.queue);
           setQueue(result.queue);
           setQueuePhase("ready");
           setQueueNotice(null);
@@ -380,7 +400,7 @@ function AuthenticatedReviewPageScope() {
           setQueueNotice(
             "Mốc đặt lại trên máy chủ không khớp; cache cũ đã bị từ chối.",
           );
-          authority.refresh();
+          authorityRefresh();
           return;
         }
         if (result.state === "permanent-unavailable") {
@@ -401,7 +421,7 @@ function AuthenticatedReviewPageScope() {
         setQueueNotice(
           "Owner generation hoặc reset epoch đã đổi trong lúc đọc hàng đợi.",
         );
-        authority.refresh();
+        authorityRefresh();
       } finally {
         if (active) setVerifyingQueue(false);
       }
@@ -412,7 +432,8 @@ function AuthenticatedReviewPageScope() {
       lifecycle.abort();
     };
   }, [
-    authority,
+    authorityRefresh,
+    recentKey,
     exactAuthority,
     ownerGeneration,
     refreshVersion,
@@ -445,10 +466,10 @@ function AuthenticatedReviewPageScope() {
     () => queue?.cards.filter((card) => !handledKeys.has(offerKey(card))) ?? [],
     [handledKeys, queue],
   );
-  const acknowledgedRecords = relevantRecords.filter(
+  const acknowledgedRecords = useMemo(()=>relevantRecords.filter(
     (record) => record.status === "acknowledged",
-  );
-  const pendingRecords = relevantRecords.filter(
+  ),[relevantRecords]);
+  const pendingRecords = reviewRecords.filter(
     (record) => record.status === "pending",
   );
   const quarantinedRecords = reviewRecords.filter(
@@ -462,7 +483,10 @@ function AuthenticatedReviewPageScope() {
     if (
       queuePhase !== "ready"
       || !queue
-      || availableCards.length > 0
+      || !networkVerified
+      || records === null
+      || recordsError !== null
+      || !reviewQueueCanComplete({networkVerified,availableCount:availableCards.length,records:reviewRecords})
       || !checkpoint?.completedStages.learn
       || checkpoint.completedStages.review
     ) return;
@@ -472,7 +496,7 @@ function AuthenticatedReviewPageScope() {
       lessonId: checkpoint.anchorLessonId,
       activityId: `review:${checkpoint.journeyId}:${queue.generatedAt}`,
     });
-  }, [availableCards.length, checkpoint, queue, queuePhase, recordReceipt]);
+  }, [availableCards.length, checkpoint, queue, queuePhase, recordReceipt, networkVerified, records, recordsError, reviewRecords]);
 
   useEffect(() => {
     gradeKeyRef.current = null;
@@ -511,7 +535,7 @@ function AuthenticatedReviewPageScope() {
       || busy
       || !current
       || !word
-      || !networkVerified
+      || (!networkVerified && !queue)
       || !accountKey
       || !ownerGeneration
       || resetEpoch === null
@@ -535,6 +559,7 @@ function AuthenticatedReviewPageScope() {
         gradeKeyRef.current = {
           offer: key,
           idempotencyKey: makeIdempotencyKey("review-grade"),
+          historyContext:{version:1,occurredAt:new Date().toISOString(),hint:hintUsed,reveal:revealed},
         };
       }
       const command = {
@@ -549,21 +574,12 @@ function AuthenticatedReviewPageScope() {
         wordId: current.wordId,
         wordVersion: current.wordVersion,
         rating,
+        historyContext:gradeKeyRef.current.historyContext,
       } satisfies ReviewGradeQueueCommandV1;
       const queued = await enqueueReviewGradeCommand({
         ownerGeneration: environment.ownerGeneration,
         expectedResetEpoch: environment.resetEpoch,
         command,
-      });
-      emitSystemSignal({
-        type: "review.recalled",
-        sourceId: `review:${current.wordId}`,
-        eventId: `${command.idempotencyKey}:recalled`,
-      });
-      if (availableCards.length === 1) emitSystemSignal({
-        type: "review.queue-cleared",
-        sourceId: "review:account-queue",
-        eventId: `${command.idempotencyKey}:queue-cleared`,
       });
       setRecords((existing) => {
         if (!existing) return [queued];
@@ -618,10 +634,25 @@ function AuthenticatedReviewPageScope() {
   );
   const reviewedToday = useMemo(() => {
     const today = new Date().toLocaleDateString("sv-SE");
-    return reviewRecords.filter((record) =>
-      new Date(record.enqueuedAt).toLocaleDateString("sv-SE") === today
-    ).length;
+    return new Set(reviewRecords.filter((record) =>
+      record.status==='acknowledged'&&record.receipt&&new Date(record.receipt.reviewedAt).toLocaleDateString("sv-SE") === today
+    ).map(record=>record.receipt!.reviewLogId)).size;
   }, [reviewRecords]);
+  const signalledReviews=useRef(new Set<string>());
+  useEffect(()=>{
+    for(const record of acknowledgedRecords){
+      if(signalledReviews.current.has(record.commandId))continue;
+      signalledReviews.current.add(record.commandId);
+      emitSystemSignal({type:'review.recalled',sourceId:`review:${record.command.wordId}`,eventId:`${record.commandId}:recalled`});
+    }
+    if(queue?.cards.length&&reviewQueueCanComplete({networkVerified,availableCount:availableCards.length,records:reviewRecords})&&acknowledgedRecords.length>0){
+      const eventId=`${acknowledgedRecords[0].commandId}:queue-cleared`;
+      if(!signalledReviews.current.has(eventId)){
+        signalledReviews.current.add(eventId);
+        emitSystemSignal({type:'review.queue-cleared',sourceId:'review:account-queue',eventId});
+      }
+    }
+  },[acknowledgedRecords,availableCards.length,queue,reviewRecords,networkVerified]);
 
   if (!exactAuthority) {
     return (
@@ -650,16 +681,14 @@ function AuthenticatedReviewPageScope() {
   }
 
   if (quarantinedRecords.length > 0) {
-    const reason = quarantinedRecords[0]?.quarantineReason;
     return (
       <div className="lesson-state-screen" role="alert">
         <span className="memory-state-symbol" aria-hidden="true">!</span>
           <span>LƯỢT ÔN · CẦN KIỂM TRA</span>
         <h1>Một đánh giá cần được xử lý</h1>
         <p>
-          Lệnh thuộc mốc đặt lại hiện tại được giữ lại để không gửi trùng hoặc
-          chấm nhầm revision.
-          {reason ? ` Chi tiết: ${reason}` : ""}
+          Đánh giá chưa được xác nhận và được giữ lại trên thiết bị.
+          Lượt này chưa tính là đã ôn. Hãy kiểm tra kết nối và thử đồng bộ lại.
         </p>
         <button className="primary-button" type="button" onClick={syncAndRefresh}>
           <span aria-hidden="true">↻</span> Đồng bộ và kiểm tra lại
@@ -713,7 +742,7 @@ function AuthenticatedReviewPageScope() {
     );
   }
 
-  if (!networkVerified) {
+  if (!networkVerified && !queue) {
     return (
       <div className="lesson-state-screen review-verification" role="status" aria-live="polite" aria-busy={verifyingQueue}>
         <span className="memory-state-symbol" aria-hidden="true">{verifyingQueue ? "↻" : "!"}</span>
@@ -738,7 +767,7 @@ function AuthenticatedReviewPageScope() {
     );
   }
 
-  if (queue.cards.length === 0) {
+  if (queue.cards.length === 0&&pendingRecords.length===0) {
     return (
       <MemoryReviewLobby
         activatedCount={Object.keys(state.fsrsCards).length}
@@ -751,10 +780,13 @@ function AuthenticatedReviewPageScope() {
   }
 
   if (availableCards.length === 0) {
-    const sessionSummary = summarizeReviewSession(sessionEntries);
-    const persistedNeedsReview = relevantRecords.filter((record) =>
-      record.command.rating <= 2
-    ).length;
+    const visibleRecords=relevantRecords.length?relevantRecords:pendingRecords;
+    const sessionSummary = sessionEntries.length ? summarizeReviewSession(sessionEntries) : {
+      independent: visibleRecords.filter(record => record.command.historyContext?.hint === false && record.command.rating >= 3).length,
+      withHint: visibleRecords.filter(record => record.command.historyContext?.hint === true).length,
+      needsReview: visibleRecords.filter(record => record.command.rating <= 2).length,
+      total: visibleRecords.length,
+    };
     const nextReceiptDate = acknowledgedRecords
       .map((record) => record.receipt?.nextDueAt)
       .filter((value): value is string => Boolean(value))
@@ -764,10 +796,10 @@ function AuthenticatedReviewPageScope() {
     return (
       <MemoryReviewComplete
         independent={sessionSummary.independent}
-        needsReview={sessionEntries.length ? sessionSummary.needsReview : persistedNeedsReview}
+        needsReview={sessionSummary.needsReview}
         nextReview={nextReceiptDate ?? getNextReviewDate(state.fsrsCards)}
         pending={pendingRecords.length}
-        total={sessionEntries.length ? sessionSummary.total : relevantRecords.length}
+        total={sessionSummary.total}
         withHint={sessionSummary.withHint}
       />
     );
@@ -829,13 +861,13 @@ function AuthenticatedReviewPageScope() {
         <button type="button" onClick={() => setStarted(false)}><span aria-hidden="true">×</span> Thoát</button>
       </header>
 
-        {(queueNotice || actionError || !online) && (
+        {(queueNotice || actionError || !online || pendingRecords.length>0) && (
           <div className="review-session-notice" role={actionError ? "alert" : "status"} aria-live="polite">
             <span>
               <i className="memory-symbol" aria-hidden="true">{online ? "云" : "断"}</i>
               {actionError
                 ? "Chưa thể lưu đánh giá lúc này. Hãy kiểm tra kết nối rồi thử lại."
-                : queueNotice
+                : pendingRecords.length>0?`${pendingRecords.length} đánh giá đang chờ đồng bộ; lượt ôn chưa hoàn tất.`:queueNotice
                   ? "Lịch ôn vừa thay đổi và đang được làm mới."
                   : "Đang ngoại tuyến; lượt ôn vẫn được giữ trên thiết bị."}
             </span>

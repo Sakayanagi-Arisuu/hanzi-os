@@ -1,6 +1,7 @@
 import {
   AUTH_JSON_HEADERS,
   authError,
+  firebasePasswordConfig,
   boundedReturnTo,
   loadAuthRuntime,
   sameOriginMutation,
@@ -10,6 +11,7 @@ import {
   HanziAccountConflictError,
 } from "../../../../../src/server/authRepository";
 import { HanziRegistrationValidationError } from "../../../../../src/server/hanziPassword";
+import { registerHostedHanzi, AuthPasswordRateLimitedError } from '../../../../../src/server/hostedHanziAuth';
 import { readBoundedRequestText } from "../../../../../src/server/boundedRequestBody";
 import { AuthorizationRepository } from "../../../../../src/server/authorizationRepository";
 import {
@@ -51,22 +53,28 @@ export async function POST(request: Request) {
   ) {
     return authError(422, "HANZI_REGISTRATION_INVALID", "Thông tin đăng ký chưa đầy đủ.");
   }
+  let stage = 'runtime';
   try {
-    const { database, repository } = await loadAuthRuntime();
-    const account = await repository.registerHanziAccount({
-      username,
-      email,
-      password,
-      displayName,
-    });
+    const { database, repository, environment } = await loadAuthRuntime();
+    const hosted = environment.HANZI_HOSTING_PROVIDER === 'cloudflare';
+    const passwordConfig = hosted ? firebasePasswordConfig(environment) : null;
+    if (hosted && !passwordConfig) return authError(503, 'HANZI_SIGNIN_UNAVAILABLE', 'Đăng ký tài khoản HANZI.OS đang được chuẩn bị.');
+    stage = 'registration';
+    const input = { username, email, password, displayName };
+    const account = hosted && passwordConfig
+      ? await registerHostedHanzi(database, request, passwordConfig, input)
+      : await repository.registerHanziAccount(input);
+    stage = 'session';
     const session = await repository.createSession({
       userId: account.userId,
       identityId: account.identityId,
       authMethod: "hanzi",
+      hostedCredential: account.hostedCredential,
       userAgent: request.headers.get("user-agent"),
       deviceLabel: request.headers.get("sec-ch-ua-platform")
         ?? "Tài khoản HANZI.OS",
     });
+    stage = 'authorization';
     const authorization = await new AuthorizationRepository(database)
       .getAuthorization(account.userId);
     await new AuditRepository(database).appendBestEffort({
@@ -95,6 +103,7 @@ export async function POST(request: Request) {
       ),
     }, { headers: sessionResponseHeaders(session.token) });
   } catch (error) {
+    if (error instanceof AuthPasswordRateLimitedError) return authError(429, 'AUTH_RATE_LIMITED', 'Bạn đã thử nhiều lần. Hãy chờ vài phút rồi thử lại.', { 'retry-after': '600' });
     if (error instanceof HanziRegistrationValidationError) {
       return authError(422, error.code, error.message);
     }
@@ -104,6 +113,15 @@ export async function POST(request: Request) {
     if (error instanceof Error && error.message === "New account registration is closed.") {
       return authError(403, "REGISTRATION_CLOSED", "Hệ thống đang tạm khóa đăng ký mới.");
     }
+    // Keep deployment diagnostics useful without logging credentials, SQL or identity.
+    const message = error instanceof Error ? error.message : '';
+    console.error('HANZI_REGISTRATION_UNAVAILABLE', {
+      stage,
+      errorName: error instanceof Error ? error.name : 'unknown',
+      category: /PBKDF2|iteration|deriveBits/i.test(message) ? 'password-runtime'
+        : /D1|SQLITE|database|table/i.test(message) ? 'database'
+        : /binding|runtime/i.test(message) ? 'runtime' : 'unknown',
+    });
     return authError(
       503,
       "HANZI_REGISTRATION_UNAVAILABLE",

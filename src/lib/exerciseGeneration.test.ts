@@ -7,7 +7,7 @@ import {
   buildExercises,
   shuffleWith,
   toneLabels,
-} from "./exerciseGeneration";
+} from "./editorialExerciseGeneration";
 
 const seededRandom = (seed: number) => {
   let value = seed >>> 0;

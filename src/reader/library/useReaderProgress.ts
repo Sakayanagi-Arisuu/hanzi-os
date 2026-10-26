@@ -1,74 +1,105 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  adoptReaderProgressScope,
-  initialReaderProgressScope,
-  readReaderProgress,
-  resolveReaderProgressScope,
-  writeReaderProgress,
-} from "./readerProgressStorage";
-import { parseReaderProgress, type ReaderProgressDocument } from "./readerProgress";
+import { useCallback, useEffect, useRef, useState, type SetStateAction } from 'react';
+import { adoptReaderProgressScope, initialReaderProgressScope, readReaderProgress, writeReaderProgress } from './readerProgressStorage';
+import { createEmptyReaderProgress, parseReaderProgress, type ReaderProgressDocument } from './readerProgress';
+import { currentWorkspaceScope, readWorkspace, saveWorkspaceChanges } from '../../sync/workspaceSync';
+import { applyReaderWorkspace, readerWorkspaceChanges } from './readerWorkspace';
 
-export const useReaderProgress = ({
-  ownerKey,
-  authenticated,
-}: {
-  ownerKey: string;
-  authenticated: boolean;
-}) => {
-  const [progress, setProgress] = useState<ReaderProgressDocument>(() => {
+export const useReaderProgress = ({ ownerKey, authenticated }: { ownerKey: string; authenticated: boolean }) => {
+  const [initial] = useState(() => {
     const scope = initialReaderProgressScope(ownerKey);
-    return readReaderProgress(scope);
+    try { return { document: readReaderProgress(scope), error: false }; }
+    catch { return { document: createEmptyReaderProgress(scope), error: true }; }
   });
-  const [storageError, setStorageError] = useState(false);
+  const [progress, setProgressState] = useState(initial.document);
+  const [storageError, setStorageError] = useState(initial.error);
   const [scopeReady, setScopeReady] = useState(false);
   const previousOwnerRef = useRef(progress.ownerKey);
   const progressRef = useRef(progress);
-  progressRef.current = progress;
+  const writesRef = useRef(Promise.resolve());
+  const readyRef = useRef(false);
+  const lifecycleRef = useRef(0);
 
   useEffect(() => {
-    setScopeReady(false);
-    const fallback = initialReaderProgressScope(ownerKey);
+    const lifecycle = ++lifecycleRef.current;
     let active = true;
-    void resolveReaderProgressScope(fallback).then(async (scope) => {
-      if (!active) return;
-      const stored = readReaderProgress(scope);
-      const currentProgress = progressRef.current;
-      const canAdoptGuestProgress = authenticated
-        && previousOwnerRef.current.startsWith("anonymous:")
-        && (Object.keys(currentProgress.chapters).length > 0
-          || Object.keys(currentProgress.savedEntries).length > 0)
-        && Object.keys(stored.chapters).length === 0
-        && Object.keys(stored.savedEntries).length === 0;
-      let next = canAdoptGuestProgress
-        ? adoptReaderProgressScope(currentProgress, scope)
-        : stored;
-      if (process.env.NODE_ENV === 'development' && authenticated
-        && !canAdoptGuestProgress && Object.keys(stored.chapters).length === 0
-        && Object.keys(stored.savedEntries).length === 0) {
+    readyRef.current = false; setScopeReady(false);
+    void (async () => {
+      const scope = await currentWorkspaceScope(ownerKey);
+      if (!scope) throw new Error('Reader owner changed');
+      const readerScope = { ownerKey, ownerGeneration: scope.ownerGeneration.generation, resetEpoch: scope.resetEpoch };
+      const stored = readReaderProgress(readerScope);
+      const current = progressRef.current;
+      const canAdopt = authenticated && previousOwnerRef.current.startsWith('anonymous:')
+        && (Object.keys(current.chapters).length > 0 || Object.keys(current.savedEntries).length > 0)
+        && Object.keys(stored.chapters).length === 0 && Object.keys(stored.savedEntries).length === 0;
+      let base = canAdopt ? adoptReaderProgressScope(current, readerScope) : stored;
+      if (process.env.NODE_ENV === 'development' && authenticated && !canAdopt
+        && Object.keys(stored.chapters).length === 0 && Object.keys(stored.savedEntries).length === 0) {
         try {
           const response = await fetch('/api/local-demo/reader-progress', { cache: 'no-store' });
           if (response.ok) {
             const data = await response.json();
-            if (data.readerProgress?.resetEpoch === scope.resetEpoch) {
-              next = parseReaderProgress({ ...data.readerProgress, ...scope }, scope);
-            }
+            if (data.readerProgress?.resetEpoch === scope.resetEpoch) base = parseReaderProgress({ ...data.readerProgress, ...readerScope }, readerScope);
           }
-        } catch { /* A missing local fixture never blocks the reader. */ }
+        } catch { base = stored; }
       }
-      if (!active) return;
-      previousOwnerRef.current = scope.ownerKey;
-      setProgress(next);
-      setScopeReady(true);
-      if (canAdoptGuestProgress && !writeReaderProgress(next)) setStorageError(true);
-    });
-    return () => {
-      active = false;
-    };
+      const journal = await readWorkspace(scope);
+      const next = applyReaderWorkspace(base, journal.entries);
+      await saveWorkspaceChanges(scope, readerWorkspaceChanges(null, next));
+      if (!active || lifecycle !== lifecycleRef.current) return;
+      previousOwnerRef.current = ownerKey;
+      progressRef.current = next; setProgressState(next);
+      readyRef.current = true; setScopeReady(true);
+      setStorageError(!writeReaderProgress(next));
+    })().catch(() => { if (active) { setStorageError(true); setScopeReady(false); } });
+    return () => { active = false; readyRef.current = false; };
   }, [authenticated, ownerKey]);
 
-  useEffect(() => {
-    if (!writeReaderProgress(progress)) setStorageError(true);
-  }, [progress]);
+  const commitProgress = useCallback((update: SetStateAction<ReaderProgressDocument>) => {
+    const lifecycle = lifecycleRef.current;
+    const task = writesRef.current.then(async () => {
+      if (!readyRef.current || lifecycle !== lifecycleRef.current) throw new Error('Reader scope is not ready');
+      const scope = await currentWorkspaceScope(ownerKey);
+      const current = progressRef.current;
+      if (!scope || current.ownerKey !== ownerKey || current.ownerGeneration !== scope.ownerGeneration.generation
+        || current.resetEpoch !== scope.resetEpoch) throw new Error('Reader scope changed');
+      const journal = await readWorkspace(scope);
+      const durable = applyReaderWorkspace(current, journal.entries);
+      const next = typeof update === 'function' ? update(durable) : update;
+      if (next.ownerKey !== ownerKey || next.resetEpoch !== scope.resetEpoch || next.ownerGeneration !== scope.ownerGeneration.generation) throw new Error('Reader update crossed scopes');
+      await saveWorkspaceChanges(scope, readerWorkspaceChanges(durable, next));
+      const committed = applyReaderWorkspace(next, (await readWorkspace(scope)).entries);
+      if (lifecycle !== lifecycleRef.current) throw new Error('Reader owner changed after commit');
+      progressRef.current = committed; setProgressState(committed);
+      setStorageError(!writeReaderProgress(committed));
+      return committed;
+    });
+    writesRef.current = task.then(() => undefined, () => undefined);
+    return task;
+  }, [ownerKey]);
 
-  return { progress, scopeReady, setProgress, storageError };
+  const setProgress = useCallback((update: SetStateAction<ReaderProgressDocument>) => {
+    void commitProgress(update).catch(() => setStorageError(true));
+  }, [commitProgress]);
+
+  useEffect(() => {
+    if (!scopeReady) return;
+    let active = true;
+    const receive = () => {
+      void writesRef.current.then(async () => {
+        const scope = await currentWorkspaceScope(ownerKey);
+        const current = progressRef.current;
+        if (!scope || current.ownerKey !== ownerKey || current.ownerGeneration !== scope.ownerGeneration.generation || current.resetEpoch !== scope.resetEpoch) return;
+        const next = applyReaderWorkspace(current, (await readWorkspace(scope)).entries);
+        if (!active) return;
+        progressRef.current = next; setProgressState(next);
+        setStorageError(!writeReaderProgress(next));
+      }).catch(() => { if (active) setStorageError(true); });
+    };
+    window.addEventListener('hanzi-workspace-received', receive);
+    window.addEventListener('focus', receive);
+    return () => { active = false; window.removeEventListener('hanzi-workspace-received', receive); window.removeEventListener('focus', receive); };
+  }, [ownerKey, scopeReady]);
+
+  return { progress, scopeReady, setProgress, commitProgress, storageError };
 };

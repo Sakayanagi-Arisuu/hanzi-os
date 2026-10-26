@@ -12,7 +12,7 @@ export async function assertAccountCanAuthenticate(
     .prepare("SELECT status FROM users WHERE id = ? LIMIT 1")
     .bind(userId)
     .first<{ status: string }>();
-  if (!account || account.status === "deleted") {
+  if (!account || account.status === "deleted" || account.status === 'deletion_pending') {
     throw new Error("Authenticated account is unavailable.");
   }
   if (account.status === "locked") {

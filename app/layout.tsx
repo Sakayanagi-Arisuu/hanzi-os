@@ -146,11 +146,11 @@ export default function RootLayout({
   return (
     <html lang="vi" data-theme="dark" suppressHydrationWarning>
       <head>
-        <script
+        {process.env.NODE_ENV === 'development' && <script
           dangerouslySetInnerHTML={{
             __html: DEVELOPMENT_SERVICE_WORKER_RECOVERY_SCRIPT,
           }}
-        />
+        />}
       </head>
       <body>
         {children}

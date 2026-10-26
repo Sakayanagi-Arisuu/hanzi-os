@@ -1,7 +1,7 @@
 import { RELEASED_LESSONS } from "../data/curriculum";
 import type { LearningAttemptCommandV1 } from "../learning/attemptProtocol";
-import { buildExerciseCatalog } from "../lib/exerciseGeneration";
-import { getAuthoritativeLessonAnswer } from "./authoritativeItemBank";
+import { buildExerciseCatalog } from "../lib/editorialExerciseGeneration";
+import { getAuthoritativeLessonAnswer } from "./editorialItemBank";
 import { remediationLessonSupport } from "./remediationLessonSupport";
 
 /** Receipt-only explanation, resolved after scoring and attempt-context validation. */

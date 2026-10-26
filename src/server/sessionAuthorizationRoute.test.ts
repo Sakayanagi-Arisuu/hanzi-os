@@ -8,7 +8,8 @@ const mocks = vi.hoisted(() => ({
 vi.mock("../../app/chatgpt-auth", () => ({
   getChatGPTUser: mocks.getChatGPTUser,
 }));
-vi.mock("./d1", () => ({
+vi.mock("./d1", async importOriginal => ({
+  ...await importOriginal<typeof import('./d1')>(),
   getD1Database: mocks.getD1Database,
 }));
 

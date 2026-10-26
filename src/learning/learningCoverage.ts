@@ -1,4 +1,5 @@
 import { RELEASED_LESSONS, WORD_BY_ID } from "../data/curriculum";
+import { LEXICAL_EXERCISE_SUFFIX, lexicalBaseExerciseId, lexicalActivityVersion } from "../content/lexicalEditorialCatalog";
 import type { ObjectiveAttemptMethod } from "./attemptProtocol";
 import { isEvidenceCombinationAllowed } from "../lib/evidencePolicy";
 import type {
@@ -157,7 +158,7 @@ let indexedLessonIds: Set<string> | null = null;
  * no attempts therefore pay no 30k-catalog startup cost; active learners pay a
  * small, bounded cost per lesson they have actually touched.
  */
-const findReleasedActivity = (
+const findFoundationActivity = (
   activityId: string,
 ): ReleasedLessonActivity | undefined => {
   const separator = activityId.indexOf(":");
@@ -179,6 +180,19 @@ const findReleasedActivity = (
     releasedActivityById.set(activity.activityId, activity);
   }
   return releasedActivityById.get(activityId);
+};
+
+const findReleasedActivity = (activityId: string): ReleasedLessonActivity | undefined => {
+  const baseId = lexicalBaseExerciseId(activityId);
+  const base = findFoundationActivity(baseId);
+  if (!base || baseId === activityId) return base;
+  const separator = baseId.indexOf(":");
+  const lesson = releasedLessonById?.get(baseId.slice(0, separator));
+  const questionId = baseId.slice(separator + 1);
+  // The derivative only versions vocabulary questions, never foundation-only
+  // tone-pair tasks. Both versions represent the same unique learning item.
+  if (!lesson?.wordIds.some(wordId => questionId.startsWith(`${wordId}-`))) return undefined;
+  return { ...base, activityVersion: lexicalActivityVersion(base.activityVersion) };
 };
 
 export type LearnerActivityCoverageState =
@@ -303,7 +317,8 @@ export const deriveLocalLearnerActivityCoverage = (
       || !isEvidenceCombinationAllowed(item.source, item.method, item.skill)
     ) continue;
     const activities = observedPracticeBySkill.get(item.skill) ?? new Set();
-    activities.add(item.activityId);
+    activities.add(item.source === "lesson" && item.activityId.endsWith(LEXICAL_EXERCISE_SUFFIX)
+      ? lexicalBaseExerciseId(item.activityId) : item.activityId);
     observedPracticeBySkill.set(item.skill, activities);
   }
   // One activity contributes at most one independent item. Within a lesson
@@ -319,12 +334,12 @@ export const deriveLocalLearnerActivityCoverage = (
     if (!released) continue;
     const candidate = localPillarSignalCandidate(item, released);
     if (!candidate) continue;
-    const sessions = activitySessions.get(item.activityId) ?? new Map();
+    const sessions = activitySessions.get(released.activityId) ?? new Map();
     const existing = sessions.get(candidate.sessionId);
     if (!existing || byTimeThenStableOrder(candidate, existing) < 0) {
       sessions.set(candidate.sessionId, candidate);
     }
-    activitySessions.set(item.activityId, sessions);
+    activitySessions.set(released.activityId, sessions);
   }
 
   const selectedBySkill = new Map<Skill, PillarSignalCandidate[]>();

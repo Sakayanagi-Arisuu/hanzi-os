@@ -1,3 +1,4 @@
+import { cashLedgerEnabled } from "../../../../src/server/bankTransferRepository";
 import { authorizeAdmin } from "../../../../src/server/adminHttp";
 import { sameOriginMutation } from "../../../../src/server/authHttp";
 import { readBoundedRequestText } from "../../../../src/server/boundedRequestBody";
@@ -8,10 +9,11 @@ import { sandboxCommerceEnabled } from "../../../../src/server/premiumAccess";
 const redirect = (request: Request, notice: string) => {
   const destination = new URL("/admin/premium", request.url);
   destination.searchParams.set("notice", notice);
+  destination.searchParams.set("tab", "access");
   return Response.redirect(destination, 303);
 };
 export async function POST(request: Request) {
-  if (!sameOriginMutation(request) || !sandboxCommerceEnabled(request.url)) return redirect(request, "Thao tác không khả dụng.");
+  if (!sameOriginMutation(request) || (!sandboxCommerceEnabled(request.url) && !cashLedgerEnabled(request.url))) return redirect(request, "Thao tác không khả dụng.");
   if (!request.headers.get("content-type")?.startsWith("application/x-www-form-urlencoded")) return redirect(request, "Biểu mẫu không hợp lệ.");
   const body = await readBoundedRequestText(request, 1000);
   if (!body.ok) return redirect(request, "Biểu mẫu quá dài.");

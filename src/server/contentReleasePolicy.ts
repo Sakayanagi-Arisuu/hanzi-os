@@ -12,6 +12,7 @@ export type ContentReleasePolicy = {
   productionEligible: boolean;
   promotionChannel: "closed-alpha" | "production" | null;
   promotionManifestSha256: string | null;
+  personalStudy?: boolean;
 };
 
 const checkedInContentReleasePolicy: ContentReleasePolicy = {
@@ -45,8 +46,17 @@ export const contentReleasePolicyForEnvironment = (
     }
   : checkedInContentReleasePolicy;
 
+declare const __HANZI_HOSTED_STUDY__: { origin: string; manifestSha256: string } | null;
+
+export const personalStudyPolicy = (manifestSha256: string): ContentReleasePolicy => ({
+  ...checkedInContentReleasePolicy,
+  personalStudy: manifestSha256 === CURRENT_CONTENT_MANIFEST_SHA256,
+});
+
 export const CURRENT_CONTENT_RELEASE_POLICY =
-  contentReleasePolicyForEnvironment(process.env.NODE_ENV);
+  typeof __HANZI_HOSTED_STUDY__ !== 'undefined' && __HANZI_HOSTED_STUDY__
+    ? personalStudyPolicy(__HANZI_HOSTED_STUDY__.manifestSha256)
+    : contentReleasePolicyForEnvironment(process.env.NODE_ENV);
 
 export const isPromotedContentReleasePolicy = (
   policy: ContentReleasePolicy,
@@ -73,4 +83,24 @@ export const promotedCourseReleaseState = (
 ): "beta" | "published" | null => {
   if (!isPromotedContentReleasePolicy(policy)) return null;
   return policy.promotionChannel === "production" ? "published" : "beta";
+};
+
+export const isPersonalStudyPolicy = (policy: ContentReleasePolicy) =>
+  policy.personalStudy === true && policy.manifestSha256 === CURRENT_CONTENT_MANIFEST_SHA256
+  && policy.lifecycle !== 'retired' && !policy.productionEligible;
+
+export const isLearningContentAvailable = (policy: ContentReleasePolicy) =>
+  isPromotedContentReleasePolicy(policy) || isPersonalStudyPolicy(policy);
+
+export const learningCourseReleaseState = (policy: ContentReleasePolicy): 'beta' | 'published' | null =>
+  isPersonalStudyPolicy(policy) ? 'beta' : promotedCourseReleaseState(policy);
+
+// Only build-authorized personal study may read a pending linguistic review.
+// Rejected/retired packages never qualify. The caller still checks owner,
+// enrollment, manifest, release state and reset scope in the same statement.
+export const learningReviewSql = (policy: ContentReleasePolicy = CURRENT_CONTENT_RELEASE_POLICY, alias: 'course' | '' = 'course') => {
+  const prefix = alias ? `${alias}.` : '';
+  return isPersonalStudyPolicy(policy)
+    ? `(${prefix}linguistic_review_status IN ('pending', 'approved') AND ${prefix}manifest_hash = '${CURRENT_CONTENT_MANIFEST_SHA256}')`
+    : `${prefix}linguistic_review_status = 'approved'`;
 };

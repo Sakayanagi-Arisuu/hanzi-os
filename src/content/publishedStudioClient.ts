@@ -1,4 +1,5 @@
 import type { ReleasedCharacterPracticeEntry } from "../learning/richLessonContent";
+import { offlineRead } from '../sync/offlineRead';
 import type {
   PublishedStudioLearningProjection,
   PublishedStudioLesson,
@@ -12,11 +13,11 @@ const projection = async <T,>(
   fetcher: typeof fetch = fetch,
   signal?: AbortSignal,
 ) => {
-  const response = await fetcher(`/api/content/runtime?projection=${name}`, {
+  const response = await offlineRead(`/api/content/runtime?projection=${name}`, {
     cache: "no-store",
     headers: { accept: "application/json" },
     signal,
-  });
+  }, fetcher);
   if (!response.ok) throw new Error("Published Studio projection is unavailable.");
   const value = await response.json() as Record<string, unknown>;
   if (value.schemaVersion !== 1 || value.projection !== name || !Array.isArray(value.items)) {

@@ -5,6 +5,7 @@ import { JourneyLoading } from "../src/components/JourneyLoading";
 import { SystemErrorBoundary } from "../src/components/SystemErrorBoundary";
 import { SystemFeedbackProvider } from "../src/components/SystemFeedback";
 import { shouldGateLearningBootstrap } from "../src/lib/bootstrapPrivacy";
+import { OwnerRecoveryGate } from '../src/profile/OwnerRecoveryGate';
 import {
   LearningProvider,
   useLearning,
@@ -51,19 +52,19 @@ function LearningExperience() {
     >
       {state.profile.onboarded && !setupRequested
         ? <OnboardedLearningRuntime />
-        : <FirstRunExperience />}
+        : <FirstRunExperience authenticated={sync.session?.authenticated === true} />}
     </Suspense>
   );
 }
 
 export function ClientRuntime() {
   return (
-    <LearningProvider>
+    <OwnerRecoveryGate><LearningProvider>
       <SystemFeedbackProvider>
         <SystemErrorBoundary>
           <LearningExperience />
         </SystemErrorBoundary>
       </SystemFeedbackProvider>
-    </LearningProvider>
+    </LearningProvider></OwnerRecoveryGate>
   );
 }

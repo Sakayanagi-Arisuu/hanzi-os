@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "personalization-t00-2026-10-18",
+  "task": "T01",
+  "status": "IN-REVIEW",
+  "date": "2026-10-18",
+  "coverage": [
+    "E02 objective lesson attempts",
+    "E25 guest business transaction",
+    "E26 normalized command/receipt projection"
+  ],
+  "sourceBindings": [
+    {
+      "file": "src/learning/lessonHistory.ts",
+      "sha256": "668f9185f0a92a5249554a725a04ce9f99edba3c7e8381ceb02bbd90c90aac16",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/lessonHistory.test.ts",
+      "sha256": "fcc0c488f6076a48d20b8e19ef3ec5d22993b3257f0b0b9688765921bbc2de21",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/lessonHistory.ts",
+      "sha256": "14c04aab2565b160c3cfd381512e7bdd45ef5847a9e414b873b2453790f93568",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/lessonHistoryRead.test.ts",
+      "sha256": "955e24696880aa37c8d00e9d4a27e106eae05e03ce763acd19468ae49e8d3968",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/lessonHistoryRepository.ts",
+      "sha256": "459f9a8cda3e39053b58816bdb7a292080624f786e20eefca23338145edfefeb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/lessonHistoryRoute.test.ts",
+      "sha256": "f257d5170868b23c37339ecf7e83f9229465b7be65b22050bcc67cef47aa7b32",
+      "previousSha256": null
+    },
+    {
+      "file": "app/api/learning/lesson-history/route.ts",
+      "sha256": "7363c1c351b9e355ab1d205858704190a764d9cc340daa367398b4f93da876d8",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/indexedDb.ts",
+      "sha256": "5068449046ab246c40b0fb775ed662f17af871ca7a79e518f29ca3c009594bf6",
+      "previousSha256": "0f6cc44d86febc46db083ad4767d50ef7dd881c3ee7e6a7e429c5dd689a820a5"
+    },
+    {
+      "file": "src/sync/coordinator.ts",
+      "sha256": "31b224e3b8847f6ae09842d6cd72e9af041c425c48a54ef9311c777bfa3821d9",
+      "previousSha256": "429e5477b49604ee72023182f9da48c63c28f751854759b2a2c2e751b3b08e6d"
+    },
+    {
+      "file": "src/store/LearningStore.tsx",
+      "sha256": "c52dbb6f282838c031b89211cb26edbe94c2df018b8c1a37e821df17cad52da3",
+      "previousSha256": "6310de693280667ec11da696f777f0dcd92c28dce1084b2ec231b32ede34a17a"
+    },
+    {
+      "file": "src/sync/coordinator.test.ts",
+      "sha256": "6f14ea5943a6e9dd58bd8908674bbb246acfb834cfb94cbb08da6d60b55e0b90",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/learningCommandOutbox.test.ts",
+      "sha256": "950afea2ce1fb12215a0fd3141418d869571f773b7043ca7aba03f9d3b4101bf",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/attemptRepository.test.ts",
+      "sha256": "343e2ef8e204453e6cf0f18f579c03257ea6dd21b6d2fa7212929b60157e240e",
+      "previousSha256": "055393d6d9893a9e8535c860df47e3c479f249476ac8a66ea6687bc116fc79e5"
+    }
+  ],
+  "newServerEntries": [
+    {
+      "file": "app/api/learning/lesson-history/route.ts",
+      "route": "/api/learning/lesson-history",
+      "methods": [
+        "GET"
+      ]
+    }
+  ],
+  "baselineSourceDrift": [
+    "src/store/LearningStore.tsx",
+    "src/sync/indexedDb.ts",
+    "src/sync/coordinator.ts",
+    "src/server/attemptRepository.test.ts"
+  ],
+  "unmappedBaselineDrift": [],
+  "richInventory": [
+    40,
+    40,
+    55,
+    78
+  ],
+  "keepsT00InReview": true,
+  "historyDoesNotGrantAuthority": true,
+  "runtimeScoringChanged": false
+}

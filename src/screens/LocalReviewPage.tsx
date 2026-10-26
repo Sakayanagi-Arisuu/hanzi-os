@@ -75,6 +75,9 @@ export function LocalReviewPage() {
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [hintUsed, setHintUsed] = useState(false);
+  const [busy,setBusy]=useState(false);
+  const [saveError,setSaveError]=useState<string|null>(null);
+  const gradeLock=useRef(false);
   const [sessionEntries, setSessionEntries] = useState<ReviewSessionEntry[]>([]);
   const [reviewKey, setReviewKey] = useState(() =>
     makeIdempotencyKey("review-card")
@@ -87,22 +90,24 @@ export function LocalReviewPage() {
   const complete = index >= queue.length;
 
   useEffect(() => {
-    if (!complete || queue.length === 0 || !checkpoint?.completedStages.learn) return;
+    if (!started||busy||!complete || queue.length === 0 ||sessionEntries.length!==queue.length|| !checkpoint?.completedStages.learn) return;
     recordReceipt({
       stage: "review",
       source: "review",
       lessonId: checkpoint.anchorLessonId,
       activityId: `review:${checkpoint.journeyId}:${queue.join(",")}`,
     });
-  }, [checkpoint, complete, queue, recordReceipt]);
+  }, [checkpoint, complete, queue, recordReceipt,started,busy,sessionEntries.length]);
 
   useEffect(() => {
     if (currentId) cardHeadingRef.current?.focus();
   }, [currentId]);
 
   const grade = async (rating: Grade) => {
-    if (!word) return;
-    await actions.gradeReview(word.id, rating, reviewKey, hintUsed, LEXICAL_EDITORIAL_VERSION);
+    if (!word||!revealed||gradeLock.current) return;
+    gradeLock.current=true;setBusy(true);setSaveError(null);
+    try{
+    await actions.gradeReview(word.id, rating, reviewKey, hintUsed, LEXICAL_EDITORIAL_VERSION,revealed);
     emitSystemSignal({
       type: "review.recalled",
       sourceId: `review:${word.id}`,
@@ -122,6 +127,8 @@ export function LocalReviewPage() {
     setRevealed(false);
     setHintUsed(false);
     setReviewKey(makeIdempotencyKey("review-card"));
+    }catch{setSaveError('Chưa lưu được đánh giá. Thẻ và dữ liệu cũ vẫn được giữ; hãy thử lại.');}
+    finally{gradeLock.current=false;setBusy(false);}
   };
 
   const startQueue = (wordIds = defaultQueue()) => {
@@ -179,16 +186,17 @@ export function LocalReviewPage() {
   const progress = Math.round((index / queue.length) * 100);
 
   return (
-    <div className="memory-experience memory-session review-page">
+    <div className="memory-experience memory-session review-page" aria-busy={busy}>
       <header className="memory-session-toolbar">
         <div className="review-session-bar">
           <span><i className="memory-symbol" aria-hidden="true">阵</i> MEM-{revealed ? "03 · ĐỐI CHIẾU" : "02 · TRUY HỒI"}</span>
           <div className="review-progress-rail"><i style={{ width: `${progress}%` }} /><b aria-hidden="true" /></div>
           <strong><b>{index + 1}</b> / {queue.length}</strong>
         </div>
-        <button type="button" onClick={() => setStarted(false)}><span aria-hidden="true">×</span> Thoát</button>
+        <button type="button" disabled={busy} onClick={() => setStarted(false)}><span aria-hidden="true">×</span> Thoát</button>
       </header>
 
+      {saveError&&<p className="review-session-notice" role="alert">{saveError}</p>}
       <div className="review-card-scroll">
         <ReviewMemoryArena
           wordId={word.id}
@@ -222,6 +230,7 @@ export function LocalReviewPage() {
 
       {revealed ? (
         <ReviewRatingConsole
+          busy={busy}
           heading="Bạn nhớ tốt đến đâu?"
           headingId="local-review-rating-title"
           helper="Đánh giá khả năng gọi lại, không đánh giá sự quen mắt."

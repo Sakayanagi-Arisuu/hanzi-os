@@ -8,6 +8,7 @@ export function RemediationAtlas({ items, resolvedCount, onStart }: { items: rea
   const skills = buildSkillSignals(items);
   const sources = buildSourceSignals(items);
   const priority = selectRemediationSession(items);
+  const pendingCount = items.filter(item => !item.resolved && item.pending).length;
   const total = countActiveSignals(items);
   const trend = buildSevenDaySignals(items);
   const days = buildSevenDayLabels();
@@ -24,6 +25,7 @@ export function RemediationAtlas({ items, resolvedCount, onStart }: { items: rea
         <div className="rem-atlas-legend"><span><i/>{skills.length} vùng kỹ năng</span><span>Số lần sai tích lũy · không phải điểm thành thạo</span></div>
       </section>
       <aside className="rem-atlas-side">
+        {pendingCount > 0 && <p role="status">{pendingCount} lỗi đang chờ xác nhận câu trả lời đã lưu. Kết quả sẽ cập nhật sau khi đồng bộ; các lỗi này chưa được tính là đã hóa giải.</p>}
         <section className="rem-atlas-priority"><header><div><p className="rem-atlas-kicker">ĐIỂM KHỞI HÀNH</p><h2>{priority.length ? `${priority.length} lỗi ưu tiên hôm nay` : "Chưa có lỗi cần luyện"}</h2></div><Sparkles aria-hidden="true"/></header><ol>{priority.map((item,i)=>{const Icon=icons[item.skill];return <li key={item.id}><span className="rem-atlas-order">{i+1}</span><span className="rem-atlas-item-icon"><Icon aria-hidden="true"/></span><div><span className="rem-atlas-skill">{item.skillLabel}</span><p>{item.prompt}</p><small>{item.originLabel} · {item.originDetail}</small></div><span className="rem-atlas-occurrence" title="Số lần xuất hiện">×{item.occurrenceCount}</span></li>;})}</ol>{!priority.length&&<p className="rem-atlas-empty">Tiếp tục học ở Thiên Lộ. Những phần cần củng cố sẽ được tập hợp tại đây.</p>}</section>
         <div className="rem-atlas-metrics"><section><h2>Nguồn dấu vết</h2>{sources.map(source=><div className="rem-atlas-source" key={source.source}><span>{source.label}</span><strong>{source.count}</strong><i style={{"--source-share":`${source.count/Math.max(1,total)*100}%`} as CSSProperties}/></div>)}{!sources.length&&<p>Chưa có dấu vết</p>}</section><section><h2>Gần đây <small>7 ngày</small></h2><svg viewBox="0 0 300 90" role="img" aria-label={trend.map((n,i)=>`${days[i]}: ${n} nhóm lỗi`).join(", ")}><path d="M15 70H285M15 25H285" stroke="#a5cde51c"/><polyline points={points} fill="none" stroke="#66e7dd" strokeWidth="2"/>{trend.map((n,i)=><circle key={i} cx={15+i*45} cy={70-n/max*46} r="3" fill="#c6fff7"/>)}</svg><div className="rem-atlas-days">{days.map((day,i)=><span key={i}>{day}</span>)}</div></section></div>
       </aside>

@@ -983,6 +983,7 @@ describe("normalized learning command coordinator", () => {
         method: "POST",
         credentials: "same-origin",
         redirect: "error",
+        headers: expect.objectContaining({ 'x-learning-owner': 'account:a' }),
       });
       return new Response(JSON.stringify({ error: "not promoted" }), {
         status: 409,
@@ -992,6 +993,7 @@ describe("normalized learning command coordinator", () => {
     const transport = createSameOriginLearningCommandTransport({
       fetch: fetchMock as typeof fetch,
       origin: "https://hanzi.example",
+      expectedOwnerKey: 'account:a',
     });
     const command = {
       ...sessionInput({ ownerKey: "account:a", generation: 1 }).command,

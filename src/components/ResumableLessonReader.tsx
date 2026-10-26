@@ -6,8 +6,10 @@ import { ownerScopedResumeCacheScope, resolveLearningResumeOwnerScope } from '..
 import { emptyReadingPosition, lessonReadingEntryKey, parseLessonReadingSession, type LessonReadingSession, type ReadingPosition } from '../learning/lessonReadingSession';
 import { LessonPageReader } from './LessonPageReader';
 import { LessonContentLoading } from './LessonContentLoading';
-import {matchLessonPageBindings,type LessonPageBinding} from '../learning/lessonPageBinding';
+import {type LessonPageBinding} from '../learning/lessonPageBinding';
+import {loadOfflinePageBindings} from '../sync/offlinePageBindings';
 import {queueReadingPageAttempts} from '../sync/queueReadingPageAttempts';
+import {persistLessonReadingHistory} from '../sync/lessonReadingHistory';
 
 type Props = React.ComponentProps<typeof LessonPageReader> & { lessonId: string; sourceStatus?: 'loading'|'ready'|'fallback' };
 type SavedProps = Omit<Props, 'document'> & { fallback: React.ReactNode };
@@ -63,18 +65,19 @@ function OwnerLessonReader({ ownerKey, sourceStatus = 'ready', ...props }: Props
     const {scope,session}=loaded;
     let cancelled=false;
     writes.current=writes.current.then(async()=>{
-      await queueReadingPageAttempts(scope,session);
-      queuedSnapshot.current=session;
+      const durable=await persistLessonReadingHistory(scope,session);
+      await queueReadingPageAttempts(scope,durable);
+      window.dispatchEvent(new Event('hanzi-page-attempt-queued'));
+      queuedSnapshot.current=durable;
       if(!cancelled)setQueueFailed(false);
     }).catch(()=>{if(!cancelled)setQueueFailed(true);});
     return ()=>{cancelled=true;};
   },[loaded]);
   useEffect(()=>{
-    if(!loaded)return;
+    if(!loaded?.scope)return;
     const controller=new AbortController();
     const document=loaded.session.document;
-    void fetch(`/api/learning/page-activities?lessonId=${encodeURIComponent(props.lessonId)}`,{signal:controller.signal})
-      .then(async response=>response.ok?matchLessonPageBindings(await response.json(),props.lessonId,document):{})
+    void loadOfflinePageBindings(loaded.scope,props.lessonId,document,controller.signal)
       .then(bindings=>{if(!controller.signal.aborted)setBindingState({document,bindings});})
       .catch(()=>{ /* Offline reading and saved drafts remain usable without a binding. */ });
     return ()=>controller.abort();
@@ -114,12 +117,13 @@ function OwnerLessonReader({ ownerKey, sourceStatus = 'ready', ...props }: Props
     const snapshot = { ...loaded.session, ...position };
     // Serialize writes so a slower earlier keystroke cannot replace the last answer.
     writes.current = writes.current.then(async () => {
-      await writeLessonResume({ ...scope, value: snapshot });
+      const durable=await persistLessonReadingHistory(scope,snapshot);
       window.dispatchEvent(new Event('hanzi-reading-saved'));
       setSaveFailed(false);
       try {
-        await queueReadingPageAttempts(scope,snapshot,queuedSnapshot.current);
-        queuedSnapshot.current=snapshot;
+        await queueReadingPageAttempts(scope,durable,queuedSnapshot.current);
+        window.dispatchEvent(new Event('hanzi-page-attempt-queued'));
+        queuedSnapshot.current=durable;
         setQueueFailed(false);
       } catch { setQueueFailed(true); }
     }).catch(() => setSaveFailed(true));
@@ -149,6 +153,6 @@ function OwnerLessonReader({ ownerKey, sourceStatus = 'ready', ...props }: Props
     {sourceStatus === 'ready' && JSON.stringify([props.document, props.title, props.objective]) !== JSON.stringify([loaded.session.document, loaded.session.title, loaded.session.objective]) && <p role="status">Bài có nội dung cập nhật. Bạn đang tiếp tục phần đã học. <button type="button" disabled={switching || !loaded.scope} onClick={()=>void startUpdatedContent()}>Bắt đầu bản cập nhật</button> <small>Bản nháp cũ được giữ riêng trên thiết bị.</small></p>}
     <LessonPageReader key={JSON.stringify([loaded.session.document,loaded.session.title,loaded.session.objective])} {...props} inputDisabled={switching} document={loaded.session.document} title={loaded.session.title} objective={loaded.session.objective} initialPosition={loaded.session} onPositionChange={save} />
     {saveFailed && <p role="status">Chưa lưu được phần lĩnh hội trên thiết bị này. Hãy giữ trang mở để không mất câu trả lời.</p>}
-    {queueFailed && !saveFailed && <p role="status">Câu trả lời vẫn được giữ trong bài trên thiết bị. Chưa chuẩn bị được bản chờ lưu vào tài khoản; hãy mở lại bài để thử lại.</p>}
+    {queueFailed && !saveFailed && <p role="status">Chưa lưu được lịch sử luyện tập. Bản nháp đã lưu trước đó vẫn được giữ; hãy mở lại bài để thử lại.</p>}
   </>;
 }

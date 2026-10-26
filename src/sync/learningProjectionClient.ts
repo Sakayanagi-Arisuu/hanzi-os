@@ -1,5 +1,5 @@
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
   LEARNING_PROJECTION_V2_MEDIA_TYPE,
   LEARNING_PROJECTION_V2_PROTOCOL_VERSION,

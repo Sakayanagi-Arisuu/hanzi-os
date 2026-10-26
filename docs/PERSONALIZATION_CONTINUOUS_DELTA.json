@@ -1,0 +1,3173 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "personalization-t00-2026-10-18",
+  "date": "2026-10-21",
+  "status": "IN-REVIEW",
+  "implementationState": "WORK-IN-PROGRESS; T02/T03/A01 and overall plan are not USER-ACCEPTED or complete",
+  "inherits": [
+    "PERSONALIZATION_T00_INVENTORY.json",
+    "PERSONALIZATION_T01_DELTA.json",
+    "PERSONALIZATION_T02_LESSONS_DELTA.json",
+    "PERSONALIZATION_T02_REVIEW_DELTA.json"
+  ],
+  "preEditBindingCount": 203,
+  "preEditDrift": [],
+  "userAuthorization": "Continue across tasks by dependencies after technical gates; no auto user/human acceptance; no deployment",
+  "sourceBindings": [
+    {
+      "file": "app/admin/access/page.tsx",
+      "previousSha256": "c1aefb8200c0af6583adc5623b10f48c5f6cb3610ed836b869ff82e8c5cc0182",
+      "sha256": "05fe330a743322209ce98238db7bff39146af6c0fb75345287defb72a9c2f31f"
+    },
+    {
+      "file": "app/api/account/avatar/route.ts",
+      "sha256": "bdb10061480da76370003b62d28ebfd4b2c98976280bcce8d91dfb5fe35efb98",
+      "previousSha256": null
+    },
+    {
+      "file": "app/api/exams/[level]/[form]/practice/route.ts",
+      "sha256": "b223fef2b19b6c4fbcb7119a99db29b738a613d894530de5f23a271e87c0814d",
+      "previousSha256": null
+    },
+    {
+      "file": "app/api/learning/activity-history/route.ts",
+      "sha256": "dee1972c8ca5d00f405425effa103b25999d74846fa821acb72803f084933c49",
+      "previousSha256": null
+    },
+    {
+      "file": "app/api/learning/adaptive-plan/route.ts",
+      "sha256": "0d8133443a5570fce47dfb1c6c0be9c9ed7c1fbe8400c56c739b7238547ed649",
+      "previousSha256": null
+    },
+    {
+      "file": "app/api/learning/adaptive-unit/route.ts",
+      "sha256": "81bb469173a6836edda9c6c4903f8a81bf312bab724d27eb777888f7fbb02eed",
+      "previousSha256": null
+    },
+    {
+      "file": "app/api/learning/workspace/route.ts",
+      "sha256": "c12dbd6f88480b400920e11b20b95c486447b470a564ef138768b27043de93d6",
+      "previousSha256": null
+    },
+    {
+      "file": "app/client-app.tsx",
+      "sha256": "7e47bf6e60a47f89931fda7a186b980da189c694ecced65a011134f6bdddc0e5",
+      "previousSha256": null
+    },
+    {
+      "file": "app/client-runtime.tsx",
+      "sha256": "d8716dbfb273e1d63d8e94d1b842baa41d6a0b7041d2f379ba631a54e3ba65de",
+      "previousSha256": "5072bd276f1139e12e74c18fb62a9d14edb881884ff097a8cc2a244e7a60e2e1"
+    },
+    {
+      "file": "app/studio/catalog/page.tsx",
+      "previousSha256": null,
+      "sha256": "cd16b4dd93b3039eac45b74d1fa196e0800c38148b22e29333f0839db465e155"
+    },
+    {
+      "file": "app/studio/exams/page.tsx",
+      "previousSha256": null,
+      "sha256": "dbfa7b5c64db606819f2cf20866218524e5c36836203fc13d55bf9d0727fbd33"
+    },
+    {
+      "file": "app/studio/items/[revisionId]/page.tsx",
+      "previousSha256": null,
+      "sha256": "6fca9b3b1c5f72c62feca4fe222d27f72a9394dccaf9fb06d734128663fc7f6e"
+    },
+    {
+      "file": "app/studio/StudioShell.tsx",
+      "previousSha256": null,
+      "sha256": "4554ac3d71f2e0b6a6b18b550eba407567e48d2ed164299849cba44add561acc"
+    },
+    {
+      "file": "content/drafts/personalization-price-pilot-2026.10.21.json",
+      "sha256": "be538c6b5e7ae6881dd042608e4b69ee30af81251a11fc541e4d7141259351e6",
+      "previousSha256": null
+    },
+    {
+      "file": "db/schema.ts",
+      "sha256": "da4dd7bc22177af16d6fec112a8b57820d7be96b425131f47e6ff681c676a9c6",
+      "previousSha256": "259082c7f3b280cdbe8625f9e7b7a729e4d9049dc71a29b67dd1458fe1fb0e3d"
+    },
+    {
+      "file": "drizzle/0042_account_avatars.sql",
+      "sha256": "9f71cfd2686981b36473677957040ab82818fe64637d9aa3fcb91cec30d62293",
+      "previousSha256": null
+    },
+    {
+      "file": "e2e/mobile-accessibility.spec.ts",
+      "sha256": "d8091f70a320889c8c224e7ab2dca641bb869f108198798f91438b6f699ebd82",
+      "previousSha256": null
+    },
+    {
+      "file": "mobile/android/app/src/main/java/com/regulus/hanzios/HanziDevicePlugin.java",
+      "previousSha256": null,
+      "sha256": "1e88dfa85e69c9dbd31e504fef289735c4e2a3165c513915a34c20a85e0d9494"
+    },
+    {
+      "file": "mobile/android/app/src/test/java/com/regulus/hanzios/NativeNetworkPolicyTest.java",
+      "previousSha256": null,
+      "sha256": "c10579f67a1734f81d2dc2cbd41bbf33f56c5c24e6fe35b1861b5e4b1bf277fa"
+    },
+    {
+      "file": "mobile/android/build.gradle",
+      "previousSha256": null,
+      "sha256": "b0ce66e7e962e9799b728a9edc3f41bf63bc0ef2d1014faa9d56a2c3a5087c41"
+    },
+    {
+      "file": "scripts/prepare-cloudflare.mjs",
+      "sha256": "9607f19e8b64db02aac0b66a6d70830a59f408fa3aa79c25671ab298c1a1c108",
+      "previousSha256": null
+    },
+    {
+      "file": "scripts/rehearse-d1-restore.mjs",
+      "sha256": "d58bb1a1340d3db14259e40d31d8d5679bbfad3043d7dac6dc829ab62295ab52",
+      "previousSha256": null
+    },
+    {
+      "file": "scripts/replay-personalization-pilot.ts",
+      "sha256": "69c201eb6c329dd5410449a8458a55820a39ff3cbcd54fc49ae3996cf776b722",
+      "previousSha256": null
+    },
+    {
+      "file": "scripts/verify-personalization-replay.ts",
+      "sha256": "235913b1abdaf22fe8ab2ee4999da55a0c7311e3cca0efd287b0c2900efa7bd1",
+      "previousSha256": null
+    },
+    {
+      "file": "src/App.tsx",
+      "sha256": "3fa246184bf2ddf58bbd5aa206eefb5f36c5fdcab18932c3537cd766b6aa75c7",
+      "previousSha256": "1514610f02d1a993a2aec72759a2b430f756c1c1ea44ee298d2534e72637f947"
+    },
+    {
+      "file": "src/assessment/normalizedAssessmentCommandIds.ts",
+      "previousSha256": null,
+      "sha256": "0ce17c8530c4c99bd60482a87cc4c8c5b3c3019ca605279201c869b8676e89c0"
+    },
+    {
+      "file": "src/components/AppShell.tsx",
+      "sha256": "92f0639671b7e774c73879dfb44e0c9980ed212dcb410868935307faa76f8efa",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/CharacterContextChallenge.tsx",
+      "sha256": "431bdbc84356d5d1218718fcf31fbcb301882c7c146431f1008cc585c576481c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/learnerNavigation.css",
+      "sha256": "9c34ce609460e1145202d0e3e991da1e72d8222c9a441fc7ac83c58a95787e57",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/learnerNavigation.test.ts",
+      "sha256": "da3a42be118a8937ba25b30a0108e1a2a99568efcccb657a639c7aae7bce5c51",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/learnerNavigation.ts",
+      "sha256": "387dbd90ec220192f75bc8c8bbbb8b37cf1a927219028238bb7ae8f370bab36a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/NgocHeader.tsx",
+      "sha256": "c13c1a12b034875a688f93d7c035833a43bc6a7d951de608ebb51ad3617c13f9",
+      "previousSha256": "509b7d2a45f47f9255cd3d00f5dece8d1b6416b1b7e28869b7ce4483fae42db4"
+    },
+    {
+      "file": "src/components/PronunciationQuestComplete.tsx",
+      "sha256": "946d4ddd11498bbf494fe3a0561602bec3801ad0ff50618ffe716ba39f20ef7f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/RecoveryStatusBoundary.test.ts",
+      "sha256": "485a61d6ad8bb3a335f0d2deb9043d15f96e3ca941ef844c8fdab300d96ed108",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/RecoveryStatusBoundary.tsx",
+      "sha256": "000bda0eb9ed86c88da51c212167016fd90b2930120885c975069e3d161ebcbf",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/RemediationObservatory.tsx",
+      "sha256": "562bae4b1fbe1eac5f8112a1bf0bae19529f1529ff2e7c2a75529bf3e4b0a576",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/RemediationSourceLink.tsx",
+      "sha256": "335e22459664c191ec54434b53857ffc9b30503c359d79c468d71dd8fc7a9ee4",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/StrokeOrderPractice.tsx",
+      "sha256": "a731d6031aac0d3323f96cf9f5eedae2b4a6601b05af86fa53d69289619949dc",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/SystemOnboarding.tsx",
+      "previousSha256": null,
+      "sha256": "c22f5d8ed7f363872f8bf0700a309719cc731b4c7d844931cb8caafac321000c"
+    },
+    {
+      "file": "src/critical.css",
+      "sha256": "5600b293b4581054f3653d885fc7dc6e80b83c712a28ec3c41d5edc3099ebf66",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/activityHistory.test.ts",
+      "sha256": "52f6144e379d864ee8c5ef114be33d0b63e7c80339ba0da248c8c806278c6665",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/activityHistory.ts",
+      "sha256": "ca7b9e5cf013c7c984d261abe857f7316ca4dad05421834e2315ec50e043b80d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/assessmentHistory.test.ts",
+      "sha256": "84252854809378677be4a3f9b4ff2551668913c82f30edf65aceeac52bc1f599",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/assessmentHistory.ts",
+      "sha256": "04bf4ad135507a652b34f5f50cfb7ca848bde377e04f4bfdec81435339d2c0b0",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/learningPreferences.test.ts",
+      "sha256": "9e8d33de54af32bed84a582b8c6f30512fdb5aa126d451ab575e56ec910bf2db",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/learningPreferences.ts",
+      "sha256": "79afcd326eed398e543ac12b33f335b1e1807abf19975d62641edc14ada0fbad",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/lessonHistory.ts",
+      "sha256": "521c8c09df563f5e838979dfb2e3c3304594cb56ec3cb9918a88ca95bd7a333c",
+      "previousSha256": "cf0feca6351c275962553b92d1fe7900d9f33ae208d25c6ae8519743230711a1"
+    },
+    {
+      "file": "src/learning/lessonHistoryCooperative.test.ts",
+      "sha256": "cd6e179966108fb68fc9f4b29dc6225290e1e4771109030c78ee321da0726ca2",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/mockPracticeHistory.ts",
+      "sha256": "94fc044a76f2a12a16da26940c83b7986c980f78ae645431f6bab59394550bed",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/normalizedLessonCommandIds.ts",
+      "previousSha256": null,
+      "sha256": "76f6cd71133fc84422fcdefabfded5c8110a9010ad71c129df4d4cff0070abf5"
+    },
+    {
+      "file": "src/lib/historyWork.ts",
+      "sha256": "811f7e5911333729043fdd6bb4a58b06f3f710e23de67a7bdc2320265c6066f7",
+      "previousSha256": null
+    },
+    {
+      "file": "src/lib/learningStateImport.ts",
+      "sha256": "87cb3b89f1754fbc04ea6c1c94bbaf1219787baccb3d56c0cc3578769e300d25",
+      "previousSha256": "86800331b52ca66581510f4bc38c37be841f7200d35f3194f16a172ccf564cc4"
+    },
+    {
+      "file": "src/lib/learningStatePersistence.test.ts",
+      "sha256": "2643b0e796cf1202ff82caea9ba338831dd01d181f4a50e1da2a6b07f1a68c8d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/lib/learningStatePersistence.ts",
+      "sha256": "6fdf35e19ba665b87959bae8c6ed56be4910b215301408321e4e925e13c6e9ca",
+      "previousSha256": null
+    },
+    {
+      "file": "src/lib/serviceWorkerRegistration.test.ts",
+      "sha256": "8a22f98544b98b6a388f2d2697070fe6c904362db074ccbf0f23203982c5df50",
+      "previousSha256": null
+    },
+    {
+      "file": "src/lib/serviceWorkerRegistration.ts",
+      "sha256": "c418fe975e210f006d83b9972c180ed2f0d5afb798bd34cc6cfcf93b869526dd",
+      "previousSha256": null
+    },
+    {
+      "file": "src/mistakes/localPageMistakes.ts",
+      "sha256": "fac8749538bbc8403ee9b521b8cc6333572473ad9f3344c35a4d5296800ededf",
+      "previousSha256": "f1fedbd98238a093f62f29554a07ae1fe1c864c2630c418a8f2471d70ea3a5ac"
+    },
+    {
+      "file": "src/mistakes/practiceMistakes.ts",
+      "sha256": "3f9281d38b30b8386f90e639daea28c8725fb0e85ae18c72cc666c79431ef6f4",
+      "previousSha256": "bab65636d64e6f4f600158af413db6b82a464889fabf0092fa7545f711121c1a"
+    },
+    {
+      "file": "src/mistakes/remediationObservatory.ts",
+      "sha256": "c413b5ccecd9053a8d4c4d75b95df75bf9fdb6ab8140bbe749e03714c08d66eb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/mistakes/usePracticeMistakes.ts",
+      "sha256": "6be5da9f70c86af0f3586f996f663bd7a68dccfefe59a7cce98f84d87a6ca883",
+      "previousSha256": null
+    },
+    {
+      "file": "src/native/nativeRuntime.test.ts",
+      "previousSha256": "b6f33b993b65bf4794efb5f91b17f623ab3d83f9f83ed214af4a5ca4ac34fc1c",
+      "sha256": "0b97bdf5acb11bc303144b78cda9886eeaba1985b9f938cb5fcc44b7a505933a"
+    },
+    {
+      "file": "src/personalization/adaptivePlanClient.test.ts",
+      "sha256": "ccc24444f24b0695c54828c7d9c27e05f4302c190e6ddc1eb3603a0456b0e55a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/adaptivePlanClient.ts",
+      "sha256": "8db89b2e4094cc232f9900b43d3f8366ebaea0c6f63ee16fd3912f41d3cc081c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/adaptiveSessionController.test.ts",
+      "sha256": "7e8697788e2b8320c7f71665ff1fdd82d07401ce98336dd9701216df88b1e431",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/adaptiveSessionController.ts",
+      "sha256": "eb8361775f854fbb9562d32cc013a3332f114c534a957203d7dd869a8217eebb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/AdaptiveSessionRunner.tsx",
+      "sha256": "bce664298456cefd5ccaf358737cdfb95fe134560e45b821aea803071bc2defd",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/adaptiveUnit.css",
+      "sha256": "6d3986effb34d4b5193a30caa58b70a7358868dbd953843ba26333d2771768c1",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/adaptiveUnitClient.test.ts",
+      "sha256": "49fa9e86d973884e3f1b208950da5c05893f20712c97424f911196ce627956c2",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/adaptiveUnitClient.ts",
+      "sha256": "aa8756002d81a2ded8c48b03f2f1bb379acb7aa0a77f95d86020da03d9901f69",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/AdaptiveUnitRenderer.test.ts",
+      "sha256": "b68d3517c1c9b7dfe2922216cb8da3ef98b8d0652d7db4ce27f4372b901fcf60",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/AdaptiveUnitRenderer.tsx",
+      "sha256": "6be15a40d00c4970df7e2b3d7bd9e7c331868596c22b651909de3a334e10e508",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/competencyGraph.test.ts",
+      "sha256": "8b8462eafe468c8800199e0ea2ad08297c818318a3e5536469be054631adfe3d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/competencyGraph.ts",
+      "sha256": "01387689d5cecd82b83e0fca9b9e40c2b893ac9ca20481498ccef20d7b550670",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/guestPilotAdapter.test.ts",
+      "sha256": "865d2431c6b1d527719ec603382a00bd0fdf2245937c345441d23c43ae2aac4d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/guestPilotAdapter.ts",
+      "sha256": "28f765c03739ef10ee5fed7c5e7168a4257da38be7ecf03123700026a279ac89",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/learnerModel.test.ts",
+      "sha256": "22b472e936f69c44724750fb9409a6e1152e7bb82e7d80526a032b3bd364509c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/learnerModel.ts",
+      "sha256": "3786d69832c26d8fdadfa1492b0552f4e9522fac8af97a2a7f311648b4f1ea94",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/learningUnit.test.ts",
+      "sha256": "2b52b060b306de3ce8631dabfee4cc331a5566247623d3cf10efda1ec9888847",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/learningUnit.ts",
+      "sha256": "8569dc3169e5b85e97bce48857efc2ad2db06a5b1f754b5f5a85924ea677687f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/longTermPractice.test.ts",
+      "sha256": "f834bd309ec2104a2ed95b1741275a526d50a6fdb1cb36526e5f184c451f6d38",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/longTermPractice.ts",
+      "sha256": "4eb55184df548627c78d3197d8991a9ef832fcc9d9ff9d761eed53d6043eec19",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/pilotCompetencyMap.test.ts",
+      "sha256": "89dc6632d24ff2011c2423b8a9eed54ef1160b5aa38d69c7eb64f6ac72fe9d0a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/pilotCompetencyMap.ts",
+      "sha256": "58d964bcde56f2a97e37d846548bdacffeeb9ffa92a6b9fe82c5e587a70ef3e5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/PilotCompetencyMapPanel.tsx",
+      "sha256": "4481056ef38546e4fb752b447e4b13c9936d145e44a6c166ac21a92e0fe32ee2",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/pilotDraftVariants.test.ts",
+      "sha256": "a75c76305dc593598ae6af42b0e3ce82ef05f5e87d1b06af6494d9836affdb38",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/pilotSourceGraph.ts",
+      "sha256": "ecc01e40252d5b879a3d1db1f7e21061803cc65d2bf0933f865fb809b181caab",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/pilotSourceUnits.ts",
+      "sha256": "58eaf2325186c38f38928dbcdbfc2715c826335e32493bc3d48873dd5485e863",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/practiceManifest.ts",
+      "sha256": "5f55b1ff17d443afc6bbe4e8d6ed48e09bea788277a60e071fb027bab3673501",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/replayPilot.test.ts",
+      "sha256": "057c76f1138d66d384cd988e715819bfe5a8eb938182d917c85c0dcaa55c41ae",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/replayPilot.ts",
+      "sha256": "586b7b3315127eae87e4810f9b4319293de105637dbd6018024378d4b10eeb39",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/sessionComposer.test.ts",
+      "sha256": "b4c800bfb922fbe754cd2370071e4bda948802d5568d6ad243017e325dbed246",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/sessionComposer.ts",
+      "sha256": "edbe5b1e99b2151ffc68be463771e01fa917628031be84a17d0fff0ee2a4f9b8",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/accountAvatarClient.test.ts",
+      "sha256": "90c7f30e94a9d99bdb41d4d740601c5ebc4302afd6dc229f1f27355dd82fbe81",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/accountAvatarClient.ts",
+      "sha256": "2d2e908c855cc1b8ebca7f66090a6d2da8967f57db3ee866d7126c08cb42472e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/accountAvatarContract.ts",
+      "sha256": "aacd3dec7fb076dcfe72b7016b827f6cc2a2158adca2d9f6118662a75a7c3182",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatar.css",
+      "sha256": "6f2ebecebb4e488a009bdf5f54ce7d5f538ef2e36bdbadaadc56e2798f3564c1",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatarBinary.ts",
+      "sha256": "104b077e6f8c102c7861585c03274ab0573b69a53d20e217054095dbdd51f7e3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatarContract.ts",
+      "sha256": "110136ef2d059db59afb3e9ab31d2f2e69daaf115c215ef5527798c894a6def8",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/AvatarEditor.tsx",
+      "sha256": "ab836db3aaa8ec21494070b02861062edb5f7d51d36ef74e4562d7955976a86b",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/AvatarImage.tsx",
+      "sha256": "13b1e58ed9202810e9273db5d4c1ab7ce9cbd40c31021f97011a59066060572a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatarRaster.test.ts",
+      "sha256": "27816e27004fcf8452afbe99641a96f5f841c92c874a66751a6676bf02acef2d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatarRaster.ts",
+      "sha256": "2be78d14968081c1ce34887d8a1b36d72f8129776fec7e74d9f272c6676d81e3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatarStorage.test.ts",
+      "sha256": "d5ee81417785fa8c1f05ae160155e326c41f80b826a8dcdb63737ae89f25335c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/avatarStorage.ts",
+      "sha256": "1d70857893bcbe1df09c1b142cc82cdc204d85704374880afb9f139f7276a6c5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/DeviceRecoveryControls.tsx",
+      "sha256": "cc452941f6e20034f2a7caf115e7279db068503461860ca96b16b799d7908f4f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyPaging.test.ts",
+      "sha256": "8dda70e53fd56d9fc126d0289166ac228d4c1efc4d3996d53cd78ac4f50c6255",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyPaging.ts",
+      "sha256": "98895296abd111ac21a113d349d13b103248b61ddc2237e986da5a93f09174d7",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyPresentation.test.ts",
+      "sha256": "bb3da21760c81bae585f9014afb45a8d64e2f45d2fcc6c576023ca8d9486295d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyPresentation.ts",
+      "sha256": "e320d4cfc7bdade2a18ff4a502783b117a7d23d49adf681b7950f33187f8dbc9",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/learningHistory.css",
+      "sha256": "9c5ada8ad146c75e118bfc1ad62499ddcf02388f3a90c9678dbb5808e65b7ee4",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/LearningHistoryPanel.tsx",
+      "sha256": "57f02ae7a3ef74bb969c9456fab847c422249a28d585f1cdfb935380854ef5e5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/LearningPreferencesFields.tsx",
+      "sha256": "f6ea6fa6175de4e11f8a67d355ce0f6dc1d120390accf00b1e1ab9f1e2d9a4ca",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/OwnerRecoveryGate.tsx",
+      "sha256": "b621cdff809fd356d82f14f6e7786c5fa4b099d86703c02ff54b61333a3fea95",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/useAvatar.ts",
+      "sha256": "55853e38e8b312661429b9e7f32372fdf95a7cec63e67ba4d01dce4446ab2c79",
+      "previousSha256": null
+    },
+    {
+      "file": "src/reader/library/readerProgress.ts",
+      "sha256": "ce554428cc47610f64595aa5843e64f1a19392947778953b6e8b964502310355",
+      "previousSha256": null
+    },
+    {
+      "file": "src/reader/library/readerProgressStorage.ts",
+      "sha256": "9b01a4009579d0a5fb7e80afc375cfb16a63048431ab7f39f3c0f6205da512e8",
+      "previousSha256": "c758a76d02747fdb04106fa046f2b5775417a9fe1e9e4b96051f8c4216bae197"
+    },
+    {
+      "file": "src/reader/library/readerStorageSafety.test.ts",
+      "sha256": "99aec46530f5e114bc53fcedc1d58090e279f0512ada7fef01007d1ce8a82242",
+      "previousSha256": null
+    },
+    {
+      "file": "src/reader/library/ReaderStorageStatus.tsx",
+      "sha256": "ffdbe4864293ff798c457a02e83f54ad7467c11b0dc302b6b99674d626ec1760",
+      "previousSha256": null
+    },
+    {
+      "file": "src/reader/library/readerWorkspace.ts",
+      "sha256": "fa05354b71fa922b1ca873a1b72401129c014fbaecff258aa2b04a9f176a54d7",
+      "previousSha256": "5174350bbbc570851fa014ed4a4206f3fddb5f72cf382b43170fd39eaa279ce8"
+    },
+    {
+      "file": "src/reader/library/useReaderProgress.ts",
+      "sha256": "5248887d50da5905b2404d197dc24d2a99e56daf9ca0026ab287236ac22c795e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/AdaptivePracticePage.tsx",
+      "sha256": "047963f0f51c1c2e054485eabd7d55dd2776cd72e427ddef14a3fbf41c7253ec",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/AuthenticatedMistakesPage.tsx",
+      "sha256": "f9391b148505d459519fc7804d30b13ffdcdbf43c485ca33f01382850401256d",
+      "previousSha256": "8ff8345673faf0161de3918c430eebf1432defc9c57b7be3832d85fe21fec806"
+    },
+    {
+      "file": "src/screens/CharacterForgeSessionPage.tsx",
+      "sha256": "a447700e3145ced558d8df2efdd253f84fb09ae992387c2aac3e3ec188f4e1af",
+      "previousSha256": "9443a6c389b91c5f23102b3941a962ff19b3152cdcfedf7a7a22624e59362850"
+    },
+    {
+      "file": "src/screens/CharactersPage.tsx",
+      "sha256": "60d0a399beada97619b7089b207cbf0128838382a5a59ca747c14351816aba42",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/charactersResume.test.ts",
+      "sha256": "7d3ce69f42ff33e382bd6d989cf04092fd494d14b8dbe12c149c71d97c0792f5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/DictionaryExperience.css",
+      "sha256": "fb319075b5fc939d1518725c156eedfce6ed62e5d3142d9deabbd407ed104e77",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/DictionaryExperience.tsx",
+      "sha256": "e25e96ecef363a93f67f37e71be765817dfcee56199aead566935e017e88c5b5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/DictionaryPage.tsx",
+      "sha256": "c926dd00ed4c991d55e53047338334d86f6f07147a6adbceb80ad0e7ad934f9d",
+      "previousSha256": "04911ebadd8960bd17c34fa71a0c96bf7e38fbf47fc3d8ed8ea62d749ccf03e0"
+    },
+    {
+      "file": "src/screens/dictionarySelection.test.ts",
+      "sha256": "2dd7c3985976bb06603649667fa5be865cc5371e6d646094ffb491880c50d32f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/dictionarySelection.ts",
+      "sha256": "e50e6ac8a1b59457e3cfc7d64ffca4f9597899e9a2f403fe6684bf8925684304",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/DictionaryStudyDialog.tsx",
+      "sha256": "c253557e052e15ab72062e9568b1279d6b4e834461a63db9647958371fc632e6",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/HskLevelCheckPage.tsx",
+      "sha256": "03328bb6c34656d0f3675ff8d416e717be85d6eb1a0455f79e376b96d21fe44a",
+      "previousSha256": "20c2d8953d2db25df82fc36257cb8857a52c7f6841f6721f2ce6b909e27cb65b"
+    },
+    {
+      "file": "src/screens/LessonStudy.css",
+      "sha256": "3958409ce2fd32c0dd86727b9f28aa6e77fb403d2ee3a821390ea8d67565537a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/LocalAssessmentPage.tsx",
+      "sha256": "45c24f5dc6c76bcea832a6d8f71ad8d45202378297336eaedf42cbf36dc871cf",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/LocalMistakesPage.tsx",
+      "sha256": "20c4d903d5c811ae5d8fdd05889977230203b120710c60211748ddcc87421447",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/LocalReaderPage.tsx",
+      "sha256": "0c50227a58ee33fed0766bf39d76dc4696c0e24f2827b4f84d91ac42a7e7e3aa",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/MegaLexiconPage.tsx",
+      "sha256": "bbb9551cb7d46b14a787cf567bb4e3f041f553c768f26a305d509e68df76f884",
+      "previousSha256": "6aa8de667b24006df1169018aa3e99ddfc4d62303a2fe940a8b13fd7363a9d4a"
+    },
+    {
+      "file": "src/screens/PathPage.tsx",
+      "sha256": "62ba9e6a7ff71a6ce5ad8c60440e72233fad523db926381f3152fd98209cc931",
+      "previousSha256": "d62e078e926961d89b625b3527c571a88c9d7756b8a8fa011f25a2fc00d70cf5"
+    },
+    {
+      "file": "src/screens/ProfilePage.tsx",
+      "sha256": "1eb8e651095e6685c36725b601ed674620eb9987d5dbaefc0023d7e51a308e50",
+      "previousSha256": "fcbc651abc88e08231910b16f18746e9f976d2d7fc770461582d81741ba735dc"
+    },
+    {
+      "file": "src/screens/PronunciationJade.css",
+      "sha256": "c8a24bb699e2649508bc4cd4c4df7be671476096cf8e25711ebfb2fbd5916abf",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/PronunciationPage.tsx",
+      "sha256": "758b90cef36201c6b945bd6e55af0da1df045712f7de5cea590b69872bfee104",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/PronunciationQuestPage.tsx",
+      "sha256": "4b32d19618b47657300713da3095c74ebcb30506992ff6803e2b0bfe5a5592db",
+      "previousSha256": "ca2922d50bd430586eabb5e0f0eeaf8aeca133c000301aaf962cc9c8e3a38742"
+    },
+    {
+      "file": "src/screens/ReaderChapterPage.tsx",
+      "sha256": "6462944f9b541531cb8558c987fd790b37a6cc26152c515f06b548b7e446a4c1",
+      "previousSha256": "924a5877a8c8d4f3f26e5ea7b5dbb2d9ca327c390d6b3c7a0ea370d5a9fefb84"
+    },
+    {
+      "file": "src/screens/ReaderLibraryPage.tsx",
+      "sha256": "55c39b223a724e39eb0d6690f2e7cfea097495ec865e2949de903654f77d9791",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/ReaderSeriesPage.tsx",
+      "sha256": "4f96036a3ac2956baf0f450b0d5d61e0c78ef91a83fcbadbd645647a9c6a0c4c",
+      "previousSha256": "bfc3597166586b710846267e0c1e53e745284659fe697f2f9076e06dee9c3d32"
+    },
+    {
+      "file": "src/screens/SystemGuild.css",
+      "sha256": "8b1e54f4d3ae68520072e1b44b383da48a86d201a2bd0ac5c1a9d122a1a7b720",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/accountAvatarRepository.test.ts",
+      "sha256": "c41d62aea2d517d37e0c21e7a010d2387534c4b05219ff097bcf40d020a2c1c7",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/accountAvatarRepository.ts",
+      "sha256": "50caa1716d9d7221bac6e8803f9440027d3f4fee348537337c952dcbbcb43b64",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/accountAvatarRoute.test.ts",
+      "sha256": "7565bcb75009fa74dae083698d5849564d6d081a388151cefd08e8dda808e860",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/accountAvatarRoute.ts",
+      "sha256": "064652a51757f0f03c8cb553cc113cb56f50dda65152c57211cdbf6159f5ed25",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/accountDeletionPolicy.ts",
+      "sha256": "cf4e05176d8507dbcc95549d1cb5816163ed63a6c9c0f694c8762b37bdd2773a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/accountDeletionRepository.test.ts",
+      "sha256": "475d0e15a1c9cf635163a93d6d8a845a5aa566d25e6e99a3a39b8bb577d8fd03",
+      "previousSha256": "ebbefd3775f04991b1c8a37a2b8f41abbd266465d728f7402effda533e51eee0"
+    },
+    {
+      "file": "src/server/activityHistoryRepository.test.ts",
+      "sha256": "a6bc84edcdfe6dfc51cee754ca1d49978ffc4885547f4a34b8f13e21cd854306",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/activityHistoryRepository.ts",
+      "sha256": "ed9591d7dd67d15735212e2028b0bab447c803156b725761f23edff80bf56bbb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/activityHistoryRoute.test.ts",
+      "sha256": "7d1a2d11a071447b7b04c779ca15b88a8d451e7e4d79e7284eafb60b3f5d2008",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/adaptivePilotPlan.test.ts",
+      "sha256": "03dcd4eec05312f1a32a4753bc40019e07c7d6ddf9493ad813978f18714c11cb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/adaptivePilotPlan.ts",
+      "sha256": "cde24f612da1ca4b68fb69f09b10d1986a64a4b450379dad01ab8821d80cef8f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/adaptivePlanConsentRoute.test.ts",
+      "sha256": "5e30af2405ac591f1e54258ce2f768e2b5f6a3bcd41f649751662e05b47c2d09",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/adaptivePlanRoute.test.ts",
+      "sha256": "a4781b1b653ccd73d79366e30d770c5f59582885b38c4f6c6acbac843823d7f1",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/assessmentRepository.test.ts",
+      "sha256": "b9f459ff6a16dc0c94ae7ff05b4851592042267d964bc747ba373eddd08e5f57",
+      "previousSha256": "12a5f0ef93d7a1d5f58a16821f8b6c11f96399d322b7792c864000c64a8630d4"
+    },
+    {
+      "file": "src/server/attemptRepository.test.ts",
+      "sha256": "1fa22a7bae8a485eebb2379b6ae63411840039bef2e5c5e86aa20ab211b4eb43",
+      "previousSha256": "17fda12e5236f58186d82b6e9a82b9a64e09e24030582e6fba716f3f67e64174"
+    },
+    {
+      "file": "src/server/avatarEncoding.test.ts",
+      "sha256": "fed8466d92818687e5a61b6da09464f0754bfd65d00e3950c235a4bc68001051",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/avatarEncoding.ts",
+      "sha256": "6520bcb2fb03e5cbd5893465610a9472bf53c60d597c6871b419e6c812ba5413",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/cloudflareRelease.test.ts",
+      "sha256": "148dde293f0f429bd4494c7a163cbcee301200e3e812c2d7ab8240edc2c33f03",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/contentStudioRepository.test.ts",
+      "previousSha256": "c91983452031cbefe6f7b7344e7dcc3e5bc80daf94ab77dab81329b716a71ed5",
+      "sha256": "43525694f0882625b97286df7eb83b9472b499d714c27b9a3549703bc2d1d30d"
+    },
+    {
+      "file": "src/server/directHosting.test.ts",
+      "sha256": "07e0b4c408141b5e192c72773bc2fb4b14c25c7f29dd118e07214b5ea98ff745",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/directHosting.ts",
+      "sha256": "d020791aa3c5aeb991afc03c79cfd62b458691bdcbee19105d3e03e65a814361",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/pilotCompetencyGraph.ts",
+      "sha256": "57869f948ba2956ff8f56fd31519c122142b831c185f509e2bd6d454feaf3908",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/pilotDraftVariants.ts",
+      "sha256": "022dd561367e1dbeee8a0edcced09d966df0b35ef058ae63a45b1d87881a12df",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/pilotLearningUnits.ts",
+      "sha256": "b4c147430c5570b405b35d69f4aa90b0adfe5f16a10d5236fe80057d60ff13b0",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/syncRepository.test.ts",
+      "sha256": "8a376318f6cdbd0748cf9c1895480bf40587577ccd7af346ba27f9175e6067d1",
+      "previousSha256": "baf59a3dab751392596822614d73074556019d7be33bd60695f293c3928e5164"
+    },
+    {
+      "file": "src/server/syncRepository.ts",
+      "sha256": "43c5f3b6793a714e2bd7747dbe0a917ca8a83ccf1f5e5d18ef60bba2946a2631",
+      "previousSha256": "64ccca07b55989593c483739031ed8e10d293127e5b1175b58282cde61a47f95"
+    },
+    {
+      "file": "src/server/workspaceRepository.test.ts",
+      "sha256": "88179e4a734f8e94984b9e97e3890ce987d18a02b7a576e522c519733120a5a3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/workspaceRepository.ts",
+      "sha256": "954aeb4bf1caeac431ecce11b093f252257da2e8c3b1350f012672bae3c7b000",
+      "previousSha256": "24ad131402c77883896284e58ca33e9e23c7bc0312252d68c7dcebbb89abfce4"
+    },
+    {
+      "file": "src/store/LearningJourneyStore.tsx",
+      "sha256": "79406f6496b78983e4bb74a6ca4502f6469d8519f0b86326cd270409ad6eaf64",
+      "previousSha256": "b4c14474fb719b7305b56ddfd6c0eeb1347411b18dd8231ed7ef202f6238d9f4"
+    },
+    {
+      "file": "src/store/LearningStore.tsx",
+      "sha256": "a4ea25cb01a0f5688c730ff753afc3ff6c4f916fc40e268e783fb7381bb9e059",
+      "previousSha256": "2d03565d10d9303347f434930d92c1ffdd9c0386894f14e53ee401e0776cc607"
+    },
+    {
+      "file": "src/sync/activityHistory.test.ts",
+      "sha256": "283aa33ec79e6e80339b439bb94b342b98918899b9c064e305645e730db7e989",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/activityHistory.ts",
+      "sha256": "8dbb59cb64d39b5a599958b1c981f365443478e12d5fa792d6eec3d9a19f117b",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/activityObservations.ts",
+      "sha256": "ebe0700ceed6c295c7a8ac93921922bb675fcc9646e81d0c41e540735cda2956",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/adaptiveDraftRecovery.ts",
+      "sha256": "04bf835a2b21871078dc02990b83a720ea805bf820b35628cbe1a82cb51d7f99",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/adaptiveSession.test.ts",
+      "sha256": "c2c057fba03c271db5520c505f09398f595f243fbe0d0fe3f774e4b731de4a09",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/adaptiveSession.ts",
+      "sha256": "50f20a14521de0725fb47311dc9fe8113ef777990b33862d48e0b6eb19bb9f3a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/coordinator.test.ts",
+      "sha256": "eb2fd0c1490599cb932954376a65d0df8604ba288b1f824ba91c061e06d8acaa",
+      "previousSha256": "a99a3f629cd4d8092761241fc8252abcf588adb71145ead447597542e1cf2c4b"
+    },
+    {
+      "file": "src/sync/coordinator.ts",
+      "sha256": "ad5ee9184eb0a0a556590afb80d4a55800433e48c39379421f03b6cee3aac56e",
+      "previousSha256": "3bcc8cd2d0a7dace633c3b326a07ec98e1618a4b6cdec6dfd023f5be28c7b6a1"
+    },
+    {
+      "file": "src/sync/dictionaryActivity.ts",
+      "sha256": "e8e1a3d1f8cfee1992ed4958f7d45ca39a3a98b73daf2e6fcebeb53233df409b",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/document.ts",
+      "sha256": "7638878b1b2d1b2e4e5bccb6408dee0ce47d37ff0394ec8e07df3d53af57c241",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/documentActivityHistory.test.ts",
+      "sha256": "dd654ddc3fc0af261af65075a7853f3bcc5462c3f85b6562afdc0fd36a2aaf39",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/documentActivityHistory.ts",
+      "sha256": "74dfc5c18a887eed286f9f9f019e677a6971a14a284d8ff57077cbcbf9e113d3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/expansionSession.test.ts",
+      "sha256": "4f36acdc309c47c2c2160de4540a6e76e0d864d5f41b2b9a09e27a350c048495",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/expansionSession.ts",
+      "sha256": "602e1b1a866a60236bb6d9505c8befec69e27174a78bd838d6af4f229cc034bd",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/immutableActivityRecord.ts",
+      "sha256": "b297fdd2c54f2586275d21c608a67b3065d1ab0ea6d923ff073f34fd7ffb43c7",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/indexedDb.ts",
+      "sha256": "3cf08bea6d1f15e9f0feec182c6ee8dbd201c4d8fc28e7fee8f4bed864ba3a4a",
+      "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
+    },
+    {
+      "file": "src/sync/journeyScope.test.ts",
+      "sha256": "71c31a4aecb0c91d3a32a92df1753921ce4b241beda793dd39d1e1199f75d960",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/journeyScope.ts",
+      "sha256": "7f24b9780ee3150d9d9f463d454e048792510d7284ba1ae25c5b59b0414f1a43",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/learningCommandOutbox.ts",
+      "sha256": "74e356edaf26e6834ae6b821cd6faabfb1c6f5c13b72ca3602bdd1f0a13a9384",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/lessonHistory.ts",
+      "sha256": "b8d7f8cecfbbcfd2efff1cdc50e4a254268e57a7fc11acebbccb2d62009aac46",
+      "previousSha256": "75c046cd33388d67b1225e40f8350515f13260797d7596670bbea5a956207e40"
+    },
+    {
+      "file": "src/sync/localHistoryReadBatch.test.ts",
+      "sha256": "411991c9bb591dc312852ad99b91d347583906ff432e030cc19bb0b923916e2c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/localHistoryReadBatch.ts",
+      "sha256": "96bee30a126b5c979d757c6dd2cb1b3c0cfc818152929c4b120b20b1e79772e5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/mistakeHistory.ts",
+      "sha256": "2bacf696409eeb62cae82cf22e312a6e1de0a162572aafc9c63b1b435371dba6",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/mistakeRevisit.test.ts",
+      "sha256": "9f7cadabfb6fde401db6af042473be2569174db32bc5fcea0eef618a4ba8d0c3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/mistakeRevisit.ts",
+      "sha256": "4e7f3300d1e9a23fba77222d88e564f56147f49cb077d1c8228239bf253bf5fb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/mistakeSupport.test.ts",
+      "sha256": "3087f41e77d5a2bedb0e9be846565757fe2890fc7d7da52773d8daf63ab5f642",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/mistakeSupport.ts",
+      "sha256": "9e59b22d716d6ec02b9c472fd22809d5ce0fb4e77bd3cc720feff740caa79f88",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/offlineMockPractice.test.ts",
+      "sha256": "a89e8a31cc192d7ec766c95d04db520caca1e844990e1636cb9d5ecae7fbd8c8",
+      "previousSha256": "8a35384898a135595f86d3c61195d7a29a0244606a11f489cd1d3b4f5e27bb65"
+    },
+    {
+      "file": "src/sync/ownerDeviceRecovery.test.ts",
+      "sha256": "b282655e26a82d542a611a3abec621f31b79b6580c7f70ba626825ec7a923696",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerDeviceRecovery.ts",
+      "sha256": "5883fb6b0bd64975c4f4d28046433f8d67487a12d1ea67bc7bd1c6f2a42a5d3f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryApply.test.ts",
+      "sha256": "f629e0021c6771d9cca16d79a4565bbab5c43870218b486bbf25cceeaece4b91",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryApply.ts",
+      "sha256": "43c514b4e4094c6f52f6d10abbfa874a891f78ccf2cddad7918cd27fbd0d5582",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryArchive.test.ts",
+      "sha256": "e0b2c2d095cc2ef1becd62e39dff6fb50f9148110f208ab3c8e3758d2ec8a823",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryArchive.ts",
+      "sha256": "0337fb6cb6fb6c019ecec1fe1b29829ddf9422ef233e9ba7f374262b3ddddf20",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryArchiveCore.ts",
+      "sha256": "b30ef428b715829ae636facea8019b52eaf9555c8a93641eefc619d0ba1c496a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryCodecClient.test.ts",
+      "sha256": "1fd619bfb2165c8ad8e12aca2513c59d45b9de3c89ffd0dc0b1b6dafd78eefd5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryCodecClient.ts",
+      "sha256": "95f3496c0c61fbec4db32e372435da1ff6b61e3cea4a56614818a80319fe79f3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryCodecTask.ts",
+      "sha256": "4185a00aaca5a06e6e11181ebb92947e00080c6dc482c9ee42bd1503e3a45946",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryCodecWorker.ts",
+      "sha256": "b7744ce2efb676064099f98b8ace17f34ddcd44b3fc05c77aff0e7ff102137a9",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryFence.ts",
+      "sha256": "5f22a1d37dffabce083f6c729d0108754470bde582757daa79c991ff38c6bc34",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoverySchema.ts",
+      "sha256": "328d53cdc7741d04fb44672ed808768bf36375d33b228f481cea1851493e07ac",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoverySnapshot.test.ts",
+      "sha256": "e295557b5fe079b7ac2fe68a7adb228cac9eb228b60deb506bf3da218a1269dc",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryTrust.test.ts",
+      "sha256": "7e4b16e22eb1838c69fd1eea033c1bfb89a6d922a9e43aeb733bb7f3e409b749",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryTrust.ts",
+      "sha256": "d624cadda16a40f3c4315ede626d3ea1e322a60eaf8b0fad5731cf1694c200df",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/practiceConfirmation.ts",
+      "sha256": "0eb8bcf6d64993e7bf8af4b881288a7c66765665a5ae12594655abb9c06e3f69",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/protocol.test.ts",
+      "sha256": "ffca3619946205c80df428ae7e314581f5269ccefef619d0b11a11922591652d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/protocol.ts",
+      "sha256": "cb373de654318c6d671ce3effb7aab16d003ad4b70b28073055195a04a12ebb5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/reviewHistory.ts",
+      "sha256": "0f2b1808250b15dd803de25385ee2e4328fb2ec18d91f573fde7329c8c939300",
+      "previousSha256": "39cf05bfef606c9a4b73041f5767631a96b57dcf2111cd135c06a78bf7c6517e"
+    },
+    {
+      "file": "src/sync/speechSession.test.ts",
+      "sha256": "a2c6432ff53f0c68278f25efc0fdba17296e7e32eb270ec553e89665dd061fd5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/speechSession.ts",
+      "sha256": "eb7b161eaa77d84a6c61c4bbf173dbd812ee9e148b395ef2b48a4010087f89cf",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/speechSupport.ts",
+      "sha256": "d179f2838754c6021ecbb836abc68521882b93469597b52e90b00a87dcc5995d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/useWritingJournal.ts",
+      "sha256": "2595616941c72a89eccc508fb0066ff0824a079b1781bd03822a71c2eb89977e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/workspaceHistory.ts",
+      "sha256": "61542a7b10b20c5d3f934076ad92deafcd7798ba9557bb3d6be0c04159caed82",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/workspaceHistoryCooperative.test.ts",
+      "sha256": "4d61965131e0b8a7fc08f078847ac620ab6f136e783a6e4359e8a4294802ea3d",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/workspaceHistoryScale.test.ts",
+      "sha256": "24177a8dd45f78769c1e829848265c8cd9a246455ea9a12caae1b28f826f759e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/workspaceProtocol.ts",
+      "sha256": "9887742bb227e3ba107656d36e5f9e78915838f7da5f8bbd911e0930dff45aaf",
+      "previousSha256": "9f5279e005bff6b2f35326104251034f8d665221eccdacd4a99e18ecb4bbd496"
+    },
+    {
+      "file": "src/sync/workspaceSync.test.ts",
+      "sha256": "ece3dd86dd6b3a155b10e66337599a0e2168ee4a79c6469030615de5746e2151",
+      "previousSha256": "2189384ce02d648113198f83873d47da02af455ec1526f21429b7c5f37a6461e"
+    },
+    {
+      "file": "src/sync/workspaceSync.ts",
+      "sha256": "8d7090e2327b45eb232974b1b5b673a4497c1bc8ca272d2bc94de7c09cf2ddea",
+      "previousSha256": "a080aae981e63259633f4e402cd524b188bc20caf1df1545cdee9fb67c205cf5"
+    },
+    {
+      "file": "src/sync/writingRecord.ts",
+      "sha256": "60291e4d1347f5c31d11a768f382c9eaafc58f531434425ae4220a2cd52fb021",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/writingSession.test.ts",
+      "sha256": "2ad9ec10d518d37074de0c1e9a6e72ca1ca40a3d1089336671b3317d20d81406",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/writingSession.ts",
+      "sha256": "cd40a521835c8e356f8d08e6bf60d68797736e212e9d8b6e9ba8ca0bda32a5ef",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/writingSummaryRecovery.test.ts",
+      "sha256": "b3aa5571619642cb77b96c549afbc6cf4dd6f66500cab96db3061809446496a4",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/writingSummaryRecovery.ts",
+      "sha256": "843dc9cde11cab0391d063f957f33227db8f4887631ea200fddcf9d6ac18745b",
+      "previousSha256": null
+    },
+    {
+      "file": "src/system/systemLexicon.ts",
+      "sha256": "8003a41c4152745b083af57be026dc4c50254c4a4d49195cfe214cc45a382a79",
+      "previousSha256": null
+    },
+    {
+      "file": "src/types.ts",
+      "sha256": "903844662deb9f11a7572f6c02bdfa87dcc21b9c30d9888ae3eb544544602a5d",
+      "previousSha256": "7c317fcfc58cc7a76bcf38211632826ccf48a1fcb0d36b0515bbe6306078f4fa"
+    },
+    {
+      "file": "vite.config.ts",
+      "previousSha256": null,
+      "sha256": "eb5717827848a681bdcfde2216c80fc22728f7476b26da7b4a85179ec91ae69a"
+    },
+    {
+      "file": "worker/index.ts",
+      "sha256": "dcd435730b6d317f9e6c06aa8e4aa749cbbb0da3d7ef53566f4f908192e98709",
+      "previousSha256": null
+    },
+    {
+      "file": "wrangler.local.jsonc",
+      "previousSha256": null,
+      "sha256": "599fb44c3e344a9fde9c2fbade824cf23cbbc2f69150f2164fccfda432495ee5"
+    }
+  ],
+  "completedTechnicalGates": [
+    {
+      "log": "tmp/personalization-continuous-full-check-v1.log",
+      "files": 518,
+      "tests": 3382,
+      "scope": "Before latest avatar/history UI delta; full check exited0; assets advisory1348.8KiB"
+    },
+    {
+      "log": "tmp/personalization-continuous-targeted-final-v1.log",
+      "files": 13,
+      "tests": 102,
+      "scope": "History/document/repository/owner tests; SQLite/fake IDB, not account-D1"
+    },
+    {
+      "log": "tmp/personalization-continuous-profile-tests-v1.log",
+      "files": 8,
+      "tests": 29,
+      "scope": "Profile/history/avatar adapters, before Header presentation refinement"
+    },
+    {
+      "log": "tmp/personalization-continuous-avatar-tests-v3.log",
+      "files": 4,
+      "tests": 13,
+      "scope": "Header independence regression and avatar/history, after fix"
+    },
+    {
+      "log": "tmp/personalization-continuous-typecheck-v18.log",
+      "scope": "Typecheck exit0 before Header refinement"
+    },
+    {
+      "log": "tmp/personalization-continuous-lint-v11.log",
+      "scope": "Global lint exit0 before T03 final delta"
+    },
+    {
+      "log": "tmp/personalization-continuous-lint-v12.log",
+      "scope": "Scoped profile lint exit0 before Header refinement"
+    },
+    {
+      "log": "tmp/personalization-continuous-speech-session-v2.log",
+      "files": 5,
+      "tests": 34,
+      "scope": "20/10 speech guest-account resume, raw preservation, archive staging; overlap"
+    },
+    {
+      "log": "tmp/personalization-continuous-speech-session-v3.log",
+      "files": 5,
+      "tests": 21,
+      "scope": "20/10 source skill/legacy optional compatibility and repositories; SQLite/IDB fixtures, not liveD1"
+    },
+    {
+      "log": "tmp/personalization-continuous-recovery-v3.log",
+      "files": 4,
+      "tests": 17,
+      "scope": "20/10 owner-only capture and untrusted staging; NOT full-device restore"
+    },
+    {
+      "log": "tmp/personalization-continuous-typecheck-v28.log",
+      "scope": "20/10 exit0 after skill delta"
+    },
+    {
+      "log": "tmp/personalization-continuous-lint-v15.log",
+      "scope": "20/10 global exit0 before latest skill delta; fullv5 lint checks stationary source"
+    },
+    {
+      "log": "tmp/personalization-continuous-full-check-v23.log",
+      "files": 560,
+      "tests": 3606,
+      "scope": "CHECK_EXIT=0; history scope/dictionary/mistake support, before five-zone navigation; typecheck/global lint/content/DB/restore42migrations61tables/build;239JS/192private markers absent; asset advisory+385.3KiB"
+    },
+    {
+      "log": "tmp/personalization-navigation-e2e-v10.log",
+      "tests": 6,
+      "scope": "Compiled navigation QA exit0 with server compression warmed only; fresh browser onboarding, menu/keyboard/route/overflow/reduced motion; not cold-server latency or native-device proof"
+    },
+    {
+      "log": "tmp/personalization-navigation-e2e-v12.log",
+      "tests": 7,
+      "scope": "exit0; final stable acceptance title; genuine fresh-context onboarding for independent keyboard/AltS/Escape, selected tool/focus-wrap/Reader overflow, four route overflow cases and reduced motion. Server Brotli cache warmed only; no timeout increase, skip or client cache/progress seed. Not cold-start/native-device proof."
+    },
+    {
+      "log": "tmp/personalization-continuous-full-check-v25.log",
+      "files": 561,
+      "tests": 3610,
+      "scope": "CHECK_EXIT=0 on final five-zone navigation source before three-file speech delta; typecheck/global lint/content/DB/restore42migrations61tables/build,239JS/192private markers absent,advisory+386.6KiB"
+    },
+    {
+      "log": "tmp/personalization-speech-source-e2e-v3.log",
+      "tests": 4,
+      "scope": "exit0 fresh-context guest source preview/native IndexedDB: missing0→0sessions, explicit source+reload one session, blank/locked recovery and absent invitation; not account-D1/compiled/native-device proof"
+    },
+    {
+      "log": "tmp/personalization-speech-source-tests-v1.log",
+      "files": 2,
+      "tests": 20,
+      "scope": "exit0 pronunciation selector/reward and speech-session regressions; shared selector unchanged"
+    },
+    {
+      "log": "tmp/personalization-speech-source-typecheck-v3.log",
+      "scope": "exit0 final three-file speech source including AppShell invitation route guard"
+    },
+    {
+      "log": "tmp/personalization-speech-source-lint-v3.log",
+      "scope": "exit0 final three-file speech source; no suppressed rule"
+    },
+    {
+      "log": "tmp/personalization-speech-source-build-v2.log",
+      "scope": "BUILD_EXIT=0 final source;239JS/192private markers absent; local/unattestable build, not production evidence"
+    },
+    {
+      "log": "tmp/personalization-navigation-e2e-v13.log",
+      "tests": 7,
+      "scope": "exit0 compiled final speech-build navigation regression after AppShell speech invitation guard; warm server compression only, fresh browser onboarding and original assertions; not cold-start/device proof"
+    }
+  ],
+  "pendingGates": [
+    "T03 bounded local storage pagination/clone-sort-memory and 100k/device responsiveness remain unverified",
+    "T04 oversized archive/account-cross-reset/native full-device recovery and branch resolution remain open; preserve source/preimage/outbox",
+    "A02 account image encoder binding/storage/API/native transport not implemented; no external configuration authorization",
+    "Account normalized/adaptive projection409 content policy retained; no release bypass",
+    "T05/T11/T12/T16/T17 full consumer/account/device journeys remain open",
+    "T15 human/native-audio/item-family/holdout review and T18 cohort/power/delayed recall/efficacy require real evidence",
+    "No automatic USER-ACCEPTED/humanReviewed change; production remains fail-closed23blockers; no deployment"
+  ],
+  "continuation": "docs/PERSONALIZATION_EXECUTION.md",
+  "unmappedInheritedDrift": [],
+  "baselineBindings": 203,
+  "handoffs": [
+    "docs/PERSONALIZATION_T02_CONTINUOUS.md",
+    "docs/PERSONALIZATION_A01_AVATAR.md",
+    "docs/PERSONALIZATION_T03_HISTORY_UI.md",
+    "docs/PERSONALIZATION_T02_SPEECH.md",
+    "docs/PERSONALIZATION_T04_STORAGE_DELTA.md",
+    "docs/PERSONALIZATION_T02_WRITING.md",
+    "docs/PERSONALIZATION_T05_PREFERENCES.md",
+    "docs/PERSONALIZATION_T06_T07_PILOT.md",
+    "docs/PERSONALIZATION_T08_T11_PILOT.md",
+    "docs/PERSONALIZATION_T14_LONG_TERM.md",
+    "docs/PERSONALIZATION_T16_NAVIGATION.md",
+    "docs/PERSONALIZATION_T12_SPEECH_SOURCE.md",
+    "PERSONALIZATION_A02_ACCOUNT_AVATAR.md"
+  ],
+  "testHarnesses": [
+    "tmp/personalization-history-fixture/main.tsx",
+    "tmp/personalization-history-fixture/serve.mjs",
+    "tmp/personalization-continuous-preview/serve.mjs"
+  ],
+  "writingContinuationAudit": {
+    "date": "2026-10-21",
+    "status": "IN-REVIEW",
+    "files": 24,
+    "unreviewedDrift": [],
+    "notes": "Audited writing producer/primary/history/sync/normalizer/consumer and recovery-banner placement. Baseline/scoring hashes not edited; previous continuous digests retained below.",
+    "previousBindings": [
+      {
+        "file": "src/components/AppShell.tsx",
+        "sha256": "567d049ce0bb3f6df7ac16dd13ce12a03371b99c2e1b354239a85bd8a40e633d"
+      },
+      {
+        "file": "src/learning/activityHistory.test.ts",
+        "sha256": "c49281766ffbe08c007fe8d41d7d7f4c14d46ebc27b17538b2ebbfc31f59183c"
+      },
+      {
+        "file": "src/learning/activityHistory.ts",
+        "sha256": "bc91763f2c89fb73ab985a2187bb976247a71ff22769422d873b3327e5b06122"
+      },
+      {
+        "file": "src/screens/CharacterForgeSessionPage.tsx",
+        "sha256": "d0e3dadeeb0c11088aa3e965781350a410d0724b4047f6c338c655e080d26b00"
+      },
+      {
+        "file": "src/server/workspaceRepository.test.ts",
+        "sha256": "2e829f82a627ea0c43083a16ebf4b6ab59dd599d30afa4afa52ff69a33bfa541"
+      },
+      {
+        "file": "src/server/workspaceRepository.ts",
+        "sha256": "bfb85cf75f1a710efb1807d86f13ecdb3b2e9dd7f1df9a8d738059017e29ba32"
+      },
+      {
+        "file": "src/store/LearningStore.tsx",
+        "sha256": "bb9282ae4e4928d29c5b018f0e709d27a6f824c5694d1148984d0065666dec7e"
+      },
+      {
+        "file": "src/sync/activityObservations.ts",
+        "sha256": "a03bd9cfd41bcda96e70ae3980ad8a07fb89f828ec1dabca995724ec8d33f089"
+      },
+      {
+        "file": "src/sync/workspaceSync.ts",
+        "sha256": "7a858dc39fa9dc63cae28e79f33f98c46f4d54f1acb0bd46583d00230495d43c"
+      }
+    ]
+  },
+  "resumePreferencesAudit": {
+    "date": "2026-10-21",
+    "status": "IN-REVIEW",
+    "notes": "Audited compatibility selection, non-destructive new writing session, declared preferences round-trip/protocol/document transaction/history, UI and separate reset. No baseline or scoring digests changed.",
+    "previousBindings": [
+      {
+        "file": "src/screens/CharactersPage.tsx",
+        "sha256": "46eaf33cb5feb4b03fe0b78c801d668c0471e872a5bd7d264faac6b71fbeb5f3"
+      },
+      {
+        "file": "src/screens/charactersResume.test.ts",
+        "sha256": null
+      },
+      {
+        "file": "src/sync/writingSession.test.ts",
+        "sha256": "33550fe670ec23486ef671845b5e0ea47e0ff57319ad8f1e6f9e5436854446ab"
+      },
+      {
+        "file": "src/learning/learningPreferences.ts",
+        "sha256": null
+      },
+      {
+        "file": "src/learning/learningPreferences.test.ts",
+        "sha256": null
+      },
+      {
+        "file": "src/types.ts",
+        "sha256": "7c317fcfc58cc7a76bcf38211632826ccf48a1fcb0d36b0515bbe6306078f4fa"
+      },
+      {
+        "file": "src/lib/learningStatePersistence.ts",
+        "sha256": "cc9ed0962be4384deee0a08a20b8e6e904430a38e91326e0d2ab28e2f512195e"
+      },
+      {
+        "file": "src/lib/learningStateImport.ts",
+        "sha256": "86800331b52ca66581510f4bc38c37be841f7200d35f3194f16a172ccf564cc4"
+      },
+      {
+        "file": "src/sync/protocol.ts",
+        "sha256": null
+      },
+      {
+        "file": "src/sync/protocol.test.ts",
+        "sha256": null
+      },
+      {
+        "file": "src/profile/LearningPreferencesFields.tsx",
+        "sha256": null
+      },
+      {
+        "file": "src/screens/ProfilePage.tsx",
+        "sha256": "e7833a2b661d2341708e766fec9bf4049ff489d5c07919628ac665d2f9559b79"
+      },
+      {
+        "file": "src/screens/SystemGuild.css",
+        "sha256": "f382065279ea6bbf5e04c1a31626f1e74902fb2b092291711d9aa7a3a1bc6484"
+      },
+      {
+        "file": "src/store/LearningStore.tsx",
+        "sha256": "ab9573be4f76fa4e983de20f6a42d47d740db4e389d0e18ad5d5d73893c99ddc"
+      },
+      {
+        "file": "src/sync/documentActivityHistory.ts",
+        "sha256": "ac9ad39cb14ac7248a7d31a93a775272971b035cc31e887e7b4488db22beb3bc"
+      },
+      {
+        "file": "src/sync/coordinator.test.ts",
+        "sha256": "e5c558fd3a76b7e10653e7afab189aad3d4703f8a4341d17be2a3fb13c698825"
+      }
+    ]
+  },
+  "auditHistory": [
+    {
+      "date": "2026-10-21",
+      "status": "IN-REVIEW",
+      "task": "T04-T11; T03 scale delta",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/learning/learningPreferences.ts",
+          "previousSha256": "ca51e6d75dbf4e184d95c409c33b2a595f3d73794f1b8c54ee706931175ab5ad",
+          "sha256": "79afcd326eed398e543ac12b33f335b1e1807abf19975d62641edc14ada0fbad"
+        },
+        {
+          "file": "src/learning/learningPreferences.test.ts",
+          "previousSha256": "8a4b28a5e00b9f3903f6107c1e870fba49156fe70575f7347a3a4ac17fc885e7",
+          "sha256": "9e8d33de54af32bed84a582b8c6f30512fdb5aa126d451ab575e56ec910bf2db"
+        },
+        {
+          "file": "src/types.ts",
+          "previousSha256": "0fb0715e5cfba5b2b88439414f3e098a25099f8e5b3e97ea6c1b5a5f07d70f84",
+          "sha256": "903844662deb9f11a7572f6c02bdfa87dcc21b9c30d9888ae3eb544544602a5d"
+        },
+        {
+          "file": "src/lib/learningStatePersistence.ts",
+          "previousSha256": "67f2b4668c5aa8bbd3463349cb99e6694f330b3e8dbb1341dfd889feecafae1f",
+          "sha256": "6fdf35e19ba665b87959bae8c6ed56be4910b215301408321e4e925e13c6e9ca"
+        },
+        {
+          "file": "src/lib/learningStateImport.ts",
+          "previousSha256": "5ed60c3b7cba69380884f0f0d0c5ce236331c601539480a12ed5440d49b4a879",
+          "sha256": "87cb3b89f1754fbc04ea6c1c94bbaf1219787baccb3d56c0cc3578769e300d25"
+        },
+        {
+          "file": "src/sync/protocol.ts",
+          "previousSha256": "658d07c76f7c5ec87338387d7ff121857c97ebdfbef719e70b367f50e1015522",
+          "sha256": "cb373de654318c6d671ce3effb7aab16d003ad4b70b28073055195a04a12ebb5"
+        },
+        {
+          "file": "src/sync/protocol.test.ts",
+          "previousSha256": "4390f9b2f3b3a6e05949108e8e9ea294f4d7eca889913a36b682369c1948d27e",
+          "sha256": "ffca3619946205c80df428ae7e314581f5269ccefef619d0b11a11922591652d"
+        },
+        {
+          "file": "src/screens/ProfilePage.tsx",
+          "previousSha256": "ab7a158945b8e5e7eaf0d9e0d851a7ed0e9f884c52e72c199c24f286daecb5fb",
+          "sha256": "1eb8e651095e6685c36725b601ed674620eb9987d5dbaefc0023d7e51a308e50"
+        },
+        {
+          "file": "src/sync/document.ts",
+          "previousSha256": null,
+          "sha256": "7638878b1b2d1b2e4e5bccb6408dee0ce47d37ff0394ec8e07df3d53af57c241"
+        },
+        {
+          "file": "src/sync/ownerRecoveryArchive.ts",
+          "previousSha256": "e3cb96eceb046704457d2eae40251c5af353f7d6f8d96228fdf0ad30ecb7beb0",
+          "sha256": "6fdf8a52659e9dc6127537d83ba8ad42f10d89702df2c36e221bcd98ea46fc2f"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.ts",
+          "previousSha256": null,
+          "sha256": "8c4e89a24a34b4b62a0a6f7ae047b682ab3f069bb4939f54b294fd5526659712"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.test.ts",
+          "previousSha256": null,
+          "sha256": "0f0b9df10635e57aeb9e95737e0c805b35a35abf0e61635d00ff8aede23b62cf"
+        },
+        {
+          "file": "src/profile/DeviceRecoveryControls.tsx",
+          "previousSha256": null,
+          "sha256": "684501bb3e65036abc7d40c5ab422ab4c82ecb168aad2af0cc911cc6051e0cc8"
+        },
+        {
+          "file": "src/sync/writingSession.ts",
+          "previousSha256": "cfa9e5e7b953e0f0304a9094845915f1dba27fd7ae4ae5626a3d75a8ad164c66",
+          "sha256": "cd40a521835c8e356f8d08e6bf60d68797736e212e9d8b6e9ba8ca0bda32a5ef"
+        },
+        {
+          "file": "src/sync/writingSession.test.ts",
+          "previousSha256": "3ee80f4f1d902b684d1aad89cb2fc0cafe9502db440f452bf5368415d0860f38",
+          "sha256": "2ad9ec10d518d37074de0c1e9a6e72ca1ca40a3d1089336671b3317d20d81406"
+        },
+        {
+          "file": "src/sync/useWritingJournal.ts",
+          "previousSha256": "1b7f493af6a7bf8051c5f6f2a02d029d7758c04f1e8b909b763ea8804e496ff1",
+          "sha256": "2595616941c72a89eccc508fb0066ff0824a079b1781bd03822a71c2eb89977e"
+        },
+        {
+          "file": "src/screens/CharacterForgeSessionPage.tsx",
+          "previousSha256": "363c3ee0acfc8d7bcab0dc4ccd9cfaa94eb6dafdb385922145674bce60645ef9",
+          "sha256": "a447700e3145ced558d8df2efdd253f84fb09ae992387c2aac3e3ec188f4e1af"
+        },
+        {
+          "file": "src/personalization/competencyGraph.ts",
+          "previousSha256": null,
+          "sha256": "01387689d5cecd82b83e0fca9b9e40c2b893ac9ca20481498ccef20d7b550670"
+        },
+        {
+          "file": "src/personalization/competencyGraph.test.ts",
+          "previousSha256": null,
+          "sha256": "8b8462eafe468c8800199e0ea2ad08297c818318a3e5536469be054631adfe3d"
+        },
+        {
+          "file": "src/server/pilotCompetencyGraph.ts",
+          "previousSha256": null,
+          "sha256": "71eb843127119a8ca72d924efbbfe472ca80fcd5d23824f7bcf8dfbbb8514103"
+        },
+        {
+          "file": "src/personalization/learningUnit.ts",
+          "previousSha256": null,
+          "sha256": "8569dc3169e5b85e97bce48857efc2ad2db06a5b1f754b5f5a85924ea677687f"
+        },
+        {
+          "file": "src/personalization/learningUnit.test.ts",
+          "previousSha256": null,
+          "sha256": "2b52b060b306de3ce8631dabfee4cc331a5566247623d3cf10efda1ec9888847"
+        },
+        {
+          "file": "src/server/pilotLearningUnits.ts",
+          "previousSha256": null,
+          "sha256": "cc2c9ff0e661bfde736b69b0b6aac6d72a5b2f18b103c555af5a84951e09e3ca"
+        },
+        {
+          "file": "content/drafts/personalization-price-pilot-2026.10.21.json",
+          "previousSha256": null,
+          "sha256": "be538c6b5e7ae6881dd042608e4b69ee30af81251a11fc541e4d7141259351e6"
+        },
+        {
+          "file": "src/server/pilotDraftVariants.ts",
+          "previousSha256": null,
+          "sha256": "022dd561367e1dbeee8a0edcced09d966df0b35ef058ae63a45b1d87881a12df"
+        },
+        {
+          "file": "src/personalization/pilotDraftVariants.test.ts",
+          "previousSha256": null,
+          "sha256": "a75c76305dc593598ae6af42b0e3ce82ef05f5e87d1b06af6494d9836affdb38"
+        },
+        {
+          "file": "src/personalization/learnerModel.ts",
+          "previousSha256": null,
+          "sha256": "3786d69832c26d8fdadfa1492b0552f4e9522fac8af97a2a7f311648b4f1ea94"
+        },
+        {
+          "file": "src/personalization/learnerModel.test.ts",
+          "previousSha256": null,
+          "sha256": "22b472e936f69c44724750fb9409a6e1152e7bb82e7d80526a032b3bd364509c"
+        },
+        {
+          "file": "src/personalization/sessionComposer.ts",
+          "previousSha256": null,
+          "sha256": "8e6c8c521c5ff0d14400d61891cbf75a3c5b8c952d21328937f8afa9a2ec3830"
+        },
+        {
+          "file": "src/personalization/sessionComposer.test.ts",
+          "previousSha256": null,
+          "sha256": "446edce84d27a854a455530c409873c1de743971c1ebc9b4ecd0365a787aa265"
+        },
+        {
+          "file": "src/sync/immutableActivityRecord.ts",
+          "previousSha256": null,
+          "sha256": "8ae0f34e15c636d9ace530829889614c8df2b81faba491227433a4d9687a1668"
+        },
+        {
+          "file": "src/sync/adaptiveSession.ts",
+          "previousSha256": null,
+          "sha256": "7201ff5e2adc47eb7be7dae1d62307d5af6178ea0f6b6788e151d0b7cf8891d9"
+        },
+        {
+          "file": "src/sync/adaptiveSession.test.ts",
+          "previousSha256": null,
+          "sha256": "ddf741496e63e5e73d4df38368eff0efe0a0f375259a38939ffa31e12034a3d1"
+        },
+        {
+          "file": "src/sync/workspaceProtocol.ts",
+          "previousSha256": "5781d4da47586c6a0fede9fe379f0312393af2b665eda65c5ccad26fa4dcb0b1",
+          "sha256": "4963dc063d7eb4d027dcbc79ef3c2da0950d3cca18e8b81bb209bceda5913788"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "a7a99e081ba7922c25dab7cbbb8a3c642f88b372a1523cb829c51c7d6872933b",
+          "sha256": "6844d6b36a3b18fcdceacd2dfc2e2eb17418afc68c2831f5662278894b4bff0b"
+        },
+        {
+          "file": "src/sync/workspaceHistory.ts",
+          "previousSha256": "cf652884273561dfb878008f8d6906cd10b40d5d9c9501f0bd75407b5237bcb0",
+          "sha256": "743587f73e09f90f0bcb0da74a66f638f0810ac107e1d192d6c62b9052c0d7bd"
+        },
+        {
+          "file": "src/sync/workspaceHistoryScale.test.ts",
+          "previousSha256": null,
+          "sha256": "01b751311a46ceac8c2d47512bb9b5b9df0fd1f9f19ca18b58de3194257524d4"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "c7a8aa1add98f416013eef2dd1751ecfb3e8d4323da1cc08abd83fb9e868e54f",
+          "sha256": "02342bf9613a4470124638a9467577e24c66ff83a3e3ba1ea465771a5bf92c8b"
+        },
+        {
+          "file": "src/server/workspaceRepository.ts",
+          "previousSha256": "3ac494b23c4ed6d16ac054fe2adcb46e556cedbd03e6dcbd27661ac238c93b66",
+          "sha256": "b3fc45903d71ea7a7ea83d4d9396f8e3e96d36f90a2103db72e6d0dc29a69ae4"
+        },
+        {
+          "file": "src/server/workspaceRepository.test.ts",
+          "previousSha256": "0fd32279bd233442e5b2779f1b7919bf795b69e60d23fb0b9b426bf908bf9297",
+          "sha256": "e400619cba9ce5b4f498e6282b896ac8c92a462a76642520a78db6a628c61496"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.ts",
+          "previousSha256": null,
+          "sha256": "1de9146d3a5cb689359072f2318943ee130484aad302c0d6ed8b1b8b42288386"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.test.ts",
+          "previousSha256": null,
+          "sha256": "f9e61361a1d6fd61802902d00f3b4cf5bb63ca6c926b2aea8ac2e588fcd469ce"
+        },
+        {
+          "file": "src/server/adaptivePlanRoute.test.ts",
+          "previousSha256": null,
+          "sha256": "14e084f7af88fd4398c84c162bfb6aee2bf90044abb09698a5185eafc1843556"
+        },
+        {
+          "file": "app/api/learning/adaptive-plan/route.ts",
+          "previousSha256": null,
+          "sha256": "e0ca1dbd8ca766e74fdbe90afd0c463e8334e4fb4213af2f6b21c104e3a8405b"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "status": "IN-REVIEW",
+      "task": "T04-T11; T03 scale delta",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/sync/adaptiveSession.test.ts",
+          "previousSha256": "ddf741496e63e5e73d4df38368eff0efe0a0f375259a38939ffa31e12034a3d1",
+          "sha256": "b90a31ad13e1393c2f1ab84e9ef8eacd4e9e5841afd45aea2983ed8a30ac128c"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "6844d6b36a3b18fcdceacd2dfc2e2eb17418afc68c2831f5662278894b4bff0b",
+          "sha256": "5dfbe1ebd49fcc18bf65a5290916852b8b8c4c02c5e92e92cc8bdc78ff54bb7e"
+        },
+        {
+          "file": "src/sync/workspaceHistory.ts",
+          "previousSha256": "743587f73e09f90f0bcb0da74a66f638f0810ac107e1d192d6c62b9052c0d7bd",
+          "sha256": "ffa12b6bd98ec91cf3ad657830cdb6590f0f6cef8875d9c6facf0093d58879d1"
+        },
+        {
+          "file": "src/sync/workspaceHistoryScale.test.ts",
+          "previousSha256": "01b751311a46ceac8c2d47512bb9b5b9df0fd1f9f19ca18b58de3194257524d4",
+          "sha256": "24177a8dd45f78769c1e829848265c8cd9a246455ea9a12caae1b28f826f759e"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "02342bf9613a4470124638a9467577e24c66ff83a3e3ba1ea465771a5bf92c8b",
+          "sha256": "9b80af98fd58b637a7064ae85492682e19c6ff7c829175b06ac5f4429c498d8f"
+        },
+        {
+          "file": "src/sync/lessonHistory.ts",
+          "previousSha256": "7756c726757cc71ca498ea4d82e790aec9bb45f093d409b9f4d0567b4012e1c7",
+          "sha256": "48a6bb521f85a87d155a533b4e18bd677b158399be117f2618471d58ab2c23e7"
+        },
+        {
+          "file": "src/sync/reviewHistory.ts",
+          "previousSha256": "828a16fad4ee9275c4ba10e58ec1e39730fcc49c743f190fb11c0d05535027ef",
+          "sha256": "e612246b7c4cd72752ff687403db0317980ab95d54d03f0e2f4dff7d2ec1eef2"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.ts",
+          "previousSha256": "1de9146d3a5cb689359072f2318943ee130484aad302c0d6ed8b1b8b42288386",
+          "sha256": "56963022ec10c54e4db4369e8ff7a38aa497ce493c24ec76a79a432f0f004a77"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.test.ts",
+          "previousSha256": "f9e61361a1d6fd61802902d00f3b4cf5bb63ca6c926b2aea8ac2e588fcd469ce",
+          "sha256": "0b95d44c71c764dc4f102e2592adafbc1c0479150daf97bd46910628ddfeec11"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "status": "IN-REVIEW",
+      "task": "T04-T11; T03 scale delta",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/sync/adaptiveSession.ts",
+          "previousSha256": "7201ff5e2adc47eb7be7dae1d62307d5af6178ea0f6b6788e151d0b7cf8891d9",
+          "sha256": "b42c663ebd7151caca3c057151ae5e4d200b038284ba1a2e4b81dc5b52ac1f93"
+        },
+        {
+          "file": "src/sync/adaptiveSession.test.ts",
+          "previousSha256": "b90a31ad13e1393c2f1ab84e9ef8eacd4e9e5841afd45aea2983ed8a30ac128c",
+          "sha256": "dbac7bc920ff36a81db4646b623daae94bcfaa21b280604a0d8bf1b88b772492"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.ts",
+          "previousSha256": "56963022ec10c54e4db4369e8ff7a38aa497ce493c24ec76a79a432f0f004a77",
+          "sha256": "2580793a7da0db4af1404c0956e6b0f012bbf1a097b3809ad30226821e3187df"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.test.ts",
+          "previousSha256": "0b95d44c71c764dc4f102e2592adafbc1c0479150daf97bd46910628ddfeec11",
+          "sha256": "5b99ac3ac9c14c4feca4382d319f245651f083b0ec763df48fb1ded76ece3338"
+        },
+        {
+          "file": "src/server/adaptivePlanRoute.test.ts",
+          "previousSha256": "14e084f7af88fd4398c84c162bfb6aee2bf90044abb09698a5185eafc1843556",
+          "sha256": "a4781b1b653ccd73d79366e30d770c5f59582885b38c4f6c6acbac843823d7f1"
+        },
+        {
+          "file": "app/api/learning/adaptive-plan/route.ts",
+          "previousSha256": "e0ca1dbd8ca766e74fdbe90afd0c463e8334e4fb4213af2f6b21c104e3a8405b",
+          "sha256": "a191d7ad3668d7d4d3faac8830921d87f3c29c1113bee3cf3d0320a847ebd046"
+        },
+        {
+          "file": "app/api/learning/adaptive-unit/route.ts",
+          "previousSha256": null,
+          "sha256": "81bb469173a6836edda9c6c4903f8a81bf312bab724d27eb777888f7fbb02eed"
+        },
+        {
+          "file": "src/personalization/adaptiveUnitClient.ts",
+          "previousSha256": null,
+          "sha256": "aa8756002d81a2ded8c48b03f2f1bb379acb7aa0a77f95d86020da03d9901f69"
+        },
+        {
+          "file": "src/personalization/adaptiveUnitClient.test.ts",
+          "previousSha256": null,
+          "sha256": "49fa9e86d973884e3f1b208950da5c05893f20712c97424f911196ce627956c2"
+        },
+        {
+          "file": "src/personalization/AdaptiveUnitRenderer.tsx",
+          "previousSha256": null,
+          "sha256": "9fcad5c09a544570eac349f47bfacdbec0f79a16d0f5a85f9d28bb1bcc8aacbb"
+        },
+        {
+          "file": "src/personalization/AdaptiveUnitRenderer.test.ts",
+          "previousSha256": null,
+          "sha256": "b68d3517c1c9b7dfe2922216cb8da3ef98b8d0652d7db4ce27f4372b901fcf60"
+        },
+        {
+          "file": "src/personalization/adaptiveUnit.css",
+          "previousSha256": null,
+          "sha256": "001f20eda586cef2667f97576bb8772a7ff8e424da554d7133af7adb6262195e"
+        },
+        {
+          "file": "src/personalization/practiceManifest.ts",
+          "previousSha256": null,
+          "sha256": "5f55b1ff17d443afc6bbe4e8d6ed48e09bea788277a60e071fb027bab3673501"
+        },
+        {
+          "file": "src/personalization/adaptiveSessionController.ts",
+          "previousSha256": null,
+          "sha256": "0df38fbc1600c9219f25646e662101aae751ebf3986fe139996d8846067da154"
+        },
+        {
+          "file": "src/personalization/adaptiveSessionController.test.ts",
+          "previousSha256": null,
+          "sha256": "a012cf868f824a19aa0b6e5adbc68fa5a4887b019ac141e8bb39ace6e43b8a4a"
+        },
+        {
+          "file": "src/personalization/AdaptiveSessionRunner.tsx",
+          "previousSha256": null,
+          "sha256": "9198004c6ee2b537ac97d657d2b8fb40316f648bf730c5ee6d0b4cac92f92b89"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "status": "IN-REVIEW",
+      "task": "T11 guest/runner; T12 history; T13 local opt-in entry",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/server/pilotCompetencyGraph.ts",
+          "previousSha256": "71eb843127119a8ca72d924efbbfe472ca80fcd5d23824f7bcf8dfbbb8514103",
+          "sha256": "57869f948ba2956ff8f56fd31519c122142b831c185f509e2bd6d454feaf3908"
+        },
+        {
+          "file": "src/server/pilotLearningUnits.ts",
+          "previousSha256": "cc2c9ff0e661bfde736b69b0b6aac6d72a5b2f18b103c555af5a84951e09e3ca",
+          "sha256": "b4c147430c5570b405b35d69f4aa90b0adfe5f16a10d5236fe80057d60ff13b0"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.ts",
+          "previousSha256": "2580793a7da0db4af1404c0956e6b0f012bbf1a097b3809ad30226821e3187df",
+          "sha256": "e59793be92d5890634403f8d82a3d36a871f224bdc37f91811108277e7e94657"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.test.ts",
+          "previousSha256": "5b99ac3ac9c14c4feca4382d319f245651f083b0ec763df48fb1ded76ece3338",
+          "sha256": "65e4b7adcd7154f15b208723b2afe28a3202279e361835ec7dfb6af82a8cf060"
+        },
+        {
+          "file": "src/personalization/AdaptiveUnitRenderer.tsx",
+          "previousSha256": "9fcad5c09a544570eac349f47bfacdbec0f79a16d0f5a85f9d28bb1bcc8aacbb",
+          "sha256": "6be15a40d00c4970df7e2b3d7bd9e7c331868596c22b651909de3a334e10e508"
+        },
+        {
+          "file": "src/personalization/adaptiveUnit.css",
+          "previousSha256": "001f20eda586cef2667f97576bb8772a7ff8e424da554d7133af7adb6262195e",
+          "sha256": "5766796d1047118def60de2d7c286e1b04ebd0360471cf34142e44827023485c"
+        },
+        {
+          "file": "src/personalization/AdaptiveSessionRunner.tsx",
+          "previousSha256": "9198004c6ee2b537ac97d657d2b8fb40316f648bf730c5ee6d0b4cac92f92b89",
+          "sha256": "1e26767d7698db4581382d5f4634321674292232624edd7911c962bb97bdfa47"
+        },
+        {
+          "file": "src/personalization/pilotSourceGraph.ts",
+          "previousSha256": null,
+          "sha256": "ecc01e40252d5b879a3d1db1f7e21061803cc65d2bf0933f865fb809b181caab"
+        },
+        {
+          "file": "src/personalization/pilotSourceUnits.ts",
+          "previousSha256": null,
+          "sha256": "58eaf2325186c38f38928dbcdbfc2715c826335e32493bc3d48873dd5485e863"
+        },
+        {
+          "file": "src/personalization/guestPilotAdapter.ts",
+          "previousSha256": null,
+          "sha256": "38895d0810e28fcfc904f421110b7132e30227ae23e8d1cf0a429ab3097b1502"
+        },
+        {
+          "file": "src/personalization/guestPilotAdapter.test.ts",
+          "previousSha256": null,
+          "sha256": "cac2fd41c6665a5f43e7bf21d44a92e99658829125a363c5cb75d452e66921ea"
+        },
+        {
+          "file": "src/personalization/adaptivePlanClient.ts",
+          "previousSha256": null,
+          "sha256": "d51e207d36414390644170080364779d5873ca4c8439cfb4466d3c5cdd395bfe"
+        },
+        {
+          "file": "src/personalization/adaptivePlanClient.test.ts",
+          "previousSha256": null,
+          "sha256": "49d6443c5bef11eb3a02cd36bc96990659b2ff679af99fbd5867a41a48f1c577"
+        },
+        {
+          "file": "src/screens/AdaptivePracticePage.tsx",
+          "previousSha256": null,
+          "sha256": "24f5cf19ec1c73d4ffc55f3c7f5edfa7e7908c10f2a55b040005a92c537fedd5"
+        },
+        {
+          "file": "src/screens/PathPage.tsx",
+          "previousSha256": "d62e078e926961d89b625b3527c571a88c9d7756b8a8fa011f25a2fc00d70cf5",
+          "sha256": "62ba9e6a7ff71a6ce5ad8c60440e72233fad523db926381f3152fd98209cc931"
+        },
+        {
+          "file": "src/App.tsx",
+          "previousSha256": "1514610f02d1a993a2aec72759a2b430f756c1c1ea44ee298d2534e72637f947",
+          "sha256": "3fa246184bf2ddf58bbd5aa206eefb5f36c5fdcab18932c3537cd766b6aa75c7"
+        },
+        {
+          "file": "src/system/systemLexicon.ts",
+          "previousSha256": null,
+          "sha256": "8003a41c4152745b083af57be026dc4c50254c4a4d49195cfe214cc45a382a79"
+        },
+        {
+          "file": "src/profile/historyPresentation.ts",
+          "previousSha256": "64cafa1f8ff2a9e2610ba958e45cc519179dd865b933ac8b114b0ea4f7bfd812",
+          "sha256": "36568abe04edc8f25ee445266764054a9a3352b06489ea740dde9c24a0629482"
+        },
+        {
+          "file": "src/profile/historyPresentation.test.ts",
+          "previousSha256": "2e9ec068da5c7405ee919fc4e7757a6339ed1060552703ceed42a8ce85e5beda",
+          "sha256": "bb3da21760c81bae585f9014afb45a8d64e2f45d2fcc6c576023ca8d9486295d"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "status": "IN-REVIEW",
+      "task": "T11 guest/runner; T12 history; T13 local opt-in entry",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/personalization/guestPilotAdapter.test.ts",
+          "previousSha256": "cac2fd41c6665a5f43e7bf21d44a92e99658829125a363c5cb75d452e66921ea",
+          "sha256": "a9c5137f440fc9e38ef0ad9ee01c14b25c3effe98f24074e271e457d8c46784c"
+        },
+        {
+          "file": "src/lib/serviceWorkerRegistration.ts",
+          "previousSha256": null,
+          "sha256": "c418fe975e210f006d83b9972c180ed2f0d5afb798bd34cc6cfcf93b869526dd"
+        },
+        {
+          "file": "src/lib/serviceWorkerRegistration.test.ts",
+          "previousSha256": null,
+          "sha256": "8a22f98544b98b6a388f2d2697070fe6c904362db074ccbf0f23203982c5df50"
+        },
+        {
+          "file": "app/client-app.tsx",
+          "previousSha256": "bdd6492de0de8eb4ad98a45a545794607d4f5df0bd3be98508106350920baafe",
+          "sha256": "7e47bf6e60a47f89931fda7a186b980da189c694ecced65a011134f6bdddc0e5"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "status": "IN-REVIEW",
+      "task": "T11 guest/runner; T12 history; T13 local opt-in entry",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/server/directHosting.ts",
+          "previousSha256": null,
+          "sha256": "d020791aa3c5aeb991afc03c79cfd62b458691bdcbee19105d3e03e65a814361"
+        },
+        {
+          "file": "src/server/directHosting.test.ts",
+          "previousSha256": null,
+          "sha256": "07e0b4c408141b5e192c72773bc2fb4b14c25c7f29dd118e07214b5ea98ff745"
+        },
+        {
+          "file": "worker/index.ts",
+          "previousSha256": null,
+          "sha256": "dcd435730b6d317f9e6c06aa8e4aa749cbbb0da3d7ef53566f4f908192e98709"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "status": "IN-REVIEW",
+      "task": "T11 guest/runner; T12 history; T13 local opt-in entry",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "scripts/prepare-cloudflare.mjs",
+          "previousSha256": null,
+          "sha256": "9607f19e8b64db02aac0b66a6d70830a59f408fa3aa79c25671ab298c1a1c108"
+        },
+        {
+          "file": "src/server/cloudflareRelease.test.ts",
+          "previousSha256": null,
+          "sha256": "148dde293f0f429bd4494c7a163cbcee301200e3e812c2d7ab8240edc2c33f03"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "status": "IN-REVIEW",
+      "task": "T11 guest/runner; T12 history; T13 local opt-in entry",
+      "notes": "Explicit audited files only. Original audit records and inherited baseline/scoring hashes retained.",
+      "changes": [
+        {
+          "file": "src/personalization/sessionComposer.ts",
+          "previousSha256": "8e6c8c521c5ff0d14400d61891cbf75a3c5b8c952d21328937f8afa9a2ec3830",
+          "sha256": "6d0ad8ba5711a9c2905a70f57e5d3b24e9cabb89f7fc447b070e1dce82f25fa3"
+        },
+        {
+          "file": "src/personalization/sessionComposer.test.ts",
+          "previousSha256": "446edce84d27a854a455530c409873c1de743971c1ebc9b4ecd0365a787aa265",
+          "sha256": "b4c800bfb922fbe754cd2370071e4bda948802d5568d6ad243017e325dbed246"
+        },
+        {
+          "file": "src/sync/immutableActivityRecord.ts",
+          "previousSha256": "8ae0f34e15c636d9ace530829889614c8df2b81faba491227433a4d9687a1668",
+          "sha256": "b297fdd2c54f2586275d21c608a67b3065d1ab0ea6d923ff073f34fd7ffb43c7"
+        },
+        {
+          "file": "src/sync/adaptiveSession.ts",
+          "previousSha256": "b42c663ebd7151caca3c057151ae5e4d200b038284ba1a2e4b81dc5b52ac1f93",
+          "sha256": "50f20a14521de0725fb47311dc9fe8113ef777990b33862d48e0b6eb19bb9f3a"
+        },
+        {
+          "file": "src/sync/adaptiveSession.test.ts",
+          "previousSha256": "dbac7bc920ff36a81db4646b623daae94bcfaa21b280604a0d8bf1b88b772492",
+          "sha256": "c2c057fba03c271db5520c505f09398f595f243fbe0d0fe3f774e4b731de4a09"
+        },
+        {
+          "file": "src/sync/workspaceProtocol.ts",
+          "previousSha256": "4963dc063d7eb4d027dcbc79ef3c2da0950d3cca18e8b81bb209bceda5913788",
+          "sha256": "9887742bb227e3ba107656d36e5f9e78915838f7da5f8bbd911e0930dff45aaf"
+        },
+        {
+          "file": "src/server/workspaceRepository.ts",
+          "previousSha256": "b3fc45903d71ea7a7ea83d4d9396f8e3e96d36f90a2103db72e6d0dc29a69ae4",
+          "sha256": "954aeb4bf1caeac431ecce11b093f252257da2e8c3b1350f012672bae3c7b000"
+        },
+        {
+          "file": "src/server/workspaceRepository.test.ts",
+          "previousSha256": "e400619cba9ce5b4f498e6282b896ac8c92a462a76642520a78db6a628c61496",
+          "sha256": "88179e4a734f8e94984b9e97e3890ce987d18a02b7a576e522c519733120a5a3"
+        },
+        {
+          "file": "app/api/learning/adaptive-plan/route.ts",
+          "previousSha256": "a191d7ad3668d7d4d3faac8830921d87f3c29c1113bee3cf3d0320a847ebd046",
+          "sha256": "0d8133443a5570fce47dfb1c6c0be9c9ed7c1fbe8400c56c739b7238547ed649"
+        },
+        {
+          "file": "src/personalization/adaptiveUnit.css",
+          "previousSha256": "5766796d1047118def60de2d7c286e1b04ebd0360471cf34142e44827023485c",
+          "sha256": "6d3986effb34d4b5193a30caa58b70a7358868dbd953843ba26333d2771768c1"
+        },
+        {
+          "file": "src/personalization/adaptiveSessionController.ts",
+          "previousSha256": "0df38fbc1600c9219f25646e662101aae751ebf3986fe139996d8846067da154",
+          "sha256": "eb8361775f854fbb9562d32cc013a3332f114c534a957203d7dd869a8217eebb"
+        },
+        {
+          "file": "src/personalization/adaptiveSessionController.test.ts",
+          "previousSha256": "a012cf868f824a19aa0b6e5adbc68fa5a4887b019ac141e8bb39ace6e43b8a4a",
+          "sha256": "7e8697788e2b8320c7f71665ff1fdd82d07401ce98336dd9701216df88b1e431"
+        },
+        {
+          "file": "src/personalization/AdaptiveSessionRunner.tsx",
+          "previousSha256": "1e26767d7698db4581382d5f4634321674292232624edd7911c962bb97bdfa47",
+          "sha256": "bce664298456cefd5ccaf358737cdfb95fe134560e45b821aea803071bc2defd"
+        },
+        {
+          "file": "src/personalization/guestPilotAdapter.ts",
+          "previousSha256": "38895d0810e28fcfc904f421110b7132e30227ae23e8d1cf0a429ab3097b1502",
+          "sha256": "ddc60d8c77acb28b3fa92da8159e2deaa79a7b52212648923fca8581cb9f29a5"
+        },
+        {
+          "file": "src/personalization/guestPilotAdapter.test.ts",
+          "previousSha256": "a9c5137f440fc9e38ef0ad9ee01c14b25c3effe98f24074e271e457d8c46784c",
+          "sha256": "c6e806fc4ef2ad62062c7d2287092191d11c3facf51feda6093059ab8ee8edb2"
+        },
+        {
+          "file": "src/personalization/adaptivePlanClient.ts",
+          "previousSha256": "d51e207d36414390644170080364779d5873ca4c8439cfb4466d3c5cdd395bfe",
+          "sha256": "4c78820df8004773425bd519c04183bd17e50aff22771db825a272c9f89a550e"
+        },
+        {
+          "file": "src/personalization/adaptivePlanClient.test.ts",
+          "previousSha256": "49d6443c5bef11eb3a02cd36bc96990659b2ff679af99fbd5867a41a48f1c577",
+          "sha256": "ccc24444f24b0695c54828c7d9c27e05f4302c190e6ddc1eb3603a0456b0e55a"
+        },
+        {
+          "file": "src/screens/AdaptivePracticePage.tsx",
+          "previousSha256": "24f5cf19ec1c73d4ffc55f3c7f5edfa7e7908c10f2a55b040005a92c537fedd5",
+          "sha256": "e9ea7b94e985082e8862a05bc5518404632ad10f1957c63738703aa7a0547a37"
+        },
+        {
+          "file": "src/profile/historyPresentation.ts",
+          "previousSha256": "36568abe04edc8f25ee445266764054a9a3352b06489ea740dde9c24a0629482",
+          "sha256": "e320d4cfc7bdade2a18ff4a502783b117a7d23d49adf681b7950f33187f8dbc9"
+        },
+        {
+          "file": "src/sync/adaptiveDraftRecovery.ts",
+          "previousSha256": null,
+          "sha256": "04bf835a2b21871078dc02990b83a720ea805bf820b35628cbe1a82cb51d7f99"
+        },
+        {
+          "file": "src/personalization/pilotCompetencyMap.ts",
+          "previousSha256": null,
+          "sha256": "58d964bcde56f2a97e37d846548bdacffeeb9ffa92a6b9fe82c5e587a70ef3e5"
+        },
+        {
+          "file": "src/personalization/pilotCompetencyMap.test.ts",
+          "previousSha256": null,
+          "sha256": "89dc6632d24ff2011c2423b8a9eed54ef1160b5aa38d69c7eb64f6ac72fe9d0a"
+        },
+        {
+          "file": "src/personalization/PilotCompetencyMapPanel.tsx",
+          "previousSha256": null,
+          "sha256": "4481056ef38546e4fb752b447e4b13c9936d145e44a6c166ac21a92e0fe32ee2"
+        },
+        {
+          "file": "src/server/adaptivePlanConsentRoute.test.ts",
+          "previousSha256": null,
+          "sha256": "5e30af2405ac591f1e54258ce2f768e2b5f6a3bcd41f649751662e05b47c2d09"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T14 optional automatic pacing and explicit consent selection",
+      "notes": "Only the nine source files inspected and changed in this slice. No inherited/pinned scoring baseline changes.",
+      "changes": [
+        {
+          "file": "src/personalization/longTermPractice.ts",
+          "previousSha256": null,
+          "sha256": "4eb55184df548627c78d3197d8991a9ef832fcc9d9ff9d761eed53d6043eec19"
+        },
+        {
+          "file": "src/personalization/longTermPractice.test.ts",
+          "previousSha256": null,
+          "sha256": "f834bd309ec2104a2ed95b1741275a526d50a6fdb1cb36526e5f184c451f6d38"
+        },
+        {
+          "file": "src/personalization/sessionComposer.ts",
+          "previousSha256": "6d0ad8ba5711a9c2905a70f57e5d3b24e9cabb89f7fc447b070e1dce82f25fa3",
+          "sha256": "edbe5b1e99b2151ffc68be463771e01fa917628031be84a17d0fff0ee2a4f9b8"
+        },
+        {
+          "file": "src/personalization/guestPilotAdapter.ts",
+          "previousSha256": "ddc60d8c77acb28b3fa92da8159e2deaa79a7b52212648923fca8581cb9f29a5",
+          "sha256": "28f765c03739ef10ee5fed7c5e7168a4257da38be7ecf03123700026a279ac89"
+        },
+        {
+          "file": "src/personalization/guestPilotAdapter.test.ts",
+          "previousSha256": "c6e806fc4ef2ad62062c7d2287092191d11c3facf51feda6093059ab8ee8edb2",
+          "sha256": "865d2431c6b1d527719ec603382a00bd0fdf2245937c345441d23c43ae2aac4d"
+        },
+        {
+          "file": "src/personalization/adaptivePlanClient.ts",
+          "previousSha256": "4c78820df8004773425bd519c04183bd17e50aff22771db825a272c9f89a550e",
+          "sha256": "8db89b2e4094cc232f9900b43d3f8366ebaea0c6f63ee16fd3912f41d3cc081c"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.ts",
+          "previousSha256": "e59793be92d5890634403f8d82a3d36a871f224bdc37f91811108277e7e94657",
+          "sha256": "cde24f612da1ca4b68fb69f09b10d1986a64a4b450379dad01ab8821d80cef8f"
+        },
+        {
+          "file": "src/server/adaptivePilotPlan.test.ts",
+          "previousSha256": "65e4b7adcd7154f15b208723b2afe28a3202279e361835ec7dfb6af82a8cf060",
+          "sha256": "03dcd4eec05312f1a32a4753bc40019e07c7d6ddf9493ad813978f18714c11cb"
+        },
+        {
+          "file": "src/screens/AdaptivePracticePage.tsx",
+          "previousSha256": "e9ea7b94e985082e8862a05bc5518404632ad10f1957c63738703aa7a0547a37",
+          "sha256": "047963f0f51c1c2e054485eabd7d55dd2776cd72e427ddef14a3fbf41c7253ec"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T14 optional automatic pacing; T16 low-height lesson layout",
+      "notes": "Explicit audited source changes only. No inherited/pinned scoring baseline changes.",
+      "changes": [
+        {
+          "file": "src/screens/LessonStudy.css",
+          "previousSha256": null,
+          "sha256": "3958409ce2fd32c0dd86727b9f28aa6e77fb403d2ee3a821390ea8d67565537a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T18 synthetic replay harness and frozen artifact verification",
+      "notes": "Explicit audited source changes only. No inherited/pinned scoring baseline changes.",
+      "changes": [
+        {
+          "file": "src/personalization/replayPilot.ts",
+          "previousSha256": null,
+          "sha256": "586b7b3315127eae87e4810f9b4319293de105637dbd6018024378d4b10eeb39"
+        },
+        {
+          "file": "src/personalization/replayPilot.test.ts",
+          "previousSha256": null,
+          "sha256": "057c76f1138d66d384cd988e715819bfe5a8eb938182d917c85c0dcaa55c41ae"
+        },
+        {
+          "file": "scripts/replay-personalization-pilot.ts",
+          "previousSha256": null,
+          "sha256": "69c201eb6c329dd5410449a8458a55820a39ff3cbcd54fc49ae3996cf776b722"
+        },
+        {
+          "file": "scripts/verify-personalization-replay.ts",
+          "previousSha256": null,
+          "sha256": "235913b1abdaf22fe8ab2ee4999da55a0c7311e3cca0efd287b0c2900efa7bd1"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T04 locally authenticated guest recovery, durable preimage, resumable writes and rollback",
+      "notes": "Explicit audited files only; no inherited pinned scoring/baseline changes. No account/native or full-device claim.",
+      "changes": [
+        {
+          "file": "app/client-runtime.tsx",
+          "previousSha256": "5072bd276f1139e12e74c18fb62a9d14edb881884ff097a8cc2a244e7a60e2e1",
+          "sha256": "d8716dbfb273e1d63d8e94d1b842baa41d6a0b7041d2f379ba631a54e3ba65de"
+        },
+        {
+          "file": "src/critical.css",
+          "previousSha256": "5dc0d2923ed3aeb720ce9169a922e4ec2ed5ca586d53020b8bb094ac80d59e02",
+          "sha256": "ec54ae5dd8b08848e554367154dc4de6c689b1385f09963f332b480a6754229d"
+        },
+        {
+          "file": "src/profile/DeviceRecoveryControls.tsx",
+          "previousSha256": "684501bb3e65036abc7d40c5ab422ab4c82ecb168aad2af0cc911cc6051e0cc8",
+          "sha256": "43094373b45317bf22aa2c515c7e0a2a44197bae76000519593e80605bc08142"
+        },
+        {
+          "file": "src/profile/OwnerRecoveryGate.tsx",
+          "previousSha256": null,
+          "sha256": "59987a7a265eae346964272d2a58769e38a613f27dff9bff9de64f054f0ee2e0"
+        },
+        {
+          "file": "src/profile/avatarStorage.ts",
+          "previousSha256": "7f7708301681472f00edab75b83777c31d746c09260c8a48268cf5cfec58a9e3",
+          "sha256": "1d70857893bcbe1df09c1b142cc82cdc204d85704374880afb9f139f7276a6c5"
+        },
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "d4a4ae9926e75e1f1b400461390841f7df42bcf15334baae258fbcd74c1f5c1b",
+          "sha256": "3bc4d577fafa0a3ae2c9b838c329e387c0e73e6ed46b130c0aa448d38fa55b0a"
+        },
+        {
+          "file": "src/sync/learningCommandOutbox.ts",
+          "previousSha256": null,
+          "sha256": "74e356edaf26e6834ae6b821cd6faabfb1c6f5c13b72ca3602bdd1f0a13a9384"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.ts",
+          "previousSha256": "8c4e89a24a34b4b62a0a6f7ae047b682ab3f069bb4939f54b294fd5526659712",
+          "sha256": "5883fb6b0bd64975c4f4d28046433f8d67487a12d1ea67bc7bd1c6f2a42a5d3f"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.test.ts",
+          "previousSha256": "0f0b9df10635e57aeb9e95737e0c805b35a35abf0e61635d00ff8aede23b62cf",
+          "sha256": "b282655e26a82d542a611a3abec621f31b79b6580c7f70ba626825ec7a923696"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.ts",
+          "previousSha256": null,
+          "sha256": "a4da0d0fc4b801de6f351dad69cb724dd23d6c8f69b146abda45940f86f592b9"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.test.ts",
+          "previousSha256": null,
+          "sha256": "30581dd8e3b676ddb271bcd0fb86460a4d2eac87bcff8060352dc9766ff66dff"
+        },
+        {
+          "file": "src/sync/ownerRecoveryFence.ts",
+          "previousSha256": null,
+          "sha256": "49531e69ce681160bac03fe8c79eae3adba64c04ff7ab519e8453eee4d497da0"
+        },
+        {
+          "file": "src/sync/ownerRecoveryTrust.ts",
+          "previousSha256": null,
+          "sha256": "e7444ee0c2bfe3e905f1cd54f5e4d2ab907edfcc8d271b0e79649b3b87f442ac"
+        },
+        {
+          "file": "src/sync/ownerRecoveryTrust.test.ts",
+          "previousSha256": null,
+          "sha256": "7e4b16e22eb1838c69fd1eea033c1bfb89a6d922a9e43aeb733bb7f3e409b749"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T04 locally authenticated guest recovery, durable preimage, resumable writes and rollback",
+      "notes": "Explicit audited files only; no inherited pinned scoring/baseline changes. No account/native or full-device claim.",
+      "changes": [
+        {
+          "file": "src/sync/ownerRecoveryApply.ts",
+          "previousSha256": "a4da0d0fc4b801de6f351dad69cb724dd23d6c8f69b146abda45940f86f592b9",
+          "sha256": "9e4cc60987ce1f961ac9e506bb97ab9f2a24fcf55334e22bccab6ea3a1b42539"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.test.ts",
+          "previousSha256": "30581dd8e3b676ddb271bcd0fb86460a4d2eac87bcff8060352dc9766ff66dff",
+          "sha256": "1797cae1c5f88795f85a629fede63c548ae9cbc7d2ff6e2916dc5d74cce58ebb"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T04 locally authenticated guest recovery, durable preimage, resumable writes and rollback",
+      "notes": "Explicit audited files only; no inherited pinned scoring/baseline changes. No account/native or full-device claim.",
+      "changes": [
+        {
+          "file": "src/profile/DeviceRecoveryControls.tsx",
+          "previousSha256": "43094373b45317bf22aa2c515c7e0a2a44197bae76000519593e80605bc08142",
+          "sha256": "5a836dc615fb9e028ce7ee6be42691064b741ab1167e56f0e6e3533b10c1f2a4"
+        },
+        {
+          "file": "src/profile/OwnerRecoveryGate.tsx",
+          "previousSha256": "59987a7a265eae346964272d2a58769e38a613f27dff9bff9de64f054f0ee2e0",
+          "sha256": "c197febe0b3167c98222de2209497cab60baee2eacbd1018ff3e8e931840d908"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.ts",
+          "previousSha256": "9e4cc60987ce1f961ac9e506bb97ab9f2a24fcf55334e22bccab6ea3a1b42539",
+          "sha256": "90ca572261d4da2aaf9e2d1e391a3a8995cb78a98ac99b7bf494d97d2e214a6c"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.test.ts",
+          "previousSha256": "1797cae1c5f88795f85a629fede63c548ae9cbc7d2ff6e2916dc5d74cce58ebb",
+          "sha256": "7db5010dfb21a4c1b9480cf326f6ed869bfef6023cc83e008572e5eb3a3ceb05"
+        },
+        {
+          "file": "src/sync/ownerRecoveryFence.ts",
+          "previousSha256": "49531e69ce681160bac03fe8c79eae3adba64c04ff7ab519e8453eee4d497da0",
+          "sha256": "586e4d364c13e4b9ddea73a463cc33ba505d0d5587643b06a01efc5090f3a6b6"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "status": "IN-REVIEW",
+      "task": "T04 locally authenticated guest recovery, durable preimage, resumable writes and rollback",
+      "notes": "Explicit audited files only; no inherited pinned scoring/baseline changes. No account/native or full-device claim.",
+      "changes": [
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "3bc4d577fafa0a3ae2c9b838c329e387c0e73e6ed46b130c0aa448d38fa55b0a",
+          "sha256": "1771c6a1c61c680e642f167cf9efa36985148127744fa723d4efc512f2da9c56"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.test.ts",
+          "previousSha256": "7db5010dfb21a4c1b9480cf326f6ed869bfef6023cc83e008572e5eb3a3ceb05",
+          "sha256": "21a3f386f757a2f7ff84b31086cc1c6314ab0933a2036c5ce27a696c6d7e3a77"
+        },
+        {
+          "file": "src/sync/ownerRecoveryFence.ts",
+          "previousSha256": "586e4d364c13e4b9ddea73a463cc33ba505d0d5587643b06a01efc5090f3a6b6",
+          "sha256": "5f22a1d37dffabce083f6c729d0108754470bde582757daa79c991ff38c6bc34"
+        },
+        {
+          "file": "src/sync/ownerRecoveryTrust.ts",
+          "previousSha256": "e7444ee0c2bfe3e905f1cd54f5e4d2ab907edfcc8d271b0e79649b3b87f442ac",
+          "sha256": "d624cadda16a40f3c4315ede626d3ea1e322a60eaf8b0fad5731cf1694c200df"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T04 locally authenticated guest recovery, durable preimage, resumable writes and rollback",
+      "notes": "Explicit audited files only; no inherited pinned scoring/baseline changes. No account/native or full-device claim.",
+      "changes": [
+        {
+          "file": "src/critical.css",
+          "previousSha256": "ec54ae5dd8b08848e554367154dc4de6c689b1385f09963f332b480a6754229d",
+          "sha256": "5600b293b4581054f3653d885fc7dc6e80b83c712a28ec3c41d5edc3099ebf66"
+        },
+        {
+          "file": "src/profile/OwnerRecoveryGate.tsx",
+          "previousSha256": "c197febe0b3167c98222de2209497cab60baee2eacbd1018ff3e8e931840d908",
+          "sha256": "b621cdff809fd356d82f14f6e7786c5fa4b099d86703c02ff54b61333a3fea95"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T03 history cursor refresh/append ranges and retry direction",
+      "notes": "Explicit three-file audit. Cursor metadata only; no source data/authority/pinned scoring or baseline changes.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "046cc5b2b454fcda7683be6776093e80998f3b037a0ad1bd4fd2cbe4f14e7de6",
+          "sha256": "7b1eeaa911c666e7728d496c13f2f5e38875cd8d5837dc12dd7d00d36fdb0311"
+        },
+        {
+          "file": "src/profile/historyPaging.ts",
+          "previousSha256": null,
+          "sha256": "98895296abd111ac21a113d349d13b103248b61ddc2237e986da5a93f09174d7"
+        },
+        {
+          "file": "src/profile/historyPaging.test.ts",
+          "previousSha256": null,
+          "sha256": "8dda70e53fd56d9fc126d0289166ac228d4c1efc4d3996d53cd78ac4f50c6255"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T04 pure recovery codec worker",
+      "notes": "Explicit eight-file codec audit. Original byte format/validators preserved, no DB version/store/migration/authority or pinned baseline changes.",
+      "changes": [
+        {
+          "file": "src/sync/ownerRecoveryArchive.ts",
+          "previousSha256": "6fdf8a52659e9dc6127537d83ba8ad42f10d89702df2c36e221bcd98ea46fc2f",
+          "sha256": "0337fb6cb6fb6c019ecec1fe1b29829ddf9422ef233e9ba7f374262b3ddddf20"
+        },
+        {
+          "file": "src/sync/ownerRecoveryArchiveCore.ts",
+          "previousSha256": null,
+          "sha256": "b30ef428b715829ae636facea8019b52eaf9555c8a93641eefc619d0ba1c496a"
+        },
+        {
+          "file": "src/sync/ownerRecoverySchema.ts",
+          "previousSha256": null,
+          "sha256": "328d53cdc7741d04fb44672ed808768bf36375d33b228f481cea1851493e07ac"
+        },
+        {
+          "file": "src/sync/ownerRecoveryCodecTask.ts",
+          "previousSha256": null,
+          "sha256": "4185a00aaca5a06e6e11181ebb92947e00080c6dc482c9ee42bd1503e3a45946"
+        },
+        {
+          "file": "src/sync/ownerRecoveryCodecWorker.ts",
+          "previousSha256": null,
+          "sha256": "b7744ce2efb676064099f98b8ace17f34ddcd44b3fc05c77aff0e7ff102137a9"
+        },
+        {
+          "file": "src/sync/ownerRecoveryCodecClient.ts",
+          "previousSha256": null,
+          "sha256": "95f3496c0c61fbec4db32e372435da1ff6b61e3cea4a56614818a80319fe79f3"
+        },
+        {
+          "file": "src/sync/ownerRecoveryCodecClient.test.ts",
+          "previousSha256": null,
+          "sha256": "1fd619bfb2165c8ad8e12aca2513c59d45b9de3c89ffd0dc0b1b6dafd78eefd5"
+        },
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "1771c6a1c61c680e642f167cf9efa36985148127744fa723d4efc512f2da9c56",
+          "sha256": "3cf08bea6d1f15e9f0feec182c6ee8dbd201c4d8fc28e7fee8f4bed864ba3a4a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T04 native IDB activation after external codec events and archive size feedback",
+      "notes": "Explicit three-file delta after fullv16. Resume transaction work in IDB callbacks; preserve validators and error size limit. No schema/authority/baseline change.",
+      "changes": [
+        {
+          "file": "src/sync/ownerRecoveryApply.ts",
+          "previousSha256": "90ca572261d4da2aaf9e2d1e391a3a8995cb78a98ac99b7bf494d97d2e214a6c",
+          "sha256": "43c514b4e4094c6f52f6d10abbfa874a891f78ccf2cddad7918cd27fbd0d5582"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.test.ts",
+          "previousSha256": "21a3f386f757a2f7ff84b31086cc1c6314ab0933a2036c5ce27a696c6d7e3a77",
+          "sha256": "f629e0021c6771d9cca16d79a4565bbab5c43870218b486bbf25cceeaece4b91"
+        },
+        {
+          "file": "src/profile/DeviceRecoveryControls.tsx",
+          "previousSha256": "5a836dc615fb9e028ce7ee6be42691064b741ab1167e56f0e6e3533b10c1f2a4",
+          "sha256": "cc452941f6e20034f2a7caf115e7279db068503461860ca96b16b799d7908f4f"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T03 per-read local history source sharing",
+      "notes": "Explicit five-file history read delta after fullv17. Share read promises only inside one scope-bound load; preserve reducers, validations, current-owner checks, source/authority and DB schema.",
+      "changes": [
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": null,
+          "sha256": "ba2b9f7caa333a08e4fc85f06f562580bb83bed00a48bd0b7bfbf86ee9a196c2"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.test.ts",
+          "previousSha256": null,
+          "sha256": "411991c9bb591dc312852ad99b91d347583906ff432e030cc19bb0b923916e2c"
+        },
+        {
+          "file": "src/sync/lessonHistory.ts",
+          "previousSha256": "48a6bb521f85a87d155a533b4e18bd677b158399be117f2618471d58ab2c23e7",
+          "sha256": "2546b01d15e96e876d7e03adea61b59d6b78f42e283475d047deb5ee3eb2819a"
+        },
+        {
+          "file": "src/sync/reviewHistory.ts",
+          "previousSha256": "e612246b7c4cd72752ff687403db0317980ab95d54d03f0e2f4dff7d2ec1eef2",
+          "sha256": "632761e6e3c7a80427e182e9bc23cf6a17eb7433752a106c0b437c667121836b"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "9b80af98fd58b637a7064ae85492682e19c6ff7c829175b06ac5f4429c498d8f",
+          "sha256": "9710bb0aabdfed17a02855b690e16fffb09513df696d2cd68af78a24c9a7ecc5"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T03 workspace history projection worker after native100k profiling",
+      "notes": "Explicit eight-file worker delta. Shared original workspace parser and unchanged pure history functions; canonical IDB key lookup, pending/descriptor validation and final owner/reset fencing retained. Stored input path skips only redundant clone-safety traversal after native IDB structured clone. No schema/authority/baseline change.",
+      "changes": [
+        {
+          "file": "src/sync/workspaceJournal.ts",
+          "previousSha256": null,
+          "sha256": "4c4c43c557b2d912258e86254cb604962860cbd4883602fb4e8b9e6cc9716641"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionCore.ts",
+          "previousSha256": null,
+          "sha256": "3cb8aaf269ea7644fa9486befbdaa8e238b6602937a550c1a841b97cbca7782f"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionWorker.ts",
+          "previousSha256": null,
+          "sha256": "c0ab56ca03ba89e8873200d963c72dbb52154b515693528196e66d25e4b6d7f4"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionClient.ts",
+          "previousSha256": null,
+          "sha256": "b35806bd3562c76839e6d30f19baf296f85f1c73e8d96b2309df38a8577d4181"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionClient.test.ts",
+          "previousSha256": null,
+          "sha256": "bfeefa43573fb935b93a99358af1d6eca7f3027948c8d353ddf9831c03461026"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "5dfbe1ebd49fcc18bf65a5290916852b8b8c4c02c5e92e92cc8bdc78ff54bb7e",
+          "sha256": "fdcd91d3a21ee00310aa0094cc6f2ea615ca97c7a625ef122dea60b3e1b19c5a"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "9710bb0aabdfed17a02855b690e16fffb09513df696d2cd68af78a24c9a7ecc5",
+          "sha256": "11094f942018f42eba0919ff4e400647eb9d2b89597f32ff68f45cdace33d746"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.test.ts",
+          "previousSha256": "411991c9bb591dc312852ad99b91d347583906ff432e030cc19bb0b923916e2c",
+          "sha256": "7ef7927d8dc38824d6b1eab0da3db28f19fdcaf4842df7b358a2876ce539bc0a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T03 withdraw workspace projection worker after compiled native100k comparison",
+      "notes": "Only five newly authored experimental files removed after rg proved no external consumers. Eight original experiment source files with hashes retained in tmp/personalization-history-worker-experiment-v1. Restore canonical direct workspace projection and unchanged full parser. Keep per-read sharing and source validators; no DB/schema/authority/data or inherited baseline changes.",
+      "removedBindings": [
+        {
+          "file": "src/sync/workspaceJournal.ts",
+          "sha256": "4c4c43c557b2d912258e86254cb604962860cbd4883602fb4e8b9e6cc9716641",
+          "previousSha256": null,
+          "saved": "tmp/personalization-history-worker-experiment-v1/workspaceJournal.ts"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionCore.ts",
+          "sha256": "3cb8aaf269ea7644fa9486befbdaa8e238b6602937a550c1a841b97cbca7782f",
+          "previousSha256": null,
+          "saved": "tmp/personalization-history-worker-experiment-v1/workspaceHistoryProjectionCore.ts"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionWorker.ts",
+          "sha256": "c0ab56ca03ba89e8873200d963c72dbb52154b515693528196e66d25e4b6d7f4",
+          "previousSha256": null,
+          "saved": "tmp/personalization-history-worker-experiment-v1/workspaceHistoryProjectionWorker.ts"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionClient.ts",
+          "sha256": "b35806bd3562c76839e6d30f19baf296f85f1c73e8d96b2309df38a8577d4181",
+          "previousSha256": null,
+          "saved": "tmp/personalization-history-worker-experiment-v1/workspaceHistoryProjectionClient.ts"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjectionClient.test.ts",
+          "sha256": "bfeefa43573fb935b93a99358af1d6eca7f3027948c8d353ddf9831c03461026",
+          "previousSha256": null,
+          "saved": "tmp/personalization-history-worker-experiment-v1/workspaceHistoryProjectionClient.test.ts"
+        }
+      ],
+      "changes": [
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "11094f942018f42eba0919ff4e400647eb9d2b89597f32ff68f45cdace33d746",
+          "sha256": "9710bb0aabdfed17a02855b690e16fffb09513df696d2cd68af78a24c9a7ecc5"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "fdcd91d3a21ee00310aa0094cc6f2ea615ca97c7a625ef122dea60b3e1b19c5a",
+          "sha256": "5dfbe1ebd49fcc18bf65a5290916852b8b8c4c02c5e92e92cc8bdc78ff54bb7e"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.test.ts",
+          "previousSha256": "7ef7927d8dc38824d6b1eab0da3db28f19fdcaf4842df7b358a2876ce539bc0a",
+          "sha256": "411991c9bb591dc312852ad99b91d347583906ff432e030cc19bb0b923916e2c"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T03 cooperative local history scheduling and coalesced refresh",
+      "notes": "Explicit eleven-file scheduling delta after fullv19. Original canonical projector body and sort mechanically extracted with identical hashes; sync API remains synchronous. Same workspace predicates in bounded CPU batches, current-owner fences after yields and final projection, one coalesced refresh after active load. No data/schema/authority or inherited baseline changes.",
+      "changes": [
+        {
+          "file": "src/lib/historyWork.ts",
+          "previousSha256": null,
+          "sha256": "811f7e5911333729043fdd6bb4a58b06f3f710e23de67a7bdc2320265c6066f7"
+        },
+        {
+          "file": "src/learning/lessonHistory.ts",
+          "previousSha256": "730d9235e9b05e5cd437d299d51f33e283c2dfd7dcc3e3f707fdfdeb1b1df408",
+          "sha256": "521c8c09df563f5e838979dfb2e3c3304594cb56ec3cb9918a88ca95bd7a333c"
+        },
+        {
+          "file": "src/learning/lessonHistoryCooperative.test.ts",
+          "previousSha256": null,
+          "sha256": "cd6e179966108fb68fc9f4b29dc6225290e1e4771109030c78ee321da0726ca2"
+        },
+        {
+          "file": "src/sync/workspaceHistory.ts",
+          "previousSha256": "ffa12b6bd98ec91cf3ad657830cdb6590f0f6cef8875d9c6facf0093d58879d1",
+          "sha256": "61542a7b10b20c5d3f934076ad92deafcd7798ba9557bb3d6be0c04159caed82"
+        },
+        {
+          "file": "src/sync/workspaceHistoryCooperative.test.ts",
+          "previousSha256": null,
+          "sha256": "4d61965131e0b8a7fc08f078847ac620ab6f136e783a6e4359e8a4294802ea3d"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "5dfbe1ebd49fcc18bf65a5290916852b8b8c4c02c5e92e92cc8bdc78ff54bb7e",
+          "sha256": "8d7090e2327b45eb232974b1b5b673a4497c1bc8ca272d2bc94de7c09cf2ddea"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": "ba2b9f7caa333a08e4fc85f06f562580bb83bed00a48bd0b7bfbf86ee9a196c2",
+          "sha256": "96bee30a126b5c979d757c6dd2cb1b3c0cfc818152929c4b120b20b1e79772e5"
+        },
+        {
+          "file": "src/sync/lessonHistory.ts",
+          "previousSha256": "2546b01d15e96e876d7e03adea61b59d6b78f42e283475d047deb5ee3eb2819a",
+          "sha256": "b8d7f8cecfbbcfd2efff1cdc50e4a254268e57a7fc11acebbccb2d62009aac46"
+        },
+        {
+          "file": "src/sync/reviewHistory.ts",
+          "previousSha256": "632761e6e3c7a80427e182e9bc23cf6a17eb7433752a106c0b437c667121836b",
+          "sha256": "0f2b1808250b15dd803de25385ee2e4328fb2ec18d91f573fde7329c8c939300"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "9710bb0aabdfed17a02855b690e16fffb09513df696d2cd68af78a24c9a7ecc5",
+          "sha256": "8dbb59cb64d39b5a599958b1c981f365443478e12d5fa792d6eec3d9a19f117b"
+        },
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "7b1eeaa911c666e7728d496c13f2f5e38875cd8d5837dc12dd7d00d36fdb0311",
+          "sha256": "b8c71fb58518a1c9951de7c400a1a87d079646c4853a3344cad04c5b1e56c09b"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "status": "IN-REVIEW",
+      "task": "T03 refresh after committed local workspace writes",
+      "notes": "One-file event wiring delta after fullv20: subscribe/unsubscribe WORKSPACE_CHANGED through existing refresh callback, retaining busy coalescing and lifecycle cleanup. Native fixture reproduces committed-but-stale history before fix, and idle/busy local-write refresh after fix. No producer, data, schema, authority, baseline or scoring changes.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "b8c71fb58518a1c9951de7c400a1a87d079646c4853a3344cad04c5b1e56c09b",
+          "sha256": "75dc413a8e64b728fb69d6e9a74a7b545574020d86a42b88ec3a70ee05720f00"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "status": "IN-REVIEW",
+      "task": "T03 history cache reset/owner-generation isolation",
+      "notes": "One consumer audited: bind transient remote rows/paging/retry to complete active owner generation and reset epoch. Reset notification aborts old request and clears only UI cache, then reloads. Scope change discovered on load-more forces a new head request. Monotonic lifecycle prevents late callbacks from resetting new UI. Native IDB fixture reproduces reset cache poisoning, validates silent reset, same-owner generation change, exhausted frontier and old response after reset. No persisted data/schema, projector predicates, score or authority changes.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "75dc413a8e64b728fb69d6e9a74a7b545574020d86a42b88ec3a70ee05720f00",
+          "sha256": "03e2b160559856721755d60897506dd8b22caf678a0fa832662575d6da36ceaa"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "status": "IN-REVIEW",
+      "task": "T03 lifecycle lint repair and T12/T16 exact dictionary source consumer",
+      "notes": "Fullv21 failed global lint on numeric ref cleanup; stable invalidateRequest callback retains monotonic invalidation without suppressing the rule. Dictionary explicit detail source resolves exact ID before unique stable alias; absent/ambiguous source is unavailable, no unrelated fallback or study/save/TTS actions. Search selection behavior remains compatible. Empty-state content can scroll while recovery CTA stays visible at portrait/landscape. Native preview journey missing→search→chi→reload retains saved item and one genuine lookup. No catalog/data/scoring/authority/baseline changes.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "03e2b160559856721755d60897506dd8b22caf678a0fa832662575d6da36ceaa",
+          "sha256": "57f02ae7a3ef74bb969c9456fab847c422249a28d585f1cdfb935380854ef5e5"
+        },
+        {
+          "file": "src/screens/DictionaryPage.tsx",
+          "previousSha256": "5ced7f96f25cb13cea97a4b7c009abec32db9771a4af7d19213989394092baf6",
+          "sha256": "c926dd00ed4c991d55e53047338334d86f6f07147a6adbceb80ad0e7ad934f9d"
+        },
+        {
+          "file": "src/screens/DictionaryExperience.tsx",
+          "previousSha256": "d9a46b6eeb088d5bb8ccec92463bd72c3d7c6bed192b8176b44cc8084e707f91",
+          "sha256": "e25e96ecef363a93f67f37e71be765817dfcee56199aead566935e017e88c5b5"
+        },
+        {
+          "file": "src/screens/DictionaryExperience.css",
+          "previousSha256": null,
+          "sha256": "fb319075b5fc939d1518725c156eedfce6ed62e5d3142d9deabbd407ed104e77"
+        },
+        {
+          "file": "src/screens/dictionarySelection.ts",
+          "previousSha256": null,
+          "sha256": "e50e6ac8a1b59457e3cfc7d64ffca4f9597899e9a2f403fe6684bf8925684304"
+        },
+        {
+          "file": "src/screens/dictionarySelection.test.ts",
+          "previousSha256": null,
+          "sha256": "2dd7c3985976bb06603649667fa5be865cc5371e6d646094ffb491880c50d32f"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "status": "IN-REVIEW",
+      "task": "T02/T16 standalone remediation hint and synthetic audio support",
+      "notes": "Five audited files after fullv22 CHECK_EXIT0:559files/3602tests. Same durable descriptive activity adapter records minimal support metadata before reveal or TTS request, no raw hint/question/answer/audio. Retry identity retained on failure, busy lock blocks answer submit until support commit, unmount prevents deferred playback. Synthetic TTS sets existing assistance flag for the original grading adapter; grading/authority algorithms unchanged. Guest/account callbacks use existing owner/reset fences. Native fixture validates save failures, held writes, retry, TTS-only assisted answer and reload3support/mastery0; actual guest hint→history→reload and mobile CTA checked separately. No data/schema/FSRS/reward migration or inherited scoring baseline updates.",
+      "changes": [
+        {
+          "file": "src/sync/mistakeSupport.ts",
+          "previousSha256": null,
+          "sha256": "9e59b22d716d6ec02b9c472fd22809d5ce0fb4e77bd3cc720feff740caa79f88"
+        },
+        {
+          "file": "src/sync/mistakeSupport.test.ts",
+          "previousSha256": null,
+          "sha256": "3087f41e77d5a2bedb0e9be846565757fe2890fc7d7da52773d8daf63ab5f642"
+        },
+        {
+          "file": "src/components/RemediationObservatory.tsx",
+          "previousSha256": "d29e42c6ce84150fda8eaa541d9dd0d66386ab73e6ed8979e3a51a91bcf673df",
+          "sha256": "562bae4b1fbe1eac5f8112a1bf0bae19529f1529ff2e7c2a75529bf3e4b0a576"
+        },
+        {
+          "file": "src/screens/LocalMistakesPage.tsx",
+          "previousSha256": "8815d88e739f4d1438d78693391480356bd71d3678b7372bb58f8bb3d031e408",
+          "sha256": "20c4d903d5c811ae5d8fdd05889977230203b120710c60211748ddcc87421447"
+        },
+        {
+          "file": "src/screens/AuthenticatedMistakesPage.tsx",
+          "previousSha256": "f34f913cd5674ac6b556fe83d5149138d2996ac0d4dbd6ba6712df231988ac82",
+          "sha256": "f9391b148505d459519fc7804d30b13ffdcdbf43c485ca33f01382850401256d"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "status": "IN-REVIEW",
+      "task": "T16 shared five-zone learner navigation",
+      "notes": "Five audited files after fullv23 CHECK_EXIT0:560files/3606tests. One pure navigation model exposes Học/Ôn/Nói/Luyện/Hồ sơ, retains every former route and canonical lore with functional labels, groups secondary tools in a shared keyboard-safe dialog. Original return-focus trap and body lock reused; opener captured for either desktop/mobile, same-route navigation closes dialog and focuses main. Scoped component CSS, no edits to user global stylesheet. Route grouping tested for nested sessions and similar-prefix rejection; desktop/mobile/portrait/keyboard/reduced-motion checked through CUA. Existing mobile E2E updated to canonical menu names and actual Reader/Profile headings; first run against pre-onboarded preview failed setup honestly, pending compiled harness. No storage/schema/scoring/release/pinned baseline changes.",
+      "changes": [
+        {
+          "file": "src/components/AppShell.tsx",
+          "previousSha256": "3466f04e03a4e357745f4e7b98b7f31606951134930f055a2215814832a936d9",
+          "sha256": "eb4f725d7825011e36406181c65da2f883daa34e741375b8402947b91e8115d2"
+        },
+        {
+          "file": "src/components/learnerNavigation.ts",
+          "previousSha256": null,
+          "sha256": "387dbd90ec220192f75bc8c8bbbb8b37cf1a927219028238bb7ae8f370bab36a"
+        },
+        {
+          "file": "src/components/learnerNavigation.test.ts",
+          "previousSha256": null,
+          "sha256": "da3a42be118a8937ba25b30a0108e1a2a99568efcccb657a639c7aae7bce5c51"
+        },
+        {
+          "file": "src/components/learnerNavigation.css",
+          "previousSha256": null,
+          "sha256": "9c34ce609460e1145202d0e3e991da1e72d8222c9a441fc7ac83c58a95787e57"
+        },
+        {
+          "file": "e2e/mobile-accessibility.spec.ts",
+          "previousSha256": null,
+          "sha256": "ff938971e319920f2df0bef31d22f37d457314c42feca4b4be6a122a29b9ab57"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "status": "IN-REVIEW",
+      "task": "T16 navigation modal shortcut and current onboarding E2E setup",
+      "notes": "CUA reproduced two modal dialogs after Alt+S inside the tool chooser. Suppress only that shortcut while chooser is open, preserving ordinary global shortcut outside. Add E2E assertion for one dialog and retained close-button focus. Compiled E2E setup found stale Kích hoạt HANZI.OS CTA, while actual public landing exposes Bắt đầu hành trình; update exact UI action and retain all wizard/assessment/route assertions. No test skipping, timeout increase, source policy or scoring change. Prior E2E failures and traces retained.",
+      "changes": [
+        {
+          "file": "src/components/AppShell.tsx",
+          "previousSha256": "eb4f725d7825011e36406181c65da2f883daa34e741375b8402947b91e8115d2",
+          "sha256": "24bebcd615cfb73ac139e8fdb950515b44a663d509caebec6716ce51a9249979"
+        },
+        {
+          "file": "e2e/mobile-accessibility.spec.ts",
+          "previousSha256": "ff938971e319920f2df0bef31d22f37d457314c42feca4b4be6a122a29b9ab57",
+          "sha256": "84c5c69f9f66219246de4671803f192c9832ea86ba236a976c2733757be18a6c"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "status": "IN-REVIEW",
+      "task": "T16 invitation cannot cover active learner dialog",
+      "notes": "Compiled E2Ev5 passed reduced motion, but revealed assessment-invite intercepting Reader pointer inside the tool dialog. Temporarily suppress invitation rendering and timer while practice/status modal is open; cancel narration, retain invitation and diagnostic progress. Add explicit absent-invitation assertion inside modal, no force click or timeout increase. Setup heading Khảo Nghiệm Căn Cơ was stale: current assessment h1 is Tìm điểm khởi hành; update exact role/name while retaining /assessment URL and full wizard flow. Logs/traces v1-v5 retained. No source eligibility or stored state changes.",
+      "changes": [
+        {
+          "file": "src/components/AppShell.tsx",
+          "previousSha256": "24bebcd615cfb73ac139e8fdb950515b44a663d509caebec6716ce51a9249979",
+          "sha256": "984cea19f54edbfdaf15416117f48fe5e73c3bbb4e9a8bfbc00e90c5efdb3adf"
+        },
+        {
+          "file": "e2e/mobile-accessibility.spec.ts",
+          "previousSha256": "84c5c69f9f66219246de4671803f192c9832ea86ba236a976c2733757be18a6c",
+          "sha256": "3bf88942cf2cea27d9256cec8ce3c5fabb74e97b7824294f1a9f012156b2fc9b"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "T16 final navigation journey verification",
+      "notes": "Compiled E2Ev10 6/6 exit0: keyboard/AltS/Escape/invitation suppression/Reader route, four independent overflow journeys, reduced motion. v6 stale lesson CTA fixed using actual three-stage navigation; v7 aggregate exceeded30s, split independent journeys without increasing timeouts or dropping assertions. v8-v9 first cold server-compression landing load exceeded5s; preserve failures. v10 warms ONLY local harness Brotli cache269assets1328ms before fresh browser contexts, no browser storage/cache or progress seed; cold-start performance remains unverified. Source preview landscape667x375 dialog y16..309, close44px, scroll-only content196px/352px, last tool accessible at scrollTop156, nav begins309; no horizontal overflow. Viewport reset. No runtime changes after buildv3.",
+      "changes": [
+        {
+          "file": "e2e/mobile-accessibility.spec.ts",
+          "previousSha256": "3bf88942cf2cea27d9256cec8ce3c5fabb74e97b7824294f1a9f012156b2fc9b",
+          "sha256": "d268410ed1412b3cbb37ab922d2ae48f30209472deefa44d71d27d7f72282d01"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "T16 preserve acceptance test identity",
+      "notes": "Fullv24 CHECK_EXIT1 precheck: graduation candidate acceptance manifest references original exact mobile test title. Restore stable title and assert Reader overflow immediately after menu selection; keep four independently timed route journeys. Do not edit candidate manifest, scoring/content baseline or increase timeout. Earlier v10 6/6 stays historical; v11 checks added assertion. Final typecheckv3/lintv4 exit0.",
+      "changes": [
+        {
+          "file": "e2e/mobile-accessibility.spec.ts",
+          "previousSha256": "d268410ed1412b3cbb37ab922d2ae48f30209472deefa44d71d27d7f72282d01",
+          "sha256": "594eb1db92f93418f6c85fcd4592e07e3611cb5497f04f9defeeaaa55a30a1cb"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "T16 independently bounded mobile keyboard and tool journeys",
+      "notes": "v11 reached Reader but total flow exceeded30s during slow host execution. Split keyboard/AltS/Escape/canonical zones/overview overflow from focus wrap/Reader navigation/Reader overflow, each with full genuine onboarding. Keep stable acceptance title; no dropped assertions, timeout increases, skips or retries. v12 runs7tests with server-compression warm cache only. Fullv24 failed on acceptance title before global runtime gates, candidate validator after restoring title exit0. No runtime changes after buildv3.",
+      "changes": [
+        {
+          "file": "e2e/mobile-accessibility.spec.ts",
+          "previousSha256": "594eb1db92f93418f6c85fcd4592e07e3611cb5497f04f9defeeaaa55a30a1cb",
+          "sha256": "d8091f70a320889c8c224e7ab2dca641bb869f108198798f91438b6f699ebd82"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "T12/T16 explicit speech source isolation and recovery",
+      "notes": "After fullv25 CHECK_EXIT0:561files/3610tests. Before proof actual source preview4325 missing lesson URL silently opened Bốn thanh điệu. Scope keyed owner/request, explicit empty/missing/locked sources cannot open fallback session or trigger completion/reward; default selector/legacy consumers unchanged. Cancel capture/playback on unavailable source, preserve existing journal, recover via permitted lesson picker and focus main after query change. Three-file audit includes scoped nine-rule CSS and AppShell speech route invitation suppression after fresh-context E2Ev2 found actual pointer interception; no force click/timeout increase. Read-only native observer:6speech/72workspace/72pending unchanged byte hash after missing, recovery and reload; viewport375x667/667x375 CTA44px above nav. v1 E2E stopped before discovery because testDir tmp traversed old artifacts; narrowed dedicated lab directory. v3 checks fresh IndexedDB0→0 for missing and one valid session after explicit selection/reload. Buildv1 passed before invitation route guard; final v2/typecheckv3/lintv3 tracked separately. No schema/ID/source content/scoring/authority changes.",
+      "changes": [
+        {
+          "file": "src/screens/PronunciationQuestPage.tsx",
+          "previousSha256": "11f3529d703026b88d2607d24ffb3431395afc61d4da83b89e0eacc6b1520757",
+          "sha256": "4b32d19618b47657300713da3095c74ebcb30506992ff6803e2b0bfe5a5592db"
+        },
+        {
+          "file": "src/screens/PronunciationJade.css",
+          "previousSha256": null,
+          "sha256": "c8a24bb699e2649508bc4cd4c4df7be671476096cf8e25711ebfb2fbd5916abf"
+        },
+        {
+          "file": "src/components/AppShell.tsx",
+          "previousSha256": "984cea19f54edbfdaf15416117f48fe5e73c3bbb4e9a8bfbc00e90c5efdb3adf",
+          "sha256": "92f0639671b7e774c73879dfb44e0c9980ed212dcb410868935307faa76f8efa"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "A02 private account avatar with revision-safe UI and restore validation",
+      "notes": "Private bounded media store/CAS/nonce/tombstone/operation receipts; server-decoded WebP256 and metadata stripping; owner-generation fenced binary client and frozen remove prompt; same Blob/op retry after lost ack. Sixfiles/42tests, typecheckv3/scopedlintv2, actual local Miniflare Images+D1 bindingv3 and browser3/3 pass; identity fixtures are not cookie/device proof. Fullv26 correctly failed pinned restore42migrations. Restorev1 exposed SQLite NULL-check loophole, fixed explicit IS NOT NULL in migration/schema. Restorev2 verifies43migrations/64tables, existing graph fingerprints through0042, seeded exact avatar/chunks/tombstone/receipt+constraints. Fullv27 pending. No original .wrangler or isolated D1 source changed; read-only backup clone prepared for full-app session proof. No baseline/scoring/content acceptance hashes changed. Null previous hash can mean an already inherited but previously unbound file, including accountDeletionPolicy; it is not a claim that every such file was newly created.",
+      "changes": [
+        {
+          "file": "app/api/account/avatar/route.ts",
+          "previousSha256": null,
+          "sha256": "bdb10061480da76370003b62d28ebfd4b2c98976280bcce8d91dfb5fe35efb98"
+        },
+        {
+          "file": "db/schema.ts",
+          "previousSha256": "259082c7f3b280cdbe8625f9e7b7a729e4d9049dc71a29b67dd1458fe1fb0e3d",
+          "sha256": "da4dd7bc22177af16d6fec112a8b57820d7be96b425131f47e6ff681c676a9c6"
+        },
+        {
+          "file": "drizzle/0042_account_avatars.sql",
+          "previousSha256": null,
+          "sha256": "9f71cfd2686981b36473677957040ab82818fe64637d9aa3fcb91cec30d62293"
+        },
+        {
+          "file": "scripts/rehearse-d1-restore.mjs",
+          "previousSha256": null,
+          "sha256": "d58bb1a1340d3db14259e40d31d8d5679bbfad3043d7dac6dc829ab62295ab52"
+        },
+        {
+          "file": "src/profile/accountAvatarContract.ts",
+          "previousSha256": null,
+          "sha256": "aacd3dec7fb076dcfe72b7016b827f6cc2a2158adca2d9f6118662a75a7c3182"
+        },
+        {
+          "file": "src/profile/avatarBinary.ts",
+          "previousSha256": null,
+          "sha256": "104b077e6f8c102c7861585c03274ab0573b69a53d20e217054095dbdd51f7e3"
+        },
+        {
+          "file": "src/profile/accountAvatarClient.ts",
+          "previousSha256": null,
+          "sha256": "2d2e908c855cc1b8ebca7f66090a6d2da8967f57db3ee866d7126c08cb42472e"
+        },
+        {
+          "file": "src/profile/accountAvatarClient.test.ts",
+          "previousSha256": null,
+          "sha256": "90c7f30e94a9d99bdb41d4d740601c5ebc4302afd6dc229f1f27355dd82fbe81"
+        },
+        {
+          "file": "src/profile/useAvatar.ts",
+          "previousSha256": "2f029f08a16af0b69d99cea8aaee7c0445cd904352cc8daf7bfafbbc7898ddc2",
+          "sha256": "55853e38e8b312661429b9e7f32372fdf95a7cec63e67ba4d01dce4446ab2c79"
+        },
+        {
+          "file": "src/profile/AvatarEditor.tsx",
+          "previousSha256": "bca4c82750b7cfca2be1875d01f7a9b5a47673d4065ccd0bdcdff18361578804",
+          "sha256": "ab836db3aaa8ec21494070b02861062edb5f7d51d36ef74e4562d7955976a86b"
+        },
+        {
+          "file": "src/server/avatarEncoding.ts",
+          "previousSha256": null,
+          "sha256": "6520bcb2fb03e5cbd5893465610a9472bf53c60d597c6871b419e6c812ba5413"
+        },
+        {
+          "file": "src/server/avatarEncoding.test.ts",
+          "previousSha256": null,
+          "sha256": "fed8466d92818687e5a61b6da09464f0754bfd65d00e3950c235a4bc68001051"
+        },
+        {
+          "file": "src/server/accountAvatarRepository.ts",
+          "previousSha256": null,
+          "sha256": "50caa1716d9d7221bac6e8803f9440027d3f4fee348537337c952dcbbcb43b64"
+        },
+        {
+          "file": "src/server/accountAvatarRepository.test.ts",
+          "previousSha256": null,
+          "sha256": "c41d62aea2d517d37e0c21e7a010d2387534c4b05219ff097bcf40d020a2c1c7"
+        },
+        {
+          "file": "src/server/accountAvatarRoute.ts",
+          "previousSha256": null,
+          "sha256": "064652a51757f0f03c8cb553cc113cb56f50dda65152c57211cdbf6159f5ed25"
+        },
+        {
+          "file": "src/server/accountAvatarRoute.test.ts",
+          "previousSha256": null,
+          "sha256": "7565bcb75009fa74dae083698d5849564d6d081a388151cefd08e8dda808e860"
+        },
+        {
+          "file": "src/server/accountDeletionPolicy.ts",
+          "previousSha256": null,
+          "sha256": "ad38ebf3bf55c923810f343292e59ecfa6536a1b0f015f2739bdc41099c63e34"
+        },
+        {
+          "file": "src/server/accountDeletionRepository.test.ts",
+          "previousSha256": "ebbefd3775f04991b1c8a37a2b8f41abbd266465d728f7402effda533e51eee0",
+          "sha256": "475d0e15a1c9cf635163a93d6d8a845a5aa566d25e6e99a3a39b8bb577d8fd03"
+        },
+        {
+          "file": "src/server/syncRepository.ts",
+          "previousSha256": "b6a79ff9bb1127b6ef0ad719b13b5e08b71ceba2ed03e3c1dee5ed9cc55afd74",
+          "sha256": "6699b5e80074b492684f8784f0e43e0b7505e0544c55d5053156cb9b1d4f53e5"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "A02 native header transport audit and scoped fix",
+      "notes": "Java bridge already supports raw binary but its header allowlist dropped if-match/x-avatar-operation. Forward only those two new headers on exact /api/account/avatar PUT/DELETE; retain credential/origin rejection and existing owner/idempotency filters. Java policy regression covers route/method/case/credential boundaries, JS transport exact byte/header PUT+DELETE regression added. Targetedv4 7files/48tests pass. Offline Gradle unit tests pending; no device/picker/APK claim. Fullv27 deliberately interrupted before runtime edits, not pass; fullv28 now running on frozen final source. Migration restorev2 passed43migrations/64tables. Other bindings unchanged.",
+      "changes": [
+        {
+          "file": "mobile/android/app/src/main/java/com/regulus/hanzios/HanziDevicePlugin.java",
+          "previousSha256": null,
+          "sha256": "1e88dfa85e69c9dbd31e504fef289735c4e2a3165c513915a34c20a85e0d9494"
+        },
+        {
+          "file": "mobile/android/app/src/test/java/com/regulus/hanzios/NativeNetworkPolicyTest.java",
+          "previousSha256": null,
+          "sha256": "c10579f67a1734f81d2dc2cbd41bbf33f56c5c24e6fe35b1861b5e4b1bf277fa"
+        },
+        {
+          "file": "src/native/nativeRuntime.test.ts",
+          "previousSha256": "b6f33b993b65bf4794efb5f91b17f623ab3d83f9f83ed214af4a5ca4ac34fc1c",
+          "sha256": "0b97bdf5acb11bc303144b78cda9886eeaba1985b9f938cb5fcc44b7a505933a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "A02 account deletion query-budget preservation and authorized Git checkpoint",
+      "notes": "Fullv28 exposed real account deletion route query51>50; interrupted after preserving failing log. New private avatar tables reference only users ON DELETE CASCADE, so remove3 redundant explicit deletes and retain guarded parent deletion/atomic receipt. Do not raise test or D1 budget. Targetedv5 8files/63tests pass including route budget, hosted+ordinary deletion, exact other-owner portrait preservation. Remaining10 code files whitespace-only cleanup from staged git diff --check (9 final blank lines, one Gradle blank-space line); one handoff doc final blank line also removed. No content/scoring authority change; null previous hash can denote previously unbound inherited source. Fullv29 now running frozen final source. User explicitly requested commit+push after completion; stage811project files needed for coherent inherited runtime/auth/PWA/native/personalization checkpoint, exclude protected reports/output/design/deliverables/build/cache/local DB and credentials. Remote origin current codex branch initially0ahead/0behind; no deployment/main/force push. Empty stale index.lock dated2026-10-12 preserved to tmp then removed after confirming no Git process.",
+      "changes": [
+        {
+          "file": "src/server/accountDeletionPolicy.ts",
+          "previousSha256": "ad38ebf3bf55c923810f343292e59ecfa6536a1b0f015f2739bdc41099c63e34",
+          "sha256": "cf4e05176d8507dbcc95549d1cb5816163ed63a6c9c0f694c8762b37bdd2773a"
+        },
+        {
+          "file": "src/server/syncRepository.ts",
+          "previousSha256": "6699b5e80074b492684f8784f0e43e0b7505e0544c55d5053156cb9b1d4f53e5",
+          "sha256": "43c5f3b6793a714e2bd7747dbe0a917ca8a83ccf1f5e5d18ef60bba2946a2631"
+        },
+        {
+          "file": "app/admin/access/page.tsx",
+          "previousSha256": "c1aefb8200c0af6583adc5623b10f48c5f6cb3610ed836b869ff82e8c5cc0182",
+          "sha256": "05fe330a743322209ce98238db7bff39146af6c0fb75345287defb72a9c2f31f"
+        },
+        {
+          "file": "app/studio/StudioShell.tsx",
+          "previousSha256": null,
+          "sha256": "4554ac3d71f2e0b6a6b18b550eba407567e48d2ed164299849cba44add561acc"
+        },
+        {
+          "file": "app/studio/catalog/page.tsx",
+          "previousSha256": null,
+          "sha256": "cd16b4dd93b3039eac45b74d1fa196e0800c38148b22e29333f0839db465e155"
+        },
+        {
+          "file": "app/studio/exams/page.tsx",
+          "previousSha256": null,
+          "sha256": "dbfa7b5c64db606819f2cf20866218524e5c36836203fc13d55bf9d0727fbd33"
+        },
+        {
+          "file": "app/studio/items/[revisionId]/page.tsx",
+          "previousSha256": null,
+          "sha256": "6fca9b3b1c5f72c62feca4fe222d27f72a9394dccaf9fb06d734128663fc7f6e"
+        },
+        {
+          "file": "src/assessment/normalizedAssessmentCommandIds.ts",
+          "previousSha256": null,
+          "sha256": "0ce17c8530c4c99bd60482a87cc4c8c5b3c3019ca605279201c869b8676e89c0"
+        },
+        {
+          "file": "src/components/SystemOnboarding.tsx",
+          "previousSha256": null,
+          "sha256": "c22f5d8ed7f363872f8bf0700a309719cc731b4c7d844931cb8caafac321000c"
+        },
+        {
+          "file": "src/learning/normalizedLessonCommandIds.ts",
+          "previousSha256": null,
+          "sha256": "76f6cd71133fc84422fcdefabfded5c8110a9010ad71c129df4d4cff0070abf5"
+        },
+        {
+          "file": "src/server/contentStudioRepository.test.ts",
+          "previousSha256": "c91983452031cbefe6f7b7344e7dcc3e5bc80daf94ab77dab81329b716a71ed5",
+          "sha256": "43525694f0882625b97286df7eb83b9472b499d714c27b9a3549703bc2d1d30d"
+        },
+        {
+          "file": "mobile/android/build.gradle",
+          "previousSha256": null,
+          "sha256": "b0ce66e7e962e9799b728a9edc3f41bf63bc0ef2d1014faa9d56a2c3a5087c41"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "A02 offline local Images binding configuration",
+      "notes": "After fullv29 CHECK_EXIT0:565files/3634tests,43migrations64tables/build239JS192markers absent. Enable IMAGES only in default local Vite binding and wrangler.local with remote:false. Explicit externally selected cloud config remains unchanged. No external service/remote invocation enabled. Config delta typecheck/lint/buildv1 exit0; actual compiled local session/browser proof pending. Original .wrangler untouched; isolated clone includes0042. No release/APK/deploy.",
+      "changes": [
+        {
+          "file": "vite.config.ts",
+          "previousSha256": null,
+          "sha256": "eb5717827848a681bdcfde2216c80fc22728f7476b26da7b4a85179ec91ae69a"
+        },
+        {
+          "file": "wrangler.local.jsonc",
+          "previousSha256": null,
+          "sha256": "599fb44c3e344a9fde9c2fbade824cf23cbbc2f69150f2164fccfda432495ee5"
+        }
+      ]
+    }
+  ]
+}

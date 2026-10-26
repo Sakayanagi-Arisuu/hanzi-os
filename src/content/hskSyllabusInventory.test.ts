@@ -917,7 +917,9 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
     });
     expect(report.coverageClaims.every((claim) => claim.complete === false))
       .toBe(true);
-  }, 30_000);
+  // Use the same bounded CLI/content budget as vitest.config.ts; Android builds
+  // can contend for CPU while the report walks the full HSK inventory.
+  }, 60_000);
 
   it("keeps the checked coverage report deterministic", () => {
     const checked = readFileSync(
@@ -927,5 +929,5 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
     expect(checked).toBe(
       serializeHsk4CoverageReport(buildHsk4CoverageReport()),
     );
-  }, 30_000);
+  }, 60_000);
 });

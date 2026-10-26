@@ -168,6 +168,7 @@ export type LearningCommandFlushResult = {
 };
 
 type SameOriginTransportOptions = {
+  expectedOwnerKey?: string;
   fetch?: typeof fetch;
   origin?: string;
   signal?: AbortSignal;
@@ -249,6 +250,7 @@ export function createSameOriginLearningCommandTransport(
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        ...(options.expectedOwnerKey ? { 'x-learning-owner': options.expectedOwnerKey } : {}),
       },
       body: JSON.stringify(command),
     });
@@ -455,7 +457,7 @@ const parseObjectiveAttemptReceipt = (
     || !boundedString(value.evidenceId, 160)
     || value.resetEpoch !== command.resetEpoch
     || value.source !== command.source
-    || value.method !== command.method
+    || (value.method !== command.method && !(command.source === 'mistake' && value.method === 'remediation-recall'))
     || value.activityId !== command.activityId
     || value.activityVersion !== command.activityVersion
     || typeof value.skill !== "string"

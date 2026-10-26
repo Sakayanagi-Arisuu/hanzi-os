@@ -1,4 +1,4 @@
-import type { Exercise } from "../lib/exerciseGeneration";
+import type { Exercise } from "../lib/editorialExerciseGeneration";
 
 // Local-study, AI-assisted support; humanReviewed remains false.
 // Match both stimulus and answer so content revisions cannot silently reuse this support.

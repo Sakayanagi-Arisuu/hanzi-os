@@ -1,5 +1,6 @@
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { isStartingLevel } from "../learning/startingLevels";
+import { validOptionalLearningPreferences, validOptionalLearningPreferenceClock } from '../learning/learningPreferences';
 import type {
   EvidenceMethod,
   EvidenceOutcome,
@@ -10,8 +11,8 @@ import type {
 } from "../types";
 
 const MAX_EVIDENCE = 20_000;
-const MAX_ACTIVITY = 2_000;
-const MAX_MISTAKES = 2_000;
+const MAX_ACTIVITY = 100_000;
+const MAX_MISTAKES = 100_000;
 
 const skills = new Set<Skill>([
   "pronunciation",
@@ -124,6 +125,8 @@ export function parseLearningStateImport(
     || ![10, 20, 30].includes(Number(profile.dailyMinutes))
     || !["simplified", "traditional"].includes(String(profile.script))
     || !isStartingLevel(profile.startingLevel)
+    || !validOptionalLearningPreferences(profile.learningPreferences)
+    || !validOptionalLearningPreferenceClock(profile.learningPreferencesClock, profile.learningPreferences)
     || typeof profile.onboarded !== "boolean"
   ) {
     return { ok: false, error: "Cấu hình người học trong bản sao không hợp lệ." };

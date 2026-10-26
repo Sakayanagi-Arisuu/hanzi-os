@@ -1,4 +1,5 @@
 import { getChatGPTUser } from "../../../chatgpt-auth";
+import { learningOwnerMismatch } from '../../../../src/server/learningOwnerHttp';
 import {
   getD1Database,
   SyncBackendUnavailableError,
@@ -51,6 +52,7 @@ export async function GET(request: Request) {
         requestId,
       );
     }
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);
     const queue = await new MistakeQueueRepository(database).read(userId);

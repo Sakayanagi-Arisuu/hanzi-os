@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "applicationId": "com.regulus.hanzios",
+  "origin": "https://hanzi-os.quynguyen1404-dz.workers.dev",
+  "appName": "HANZI.OS",
+  "versionCode": 4,
+  "versionName": "0.3.1",
+  "minSdk": 24,
+  "compileSdk": 36,
+  "targetSdk": 36,
+  "buildToolsVersion": "36.0.0",
+  "androidGradlePlugin": "8.13.2",
+  "capacitorVersion": "8.5.3",
+  "gradleVersion": "8.13",
+  "gradleDistributionSha256": "20f1b1176237254a6fc204d8434196fa11a4cfb387567519c61556e8710aed78",
+  "gradleWrapperSha256": "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f"
+}

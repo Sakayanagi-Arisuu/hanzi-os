@@ -1,3 +1,4 @@
+import { cashLedgerEnabled } from "../../../../src/server/bankTransferRepository";
 import {
   isStudioItemType,
   isStudioLevel,
@@ -59,7 +60,7 @@ export async function GET(request: Request) {
   const lessonRequest = itemType === "lesson" || projection === "learning";
   try {
     const database = await getD1Database();
-    const freeLessonIds = sandboxCommerceEnabled(request.url)
+    const freeLessonIds = (sandboxCommerceEnabled(request.url) || cashLedgerEnabled(request.url))
       ? await new LessonAccessRepository(database).freeHsk4LessonIds() : [];
     const canUseHsk4Lessons = await requestPremiumAccess(request, database).catch(() => false);
     const gate = lessonRequest && level === "hsk4" && !canUseHsk4Lessons && freeLessonIds.length === 0

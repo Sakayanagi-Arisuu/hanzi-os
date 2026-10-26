@@ -6,6 +6,7 @@ import {
 import { dirname, extname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
+import ts from "typescript";
 
 const libraryDirectory = dirname(fileURLToPath(import.meta.url));
 const repositorySource = realpathSync(resolve(libraryDirectory, ".."));
@@ -23,9 +24,21 @@ const curriculum = realpathSync(resolve(
   "data/curriculum.ts",
 ));
 
-const imports = (source: string) => [...source.matchAll(
-  /(?:from\s+|import\s*\(\s*)["'](\.\.?\/[^"']+)["']/gu,
-)].map((match) => match[1]!);
+const imports = (source: string) => {
+  const file = ts.createSourceFile("consumer.tsx", source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const result: string[] = [];
+  const visit = (node: ts.Node) => {
+    if (ts.isImportDeclaration(node) && !node.importClause?.isTypeOnly
+      && ts.isStringLiteral(node.moduleSpecifier)) result.push(node.moduleSpecifier.text);
+    if (ts.isExportDeclaration(node) && !node.isTypeOnly
+      && node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) result.push(node.moduleSpecifier.text);
+    if (ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword
+      && node.arguments[0] && ts.isStringLiteral(node.arguments[0])) result.push(node.arguments[0].text);
+    ts.forEachChild(node, visit);
+  };
+  visit(file);
+  return result.filter(value => value.startsWith("."));
+};
 
 const staticImports = (source: string) => [...source.matchAll(
   /import\s+(?!\()(?:(?:type\s+)?[\s\S]*?\s+from\s+)?["']([^"']+)["'];/gu,
@@ -75,10 +88,13 @@ describe("authenticated remediation bundle boundary", () => {
       curriculum,
       realpathSync(resolve(repositorySource, "store/LearningStore.tsx")),
       realpathSync(resolve(repositorySource, "lib/exerciseGeneration.ts")),
+      realpathSync(resolve(repositorySource, "lib/editorialExerciseGeneration.ts")),
       realpathSync(resolve(repositorySource, "server/authoritativeItemBank.ts")),
+      realpathSync(resolve(repositorySource, "server/editorialItemBank.ts")),
       realpathSync(resolve(repositorySource, "server/remediationAttemptFeedback.ts")),
     ]);
     const pending = [authenticatedEntry];
+    const consumer = new Map<string, string>();
     const visited = new Set<string>();
 
     while (pending.length) {
@@ -86,8 +102,10 @@ describe("authenticated remediation bundle boundary", () => {
       if (visited.has(current)) continue;
       visited.add(current);
       if (forbidden.has(current)) {
+        const chain = [current];
+        while (consumer.has(chain[0]!)) chain.unshift(consumer.get(chain[0]!)!);
         throw new Error(
-          `Authenticated remediation reached forbidden module: ${current}`,
+          `Authenticated remediation reached forbidden module: ${chain.join(" -> ")}`,
         );
       }
 
@@ -100,7 +118,9 @@ describe("authenticated remediation bundle boundary", () => {
           && !dependency.endsWith(".test.ts")
           && !dependency.endsWith(".test.tsx")
         ) {
-          pending.push(realpathSync(dependency));
+          const target = realpathSync(dependency);
+          if (!consumer.has(target)) consumer.set(target, current);
+          pending.push(target);
         }
       }
     }

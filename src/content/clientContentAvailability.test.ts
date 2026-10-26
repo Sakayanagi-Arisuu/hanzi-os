@@ -19,4 +19,13 @@ describe("client content availability", () => {
       development: false,
     })).toBe(true);
   });
+  it('opens an explicit offline preview only on loopback and leaves production closed', () => {
+    for (const hostname of ['localhost', '127.0.0.1']) {
+      expect(clientClosedAlphaAvailable({ checkedInEligible: false, development: false, localOfflinePreview: true, hostname })).toBe(true);
+      expect(clientClosedAlphaAvailable({ checkedInEligible: false, development: false, hostname })).toBe(false);
+    }
+    for (const hostname of ['hanzi.example', '127.0.0.1.evil.example', '192.168.1.10', undefined]) {
+      expect(clientClosedAlphaAvailable({ checkedInEligible: false, development: false, localOfflinePreview: true, hostname })).toBe(false);
+    }
+  });
 });

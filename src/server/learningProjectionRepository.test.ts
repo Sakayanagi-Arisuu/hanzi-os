@@ -3,6 +3,7 @@ import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION, RELEASED_LESSONS } from "../data/curriculum";
+import { LEXICAL_EXERCISE_SUFFIX, LEXICAL_EDITORIAL_VERSION, lexicalBaseExerciseId, lexicalActivityVersion } from "../content/lexicalEditorialCatalog";
 import {
   canonicalAssessmentForm,
   hashAssessmentForm,
@@ -943,6 +944,24 @@ describe("normalized learning projection repository", () => {
       .toBe(1);
     expect(projection.cursor).toBeGreaterThan(0);
     expect(serializedActive).not.toContain("user-b");
+
+    // A corrected version of an already observed item adds an attempt, not
+    // another unique item. Use a terminal session so no active form is changed.
+    database.database.prepare(`UPDATE lesson_sessions SET status='submitted',
+      raw_score=0, gate_score=0, required_evidence_count=0, required_correct_count=0,
+      passed=0, submitted_at=? WHERE id=?`).run(submittedAt, active.sessionId);
+    insertActiveAttempt(database, {
+      userId: "user-a", sessionId: active.sessionId, sequence: 4, fixtureSuffix: "editorial",
+      activity: { ...activity,
+        activityId: activity.activityId.endsWith(LEXICAL_EXERCISE_SUFFIX)
+          ? lexicalBaseExerciseId(activity.activityId) : activity.activityId + LEXICAL_EXERCISE_SUFFIX,
+        activityVersion: activity.activityId.endsWith(LEXICAL_EXERCISE_SUFFIX)
+          ? activity.activityVersion.slice(0, -(`:${LEXICAL_EDITORIAL_VERSION}`).length)
+          : lexicalActivityVersion(activity.activityVersion) },
+    });
+    const correctedProjection = await repository.readV4("user-a");
+    expect(correctedProjection.objectiveEvidence[activity.skill].attemptCount).toBe(2);
+    expect(correctedProjection.gateEligibleCorrectActivityCounts[activity.skill]).toBe(1);
   });
 
   it("returns no enrollment or normalized facts when the exact course is not released", async () => {

@@ -6,7 +6,7 @@ import {
   type LessonSessionFormHash,
   type LessonSessionFormV1,
 } from "../learning/lessonSessionProtocol";
-import { getAuthoritativeLessonAnswer } from "./authoritativeItemBank";
+import { getAuthoritativeLessonAnswer } from "./editorialItemBank";
 
 export class LessonSessionFormValidationError extends Error {
   readonly code = "LESSON_SESSION_FORM_INVALID";

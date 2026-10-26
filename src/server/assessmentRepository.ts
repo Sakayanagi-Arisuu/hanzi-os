@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import {
   ASSESSMENT_ABANDONMENT_IDEMPOTENCY_SCOPE,
   ASSESSMENT_ABANDONMENT_PROTOCOL_VERSION,
@@ -55,7 +56,7 @@ import {
 } from "./assessmentScoring";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
+  isLearningContentAvailable,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
@@ -152,6 +153,7 @@ type AssessmentAttemptRow = {
 export type AssessmentRepositoryOptions = {
   publicationPolicy?: ContentReleasePolicy;
   bank?: readonly AuthoritativeAssessmentItem[];
+  selectionBank?: readonly AuthoritativeAssessmentItem[];
   blueprint?: AuthoritativeAssessmentBlueprint;
   randomSource?: AssessmentRandomSource;
   now?: () => number;
@@ -207,6 +209,7 @@ const assessmentChangeOperationId = {
 export class AssessmentRepository {
   private readonly publicationPolicy: ContentReleasePolicy;
   private readonly bank: readonly AuthoritativeAssessmentItem[];
+  private readonly selectionBank: readonly AuthoritativeAssessmentItem[];
   private readonly blueprint: AuthoritativeAssessmentBlueprint;
   private readonly randomSource: AssessmentRandomSource;
   private readonly now: () => number;
@@ -223,6 +226,7 @@ export class AssessmentRepository {
     this.publicationPolicy =
       options.publicationPolicy ?? CURRENT_CONTENT_RELEASE_POLICY;
     this.bank = options.bank ?? CURRENT_AUTHORITATIVE_ASSESSMENT_ITEMS;
+    this.selectionBank = options.selectionBank ?? this.bank;
     this.blueprint =
       options.blueprint ?? FOUNDATION_AUTHORITATIVE_ASSESSMENT_BLUEPRINT;
     this.randomSource = options.randomSource ?? secureRandom;
@@ -271,7 +275,7 @@ export class AssessmentRepository {
     );
     const exposed = await this.readExposureHistory(userId);
     const selection = selectAuthoritativeAssessmentForm({
-      bank: this.bank,
+      bank: this.selectionBank,
       blueprint: this.blueprint,
       exposedGroups: exposed.exposureGroups,
       exposedEquivalentGroups: exposed.equivalentGroups,
@@ -350,7 +354,7 @@ export class AssessmentRepository {
              AND enrollment.course_version_id = ? AND enrollment.status = 'active'
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
          ) AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}`,
       ).bind(
         idempotencyRecordId,
@@ -610,7 +614,7 @@ export class AssessmentRepository {
              AND session.status = 'started' AND enrollment.status = 'active'
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
              AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
          )`,
       ).bind(
@@ -912,7 +916,7 @@ export class AssessmentRepository {
              AND session.status = 'started' AND enrollment.status = 'active'
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
              AND (
                (SELECT COUNT(*) FROM assessment_attempts attempt WHERE attempt.user_id = session.user_id AND attempt.session_id = session.id AND attempt.reset_epoch = session.reset_epoch) = session.expected_item_count
                OR (? = 1 AND ? >= session.started_at + ?)
@@ -1234,7 +1238,7 @@ export class AssessmentRepository {
   }
 
   private async requireReleasedContent() {
-    if (!isPromotedContentReleasePolicy(this.publicationPolicy)) {
+    if (!isLearningContentAvailable(this.publicationPolicy)) {
       throw new AssessmentContentUnavailableError(
         "The immutable current content package has not passed explicit promotion gates.",
       );
@@ -1256,7 +1260,7 @@ export class AssessmentRepository {
          AND enrollment.course_version_id = ? AND enrollment.status = 'active'
          AND course.manifest_hash = ?
          AND course.release_state IN ('beta', 'published')
-         AND course.linguistic_review_status = 'approved'
+         AND ${learningReviewSql()}
        LIMIT 1`,
     ).bind(
       userId,

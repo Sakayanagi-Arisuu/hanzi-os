@@ -27,6 +27,7 @@ import {
   seriesCompletion,
 } from "../reader/library/readerProgress";
 import { useReaderProgress } from "../reader/library/useReaderProgress";
+import { ReaderStorageStatus } from '../reader/library/ReaderStorageStatus';
 import "../reader/library/readerLibrary.css";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
@@ -81,7 +82,7 @@ const matchesShelf = (series: ReaderSeries, shelf: DiscoveryState["shelf"]) => {
 
 export function ReaderLibraryPage() {
   const { state, actions, sync } = useLearning();
-  const { progress, setProgress, storageError } = useReaderProgress({
+  const { progress, setProgress, scopeReady, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
   });
@@ -91,6 +92,7 @@ export function ReaderLibraryPage() {
     initialView.discovery.query.length > 0 || initialView.discovery.level !== "Tất cả",
   );
   const [savedWordsOpen, setSavedWordsOpen] = useState(false);
+  const [savedWordError, setSavedWordError] = useState('');
   const [editorialSeries, setEditorialSeries] = useState<ReaderSeries[]>([]);
   const [editorialUnavailable, setEditorialUnavailable] = useState(false);
   const discoveryRef = useRef(discovery);
@@ -180,6 +182,8 @@ export function ReaderLibraryPage() {
     setDiscovery(emptyDiscovery);
     window.requestAnimationFrame(() => searchRef.current?.focus());
   };
+
+  if (!scopeReady) return <ReaderStorageStatus error={storageError} />;
 
   return (
     <section className="reader-library" data-testid="reader-library">
@@ -328,6 +332,7 @@ export function ReaderLibraryPage() {
         )}
       </main>
 
+      {savedWordError && <p role="alert">{savedWordError}</p>}
       <ReaderSavedWordsDialog
         entries={savedEntries}
         open={savedWordsOpen}
@@ -342,7 +347,7 @@ export function ReaderLibraryPage() {
             ? entry.entryId.slice("reader-core:".length)
             : null;
           if (coreWordId && state.savedWords.includes(coreWordId)) {
-            void actions.toggleSavedWord(coreWordId);
+            void actions.toggleSavedWord(coreWordId).catch(() => setSavedWordError('Chưa cập nhật Ngọc giản. Danh sách trong Tàng Tự Khố vẫn được giữ; hãy thử lại tại đó.'));
           }
         }}
       />

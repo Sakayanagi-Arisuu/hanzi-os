@@ -6,7 +6,7 @@ import {
   getHskLessonRuntimeBinding,
   HSK_RUNTIME_CATALOG_IDENTITY,
 } from "../data/hskCurriculumGraph";
-import type { Exercise } from "../lib/exerciseGeneration";
+import type { Exercise } from "../lib/editorialExerciseGeneration";
 import { canonicalStringify } from "../sync/canonicalHash";
 import type { LearningEvidence, Lesson } from "../types";
 import { buildLessonResumeExercises } from "./resumeProtocol";

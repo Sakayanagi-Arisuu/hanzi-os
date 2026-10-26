@@ -1,6 +1,6 @@
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
-import { CONTENT_VERSION } from "../data/curriculum";
-import { canonicalStringify } from "../sync/document";
+import { CONTENT_VERSION } from "../data/contentIdentity";
+import { canonicalStringify } from "../sync/canonicalHash";
 import type { NormalizedLessonRuntimeV1 } from "./normalizedLessonRuntime";
 import type {
   LessonSessionAuthorityBindingV1,

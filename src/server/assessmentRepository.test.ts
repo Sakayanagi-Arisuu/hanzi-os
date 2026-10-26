@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
+import { ActivityHistoryRepository } from './activityHistoryRepository';
 import { describe, expect, it } from "vitest";
 import type {
   AbandonAssessmentSessionCommandV1,
@@ -258,6 +259,20 @@ const completeSession = async (
 };
 
 describe("authenticated assessment repository", () => {
+  it('grades an open form with pinned old answers after its items leave the active selection bank',async()=>{
+    const database=new SQLiteD1();seedUser(database,'user-a');seedUser(database,'user-b');
+    const old=approvedBank();const original=repository(database,old);
+    const opened=await original.openSession('user-a',openCommand());
+    const next=old.map(item=>({...item,itemVersion:item.itemVersion+':next',correctAnswer:item.options[1]!}));
+    const updated=new AssessmentRepository(database,{bank:[...old,...next],selectionBank:next,publicationPolicy:promotedPolicy,randomSource:()=>0.5,now:()=>fixtureTime});
+    const newer=await updated.openSession('user-b',openCommand('user-b'));
+    expect(newer.form.items.every(item=>item.itemVersion.endsWith(':next'))).toBe(true);
+    for(const item of opened.form.items){
+      await updated.recordAttempt('user-a',attemptCommand(opened,item,{response:{kind:'selection',answer:answerFor(old,item.itemVersion)}}));
+    }
+    expect(database.database.prepare("SELECT count(*) AS n FROM assessment_attempts WHERE user_id='user-a' AND outcome='correct'").get()?.n).toBe(opened.form.items.length);
+    database.database.close();
+  });
   it("fails closed for the unpromoted package and the real pending bank", async () => {
     const database = new SQLiteD1();
     seedUser(database, "user-a");
@@ -382,6 +397,13 @@ describe("authenticated assessment repository", () => {
       itemVersion: item.itemVersion,
     });
     expect(JSON.stringify(receipt)).not.toMatch(/outcome|score|answer/iu);
+    const activeHistory = await new ActivityHistoryRepository(database).readPage('user-a', 'account:a', 0);
+    expect(activeHistory.events.filter(event => event.business?.category === 'objective')).toMatchObject([{ module: 'assessment', outcome: 'unknown', score: null,
+      authority: 'server-recorded', masteryEligible: false, operationId: command.idempotencyKey }]);
+    expect(activeHistory.events.filter(event => event.business?.category === 'session')).toMatchObject([
+      { business: { details: { requestedAction: 'open', status: 'started' } }, outcome: 'unknown', score: null },
+    ]);
+    expect(JSON.stringify(activeHistory.events)).not.toContain(answerFor(bank, item.itemVersion));
     const stored = database.database.prepare(
       "SELECT outcome, score, response_json AS responseJson FROM assessment_attempts WHERE id = ?",
     ).get(receipt.attemptId) as Record<string, unknown>;
@@ -549,6 +571,12 @@ describe("authenticated assessment repository", () => {
       overall: { correct: 1, n: 1 },
       masteryEligible: false,
     });
+    const history = await new ActivityHistoryRepository(database).readPage('user-a', 'account:a', 0);
+    expect(history.events.filter(event => event.business?.category === 'objective'))
+      .toMatchObject([{ module: 'assessment', outcome: 'correct', score: 100, authority: 'server-verified', masteryEligible: false }]);
+    expect(history.events.filter(event => event.business?.category === 'session')).toHaveLength(2);
+    expect(history.events.some(event => event.business?.details?.requestedAction === 'submit' && event.business.details.status === 'submitted'
+      && event.score === null && event.masteryEligible === false)).toBe(true);
     expect(database.database.prepare(
       "SELECT status, terminal_at AS terminalAt FROM assessment_sessions WHERE id = ?",
     ).get(opened.sessionId)).toEqual({

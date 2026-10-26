@@ -1,5 +1,5 @@
-import { CONTENT_VERSION } from "../data/curriculum";
-import { canonicalStringify, sha256Hex } from "../sync/document";
+import { CONTENT_VERSION } from "../data/contentIdentity";
+import { canonicalStringify, sha256Hex } from "../sync/canonicalHash";
 import type { Skill } from "../types";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
 import {

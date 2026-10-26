@@ -110,6 +110,7 @@ export function SystemOnboarding({ onComplete, onExit }: SystemOnboardingProps) 
   const { actions, state } = useLearning();
   const [step, setStep] = useState(0);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const minutesChosen = useRef(false);
   const [profile, setProfile] = useState<Profile>(() => state.profile.onboarded
     ? { ...state.profile }
     : {
@@ -124,6 +125,15 @@ export function SystemOnboarding({ onComplete, onExit }: SystemOnboardingProps) 
   useEffect(() => {
     headingRef.current?.focus();
   }, [step]);
+
+  useEffect(()=>{
+    if(state.profile.onboarded)return;
+    const controller=new AbortController();
+    fetch('/api/system/preferences',{signal:controller.signal,cache:'no-store'}).then(response=>response.ok?response.json():null).then(body=>{
+      if(!minutesChosen.current&&[10,20,30].includes(body?.dailyMinutes))setProfile(current=>({...current,dailyMinutes:body.dailyMinutes}));
+    }).catch(()=>undefined);
+    return()=>controller.abort();
+  },[state.profile.onboarded]);
 
   const goToStep = (nextStep: number) => {
     setStep(Math.max(0, Math.min(stepCopy.length - 1, nextStep)));
@@ -252,7 +262,8 @@ export function SystemOnboarding({ onComplete, onExit }: SystemOnboardingProps) 
                       aria-checked={profile.dailyMinutes === minutes}
                       tabIndex={profile.dailyMinutes === minutes ? 0 : -1}
                       type="button"
-                      onClick={() => setProfile((current) => ({ ...current, dailyMinutes: minutes }))}
+                      onKeyDownCapture={() => { minutesChosen.current=true; }}
+                      onClick={() => { minutesChosen.current=true; setProfile((current) => ({ ...current, dailyMinutes: minutes })); }}
                       onKeyDown={(event) => handleRadioGroupKeyDown(event, {
                         currentIndex: optionIndex,
                         itemCount: dailyMinuteOptions.length,

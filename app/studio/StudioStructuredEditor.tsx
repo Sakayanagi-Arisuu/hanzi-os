@@ -843,6 +843,7 @@ export function StudioStructuredEditor({
         <div><small>{mode === "create" ? "ĐANG TẠO BẢN NHÁP" : "ĐANG CHỈNH BẢN NHÁP"} · {presentation.module}</small><h2>{mode === "create" ? `Biểu mẫu ${presentation.label.toLowerCase()}` : `Biên tập ${presentation.label.toLowerCase()}`}</h2><p>{presentation.description} Các ô có dấu * là bắt buộc.</p></div>
       </div>
 
+      <div className="tv-form-scroll">
       <section className="studio-form-section studio-identity-section">
         <header><span>ID</span><div><h2>Định danh bản nháp</h2><p>Chọn cấp độ và đặt tên để dễ tìm lại trong thư khố.</p></div></header>
         <div className="studio-three-columns">
@@ -860,6 +861,7 @@ export function StudioStructuredEditor({
         <QualityChecklist initialContent={content} />
       </div>
 
+      </div>
       <footer className="studio-editor-footer">
         <div><Sparkles size={18} /><span><strong>{dirty ? "Có thay đổi chưa lưu" : mode === "create" ? "Bản nháp mới" : "Bản nháp đã đồng bộ"}</strong><small>Người học chưa thấy nội dung cho tới khi qua kiểm định và phê duyệt.</small></span></div>
         <button type="submit" disabled={!mounted}><Save size={19} /> {mode === "create" ? "Tạo bản nháp" : "Lưu thay đổi"}</button>

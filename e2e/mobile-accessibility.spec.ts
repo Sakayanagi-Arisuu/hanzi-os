@@ -4,7 +4,7 @@ const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await page.goto("/");
   await expect(page.getByTestId("product-overview")).toBeVisible();
   await page.locator("#landing-main").getByRole("button", {
-    name: "Kích hoạt HANZI.OS",
+    name: "Bắt đầu hành trình",
   }).click();
   await expect(page.getByTestId("onboarding-wizard")).toBeVisible();
   await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
@@ -12,7 +12,7 @@ const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
   await expect(page).toHaveURL(/\/assessment$/u);
   await expect(page.getByRole("heading", {
-    name: "Khảo Nghiệm Căn Cơ",
+    name: "Tìm điểm khởi hành",
   })).toBeVisible();
   await page.goto("/");
 };
@@ -27,60 +27,82 @@ test("keeps the mobile command sheet keyboard-safe and routes without overflow",
   const mobileNavigation = page.getByRole("navigation", {
     name: "Điều hướng di động",
   });
-  const moreButton = mobileNavigation.getByRole("button", { name: "Khác" });
+  const moreButton = mobileNavigation.getByRole("button", { name: "Luyện · chọn công cụ" });
   await expect(mobileNavigation).toBeVisible();
+  await expect(mobileNavigation.locator(':scope > a, :scope > button')).toHaveText(['Học', 'Ôn', 'Nói', 'Luyện', 'Hồ sơ']);
   await moreButton.click();
 
-  const menu = page.getByRole("dialog", { name: "Mở rộng điều hướng" });
+  const menu = page.getByRole("dialog", { name: "Công cụ học và luyện tập" });
   const closeButton = menu.getByRole("button", {
-    name: "Đóng bảng chức năng",
+    name: "Đóng công cụ học",
   });
-  const profileLink = menu.getByRole("link", { name: "Bảng Thuộc Tính" });
   await expect(menu).toBeVisible();
   await expect(closeButton).toBeFocused();
-
-  await page.keyboard.press("Shift+Tab");
-  await expect(profileLink).toBeFocused();
-  await page.keyboard.press("Tab");
+  await expect(page.getByRole('status', { name: 'Lời mời Khảo Nghiệm Căn Cơ' })).toHaveCount(0);
+  await page.keyboard.press('Alt+s');
+  await expect(page.getByRole('dialog')).toHaveCount(1);
   await expect(closeButton).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(menu).toHaveCount(0);
   await expect(moreButton).toBeFocused();
+  const dimensions = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth);
+});
 
+test("opens the selected mobile tool and focuses its content without overflow", async ({ page }) => {
+  await finishOnboarding(page);
+  const moreButton = page.getByRole("navigation", { name: "Điều hướng di động" })
+    .getByRole("button", { name: "Luyện · chọn công cụ" });
   await moreButton.click();
+  const menu = page.getByRole("dialog", { name: "Công cụ học và luyện tập" });
+  const closeButton = menu.getByRole("button", { name: "Đóng công cụ học" });
+  await expect(closeButton).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(menu.getByRole("link", { name: "Bảng Thuộc Tính" })).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(closeButton).toBeFocused();
   await page.getByRole("dialog", {
-    name: "Mở rộng điều hướng",
+    name: "Công cụ học và luyện tập",
   }).getByRole("link", { name: "Vạn Quyển Các" }).click();
   await expect(page).toHaveURL(/\/reader$/u);
   await expect(page.getByRole("heading", {
-    name: "Vạn Quyển Các",
+    name: "Chọn một thế giới để khai quyển",
   })).toBeVisible();
   await expect(page.locator("#main-content")).toBeFocused();
+  const readerWidth = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(readerWidth.scrollWidth, "Reader selected from menu overflows horizontally").toBeLessThanOrEqual(readerWidth.clientWidth);
+});
 
-  const routes = [
+const mobileRoutes = [
     {
       path: "/path",
-      ready: () => page.getByRole("heading", { name: /Thiên Lộ/u }),
+      role: "heading", name: /Thiên Lộ/u,
     },
     {
       path: "/lesson/boot-1",
-      ready: () => page.getByRole("button", {
-        name: /Hoàn tất 3 chặng học ở trên|Bước vào Thử Luyện/i,
-      }),
+      role: "navigation", name: "3 chặng học trước khi làm bài",
     },
     {
       path: "/reader",
-      ready: () => page.getByRole("heading", { name: "Vạn Quyển Các" }),
+      role: "heading", name: "Chọn một thế giới để khai quyển",
     },
     {
       path: "/profile",
-      ready: () => page.getByRole("heading", { name: /Bảng Thuộc Tính/i }),
+      role: "heading", name: "Cấu hình hệ thống",
     },
-  ];
+  ] as const;
 
-  for (const route of routes) {
+for (const route of mobileRoutes) {
+  test(`keeps mobile route ${route.path} within the viewport`, async ({ page }) => {
+    await finishOnboarding(page);
     await page.goto(route.path);
-    await expect(route.ready()).toBeVisible();
+    await expect(page.getByRole(route.role, { name: route.name, exact: true })).toBeVisible();
     const dimensions = await page.evaluate(() => ({
       clientWidth: document.documentElement.clientWidth,
       scrollWidth: document.documentElement.scrollWidth,
@@ -88,8 +110,8 @@ test("keeps the mobile command sheet keyboard-safe and routes without overflow",
     expect(dimensions.scrollWidth, `${route.path} overflows horizontally`).toBeLessThanOrEqual(
       dimensions.clientWidth,
     );
-  }
-});
+  });
+}
 
 test("summons a keyboard-safe status hologram backed by live learning signals", async ({
   page,
@@ -238,10 +260,10 @@ test.describe("reduced motion", () => {
     await finishOnboarding(page);
     const moreButton = page.getByRole("navigation", {
       name: "Điều hướng di động",
-    }).getByRole("button", { name: "Khác" });
+    }).getByRole("button", { name: "Luyện · chọn công cụ" });
     await moreButton.click();
 
-    const menu = page.getByRole("dialog", { name: "Mở rộng điều hướng" });
+    const menu = page.getByRole("dialog", { name: "Công cụ học và luyện tập" });
     await expect(menu).toBeVisible();
     const motion = await menu.evaluate((element) => {
       const style = getComputedStyle(element);

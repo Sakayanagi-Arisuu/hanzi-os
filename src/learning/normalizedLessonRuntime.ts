@@ -8,8 +8,8 @@ import {
 import {
   buildExerciseCatalog,
   type Exercise,
-} from "../lib/exerciseGeneration";
-import { canonicalStringify } from "../sync/document";
+} from "../lib/editorialExerciseGeneration";
+import { canonicalStringify } from "../sync/canonicalHash";
 import type { Lesson, Skill } from "../types";
 import {
   CURRENT_AUTHORITATIVE_COURSE_ID,
@@ -29,7 +29,8 @@ import {
 import { isValidLearningResetEpoch } from "./resetEpoch";
 
 export const NORMALIZED_LESSON_RUNTIME_SCHEMA_VERSION = 1 as const;
-export const MAX_NORMALIZED_LESSON_ACTIVITIES = 10;
+import { MAX_NORMALIZED_LESSON_ACTIVITIES } from "./normalizedLessonCommandIds";
+export { MAX_NORMALIZED_LESSON_ACTIVITIES } from "./normalizedLessonCommandIds";
 
 export type NormalizedLessonRuntimeFailureCode =
   | "lesson-unavailable"

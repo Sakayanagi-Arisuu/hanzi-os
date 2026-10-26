@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { RELEASED_LESSONS, WORD_BY_ID } from "../data/curriculum";
-import { buildExerciseCatalog } from "../lib/exerciseGeneration";
+import { buildExerciseCatalog } from "../lib/editorialExerciseGeneration";
 import { resolveExerciseSpeechText } from "./exerciseSpeech";
 
 const teacher = [...WORD_BY_ID.values()].find((word) => word.simplified === "老师")!;

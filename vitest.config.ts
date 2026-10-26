@@ -19,6 +19,9 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, ...DEFERRED_PRODUCTION_CONTENT_TESTS],
     passWithNoTests: false,
     restoreMocks: true,
-    testTimeout: 10_000,
+    // CLI/content tests launch subprocesses; bound concurrency so a local
+    // checkout does not exhaust RAM while browser/build checks are running.
+    maxWorkers: 2,
+    testTimeout: 60_000,
   },
 });

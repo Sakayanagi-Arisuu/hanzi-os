@@ -1,4 +1,9 @@
 import "fake-indexeddb/auto";
+import { readLocalLessonHistory } from "./lessonHistory";
+import {readLocalReviewHistory} from './reviewHistory';
+import { readLocalActivityHistory } from './activityHistory';
+import { readActiveOwnerLearningScope, openSyncDatabase, writeLessonResume } from "./indexedDb";
+import { deleteOwnerData } from "./indexedDb";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CONTENT_VERSION } from "../data/curriculum";
 import type { LearningAttemptCommandV1 } from "../learning/attemptProtocol";
@@ -10,6 +15,8 @@ import {
 } from "../lib/storageKeys";
 import type { LearningEvidence, LearningState, StudyEvent } from "../types";
 import { createInitialSyncDocument } from "./document";
+import { enableOfflineAccount, readOfflineAccount, revokeOfflineAccount } from './offlineAccount';
+import { beginAccountDeletionReceipt, readAccountDeletionReceipts } from './accountDeletion';
 import {
   isCloudSession,
   LearningSyncCoordinator,
@@ -315,6 +322,268 @@ afterEach(async () => {
   vi.unstubAllGlobals();
 });
 
+describe('T02 descriptive document transactions', () => {
+  it('durably commits declared session preferences with one history record and preserves learning when opting out', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ authenticated: false, accountKey: null, user: null })));
+    const harness = createCoordinatorHarness(stateFixture());
+    await harness.coordinator.initialize();
+    const scope = (await readActiveOwnerLearningScope())!;
+    const preferences = { version: 1 as const, source: 'self-reported' as const, sessionMinutes: 5 as const,
+      topics: ['shopping' as const], audio: 'unavailable' as const, microphone: 'unavailable' as const, allowInference: true };
+    await harness.coordinator.recordDocumentMutation(scope, current => ({ ...current, profile: { ...current.profile, learningPreferences: preferences } }));
+    const saved = await readOwnerLocalState(scope.ownerGeneration.ownerKey);
+    expect(saved?.profile.learningPreferences).toEqual(preferences);
+    const history = await readLocalActivityHistory(scope);
+    expect(history).toHaveLength(1);
+    expect(history[0]).toMatchObject({ masteryEligible: false, business: { category: 'preference',
+      details: { sessionMinutes: 5, allowInference: true, preferenceSource: 'self-reported', sessionAudio: 'unavailable' } } });
+    await harness.coordinator.recordDocumentMutation(scope, current => ({ ...current, profile: { ...current.profile, learningPreferences: null } }));
+    const reset = await readOwnerLocalState(scope.ownerGeneration.ownerKey);
+    expect(reset?.profile.learningPreferences).toBeNull();
+    expect({ ...reset, profile: saved!.profile }).toEqual(saved);
+    expect(await readLocalActivityHistory(scope)).toHaveLength(2);
+    harness.coordinator.dispose();
+  });
+  const setup = async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ authenticated: false, accountKey: null, user: null })));
+    const harness = createCoordinatorHarness(stateFixture());
+    await harness.coordinator.initialize();
+    vi.stubGlobal('navigator', { onLine: false, locks: undefined });
+    return { harness, scope: (await readActiveOwnerLearningScope())! };
+  };
+  it('rebases two tabs and preserves profile/save history across retry and reload without granting authority', async () => {
+    const { harness: first, scope } = await setup();
+    const second = createCoordinatorHarness(stateFixture()); await second.coordinator.initialize();
+    await Promise.all([
+      first.coordinator.recordDocumentMutation(scope, current => ({ ...current, profile: { ...current.profile, goal: 'travel' } })),
+      second.coordinator.recordDocumentMutation(scope, current => ({ ...current, savedWords: ['greet-ni'] })),
+    ]);
+    const state = await readOwnerLocalState(scope.ownerGeneration.ownerKey);
+    expect(state).toMatchObject({ profile: { goal: 'travel' }, savedWords: ['greet-ni'], xp: 0, completedLessons: {} });
+    const events = await readLocalActivityHistory(scope);
+    expect(events).toHaveLength(2);
+    expect(events.every(event => event.score === null && event.outcome === 'unknown' && !event.masteryEligible)).toBe(true);
+    await first.coordinator.recordDocumentMutation(scope, current => ({ ...current, profile: { ...current.profile, goal: 'travel' } }));
+    expect(await readLocalActivityHistory(scope)).toEqual(events);
+    first.coordinator.dispose(); second.coordinator.dispose(); await resetSyncDatabaseForTests();
+    expect(await readLocalActivityHistory(scope)).toEqual(events);
+  });
+  it('rolls back profile, document and outbox on history storage failure and fences stale reset/owner', async () => {
+    const { harness, scope } = await setup();
+    const before = await readOwnerLocalState(scope.ownerGeneration.ownerKey);
+    const pending = await listPendingOperations(scope.ownerGeneration.ownerKey);
+    const put = IDBObjectStore.prototype.put;
+    const failure = vi.spyOn(IDBObjectStore.prototype, 'put').mockImplementation(function(this: IDBObjectStore, value, key) {
+      if (this.name === 'lesson-resumes') throw new DOMException('quota', 'QuotaExceededError');
+      return key === undefined ? put.call(this, value) : put.call(this, value, key);
+    });
+    const update = (current: LearningState): LearningState => ({ ...current, profile: { ...current.profile, goal: 'career' } });
+    await expect(harness.coordinator.recordDocumentMutation(scope, update)).rejects.toThrow();
+    failure.mockRestore();
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toEqual(before);
+    expect(await listPendingOperations(scope.ownerGeneration.ownerKey)).toEqual(pending);
+    expect(await readLocalActivityHistory(scope)).toEqual([]);
+    await expect(harness.coordinator.recordDocumentMutation({ ...scope, resetEpoch: scope.resetEpoch + 1 }, update)).rejects.toThrow();
+    await transitionOwnerCheckpoint(scope.ownerGeneration, 'account:switched', 0,
+      createInitialSyncDocument(stateFixture(), NOW, 'document-switch'), stateFixture());
+    await expect(harness.coordinator.recordDocumentMutation(scope, update)).rejects.toThrow();
+    harness.coordinator.dispose();
+  });
+});
+
+describe('T02 guest review transaction',()=>{
+  const appendGrade=(operationId:string)=>(current:LearningState):LearningState=>current.evidence.some(entry=>entry.idempotencyKey===operationId)?current:{
+    ...current,xp:current.xp+5,reviewCount:current.reviewCount+1,evidence:[...current.evidence,evidenceFixture(operationId,{
+      source:'review',method:'fsrs-rating',activityId:'review:greet-ni',outcome:'unverified',score:null,verified:false,masteryEligible:false,
+      metadata:{rating:3,usedHint:false,wordVersion:'frozen-word-v1',schedulerVersion:'guest-fuzz-v1',reviewModality:'hanzi-reading-meaning-recall'}})]};
+  const setup=async()=>{
+    vi.stubGlobal('fetch',vi.fn(async()=>Response.json({authenticated:false,accountKey:null,user:null})));
+    const harness=createCoordinatorHarness(stateFixture());await harness.coordinator.initialize();
+    return {harness,scope:(await readActiveOwnerLearningScope())!};
+  };
+  it('commits atomically offline, retries once, reopens and keeps separate reviews of the same card across tabs',async()=>{
+    const {harness:first,scope}=await setup();vi.stubGlobal('navigator',{onLine:false,locks:undefined});
+    await first.coordinator.recordReviewGrade(scope,'review:first',appendGrade('review:first'));
+    await first.coordinator.recordReviewGrade(scope,'review:first',appendGrade('review:first'));
+    expect(await readLocalReviewHistory(scope)).toHaveLength(1);
+    expect(await readLocalLessonHistory(scope)).toEqual([]);
+    first.coordinator.dispose();await resetSyncDatabaseForTests();
+    const left=createCoordinatorHarness(stateFixture()),right=createCoordinatorHarness(stateFixture());
+    await left.coordinator.initialize();await right.coordinator.initialize();
+    await Promise.all([left.coordinator.recordReviewGrade(scope,'review:second',appendGrade('review:second')),
+      right.coordinator.recordReviewGrade(scope,'review:third',appendGrade('review:third'))]);
+    expect(await readLocalReviewHistory(scope)).toHaveLength(3);
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toMatchObject({xp:15,reviewCount:3,completedLessons:{},skillMastery:stateFixture().skillMastery});
+    left.coordinator.dispose();right.coordinator.dispose();
+  });
+  it('keeps old state/journal/outbox after quota and fences owner/reset changes',async()=>{
+    const {harness,scope}=await setup();
+    await harness.coordinator.recordReviewGrade(scope,'review:old',appendGrade('review:old'));
+    const before=await readOwnerLocalState(scope.ownerGeneration.ownerKey),history=await readLocalReviewHistory(scope),pending=await listPendingOperations(scope.ownerGeneration.ownerKey);
+    const put=IDBObjectStore.prototype.put;
+    const failure=vi.spyOn(IDBObjectStore.prototype,'put').mockImplementation(function(this:IDBObjectStore,value,key){
+      if(this.name==='lesson-resumes')throw new DOMException('quota','QuotaExceededError');
+      return key===undefined?put.call(this,value):put.call(this,value,key);
+    });
+    await expect(harness.coordinator.recordReviewGrade(scope,'review:lost',appendGrade('review:lost'))).rejects.toThrow();failure.mockRestore();
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toEqual(before);
+    expect(await readLocalReviewHistory(scope)).toEqual(history);expect(await listPendingOperations(scope.ownerGeneration.ownerKey)).toEqual(pending);
+    await expect(harness.coordinator.recordReviewGrade({...scope,resetEpoch:1},'review:reset',appendGrade('review:reset'))).rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    await transitionOwnerCheckpoint(scope.ownerGeneration,'account:other',0,createInitialSyncDocument(stateFixture(),NOW,'switch'),stateFixture());
+    await expect(harness.coordinator.recordReviewGrade(scope,'review:owner',appendGrade('review:owner'))).rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toEqual(before);harness.coordinator.dispose();
+  });
+  it('reconstructs history after crash following the business commit, without another grade',async()=>{
+    vi.stubGlobal('fetch',vi.fn(async()=>Response.json({authenticated:false,accountKey:null,user:null})));
+    let current=stateFixture(),crash=false;
+    const coordinator=new LearningSyncCoordinator({initialState:current,getState:()=>current,applyState:next=>{
+      if(crash)throw new Error('crash');current=next;return true;
+    },onStatus:()=>undefined});
+    await coordinator.initialize();const scope=(await readActiveOwnerLearningScope())!;crash=true;
+    await expect(coordinator.recordReviewGrade(scope,'review:crash',appendGrade('review:crash'))).rejects.toThrow('crash');
+    coordinator.dispose();await resetSyncDatabaseForTests();
+    expect(await readLocalReviewHistory(scope)).toHaveLength(1);
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toMatchObject({xp:5,reviewCount:1});
+  });
+});
+
+describe("T01 guest lesson history business commit", () => {
+  const appendAttempt = (operationId: string) => (current: LearningState): LearningState => {
+    if (current.evidence.some((entry) => entry.idempotencyKey === operationId)) return current;
+    return { ...current, evidence: [...current.evidence, evidenceFixture(operationId, {
+      metadata: { lessonId: "daily-1", sessionId: `lesson-session:daily-1:${operationId}`, usedHint: false, priorExposure: false },
+    })] };
+  };
+  const initializeGuest = async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ authenticated: false, accountKey: null, user: null })));
+    const harness = createCoordinatorHarness(stateFixture());
+    await harness.coordinator.initialize();
+    const scope = await readActiveOwnerLearningScope();
+    if (!scope) throw new Error("Missing fixture scope");
+    return { harness, scope };
+  };
+
+  it("commits the business source and one event before acknowledging; retry and reload keep one activity", async () => {
+    const { harness, scope } = await initializeGuest();
+    vi.stubGlobal("navigator", { onLine: false, locks: undefined });
+    await harness.coordinator.recordLessonAttempt(scope, "history:one", appendAttempt("history:one"));
+    await harness.coordinator.recordLessonAttempt(scope, "history:one", appendAttempt("history:one"));
+    expect(await readLocalLessonHistory(scope)).toMatchObject([{ operationId: "history:one", confirmationState: "provisional", masteryEligible: false }]);
+    expect((await readOwnerLocalState(scope.ownerGeneration.ownerKey))?.evidence).toHaveLength(1);
+    expect(harness.getState()).toMatchObject({ xp: 0, completedLessons: {}, fsrsCards: {} });
+    harness.coordinator.dispose();
+    await resetSyncDatabaseForTests();
+    const reloaded = createCoordinatorHarness(stateFixture());
+    await reloaded.coordinator.initialize();
+    expect(await readLocalLessonHistory(scope)).toHaveLength(1);
+    expect(reloaded.getState().evidence).toHaveLength(1);
+    reloaded.coordinator.dispose();
+  });
+
+  it("rebases concurrent tabs on durable state even without navigator locks", async () => {
+    const { harness: first, scope } = await initializeGuest();
+    const second = createCoordinatorHarness(stateFixture());
+    await second.coordinator.initialize();
+    await Promise.all([
+      first.coordinator.recordLessonAttempt(scope, "history:tab-a", appendAttempt("history:tab-a")),
+      second.coordinator.recordLessonAttempt(scope, "history:tab-b", appendAttempt("history:tab-b")),
+    ]);
+    expect(await readLocalLessonHistory(scope)).toHaveLength(2);
+    expect((await readOwnerLocalState(scope.ownerGeneration.ownerKey))?.evidence).toHaveLength(2);
+    first.coordinator.dispose(); second.coordinator.dispose();
+  });
+
+  it("aborts both business and event writes when history storage rejects a write", async () => {
+    const { harness, scope } = await initializeGuest();
+    const before = await readOwnerLocalState(scope.ownerGeneration.ownerKey);
+    const pending = await listPendingOperations(scope.ownerGeneration.ownerKey);
+    const put = IDBObjectStore.prototype.put;
+    const failure = vi.spyOn(IDBObjectStore.prototype, "put").mockImplementation(function (this: IDBObjectStore, value, key) {
+      if (this.name === "lesson-resumes" && String(value.entryKey).startsWith("lesson-history:v1:"))
+        throw new DOMException("fixture quota", "QuotaExceededError");
+      return key === undefined ? put.call(this, value) : put.call(this, value, key);
+    });
+    await expect(harness.coordinator.recordLessonAttempt(scope, "history:quota", appendAttempt("history:quota"))).rejects.toThrow();
+    failure.mockRestore();
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toEqual(before);
+    expect(await listPendingOperations(scope.ownerGeneration.ownerKey)).toEqual(pending);
+    expect(await readLocalLessonHistory(scope)).toEqual([]);
+    expect(harness.getState().evidence).toEqual([]);
+    harness.coordinator.dispose();
+  });
+
+  it("does not overwrite a stored state with an unsupported version", async () => {
+    const { harness, scope } = await initializeGuest();
+    const database = await openSyncDatabase();
+    const transaction = database.transaction("local-states", "readwrite");
+    transaction.objectStore("local-states").put({ ownerKey: scope.ownerGeneration.ownerKey,
+      state: { ...stateFixture(), schemaVersion: 99 }, updatedAt: NOW });
+    await new Promise<void>((resolve) => { transaction.oncomplete = () => resolve(); });
+    const before = await readOwnerLocalState(scope.ownerGeneration.ownerKey);
+    await expect(harness.coordinator.recordLessonAttempt(scope, "history:unknown", appendAttempt("history:unknown"))).rejects.toThrow("đọc");
+    expect(await readOwnerLocalState(scope.ownerGeneration.ownerKey)).toEqual(before);
+    expect(await readLocalLessonHistory(scope)).toEqual([]);
+    harness.coordinator.dispose();
+  });
+
+  it("keeps committed history after a crash before applying the display projection", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ authenticated: false, accountKey: null, user: null })));
+    let current = stateFixture();
+    let crash = false;
+    const coordinator = new LearningSyncCoordinator({ initialState: current, getState: () => current,
+      applyState: (next) => { if (crash) throw new Error("fixture crash after commit"); current = next; return true; }, onStatus: () => undefined });
+    await coordinator.initialize();
+    const scope = (await readActiveOwnerLearningScope())!;
+    crash = true;
+    await expect(coordinator.recordLessonAttempt(scope, "history:crash", appendAttempt("history:crash"))).rejects.toThrow("crash");
+    coordinator.dispose();
+    await resetSyncDatabaseForTests();
+    expect(await readLocalLessonHistory(scope)).toHaveLength(1);
+    expect((await readOwnerLocalState(scope.ownerGeneration.ownerKey))?.evidence).toHaveLength(1);
+  });
+
+  it("keeps prior-epoch journal records outside the current projection; explicit owner deletion removes them", async () => {
+    const { harness, scope } = await initializeGuest();
+    await harness.coordinator.recordLessonAttempt(scope, "history:before-reset", appendAttempt("history:before-reset"));
+    const document = createInitialSyncDocument(stateFixture(), NOW, "history-reset");
+    document.reset.epoch = scope.resetEpoch + 1;
+    await writeOwnerCheckpoint(scope.ownerGeneration.ownerKey, 1, document, stateFixture(), scope.ownerGeneration);
+    await expect(readLocalLessonHistory(scope)).rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    expect(await readLocalLessonHistory({ ...scope, resetEpoch: scope.resetEpoch + 1 })).toEqual([]);
+    const readRaw = async () => {
+      const database = await openSyncDatabase();
+      const request = database.transaction("lesson-resumes", "readonly").objectStore("lesson-resumes").getAll();
+      return new Promise<unknown[]>((resolve) => { request.onsuccess = () => resolve(request.result); });
+    };
+    expect(JSON.stringify(await readRaw())).toContain("history:before-reset");
+    await deleteOwnerData(scope.ownerGeneration.ownerKey);
+    expect(JSON.stringify(await readRaw())).not.toContain("history:before-reset");
+    harness.coordinator.dispose();
+  });
+
+  it("rejects an old owner or reset scope and preserves unreadable history raw bytes", async () => {
+    const { harness, scope } = await initializeGuest();
+    await harness.coordinator.recordLessonAttempt(scope, "history:raw", appendAttempt("history:raw"));
+    const event = (await readLocalLessonHistory(scope))[0];
+    await writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: scope.resetEpoch,
+      entryKey: event.eventId, value: { schemaVersion: 99, raw: "keep-me" } });
+    await expect(readLocalLessonHistory(scope)).rejects.toThrow("raw");
+    const database = await openSyncDatabase();
+    const transaction = database.transaction("lesson-resumes", "readonly");
+    const request = transaction.objectStore("lesson-resumes").getAll();
+    const raw = await new Promise<unknown[]>((resolve) => { request.onsuccess = () => resolve(request.result); });
+    expect(JSON.stringify(raw)).toContain("keep-me");
+    await expect(harness.coordinator.recordLessonAttempt({ ...scope, resetEpoch: scope.resetEpoch + 1 },
+      "history:reset", appendAttempt("history:reset"))).rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    await transitionOwnerCheckpoint(scope.ownerGeneration, "account:other", 0,
+      createInitialSyncDocument(stateFixture(), NOW, "history-switch"), stateFixture());
+    await expect(harness.coordinator.recordLessonAttempt(scope, "history:other", appendAttempt("history:other")))
+      .rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    expect((await readOwnerLocalState("account:other"))?.evidence).toEqual([]);
+    harness.coordinator.dispose();
+  });
+});
+
 describe("server-authoritative sync merge", () => {
   it("does not resurrect same-epoch local mistakes after server sanitization", () => {
     const localMistake: LearningState["mistakes"][number] = {
@@ -382,6 +651,97 @@ describe("server-authoritative sync merge", () => {
 });
 
 describe("coordinator durability and identity boundaries", () => {
+  const deletionOwner = `siwc_${'a'.repeat(64)}`;
+  const otherDeletionOwner = `siwc_${'b'.repeat(64)}`;
+  const deletionFixtureFetch = (ownerKey: string, deletion: () => Promise<Response>) => vi.fn(async (input: string | URL | Request) => {
+    if (String(input) === '/api/account/deletion') return deletion();
+    if (String(input) === '/api/session') return Response.json({ authenticated: true, accountKey: ownerKey,
+      user: { displayName: 'Fixture', email: 'fixture@example.invalid', fullName: null, provider: 'hanzi' } });
+    return Response.json({ protocolVersion: 1, revision: 0, cursor: 0, document: null });
+  });
+
+  it('keeps the owner checkpoint, receipt and new offline outbox after a lost deletion reply and a pending retry', async () => {
+    const state = stateFixture({ savedWords: ['ni'], completedLessons: { 'boot-1': { score: 80, bestScore: 80, attempts: 1, completedAt: NOW } }, streak: 4 });
+    storage.setItem(LEARNING_OWNER_STORAGE_KEY, deletionOwner);
+    await writeOwnerCheckpoint(deletionOwner, 0, createInitialSyncDocument(state, NOW, 'deletion-fixture'), state);
+    let calls = 0;
+    vi.stubGlobal('fetch', deletionFixtureFetch(deletionOwner, async () => {
+      if (++calls === 2) throw new TypeError('lost reply');
+      return Response.json({ deleted: false, pending: true, ownerKey: deletionOwner }, { status: 202 });
+    }));
+    const harness = createCoordinatorHarness(state);
+    await harness.coordinator.initialize();
+    await expect(harness.coordinator.deleteAccount()).rejects.toThrow('lost reply');
+    const receipt = readAccountDeletionReceipts()[0]!;
+    expect(receipt.ownerKey).toBe(deletionOwner);
+    vi.stubGlobal('navigator', { onLine: false, locks: undefined });
+    const next = { ...state, savedWords: ['ni', 'hao'] };
+    harness.setState(next);
+    await harness.coordinator.queueMutation(state, next);
+    const outbox = await listPendingOperations(deletionOwner);
+    expect(outbox).toHaveLength(1);
+    vi.stubGlobal('navigator', { onLine: true, locks: undefined });
+    expect(await harness.coordinator.resumeAccountDeletion()).toBe(true);
+    expect(storage.getItem(LEARNING_OWNER_STORAGE_KEY)).toBe(deletionOwner);
+    expect(harness.getState()).toEqual(next);
+    expect(await readOwnerLocalState(deletionOwner)).toEqual(next);
+    expect(await listPendingOperations(deletionOwner)).toEqual(outbox);
+    expect(readAccountDeletionReceipts()).toEqual([receipt]);
+    harness.coordinator.dispose();
+  });
+
+  it('fences a completed current owner to guest before purging its checkpoint and offline identity', async () => {
+    const state = stateFixture({ savedWords: ['private-word'] });
+    storage.setItem(LEARNING_OWNER_STORAGE_KEY, deletionOwner);
+    await writeOwnerCheckpoint(deletionOwner, 0, createInitialSyncDocument(state, NOW, 'delete-current'), state);
+    vi.stubGlobal('fetch', deletionFixtureFetch(deletionOwner, async () => Response.json({ deleted: true, pending: false, ownerKey: deletionOwner })));
+    const harness = createCoordinatorHarness(state);
+    await harness.coordinator.initialize();
+    const stale = (await readOrInitializeOwnerGeneration(deletionOwner)).ownerGeneration;
+    beginAccountDeletionReceipt(deletionOwner);
+    expect(await harness.coordinator.resumeAccountDeletion()).toBe(false);
+    expect(harness.statuses.at(-1)).toMatchObject({ phase: 'local-only', session: { authenticated: false } });
+    expect(storage.getItem(LEARNING_OWNER_STORAGE_KEY)).toMatch(/^anonymous:/u);
+    expect(harness.getState().savedWords).toEqual([]);
+    expect(await readOwnerDocument(deletionOwner)).toBeNull();
+    expect(await readOwnerLocalState(deletionOwner)).toBeNull();
+    expect(await readOfflineAccount(deletionOwner)).toBeNull();
+    expect(readAccountDeletionReceipts()).toEqual([]);
+    await expect(writeOwnerCheckpoint(deletionOwner, 0, createInitialSyncDocument(state, NOW, 'stale'), state, stale))
+      .rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    harness.coordinator.dispose();
+  });
+
+  it('cleans up a previously deleted owner while preserving the current account and its unsent outbox', async () => {
+    const oldState = stateFixture({ savedWords: ['old-private-word'] });
+    const currentState = stateFixture({ savedWords: ['current-private-word'], streak: 7 });
+    await writeOwnerCheckpoint(deletionOwner, 0, createInitialSyncDocument(oldState, NOW, 'old'), oldState);
+    beginAccountDeletionReceipt(deletionOwner);
+    storage.setItem(LEARNING_OWNER_STORAGE_KEY, otherDeletionOwner);
+    await writeOwnerCheckpoint(otherDeletionOwner, 0, createInitialSyncDocument(currentState, NOW, 'current'), currentState);
+    vi.stubGlobal('fetch', deletionFixtureFetch(otherDeletionOwner, async () => Response.json({ deleted: true, pending: false, ownerKey: deletionOwner })));
+    const harness = createCoordinatorHarness(currentState);
+    await harness.coordinator.initialize();
+    vi.stubGlobal('navigator', { onLine: false, locks: undefined });
+    const next = { ...currentState, savedWords: ['current-private-word', 'new-word'] };
+    harness.setState(next);
+    await harness.coordinator.queueMutation(currentState, next);
+    const outbox = await listPendingOperations(otherDeletionOwner);
+    expect(outbox).toHaveLength(1);
+    vi.stubGlobal('navigator', { onLine: true, locks: undefined });
+    expect(await harness.coordinator.resumeAccountDeletion()).toBe(false);
+    expect(harness.statuses.at(-1)?.session).toMatchObject({ authenticated: true, accountKey: otherDeletionOwner });
+    expect(storage.getItem(LEARNING_OWNER_STORAGE_KEY)).toBe(otherDeletionOwner);
+    expect(harness.getState()).toEqual(next);
+    expect(await readOwnerLocalState(otherDeletionOwner)).toEqual(next);
+    expect(await listPendingOperations(otherDeletionOwner)).toEqual(outbox);
+    expect(await readOfflineAccount(otherDeletionOwner)).not.toBeNull();
+    expect(await readOwnerLocalState(deletionOwner)).toBeNull();
+    expect(await readOwnerDocument(deletionOwner)).toBeNull();
+    expect(readAccountDeletionReceipts()).toEqual([]);
+    harness.coordinator.dispose();
+  });
+
   it("keeps the identity gate closed when session resolution is offline", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => {
       throw new TypeError("offline");
@@ -545,6 +905,76 @@ describe("coordinator durability and identity boundaries", () => {
     harness.coordinator.dispose();
   });
 
+  it('restores an explicitly downloaded account offline and rechecks identity before sending', async () => {
+    const owner = 'account:offline';
+    storage.setItem(LEARNING_OWNER_STORAGE_KEY, owner);
+    const claim = await readOrInitializeOwnerGeneration(owner);
+    const initial = stateFixture({ savedWords: ['ni'] });
+    await writeOwnerCheckpoint(owner, 1, createInitialSyncDocument(initial, NOW, 'offline'), initial, claim.ownerGeneration);
+    const session = { authenticated: true as const, accountKey: owner,
+      user: { displayName: 'Offline learner', email: 'offline@example.test', fullName: null } };
+    await enableOfflineAccount(session);
+    vi.stubGlobal('navigator', { onLine: false, locks: undefined });
+    const send = vi.fn(async () => { throw new TypeError('offline'); });
+    vi.stubGlobal('fetch', send);
+    const harness = createCoordinatorHarness(initial);
+    await harness.coordinator.initialize();
+    expect(harness.statuses.at(-1)).toMatchObject({ phase: 'offline', session, ownerKey: owner });
+    const changed = { ...initial, savedWords: ['ni', 'hao'] };
+    harness.setState(changed);
+    await harness.coordinator.queueMutation(initial, changed);
+    expect((await listPendingOperations(owner)).length).toBeGreaterThan(0);
+    vi.stubGlobal('navigator', { onLine: true, locks: undefined });
+    send.mockClear();
+    await harness.coordinator.syncNow();
+    expect(send.mock.calls).toHaveLength(1);
+    expect(send.mock.calls[0]).toEqual(expect.arrayContaining(['/api/session']));
+    expect((await listPendingOperations(owner)).length).toBeGreaterThan(0);
+    harness.coordinator.dispose();
+  });
+
+  it('expires and revokes offline device permission without deleting queued progress', async () => {
+    const owner = 'account:offline';
+    const claim = await readOrInitializeOwnerGeneration(owner);
+    const state = stateFixture();
+    await writeOwnerCheckpoint(owner, 1, createInitialSyncDocument(state, NOW, 'offline'), state, claim.ownerGeneration);
+    const session = { authenticated: true as const, accountKey: owner,
+      user: { displayName: 'Learner', email: 'offline@example.test', fullName: null } };
+    await enableOfflineAccount(session);
+    expect(await readOfflineAccount('account:other')).toBeNull();
+    expect(await readOfflineAccount(owner)).toEqual(session);
+    const now = Date.now();
+    const clock = vi.spyOn(Date, 'now').mockReturnValue(now + 31 * 86400000);
+    expect(await readOfflineAccount(owner)).toBeNull();
+    clock.mockRestore();
+    await revokeOfflineAccount();
+    expect(await readOfflineAccount(owner)).toBeNull();
+    expect(await readOwnerDocument(owner)).not.toBeNull();
+  });
+
+  it('automatically retains a verified account when the server returns 503 with network still online', async () => {
+    const owner = 'account:offline-auto';
+    storage.setItem(LEARNING_OWNER_STORAGE_KEY, owner);
+    const claim = await readOrInitializeOwnerGeneration(owner);
+    const initial = stateFixture({ savedWords: ['ni'] });
+    await writeOwnerCheckpoint(owner, 1, createInitialSyncDocument(initial, NOW, 'auto'), initial, claim.ownerGeneration);
+    const session = { authenticated: true as const, accountKey: owner,
+      user: { displayName: 'Learner', email: 'offline@example.test', fullName: null } };
+    vi.stubGlobal('navigator', { onLine: true, locks: undefined });
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => String(input) === '/api/session'
+      ? Response.json(session) : new Response(null, { status: 503 })));
+    const first = createCoordinatorHarness(initial);
+    await first.coordinator.initialize();
+    expect(await readOfflineAccount(owner)).toEqual(session);
+    first.coordinator.dispose();
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(null, { status: 503 })));
+    const restarted = createCoordinatorHarness(initial);
+    await restarted.coordinator.initialize();
+    expect(restarted.statuses.at(-1)).toMatchObject({ phase: 'offline', session, ownerKey: owner });
+    expect(restarted.getState().savedWords).toEqual(['ni']);
+    restarted.coordinator.dispose();
+  });
+
   it("restores an existing account checkpoint and refuses to sign out with an unsent import", async () => {
     const accountState = stateFixture({ savedWords: ["ni"], xp: 40 });
     const accountDocument = createInitialSyncDocument(accountState, NOW, "account");
@@ -674,7 +1104,7 @@ describe("coordinator durability and identity boundaries", () => {
           },
         });
       }
-      if (String(input) === "/api/account" && init?.method === "DELETE") {
+      if (String(input) === "/api/account/deletion" && init?.method === "POST") {
         accountDeleteCalls += 1;
         return Response.json({ deleted: true });
       }
@@ -1533,8 +1963,11 @@ describe("coordinator durability and identity boundaries", () => {
     harness.coordinator.dispose();
   });
 
-  it("moves to a blank anonymous owner immediately after a sync 401", async () => {
+  it("keeps the saved account and progress after a sync 401 until the learner signs in again", async () => {
     storage.setItem(LEARNING_OWNER_STORAGE_KEY, "account:a");
+    const claim = await readOrInitializeOwnerGeneration('account:a');
+    const saved = stateFixture({ savedWords: ['ni'] });
+    await writeOwnerCheckpoint('account:a', 1, createInitialSyncDocument(saved, NOW, 'expired-session'), saved, claim.ownerGeneration);
     const harness = createCoordinatorHarness(stateFixture({ savedWords: ["ni"] }));
     vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request) => {
       if (String(input) === "/api/session") {
@@ -1555,11 +1988,11 @@ describe("coordinator durability and identity boundaries", () => {
 
     await harness.coordinator.initialize();
 
-    expect(harness.getState().savedWords).toEqual([]);
-    expect(storage.getItem(LEARNING_OWNER_STORAGE_KEY)).toMatch(/^anonymous:/);
+    expect(harness.getState().savedWords).toEqual(['ni']);
+    expect(storage.getItem(LEARNING_OWNER_STORAGE_KEY)).toBe('account:a');
     expect(harness.statuses.at(-1)).toMatchObject({
-      phase: "local-only",
-      session: { authenticated: false },
+      phase: "offline",
+      session: { authenticated: true, accountKey: 'account:a' },
     });
     harness.coordinator.dispose();
   });

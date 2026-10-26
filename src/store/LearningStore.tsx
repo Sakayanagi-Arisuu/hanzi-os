@@ -1,7 +1,7 @@
+import { isOwnerResetStorageKey } from '../lib/ownerResetStorage';
+import { readActiveOwnerLearningScope } from "../sync/indexedDb";
 import {
-  createContext,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -40,7 +40,8 @@ import {
   isLocalLessonRewardClaimed,
   lessonRewardActivityId,
 } from "../learning/interactionXp";
-import { resolveDevelopmentSingleton } from "../lib/developmentContext";
+import { LearningContext, type LearningContextValue } from "./LearningContext";
+export { useLearning } from "./LearningContext";
 import {
   selectStoredState,
   type StoredStateSource,
@@ -50,14 +51,10 @@ import type {
   LocalLessonSessionProvenanceV1,
 } from "../learning/localLessonRuntime";
 import {
-  getOrCreateLocalIdentifier,
-  isHanziOsStorageKey,
   LEARNING_CORRUPT_STORAGE_KEY,
   LEARNING_OWNER_STORAGE_KEY,
   LEARNING_RECOVERY_STORAGE_KEY,
   LEARNING_STORAGE_KEY,
-  SYNC_DEVICE_STORAGE_KEY,
-  SYNC_INSTALLATION_STORAGE_KEY,
   readLocalStorage,
   writeLocalStorage,
 } from "../lib/storageKeys";
@@ -239,16 +236,16 @@ export type LocalLearningMutationDisposition =
   | "conflict"
   | "rejected";
 
-type LearningActions = {
+export type LearningActions = {
   finishOnboarding: (profile: Profile) => boolean;
-  updateProfile: (patch: Partial<Profile>) => void;
+  updateProfile: (patch: Partial<Profile>) => Promise<void>;
   recordAnswer: (
     evidence: AnswerEvidence,
     provenance: LocalLessonActivityProvenanceV1,
   ) => Promise<LocalLearningMutationDisposition>;
-  recordPracticeEvidence: (evidence: PracticeEvidenceInput) => void;
+  recordPracticeEvidence: (evidence: PracticeEvidenceInput) => Promise<'committed' | 'pending'>;
   completePronunciationMission: (missionId: string) => boolean;
-  resolveMistake: (mistakeId: string, isCorrect: boolean, selectedAnswer?: string, idempotencyKey?: string, usedHint?: boolean) => void;
+  resolveMistake: (mistakeId: string, isCorrect: boolean, selectedAnswer?: string, idempotencyKey?: string, usedHint?: boolean) => Promise<void>;
   completeDiagnostic: (score: number) => void;
   acceptDiagnosticPlacement: (
     startingLevel: Exclude<LearningState["profile"]["startingLevel"], "basic">,
@@ -271,32 +268,16 @@ type LearningActions = {
     idempotencyKey?: string,
     usedHint?: boolean,
     presentationVersion?: string,
+    revealed?:boolean,
   ) => Promise<void>;
   resetProgress: () => Promise<boolean>;
   syncNow: () => Promise<void>;
   prepareSignOut: () => Promise<void>;
   deleteAccount: () => Promise<void>;
+  resumeAccountDeletion: () => Promise<boolean>;
   importProgress: (nextState: LearningState) => Promise<boolean>;
 };
 
-type LearningContextValue = {
-  state: LearningState;
-  actions: LearningActions;
-  dueWordIds: string[];
-  level: number;
-  sync: LearningSyncStatus;
-  stateLoadSource: StoredStateSource;
-};
-
-const LEARNING_CONTEXT_REGISTRY_KEY = Symbol.for(
-  "hanzi-os.learning-context.v1",
-);
-const LearningContext = resolveDevelopmentSingleton(
-  globalThis as unknown as Record<PropertyKey, unknown>,
-  LEARNING_CONTEXT_REGISTRY_KEY,
-  () => createContext<LearningContextValue | null>(null),
-  process.env.NODE_ENV === "development",
-);
 
 const clamp = (value: number, min = 0, max = 100) =>
   Math.max(min, Math.min(max, value));
@@ -324,7 +305,7 @@ const appendActivity = (
   ];
   if (next.length <= 2_000) return next;
   const rewardIds = new Set(next
-    .filter((item) => item.id.startsWith("lesson-reward:"))
+    .filter((item) => item.id.startsWith("lesson-reward:") || item.id.startsWith("practice-reward:"))
     .map((item) => item.id));
   const recentOrdinaryIds = new Set(next
     .filter((item) => !rewardIds.has(item.id))
@@ -347,7 +328,7 @@ const applyStudyDay = (current: LearningState) => {
 const loadLocalLessonMutationModules = () => Promise.all([
   import("../data/curriculum"),
   import("../lib/adaptive"),
-  import("../lib/exerciseGeneration"),
+  import("../lib/editorialExerciseGeneration"),
   import("../learning/localLessonRuntime"),
 ]);
 
@@ -373,8 +354,9 @@ export function LearningProvider({ children }: { children: ReactNode }) {
     lastSyncedAt: null,
     error: null,
   });
-  const coordinatorEnabled = initialLoad.requiresValidation
-    || state.profile.onboarded;
+  usePageAttemptPump(sync.session?.authenticated && sync.phase !== 'checking' ? sync.ownerKey : '');
+  useOfflinePreparation(sync.session ? sync.ownerKey : null);
+  useWorkspaceSync(sync.session?.authenticated ? sync.ownerKey : null);
 
   const applyDurableState = useCallback((next: LearningState) => {
     if (!writeLocalStorage(LEARNING_STORAGE_KEY, JSON.stringify(next))) return false;
@@ -435,22 +417,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!bootstrapReady) return;
-    if (!coordinatorEnabled) {
-      const installationId = getOrCreateLocalIdentifier(
-        SYNC_INSTALLATION_STORAGE_KEY,
-        "installation",
-      );
-      const ownerKey = `anonymous:${installationId}`;
-      writeLocalStorage(LEARNING_OWNER_STORAGE_KEY, ownerKey);
-      setSync((current) => ({
-        ...current,
-        phase: "local-only",
-        session: null,
-        ownerKey,
-        error: null,
-      }));
-      return;
-    }
+    // A fresh device may already have an authenticated server cookie after
+    // OAuth. Resolve identity before choosing either landing or account setup.
     let disposed = false;
     let coordinator: LearningSyncCoordinator | null = null;
     setSync((current) => ({ ...current, phase: "checking", error: null }));
@@ -481,7 +449,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       }
       coordinator?.dispose();
     };
-  }, [applyDurableState, bootstrapReady, coordinatorEnabled]);
+  }, [applyDurableState, bootstrapReady]);
 
   const persist = useCallback((updater: (current: LearningState) => LearningState) => {
     if (replacementInFlightRef.current) return false;
@@ -504,12 +472,21 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         ...current,
         profile: { ...profile, onboarded: true },
       })),
-    updateProfile: (patch) =>
-      persist((current) => ({
+    updateProfile: async (patch) => {
+      const coordinator = coordinatorRef.current;
+      const scope = await readActiveOwnerLearningScope();
+      if (!coordinator || !scope || replacementInFlightRef.current || scope.ownerGeneration.ownerKey !== sync.ownerKey) throw new Error('Hồ sơ đã đổi; cấu hình chưa được lưu.');
+      await coordinator.recordDocumentMutation(scope, current => ({
         ...current,
         profile: { ...current.profile, ...patch },
-      })),
+      }));
+    },
     recordAnswer: async (submittedEvidence, provenance) => {
+      const coordinator = coordinatorRef.current;
+      const expectedOwner = sync.ownerKey;
+      const scope = await readActiveOwnerLearningScope();
+      if (!coordinator || replacementInFlightRef.current || !scope
+        || scope.ownerGeneration.ownerKey !== expectedOwner) return "rejected";
       const [
         { LESSON_BY_ID },
         { isLessonUnlocked },
@@ -561,7 +538,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       };
 
       let disposition: LocalLearningMutationDisposition = "rejected";
-      const durable = persist((current) => {
+      try {
+      await coordinator.recordLessonAttempt(scope, evidence.idempotencyKey!, (current) => {
         if (!isLessonUnlocked(lesson, current)) return current;
         const now = new Date().toISOString();
         const activityId = activity.activityId;
@@ -665,13 +643,34 @@ export function LearningProvider({ children }: { children: ReactNode }) {
               lastSeenAt: now,
             },
           },
-          mistakes: mistakes.slice(0, 120),
+          mistakes,
         };
       });
-      return durable ? disposition : "rejected";
+      return disposition;
+      } catch {
+        return "rejected";
+      }
     },
-    recordPracticeEvidence: (evidence) =>
-      persist((current) => recordEvidenceInState(current, evidence).state),
+    recordPracticeEvidence: async (evidence) => {
+      const scope = await readActiveOwnerLearningScope();
+      const coordinator = coordinatorRef.current;
+      if (!scope || !coordinator || replacementInFlightRef.current || scope.ownerGeneration.ownerKey !== sync.ownerKey) throw new Error('Hồ sơ đã đổi; lượt luyện chưa được lưu.');
+      if (sync.session?.authenticated) {
+        const { savePracticeObservation } = await import('../sync/activityObservations');
+        await savePracticeObservation(scope, evidence);
+        persist(current => recordEvidenceInState(current, evidence).state);
+        return 'pending';
+      }
+      const { retainedWritingSummaryTime } = await import('../sync/writingSummaryRecovery');
+      const retainedTime = await retainedWritingSummaryTime(scope, evidence);
+      await coordinator.recordLessonAttempt(scope, evidence.idempotencyKey,
+        current => {
+          const result = recordEvidenceInState(current, evidence, retainedTime);
+          if (result.conflict) throw new Error('Lượt trả lời đầu đã được lưu; không thay bằng câu trả lời khác.');
+          return result.state;
+        }, 'activity');
+      return 'committed';
+    },
     completePronunciationMission: (missionId) => {
       let awarded = false;
       const durable = persist((current) => {
@@ -681,12 +680,16 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       });
       return durable && awarded;
     },
-    resolveMistake: (mistakeId, isCorrect, selectedAnswer = "", idempotencyKey, usedHint = false) =>
-      persist((current) => {
+    resolveMistake: async (mistakeId, isCorrect, selectedAnswer = "", idempotencyKey, usedHint = false) => {
+      const scope = await readActiveOwnerLearningScope();
+      const coordinator = coordinatorRef.current;
+      if (!scope || !coordinator || replacementInFlightRef.current || scope.ownerGeneration.ownerKey !== sync.ownerKey) throw new Error('Hồ sơ đã thay đổi; lượt luyện chưa được lưu.');
+      const operationId = idempotencyKey ?? makeIdempotencyKey(`mistake:${mistakeId}`);
+      await coordinator.recordLessonAttempt(scope, operationId, (current) => {
         const target = current.mistakes.find((mistake) => mistake.id === mistakeId);
-        if (!canRecordLocalRemediationAttempt(target)) return current;
+        if (!canRecordLocalRemediationAttempt(target)) throw new Error('Nguồn câu sai đã đổi; hãy mở lại lượt luyện.');
         const evidenceResult = recordEvidenceInState(current, {
-          idempotencyKey: idempotencyKey ?? makeIdempotencyKey(`mistake:${mistakeId}`),
+          idempotencyKey: operationId,
           activityVersion: `${CONTENT_VERSION}:remediation:1`,
           source: "mistake",
           method: "remediation-recall",
@@ -731,7 +734,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
             ? appendActivity(currentWithEvidence.activityLog, { type: "correction", label: `Phá giải: ${target.prompt}`, xp: earnedXp })
             : currentWithEvidence.activityLog,
         };
-      }),
+      }, 'activity');
+    },
     completeDiagnostic: (score) =>
       persist((current) => applyObservedDiagnosticCompletion(current, score)),
     acceptDiagnosticPlacement: (startingLevel, score, baseline) => {
@@ -911,27 +915,36 @@ export function LearningProvider({ children }: { children: ReactNode }) {
     toggleSavedWord: async (wordId) => {
       const { RELEASED_WORD_BY_ID } = await import("../data/curriculum");
       if (!RELEASED_WORD_BY_ID.has(wordId)) return;
-      persist((current) => ({
+      const coordinator = coordinatorRef.current;
+      const scope = await readActiveOwnerLearningScope();
+      if (!coordinator || !scope || replacementInFlightRef.current || scope.ownerGeneration.ownerKey !== sync.ownerKey) throw new Error('Hồ sơ đã đổi; mục từ chưa được lưu.');
+      const present = !stateRef.current.savedWords.includes(wordId);
+      await coordinator.recordDocumentMutation(scope, current => ({
         ...current,
-        savedWords: current.savedWords.includes(wordId)
-          ? current.savedWords.filter((id) => id !== wordId)
-          : [...current.savedWords, wordId],
-        fsrsCards: current.fsrsCards[wordId]
+        savedWords: present ? [...new Set([...current.savedWords, wordId])] : current.savedWords.filter(id => id !== wordId),
+        fsrsCards: sync.session?.authenticated || current.fsrsCards[wordId]
           ? current.fsrsCards
           : { ...current.fsrsCards, [wordId]: emptyStoredCard() },
       }));
     },
-    gradeReview: async (wordId, rating, idempotencyKey, usedHint = false, presentationVersion) => {
+    gradeReview: async (wordId, rating, idempotencyKey, usedHint = false, presentationVersion, revealed) => {
+      const coordinator=coordinatorRef.current;
+      const ownerKey=sync.ownerKey;
+      const scope=await readActiveOwnerLearningScope();
+      if(!coordinator||replacementInFlightRef.current||!scope||scope.ownerGeneration.ownerKey!==ownerKey)throw new Error('Hồ sơ học đã thay đổi; đánh giá chưa được lưu.');
+      const operationId=idempotencyKey??makeIdempotencyKey(`review:${wordId}`);
+      const occurredAt=new Date();
       const { RELEASED_WORD_BY_ID, WORD_BY_ID } = await import(
         "../data/curriculum"
       );
-      if (!RELEASED_WORD_BY_ID.has(wordId)) return;
+      if (!RELEASED_WORD_BY_ID.has(wordId)||![1,2,3,4].includes(Number(rating))) throw new Error('Thẻ hoặc mức đánh giá không hợp lệ.');
       const { EDITORIAL_WORD_BY_ID, LEXICAL_EDITORIAL_VERSION } = await import("../content/lexicalEditorialCatalog");
-      if (presentationVersion !== undefined && presentationVersion !== LEXICAL_EDITORIAL_VERSION) return;
-      persist((current) => {
-        const now = new Date();
+      if (presentationVersion !== undefined && presentationVersion !== LEXICAL_EDITORIAL_VERSION) throw new Error('Phiên bản thẻ đã thay đổi; đánh giá chưa được lưu.');
+      const {editorialReviewWordVersion,reviewWordVersion}=await import('../learning/reviewProtocol');
+      await coordinator.recordReviewGrade(scope,operationId,(current) => {
+        const now=new Date();
         const evidenceResult = recordEvidenceInState(current, {
-          idempotencyKey: idempotencyKey ?? makeIdempotencyKey(`review:${wordId}`),
+          idempotencyKey: operationId,
           activityVersion: `${CONTENT_VERSION}:fsrs:1`,
           source: "review",
           method: "fsrs-rating",
@@ -939,10 +952,14 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           skill: "vocabulary",
           outcome: rating === Rating.Again ? "incorrect" : "unverified",
           score: null,
-          metadata: { rating: Number(rating), usedHint, ...(presentationVersion ? { presentationVersion } : {}) },
-        }, now.toISOString());
+          metadata: { rating: Number(rating), usedHint, ...(revealed===undefined?{}:{revealed}),
+            wordVersion:presentationVersion?editorialReviewWordVersion(wordId):reviewWordVersion(wordId),
+            schedulerVersion:'local-fsrs:retention-0.9:fuzz:v1',reviewModality:'hanzi-reading-meaning-recall',
+            ...(presentationVersion ? { presentationVersion } : {}) },
+        }, occurredAt.toISOString());
         if (!evidenceResult.inserted) return current;
         const currentWithEvidence = evidenceResult.state;
+        if(!currentWithEvidence.fsrsCards[wordId])throw new Error('Thẻ không còn trong hồ sơ hiện tại; hãy mở lại hàng ôn.');
         const stored = currentWithEvidence.fsrsCards[wordId] ?? emptyStoredCard(now);
         const result = scheduler.next(
           {
@@ -977,7 +994,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
             resolved: false,
             lastAttemptAt: now.toISOString(),
           };
-          mistakes = [reviewMistake, ...currentWithEvidence.mistakes.filter((item) => item.id !== mistakeId)].slice(0, 120);
+          mistakes = [reviewMistake, ...currentWithEvidence.mistakes.filter((item) => item.id !== mistakeId)];
         }
         return {
           ...currentWithEvidence,
@@ -1009,22 +1026,21 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           localStorage.key(index)
         ).filter((key): key is string => Boolean(
           key
-          && isHanziOsStorageKey(key)
-          && key !== LEARNING_STORAGE_KEY
-          && key !== LEARNING_OWNER_STORAGE_KEY
-          && key !== SYNC_DEVICE_STORAGE_KEY
-          && key !== SYNC_INSTALLATION_STORAGE_KEY,
+          && isOwnerResetStorageKey(key, sync.ownerKey),
         ));
       } catch {
         window.dispatchEvent(new CustomEvent("hanzi-storage-error"));
         return false;
       }
 
+      const resetState = { ...INITIAL_LEARNING_STATE, profile: { ...INITIAL_LEARNING_STATE.profile,
+        ...(current.profile.learningPreferences !== undefined
+          ? { learningPreferences: current.profile.learningPreferences } : {}) } };
       if (!await commitDurableLearningState({
-        nextState: INITIAL_LEARNING_STATE,
+        nextState: resetState,
         enqueue: () => coordinator.queueMutation(
           current,
-          INITIAL_LEARNING_STATE,
+          resetState,
           "reset",
         ),
         apply: applyDurableState,
@@ -1036,23 +1052,13 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         // The learning reset is already durable; the global storage warning
         // reports any ancillary key that the browser refused to remove.
       }
-      try {
-        if ("caches" in window) {
-          const cacheKeys = await caches.keys();
-          await Promise.allSettled(
-            cacheKeys
-              .filter((key) => key.startsWith("hanzi-os-"))
-              .map((key) => caches.delete(key)),
-          );
-        }
-      } catch {
-        // Cache cleanup is recoverable and must not roll back learning-data reset.
-      }
+      window.dispatchEvent(new Event('hanzi-learning-reset'));
       return true;
     }),
     syncNow: () => coordinatorRef.current?.syncNow() ?? Promise.resolve(),
     prepareSignOut: () => coordinatorRef.current?.prepareSignOut() ?? Promise.resolve(),
-    deleteAccount: () => coordinatorRef.current?.deleteAccount() ?? Promise.resolve(),
+    deleteAccount: () => coordinatorRef.current?.deleteAccount() ?? Promise.reject(new Error('Chưa kiểm tra xong tài khoản. Hãy chờ rồi thử lại.')),
+    resumeAccountDeletion: () => coordinatorRef.current?.resumeAccountDeletion() ?? Promise.resolve(true),
     importProgress: (nextState) => runExclusiveReplacement(async () => {
       const current = stateRef.current;
       const coordinator = coordinatorRef.current;
@@ -1072,7 +1078,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         apply: applyDurableState,
       });
     }),
-  }), [applyDurableState, persist, runExclusiveReplacement]);
+  }), [applyDurableState, persist, runExclusiveReplacement, sync.ownerKey, sync.session?.authenticated]);
 
   const dueWordIds = useMemo(() => {
     const now = Date.now();
@@ -1097,8 +1103,6 @@ export function LearningProvider({ children }: { children: ReactNode }) {
   return <LearningContext.Provider value={value}>{children}</LearningContext.Provider>;
 }
 
-export const useLearning = () => {
-  const value = useContext(LearningContext);
-  if (!value) throw new Error("useLearning must be used inside LearningProvider");
-  return value;
-};
+import { usePageAttemptPump } from '../sync/usePageAttemptPump';
+import { useOfflinePreparation } from '../sync/useOfflinePreparation';
+import { useWorkspaceSync } from '../sync/useWorkspaceSync';

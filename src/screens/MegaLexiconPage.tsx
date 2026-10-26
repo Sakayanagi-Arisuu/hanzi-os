@@ -9,14 +9,20 @@ import {
   Sparkles,
   Volume2,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router";
 import {
   loadMegaLexicon,
+  MEGA_LEXICON_VERSION,
   MEGA_LEXICON_SEARCHABLE_COUNT,
   type MegaLexiconArtifact,
 } from "../content/megaLexicon";
 import { speakMandarin } from "../lib/speech";
+import { useLearning } from '../store/LearningStore';
+import { currentWorkspaceScope } from '../sync/workspaceSync';
+import { sha256Hex } from '../sync/canonicalHash';
+import { advanceExpansionSession, openExpansionSession, readExpansionSession,
+  type ExpansionSession, type ExpansionSource } from '../sync/expansionSession';
 
 const LEVELS = ["all", "5", "6", "7-9"] as const;
 const levelName = (level: string) => level === "7-9" ? "Nâng cao 7–9" : `Cấp ${level}`;
@@ -131,21 +137,76 @@ function MegaLoadState({ error }: { error?: string }) {
 }
 
 function VocabularyMission({ artifact, missionId }: { artifact: MegaLexiconArtifact; missionId: string }) {
+  const { sync } = useLearning();
   const mission = artifact.missions.find((item) => item.id === missionId)!;
   const wordsById = useMemo(() => new Map(artifact.vocabulary.map((word) => [word.id, word])), [artifact]);
-  const words = mission.wordIds.map((id) => wordsById.get(id)).filter(Boolean) as MegaLexiconArtifact["vocabulary"];
-  const [index, setIndex] = useState(0);
-  const [revealed, setRevealed] = useState(false);
+  const words = useMemo(() => mission.wordIds.map((id) => wordsById.get(id)).filter(Boolean) as MegaLexiconArtifact["vocabulary"], [mission.wordIds, wordsById]);
+  const [source, setSource] = useState<ExpansionSource | null>(null);
+  const [session, setSession] = useState<ExpansionSession | null>(null);
+  const [storageError, setStorageError] = useState('');
+  const [busy, setBusy] = useState(false);
+  const lifecycle = useRef(0);
+  const lock = useRef(false);
+  useEffect(() => {
+    const generation = ++lifecycle.current;
+    setSession(null); setSource(null); setStorageError('');
+    void (async () => {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Owner changed');
+      const version = `${MEGA_LEXICON_VERSION}:sha256:${await sha256Hex({ mission, words })}`;
+      const binding = { missionId, contentVersion: version, itemIds: words.map(item => item.id) };
+      const saved = await openExpansionSession(scope, binding);
+      if (generation !== lifecycle.current) return;
+      setSource(binding); setSession(saved);
+    })().catch(() => { if (generation === lifecycle.current) setStorageError('Chưa đọc được lượt tự ôn đã lưu. Dữ liệu cũ vẫn được giữ; hãy mở lại chặng.'); });
+    return () => { lifecycle.current = generation + 1; };
+  }, [mission, missionId, sync.ownerKey, words]);
+  const refresh = useCallback(() => {
+    if (!source) return;
+    const generation = lifecycle.current;
+    void (async () => {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Owner changed');
+      const saved = await readExpansionSession(scope, source);
+      if (generation === lifecycle.current && saved) setSession(saved);
+    })().catch(() => { if (generation === lifecycle.current) setStorageError('Chưa đọc được lượt đã lưu; dữ liệu cũ vẫn được giữ.'); });
+  }, [source, sync.ownerKey]);
+  useEffect(() => {
+    window.addEventListener('focus', refresh); window.addEventListener('hanzi-workspace-received', refresh);
+    return () => { window.removeEventListener('focus', refresh); window.removeEventListener('hanzi-workspace-received', refresh); };
+  }, [refresh]);
+  const act = async (kind: 'reveal' | 'review' | 'tts' | 'restart') => {
+    if (!session || !source || lock.current) return;
+    const generation = lifecycle.current;
+    lock.current = true; setBusy(true);
+    try {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Owner changed');
+      const saved = kind === 'restart' ? await openExpansionSession(scope, source, true)
+        : await advanceExpansionSession(scope, source, session, kind);
+      if (generation !== lifecycle.current) return;
+      if (kind === 'tts') speakMandarin(words[session.index].simplified);
+      setSession(saved); setStorageError('');
+    } catch { if (generation === lifecycle.current) { setStorageError('Chưa lưu được bước này hoặc chặng đã đổi ở cửa sổ khác. Dữ liệu cũ vẫn được giữ; hãy thử lại.'); refresh(); } }
+    finally { lock.current = false; if (generation === lifecycle.current) setBusy(false); }
+  };
+  const index = session?.index ?? 0;
+  const revealed = session?.revealed ?? false;
   const word = words[index];
   const complete = index >= words.length;
+
+  if (!session) return <MegaLoadState error={storageError || undefined} />;
 
   if (complete) {
     return (
       <div className="content-page mega-mission-session mega-mission-complete">
         <BookOpenCheck size={48} />
-        <span className="system-kicker">CHẶNG TỰ ÔN ĐÃ KHÉP</span>
+        <span className="system-kicker">{session.pending ? 'CHẶNG ĐANG CHỜ ĐỒNG BỘ' : 'CHẶNG TỰ ÔN ĐÃ KHÉP'}</span>
         <h1>Bạn đã đi qua {words.length} mục từ</h1>
         <p>Chặng này không cấp XP hay tự nhận là thông thạo. Hãy quay lại khi cần củng cố.</p>
+        {session.pending && <p role="status">Lượt tự ôn đã được giữ trên thiết bị và đang chờ đồng bộ.</p>}
+        {storageError && <p role="alert">{storageError}</p>}
+        <button type="button" className="secondary-button" disabled={busy} onClick={() => void act('restart')}>Tự ôn lại</button>
         <Link className="primary-button" to="/path/expansion" viewTransition>Chọn ải tiếp theo <ChevronRight size={17} /></Link>
       </div>
     );
@@ -160,7 +221,7 @@ function VocabularyMission({ artifact, missionId }: { artifact: MegaLexiconArtif
       </header>
       <main className="mega-word-stage">
         <span className="system-kicker"><Headphones size={14} /> NHẬN DIỆN · NGHE · GỢI NHỚ</span>
-        <button className="mega-word-audio" type="button" onClick={() => speakMandarin(word.simplified)} aria-label={`Nghe ${word.simplified}`}><Volume2 size={24} /></button>
+        <button className="mega-word-audio" type="button" disabled={busy} onClick={() => void act('tts')} aria-label={`Nghe ${word.simplified}`}><Volume2 size={24} /></button>
         <h1>{word.simplified}</h1>
         {word.traditional !== word.simplified && <small>{word.traditional}</small>}
         <div className={revealed ? "mega-word-answer revealed" : "mega-word-answer"} aria-live="polite">
@@ -168,11 +229,12 @@ function VocabularyMission({ artifact, missionId }: { artifact: MegaLexiconArtif
         </div>
       </main>
       <footer className="mega-session-actions">
+        {storageError && <p role="alert">{storageError}</p>}
         <span>Chặng tự ôn · không cộng XP</span>
         {!revealed ? (
-          <button className="primary-button" type="button" onClick={() => setRevealed(true)}>Hiện cách đọc và nghĩa</button>
+          <button className="primary-button" type="button" disabled={busy} onClick={() => void act('reveal')}>Hiện cách đọc và nghĩa</button>
         ) : (
-          <button className="primary-button" type="button" onClick={() => { setIndex((value) => value + 1); setRevealed(false); }}>Từ tiếp theo <ChevronRight size={18} /></button>
+          <button className="primary-button" type="button" disabled={busy} onClick={() => void act('review')}>Từ tiếp theo <ChevronRight size={18} /></button>
         )}
       </footer>
     </div>

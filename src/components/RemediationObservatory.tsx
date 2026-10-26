@@ -1,5 +1,6 @@
 import { RemediationAtlas } from "./RemediationAtlas";
 import { PublishedVocabularyReference } from "./PublishedVocabularyReference";
+import { RemediationSourceLink } from './RemediationSourceLink';
 import {
   AudioWaveform,
   ArrowLeft,
@@ -25,7 +26,7 @@ import {
   X,
   XCircle,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router";
 import {
   selectRemediationSession,
@@ -49,6 +50,8 @@ type RemediationObservatoryProps = {
     usedHint: boolean,
   ) => Promise<RemediationObservatoryFeedback>;
   onSpeak?: (text: string) => void;
+  onSupport?: (item: RemediationObservatoryItem, kind: 'hint' | 'synthetic-tts', operationId: string) => Promise<void>;
+  onRevisit?: (item: RemediationObservatoryItem, operationId: string) => Promise<void>;
 };
 
 function SkillGlyph({
@@ -116,12 +119,14 @@ function AttemptView({
   total,
   results,
   submitting,
+  supporting,
   error,
   onAnswer,
   onToggleHint,
   onSubmit,
   onSpeak,
   onExit,
+  onRevisit,
 }: {
   item: RemediationObservatoryItem;
   answer: string;
@@ -130,17 +135,19 @@ function AttemptView({
   total: number;
   results: readonly RemediationObservatoryResult[];
   submitting: boolean;
+  supporting: boolean;
   error?: string | null;
   onAnswer: (answer: string) => void;
   onToggleHint: () => void;
   onSubmit: () => void;
   onSpeak?: (text: string) => void;
   onExit: () => void;
+  onRevisit?: RemediationObservatoryProps['onRevisit'];
 }) {
   return (
     <section className="rem-session-view rem-attempt-view" aria-labelledby="rem-session-title">
       <header className="rem-session-heading">
-        <button className="rem-icon-action" type="button" onClick={onExit} aria-label="Thoát lượt hóa giải"><X size={20} /></button>
+        <button className="rem-icon-action" type="button" onClick={onExit} disabled={supporting} aria-label="Thoát lượt hóa giải"><X size={20} /></button>
         <div><span className="rem-session-emblem" aria-hidden="true"><Orbit size={30} /></span><h1 id="rem-session-title">Tái đấu</h1><p>{current + 1} / {total}</p></div>
         <span className="rem-live-mark"><i /> LƯỢT ĐANG DIỄN RA</span>
       </header>
@@ -156,15 +163,17 @@ function AttemptView({
           <h2>{item.prompt}</h2>
           {item.promptMeta && <p>{item.promptMeta}</p>}
           {item.spokenText && onSpeak && (
-            <button className="rem-listen-action" type="button" onClick={() => onSpeak(item.spokenText!)}>
-              <Volume2 size={18} /> Nghe lại
+            <button className="rem-listen-action" type="button" disabled={submitting || supporting} onClick={() => onSpeak(item.spokenText!)}>
+              <Volume2 size={18} /> Nghe máy đọc · âm tổng hợp
             </button>
           )}
         </section>
 
         {hintVisible && (
           <aside className="rem-hint-panel" role="note">
-            <Lightbulb size={18} /><span><strong>Gợi ý đã được ghi nhận</strong>{item.hint}</span>
+            <Lightbulb size={18} /><span><strong>Gợi ý đã được ghi nhận</strong>{item.hint}
+              <RemediationSourceLink key={item.id} item={item} onRevisit={onRevisit} />
+            </span>
           </aside>
         )}
 
@@ -208,19 +217,19 @@ function AttemptView({
       </div>
 
       <footer className="rem-session-actions">
-        <button className="rem-secondary-action" type="button" onClick={onToggleHint}>
+        <button className="rem-secondary-action" type="button" disabled={submitting || supporting} onClick={onToggleHint}>
           {hintVisible ? <EyeOff size={17} /> : <Eye size={17} />}
           {hintVisible ? "Ẩn gợi ý" : "Cần gợi ý"}
         </button>
-        <button className="rem-primary-action" type="button" disabled={!answer.trim() || submitting} onClick={onSubmit}>
-          {submitting ? "Đang kiểm tra..." : "Kiểm tra"} <ArrowRight size={18} />
+        <button className="rem-primary-action" type="button" disabled={!answer.trim() || submitting || supporting} onClick={onSubmit}>
+          {supporting ? 'Đang lưu hỗ trợ…' : submitting ? "Đang kiểm tra..." : "Kiểm tra"} <ArrowRight size={18} />
         </button>
       </footer>
 
       <div className="rem-session-statusbar">
         <span><CircleAlert size={17} /> Tiến trình sai sót</span>
         <SessionRail total={total} current={current} results={results} />
-        <button type="button" onClick={onExit}><ArrowLeft size={15} /> Thoát</button>
+        <button type="button" onClick={onExit} disabled={supporting}><ArrowLeft size={15} /> Thoát</button>
       </div>
     </section>
   );
@@ -234,6 +243,7 @@ function FeedbackView({
   results,
   onNext,
   onExit,
+  onRevisit,
 }: {
   item: RemediationObservatoryItem;
   feedback: RemediationObservatoryFeedback;
@@ -242,6 +252,7 @@ function FeedbackView({
   results: readonly RemediationObservatoryResult[];
   onNext: () => void;
   onExit: () => void;
+  onRevisit?: RemediationObservatoryProps['onRevisit'];
 }) {
   const positive = feedback.outcome === "correct";
   const displayedCorrectAnswer = feedback.correctAnswer ?? (positive ? feedback.answer : null);
@@ -254,12 +265,12 @@ function FeedbackView({
       </header>
 
       <div className="rem-session-body rem-feedback-body">
-        <article className={`rem-feedback-card ${positive ? "is-positive" : "is-negative"}`}>
+        <article className={`rem-feedback-card ${feedback.outcome === 'pending' ? 'is-pending' : positive ? "is-positive" : "is-negative"}`}>
           <section className="rem-feedback-answer">
             <small>KẾT QUẢ</small>
             <div className="rem-feedback-verdict">
-              <span className="rem-result-seal">{positive ? <CheckCircle2 size={29} /> : <XCircle size={29} />}</span>
-              <strong>{positive ? "Chính xác" : "Chưa đúng"}</strong>
+              <span className="rem-result-seal">{feedback.outcome === 'pending' ? <ShieldCheck size={29} /> : positive ? <CheckCircle2 size={29} /> : <XCircle size={29} />}</span>
+              <strong>{feedback.outcome === 'pending' ? 'Đã lưu · chờ đồng bộ' : positive ? "Chính xác" : "Chưa đúng"}</strong>
             </div>
             <h2>{item.prompt}</h2>
             {item.promptMeta && <p>{item.promptMeta}</p>}
@@ -272,19 +283,20 @@ function FeedbackView({
             <article><CircleAlert size={19} /><div><strong>Bạn đã trả lời</strong><p>{feedback.answer}</p>{!positive && displayedCorrectAnswer && <p>Đối chiếu với đáp án đúng: {displayedCorrectAnswer}</p>}</div></article>
             <article><BookOpenText size={19} /><div><strong>Luyện lại trong ngữ cảnh</strong><p>{item.originLabel} · {item.originDetail}. Đọc lại câu hỏi và tự giải thích nghĩa trước lượt tiếp theo.</p></div></article>
             <PublishedVocabularyReference key={item.id} wordId={item.referenceWordId} lessonId={item.referenceLessonId} />
+            <RemediationSourceLink key={`revisit:${item.id}`} item={item} onRevisit={onRevisit} />
           </section>
         </article>
       </div>
 
       <footer className="rem-session-actions rem-feedback-actions">
-        <span>{feedback.usedHint ? <Eye size={16} /> : <ShieldCheck size={16} />}{feedback.usedHint ? "Đã dùng gợi ý" : "Không dùng gợi ý"}</span>
+        <span>{feedback.usedHint ? <Eye size={16} /> : <ShieldCheck size={16} />}{feedback.usedHint ? "Đã dùng hỗ trợ" : "Không dùng hỗ trợ"}</span>
         <button className="rem-primary-action" type="button" onClick={onNext}>
           {current + 1 < total ? "Sang lỗi tiếp theo" : "Xem kết quả"} <ArrowRight size={18} />
         </button>
       </footer>
 
       <div className="rem-session-statusbar">
-        <span>{feedback.usedHint ? <Eye size={16} /> : <ShieldCheck size={16} />}{feedback.usedHint ? "Đã dùng gợi ý" : "Không dùng gợi ý"}</span>
+        <span>{feedback.usedHint ? <Eye size={16} /> : <ShieldCheck size={16} />}{feedback.usedHint ? "Đã dùng hỗ trợ" : "Không dùng hỗ trợ"}</span>
         <SessionRail total={total} current={current} results={results} />
         <button type="button" onClick={onExit}><ArrowLeft size={15} /> Thoát</button>
       </div>
@@ -351,8 +363,9 @@ function SummaryView({
         </article>
 
         <div className="rem-summary-notes">
-          <article><CheckCircle2 size={22} /><div><strong>{summary.unassistedCorrect} câu đúng không gợi ý</strong><p>Chỉ các lượt này mới đủ điều kiện hóa giải lỗi hiện tại.</p></div></article>
-          <article><RotateCcw size={22} /><div><strong>{summary.retry} lỗi sẽ quay lại</strong><p>Lượt sai hoặc có gợi ý được giữ lại cho lần ôn tiếp theo.</p></div></article>
+          {summary.pending > 0 && <p role="status">{summary.pending} câu trả lời đã lưu trên thiết bị, chờ đồng bộ để chấm.</p>}
+          <article><CheckCircle2 size={22} /><div><strong>{summary.unassistedCorrect} câu đúng không dùng hỗ trợ</strong><p>Chỉ các lượt này mới đủ điều kiện hóa giải lỗi hiện tại.</p></div></article>
+          <article><RotateCcw size={22} /><div><strong>{summary.retry} lỗi sẽ quay lại</strong><p>Lượt sai hoặc có hỗ trợ được giữ lại cho lần ôn tiếp theo.</p></div></article>
         </div>
       </div>
 
@@ -377,6 +390,8 @@ export function RemediationObservatory({
   error,
   onSubmit,
   onSpeak,
+  onSupport,
+  onRevisit,
 }: RemediationObservatoryProps) {
   const [phase, setPhase] = useState<ObservatoryPhase>("map");
   const [session, setSession] = useState<readonly RemediationObservatoryItem[]>([]);
@@ -386,11 +401,17 @@ export function RemediationObservatory({
   const [hintUsed, setHintUsed] = useState(false);
   const [feedback, setFeedback] = useState<RemediationObservatoryFeedback | null>(null);
   const [results, setResults] = useState<readonly RemediationObservatoryResult[]>([]);
+  const [supporting, setSupporting] = useState(false);
+  const [supportError, setSupportError] = useState('');
+  const supportLock = useRef(false);
+  const supportRetry = useRef<{ itemId: string; kind: 'hint' | 'synthetic-tts'; operationId: string } | null>(null);
+  const alive = useRef(true);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
 
   const currentItem = session[current] ?? null;
   const retryItems = useMemo(() => session.filter((item) => {
     const result = results.find((entry) => entry.itemId === item.id);
-    return result && !result.resolved;
+    return result && !result.resolved && result.outcome !== 'pending';
   }), [results, session]);
 
   const resetQuestion = () => {
@@ -398,6 +419,7 @@ export function RemediationObservatory({
     setHintVisible(false);
     setHintUsed(false);
     setFeedback(null);
+    setSupportError(''); supportRetry.current = null;
   };
 
   const start = () => {
@@ -411,7 +433,7 @@ export function RemediationObservatory({
   };
 
   const submitAnswer = async () => {
-    if (!currentItem || !answer.trim() || submitting) return;
+    if (!currentItem || !answer.trim() || submitting || supportLock.current) return;
     try {
       const nextFeedback = await onSubmit(currentItem, answer.trim(), hintUsed);
       const result: RemediationObservatoryResult = {
@@ -461,6 +483,31 @@ export function RemediationObservatory({
     setPhase("attempt");
   };
 
+  const requestSupport = async (kind: 'hint' | 'synthetic-tts') => {
+    if (!currentItem || submitting || supportLock.current) return;
+    if (kind === 'hint' && hintVisible) { setHintVisible(false); return; }
+    supportLock.current = true; setSupporting(true); setSupportError('');
+    try {
+      if (!onSupport) throw new Error('Support persistence is unavailable');
+      const previous = supportRetry.current;
+      const operationId = previous?.itemId === currentItem.id && previous.kind === kind
+        ? previous.operationId : `mistake-support:${crypto.randomUUID()}`;
+      supportRetry.current = { itemId: currentItem.id, kind, operationId };
+      await onSupport(currentItem, kind, operationId);
+      supportRetry.current = null;
+      if (!alive.current) return;
+      // Both reveal and synthetic audio are assistance, never independent recall.
+      setHintUsed(true);
+      if (kind === 'hint') setHintVisible(true);
+      else if (currentItem.spokenText) onSpeak?.(currentItem.spokenText);
+    } catch {
+      if (alive.current) setSupportError('Chưa lưu được lượt hỗ trợ. Gợi ý hoặc máy đọc chưa được mở; hãy thử lại.');
+    } finally {
+      supportLock.current = false;
+      if (alive.current) setSupporting(false);
+    }
+  };
+
   return (
     <div className="content-page rem-observatory rem-celestial" data-rem-phase={phase}>
       <AstralBackdrop />
@@ -474,14 +521,13 @@ export function RemediationObservatory({
           total={session.length}
           results={results}
           submitting={submitting}
-          error={error}
+          supporting={supporting}
+          error={supportError || error}
           onAnswer={setAnswer}
-          onToggleHint={() => {
-            setHintVisible((visible) => !visible);
-            setHintUsed(true);
-          }}
+          onToggleHint={() => void requestSupport('hint')}
           onSubmit={() => void submitAnswer()}
-          onSpeak={onSpeak}
+          onSpeak={onSpeak ? () => void requestSupport('synthetic-tts') : undefined}
+          onRevisit={onRevisit}
           onExit={exitToMap}
         />
       )}
@@ -493,6 +539,7 @@ export function RemediationObservatory({
           total={session.length}
           results={results}
           onNext={next}
+          onRevisit={onRevisit}
           onExit={exitToMap}
         />
       )}

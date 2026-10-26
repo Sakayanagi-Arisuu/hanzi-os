@@ -4,6 +4,10 @@
 .memory-experience.memory-session:has(>.review-session-notice) {grid-template-rows:48px auto minmax(0,1fr) auto}
 .memory-experience.memory-session>.review-session-notice {position:static;transform:none;width:100%;margin:0;padding:8px 12px;min-height:0;font-size:12px}
 .memory-experience.memory-lobby, .memory-experience.memory-completion { min-height:0; height:var(--learner-stage-block); container-type:size; }
+.memory-experience.memory-lobby .memory-lobby-hero { grid-row:1; }
+.memory-experience.memory-lobby .memory-lobby-dashboard { grid-row:2; }
+.memory-experience.memory-lobby .memory-lobby-totals { grid-row:3; }
+.memory-experience.memory-lobby .memory-lobby-action { grid-row:4; min-width:0; }
 .memory-experience.memory-lobby .memory-lobby-hero h1,
 .memory-experience.memory-completion h1 { font-family:"Hanzi Editorial","Times New Roman",serif; font-weight:400; }
 @media (min-width:1100px) {
@@ -153,8 +157,105 @@
 .memory-experience.memory-completion .memory-completion-stats>div {background:linear-gradient(135deg,#102b22e8,#020d09e8);border-radius:12px 2px;box-shadow:inset 0 0 0 4px #00110bc9,inset 0 0 0 5px #6b9f7344}
 @keyframes memory-jade-reveal {from {opacity:0;transform:translateY(7px)}to {opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce) {.memory-experience *, .memory-experience *::before,.memory-experience *::after {animation:none!important;transition:none!important}}
-@media(max-width:760px) {
- .memory-experience.memory-lobby {padding-bottom:92px}
- .memory-experience.memory-lobby>.memory-primary-cta {position:sticky;bottom:8px;z-index:3;margin-top:18px;min-height:56px}
- .memory-experience.memory-lobby .memory-stat-card h2 {font-size:18px}
+@media (max-width:760px), (max-width:1000px) and (max-height:600px) {
+ .memory-experience.memory-lobby {
+  display:grid; grid-template-rows:auto auto auto minmax(0,1fr); gap:12px;
+  padding:12px; overflow:hidden;
+  background:linear-gradient(180deg,#01110c77,#010806 240px),url('/memory-lobby-ngoc-lenh.webp') center top / auto 300px no-repeat,#010806;
+ }
+ .memory-experience.memory-lobby .memory-lobby-hero {
+  min-height:0; padding:4px 0; gap:4px 12px;
+  grid-template-columns:minmax(0,1fr) 56px; align-content:start;
+ }
+ .memory-experience.memory-lobby .memory-lobby-hero > .realm-emblem {width:56px;height:56px;min-width:0}
+ .memory-experience.memory-lobby .memory-lobby-hero > span {font-size:12px;letter-spacing:.08em;line-height:1.4}
+ .memory-experience.memory-lobby .memory-lobby-hero h1 {max-width:none;margin:4px 0;font-size:28px;line-height:1.2;letter-spacing:.025em}
+ .memory-experience.memory-lobby .memory-lobby-hero p {margin:0;padding:0;font-size:14px;line-height:1.5}
+ .memory-experience.memory-lobby .memory-lobby-hero p::after {display:none}
+ .memory-experience.memory-lobby .memory-lobby-action {grid-row:2}
+ .memory-experience.memory-lobby .memory-primary-cta {
+  position:relative;bottom:auto;width:100%;min-height:48px;margin:0;padding:12px 16px;
+  font-size:16px;line-height:1.4;clip-path:none;border-radius:12px 2px;
+ }
+ .memory-experience.memory-lobby .memory-primary-cta::before {inset:4px;border-radius:8px 0;clip-path:none}
+ .memory-experience.memory-lobby .memory-empty-note {margin:8px 0 0;text-align:left;font-size:13px;line-height:1.5;color:#bfd5ca}
+ .memory-experience.memory-lobby .memory-lobby-totals {
+  grid-row:3;grid-template-columns:repeat(3,minmax(0,1fr));min-height:0;margin:0;clip-path:none;border-radius:8px;
+ }
+ .memory-experience.memory-lobby .memory-lobby-totals > div {
+  display:flex;flex-direction:column;gap:4px;min-height:0;padding:8px 4px;
+  text-align:center;justify-content:center;border-bottom:0;border-right:1px solid #6290823d;
+ }
+ .memory-experience.memory-lobby .memory-lobby-totals > div:last-child {border-right:0}
+ .memory-experience.memory-lobby .memory-total-symbol {display:none}
+ .memory-experience.memory-lobby .memory-lobby-totals strong {font-size:24px;line-height:1.2}
+ .memory-experience.memory-lobby .memory-lobby-totals span {font-size:12px;line-height:1.4;color:#bfd5ca}
+ .memory-experience.memory-lobby .memory-lobby-totals br {display:none}
+ .memory-experience.memory-lobby .memory-lobby-dashboard {
+  grid-row:4;display:grid;grid-template-columns:minmax(0,1fr);grid-auto-rows:max-content;
+  gap:12px;overflow:auto;min-height:0;align-content:start;overscroll-behavior:contain;scrollbar-width:thin;
+ }
+ .memory-experience.memory-lobby .memory-due-card {display:none}
+ .memory-experience.memory-lobby .memory-stat-card {min-height:0;padding:12px;clip-path:none;border-radius:8px 2px;overflow:hidden}
+ .memory-experience.memory-lobby .memory-stat-card h2 {font-size:16px;line-height:1.4;gap:8px}
+ .memory-experience.memory-lobby .memory-forecast {min-width:0;width:100%;height:104px;margin-top:8px;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+ .memory-experience.memory-lobby .memory-forecast > div {padding:8px 0 4px;gap:4px}
+ .memory-experience.memory-lobby .memory-forecast span {font-size:11px;line-height:1.4;white-space:normal;text-align:center}
+ .memory-experience.memory-lobby .memory-forecast strong {font-size:18px;line-height:1.3}
+ .memory-experience.memory-lobby .memory-distribution-body {min-height:0;grid-template-columns:80px minmax(0,1fr);gap:12px;margin-top:8px}
+ .memory-experience.memory-lobby .memory-donut {width:80px}
+ .memory-experience.memory-lobby .memory-donut::before {width:54px}
+ .memory-experience.memory-lobby .memory-distribution-card dl > div {gap:8px;min-height:32px}
+ .memory-experience.memory-lobby .memory-distribution-card dt {gap:4px;font-size:12px;color:#bfd5ca}
+ .memory-experience.memory-lobby .memory-distribution-card dd {font-size:14px}
+ .memory-experience.memory-session {padding:8px 12px;grid-template-rows:44px minmax(0,1fr) auto;gap:8px}
+ .memory-experience.memory-session:has(> .review-session-notice) {grid-template-rows:44px auto minmax(0,1fr) auto}
+ .memory-experience.memory-session .memory-session-toolbar {gap:8px;grid-template-columns:minmax(0,1fr) auto}
+ .memory-experience.memory-session .memory-session-toolbar > button {min-width:64px;min-height:44px;padding:0 8px;font-size:14px}
+ .memory-experience.memory-session .review-session-bar {min-height:44px;padding:0 8px;gap:8px}
+ .memory-experience.memory-session .review-session-bar > span {font-size:11px;letter-spacing:0}
+ .memory-experience.memory-session .memory-arena {padding:16px 0 8px;gap:8px}
+ .memory-experience.memory-session .memory-glyph-core {width:clamp(132px,33cqh,220px);height:clamp(132px,33cqh,220px);margin-top:24px}
+ .memory-experience.memory-session .memory-jade-crystal {height:32px;top:-28px}
+ .memory-experience.memory-session .memory-front {gap:8px}
+ .memory-experience.memory-session .memory-front > p {font-size:18px;line-height:1.4;padding:0 4px 8px}
+ .memory-experience.memory-session .memory-hint-button {min-height:44px;min-width:112px;padding:8px 16px;font-size:14px}
+ .memory-experience.memory-session .memory-arena.revealed {padding-top:8px}
+ .memory-experience.memory-session .memory-arena.revealed .memory-glyph-core {width:clamp(100px,22cqh,160px);height:clamp(100px,22cqh,160px);margin-top:24px}
+ .memory-experience.memory-session .memory-arena.revealed .memory-front > p {font-size:18px}
+ .memory-experience.memory-session .memory-back {gap:8px}
+ .memory-experience.memory-session .memory-decoded-meaning strong {font-size:22px;line-height:1.4}
+ .memory-experience.memory-session .memory-example-panel {padding:12px}
+ .memory-experience.memory-session .memory-example-panel strong {font-size:20px;line-height:1.5}
+ .memory-experience.memory-session .memory-example-panel :is(span,p) {font-size:14px;line-height:1.5}
+ .memory-experience.memory-session .review-reveal-console {width:100%}
+ .memory-experience.memory-session .review-reveal-console .reveal-button {min-height:48px;padding:12px 16px;clip-path:none;border-radius:12px 2px}
+ .memory-experience.memory-session .rating-heading strong {font-size:16px;line-height:1.4}
+ .memory-experience.memory-session .rating-heading b {display:none}
+ .memory-experience.memory-session .rating-console .rating-heading small {display:block;margin-top:4px;font-size:12px;line-height:1.4;color:#bfd5ca}
+ .memory-experience.memory-session .review-command-sigil {display:none}
+ .memory-experience.memory-session .rating-buttons {grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+ .memory-experience.memory-session .rating-buttons button {min-height:48px;padding:8px 4px}
+ .memory-experience.memory-session .rating-buttons button strong {font-size:14px;line-height:1.4}
+ .memory-experience.memory-session .rating-buttons :is(small,.rating-rune) {display:none}
+ .memory-experience.memory-completion {padding:12px;gap:8px}
+ .memory-experience.memory-completion .memory-completion-sigil {width:64px;margin-top:4px}
+ .memory-experience.memory-completion h1 {margin:4px 0;font-size:28px;line-height:1.3}
+ .memory-experience.memory-completion > p {font-size:16px;line-height:1.5}
+ .memory-experience.memory-completion .memory-completion-stats > div {min-height:56px;padding:8px;gap:8px}
+ .memory-experience.memory-completion .memory-completion-actions :is(a,button) {min-height:48px;font-size:14px}
+}
+@media (max-width:1000px) and (max-height:500px) {
+ .memory-experience.memory-lobby {gap:8px;padding:8px 12px}
+ .memory-experience.memory-lobby .memory-lobby-hero {grid-template-columns:minmax(0,1fr)}
+ .memory-experience.memory-lobby .memory-lobby-hero > .realm-emblem,
+ .memory-experience.memory-lobby .memory-lobby-hero p {display:none}
+ .memory-experience.memory-lobby .memory-lobby-hero h1 {font-size:24px;margin:0}
+ .memory-experience.memory-lobby .memory-lobby-totals > div {padding:4px}
+ .memory-experience.memory-lobby .memory-lobby-totals strong {font-size:20px}
+ .memory-experience.memory-lobby .memory-lobby-dashboard {grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .memory-experience.memory-lobby .memory-empty-note {font-size:12px;margin-top:4px}
+ .memory-experience.memory-session .rating-console .rating-heading strong {display:none}
+ .memory-experience.memory-session .memory-glyph-core {width:100px;height:100px}
+ .memory-experience.memory-session .memory-arena.revealed .memory-glyph-core {width:80px;height:80px}
 }

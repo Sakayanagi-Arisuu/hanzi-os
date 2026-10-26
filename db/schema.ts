@@ -168,6 +168,25 @@ export const learnerAccessDays = sqliteTable("learner_access_days", {
   provenance: text("provenance").notNull().default("visit"),
 }, table => [primaryKey({ columns: [table.userId, table.day] })]);
 
+/** Hashed deletion receipt survives the removed owner; raw proof stays on that device. */
+export const accountDeletionJobs = sqliteTable('account_deletion_jobs', {
+  id: text('id').primaryKey(), userId: text('user_id').notNull().unique(), tokenHash: text('token_hash').notNull().unique(),
+  projectId: text('project_id'), firebaseUid: text('firebase_uid'), expectedEmail: text('expected_email'),
+  status: text('status').notNull(), requestedAt: integer('requested_at').notNull(), authenticatedAt: integer('authenticated_at').notNull(),
+  updatedAt: integer('updated_at').notNull(), expiresAt: integer('expires_at').notNull(), completedAt: integer('completed_at'),
+  attempts: integer('attempts').notNull().default(0), nextAttemptAt: integer('next_attempt_at').notNull(), lastError: text('last_error'),
+  leaseToken: text('lease_token'), leaseExpiresAt: integer('lease_expires_at'),
+}, table => [
+  index('account_deletion_jobs_due').on(table.status, table.nextAttemptAt, table.leaseExpiresAt),
+  check('account_deletion_status', sql`${table.status} IN ('pending','provider_deleted','completed')`),
+  check('account_deletion_attempts', sql`${table.attempts} BETWEEN 0 AND 1000000`),
+  check('account_deletion_time', sql`${table.authenticatedAt}<=${table.requestedAt} AND ${table.requestedAt}<=${table.updatedAt} AND ${table.requestedAt}<${table.expiresAt}`),
+  check('account_deletion_provider', sql`(${table.projectId} IS NULL AND ${table.firebaseUid} IS NULL AND ${table.expectedEmail} IS NULL) OR (${table.projectId} IS NOT NULL AND ${table.firebaseUid} IS NOT NULL AND ${table.expectedEmail} IS NOT NULL)`),
+  check('account_deletion_lease', sql`(${table.leaseToken} IS NULL AND ${table.leaseExpiresAt} IS NULL) OR (${table.leaseToken} IS NOT NULL AND ${table.leaseExpiresAt} IS NOT NULL)`),
+  check('account_deletion_completion', sql`(${table.status}='completed' AND ${table.completedAt} IS NOT NULL AND ${table.projectId} IS NULL AND ${table.firebaseUid} IS NULL AND ${table.expectedEmail} IS NULL) OR (${table.status}<>'completed' AND ${table.completedAt} IS NULL)`),
+  check('account_deletion_error', sql`${table.lastError} IS NULL OR ${table.lastError} IN ('provider_unavailable','graph_unavailable','graph_blocked')`),
+]);
+
 export const users = sqliteTable(
   "users",
   {
@@ -227,6 +246,7 @@ export const authIdentities = sqliteTable(
       table.providerSubject,
     ),
     index("auth_identities_user_idx").on(table.userId),
+    uniqueIndex('auth_identities_owner_id_uidx').on(table.userId, table.id),
   ],
 );
 
@@ -263,7 +283,7 @@ export const authSessions = sqliteTable(
     index("auth_sessions_expiry_idx").on(table.expiresAt),
     check(
       "auth_sessions_method_check",
-      sql`${table.authMethod} IN ('google', 'facebook', 'hanzi', 'email_otp', 'passkey')`,
+      sql`${table.authMethod} IN ('google', 'github', 'facebook', 'hanzi', 'email_otp', 'passkey')`,
     ),
     check(
       "auth_sessions_time_check",
@@ -302,13 +322,14 @@ export const authChallenges = sqliteTable(
       sql`${table.kind} IN (
         'google_signin', 'google_link', 'google_unlink',
         'facebook_signin', 'facebook_link', 'facebook_unlink',
+        'github_signin', 'github_link', 'github_unlink',
         'email_signin', 'email_link', 'email_unlink',
         'passkey_register', 'passkey_signin', 'passkey_unlink'
       )`,
     ),
     check(
       "auth_challenges_provider_check",
-      sql`${table.provider} IN ('google', 'facebook', 'hanzi', 'email_otp', 'passkey')`,
+      sql`${table.provider} IN ('google', 'github', 'facebook', 'hanzi', 'email_otp', 'passkey')`,
     ),
     check(
       "auth_challenges_attempts_check",
@@ -398,6 +419,39 @@ export const hanziPasswordCredentials = sqliteTable(
     ),
   ],
 );
+
+/** Hosted password aliases contain no password material or provider tokens. */
+export const hostedHanziAliases = sqliteTable('hosted_hanzi_aliases', {
+  userId: text('user_id').primaryKey().references(() => users.id, { onDelete: 'cascade' }),
+  identityId: text('identity_id').notNull().unique(),
+  projectId: text('project_id').notNull(),
+  firebaseUid: text('firebase_uid').notNull(),
+  normalizedUsername: text('normalized_username').notNull(),
+  normalizedEmail: text('normalized_email').notNull(),
+  createdAt: integer('created_at').notNull(),
+  updatedAt: integer('updated_at').notNull(),
+}, table => [
+  foreignKey({ columns: [table.userId, table.identityId], foreignColumns: [authIdentities.userId, authIdentities.id] }).onDelete('cascade'),
+  uniqueIndex('hosted_hanzi_project_uid_uidx').on(table.projectId, table.firebaseUid),
+  uniqueIndex('hosted_hanzi_project_username_uidx').on(table.projectId, table.normalizedUsername),
+  uniqueIndex('hosted_hanzi_project_email_uidx').on(table.projectId, table.normalizedEmail),
+  check('hosted_hanzi_username_check', sql`length(${table.normalizedUsername}) BETWEEN 3 AND 32 AND ${table.normalizedUsername} NOT GLOB '*[^a-z0-9._-]*' AND substr(${table.normalizedUsername},1,1) GLOB '[a-z0-9]'`),
+  check('hosted_hanzi_email_check', sql`length(${table.normalizedEmail}) BETWEEN 3 AND 254 AND instr(${table.normalizedEmail},'@')>1`),
+  check('hosted_hanzi_time_check', sql`${table.createdAt}<=${table.updatedAt}`),
+]);
+
+export const authLoginRateLimits = sqliteTable('auth_login_rate_limits', {
+  keyHash: text('key_hash').primaryKey(), windowStart: integer('window_start').notNull(),
+  requestCount: integer('request_count').notNull(), updatedAt: integer('updated_at').notNull(),
+}, table => [check('auth_login_rate_count', sql`${table.requestCount} BETWEEN 1 AND 100`)]);
+
+/** Password reset fence; contains no password material or provider tokens. */
+export const hostedCredentialStates = sqliteTable('hosted_credential_states', {
+  userId: text('user_id').primaryKey().references(() => users.id, { onDelete: 'cascade' }),
+  passwordUpdatedAt: integer('password_updated_at').notNull(),
+  validSince: integer('valid_since').notNull(),
+  observedAt: integer('observed_at').notNull(),
+}, table => [check('hosted_credential_times_check', sql`${table.passwordUpdatedAt}>=0 AND ${table.validSince}>=0 AND ${table.observedAt}>=0`)]);
 
 /** Public-key material and counters for passkeys. Private keys stay on device. */
 export const passkeyCredentials = sqliteTable(
@@ -2856,6 +2910,31 @@ export const editorialAssignmentEvents = sqliteTable(
     ),
   ],
 );
+
+/** Private portraits are deliberately separate from published teaching media. */
+export const learnerAvatars = sqliteTable('learner_avatars', {
+  userId: text('user_id').primaryKey().references(() => users.id, { onDelete: 'cascade' }),
+  revision: integer('revision').notNull(), updatedAt: integer('updated_at').notNull(),
+  byteLength: integer('byte_length').notNull(), contentSha256: text('content_sha256'),
+  lastOperationId: text('last_operation_id').notNull(), lastRequestSha256: text('last_request_sha256').notNull(), writeNonce: text('write_nonce').notNull(),
+}, table => [check('learner_avatar_revision', sql`${table.revision} BETWEEN 1 AND 9007199254740990`),
+  check('learner_avatar_updated', sql`${table.updatedAt} BETWEEN 0 AND 8640000000000000`),
+  check('learner_avatar_bytes', sql`${table.byteLength} BETWEEN 0 AND 204800`),
+  check('learner_avatar_request_hash', sql`length(${table.lastRequestSha256})=64`),
+  check('learner_avatar_content', sql`(${table.byteLength}=0 AND ${table.contentSha256} IS NULL) OR (${table.byteLength}>0 AND ${table.contentSha256} IS NOT NULL AND length(${table.contentSha256})=64)`)]);
+export const learnerAvatarChunks = sqliteTable('learner_avatar_chunks', {
+  userId: text('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+  revision: integer('revision').notNull(), sequence: integer('sequence').notNull(), dataBase64: text('data_base64').notNull(),
+}, table => [primaryKey({ columns: [table.userId, table.revision, table.sequence] }),
+  check('learner_avatar_chunk_revision', sql`${table.revision} BETWEEN 1 AND 9007199254740990`),
+  check('learner_avatar_chunk_sequence', sql`${table.sequence} BETWEEN 0 AND 4`),
+  check('learner_avatar_chunk_size', sql`length(${table.dataBase64}) BETWEEN 1 AND 65536`)]);
+export const learnerAvatarMutations = sqliteTable('learner_avatar_mutations', {
+  userId: text('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }), operationId: text('operation_id').notNull(),
+  requestSha256: text('request_sha256').notNull(), revision: integer('revision').notNull(),
+}, table => [primaryKey({ columns: [table.userId, table.operationId] }),
+  check('learner_avatar_mutation_revision', sql`${table.revision} BETWEEN 1 AND 9007199254740990`),
+  check('learner_avatar_mutation_hash', sql`length(${table.requestSha256})=64`)]);
 
 /** Immutable uploaded teaching media; replace with a new asset to preserve releases. */
 export const lessonMediaAssets = sqliteTable('lesson_media_assets', {

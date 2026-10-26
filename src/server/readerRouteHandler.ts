@@ -1,4 +1,5 @@
 import { getChatGPTUser } from "../../app/chatgpt-auth";
+import { learningOwnerMismatch } from './learningOwnerHttp';
 import { noStoreJsonHeaders, type SyncApiError } from "../sync/protocol";
 import { readBoundedRequestText } from "./boundedRequestBody";
 import { CourseVersionBindingError } from "./courseVersionRepository";
@@ -91,6 +92,7 @@ export const handleReaderMutation = async <TCommand, TReceipt>(
       );
     }
     const identity = await getChatGPTUser();
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     if (!identity) {
       return errorResponse(401, "AUTH_REQUIRED", config.authMessage, requestId);
     }

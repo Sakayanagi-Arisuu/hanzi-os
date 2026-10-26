@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "personalization-t00-2026-10-18",
+  "task": "T02",
+  "slice": "review",
+  "status": "IN-REVIEW",
+  "date": "2026-10-18",
+  "inherits": [
+    "PERSONALIZATION_T00_INVENTORY.json",
+    "PERSONALIZATION_T00_FIXTURES.json",
+    "PERSONALIZATION_T01_DELTA.json",
+    "PERSONALIZATION_T01_EVENTS.md",
+    "PERSONALIZATION_T02_LESSONS_DELTA.json",
+    "PERSONALIZATION_T02_LESSONS.md"
+  ],
+  "preEditDrift": [],
+  "preEditMergedBindingCount": 189,
+  "coverage": [
+    "E04 FSRS guest grade atomic state/evidence/history/outbox",
+    "E04 account transaction context and rebuildable review_logs history",
+    "E25 owner/reset/crash/CAS review journal",
+    "E26 review receipt reconciliation, pending/rejected consumer fences",
+    "E18-E21 review count/day/queue/journey consumers only; no new overview producers"
+  ],
+  "unchangedAcceptance": {
+    "T00": "IN-REVIEW",
+    "T01": "IN-REVIEW",
+    "T02-lessons": "IN-REVIEW"
+  },
+  "nextUnconnectedSlice": "mistakes",
+  "allT02Complete": false,
+  "sourceBindings": [
+    {
+      "file": "app/api/learning/review-history/route.ts",
+      "sha256": "bb7496f6461e0a18ac90f6c6b1cacea9b5b1a0cf8a6cf99dd17dba961bf80d28",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/MemoryReviewComplete.tsx",
+      "sha256": "cda21184486e33ad0b8d309fe28d6f4aa627e15ff92f723bd9c257f238d062f6",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/MemoryReviewComplete.test.ts",
+      "sha256": "760d526e91fb966141a3da8bdc0da63a16f1cea1a077e1172869f5849e104f57",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/lessonHistory.ts",
+      "sha256": "cf0feca6351c275962553b92d1fe7900d9f33ae208d25c6ae8519743230711a1",
+      "previousSha256": "bff43996e8dba1df223e788777c37bf80c2e806b640625e25a6e79979df057e5"
+    },
+    {
+      "file": "src/learning/reviewHistory.ts",
+      "sha256": "6d89f51cbb5b56fcea4789e1f3e9c6bfb4146c5af041c94f775f61480c9b20f7",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/reviewHistory.test.ts",
+      "sha256": "a29a0e03b437a4b6afdb51cd7b644338df6e01d310e64d25d45cf887c9498962",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/reviewProtocol.ts",
+      "sha256": "72d000eedef8d8a6b27616cdc2f42cfd2db4a60d406c5109f6e0b41432cb1c24",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/reviewSessionStatus.ts",
+      "sha256": "808ac8e4fc34ccf22da29a513de7f82ebf9bb7874a1d031dd28c2243c5e4c56f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/reviewPresentation.ts",
+      "sha256": "8ab394bde4d7816d192f1fa84f31172a6827416c88767114be62263c92956277",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/learningJourney.ts",
+      "sha256": "d33b3ba1eb5b0598e8ca2d6c5e4094f26810c32f70290c1fee37ce3a4d88259a",
+      "previousSha256": "035ae39ae63044c98865f8221ac25a505684c93924c84cc4b7aa553f69a98efa"
+    },
+    {
+      "file": "src/learning/learningJourney.test.ts",
+      "sha256": "f8b7acd8fd3f3c4f53cf78b3d6dd8df2e8ee300ed64fd52856340b70b1cee016",
+      "previousSha256": "6c609df9db29b283b65d9c75317bd7066a52031ebf471b15794e364e511990b2"
+    },
+    {
+      "file": "src/screens/LocalReviewPage.tsx",
+      "sha256": "38cd39be9dcc4a9c819f5d66d09eac7c3f2499ba8d4225fa91f0169c846128e7",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/AuthenticatedReviewPage.tsx",
+      "sha256": "e9afb9ca9faea872a7c31478d9bfdd0489e82f0c4d6acca47960d91cca8e622c",
+      "previousSha256": "ec5db0884b33d05fcf725428f15c142ecd1584bca2ba781232ab31665c57fff1"
+    },
+    {
+      "file": "src/screens/ReviewPage.tsx",
+      "sha256": "ef2de24806f194e850593c06695fec2fd3f03c4968eba62ef7367612115526af",
+      "previousSha256": "40189a1f3332f649b4cb5f9fc7f67aec03cbfb1b1e773cd113b753b20897acd4"
+    },
+    {
+      "file": "src/server/reviewRepository.ts",
+      "sha256": "99beb976e9f15b5881605984bbd35d775e6a143b3f79b6179960106dbc5c67b6",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/reviewRepository.test.ts",
+      "sha256": "bc4e4450ad2d4afb93dbd13ccaf0318b967152f4f13c8e74d6242e3a755da02c",
+      "previousSha256": "e7f1201388ac1d49a960ecb1615d42e32ed9d783abcfff50d7fa9ff6b93a3188"
+    },
+    {
+      "file": "src/server/reviewHistoryRepository.ts",
+      "sha256": "f5b5dc39a7cf6e728da464d92a42bcc1416ccc23b05f4eb7f4a83a0eb85ba1b2",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/reviewHistoryRoute.test.ts",
+      "sha256": "2401858ef1aba57bf4a08fb106a3216d18ee66ee31f95be9f166079609772681",
+      "previousSha256": null
+    },
+    {
+      "file": "src/store/LearningStore.tsx",
+      "sha256": "2d03565d10d9303347f434930d92c1ffdd9c0386894f14e53ee401e0776cc607",
+      "previousSha256": "c52dbb6f282838c031b89211cb26edbe94c2df018b8c1a37e821df17cad52da3"
+    },
+    {
+      "file": "src/store/LearningJourneyStore.tsx",
+      "sha256": "b4c14474fb719b7305b56ddfd6c0eeb1347411b18dd8231ed7ef202f6238d9f4",
+      "previousSha256": "8e08586a0c202ee0efc8322b65f453c2f8714274c1b62d5f3b3c527e4374cecc"
+    },
+    {
+      "file": "src/sync/coordinator.ts",
+      "sha256": "3bcc8cd2d0a7dace633c3b326a07ec98e1618a4b6cdec6dfd023f5be28c7b6a1",
+      "previousSha256": "31b224e3b8847f6ae09842d6cd72e9af041c425c48a54ef9311c777bfa3821d9"
+    },
+    {
+      "file": "src/sync/coordinator.test.ts",
+      "sha256": "a99a3f629cd4d8092761241fc8252abcf588adb71145ead447597542e1cf2c4b",
+      "previousSha256": "6f14ea5943a6e9dd58bd8908674bbb246acfb834cfb94cbb08da6d60b55e0b90"
+    },
+    {
+      "file": "src/sync/lessonHistory.ts",
+      "sha256": "75c046cd33388d67b1225e40f8350515f13260797d7596670bbea5a956207e40",
+      "previousSha256": "8187de67510176df12e9a794e7b376a240a36cc50ff5df36d5f9d523ef26e5e2"
+    },
+    {
+      "file": "src/sync/reviewHistory.ts",
+      "sha256": "39cf05bfef606c9a4b73041f5767631a96b57dcf2111cd135c06a78bf7c6517e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/reviewLearningCommandOutbox.test.ts",
+      "sha256": "3fcd0406ac018acfe255f7d2fb504d42fa537b7e9a875b7acb9b8ee27f6c76fc",
+      "previousSha256": null
+    }
+  ],
+  "storage": {
+    "indexedDbVersion": 3,
+    "d1MigrationsAdded": [],
+    "localJournalPrefix": "lesson-history:v1:review:",
+    "accountBusinessTables": [
+      "review_logs",
+      "learning_attempts",
+      "idempotency_records",
+      "fsrs_cards"
+    ],
+    "analyticsWriteAdded": false,
+    "fsrsAlgorithmChanged": false,
+    "historyGrantsRewards": false
+  },
+  "validation": {
+    "targetedFiles": 20,
+    "targetedTests": 164,
+    "targetedLog": "tmp/personalization-t02-review-targeted.log",
+    "browserLog": "tmp/personalization-t02-review-browser.log",
+    "checkLog": "tmp/personalization-t02-review-check.log",
+    "checkStatus": "PASS exit0; fresh run, not a relabel of the failed lessons gate",
+    "checkFiles": 511,
+    "checkTests": 3350,
+    "mergedBindingCount": 203,
+    "mergedBindingDrift": [],
+    "productionReadiness": "BLOCKED exit1, 23 blockers; no release",
+    "priorLessonsFullGate": "FAILED: localPagePractice timeout; not relabeled as pass"
+  },
+  "limits": [
+    "No real account-D1 browser journey; SQLite transaction tests and account HTTP/context fixtures only",
+    "No Android/native/device verification",
+    "Rich lesson mobile CTA below viewport unchanged",
+    "No T03 history UI or T09 learner-model reducer",
+    "No full-device recovery or 100000-event performance claim",
+    "Pilot audio/delayed recall/challenge/human review/policy unchanged",
+    "G09 journey reset-scope issue unchanged"
+  ]
+}

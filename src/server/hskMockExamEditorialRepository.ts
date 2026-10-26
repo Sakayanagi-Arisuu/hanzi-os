@@ -35,7 +35,7 @@ const loadPinnedEditorialItems = async (
 export async function loadPublishedEditorialExamItems(database: D1Database) {
   const repository = new ContentStudioRepository(database);
   const runtime = await repository.publishedRuntime({itemType: 'exam_item'});
-  return loadPinnedEditorialItems(repository, runtime.items.map(item => item.revisionId));
+  return (await loadPinnedEditorialItems(repository, runtime.items.map(item => item.revisionId))).filter(item=>item.content.contentKind!=='assessment-item');
 }
 
 export const loadPublishedEditorialHskMockExamDefinitions = async (

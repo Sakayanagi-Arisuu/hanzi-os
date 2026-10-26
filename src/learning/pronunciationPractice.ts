@@ -299,7 +299,7 @@ export const applyPronunciationQuestReward = (
         label: "Ải Cộng Hưởng · hoàn thành phiên luyện đọc",
         xp: PRONUNCIATION_QUEST_XP,
         occurredAt: occurredAt.toISOString(),
-      }].slice(-160),
+        }],
     },
   };
 };

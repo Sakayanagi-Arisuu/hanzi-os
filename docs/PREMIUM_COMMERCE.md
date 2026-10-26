@@ -1,6 +1,27 @@
 # HSK4 Premium — quyết định thương mại và trust boundary
 
-**Trạng thái:** Ví Hanzi và quyền bài HSK4 thử nghiệm trên localhost; thanh toán VND chưa cấu hình, chưa mở bán. Giá niêm yết VNĐ đã cấu hình riêng; cập nhật 07/10/2026.
+**Trạng thái 08/10/2026 — IN-REVIEW:** Admin vận hành bảy mục, doanh thu VNĐ riêng và luồng chuyển khoản thủ công đã triển khai. Local vẫn đóng thu tiền thật. Chưa triển khai hosting, chưa kết nối cổng tự động, chưa nghiệm thu mở bán.
+
+## Vận hành chuyển khoản thủ công (bổ sung hiện hành)
+
+Phần này cập nhật các mô tả local-only ở hồ sơ thiết kế lịch sử bên dưới.
+
+- Dashboard: tiền đã thu, đã hoàn, phí đã xác minh và thu ròng trong 7/30/90 ngày; CSV và dòng tiền theo ngày Việt Nam. Thu ròng = thu − hoàn − phí, chưa trừ thuế/chi phí; không phải lợi nhuận. Khoản hoàn trong kỳ vẫn tính khi đơn mua ở kỳ trước. Hanzi, sandbox, đơn chờ và giá niêm yết không tạo doanh thu.
+- Premium: Tổng quan, Đơn hàng (tìm/lọc/phân trang), Khách hàng & ví, Gói & giá, Quyền truy cập, Hỗ trợ & hoàn tiền, Thanh toán. Quyền VNĐ và quyền nội bộ có số liệu riêng, không cộng nối kỳ hạn với nhau.
+- Người học tạo đơn với giá máy chủ và thông tin ngân hàng được chốt theo đơn. Lặp request không tạo đơn mới; thay giá không sửa đơn cũ. Người học chưa chuyển có thể hủy; đã chuyển cần giữ biên nhận và chờ đối soát, không chuyển lần hai.
+- Admin đối chiếu ngân hàng rồi nhập đúng số tiền, mã giao dịch duy nhất và xác nhận đã kiểm. Cần quyền commerce và phiên xác minh gần đây. Đổi trạng thái, ghi sự kiện tiền và audit cùng transaction; lỗi audit không cấp quyền hoặc ghi doanh thu.
+- Hoàn toàn phần: người học gửi lý do, admin chuyển tiền hoàn trong ứng dụng ngân hàng trước, sau đó ghi nhận mã giao dịch hoàn tại mục Thanh toán. Ứng dụng không tự gửi tiền. Chưa hỗ trợ hoàn một phần hoặc tự động trừ tiền/gia hạn. Sai số tiền, tiền đến sau khi hủy hoặc tranh chấp cần hỗ trợ và đối soát ngoài luồng tự động; không tự cấp quyền cho đơn đó.
+- Migration cộng thêm: `0035_commerce_operations.sql`, `0036_commerce_cash_event_guard.sql`, `0037_bank_transfer_orders.sql`. Không xóa ledger hoặc dữ liệu học. Sự kiện tiền bất biến, chống capture lặp/hoàn vượt thu; quyền tính lại từ đơn đã trả và chưa hoàn.
+
+### Khi có hosting
+
+1. Áp dụng migration trên bản sao staging và kiểm backup/restore trước production.
+2. Admin lưu đơn vị, email hỗ trợ, website HTTPS, chính sách hoàn tiền, phương thức chuyển khoản, ngân hàng/số tài khoản/chủ tài khoản.
+3. Runtime phải có `NODE_ENV=production`, `HANZI_CASH_LEDGER_ENABLED=1`, `HANZI_BANK_TRANSFER_ENABLED=1`; origin request phải trùng website đã cấu hình. Localhost và HTTP luôn đóng. Chưa đặt các cờ này trong môi trường hiện tại.
+4. Kiểm staging với hai vai trò: tạo đơn, thanh toán, xác nhận, quyền học/hết hạn, request lặp, hoàn, đối soát và số liệu CSV. Kiểm quyền export/delete/retention dữ liệu tài chính, bảo mật, recovery và các gate phát hành trước mở bán; các test SQLite/local chưa thay thế kiểm D1 hosted.
+5. VNPay/MoMo chỉ là lựa chọn chuẩn bị, **chưa có adapter API/webhook**; không bật được bằng cách nhập khóa. Cần triển khai riêng, chữ ký/callback và kiểm thử provider trước dùng. Không nhập secret vào form admin hoặc Git.
+
+Lưu cấu hình admin không tự bật thu tiền. Gate `verify:production` vẫn fail-closed; không có deploy trong lượt này.
 
 ## Bản đồ triển khai thương mại hóa
 

@@ -167,6 +167,8 @@
 .auth-method-state i { width: 6px; height: 6px; background: var(--jade); border-radius: 50%; box-shadow: 0 0 9px var(--jade); }
 .auth-title { margin: 4px 0 0; color: #e3f6ef; font-size: 18px; }
 .auth-copy { margin: 0 0 15px; color: #91aaa3; font-size: 12px; line-height: 1.6; }
+.auth-email-verification .auth-copy {font-size:16px;overflow-wrap:anywhere;}
+.auth-email-verification .auth-secondary {margin:8px 8px 0 0;}
 .auth-row { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
 .auth-row-spaced { margin-top: 10px; }
 .auth-actions { margin-top: 14px; }
@@ -204,6 +206,8 @@
 .auth-verification-step { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(81, 246, 193, 0.14); }
 .auth-secondary,
 .auth-link { color: #b7d9cf; background: #0a2019; }
+.auth-password-reset .auth-copy { font-size: 16px; line-height: 1.5; }
+.auth-password-reset .auth-reset-back { width: 100%; margin-top: 12px; min-height: 44px; font-size: 16px; }
 .auth-link { display: inline-flex; align-items: center; font-size: 13px; text-decoration: none; }
 .auth-status { margin-top: 13px; padding: 11px 12px; display: flex; align-items: flex-start; gap: 8px; color: #bcebdc; font-size: 11px; line-height: 1.5; background: rgba(7, 33, 25, 0.72); border: 1px solid rgba(81, 246, 193, 0.25); }
 .auth-status svg { flex: 0 0 auto; color: var(--jade); }

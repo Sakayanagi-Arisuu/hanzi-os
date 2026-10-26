@@ -8,7 +8,7 @@ import {
   RELEASED_STORIES,
   RELEASED_WORD_BY_ID,
 } from "../data/curriculum";
-import { answersMatch } from "../lib/exerciseGeneration";
+import { answersMatch } from "../lib/editorialExerciseGeneration";
 import { mergeSyncDocuments } from "../sync/document";
 import type { CloudSyncDocumentV1 } from "../sync/types";
 import type {
@@ -21,9 +21,9 @@ import type {
 import {
   getAuthoritativeLessonAnswer,
   type AuthoritativeAnswer,
-} from "./authoritativeItemBank";
+} from "./editorialItemBank";
 
-export { getAuthoritativeLessonAnswer } from "./authoritativeItemBank";
+export { getAuthoritativeLessonAnswer } from "./editorialItemBank";
 
 const MAX_EVIDENCE_KEY_LENGTH = 240;
 const MAX_ACTIVITY_ID_LENGTH = 240;
@@ -126,7 +126,8 @@ const normalizeEvidenceShell = (value: unknown): LearningEvidence | null => {
     || value.schemaVersion !== 1
     || value.contentVersion !== CONTENT_VERSION
     || !boundedString(value.activityVersion, 160)
-    || !boundedString(value.activityId, MAX_ACTIVITY_ID_LENGTH)
+    || !boundedString(value.activityId, value.source === 'mistake' && typeof value.activityId === 'string'
+      && value.activityId.startsWith('lesson-page:') ? 2000 : MAX_ACTIVITY_ID_LENGTH)
     || !evidenceSources.has(value.source as EvidenceSource)
     || !evidenceMethods.has(value.method as EvidenceMethod)
     || !skills.has(value.skill as Skill)

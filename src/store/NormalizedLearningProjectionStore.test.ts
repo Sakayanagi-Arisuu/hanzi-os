@@ -106,6 +106,10 @@ describe("normalized learning projection runtime authority", () => {
     expect(canRetainProjectionDuringRefresh(snapshot, "account:b")).toBe(false);
     expect(canRetainProjectionDuringRefresh({ ...snapshot, projection: null }, "account:a"))
       .toBe(false);
+    const denied = { ...snapshot, phase: "unavailable" as const,
+      projection: null, authoritativeProgress: null, reason: "content-unavailable" as const };
+    expect(canRetainProjectionDuringRefresh(denied, "account:a")).toBe(true);
+    expect(canRetainProjectionDuringRefresh(denied, "account:b")).toBe(false);
   });
 
   it("binds an exact released enrollment to authoritative progress", () => {

@@ -8,6 +8,7 @@ import { sandboxCommerceEnabled } from "../../../../src/server/premiumAccess";
 const redirect = (request: Request, notice: string) => {
   const destination = new URL("/admin/premium", request.url);
   destination.searchParams.set("notice", notice);
+  destination.searchParams.set("tab", "accounts");
   return Response.redirect(destination, 303);
 };
 

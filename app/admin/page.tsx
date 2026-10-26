@@ -1,3 +1,6 @@
+import { CommerceOperationsRepository } from "../../src/server/commerceOperationsRepository";
+import { BusinessOverview } from "./premium/BusinessOverview";
+import { hasPermission } from "../../src/auth/authorization";
 import type { CSSProperties } from "react";
 import { AdminSection, MetricCard } from "./adminComponents";
 import { AdminShell, AdminState } from "./AdminShell";
@@ -31,13 +34,18 @@ export default async function AdminPage({
     return <AdminState kind="offline" />;
   }
 
+  let revenue: Awaited<ReturnType<CommerceOperationsRepository["revenue"]>> | null = null;
+  const canViewCommerce = hasPermission(state.context.account.authorization, "commerce:manage");
+  if (canViewCommerce) {
+    try { revenue = await new CommerceOperationsRepository(state.context.database).revenue(30); } catch { /* Show unavailable, never fabricate zero revenue. */ }
+  }
   const query = await searchParams;
   const overdueWork = summary.assignment.overdue + summary.assignment.withoutReviewer;
   const failedReleases = summary.release.dead;
   const tasks = [
     {
       title: "Duyệt nội dung",
-      count: submitted.length,
+      count: summary.workflow.submitted,
       step: "1",
       href: "/admin/publishing",
       action: "Duyệt nội dung",
@@ -93,6 +101,8 @@ export default async function AdminPage({
     badges={{ workflow: overdueWork, publishing: submitted.length + failedReleases }}
     status={query.error ? { kind: "error", message: query.error } : query.updated ? { kind: "updated", message: "Đã lưu thay đổi." } : null}
   >
+    <section className="tv-hero" aria-labelledby="today-title"><h2 id="today-title">Hôm nay cần xử lý gì?</h2><p>{summary.workflow.submitted} nội dung chờ duyệt · {overdueWork} công việc cần điều phối.</p><a className="admin-primary-action" href="/admin/publishing">Mở hàng chờ →</a></section>
+    {revenue ? <BusinessOverview revenue={revenue} compact /> : canViewCommerce ? <AdminSection title="Doanh thu"><p role="status">Chưa đọc được sổ thu tiền. Thử tải lại; chưa thể xác nhận số tiền trong kỳ.</p></AdminSection> : null}
     <AdminSection
       title="Toàn cảnh hệ thống"
       description="Số liệu trực tiếp từ D1: tài khoản, phiên máy chủ và hoạt động học đã đồng bộ. Hành vi guest/local không bị theo dõi."

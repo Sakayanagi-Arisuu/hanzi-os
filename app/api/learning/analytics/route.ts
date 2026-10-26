@@ -3,6 +3,7 @@ import { AnalyticsRepository } from "../../../../src/server/analyticsRepository"
 import { getD1Database } from "../../../../src/server/d1";
 import { SyncRepository } from "../../../../src/server/syncRepository";
 import { noStoreJsonHeaders } from "../../../../src/sync/protocol";
+import { learningOwnerMismatch } from '../../../../src/server/learningOwnerHttp';
 
 export const dynamic = "force-dynamic";
 const json = (body: unknown, status = 200) => Response.json(body, { status, headers: noStoreJsonHeaders });
@@ -12,6 +13,7 @@ async function handle(request: Request, write: boolean) {
   try {
     const identity = await getChatGPTUser();
     if (!identity) return json({ error: "Cần đăng nhập." }, 401);
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);
     const repository = new AnalyticsRepository(database);

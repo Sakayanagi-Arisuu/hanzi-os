@@ -67,12 +67,12 @@ export class LessonMediaRepository {
   }
   async releaseAccess(url:string):Promise<'unreleased'|'free'|'premium'|'unknown'> {
     // Only media used exclusively by Thiên Lộ HSK4 lessons is paid.
-    const result=await this.db.prepare("SELECT json_extract(package_json, '$.level') AS level, json_extract(package_json, '$.itemType') AS itemType FROM content_release_packages WHERE instr(package_json, ?) > 0").bind(url).all<{level:string|null;itemType:string|null}>();
+    const result=await this.db.prepare("SELECT json_extract(package_json, '$.level') AS level, json_extract(package_json, '$.itemType') AS itemType, json_extract(package_json, '$.stableKey') AS stableKey FROM content_release_packages WHERE instr(package_json, ?) > 0").bind(url).all<{level:string|null;itemType:string|null;stableKey:string|null}>();
     if(!result.success)throw new Error('Không đọc được quyền học liệu.');
     const releases=result.results??[];
     if(releases.length===0)return 'unreleased';
     if(releases.some(row=>!['hsk0','hsk1','hsk2','hsk3','hsk4'].includes(row.level??'')||!row.itemType))return 'unknown';
-    if(releases.some(row=>row.level!=='hsk4'||row.itemType!=='lesson'))return 'free';
+    if(releases.some(row=>row.level!=='hsk4'||row.itemType!=='lesson'||row.stableKey?.startsWith('reader.series.')))return 'free';
     return 'premium';
   }
   async releasedHsk4LessonIds(url:string):Promise<string[]> {

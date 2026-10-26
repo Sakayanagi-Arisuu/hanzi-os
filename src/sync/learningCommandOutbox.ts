@@ -22,7 +22,7 @@ import {
   type SubmitAssessmentSessionCommandV1,
   type SubmitAssessmentSessionReceiptV1,
 } from "../assessment/assessmentSubmissionProtocol";
-import { deriveStableNormalizedAssessmentCommandIds } from "../assessment/normalizedAssessmentCommands";
+import { deriveStableNormalizedAssessmentCommandIds } from "../assessment/normalizedAssessmentCommandIds";
 import {
   parseLearningAttemptCommand,
   type LearningAttemptCommandV1,
@@ -49,7 +49,7 @@ import type {
   ActiveLessonAttemptProjectionV1,
   ActiveReaderAttemptProjectionV3,
 } from "../learning/projectionProtocol";
-import { deriveStableNormalizedLessonCommandIds } from "../learning/normalizedLessonCommands";
+import { deriveStableNormalizedLessonCommandIds } from "../learning/normalizedLessonCommandIds";
 import {
   parseSubmitLessonSessionCommand,
   type SubmitLessonSessionCommandV1,
@@ -88,6 +88,7 @@ import {
 } from "../reader/readerSubmissionProtocol";
 import { MAX_READER_FORM_ITEMS } from "../reader/protocolSupport";
 import { canonicalStringify, sha256Hex } from "./canonicalHash";
+import { assertOwnerRecoveryIdle } from './ownerRecoveryFence';
 import {
   ACTIVE_OWNER_GENERATION_KEY,
   allocateDeviceSequence,
@@ -854,6 +855,7 @@ const assertOwnerGeneration = async (
   transaction: IDBTransaction,
   expected: OwnerGeneration,
 ) => {
+  await assertOwnerRecoveryIdle(transaction.objectStore(SYNC_META_STORE));
   const record = await requestResult(
     transaction.objectStore(SYNC_META_STORE).get(ACTIVE_OWNER_GENERATION_KEY) as
       IDBRequest<MetaRecord | undefined>,
@@ -1916,7 +1918,7 @@ export async function enqueueObjectiveAttemptCommand(
     deviceSequence,
     resetEpoch,
   };
-  if (command.source === "reader") {
+  if (command.source === "reader" || command.source === 'mistake') {
     const parsed = parseLearningAttemptCommand(command);
     if (!parsed.ok) throw new Error(parsed.reason);
   }
@@ -3902,7 +3904,7 @@ export async function prepareLearningCommand(
     };
   }
 
-  if (record.kind === "objective-attempt" && record.command.source === "reader") {
+  if (record.kind === "objective-attempt" && (record.command.source === "reader" || record.command.source === 'mistake')) {
     const parsed = parseLearningAttemptCommand(record.command);
     return parsed.ok
       ? {

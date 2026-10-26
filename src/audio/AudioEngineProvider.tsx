@@ -15,6 +15,7 @@ import { useSystemUi } from "../system/systemUiPreferences";
 import { registerMandarinSpeaker } from "./audioBridge";
 import type { SoundCueId } from "./cueCatalog";
 import { createMandarinSpeechPreparer } from "./mandarinSpeechWarmup";
+import { isNativeApp, speakNative, cancelNativeSpeech } from '../native/nativeRuntime';
 import {
   systemVoiceClipForSignal,
   systemVoiceClipUrl,
@@ -108,6 +109,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   const realmNodesRef = useRef(new Set<OscillatorNode>());
   const realmPlayedAtRef = useRef(-2000);
   const mandarinSpeechPreparerRef = useRef<(() => boolean) | null>(null);
+  const nativeSpeechGenerationRef = useRef(0);
   const [playback, setPlayback] = useState<VoicePlaybackState>({ phase: "idle" });
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
@@ -284,6 +286,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     }
     currentLanguageRef.current = null;
     currentPriorityRef.current = 1;
+    if (isNativeApp()) { nativeSpeechGenerationRef.current++; void cancelNativeSpeech().catch(() => undefined); }
     const synthesis = window.speechSynthesis;
     if (hadUtterance || synthesis?.pending || synthesis?.speaking) {
       synthesis?.cancel();
@@ -294,6 +297,17 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   }, [clearSpeechStartTimers, setDucked]);
 
   const speakWithBrowser = useCallback((message: string, language: "zh-CN" | "vi-VN", options?: SpeakOptions) => {
+    if (isNativeApp()) {
+      const prefs = preferencesRef.current;
+      if (!message.trim() || prefs.voiceVolume <= 0 || prefs.soundVolume <= 0
+        || (language === 'vi-VN' && !prefs.voiceEnabled && !options?.force)) return false;
+      setPlayback({ phase: 'playing', sourceId: options?.sourceId, language });
+      const generation = ++nativeSpeechGenerationRef.current;
+      void speakNative(message, language, options?.rate ?? .82, Math.min(1, prefs.voiceVolume * prefs.soundVolume))
+        .then(() => { if (generation === nativeSpeechGenerationRef.current) setPlayback({ phase: 'ended', sourceId: options?.sourceId, language }); })
+        .catch(() => { if (generation === nativeSpeechGenerationRef.current) setPlayback({ phase: 'error', sourceId: options?.sourceId, language }); });
+      return true;
+    }
     if (!message.trim() || typeof window === "undefined" || !("speechSynthesis" in window)) return false;
     const synthesis = window.speechSynthesis;
     const prefs = preferencesRef.current;

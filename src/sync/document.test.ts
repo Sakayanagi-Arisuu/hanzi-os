@@ -179,6 +179,19 @@ describe("canonical cloud representation", () => {
 });
 
 describe("cloud document lifecycle", () => {
+  it('retains more than 120 unresolved mistakes when two device histories merge', () => {
+    const mistakes = Array.from({ length: 150 }, (_, index) => ({
+      id: `boot-1:q${index}`, lessonId: 'boot-1', questionId: `q${index}`, wordId: 'ni', kind: 'meaning' as const,
+      skill: 'vocabulary' as const, prompt: '你', selectedAnswer: 'tôi', correctAnswer: 'bạn', explanation: 'Đại từ ngôi hai',
+      occurrences: 1, correctedStreak: 0, resolved: false, lastAttemptAt: DAY_1,
+    }));
+    const left = createInitialSyncDocument(stateFixture({ mistakes: mistakes.slice(0, 100) }), DAY_1, 'left');
+    const right = createInitialSyncDocument(stateFixture({ mistakes: mistakes.slice(70) }), DAY_2, 'right');
+    const merged = mergeSyncDocuments(left, right).document;
+    expect(merged.state.mistakes).toHaveLength(150);
+    expect(mergeSyncDocuments(merged, left).document.state.mistakes).toEqual(merged.state.mistakes);
+    expect(new Set(merged.state.mistakes.map(item => item.id))).toEqual(new Set(mistakes.map(item => item.id)));
+  });
   it("wraps legacy XP, saved-word presence, and a recomputed projection", () => {
     const activity = activityFixture("legacy-visible-event", 25, DAY_0);
     const local = stateFixture({

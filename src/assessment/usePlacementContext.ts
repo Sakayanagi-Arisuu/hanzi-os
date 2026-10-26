@@ -11,13 +11,13 @@ export async function readPlacementContext(ownerKey: string) {
     const value = record.value as Record<string, unknown> | null;
     return [record.entryKey, value?.index ?? null, value?.blockIndex ?? null, value?.drafts ?? null, value?.answers ?? null];
   }).sort((a, b) => String(a[0]).localeCompare(String(b[0])));
-  return { snapshot: JSON.stringify([scope.resetEpoch, observations]), hasProgress: records.length > 0 };
+  return { snapshot: JSON.stringify([scope.resetEpoch, observations]), resetEpoch: scope.resetEpoch, hasProgress: records.length > 0 };
 }
 
 export function usePlacementContext() {
   const { state, sync } = useLearning();
   const normalized = useNormalizedLearningProjection();
-  const [local, setLocal] = useState<{ owner: string; snapshot: string; hasProgress: boolean } | null>(null);
+  const [local, setLocal] = useState<{ owner: string; snapshot: string; resetEpoch: number; hasProgress: boolean } | null>(null);
   const [failed, setFailed] = useState(false);
   const [revision, setRevision] = useState(0);
   const retry = useCallback(() => setRevision((value) => value + 1), []);
@@ -43,7 +43,10 @@ export function usePlacementContext() {
   const serverProgress = (normalized.authoritativeProgress?.completedCount ?? 0) > 0
     || (normalized.projection?.activeLessonSessions.length ?? 0) > 0
     || (normalized.projection?.submittedLessons.length ?? 0) > 0;
-  const serverSnapshot = JSON.stringify([normalized.resetEpoch, normalized.projection?.activeLessonSessions ?? [], normalized.projection?.submittedLessons ?? []]);
+  // local.snapshot already carries the verified owner reset epoch. The
+  // projection's nullable epoch is transport state (null while refreshing),
+  // not evidence that the learner changed their progress.
+  const serverSnapshot = JSON.stringify([local?.resetEpoch ?? null, normalized.projection?.activeLessonSessions ?? [], normalized.projection?.submittedLessons ?? []]);
   return { ready, failed, retry, localSnapshot: ready ? local.snapshot : null, snapshot: ready ? JSON.stringify([local.snapshot, serverSnapshot]) : null,
     hasProgress: Boolean(local?.hasProgress || serverProgress), preservePath: (sync.session?.authenticated === true && normalized.phase !== "ready") || Boolean(local?.hasProgress || serverProgress) };
 }

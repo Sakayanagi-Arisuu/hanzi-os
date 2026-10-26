@@ -12,7 +12,7 @@ import {
 import {
   scoreObjectiveAttempt,
   UnsupportedAttemptActivityError,
-} from "./attemptScoring";
+} from "./editorialAttemptScoring";
 
 const lesson = RELEASED_LESSONS[0];
 const word = WORD_BY_ID.get(lesson.wordIds[0])!;

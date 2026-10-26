@@ -4,6 +4,10 @@ import {
   contentReleasePolicyForEnvironment,
   isPromotedContentReleasePolicy,
   promotedCourseReleaseState,
+  personalStudyPolicy,
+  isLearningContentAvailable,
+  learningCourseReleaseState,
+  learningReviewSql,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 
@@ -18,6 +22,18 @@ const alphaPolicy: ContentReleasePolicy = {
 };
 
 describe("runtime content release policy", () => {
+  it('opens an exact personal-study build without claiming promotion or human review', () => {
+    const policy = personalStudyPolicy(CURRENT_CONTENT_MANIFEST_SHA256);
+    expect(isLearningContentAvailable(policy)).toBe(true);
+    expect(isPromotedContentReleasePolicy(policy)).toBe(false);
+    expect(policy.productionEligible).toBe(false);
+    expect(policy.promotionChannel).toBeNull();
+    expect(learningCourseReleaseState(policy)).toBe('beta');
+    expect(learningReviewSql(policy)).toContain("'pending', 'approved'");
+    expect(isLearningContentAvailable(personalStudyPolicy('sha256:wrong'))).toBe(false);
+    expect(isLearningContentAvailable({ ...policy, lifecycle: 'retired' })).toBe(false);
+    expect(learningReviewSql(contentReleasePolicyForEnvironment('production'))).toBe("course.linguistic_review_status = 'approved'");
+  });
   it("opens only an exact closed-alpha preview in local development", () => {
     const local = contentReleasePolicyForEnvironment("development");
     expect(isPromotedContentReleasePolicy(local)).toBe(true);

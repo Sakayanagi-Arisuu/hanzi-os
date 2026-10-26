@@ -1,0 +1,17 @@
+.avatar-editor { padding: 16px; margin-block: 16px; border: 1px solid var(--border-color, currentColor); border-radius: 12px; }
+.avatar-summary { display: flex; align-items: center; gap: 16px; }
+.avatar-preview { display: grid; place-items: center; flex: 0 0 64px; width: 64px; height: 64px; border: 1px solid currentColor; border-radius: 50%; overflow: hidden; font-size: 28px; }
+.avatar-editor input[type="file"] { max-width: 100%; min-height: 48px; }
+.avatar-editor button { min-height: 48px; margin: 4px; }
+.avatar-editor p { line-height: 1.5; }
+.avatar-crop-dialog { width: min(480px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--border-color, currentColor); border-radius: 12px; color: var(--text-primary, CanvasText); background: var(--surface, Canvas); }
+.avatar-crop-dialog[open] { display: flex; flex-direction: column; }
+.avatar-crop-dialog::backdrop { background: rgb(0 0 0 / 70%); }
+.avatar-crop-dialog header, .avatar-crop-dialog footer { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; }
+.avatar-crop-dialog h2 { margin: 0; font-size: 18px; }
+.avatar-crop-body { min-height: 0; overflow: auto; padding: 8px 16px; }
+.avatar-crop-body canvas { display: block; width: min(256px, 100%); height: auto; margin: 0 auto 12px; border-radius: 50%; background: Canvas; }
+.avatar-crop-body label { display: grid; gap: 4px; }
+.avatar-crop-body input { width: 100%; min-height: 44px; }
+.avatar-crop-dialog footer .primary-button { width: 100%; }
+.avatar-editor :focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 3px; }

@@ -1,3 +1,4 @@
+import { BankTransferRepository, bankOrderForAccess, cashLedgerEnabled } from "../../../src/server/bankTransferRepository";
 import { PremiumVndPriceRepository } from "../../../src/server/premiumVndPriceRepository";
 import { premiumPlan, premiumAccess } from "../../../src/commerce/policy";
 import { AUTH_JSON_HEADERS, resolveCurrentAccount, sameOriginMutation } from "../../../src/server/authHttp";
@@ -15,15 +16,16 @@ const error = (message: string, status: number) => json({ error: { message } }, 
 export async function GET(request: Request) {
   try {
     const sandbox = sandboxCommerceEnabled(request.url);
-    if (!sandbox) return json({ authenticated: false, sandbox: false, orders: [], ...premiumAccess([]), serverNow: Date.now() });
+    if (!sandbox && !cashLedgerEnabled(request.url)) return json({ authenticated: false, sandbox: false, orders: [], ...premiumAccess([]), serverNow: Date.now() });
     const database = await getD1Database();
     const account = await resolveCurrentAccount(database);
     const orders = account && sandbox ? await new CommerceRepository(database).orders(account.userId) : [];
     const wallet = new HanziPremiumRepository(database);
     const walletOrders = account && sandbox ? (await wallet.orders(account.userId)).map(asCommerceOrder) : [];
-    const combined = [...orders, ...walletOrders].sort((a, b) => b.createdAt - a.createdAt);
-    return json({ authenticated: Boolean(account), sandbox, orders: combined, prices: await wallet.prices(), vndPrices: await new PremiumVndPriceRepository(database).prices(),
-      freeHsk4LessonIds: await new LessonAccessRepository(database).freeHsk4LessonIds(),
+    const cashOrders = account && cashLedgerEnabled(request.url) ? (await new BankTransferRepository(database).orders(account.userId)).map(bankOrderForAccess) : [];
+    const combined = [...orders, ...walletOrders, ...cashOrders].sort((a, b) => b.createdAt - a.createdAt);
+    return json({ authenticated: Boolean(account), sandbox, orders: combined, prices: sandbox ? await wallet.prices() : [], vndPrices: await new PremiumVndPriceRepository(database).prices(),
+      freeHsk4LessonIds: (sandbox || cashLedgerEnabled(request.url)) ? await new LessonAccessRepository(database).freeHsk4LessonIds() : [],
       ...premiumAccess(combined), serverNow: Date.now() });
   } catch { return error("Chưa tải được gói học. Hãy thử lại.", 503); }
 }

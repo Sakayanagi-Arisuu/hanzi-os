@@ -7,9 +7,11 @@ export type RemediationObservatorySkill =
   | "vocabulary"
   | "grammar";
 
-export type RemediationObservatorySource = "lesson" | "reader" | "review";
+export type RemediationObservatorySource = "lesson" | "reader" | "review" | "assessment";
 
 export type RemediationObservatoryItem = {
+  contentVersion?: string;
+  activityVersion?: string;
   referenceWordId?: string;
   referenceLessonId?: string;
   id: string;
@@ -29,11 +31,12 @@ export type RemediationObservatoryItem = {
   occurrenceCount: number;
   correctedStreak: number;
   resolved: boolean;
+  pending?: boolean;
   lastAttemptAt: number;
 };
 
 export type RemediationObservatoryFeedback = {
-  outcome: "correct" | "incorrect";
+  outcome: "correct" | "incorrect" | "pending";
   resolved: boolean;
   answer: string;
   correctAnswer?: string | null;
@@ -73,7 +76,7 @@ export function selectRemediationSession(
   items: readonly RemediationObservatoryItem[],
   limit = 5,
 ) {
-  return items.filter((item) => !item.resolved).slice(0, Math.max(0, limit));
+  return items.filter((item) => !item.resolved && !item.pending).slice(0, Math.max(0, limit));
 }
 
 export function countActiveSignals(items: readonly RemediationObservatoryItem[]) {
@@ -108,6 +111,7 @@ export function buildSourceSignals(
     "lesson",
     "reader",
     "review",
+    "assessment",
   ];
   return order.flatMap((source) => {
     const matching = active.filter((item) => item.originSource === source);
@@ -182,7 +186,8 @@ export function summarizeRemediationResults(
     unassistedCorrect: results.filter((result) =>
       result.outcome === "correct" && !result.usedHint
     ).length,
-    retry: results.filter((result) => !result.resolved).length,
+    retry: results.filter((result) => !result.resolved && result.outcome !== 'pending').length,
+    pending: results.filter((result) => result.outcome === 'pending').length,
     skills: skillOrder.flatMap((skill) => {
       const row = skillRows.get(skill);
       return row ? [{ skill, ...row }] : [];

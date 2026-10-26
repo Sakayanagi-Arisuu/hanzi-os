@@ -1,4 +1,6 @@
 import { randomBase64Url } from "../../../../src/auth/authCrypto";
+import { googleStateCookie } from '../../../../src/server/googleBrowserBinding';
+import { consumeMobileStart } from '../../../../src/server/mobileAuth';
 import {
   boundedReturnTo,
   googleConfig,
@@ -21,6 +23,9 @@ export async function GET(request: Request) {
     }
     const { database, environment, repository } = await loadAuthRuntime();
     const config = googleConfig(environment, request);
+    const mobile = url.searchParams.get('mobile');
+    if (mobile && mode !== 'signin') return new Response('Invalid mobile mode', { status: 400 });
+    const mobileCodeChallenge = mobile ? await consumeMobileStart(repository, mobile) : null;
     const account = mode === "signin"
       ? null
       : await resolveCurrentAccount(database, true);
@@ -34,18 +39,23 @@ export async function GET(request: Request) {
       provider: "google",
       userId: account?.userId,
       payload: {
+        ...(mobileCodeChallenge ? { mobileCodeChallenge } : {}),
         verifier,
         nonce,
         returnTo: boundedReturnTo(url.searchParams.get("returnTo"),
           mode === "signin" ? "/" : "/account/security"),
       },
     });
-    return Response.redirect(googleAuthorizationUrl({
+    const destination = googleAuthorizationUrl({
       config,
       state,
       nonce,
       codeChallenge: await pkceChallenge(verifier),
-    }), 303);
+    });
+    return new Response(null, { status: 303, headers: {
+      location: destination.toString(), 'set-cookie': googleStateCookie(state),
+      'cache-control': 'no-store',
+    } });
   } catch {
     return Response.redirect(
       new URL("/signin?error=google_unavailable", request.url),

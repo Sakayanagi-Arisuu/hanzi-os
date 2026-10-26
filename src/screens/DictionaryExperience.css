@@ -93,6 +93,9 @@
 .lex-detail-body .lex-source { display:none; }.lex-detail-body[data-tab="source"] > :not(.lex-source) { display:none; }.lex-detail-body[data-tab="source"] .lex-source { display:block; }
 .lex-status { margin:0; font-size:13px; color:var(--lex-muted); }
 .lex-mobile-panes { display:none; }
+.lex-unavailable { flex:1; min-height:0; display:flex; flex-direction:column; align-items:flex-start; gap:16px; overflow:hidden; }
+.lex-unavailable p { max-width:680px; min-height:0; margin:0; overflow:auto; color:var(--lex-muted); line-height:1.6; }
+.lex-unavailable > button { flex-shrink:0; }
 @media (min-width:761px) and (max-height:740px) {
   .lex-experience .lex-jade-panel { padding:12px; gap:12px; border-width:14px; }
   .lex-experience:not(.lex-detail) .lex-jade-panel > div:first-child { display:grid; grid-template-columns:70px minmax(0,1fr); column-gap:16px; }

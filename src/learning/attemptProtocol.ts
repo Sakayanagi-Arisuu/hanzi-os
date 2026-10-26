@@ -1,6 +1,6 @@
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import { isAttemptSourceMethodAllowed } from "../lib/evidencePolicy";
-import { canonicalStringify, sha256Hex } from "../sync/document";
+import { canonicalStringify, sha256Hex } from "../sync/canonicalHash";
 import type {
   EvidenceMethod,
   EvidenceOutcome,
@@ -148,7 +148,8 @@ export const parseLearningAttemptCommand = (
     || !boundedString(input.deviceId, 160)
     || !safePositiveInteger(input.deviceSequence)
     || !isValidLearningResetEpoch(input.resetEpoch)
-    || !boundedString(input.activityId, 240)
+    || !boundedString(input.activityId, input.source === 'mistake' && typeof input.activityId === 'string'
+      && input.activityId.startsWith('lesson-page:') ? 2000 : 240)
     || !boundedString(input.activityVersion, 160)
   ) {
     return { ok: false, reason: "Attempt identifiers exceed protocol bounds." };

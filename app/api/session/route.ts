@@ -2,7 +2,7 @@ import { getChatGPTUser } from "../../chatgpt-auth";
 import { deriveAccountKey } from "../../../src/lib/accountKey";
 import { BASELINE_AUTHORIZATION } from "../../../src/auth/authorization";
 import { AuthorizationRepository } from "../../../src/server/authorizationRepository";
-import { getD1Database } from "../../../src/server/d1";
+import { getD1Database, SyncBackendUnavailableError } from "../../../src/server/d1";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +20,14 @@ const SESSION_RESPONSE_HEADERS = {
 };
 
 export async function GET() {
-  const user = await getChatGPTUser();
+  let user;
+  try { user = await getChatGPTUser(); }
+  catch (error) {
+    if (!(error instanceof SyncBackendUnavailableError)) throw error;
+    return Response.json({ error: { code: 'SESSION_VERIFICATION_UNAVAILABLE',
+      message: 'Chưa thể xác minh tài khoản lúc này. Hãy thử lại sau.', retryable: true } },
+    { status: 503, headers: { ...SESSION_RESPONSE_HEADERS, 'retry-after': '30' } });
+  }
 
   if (!user) {
     return Response.json(

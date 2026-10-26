@@ -31,10 +31,69 @@
   object-fit: contain;
   filter: drop-shadow(0 4px 8px #0006);
 }
+.path-level-navigation { display: none; }
 @media (max-width: 760px) {
   .path-page {
+    padding: 10px;
     background-attachment: scroll;
     background-size: auto 100vh;
     background-repeat: repeat-y;
   }
+  .path-level-navigation { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 0 0 12px; }
+  .path-level-navigation a { display: grid; place-items: center; min-height: 44px; min-width: 44px; padding: 0 2px; border: 1px solid #365a4c; border-radius: 8px; color: #c4dcd1; background: #071f18; font: 700 12px/1.4 var(--mono); text-decoration: none; touch-action: manipulation; }
+  .path-level-navigation a[aria-current] { border-color: #bda46a; color: #f0d99d; background: #153c2c; }
+  .path-level-navigation a:focus-visible { outline: 2px solid #e5cc83; outline-offset: 2px; }
+  .path-level-navigation a:active { background: #24563d; }
+  .path-page .path-realm-groups { gap: 24px; }
+  .path-page .path-realm-group { margin-inline: 0; scroll-margin-top: 76px; }
+  .path-page .path-realm-level { grid-template-columns: 48px minmax(0, 1fr) auto; min-height: 0; margin-bottom: 12px; padding: 12px 10px; gap: 10px; border-inline-width: 1px; border-radius: 10px; clip-path: none; box-shadow: none; }
+  .path-page .path-realm-level::before,
+  .path-page .path-realm-level::after { display: none; }
+  .path-page .path-realm-level-index { width: 48px; height: 48px; }
+  .path-page .path-realm-level-copy { align-self: center; }
+  .path-page .path-realm-level-status { font-size: 10px; line-height: 1.5; letter-spacing: 0; }
+  .path-page .path-realm-level-status > svg { width: 12px; height: 12px; flex: none; }
+  .path-page .path-realm-level h2 { margin: 4px 0 0; font-size: 17px; line-height: 1.3; }
+  .path-page .path-realm-level h2 > span { display: none; }
+  .path-page .path-realm-level-subtitle { margin-top: 3px; font-size: 12px; line-height: 1.4; }
+  .path-page .path-realm-level-count { grid-column: 3; padding: 0; display: flex; flex-direction: column; gap: 4px; border: 0; align-items: flex-end; }
+  .path-page .path-realm-level-count > span,
+  .path-page .path-realm-level-count > small { display: none; }
+  .path-page .path-realm-level-count > strong { font-size: 16px; line-height: 1.3; white-space: nowrap; }
+  .path-page .path-realm-level-count .cultivation-progress { width: 40px; height: 3px; }
+  .path-page .path-realm-level .premium-level-label { display: flex; align-items: center; min-height: 44px; font-size: 11px; line-height: 1.4; }
+  .path-page .course-realms { gap: 20px; }
+  .path-page .course-realms::before { display: none; }
+  .path-page .course-realm { padding: 0; }
+  .path-page .realm-number { top: 12px; left: 0; width: 28px; height: 28px; padding: 0; display: grid; place-items: center; grid-template-rows: 1fr; background: none; border: 0; clip-path: none; box-shadow: none; }
+  .path-page .realm-number::before,
+  .path-page .realm-number > span,
+  .path-page .chapter-spirit-seal { display: none; }
+  .path-page .realm-number > strong { margin: 0; font-size: 12px; color: #d8c78f; }
+  .path-page .realm-header { height: auto; min-height: 48px; padding: 8px 0 8px 34px; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; background: none; border: 0; border-bottom: 1px solid #345349; clip-path: none; }
+  .path-page .realm-header h3 { font-size: 16px; line-height: 1.4; }
+  .path-page .realm-header h3 small { display: block; margin: 1px 0 0; font-size: 11px; line-height: 1.4; }
+  .path-page .realm-completion { display: flex; align-items: flex-end; flex-direction: column; gap: 4px; padding: 0; border: 0; }
+  .path-page .realm-completion > span,
+  .path-page .realm-completion > small { display: none; }
+  .path-page .realm-completion > strong { font-size: 13px; line-height: 1.3; }
+  .path-page .realm-completion .cultivation-progress { width: 32px; height: 3px; }
+  .path-page .path-realm-groups .lesson-track { margin-top: 8px; gap: 6px; }
+  .path-page .path-realm-groups .lesson-node { min-height: 76px; padding: 10px; grid-template-columns: 24px minmax(0, 1fr) 20px; grid-template-rows: auto auto; column-gap: 10px; row-gap: 4px; border-left-width: 2px; border-radius: 8px; clip-path: none; }
+  .path-page .path-realm-groups .lesson-node-index { grid-column: 1; grid-row: 1 / 3; border: 0; align-self: center; font-size: 12px; }
+  .path-page .path-realm-groups .lesson-node-icon { display: none; }
+  .path-page .path-realm-groups .lesson-node-copy { grid-column: 2; grid-row: 1; padding: 0; }
+  .path-page .path-realm-groups .lesson-node-copy > small { font-size: 11px; line-height: 1.4; }
+  .path-page .path-realm-groups .lesson-node-copy > strong { margin-top: 2px; font-size: 16px; line-height: 1.4; }
+  .path-page .path-realm-groups .lesson-node-meta { grid-column: 2; grid-row: 2; min-height: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 4px 10px; }
+  .path-page .path-realm-groups .lesson-node-meta > .lesson-node-evidence,
+  .path-page .path-realm-groups .lesson-node-meta > .lesson-node-extension { display: none; }
+  .path-page .path-realm-groups .lesson-node-meta > .lesson-node-duration { display: inline-flex; font-size: 12px; line-height: 1.4; }
+  .path-page .path-realm-groups .lesson-node-meta > b { display: inline; min-height: 0; padding: 0; border: 0; background: none; font-size: 11px; line-height: 1.4; }
+  .path-page .path-realm-groups .lesson-node > svg:last-child { grid-column: 3; grid-row: 1 / 3; width: 18px; height: 18px; }
+  .path-page .path-realm-groups .lesson-node.current { background: linear-gradient(100deg, #183e2c, #0a241a); box-shadow: none; }
+  .path-page .path-realm-groups a.lesson-node:hover { transform: none; }
+  .path-page .path-realm-groups a.lesson-node:active { background: #214631; }
+  .path-page .path-footer-note { margin: 12px 0; padding: 12px; font-size: 12px; }
+  .path-page .path-footer-note .secondary-button { min-height: 44px; min-width: 44px; }
 }

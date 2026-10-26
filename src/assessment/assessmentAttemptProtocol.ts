@@ -1,6 +1,6 @@
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
-import { canonicalStringify, sha256Hex } from "../sync/document";
+import { canonicalStringify, sha256Hex } from "../sync/canonicalHash";
 import type { Skill } from "../types";
 import type { AssessmentFormHash } from "./assessmentSessionProtocol";
 import {

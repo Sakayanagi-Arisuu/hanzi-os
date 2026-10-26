@@ -42,6 +42,25 @@ export function MemoryReviewLobby({
         <p>Khai mở trí nhớ. Tôi luyện ý chí.</p>
       </section>
 
+      <div className="memory-lobby-action">
+        {dueCount > 0 && onStart ? (
+          <button className="memory-primary-cta" type="button" onClick={onStart}>
+            <span aria-hidden="true">✦</span> Bắt đầu ôn
+          </button>
+        ) : (
+          <Link className="memory-primary-cta" to="/path" viewTransition>
+            <span aria-hidden="true">✦</span> {activatedCount > 0 ? "Tiếp tục Thiên Lộ" : "Học để kích hoạt ký ức"}
+          </Link>
+        )}
+        {dueCount === 0 && (
+          <p className="memory-empty-note" role="status">
+            {activatedCount > 0
+              ? "Bạn đã ôn hết thẻ đến hạn. Lịch ôn tiếp theo sẽ xuất hiện tại đây."
+              : "Chưa có thẻ tới lịch. Học hoặc lưu từ cần nhớ để bắt đầu Ký Ức Trận."}
+          </p>
+        )}
+      </div>
+
       <section className="memory-lobby-dashboard" aria-label="Lịch ôn tập thực tế">
         <article className="memory-stat-card memory-due-card">
           <h2><span className="memory-heading-symbol" aria-hidden="true">日</span> Lịch ôn hôm nay</h2>
@@ -86,22 +105,6 @@ export function MemoryReviewLobby({
         <div><i className="memory-total-symbol" aria-hidden="true">轮</i><strong>{reviewedToday}</strong><span>Ôn lại<br />hôm nay</span></div>
       </section>
 
-      {dueCount > 0 && onStart ? (
-        <button className="memory-primary-cta" type="button" onClick={onStart}>
-          <span aria-hidden="true">✦</span> Bắt đầu ôn
-        </button>
-      ) : (
-        <Link className="memory-primary-cta" to="/path" viewTransition>
-          <span aria-hidden="true">✦</span> {activatedCount > 0 ? "Tiếp tục Thiên Lộ" : "Học để kích hoạt ký ức"}
-        </Link>
-      )}
-      {dueCount === 0 && (
-        <p className="memory-empty-note" role="status">
-          {activatedCount > 0
-            ? "Bạn đã ôn hết thẻ đến hạn. Lịch ôn tiếp theo sẽ xuất hiện tại đây."
-            : "Chưa có thẻ tới lịch. Học hoặc lưu từ cần nhớ để bắt đầu Ký Ức Trận."}
-        </p>
-      )}
     </div>
   );
 }

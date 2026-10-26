@@ -13,7 +13,7 @@ import {
 import {
   scoreObjectiveAttempt,
   UnsupportedAttemptActivityError,
-} from "../../../../src/server/attemptScoring";
+} from "../../../../src/server/editorialAttemptScoring";
 import { readBoundedRequestText } from "../../../../src/server/boundedRequestBody";
 import {
   getD1Database,
@@ -33,6 +33,8 @@ import {
   type SyncApiError,
 } from "../../../../src/sync/protocol";
 import { requirePremiumLesson } from "../../../../src/server/premiumAccess";
+import { scorePageRemediation } from '../../../../src/server/pageRemediationRepository';
+import { learningOwnerMismatch } from '../../../../src/server/learningOwnerHttp';
 
 export const dynamic = "force-dynamic";
 
@@ -77,6 +79,7 @@ export async function POST(request: Request) {
       );
     }
     const identity = await getChatGPTUser();
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     if (!identity) {
       return errorResponse(
         401,
@@ -145,7 +148,8 @@ export async function POST(request: Request) {
       const premiumGate = await requirePremiumLesson(request, lessonId);
       if (premiumGate) return premiumGate;
     }
-    const score = scoreObjectiveAttempt(parsed.command);
+    const score = parsed.command.source === 'mistake' && parsed.command.activityId.startsWith('lesson-page:')
+      ? await scorePageRemediation(database, parsed.command) : scoreObjectiveAttempt(parsed.command);
     const receipt: LearningAttemptReceiptV1 =
       await new AttemptRepository(database).commitObjectiveAttempt(
         userId,

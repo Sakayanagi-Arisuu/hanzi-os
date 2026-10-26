@@ -2,7 +2,11 @@ import {useEffect} from 'react';
 import {readPageAttemptOutbox} from './pageAttemptOutbox';
 import {flushPageAttempts} from './flushPageAttempts';
 import {resolveLearningResumeOwnerScope} from './learningResumeStore';
-import {StaleOwnerGenerationError} from './indexedDb';
+import {StaleOwnerGenerationError,listLessonResumes} from './indexedDb';
+import {parseLessonReadingSession} from '../learning/lessonReadingSession';
+import {queueReadingPageAttempts} from './queueReadingPageAttempts';
+import {validatePageHistory} from '../learning/lessonPageHistory';
+import {enqueuePageAttempt} from './pageAttemptOutbox';
 
 export const PAGE_ATTEMPT_QUEUED_EVENT='hanzi-page-attempt-queued';
 /** Owner-scoped lifecycle. Local snapshots remain independent of network work. */
@@ -25,6 +29,17 @@ export function usePageAttemptPump(ownerKey:string){
    running=true;
    try{
     const scope=await resolveLearningResumeOwnerScope(ownerKey);
+    for(const record of await listLessonResumes(scope)){
+     if(record.entryKey.startsWith('lesson-page-history:v1:')){
+      for(const entry of validatePageHistory(record.value,ownerKey,scope.resetEpoch))await enqueuePageAttempt(scope,entry.command);
+      continue;
+     }
+     if(!record.entryKey.startsWith('lesson-reading:v1:'))continue;
+     const value=record.value as {lessonId?:unknown};
+     const snapshot=typeof value?.lessonId==='string'?parseLessonReadingSession(value,value.lessonId):null;
+     if(!snapshot)throw new Error('Unreadable saved reading source; keep it.');
+     await queueReadingPageAttempts({expectedOwnerGeneration:scope.ownerGeneration,resetEpoch:scope.resetEpoch,entryKey:record.entryKey},snapshot);
+    }
     const result=await flushPageAttempts(scope,{signal:controller.signal});
     if(result.sent>0&&!controller.signal.aborted)window.dispatchEvent(new Event('hanzi-page-attempts-updated'));
     if(result.retryAt!==null)schedule(result.retryAt-Date.now());

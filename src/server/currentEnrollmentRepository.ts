@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import {
   CURRENT_CONTENT_MANIFEST_SHA256,
 } from "../content/currentPackage";
@@ -10,8 +11,8 @@ import {
 import type { LearningGoal } from "../types";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
-  promotedCourseReleaseState,
+  isLearningContentAvailable,
+  learningCourseReleaseState,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
@@ -94,9 +95,9 @@ export class CurrentEnrollmentRepository {
     if (!userId || userId.length > 160) {
       throw new CurrentEnrollmentIntegrityError("The authenticated user id is invalid.");
     }
-    const releaseState = promotedCourseReleaseState(this.releasePolicy);
+    const releaseState = learningCourseReleaseState(this.releasePolicy);
     if (
-      !isPromotedContentReleasePolicy(this.releasePolicy)
+      !isLearningContentAvailable(this.releasePolicy)
       || releaseState === null
     ) {
       throw new CurrentEnrollmentContentUnavailableError();
@@ -115,7 +116,7 @@ export class CurrentEnrollmentRepository {
         AND course.course_id = ?
         AND course.manifest_hash = ?
         AND course.release_state = ?
-        AND course.linguistic_review_status = 'approved'
+        AND ${learningReviewSql()}
     )`;
     const exactProfileGuard = `EXISTS (
       SELECT 1 FROM profiles profile
@@ -179,7 +180,7 @@ export class CurrentEnrollmentRepository {
            AND course.course_id = ?
            AND course.manifest_hash = ?
            AND course.release_state = ?
-           AND course.linguistic_review_status = 'approved'
+           AND ${learningReviewSql()}
            AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}`,
       ).bind(
         candidateId,
@@ -212,7 +213,7 @@ export class CurrentEnrollmentRepository {
                AND course.course_id = ?
                AND course.manifest_hash = ?
                AND course.release_state = ?
-               AND course.linguistic_review_status = 'approved'
+               AND ${learningReviewSql()}
                AND EXISTS (
                  SELECT 1 FROM profiles profile
                  WHERE profile.user_id = current_enrollment.user_id
@@ -255,7 +256,7 @@ export class CurrentEnrollmentRepository {
            AND course.course_id = ?
            AND course.manifest_hash = ?
            AND course.release_state = ?
-           AND course.linguistic_review_status = 'approved'
+           AND ${learningReviewSql()}
            AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}`,
       ).bind(
         resetEpoch,
@@ -290,7 +291,7 @@ export class CurrentEnrollmentRepository {
            AND course.course_id = ?
            AND course.manifest_hash = ?
            AND course.release_state = ?
-           AND course.linguistic_review_status = 'approved'
+           AND ${learningReviewSql()}
            AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
            AND NOT EXISTS (
              SELECT 1 FROM enrollments other
@@ -324,7 +325,7 @@ export class CurrentEnrollmentRepository {
              AND course_id = ?
              AND manifest_hash = ?
              AND release_state = ?
-             AND linguistic_review_status = 'approved'
+             AND ${learningReviewSql(undefined, "")}
            LIMIT 1`,
         ).bind(
           CONTENT_VERSION,

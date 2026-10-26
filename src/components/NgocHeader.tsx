@@ -2,15 +2,18 @@ import { ArrowRight, ChevronDown, Crown, Sparkles } from "lucide-react";
 import type { RefObject } from "react";
 import { NavLink } from "react-router";
 import { useCommerce } from "../commerce/CommerceProvider";
+import { OperationNotice } from './OperationNotice';
 import "./NgocHeader.css";
 import { AwakeningSeal } from "./system/AwakeningSeal";
 import type { MotionQuality } from "../system/awakeningMotion";
 import type { SystemMotionMode } from "../system/systemUiPreferences";
+import { AvatarImage } from '../profile/AvatarImage';
 
-export function NgocHeader({ title, plainTitle, name, statusOpen, statusButtonRef, onSummon, resolvedMotion = "reduced", motionQuality = "light", hydrated = false }: {
+export function NgocHeader({ title, plainTitle, name, avatarUrl = null, statusOpen, statusButtonRef, onSummon, resolvedMotion = "reduced", motionQuality = "light", hydrated = false }: {
   title: string;
   plainTitle: string;
   name: string;
+  avatarUrl?: string | null;
   statusOpen: boolean;
   statusButtonRef: RefObject<HTMLButtonElement | null>;
   onSummon: () => void;
@@ -31,6 +34,7 @@ export function NgocHeader({ title, plainTitle, name, statusOpen, statusButtonRe
       <div><span className="ngoc-wordmark">HANZI.OS</span><strong>{title}</strong></div>
     </div>
     <div className="ngoc-header-rule" aria-hidden="true"><i /></div>
+    <OperationNotice/>
     <button ref={statusButtonRef} className="ngoc-summon" type="button" onClick={onSummon}
       data-system-silent="true" aria-haspopup="dialog" aria-expanded={statusOpen}
       aria-label="Triệu hồi Bảng Hệ Thống" title="Triệu hồi Bảng Hệ Thống · Alt + S">
@@ -43,7 +47,7 @@ export function NgocHeader({ title, plainTitle, name, statusOpen, statusButtonRe
       <ArrowRight size={17} aria-hidden="true" />
     </NavLink>
     <NavLink className="ngoc-profile" to="/profile" viewTransition aria-label={`Hồ sơ · ${displayName}`} title={displayName}>
-      <span className="ngoc-avatar" aria-hidden="true">{Array.from(displayName)[0].toUpperCase()}</span>
+      <span className="ngoc-avatar" aria-hidden="true"><AvatarImage name={displayName} url={avatarUrl} /></span>
       <strong>{displayName}</strong><ChevronDown size={14} aria-hidden="true" />
     </NavLink>
   </header>;

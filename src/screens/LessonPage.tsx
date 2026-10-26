@@ -52,7 +52,7 @@ import {
   isLessonReleased,
   isLessonUnlocked,
 } from "../lib/adaptive";
-import { answersMatch, type Exercise } from "../lib/exerciseGeneration";
+import { answersMatch, type Exercise } from "../lib/editorialExerciseGeneration";
 import { makeIdempotencyKey } from "../lib/evidence";
 import { removeLegacyLearningResumeStorage } from "../lib/storageKeys";
 import { speakMandarin } from "../lib/speech";

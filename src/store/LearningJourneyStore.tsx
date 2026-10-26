@@ -27,9 +27,12 @@ import {
   LEARNING_JOURNEY_RECEIPT_EVENT,
   type LearningJourneyReceiptEventDetail,
 } from "../learning/journeyReceiptEvent";
-import { readLocalStorage, writeLocalStorage } from "../lib/storageKeys";
+import { writeLocalStorage } from "../lib/storageKeys";
 import { useLearning } from "./LearningStore";
 import { useNormalizedLearningProjection } from "./NormalizedLearningProjectionStore";
+import { useLearnerOverview } from '../learning/useLearnerOverview';
+import { readJourneyScope } from '../sync/journeyScope';
+import { reportLearningResumeStorageError } from '../sync/learningResumeStore';
 
 type LearningJourneyContextValue = {
   checkpoint: IntegratedJourneyCheckpoint | null;
@@ -47,31 +50,54 @@ const findReleasedLesson = (lessonId: string | null) => lessonId
 const anchorWordIds = (lessonId: string | null) =>
   findReleasedLesson(lessonId)?.wordIds ?? [];
 
+const persistJourney = (checkpoint: IntegratedJourneyCheckpoint) => {
+  if (writeLocalStorage(integratedJourneyStorageKey(checkpoint.scopeKey), JSON.stringify(checkpoint))) return true;
+  reportLearningResumeStorageError(new Error('Journey storage failed; retain previous checkpoint.'));
+  return false;
+};
+
 export function LearningJourneyProvider({ children }: { children: ReactNode }) {
   const { state, dueWordIds, sync } = useLearning();
   const normalized = useNormalizedLearningProjection();
+  const { unresolved } = useLearnerOverview();
   const authenticated = sync.session?.authenticated === true;
-  const resetEpoch = authenticated ? normalized.resetEpoch ?? 0 : 0;
-  const scopeKey = sync.ownerKey ? `${sync.ownerKey}:${resetEpoch}` : "";
+  const [learningScope, setLearningScope] = useState<Awaited<ReturnType<typeof readJourneyScope>>>(null);
+  useEffect(() => {
+    let active = true;
+    const refresh = () => {
+      void readJourneyScope(sync.ownerKey, authenticated ? normalized.resetEpoch : null)
+        .then(scope => { if (active) setLearningScope(scope); })
+        .catch(error => { if (active) { setLearningScope(null); reportLearningResumeStorageError(error); } });
+    };
+    refresh(); window.addEventListener('hanzi-learning-reset', refresh); window.addEventListener('focus', refresh);
+    return () => { active = false; window.removeEventListener('hanzi-learning-reset', refresh); window.removeEventListener('focus', refresh); };
+  }, [authenticated, normalized.resetEpoch, sync.lastSyncedAt, sync.ownerKey, sync.phase]);
+  const scopeKey = learningScope?.ownerGeneration.ownerKey === sync.ownerKey
+    && (!authenticated || normalized.resetEpoch === null || normalized.resetEpoch === learningScope.resetEpoch)
+    ? learningScope.scopeKey : '';
   const authoritativeNextLessonId = authenticated
     ? selectAuthoritativeJourneyAnchor(normalized.authoritativeProgress)
     : undefined;
-  const candidate = buildDailyLearningJourney({ state, dueWordIds });
+  const candidate = buildDailyLearningJourney({ state, dueWordIds, unresolvedMistakeCount: unresolved });
   const candidateAnchor = authoritativeNextLessonId === undefined
     ? candidate.learnLessonId
     : authoritativeNextLessonId;
-  const [checkpoint, setCheckpoint] = useState<IntegratedJourneyCheckpoint | null>(null);
+  const [storedCheckpoint, setCheckpoint] = useState<IntegratedJourneyCheckpoint | null>(null);
+  const checkpoint = storedCheckpoint?.scopeKey === scopeKey ? storedCheckpoint : null;
 
   useEffect(() => {
     if (!scopeKey) return;
-    const raw = readLocalStorage(integratedJourneyStorageKey(scopeKey));
+    let raw: string | null;
+    try { raw = window.localStorage.getItem(integratedJourneyStorageKey(scopeKey)); }
+    catch (error) { setCheckpoint(null); reportLearningResumeStorageError(error); return; }
     let stored: IntegratedJourneyCheckpoint | null = null;
     if (raw) {
       try {
         stored = parseIntegratedJourneyCheckpoint(JSON.parse(raw), scopeKey);
       } catch {
-        stored = null;
+        setCheckpoint(null); reportLearningResumeStorageError(new Error('Unreadable journey checkpoint; retain source.')); return;
       }
+      if (!stored) { setCheckpoint(null); reportLearningResumeStorageError(new Error('Unsupported journey checkpoint; retain source.')); return; }
     }
     const invalidGoal = stored?.goal !== state.profile.goal;
     const invalidAnchor = stored?.anchorLessonId
@@ -104,8 +130,7 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
           anchorLessonId: candidateAnchor,
         })
       : stored;
-    setCheckpoint(next);
-    writeLocalStorage(integratedJourneyStorageKey(scopeKey), JSON.stringify(next));
+    setCheckpoint(persistJourney(next) ? next : null);
   }, [authenticated, candidateAnchor, scopeKey, state.completedLessons, state.profile.goal]);
 
   useEffect(() => {
@@ -125,14 +150,14 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
         activityId: `learn:${current.anchorLessonId}:durable-completion`,
       });
       if (result.state !== "accepted") return current;
-      writeLocalStorage(integratedJourneyStorageKey(current.scopeKey), JSON.stringify(result.checkpoint));
+      if (!persistJourney(result.checkpoint)) return current;
       return result.checkpoint;
     });
   }, [checkpoint, normalized.authoritativeProgress, state.completedLessons]);
 
   useEffect(() => {
     if (
-      !checkpoint?.completedStages.learn
+      authenticated||!checkpoint?.completedStages.learn
       || checkpoint.completedStages.review
     ) return;
     const anchored = buildDailyLearningJourney({
@@ -140,6 +165,7 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
       dueWordIds,
       anchorLessonId: checkpoint.anchorLessonId,
       reinforcementWordIds: anchorWordIds(checkpoint.anchorLessonId),
+      unresolvedMistakeCount: unresolved,
     });
     if (anchored.steps[1].status !== "clear") return;
     setCheckpoint((current) => {
@@ -151,22 +177,16 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
         activityId: `review:${current.journeyId}:nothing-due`,
       });
       if (result.state !== "accepted") return current;
-      writeLocalStorage(
-        integratedJourneyStorageKey(current.scopeKey),
-        JSON.stringify(result.checkpoint),
-      );
+      if (!persistJourney(result.checkpoint)) return current;
       return result.checkpoint;
     });
-  }, [checkpoint, dueWordIds, state]);
+  }, [checkpoint, dueWordIds, state, unresolved,authenticated]);
 
   const recordReceipt = useCallback((receipt: LearningJourneyReceipt) => {
     if (!scopeKey) return;
     setCheckpoint((current) => {
-      const base = current ?? createIntegratedJourneyCheckpoint({
-        scopeKey,
-        goal: state.profile.goal,
-        anchorLessonId: receipt.lessonId ?? candidateAnchor,
-      });
+      if (!current || current.scopeKey !== scopeKey) return current;
+      const base = current;
       const result = applyLearningJourneyReceipt(base, receipt);
       if (result.state !== "accepted") return base;
       const next = receipt.stage === "close"
@@ -177,7 +197,7 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
             anchorLessonId: candidateAnchor,
           })
         : result.checkpoint;
-      writeLocalStorage(integratedJourneyStorageKey(scopeKey), JSON.stringify(next));
+      if (!persistJourney(next)) return current;
       return next;
     });
   }, [candidateAnchor, scopeKey, state.profile.goal]);
@@ -204,6 +224,7 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
       reinforcementWordIds: checkpoint.completedStages.learn
         ? anchorWordIds(checkpoint.anchorLessonId)
         : [],
+      unresolvedMistakeCount: unresolved,
     });
     const completedStages = {
       learn: Boolean(checkpoint.completedStages.learn),
@@ -211,11 +232,13 @@ export function LearningJourneyProvider({ children }: { children: ReactNode }) {
       transfer: Boolean(checkpoint.completedStages.transfer),
       close: Boolean(checkpoint.completedStages.close),
     };
-    if (completedStages.learn && base.steps[1].status === "clear") {
+    if (!authenticated && completedStages.learn && base.steps[1].status === "clear") {
       completedStages.review = true;
     }
-    return projectLearningJourneyProgress(base, completedStages);
-  }, [checkpoint, dueWordIds, state]);
+    return projectLearningJourneyProgress(base, completedStages, {
+      requireReviewReceipt: authenticated,
+    });
+  }, [checkpoint, dueWordIds, state, unresolved, authenticated]);
   const currentStep = journey?.steps.find((step) => step.status === "action") ?? null;
   const value = useMemo(() => ({
     checkpoint,

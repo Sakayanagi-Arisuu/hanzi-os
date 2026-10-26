@@ -217,6 +217,49 @@ const mergeClockedValue = <T>(
   return cloneJson(selected);
 };
 
+const preferenceRegister = (profile: ClockedSyncValue<Profile>) => profile.value.learningPreferences === undefined
+  ? null : { value: profile.value.learningPreferences, clock: profile.value.learningPreferencesClock ?? profile.clock };
+
+const profileForTransition = (next: Profile, clock: SyncClock, previous?: ClockedSyncValue<Profile>): Profile => {
+  const value = cloneJson(next);
+  delete value.learningPreferencesClock;
+  const old = previous ? preferenceRegister(previous) : null;
+  // Absence means an older client did not know this field. Explicit null resets it.
+  if (value.learningPreferences === undefined && old) value.learningPreferences = cloneJson(old.value);
+  if (value.learningPreferences !== undefined) value.learningPreferencesClock = cloneJson(old
+    && canonicalStringify(old.value) === canonicalStringify(value.learningPreferences) ? old.clock : clock);
+  return value;
+};
+
+function mergeProfile(left: ClockedSyncValue<Profile>, right: ClockedSyncValue<Profile>, conflicts: SyncConflict[]) {
+  const base = (profile: ClockedSyncValue<Profile>) => {
+    const value = cloneJson(profile.value);
+    delete value.learningPreferences; delete value.learningPreferencesClock;
+    return { value, clock: profile.clock };
+  };
+  const merged = mergeClockedValue(base(left), base(right), 'profile', conflicts);
+  const a = preferenceRegister(left), b = preferenceRegister(right);
+  let selected = a ?? b;
+  if (a && b) {
+    const order = compareClock(a.clock, b.clock);
+    if (order !== 0) selected = order > 0 ? a : b;
+    else {
+      const ac = canonicalStringify(a.value), bc = canonicalStringify(b.value);
+      // Ambiguous equal-clock consent fails closed; null is a reset tombstone.
+      const rank = (value: Profile['learningPreferences']) => value === null ? 0 : value?.allowInference ? 2 : 1;
+      selected = rank(a.value) !== rank(b.value) ? rank(a.value) < rank(b.value) ? a : b
+        : compareLexical(ac, bc) <= 0 ? a : b;
+      if (ac !== bc) addConflict(conflicts, 'profile', 'profile.learningPreferences', 'same-clock-different-value',
+        canonicalStringify(selected.value), [ac, bc]);
+    }
+  }
+  if (selected) {
+    merged.value.learningPreferences = cloneJson(selected.value);
+    merged.value.learningPreferencesClock = cloneJson(selected.clock);
+  }
+  return merged;
+}
+
 const mergeSavedWords = (
   left: Record<string, SavedWordSyncEntry>,
   right: Record<string, SavedWordSyncEntry>,
@@ -468,8 +511,7 @@ const mergeMistakes = (states: readonly LearningState[]): MistakeRecord[] => {
     }
   }
   return [...result.values()]
-    .sort((left, right) => compareLexical(right.lastAttemptAt, left.lastAttemptAt) || compareLexical(left.id, right.id))
-    .slice(0, 120);
+    .sort((left, right) => compareLexical(right.lastAttemptAt, left.lastAttemptAt) || compareLexical(left.id, right.id));
 };
 
 const deriveStudySummary = (
@@ -609,8 +651,9 @@ export const createInitialSyncDocument = (
     value: legacyXpForState(safe),
     clock,
   };
+  const initialProfile = profileForTransition(safe.profile, clock);
   const projection = materializeProjection({
-    profile: safe.profile,
+    profile: initialProfile,
     diagnostic: safe.diagnostic,
     savedWords,
     evidence,
@@ -624,7 +667,7 @@ export const createInitialSyncDocument = (
     schemaVersion: 1,
     clock,
     reset: { epoch: 0, clock },
-    profile: { value: cloneJson(safe.profile), clock },
+    profile: { value: initialProfile, clock },
     diagnostic: { value: cloneJson(safe.diagnostic), clock },
     savedWords,
     legacyXpBaseline,
@@ -666,8 +709,9 @@ export const evolveSyncDocument = (
     }
     const savedWords: Record<string, SavedWordSyncEntry> = {};
     const baseline = { value: legacyXpForState(nextSafe), clock };
+    const resetProfile = profileForTransition(nextSafe.profile, clock, previousDocument.profile);
     const projection = materializeProjection({
-      profile: nextSafe.profile,
+      profile: resetProfile,
       diagnostic: nextSafe.diagnostic,
       savedWords,
       evidence: nextSafe.evidence,
@@ -680,7 +724,7 @@ export const evolveSyncDocument = (
       schemaVersion: 1,
       clock,
       reset: { epoch: nextResetEpoch, clock },
-      profile: { value: cloneJson(nextSafe.profile), clock },
+      profile: { value: resetProfile, clock },
       diagnostic: { value: cloneJson(nextSafe.diagnostic), clock },
       savedWords,
       legacyXpBaseline: baseline,
@@ -688,10 +732,11 @@ export const evolveSyncDocument = (
     };
   }
 
-  const profileChanged = canonicalStringify(previousSafe.profile) !== canonicalStringify(nextSafe.profile);
+  const nextProfile = profileForTransition(nextSafe.profile, clock, previousDocument.profile);
+  const profileChanged = canonicalStringify(previousDocument.profile.value) !== canonicalStringify(nextProfile);
   const diagnosticChanged = canonicalStringify(previousSafe.diagnostic) !== canonicalStringify(nextSafe.diagnostic);
   const profile = profileChanged
-    ? { value: cloneJson(nextSafe.profile), clock }
+    ? { value: nextProfile, clock }
     : cloneJson(previousDocument.profile);
   const diagnostic = diagnosticChanged
     ? { value: cloneJson(nextSafe.diagnostic), clock }
@@ -773,7 +818,7 @@ export const mergeSyncDocuments = (
   );
 
   const profile = right
-    ? mergeClockedValue(left.profile, right.profile, "profile", conflicts)
+    ? mergeProfile(left.profile, right.profile, conflicts)
     : cloneJson(left.profile);
   const diagnostic = right
     ? mergeClockedValue(left.diagnostic, right.diagnostic, "diagnostic", conflicts)

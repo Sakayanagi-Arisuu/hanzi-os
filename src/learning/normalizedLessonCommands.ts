@@ -1,5 +1,4 @@
-import { CONTENT_VERSION } from "../data/curriculum";
-import { sha256Hex } from "../sync/document";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import type { OwnerGeneration } from "../sync/indexedDb";
 import type {
   EnqueueLessonSessionInput,
@@ -18,27 +17,18 @@ import { LESSON_SESSION_SUBMISSION_PROTOCOL_VERSION } from "./lessonSessionSubmi
 import {
   isExactNormalizedLessonEligibility,
   isExactNormalizedLessonRuntime,
-  MAX_NORMALIZED_LESSON_ACTIVITIES,
   type NormalizedLessonRuntimeV1,
 } from "./normalizedLessonRuntime";
 import { isValidLearningResetEpoch } from "./resetEpoch";
 
-export const NORMALIZED_LESSON_COMMAND_ID_SCHEMA_VERSION = 1 as const;
+import { deriveStableNormalizedLessonCommandIds } from "./normalizedLessonCommandIds";
+export { deriveStableNormalizedLessonCommandIds, NORMALIZED_LESSON_COMMAND_ID_SCHEMA_VERSION, type StableNormalizedLessonCommandIds } from "./normalizedLessonCommandIds";
 
 export type NormalizedLessonQueueEnvironment = {
   ownerGeneration: OwnerGeneration;
   resetEpoch: number;
   installationId: string;
   deviceId: string;
-};
-
-export type StableNormalizedLessonCommandIds = {
-  schemaVersion: 1;
-  sessionAlias: string;
-  commandSeed: string;
-  attemptCommandIds: string[];
-  submitCommandId: string;
-  abandonCommandId: string;
 };
 
 export type BuildNormalizedLessonOpenQueueInput = {
@@ -99,45 +89,6 @@ const assertQueueScope = async (
     throw new Error("Normalized lesson runtime is stale or invalid.");
   }
 };
-
-const stableSessionDigest = async (commandSeed: string) => {
-  if (!boundedString(commandSeed, 200)) {
-    throw new Error("Normalized lesson command seed is invalid.");
-  }
-  return sha256Hex({
-    schemaVersion: NORMALIZED_LESSON_COMMAND_ID_SCHEMA_VERSION,
-    scope: "normalized-lesson-session",
-    // Retain the v1 canonical field name so existing local open sessions keep
-    // the same derived identifiers after command seeds were generalized.
-    openCommandId: commandSeed,
-  });
-};
-
-/** Stable across reloads for either a real open id or a projected anchor. */
-export async function deriveStableNormalizedLessonCommandIds(
-  commandSeed: string,
-  activityCount: number,
-): Promise<StableNormalizedLessonCommandIds> {
-  if (
-    !Number.isSafeInteger(activityCount)
-    || activityCount < 1
-    || activityCount > MAX_NORMALIZED_LESSON_ACTIVITIES
-  ) {
-    throw new Error("Normalized lesson activity count is invalid.");
-  }
-  const digest = await stableSessionDigest(commandSeed);
-  return {
-    schemaVersion: NORMALIZED_LESSON_COMMAND_ID_SCHEMA_VERSION,
-    sessionAlias: `lesson:${digest}`,
-    commandSeed,
-    attemptCommandIds: Array.from(
-      { length: activityCount },
-      (_value, position) => `lesson-attempt:${digest}:${position}`,
-    ),
-    submitCommandId: `lesson-submit:${digest}`,
-    abandonCommandId: `lesson-abandon:${digest}`,
-  };
-}
 
 export async function buildNormalizedLessonOpenQueueInput(
   input: BuildNormalizedLessonOpenQueueInput,

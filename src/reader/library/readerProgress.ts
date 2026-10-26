@@ -168,12 +168,17 @@ export const parseReaderProgress = (
   value: unknown,
   scope: ReaderProgressScope,
   now = new Date().toISOString(),
+  rejectInvalid = false,
 ): ReaderProgressDocument => {
-  if (!value || typeof value !== "object") return createEmptyReaderProgress(scope, now);
+  const invalid = () => {
+    if (rejectInvalid) throw new Error('Unreadable reader data; retain source.');
+    return createEmptyReaderProgress(scope, now);
+  };
+  if (!value || typeof value !== "object") return invalid();
   const candidate = value as Record<string, unknown>;
   if (candidate.schemaVersion === 1) {
     const legacy = candidate as ReaderProgressV1;
-    if (legacy.ownerKey !== scope.ownerKey) return createEmptyReaderProgress(scope, now);
+    if (legacy.ownerKey !== scope.ownerKey) return invalid();
     const migrated = createEmptyReaderProgress(scope, now);
     if (
       safeString(legacy.seriesId)
@@ -220,7 +225,7 @@ export const parseReaderProgress = (
       || Object.keys(candidate.savedEntries).length > 2_000
       || Object.values(candidate.savedEntries).some((entry) => !validSavedEntry(entry))
     ))
-  ) return createEmptyReaderProgress(scope, now);
+  ) return invalid();
   const valid = candidate as ReaderProgressDocument;
   return {
     schemaVersion: READER_PROGRESS_SCHEMA_VERSION,

@@ -16,6 +16,9 @@ import {
 import { SyncRepository } from "./syncRepository";
 import type { GoogleOAuthConfig } from "./googleIdentity";
 import type { FacebookOAuthConfig } from "./facebookIdentity";
+import type { GithubOAuthConfig } from './githubIdentity';
+import type { FirebasePasswordConfig } from './firebasePasswordIdentity';
+import { firebaseAuthAdminConfig } from './firebaseAuthAdmin';
 
 export const AUTH_JSON_HEADERS = {
   "cache-control": "private, no-store, max-age=0",
@@ -25,16 +28,25 @@ export const AUTH_JSON_HEADERS = {
 };
 
 export type AuthRuntimeEnvironment = {
+  HANZI_HOSTING_PROVIDER?: string;
   DB?: D1Database;
   AUTH_ALLOWED_ORIGIN?: string;
   AUTH_RP_ID?: string;
   GOOGLE_CLIENT_ID?: string;
   GOOGLE_CLIENT_SECRET?: string;
   GOOGLE_REDIRECT_URI?: string;
+  GOOGLE_NATIVE_ENABLED?: string;
   FACEBOOK_CLIENT_ID?: string;
   FACEBOOK_CLIENT_SECRET?: string;
   FACEBOOK_REDIRECT_URI?: string;
   FACEBOOK_GRAPH_VERSION?: string;
+  GITHUB_CLIENT_ID?: string;
+  GITHUB_CLIENT_SECRET?: string;
+  GITHUB_REDIRECT_URI?: string;
+  FIREBASE_PROJECT_ID?: string;
+  FIREBASE_WEB_API_KEY?: string;
+  FIREBASE_AUTH_SERVICE_ACCOUNT?: string;
+  HANZI_HOSTED_PASSWORD_ENABLED?: string;
   AUTH_DEV_HANZI_DEMOS?: string;
   AUTH_DEV_EMAIL_OTP?: string;
   AUTH_EMAIL_SENDER?: {
@@ -166,6 +178,25 @@ export function facebookConfig(
     redirectUri: configuredRedirect,
     graphVersion: graphVersion as `v${number}.${number}`,
   };
+}
+
+export function githubConfig(environment: AuthRuntimeEnvironment, request: Request): GithubOAuthConfig {
+  const clientId = environment.GITHUB_CLIENT_ID?.trim();
+  const clientSecret = environment.GITHUB_CLIENT_SECRET?.trim();
+  const redirectUri = environment.GITHUB_REDIRECT_URI?.trim();
+  const exactCallback = `${new URL(request.url).origin}/auth/github/callback`;
+  if (!clientId || !clientSecret || redirectUri !== exactCallback) throw new Error('GitHub sign-in is not configured for this callback.');
+  return { clientId, clientSecret, redirectUri };
+}
+
+export function firebasePasswordConfig(environment: AuthRuntimeEnvironment): FirebasePasswordConfig | null {
+  // Credentials alone must not open a provider whose lifecycle is still under review.
+  if (environment.HANZI_HOSTED_PASSWORD_ENABLED !== '1') return null;
+  const projectId = environment.FIREBASE_PROJECT_ID?.trim();
+  const apiKey = environment.FIREBASE_WEB_API_KEY?.trim();
+  if (!projectId || !/^[a-z][a-z0-9-]{4,62}$/u.test(projectId) || !apiKey || apiKey.length > 200) return null;
+  if (!firebaseAuthAdminConfig(projectId, environment.FIREBASE_AUTH_SERVICE_ACCOUNT)) return null;
+  return { projectId, apiKey };
 }
 
 export function relyingPartyConfig(

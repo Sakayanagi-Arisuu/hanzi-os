@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION } from "../data/curriculum";
 import type { ContentReleasePolicy } from "./contentReleasePolicy";
+import { personalStudyPolicy } from './contentReleasePolicy';
 import {
   CourseVersionBindingError,
   ensureCurrentCourseVersion,
@@ -110,6 +111,16 @@ const storedState = (database: SQLiteD1) => database.database.prepare(
 ).get(CONTENT_VERSION);
 
 describe("course-version release activation", () => {
+  it('keeps linguistic review pending for a personal-study beta', async () => {
+    const database = new SQLiteD1();
+    const personal = personalStudyPolicy(CURRENT_CONTENT_MANIFEST_SHA256);
+    await ensureCurrentCourseVersion(database, personal);
+    await ensureCurrentCourseVersion(database, personal);
+    expect(storedState(database)).toEqual({ manifestHash: CURRENT_CONTENT_MANIFEST_SHA256,
+      releaseState: 'beta', linguisticReviewStatus: 'pending' });
+    expect(database.database.prepare('SELECT published_at FROM course_versions WHERE id=?').get(CONTENT_VERSION))
+      .toEqual({ published_at: null });
+  });
   it("creates an exact but unapproved review anchor for an honest candidate", async () => {
     const database = new SQLiteD1();
 

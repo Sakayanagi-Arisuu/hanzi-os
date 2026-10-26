@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { offlineRead } from '../sync/offlineRead';
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { useLocalPagePractice } from "./useLocalPagePractice";
@@ -17,7 +18,7 @@ export function usePracticeCoverage(open: boolean) {
   useEffect(() => {
     if (!open) return;
     const controller = new AbortController();
-    void fetch("/api/learning/practice-coverage", { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(60_000)]) }).then(async response => {
+    void offlineRead("/api/learning/practice-coverage", { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(60_000)]) }).then(async response => {
       if (!response.ok) throw new Error("Coverage unavailable");
       const data = await response.json();
       if (data.authenticated !== authenticated || (authenticated && normalized.resetEpoch !== null && data.resetEpoch !== normalized.resetEpoch)

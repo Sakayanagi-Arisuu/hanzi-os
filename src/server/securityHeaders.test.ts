@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 import {
   CONTENT_SECURITY_POLICY,
   SECURITY_HEADERS,
+  securityHeadersForPath,
+  emailActionRenderingRequest,
 } from "./securityHeaders";
 
 const repositoryRoot = resolve(
@@ -30,6 +32,29 @@ const parseGlobalStaticHeaders = () => {
 };
 
 describe("security header policy", () => {
+  it.each(['GET', 'HEAD'])('keeps email action credentials out of the %s renderer URL and hydration headers', method => {
+    const input = new Request('https://hanzi.test/auth/hanzi/action?mode=verifyEmail&oobCode=FixtureSensitive_Code#private', {method,
+      headers:{cookie:'first-party-fixture',accept:'text/html',referer:'https://hanzi.test/?oobCode=FixtureSensitive_Code','next-url':'/auth/hanzi/action?oobCode=FixtureSensitive_Code','next-router-state-tree':'FixtureSensitive_Code'} });
+    const rendering = emailActionRenderingRequest(input);
+    expect(rendering.url).toBe('https://hanzi.test/auth/hanzi/action');
+    expect(JSON.stringify([...rendering.headers])).not.toContain('FixtureSensitive_Code');
+    expect(rendering.headers.get('cookie')).toBe('first-party-fixture');
+    expect(input.url).toContain('FixtureSensitive_Code');
+  });
+  it('does not rewrite provider callbacks, email API bodies or other routes', async () => {
+    for (const path of ['/auth/google/callback?code=fixture','/signin?returnTo=profile']) {
+      const input = new Request(`https://hanzi.test${path}`);
+      expect(emailActionRenderingRequest(input)).toBe(input);
+    }
+    const api = new Request('https://hanzi.test/api/auth/hanzi/email-verification/complete',{method:'POST',body:'{"oobCode":"Fixture"}'});
+    expect(emailActionRenderingRequest(api)).toBe(api);
+    expect(await api.text()).toContain('Fixture');
+  });
+  it('never caches an action page or forwards a single-use URL through its referrer', () => {
+    expect(securityHeadersForPath('/auth/hanzi/action')).toMatchObject({ 'referrer-policy': 'no-referrer', 'cache-control': 'private, no-store, max-age=0', 'x-robots-tag': 'noindex, nofollow' });
+    expect(securityHeadersForPath('/auth/hanzi/action/')).toEqual(securityHeadersForPath('/auth/hanzi/action'));
+    expect(securityHeadersForPath('/signin')).toEqual(SECURITY_HEADERS);
+  });
   it("keeps the static hosting policy byte-equivalent to the worker policy", () => {
     const staticHeaders = parseGlobalStaticHeaders();
 

@@ -16,6 +16,7 @@ export function PronunciationQuestComplete({
   phraseCount,
   assessedCount,
   rewardAwarded,
+  pending = false,
   onReplay,
   onChooseLesson,
 }: {
@@ -23,6 +24,7 @@ export function PronunciationQuestComplete({
   phraseCount: number;
   assessedCount: number;
   rewardAwarded: boolean | null;
+  pending?: boolean;
   onReplay: () => void;
   onChooseLesson: () => void;
 }) {
@@ -63,7 +65,7 @@ export function PronunciationQuestComplete({
 
         <div className="resonance-clear-copy">
           <p>CHIẾN BÁO ÂM VỰC</p>
-          <h2 id="pronunciation-complete-title">Cộng hưởng hoàn tất</h2>
+          <h2 id="pronunciation-complete-title">{pending ? 'Lượt luyện đang chờ đồng bộ' : 'Cộng hưởng hoàn tất'}</h2>
           <strong>{lessonTitle}</strong>
           <span>Toàn bộ câu luyện đã đi qua lõi cộng hưởng. Bạn có thể chọn ngay một bài khác mà không rời Vạn Âm Điện.</span>
 

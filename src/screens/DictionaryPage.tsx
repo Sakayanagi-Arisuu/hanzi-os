@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { DictionaryExperience } from "./DictionaryExperience";
+import { selectDictionaryEntry } from './dictionarySelection';
 import {
   getLessonExpansionPack,
   getLessonIdForMegaWord,
@@ -21,6 +22,9 @@ import {
 } from "../data/curriculum";
 import { useLearning } from "../store/LearningStore";
 import { useLearningJourney } from "../store/LearningJourneyStore";
+import { currentWorkspaceScope } from '../sync/workspaceSync';
+import { saveDictionaryActivity } from '../sync/dictionaryActivity';
+import { practiceObservationsConfirmed } from '../sync/practiceConfirmation';
 import "./DictionaryPage.css";
 
 const normalizeSearch = (value: string) => value
@@ -56,9 +60,15 @@ export function DictionaryPage() {
   const requestedLessonId = requested.get("lesson");
   const requestedQuery = requested.get("q") ?? "";
   const journeyChallenge = requested.get("challenge") === "1";
-  const { state } = useLearning();
+  const { state, sync } = useLearning();
   const { checkpoint, recordReceipt } = useLearningJourney();
   const challengedWordIdsRef = useRef(new Set<string>());
+  const challengeOperations = useRef(new Map<string, string>());
+  const lookupRetry = useRef<{ wordId: string; operationId: string } | null>(null);
+  const lookupBusy = useRef(false);
+  const [activityStatus, setActivityStatus] = useState('');
+  const [activityRevision, setActivityRevision] = useState(0);
+  useEffect(() => { challengedWordIdsRef.current.clear(); challengeOperations.current.clear(); }, [requestedLessonId, checkpoint?.journeyId, sync.ownerKey]);
   const [artifact, setArtifact] = useState<MegaLexiconArtifact | null>(null);
   const [publishedVocabulary, setPublishedVocabulary] = useState<DictionaryWord[]>([]);
   const [publishedVocabularyState, setPublishedVocabularyState] = useState<"loading" | "ready" | "unavailable">("loading");
@@ -156,20 +166,47 @@ export function DictionaryPage() {
       return normalizeSearch(haystack).includes(normalized);
     });
   }, [allWords, lessonScope, lessonWordIds, query, savedOnly, state.savedWords]);
-  const selected = (requested.get("view") === "detail" ? allWords : results).find((word) => word.id === requested.get("word") || word.sourceStableKey === requested.get("word"))
-    ?? results.find((word) => word.id === selectedId) ?? results[0];
-  const selectResult = (wordId: string) => {
-    setSelectedId(wordId);
-    if (!journeyChallenge || !requestedLessonId || !checkpoint) return;
-    challengedWordIdsRef.current.add(wordId);
-    if (challengedWordIdsRef.current.size < 3) return;
-    recordReceipt({
-      stage: "transfer",
-      source: "dictionary",
-      lessonId: requestedLessonId,
-      activityId: `dictionary:${checkpoint.journeyId}:three-distinct-entries`,
-    });
+  const selected = selectDictionaryEntry({ words: allWords, results, detail: requested.get('view') === 'detail',
+    requestedWordId: requested.get('word'), selectedId });
+  const selectResult = async (wordId: string) => {
+    if (lookupBusy.current) return false;
+    const word = allWords.find(candidate => candidate.id === wordId);
+    if (!word) return false;
+    lookupBusy.current = true;
+    try {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Owner changed');
+      const operationId = lookupRetry.current?.wordId === wordId ? lookupRetry.current.operationId : `dictionary-lookup:${crypto.randomUUID()}`;
+      lookupRetry.current = { wordId, operationId };
+      await saveDictionaryActivity(scope, word, operationId, 'lookup', lessonWordIds?.has(wordId) ? requestedLessonId : null);
+      lookupRetry.current = null;
+      setSelectedId(wordId);
+      setActivityStatus(sync.session?.authenticated ? 'Đã giữ lượt tra cứu trên thiết bị; đang chờ đồng bộ.' : 'Đã lưu lượt tra cứu; không tính là trả lời đúng hay mức thành thạo.');
+      if (!journeyChallenge || !requestedLessonId || !checkpoint || !lessonWordIds?.has(wordId)) return true;
+      challengedWordIdsRef.current.add(wordId);
+      challengeOperations.current.set(wordId, operationId);
+      setActivityRevision(value => value + 1);
+      return true;
+    } catch { setActivityStatus('Chưa lưu được lượt tra cứu. Dữ liệu cũ vẫn được giữ; hãy thử lại.'); return false; }
+    finally { lookupBusy.current = false; }
   };
+  useEffect(() => {
+    if (!journeyChallenge || !requestedLessonId || !checkpoint || challengedWordIdsRef.current.size < 3) return;
+    let active = true;
+    const confirm = async () => {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) return;
+      const confirmed = !sync.session?.authenticated || await practiceObservationsConfirmed(scope, [...challengeOperations.current.values()]);
+      if (!active || !confirmed) return;
+      recordReceipt({ stage: 'transfer', source: 'dictionary', lessonId: requestedLessonId,
+        activityId: `dictionary:${checkpoint.journeyId}:three-distinct-entries` });
+    };
+    const receive = () => { void confirm().catch(() => {
+      if (active) setActivityStatus('Chưa xác nhận đồng bộ lượt tra cứu. Dữ liệu trên thiết bị vẫn được giữ.');
+    }); };
+    receive(); window.addEventListener('hanzi-workspace-received', receive);
+    return () => { active = false; window.removeEventListener('hanzi-workspace-received', receive); };
+  }, [activityRevision, checkpoint, journeyChallenge, recordReceipt, requestedLessonId, sync.ownerKey, sync.session?.authenticated]);
   const coreLessonByWordId = useMemo(() => {
     const map = new Map<string, string>();
     for (const lesson of RELEASED_LESSONS) for (const wordId of lesson.wordIds) if (!map.has(wordId)) map.set(wordId, lesson.id);
@@ -190,5 +227,5 @@ export function DictionaryPage() {
       .slice(0, 8);
   }, [allWords, selected]);
 
-  return <DictionaryExperience words={allWords} results={results} selected={selected} related={relatedWords} lessonId={selectedPathLessonId} query={query} setQuery={setQuery} select={selectResult} setSavedOnly={setSavedOnly} status={loadError ? "Kho cốt lõi vẫn dùng được; kho mở rộng chưa tải được." : publishedVocabularyState === "unavailable" ? "Mục từ mới tạm gián đoạn; kho hiện tại vẫn dùng được." : deepLookupPending ? "Đang tra mục từ…" : publishedVocabularyState === "loading" && showPublishedVocabularyLoading ? "Đang tải mục từ mới…" : ""} />;
+  return <DictionaryExperience words={allWords} results={results} selected={selected} related={relatedWords} lessonId={selectedPathLessonId} query={query} setQuery={setQuery} select={selectResult} setSavedOnly={setSavedOnly} status={activityStatus || (loadError ? "Kho cốt lõi vẫn dùng được; kho mở rộng chưa tải được." : publishedVocabularyState === "unavailable" ? "Mục từ mới tạm gián đoạn; kho hiện tại vẫn dùng được." : deepLookupPending ? "Đang tra mục từ…" : publishedVocabularyState === "loading" && showPublishedVocabularyLoading ? "Đang tải mục từ mới…" : "")} />;
 }

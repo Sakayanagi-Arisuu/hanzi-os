@@ -12,7 +12,7 @@ import {
   Sparkles,
   Trash2,
 } from "lucide-react";
-import { type FormEvent, useMemo, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import type {
   EditorialReaderBook,
   EditorialReaderChapter,
@@ -21,6 +21,7 @@ import type {
 import type { StudioRevision } from "../../../src/server/contentStudioRepository";
 import styles from "./library.module.css";
 import { ReaderComprehensionEditor } from "./ReaderComprehensionEditor";
+import { LessonMediaPicker } from "../LessonMediaPicker";
 
 const slug = (value: string) => value
   .normalize("NFD")
@@ -69,18 +70,34 @@ export function ReaderSeriesStudio({
   revisions,
   canDraft,
   aiAvailable,
+  initialRevision,
+  initialBook,
 }: {
   revisions: StudioRevision[];
   canDraft: boolean;
   aiAvailable: boolean;
+  initialRevision?: { id: string; rowVersion: number };
+  initialBook?: EditorialReaderBook;
 }) {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [titleZh, setTitleZh] = useState("");
-  const [titleVi, setTitleVi] = useState("");
-  const [synopsisVi, setSynopsisVi] = useState("");
-  const [hookVi, setHookVi] = useState("");
-  const [coverSrc, setCoverSrc] = useState("");
-  const [chapters, setChapters] = useState<EditorialReaderChapter[]>([blankChapter(1)]);
+  const [mounted, setMounted] = useState(false);
+  const [activeChapter, setActiveChapter] = useState(0);
+  const [titleZh, setTitleZh] = useState(initialBook?.titleZh ?? "");
+  const [titleVi, setTitleVi] = useState(initialBook?.titleVi ?? "");
+  const [synopsisVi, setSynopsisVi] = useState(initialBook?.synopsisVi ?? "");
+  const [hookVi, setHookVi] = useState(initialBook?.hookVi ?? "");
+  const [coverSrc, setCoverSrc] = useState(initialBook?.cover.src ?? "");
+  const [coverAlt, setCoverAlt] = useState(initialBook?.cover.altVi ?? "");
+  const [coverProvenance, setCoverProvenance] = useState(initialBook?.rights.coverProvenanceVi ?? "");
+  const [chapters, setChapters] = useState<EditorialReaderChapter[]>(initialBook?.chapters ?? [blankChapter(1)]);
+  const [rowVersion, setRowVersion] = useState(initialRevision?.rowVersion);
+  const dirty = useRef(false);
+  useEffect(() => {
+    setMounted(true);
+    const warn = (event: BeforeUnloadEvent) => { if (dirty.current) { event.preventDefault(); event.returnValue = ""; } };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, []);
   const [enriching, setEnriching] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -88,6 +105,7 @@ export function ReaderSeriesStudio({
   const suggestedId = useMemo(() => slug(titleVi), [titleVi]);
 
   const replaceChapters = (updater: (current: EditorialReaderChapter[]) => EditorialReaderChapter[]) => {
+    dirty.current = true;
     setChapters(updater);
     setCreatedRevisionId("");
   };
@@ -142,6 +160,7 @@ export function ReaderSeriesStudio({
       || chapter.paragraphs.length < 2
       || chapter.paragraphs.some((paragraph) => !/\p{Script=Han}/u.test(paragraph)));
     if (invalidChapter >= 0) {
+      setActiveChapter(invalidChapter);
       setError(`Chương ${invalidChapter + 1} cần tiêu đề và ít nhất 2 đoạn tiếng Trung.`);
       return false;
     }
@@ -234,12 +253,14 @@ export function ReaderSeriesStudio({
     setCreatedRevisionId("");
     if (!translationsAreReady()) return;
     const data = new FormData(event.currentTarget);
-    const id = suggestedId;
+    const id = initialBook?.seriesId ?? suggestedId;
     if (!id) {
       setError("Tên tiếng Việt chưa tạo được định danh sách.");
       return;
     }
     const book: EditorialReaderBook = {
+      ...initialBook,
+      lexiconScan: undefined,
       schemaVersion: 1,
       seriesId: id,
       titleZh,
@@ -260,6 +281,7 @@ export function ReaderSeriesStudio({
       },
       chapters,
       rights: {
+        ...initialBook?.rights,
         textProvenanceVi: String(data.get("textProvenanceVi") ?? ""),
         coverProvenanceVi: String(data.get("coverProvenanceVi") ?? ""),
         editorAttestsRights: true,
@@ -269,22 +291,28 @@ export function ReaderSeriesStudio({
     setSubmitting(true);
     try {
       const response = await fetch("/api/studio/reader-series", {
-        method: "POST",
+        method: initialRevision ? "PUT" : "POST",
         credentials: "same-origin",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           book,
+          revisionId: initialRevision?.id,
+          expectedRowVersion: rowVersion,
+          quality: Object.fromEntries(["accuracy","levelFit","pedagogy","answerIntegrity","originality"].map(key=>[key,data.get(`review.${key}`)==="on"])),
           idempotencyKey: `reader-series:${id}:${crypto.randomUUID()}`,
         }),
       });
       const payload = await response.json() as {
-        revision?: { id?: string };
+        revision?: { id?: string; rowVersion?: number };
         error?: { message?: string };
       };
       if (!response.ok || !payload.revision?.id) {
         throw new Error(payload.error?.message ?? "Chưa thể tạo bản nháp sách.");
       }
       setCreatedRevisionId(payload.revision.id);
+      if (payload.revision.rowVersion) setRowVersion(payload.revision.rowVersion);
+      dirty.current = false;
+      if (initialRevision) window.location.assign(`/studio/items/${encodeURIComponent(payload.revision.id)}?notice=${encodeURIComponent("Đã lưu bản nháp sách.")}`);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Chưa thể tạo bản nháp sách.");
     } finally {
@@ -293,10 +321,10 @@ export function ReaderSeriesStudio({
   };
 
   return <div className={styles.workspace}>
-    {canDraft && <form className={styles.form} id="new-reader-series" onSubmit={submit}>
+    {canDraft && <form inert={!mounted} aria-busy={!mounted} className={styles.form} id="new-reader-series" onChange={() => { dirty.current = true; }} onSubmit={submit} onInvalid={event => { const details = (event.target as HTMLElement).closest('details'); if (details) details.open = true; }}>
       <header className={styles.formHero}>
         <span><BookPlus size={24} /></span>
-        <div><small>SÁCH MỚI</small><h2>Soạn sách nhiều chương</h2></div>
+        <div><small>{initialRevision ? "BẢN NHÁP SÁCH" : "SÁCH MỚI"}</small><h2>{initialRevision ? "Biên tập sách nhiều chương" : "Soạn sách nhiều chương"}</h2></div>
       </header>
 
       <ol className={styles.steps} aria-label="Ba bước soạn sách">
@@ -306,22 +334,26 @@ export function ReaderSeriesStudio({
         })}
       </ol>
 
-      {step === 1 && <section className={styles.stepPanel} aria-labelledby="reader-source-title">
+      <section hidden={step !== 1} className={styles.stepPanel} aria-labelledby="reader-source-title">
+        <div className={styles.stepScroll}>
         <header><span>1</span><h3 id="reader-source-title">Dán bản thảo tiếng Trung</h3></header>
         <label className={styles.bookTitle}><span>Tên sách</span><input required lang="zh-Hans" value={titleZh} onChange={(event) => setTitleZh(event.target.value)} placeholder="雨后的城市" /></label>
-        <div className={styles.chapterStack}>{chapters.map((chapter, chapterIndex) => <section className={styles.chapterCard} key={chapterIndex}>
-          <header><strong>Chương {chapterIndex + 1}</strong>{chapters.length > 1 && <button type="button" onClick={() => replaceChapters((current) => current.filter((_chapter, index) => index !== chapterIndex))} aria-label={`Xóa chương ${chapterIndex + 1}`}><Trash2 size={17} /> Xóa</button>}</header>
+        <nav className={styles.chapterNav} aria-label="Chọn chương đang soạn">{chapters.map((chapter,index) => <button key={index} type="button" aria-pressed={Math.min(activeChapter,chapters.length-1) === index} onClick={() => setActiveChapter(index)}>Chương {index+1} · {chapter.titleZh}</button>)}</nav>
+        <div className={styles.chapterStack}>{chapters.map((chapter, chapterIndex) => <section className={styles.chapterCard} hidden={chapterIndex !== Math.min(activeChapter,chapters.length-1)} key={chapterIndex}>
+          <header><strong>Chương {chapterIndex + 1}</strong>{chapters.length > 1 && chapterIndex >= (initialBook?.chapters.length ?? 0) && <button type="button" onClick={() => replaceChapters((current) => current.filter((_chapter, index) => index !== chapterIndex))} aria-label={`Xóa chương ${chapterIndex + 1}`}><Trash2 size={17} /> Xóa</button>}</header>
           <label><span>Tiêu đề chương</span><input required lang="zh-Hans" value={chapter.titleZh} onChange={(event) => updateChapter(chapterIndex, { titleZh: event.target.value })} /></label>
           <label><span>Nội dung tiếng Trung</span><textarea required lang="zh-Hans" rows={10} value={chapterBody(chapter)} onChange={(event) => updateChapterBody(chapterIndex, event.target.value)} placeholder="Mỗi đoạn cách nhau một dòng trống." /></label>
         </section>)}</div>
-        <button className={styles.addChapter} type="button" onClick={() => replaceChapters((current) => [...current, blankChapter(current.length + 1)])}><Plus size={18} /> Thêm chương</button>
+        <button className={styles.addChapter} type="button" onClick={() => { setActiveChapter(chapters.length); replaceChapters((current) => [...current, blankChapter(current.length + 1)]); }}><Plus size={18} /> Thêm chương</button>
+        </div>
         <div className={styles.aiAction}>
           <button type="button" onClick={enrichWithAi} disabled={enriching || !aiAvailable}><Sparkles size={18} /> {enriching ? "Đang tạo bản dịch…" : aiAvailable ? "Tạo Pinyin & bản dịch" : "Gemini chưa kết nối"}</button>
           <button className={styles.textButton} type="button" onClick={openManualReview}>Nhập bản dịch thủ công</button>
         </div>
-      </section>}
+      </section>
 
-      {step === 2 && <section className={styles.stepPanel} aria-labelledby="reader-translation-title">
+      <section hidden={step !== 2} className={styles.stepPanel} aria-labelledby="reader-translation-title">
+        <div className={styles.stepScroll}>
         <header><span>2</span><div><h3 id="reader-translation-title">Xem lại bản dịch</h3><small>AI · chưa duyệt</small></div></header>
         <label className={styles.bookTitle}><span>Tên sách tiếng Việt</span><input required value={titleVi} onChange={(event) => setTitleVi(event.target.value)} /></label>
         <div className={styles.translationStack}>{chapters.map((chapter, chapterIndex) => <details className={styles.translationChapter} open={chapterIndex === 0} key={chapterIndex}>
@@ -339,36 +371,41 @@ export function ReaderSeriesStudio({
             <ReaderComprehensionEditor questions={chapter.comprehension ?? []} onChange={(comprehension) => updateChapter(chapterIndex, { comprehension })} />
           </div>
         </details>)}</div>
+        </div>
         <div className={styles.stepActions}><button className={styles.secondary} type="button" onClick={() => setStep(1)}><ArrowLeft size={17} /> Bản thảo</button><button className={styles.primary} type="button" onClick={continueToDetails}>Tiếp tục <ArrowRight size={17} /></button></div>
-      </section>}
+      </section>
 
-      {step === 3 && <section className={styles.stepPanel} aria-labelledby="reader-details-title">
+      <section hidden={step !== 3} className={styles.stepPanel} aria-labelledby="reader-details-title">
+        <div className={styles.stepScroll}>
         <header><span>3</span><h3 id="reader-details-title">Hoàn tất thông tin sách</h3></header>
         <div className={styles.grid2}>
           <label><span>Tên tiếng Việt</span><input required value={titleVi} onChange={(event) => setTitleVi(event.target.value)} /></label>
-          <label><span>Kệ sách</span><select name="shelfId" defaultValue="doi-song"><option value="doi-song">Đời sống</option><option value="bi-an">Bí ẩn</option><option value="tu-tien">Tu tiên</option><option value="light-novel">Light novel</option><option value="vo-hiep">Võ hiệp</option><option value="khoa-huyen">Khoa huyễn</option><option value="triet-ly">Triết lý</option><option value="trung-sinh">Trùng sinh</option></select></label>
+          <label><span>Kệ sách</span><select name="shelfId" defaultValue={initialBook?.shelfId ?? "doi-song"}><option value="doi-song">Đời sống</option><option value="bi-an">Bí ẩn</option><option value="tu-tien">Tu tiên</option><option value="light-novel">Light novel</option><option value="vo-hiep">Võ hiệp</option><option value="khoa-huyen">Khoa huyễn</option><option value="triet-ly">Triết lý</option><option value="trung-sinh">Trùng sinh</option></select></label>
         </div>
         <label><span>Mô tả ngắn</span><textarea required rows={3} maxLength={2000} value={synopsisVi} onChange={(event) => setSynopsisVi(event.target.value)} /></label>
         <label><span>Câu giới thiệu</span><textarea required rows={2} maxLength={600} value={hookVi} onChange={(event) => setHookVi(event.target.value)} /></label>
         <div className={styles.grid2}>
-          <label><span>Cấp độ từ</span><select name="levelMin" defaultValue="HSK2"><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option></select></label>
-          <label><span>Đến</span><select name="levelMax" defaultValue="HSK3"><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option></select></label>
+          <label><span>Cấp độ từ</span><select name="levelMin" defaultValue={initialBook?.levelBand.min ?? "HSK2"}><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option></select></label>
+          <label><span>Đến</span><select name="levelMax" defaultValue={initialBook?.levelBand.max ?? "HSK3"}><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option></select></label>
         </div>
-        <fieldset className={styles.genrePicker}><legend>Thể loại</legend><div>{READER_GENRES.map((genre, index) => <label key={genre}><input type="checkbox" name="genreIds" value={genre} defaultChecked={index === 1} /><span>{genre}</span></label>)}</div></fieldset>
+        <fieldset className={styles.genrePicker}><legend>Thể loại</legend><div>{[...new Set([...READER_GENRES,...(initialBook?.genreIds ?? [])])].map((genre, index) => <label key={genre}><input type="checkbox" name="genreIds" value={genre} defaultChecked={initialBook ? initialBook.genreIds.includes(genre) : index === 1} /><span>{genre}</span></label>)}</div></fieldset>
         <div className={styles.coverEditor}>
           <div className={styles.coverPreview}>{coverSrc ? <img src={coverSrc} alt="Xem trước bìa" /> : <ImageIcon size={38} />}</div>
           <div>
             <label><span>Ảnh bìa</span><input required value={coverSrc} onChange={(event) => setCoverSrc(event.target.value)} placeholder="/reader/covers/ten-sach.webp" /></label>
-            <label><span>Mô tả ảnh</span><input required name="coverAltVi" maxLength={300} /></label>
-            <label><span>Tông bìa</span><select name="coverTone" defaultValue="jade"><option value="jade">Ngọc</option><option value="ember">Hỏa</option><option value="violet">Tím</option><option value="azure">Lam</option><option value="copper">Đồng</option><option value="indigo">Chàm</option><option value="rose">Hồng</option><option value="slate">Đá</option></select></label>
+            <LessonMediaPicker kind="image" onSelect={asset => { setCoverSrc(asset.url); setCoverAlt(asset.metadata.alt); setCoverProvenance(`${asset.metadata.provenance} · ${asset.metadata.license}`); }} />
+            <label><span>Mô tả ảnh</span><input required name="coverAltVi" maxLength={300} value={coverAlt} onChange={event=>setCoverAlt(event.target.value)} /></label>
+            <label><span>Tông bìa</span><select name="coverTone" defaultValue={initialBook?.cover.tone ?? "jade"}><option value="jade">Ngọc</option><option value="ember">Hỏa</option><option value="violet">Tím</option><option value="azure">Lam</option><option value="copper">Đồng</option><option value="indigo">Chàm</option><option value="rose">Hồng</option><option value="slate">Đá</option></select></label>
           </div>
         </div>
         <details className={styles.rightsPanel}>
           <summary>Nguồn và quyền sử dụng</summary>
-          <div><label><span>Nguồn bản thảo</span><textarea required name="textProvenanceVi" rows={2} /></label><label><span>Nguồn ảnh bìa</span><textarea required name="coverProvenanceVi" rows={2} /></label><label className={styles.attest}><input required type="checkbox" /><span>Tôi xác nhận có quyền sử dụng nội dung và hình ảnh này.</span></label></div>
+          <div><label><span>Nguồn bản thảo</span><textarea required name="textProvenanceVi" rows={2} defaultValue={initialBook?.rights.textProvenanceVi ?? ""} /></label><label><span>Nguồn ảnh bìa</span><textarea required name="coverProvenanceVi" rows={2} value={coverProvenance} onChange={event=>setCoverProvenance(event.target.value)} /></label><label className={styles.attest}><input required type="checkbox" defaultChecked={initialBook?.rights.editorAttestsRights} /><span>Tôi xác nhận có quyền sử dụng nội dung và hình ảnh này.</span></label></div>
         </details>
+        <details className={styles.rightsPanel}><summary>Tự kiểm trước khi gửi duyệt</summary><div>{[["accuracy","Tiếng Trung và Pinyin chính xác"],["levelFit","Độ khó phù hợp cấp HSK"],["pedagogy","Hướng dẫn và bản dịch dễ hiểu"],["answerIntegrity","Câu hỏi, đáp án và lời giải nhất quán"],["originality","Nội dung nguyên bản hoặc có quyền sử dụng"]].map(([key,label])=><label className={styles.attest} key={key}><input type="checkbox" name={`review.${key}`} /><span>{label}</span></label>)}<p>Tự kiểm không thay thế người duyệt độc lập. Nội dung vẫn chưa được đánh dấu đã có người duyệt.</p></div></details>
+        </div>
         <div className={styles.stepActions}><button className={styles.secondary} type="button" onClick={() => setStep(2)}><ArrowLeft size={17} /> Bản dịch</button><button className={styles.primary} type="submit" disabled={submitting}>{submitting ? "Đang lưu…" : <><Save size={18} /> Lưu bản nháp</>}</button></div>
-      </section>}
+      </section>
 
       {error && <p className={styles.error} role="alert">{error}</p>}
       {createdRevisionId && <p className={styles.success} role="status">Đã lưu bản nháp. <a href={`/studio/items/${encodeURIComponent(createdRevisionId)}`}>Mở nội dung</a></p>}

@@ -81,6 +81,23 @@ const makeState = (
 });
 
 describe("buildDailyLearningJourney", () => {
+  it("does not skip account review from a locally empty queue without a receipt", () => {
+    const journey = buildDailyLearningJourney({ state: makeState(), dueWordIds: [] });
+    expect(journey.steps[1].status).toBe("clear");
+    const pending = projectLearningJourneyProgress(journey, { learn: true }, {
+      requireReviewReceipt: true,
+    });
+    expect(pending.steps[1].status).toBe("action");
+    expect(pending.steps[2].status).toBe("pending");
+    expect(pending.steps[3].status).toBe("pending");
+    const confirmed = projectLearningJourneyProgress(journey, { learn: true, review: true }, {
+      requireReviewReceipt: true,
+    });
+    expect(confirmed.steps[1].status).toBe("clear");
+    expect(confirmed.steps[2].status).toBe("action");
+    expect(projectLearningJourneyProgress(journey, { learn: true }).steps[1].status).toBe("clear");
+  });
+
   it("keeps one anchor and exposes only the next unfinished stage", () => {
     const state = makeState({
       completedLessons: { "boot-1": completion(90) },
@@ -321,5 +338,15 @@ describe("buildDailyLearningJourney", () => {
     expect(copy).not.toMatch(/đã thành thạo|đã vững|mastery/i);
     expect(journey.evidenceNotice).toContain("không tự tạo kết luận thành thạo");
     expect(journey.steps[2].reason).toContain("không phải điểm phát âm");
+  });
+
+  it('routes supplemental reader and exam mistakes to review and never clears an unknown queue', () => {
+    const state = makeState({ mistakes: [] });
+    const open = buildDailyLearningJourney({ state, dueWordIds: [], unresolvedMistakeCount: 3 });
+    expect(open.unresolvedMistakeCount).toBe(3);
+    expect(open.steps[1]).toMatchObject({ kind: 'mistakes', to: '/mistakes', status: 'action' });
+    const unknown = buildDailyLearningJourney({ state, dueWordIds: [], unresolvedMistakeCount: null });
+    expect(unknown.steps[1]).toMatchObject({ to: '/mistakes', status: 'action' });
+    expect(buildDailyLearningJourney({ state, dueWordIds: [], unresolvedMistakeCount: 0 }).steps[1].status).toBe('clear');
   });
 });

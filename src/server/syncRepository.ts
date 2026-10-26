@@ -1,5 +1,6 @@
 import type { ChatGPTUser } from "../../app/chatgpt-auth";
 import { assertAccountCanAuthenticate } from "./accountStatus";
+import { assertAccountDeletionAllowed } from './accountDeletionPolicy';
 import { isNewAccountRegistrationOpen } from "./systemSettingsRepository";
 import { CONTENT_VERSION } from "../data/curriculum";
 import { canonicalStringify, sha256Hex } from "../sync/document";
@@ -7,6 +8,7 @@ import type { CloudSyncDocumentV1 } from "../sync/types";
 import type { SyncPushOperationV1 } from "../sync/protocol";
 import type { D1Database } from "./d1";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
+import { documentActivityHistoryEntries } from '../sync/documentActivityHistory';
 
 const IDENTITY_PROVIDER = "chatgpt";
 const IDEMPOTENCY_SCOPE = "learning-sync-v1";
@@ -40,13 +42,14 @@ export type AppliedSyncOperation = {
   cursor: number;
 };
 
-export const ACCOUNT_EXPORT_SCHEMA_VERSION = 12 as const;
+export const ACCOUNT_EXPORT_SCHEMA_VERSION = 13 as const;
 
 export const ACCOUNT_EXPORT_TABLES = [
   "users",
   "auth_identities",
   "auth_sessions",
   "hanzi_password_credentials",
+  'hosted_hanzi_aliases',
   "passkey_credentials",
   "user_roles",
   "profiles",
@@ -58,6 +61,7 @@ export const ACCOUNT_EXPORT_TABLES = [
   "lesson_sessions",
   "lesson_page_attempts",
   "learner_access_days",
+  "learner_workspace_entries",
   "commerce_sandbox_orders",
   "hanzi_wallets",
   "hanzi_wallet_entries",
@@ -94,6 +98,7 @@ const EXPORT_OMITTED_COLUMNS: Partial<Record<
   auth_identities: new Set(["provider_subject"]),
   auth_sessions: new Set(["token_hash", "user_agent_hash"]),
   hanzi_password_credentials: new Set(["password_salt", "password_hash"]),
+  hosted_hanzi_aliases: new Set(['firebase_uid']),
   idempotency_records: new Set([
     "request_hash",
     "lease_token",
@@ -115,6 +120,7 @@ const EXPORT_JSON_COLUMNS: Partial<Record<
 >> = {
   passkey_credentials: new Set(["public_key_jwk_json", "transports_json"]),
   learning_documents: new Set(["document_json"]),
+  learner_workspace_entries: new Set(["value_json"]),
   lesson_sessions: new Set(["form_manifest_json"]),
   lesson_page_attempts: new Set(["response_json"]),
   reader_sessions: new Set(["form_manifest_json"]),
@@ -406,6 +412,14 @@ export class SyncRepository {
         documentJson,
       );
     const mutations = [documentMutation, changeMutation];
+    const historyEntries = await documentActivityHistoryEntries(document, operation.operationId, operation.kind);
+    mutations.push(...historyEntries.map(entry => this.database.prepare(`
+      INSERT INTO learner_workspace_entries (user_id,reset_epoch,entry_key,value_json,changed_at,change_id)
+      SELECT ?,?,?,?,?,? WHERE EXISTS (SELECT 1 FROM learning_documents WHERE user_id=? AND revision=? AND document_json=?)
+      AND EXISTS (SELECT 1 FROM sync_changes WHERE user_id=? AND operation_id=? AND revision=?)
+      ON CONFLICT(user_id,reset_epoch,entry_key) DO NOTHING
+    `).bind(userId, document.reset.epoch, entry.key, JSON.stringify(entry.value), entry.changedAt, entry.changeId,
+      userId, nextRevision, documentJson, userId, operation.operationId, nextRevision)));
     if (operation.kind === "reset") {
       const committedResetGuard =
         "EXISTS (SELECT 1 FROM learning_documents WHERE user_id = ? AND revision = ? AND document_json = ?)";
@@ -614,9 +628,17 @@ export class SyncRepository {
   }
 
   async deleteAccount(userId: string) {
+    await assertAccountDeletionAllowed(this.database, userId);
+    if (await this.database.prepare('SELECT user_id FROM hosted_hanzi_aliases WHERE user_id=? LIMIT 1').bind(userId).first()) {
+      // The ordinary application session has no Firebase credential. Until a
+      // recent-password external deletion ceremony exists, preserve the whole
+      // owner graph instead of deleting D1 and recreating an external identity.
+      throw new HostedPasswordLifecycleUnavailableError();
+    }
     // Explicit child-first deletion avoids relying on SQLite cascade ordering
     // when several user-owned rows also have restrictive composite FKs.
     const childTables = [
+      // Private avatar metadata/chunks/receipts cascade from the guarded user DELETE.
       "premium_support_tickets",
       "hanzi_wallet_entries",
       "hanzi_premium_orders",
@@ -653,10 +675,10 @@ export class SyncRepository {
       "auth_identities",
     ] as const;
     const statements = childTables.map((table) =>
-      this.database.prepare(`DELETE FROM ${table} WHERE user_id = ?`).bind(userId)
+      this.database.prepare(`DELETE FROM ${table} WHERE user_id = ? AND EXISTS(SELECT 1 FROM users WHERE id=? AND status='active')`).bind(userId, userId)
     );
     statements.push(
-      this.database.prepare("DELETE FROM users WHERE id = ?").bind(userId),
+      this.database.prepare("DELETE FROM users WHERE id = ? AND status='active'").bind(userId),
     );
     const results = await this.database.batch(statements);
     if (results.some((result) => !result.success)) {
@@ -673,7 +695,7 @@ export class SyncRepository {
     const timestamp = nowEpoch();
     await this.database.batch([
       this.database
-        .prepare("UPDATE users SET status = 'active', updated_at = ?, deleted_at = NULL WHERE id = ? AND status IN ('active', 'deletion_pending')")
+        .prepare("UPDATE users SET updated_at = ? WHERE id = ? AND status = 'active'")
         .bind(timestamp, userId),
       this.database
         .prepare(
@@ -773,4 +795,8 @@ export class SyncRepository {
       retryAfterMs: Math.max(1_000, (winner.leaseExpiresAt ?? timestamp) - timestamp),
     };
   }
+}
+
+export class HostedPasswordLifecycleUnavailableError extends Error {
+  readonly code = 'HOSTED_PASSWORD_LIFECYCLE_UNAVAILABLE';
 }

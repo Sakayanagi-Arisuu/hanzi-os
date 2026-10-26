@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "personalization-t00-2026-10-18",
+  "task": "T02",
+  "slice": "lessons-rich-page",
+  "status": "IN-REVIEW",
+  "date": "2026-10-18",
+  "inherits": [
+    "PERSONALIZATION_T00_INVENTORY.json",
+    "PERSONALIZATION_T00_FIXTURES.json",
+    "PERSONALIZATION_T01_DELTA.json",
+    "PERSONALIZATION_T01_EVENTS.md"
+  ],
+  "preEditDrift": [],
+  "coverage": [
+    "E03 rich lesson page activities",
+    "E25 atomic owner-scoped reading source and journal",
+    "E26 page business receipt reconstruction",
+    "E18 analytics consumer exclusion for exposure/support only"
+  ],
+  "unchangedAcceptance": {
+    "T00": "IN-REVIEW",
+    "T01": "IN-REVIEW"
+  },
+  "nextUnconnectedSlice": "review",
+  "allT02Complete": false,
+  "sourceBindings": [
+    {
+      "file": "app/api/learning/page-attempts/route.ts",
+      "sha256": "9991ed0cb3f1065611a04dc1f26694bd2d03dfd026563adfca7f9a78a86fe68c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/LessonPageReader.tsx",
+      "sha256": "6bc64e80b2ec132e09ab48cf8248c10f9d561fc5b1b865b35289cd7071675bb9",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/LessonReadingBlock.tsx",
+      "sha256": "6f4ccffef90fb85df707dd795f9b6b0ba4c6f1b4d1e6342cab77216a4eb94e54",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/ResumableLessonReader.tsx",
+      "sha256": "c070bb01d0f65dfb9761d63c8b423ec875b305a7594fc0a3d69c7e24027371e1",
+      "previousSha256": "54ec06df6fe6dd26cf3991cf2ae7264ebe9e379aa14e352ea9695d906ba2f8ee"
+    },
+    {
+      "file": "src/learning/lessonHistory.ts",
+      "sha256": "bff43996e8dba1df223e788777c37bf80c2e806b640625e25a6e79979df057e5",
+      "previousSha256": "668f9185f0a92a5249554a725a04ce9f99edba3c7e8381ceb02bbd90c90aac16"
+    },
+    {
+      "file": "src/learning/lessonPageHistory.test.ts",
+      "sha256": "a9d10570cf7778e82f93d874990cac21e282bea2f93d2b2bfe7bbea198325e64",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/lessonPageHistory.ts",
+      "sha256": "08f7c8fecebd63b8b5d837e8cfff33729d61473ac0ebdb1c67edf9271431075e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/lessonReadingSession.ts",
+      "sha256": "323f91b0ef7278b16537b21869619eebae3dfc5d82dba9a63990e18df689b474",
+      "previousSha256": "2033e647968675da643ab8d676c59be6cf7ed6326dc96bef2ce29336b8698f8a"
+    },
+    {
+      "file": "src/learning/pageAttemptCommand.ts",
+      "sha256": "9ffde0ca673fce174f2662a47ac011957f28938445ba20ccaa5bd539d0842624",
+      "previousSha256": null
+    },
+    {
+      "file": "src/learning/testing/pageHistoryFixture.ts",
+      "sha256": "10b281b7f9489c1b6e4c3ce3fac081b488744bed702a5a4cda43c46618fc91f3",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/analyticsRepository.test.ts",
+      "sha256": "b7fa09ca5fc953485f8f44fd97cabc65ef5e631d29c510e467f51f7a814f27a7",
+      "previousSha256": "8cd91ebfb277977ca9b093a94b442dabd5310e913d002534bc670fe200ea1b60"
+    },
+    {
+      "file": "src/server/analyticsRepository.ts",
+      "sha256": "2126587ab42df3d35a24a5f4eb2645a8a5fcdf45196745f55097fcc76aa09b86",
+      "previousSha256": "2c64bc1843f5cfbf9e708a1922d4403328d6d9105b6f26114182725367d351b8"
+    },
+    {
+      "file": "src/server/attemptRepository.test.ts",
+      "sha256": "17fda12e5236f58186d82b6e9a82b9a64e09e24030582e6fba716f3f67e64174",
+      "previousSha256": "343e2ef8e204453e6cf0f18f579c03257ea6dd21b6d2fa7212929b60157e240e"
+    },
+    {
+      "file": "src/server/lessonHistoryRepository.ts",
+      "sha256": "b611e4ea0b19a72bb92561803ae80cb99611d7fe1cc64afe94846bff53173e43",
+      "previousSha256": "459f9a8cda3e39053b58816bdb7a292080624f786e20eefca23338145edfefeb"
+    },
+    {
+      "file": "src/server/lessonPageAttemptRepository.ts",
+      "sha256": "697ebd95bfa87c0d20d25eae31cbbff918e57bfa7e326adf3480803bb34a476f",
+      "previousSha256": "39d50eff5f65ac209f304e43b2b7197ff0d08f35da9a35ffcefcf14949510c1a"
+    },
+    {
+      "file": "src/server/lessonPageHistory.test.ts",
+      "sha256": "b6ed882f40528a68c8cf48ce1c3c35b39e1ad77318fed039a1f6084972926b0a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/server/pageAttemptsRoute.test.ts",
+      "sha256": "049172dd4b2b4005a72a11b4b850c0e296fd4b9ae3b6bd2f4705c9330a29f66c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/indexedDb.ts",
+      "sha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888",
+      "previousSha256": "5068449046ab246c40b0fb775ed662f17af871ca7a79e518f29ca3c009594bf6"
+    },
+    {
+      "file": "src/sync/lessonHistory.ts",
+      "sha256": "8187de67510176df12e9a794e7b376a240a36cc50ff5df36d5f9d523ef26e5e2",
+      "previousSha256": "14c04aab2565b160c3cfd381512e7bdd45ef5847a9e414b873b2453790f93568"
+    },
+    {
+      "file": "src/sync/lessonReadingHistory.test.ts",
+      "sha256": "db7c408a5d95d6474614f66340ee13b0a03d84cfc387ca22f633da2cf8b74a53",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/lessonReadingHistory.ts",
+      "sha256": "7ca4c84ee7f14e9fff4fc0e3333d99ce42f5b6a41871da238361ceffdfb27c3e",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/pageAttemptOutbox.test.ts",
+      "sha256": "7bee20740b642da3e6a3d276cfbefdef67f18fe821c5cfd9ed18113638b4c484",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/queueReadingPageAttempts.ts",
+      "sha256": "de2b99082b3de9540687f845ee4a6916b1a6db7577f7aa01d278d73cd29a20b8",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/usePageAttemptPump.ts",
+      "sha256": "9422df772ed79fb9edd47d6ec8cc54be5722d66b62690fcb2434d7930c5a1680",
+      "previousSha256": null
+    }
+  ],
+  "routesAdded": [],
+  "storage": {
+    "indexedDbVersion": 3,
+    "d1MigrationsAdded": [],
+    "localJournalPrefix": "lesson-page-history:v1:",
+    "accountBusinessTable": "lesson_page_attempts",
+    "analyticsWriteAdded": false
+  },
+  "limits": [
+    "No real account-D1 browser journey",
+    "No Android/native device verification",
+    "Existing mobile rich lesson footer below viewport not fixed in history slice",
+    "No T03 history UI",
+    "No full-device recovery or 100000-event performance claim",
+    "Pilot audio/delayed recall/challenge/review/policy blockers unchanged"
+  ]
+}

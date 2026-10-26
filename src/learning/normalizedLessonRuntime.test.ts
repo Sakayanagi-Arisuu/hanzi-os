@@ -8,7 +8,7 @@ import {
 import {
   buildExercises,
   type Exercise,
-} from "../lib/exerciseGeneration";
+} from "../lib/editorialExerciseGeneration";
 import type { OwnerGeneration } from "../sync/indexedDb";
 import type { Lesson } from "../types";
 import {

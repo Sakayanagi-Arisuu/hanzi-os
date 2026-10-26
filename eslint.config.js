@@ -12,6 +12,8 @@ export default tseslint.config(
       "build/**",
       "content/packages/*/snapshots/**",
       "dist/**",
+      "tmp/**",
+      "mobile/android/**",
       "node_modules/**",
       "playwright-report/**",
       "test-results/**",

@@ -799,6 +799,7 @@ export class ContentStudioRepository {
   }): Promise<StudioRevision> {
     assertMutationIdentity(input);
     const stableKey = input.stableKey.trim().toLowerCase();
+    if (stableKey.startsWith('assessment.item.') !== (input.content.contentKind === 'assessment-item') || (input.content.contentKind === 'assessment-item' && input.itemType !== 'exam_item')) throw new TypeError('Câu khảo nghiệm phải dùng đúng bàn biên tập và định danh riêng.');
     const title = input.title.trim();
     if (!validStableKey(stableKey) || !title || title.length > 240) {
       throw new TypeError("Stable key or title is invalid.");
@@ -914,6 +915,7 @@ export class ContentStudioRepository {
         "Only draft revisions can be edited; fork a published revision first.",
       );
     }
+    if (current.stableKey.startsWith('assessment.item.') !== (input.content.contentKind === 'assessment-item') || (input.content.contentKind === 'assessment-item' && current.itemType !== 'exam_item')) throw new TypeError('Không được đổi loại nội dung khảo nghiệm của bản nháp.');
     if (current.rowVersion !== input.expectedRowVersion) {
       throw new ContentStudioConcurrencyError("Draft changed in another session.");
     }
@@ -970,11 +972,11 @@ export class ContentStudioRepository {
     const validated = await validateStudioContent(current.itemType, current.content);
     if(current.itemType==='lesson') {
       const { LessonMediaRepository } = await import('./lessonMediaRepository');
-      const missing=await new LessonMediaRepository(this.database).missingReferences(current.content.lessonPages);
+      const missing=await new LessonMediaRepository(this.database).missingReferences(current.content.contentKind === 'reader-series' ? current.content.readerSeries : current.content.lessonPages);
       if(missing.length){
         validated.result.valid=false;
         validated.result.checks.structure=false;
-        validated.result.errors.push({path:'lessonPages.media',message:`Có ${missing.length} học liệu chưa tồn tại trong kho. Chọn hoặc tải lại tệp trước khi gửi duyệt.`});
+        validated.result.errors.push({path:current.content.contentKind === 'reader-series' ? 'readerSeries.media' : 'lessonPages.media',message:`Có ${missing.length} học liệu chưa tồn tại trong kho. Chọn hoặc tải lại tệp trước khi gửi duyệt.`});
       }
     }
     if (
@@ -1023,7 +1025,7 @@ export class ContentStudioRepository {
       "communicative_function",
       "graded_text",
       "exam_item",
-    ].includes(current.itemType)) {
+    ].includes(current.itemType) && current.content.contentKind !== 'assessment-item') {
       const sourceLessonIds = Array.isArray(current.content.sourceLessonIds)
         ? current.content.sourceLessonIds
         : [];

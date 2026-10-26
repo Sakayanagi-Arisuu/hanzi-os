@@ -8,6 +8,7 @@ import type {
 import { LessonDepthPanel } from "./LessonDepthPanel";
 import { LessonPageReader } from './LessonPageReader';
 import { isEditableLessonPageDocument } from '../learning/lessonPages';
+import { parseEditorialReaderBook } from '../reader/editorialReaderContent';
 
 const asRecord = (value: unknown): Record<string, unknown> | null =>
   value && typeof value === "object" && !Array.isArray(value)
@@ -90,7 +91,27 @@ export function StudioContentPreview({
   content: Record<string, unknown>;
   title?: string;
 }) {
+  if (itemType === 'exam_item' && content.contentKind === 'assessment-item') return <section style={styles.card} aria-label="Bản xem trước câu khảo nghiệm"><span style={styles.label}>KHẢO NGHIỆM CĂN CƠ · BẢN ĐÃ LƯU</span><h2>{text(content.prompt)}</h2><p>{text(content.instruction)}</p><ol>{(Array.isArray(content.options)?content.options:[]).map((option,index)=><li key={index} style={styles.option}>{text(option)}</li>)}</ol><p>Đáp án được giữ ở máy chủ; âm tổng hợp không tạo bằng chứng nghe độc lập.</p></section>;
   if (itemType === "lesson") {
+    if (content.contentKind === "reader-series") {
+      const parsed = parseEditorialReaderBook(content.readerSeries);
+      if (!parsed.ok) return <p role="status">Sách chưa đủ thông tin để xem trước. Hãy hoàn thiện bản thảo và lưu lại.</p>;
+      const book = parsed.book;
+      return <article style={styles.card} aria-label="Bản xem trước sách trong Vạn Quyển Các">
+        <span style={styles.label}>VẠN QUYỂN CÁC · BẢN ĐÃ LƯU · KHÔNG GHI TIẾN ĐỘ</span>
+        <h2 lang="zh-Hans">{book.titleZh}</h2><p>{book.titleVi}</p>
+        <p>{book.synopsisVi}</p><p>{book.levelBand.label} · {book.chapters.length} chương</p>
+        {book.chapters.map((chapter, index) => <details key={index} open={index === 0} style={{ marginTop: 16 }}>
+          <summary style={{ minHeight: 44, cursor: 'pointer' }}>Chương {index + 1} · {chapter.titleVi} · {chapter.titleZh}</summary>
+          <p>{chapter.hookVi}</p>
+          {chapter.paragraphs.map((paragraph, paragraphIndex) => <section key={paragraphIndex} style={{ margin: '20px 0' }}>
+            <p lang="zh-Hans" style={{ fontSize: 24, lineHeight: 1.8 }}>{paragraph.zhHans}</p>
+            <details><summary style={{ minHeight: 44, cursor: 'pointer' }}>Pinyin & nghĩa tiếng Việt</summary><p>{paragraph.pinyin}</p><p>{paragraph.vi}</p></details>
+          </section>)}
+          <p>{chapter.comprehension?.length ?? 0} câu Khảo Luyện đọc hiểu. Đáp án không hiển thị trong bản xem trước.</p>
+        </details>)}
+      </article>;
+    }
     if (isEditableLessonPageDocument(content.lessonPages)) {
       return <div className="studio-lesson-preview"><LessonPageReader
         document={content.lessonPages}

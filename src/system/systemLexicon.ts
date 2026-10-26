@@ -35,6 +35,7 @@ export type SystemPageName = { code: string; title: string; plain: string };
 const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
   "/": { code: "CORE-01", title: "Thức Tỉnh Điện", plain: "Trung tâm học hôm nay" },
   "/path": { code: "PATH-02", title: "Thiên Lộ", plain: "Lộ trình bài học" },
+  "/path/practice": { code: "PATH-PRACTICE", title: "Khảo Luyện", plain: "Phiên luyện theo mục tiêu" },
   "/review": { code: "MEM-03", title: "Ký Ức Trận", plain: "Ôn tập FSRS" },
   "/mistakes": { code: "REMEDY-04", title: "Nghịch Cảnh Lục", plain: "Luyện lại lỗi sai" },
   "/assessment": { code: "ORIGIN-05", title: "Khảo Nghiệm Căn Cơ", plain: "Khảo sát điểm khởi hành" },

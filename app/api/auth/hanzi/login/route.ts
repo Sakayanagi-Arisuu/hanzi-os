@@ -1,11 +1,15 @@
 import {
   authError,
+  firebasePasswordConfig,
   loadAuthRuntime,
   roleAwareSignInReturnTo,
   sameOriginMutation,
   sessionResponseHeaders,
 } from "../../../../../src/server/authHttp";
 import { InvalidHanziCredentialsError } from "../../../../../src/server/authRepository";
+import { authenticateHostedHanzi, AuthPasswordRateLimitedError } from '../../../../../src/server/hostedHanziAuth';
+import { FirebasePasswordUnavailableError } from '../../../../../src/server/firebasePasswordIdentity';
+import { FirebaseAuthAdminUnavailableError } from '../../../../../src/server/firebaseAuthAdmin';
 import { readBoundedRequestText } from "../../../../../src/server/boundedRequestBody";
 import { AuthorizationRepository } from "../../../../../src/server/authorizationRepository";
 import {
@@ -40,12 +44,18 @@ export async function POST(request: Request) {
     return authError(422, "HANZI_CREDENTIALS_INVALID", "Hãy nhập tài khoản và mật khẩu.");
   }
   try {
-    const { database, repository } = await loadAuthRuntime();
-    const account = await repository.authenticateHanziAccount(identifier, password);
+    const { database, repository, environment } = await loadAuthRuntime();
+    const hosted = environment.HANZI_HOSTING_PROVIDER === 'cloudflare';
+    const passwordConfig = hosted ? firebasePasswordConfig(environment) : null;
+    if (hosted && !passwordConfig) return authError(503, 'HANZI_SIGNIN_UNAVAILABLE', 'Đăng nhập tài khoản HANZI.OS đang được chuẩn bị.');
+    const account = hosted && passwordConfig
+      ? await authenticateHostedHanzi(database, request, passwordConfig, identifier, password)
+      : await repository.authenticateHanziAccount(identifier, password);
     const session = await repository.createSession({
       userId: account.userId,
       identityId: account.identityId,
       authMethod: "hanzi",
+      hostedCredential: account.hostedCredential,
       userAgent: request.headers.get("user-agent"),
       deviceLabel: request.headers.get("sec-ch-ua-platform")
         ?? "Tài khoản HANZI.OS",
@@ -77,6 +87,8 @@ export async function POST(request: Request) {
       ),
     }, { headers: sessionResponseHeaders(session.token) });
   } catch (error) {
+    if (error instanceof AuthPasswordRateLimitedError) return authError(429, 'AUTH_RATE_LIMITED', 'Bạn đã thử nhiều lần. Hãy chờ vài phút rồi thử lại.', { 'retry-after': '600' });
+    if (error instanceof FirebasePasswordUnavailableError || error instanceof FirebaseAuthAdminUnavailableError) return authError(503, 'HANZI_SIGNIN_UNAVAILABLE', 'Chưa kết nối được dịch vụ đăng nhập. Hãy thử lại sau.');
     if (error instanceof InvalidHanziCredentialsError) {
       return authError(401, error.code, "Tên tài khoản, email hoặc mật khẩu không đúng.");
     }

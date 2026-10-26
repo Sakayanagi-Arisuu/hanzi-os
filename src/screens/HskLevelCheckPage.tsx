@@ -28,6 +28,8 @@ import {
 } from "../lib/storageKeys";
 import { useLearning } from "../store/LearningStore";
 import { emitSystemSignal } from "../system/systemSignals";
+import { savePracticeMistake } from '../mistakes/practiceMistakes';
+import { currentWorkspaceScope } from '../sync/workspaceSync';
 
 export type HskLevelCheckSkill = "listening" | "reading" | "vocabulary" | "grammar";
 
@@ -267,8 +269,10 @@ function LevelCheckSession({ config }: { config: HskLevelCheckConfig }) {
 
   const commitAnswer = async (optionId: string) => {
     if (!current || answerCommitLock.current) return;
-    if (config.placement && (!context.ready || safety !== "current" || evaluatePlacementSafety(baseline, state, sync.ownerKey) !== "current")) { setClock(Date.now()); return; }
     answerCommitLock.current = true;
+    const practiceScope = await currentWorkspaceScope(sync.ownerKey);
+    if (!mounted.current || !practiceScope) { answerCommitLock.current = false; return; }
+    if (config.placement && (!context.ready || safety !== "current" || evaluatePlacementSafety(baseline, state, sync.ownerKey) !== "current")) { setClock(Date.now()); answerCommitLock.current = false; return; }
     if (config.placement) {
       try {
         const latest = await readPlacementContext(sync.ownerKey);
@@ -283,29 +287,8 @@ function LevelCheckSession({ config }: { config: HskLevelCheckConfig }) {
     const nextPhase: Phase = isLastQuestion ? "result" : "question";
     const nextIndex = isLastQuestion ? index : index + 1;
 
-    const saved = writeLocalStorage(config.storageKey, JSON.stringify({
-      version: 1,
-      contentVersion: CONTENT_VERSION,
-      formVersion: config.formVersion,
-      bankId: config.bankId,
-      sessionId,
-      phase: nextPhase,
-      index: nextIndex,
-      selected: null,
-      checked: false,
-      answers: nextAnswers,
-      updatedAt: Date.now(),
-      baseline,
-      upperLevelAlreadyChecked,
-    } satisfies Resume));
-    if (!saved) { answerCommitLock.current = false; setSaveError(true); return; }
-    setSaveError(false);
-
-    setAnswers(nextAnswers);
-    setSelected(null);
-    setIndex(nextIndex);
-    setPhase(nextPhase);
-    actions.recordPracticeEvidence({
+    try {
+      await actions.recordPracticeEvidence({
       idempotencyKey: `${sessionId}:${current.id}`,
       activityVersion: current.activityVersion,
       source: "diagnostic",
@@ -329,6 +312,40 @@ function LevelCheckSession({ config }: { config: HskLevelCheckConfig }) {
         priorExposure: state.evidence.some((item) => item.activityId === `${levelCode}-level-check:${current.id}`),
       },
     });
+    } catch { answerCommitLock.current = false; setSaveError(true); return; }
+
+    const saved = writeLocalStorage(config.storageKey, JSON.stringify({
+      version: 1,
+      contentVersion: CONTENT_VERSION,
+      formVersion: config.formVersion,
+      bankId: config.bankId,
+      sessionId,
+      phase: nextPhase,
+      index: nextIndex,
+      selected: null,
+      checked: false,
+      answers: nextAnswers,
+      updatedAt: Date.now(),
+      baseline,
+      upperLevelAlreadyChecked,
+    } satisfies Resume));
+    if (!saved) { answerCommitLock.current = false; setSaveError(true); return; }
+    setSaveError(false);
+
+    setAnswers(nextAnswers);
+    if (!correct) void savePracticeMistake(sync.ownerKey, {
+      version: 1, source: 'assessment', activityId: `${levelCode}-level-check:${current.id}`,
+      activityVersion: current.activityVersion, prompt: current.promptVi, context: current.syntheticTtsText ? '' : current.stimulusText,
+      answer: current.options.find(option => option.optionId === current.correctOptionId)!.text,
+      options: current.options.map(option => option.text), explanation: current.explanationVi,
+      sourceLabel: `${assessmentName} HSK${config.level}`, occurredAt: new Date().toISOString(), skill: current.skill,
+      originId: sessionId,
+      ...(current.syntheticTtsText ? { spokenText: current.syntheticTtsText } : {}),
+    }, practiceScope).catch(() => window.dispatchEvent(new Event('hanzi-storage-error')));
+    setSelected(null);
+    setIndex(nextIndex);
+    setPhase(nextPhase);
+
     if (isLastQuestion) {
       emitSystemSignal({
         type: "level-check.completed",

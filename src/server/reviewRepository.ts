@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
@@ -17,8 +18,8 @@ import {
 import type { D1Database, D1RunResult } from "./d1";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
-  promotedCourseReleaseState,
+  isLearningContentAvailable,
+  learningCourseReleaseState,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import {
@@ -275,7 +276,8 @@ export class ReviewRepository {
       masteryEligible: false,
     };
     const responseJson = JSON.stringify(receipt);
-    const responsePayload = JSON.stringify({ rating: command.rating });
+    const responsePayload = JSON.stringify({ rating: command.rating,
+      ...(command.historyContext?{historyContext:command.historyContext}:{}) });
     const evidenceMetadata = JSON.stringify({
       cardId: current.cardId,
       previousCardRevision: preCard.revision,
@@ -343,7 +345,7 @@ export class ReviewRepository {
       AND course.id = enrollment.course_version_id
       AND course.manifest_hash = ?
       AND course.release_state = ?
-      AND course.linguistic_review_status = 'approved'
+      AND ${learningReviewSql()}
       AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}`;
     const guardBindings = [
       userId,
@@ -730,9 +732,9 @@ export class ReviewRepository {
   }
 
   private requirePromotedPackage() {
-    const releaseState = promotedCourseReleaseState(this.releasePolicy);
+    const releaseState = learningCourseReleaseState(this.releasePolicy);
     if (
-      !isPromotedContentReleasePolicy(this.releasePolicy)
+      !isLearningContentAvailable(this.releasePolicy)
       || releaseState === null
     ) {
       throw new ReviewGradeUnavailableError(
@@ -792,7 +794,7 @@ export class ReviewRepository {
          AND enrollment.course_version_id = ?
          AND course.manifest_hash = ?
          AND course.release_state = ?
-         AND course.linguistic_review_status = 'approved'
+         AND ${learningReviewSql()}
        LIMIT 1`,
     ).bind(
       userId,

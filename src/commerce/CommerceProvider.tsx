@@ -4,6 +4,7 @@ import { getHskLessonPathId } from "../data/hskCurriculumGraph";
 import { useLearning } from "../store/LearningStore";
 import { effectiveCommerceSnapshot, remainingPremiumMs, type CommerceSnapshot } from "./policy";
 import "./premium.css";
+import { readCommerceWithOfflineFallback } from './offlineEntitlement';
 
 type CommerceContext = { snapshot: CommerceSnapshot | null; loading: boolean; error: string; refresh: () => void };
 const Context = createContext<CommerceContext | null>(null);
@@ -16,13 +17,11 @@ export function CommerceProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (owner === "loading") return;
     const controller = new AbortController();
-    fetch("/api/commerce", { cache: "no-store", signal: controller.signal }).then(async response => {
-      if (!response.ok) throw new Error("Chưa xác minh được gói học. Hãy kết nối lại và thử lại.");
-      const value = await response.json() as CommerceSnapshot;
+    readCommerceWithOfflineFallback(sync.ownerKey, controller.signal).then(value => {
       if (!controller.signal.aborted) setResult({ owner, value, error: "", receivedAt: performance.now() });
     }).catch(error => { if (!controller.signal.aborted) setResult({ owner, value: null, error: String(error.message ?? error), receivedAt: performance.now() }); });
     return () => controller.abort();
-  }, [owner, revision]);
+  }, [owner, revision, sync.ownerKey]);
   useEffect(() => {
     const timer = window.setInterval(refresh, 30_000);
     window.addEventListener("focus", refresh);

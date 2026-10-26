@@ -1,5 +1,5 @@
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
-import { canonicalStringify, sha256Hex } from "../sync/document";
+import { canonicalStringify, sha256Hex } from "../sync/canonicalHash";
 import type { AssessmentFormHash } from "./assessmentSessionProtocol";
 import {
   boundedString,

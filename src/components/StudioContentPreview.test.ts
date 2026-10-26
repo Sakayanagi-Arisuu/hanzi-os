@@ -6,6 +6,20 @@ import { studioStarterContent, validateStudioContent } from "../content/studioCo
 import { StudioContentPreview } from "./StudioContentPreview";
 
 describe("Content Studio learner UI preview", () => {
+  it("previews saved book chapters instead of the generic lesson without revealing quiz answers", () => {
+    const html = renderToStaticMarkup(createElement(StudioContentPreview, {
+      revisionId: 'book-preview', itemType: 'lesson', content: { contentKind: 'reader-series', readerSeries: {
+        schemaVersion: 1, seriesId: 'book-preview', titleZh: '城市', titleVi: 'Thành phố', synopsisVi: 'Một câu chuyện.', hookVi: 'Sau mưa.', genreIds: ['Đời sống'], shelfId: 'doi-song', levelBand: { min: 'HSK1', max: 'HSK2', label: 'HSK1–2' }, cover: { src: '/test.webp', altVi: 'Mưa', tone: 'jade' },
+        chapters: [{ titleZh: '早上', titleVi: 'Buổi sáng', hookVi: 'Ngày mới.', estimatedMinutes: 5, paragraphs: [{ zhHans: '今天下雨。', pinyin: 'Jīntiān xiàyǔ.', vi: 'Hôm nay mưa.' }, { zhHans: '我在家。', pinyin: 'Wǒ zài jiā.', vi: 'Tôi ở nhà.' }], comprehension: [{ questionId: 'where', promptVi: 'Ở đâu?', options: ['Nhà', 'Trường', 'Chợ'], answerIndex: 0, explanationVi: 'SECRET_ANSWER' }] }],
+        rights: { textProvenanceVi: 'Nguyên bản.', coverProvenanceVi: 'Nguyên bản.', editorAttestsRights: true }, humanReviewed: false,
+      } },
+    }));
+    expect(html).toContain('Bản xem trước sách trong Vạn Quyển Các');
+    expect(html).toContain('今天下雨。');
+    expect(html).toContain('Buổi sáng');
+    expect(html).not.toContain('lesson-depth-panel');
+    expect(html).not.toContain('SECRET_ANSWER');
+  });
   it("renders a draft lesson through the real LessonDepthPanel without unlock controls", () => {
     const html = renderToStaticMarkup(createElement(StudioContentPreview, {
       revisionId: "revision-preview-1",

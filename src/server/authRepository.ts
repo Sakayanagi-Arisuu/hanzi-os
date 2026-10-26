@@ -6,6 +6,7 @@ import {
 import type { D1Database } from "./d1";
 import { assertAccountCanAuthenticate } from "./accountStatus";
 import { isNewAccountRegistrationOpen } from "./systemSettingsRepository";
+import { checkHostedCredentialState, HostedCredentialRejectedError, type HostedCredentialVersion } from './hostedCredentialState';
 import {
   HANZI_PASSWORD_ALGORITHM,
   HANZI_PASSWORD_ITERATIONS,
@@ -27,6 +28,7 @@ export const normalizeAuthDeviceLabel = (value: string | null | undefined) => {
 
 export const FIRST_PARTY_AUTH_PROVIDERS = [
   "google",
+  "github",
   "facebook",
   "hanzi",
   "email_otp",
@@ -40,6 +42,9 @@ export type AuthChallengeKind =
   | "google_signin"
   | "google_link"
   | "google_unlink"
+  | "github_signin"
+  | "github_link"
+  | "github_unlink"
   | "facebook_signin"
   | "facebook_link"
   | "facebook_unlink"
@@ -150,6 +155,8 @@ export type HanziAccount = {
   username: string;
   email: string;
   displayName: string;
+  /** Server-only password proof; never include in a learner response. */
+  hostedCredential?: HostedCredentialVersion & { authenticatedAt: number };
 };
 
 export type LocalHanziDemoAccount = {
@@ -201,7 +208,9 @@ const parsePayload = (value: string): Record<string, unknown> => {
 };
 
 export class AuthRepository {
-  constructor(private readonly database: D1Database) {}
+  constructor(private readonly database: D1Database,
+    private readonly credentialCheck: (userId: string, now: number) => Promise<HostedCredentialVersion | null>
+      = (userId, now) => checkHostedCredentialState(database, userId, undefined, now)) {}
 
   async registerHanziAccount(
     input: HanziRegistrationInput,
@@ -540,8 +549,18 @@ export class AuthRepository {
     authMethod: FirstPartyAuthProvider;
     userAgent?: string | null;
     deviceLabel?: string | null;
+    hostedCredential?: HostedCredentialVersion & { authenticatedAt: number };
   }): Promise<{ token: string; sessionId: string; expiresAt: number }> {
     await assertAccountCanAuthenticate(this.database, input.userId);
+    const credential = await this.credentialCheck(input.userId, Date.now());
+    if (credential && input.authMethod === 'hanzi') {
+      const proof = input.hostedCredential;
+      if (!proof || proof.passwordUpdatedAt !== credential.passwordUpdatedAt || proof.validSince !== credential.validSince
+        || !Number.isSafeInteger(proof.authenticatedAt) || proof.authenticatedAt < Date.now() - 300_000
+        || proof.authenticatedAt > Date.now() + 60_000 || proof.authenticatedAt < credential.validSince * 1000) {
+        throw new HostedCredentialRejectedError('Stale hosted password proof.');
+      }
+    }
     const token = randomBase64Url(32);
     const tokenHash = await sha256Base64Url(token);
     const timestamp = Date.now();
@@ -550,9 +569,12 @@ export class AuthRepository {
     const userAgentHash = input.userAgent
       ? await sha256Base64Url(input.userAgent.slice(0, 1_024))
       : null;
-    await this.database
+    const inserted = await this.database
       .prepare(
-        "INSERT INTO auth_sessions (id, user_id, identity_id, token_hash, auth_method, device_label, user_agent_hash, authenticated_at, created_at, last_seen_at, expires_at, revoked_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL)",
+        `INSERT INTO auth_sessions (id, user_id, identity_id, token_hash, auth_method, device_label, user_agent_hash, authenticated_at, created_at, last_seen_at, expires_at, revoked_at)
+          SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL
+          WHERE EXISTS(SELECT 1 FROM users WHERE id=? AND status='active')
+            AND (? IS NULL OR EXISTS(SELECT 1 FROM hosted_credential_states WHERE user_id=? AND password_updated_at=? AND valid_since=?))`,
       )
       .bind(
         sessionId,
@@ -566,8 +588,14 @@ export class AuthRepository {
         timestamp,
         timestamp,
         expiresAt,
+        input.userId,
+        credential?.passwordUpdatedAt ?? null,
+        input.userId,
+        credential?.passwordUpdatedAt ?? null,
+        credential?.validSince ?? null,
       )
       .run();
+    if (!inserted.success || inserted.meta?.changes !== 1) throw new HostedCredentialRejectedError('Session authority changed.');
     return { token, sessionId, expiresAt };
   }
 
@@ -608,6 +636,15 @@ export class AuthRepository {
       .bind(tokenHash, now)
       .first<NativeSessionUser>();
     if (!row) return null;
+    try { await this.credentialCheck(row.userId, now); }
+    catch (error) {
+      if (error instanceof HostedCredentialRejectedError) return null;
+      throw error;
+    }
+    // The provider check can revoke sessions or race another authority change.
+    const active = await this.database.prepare(`SELECT 1 AS active FROM auth_sessions s JOIN users u ON u.id=s.user_id
+      WHERE s.id=? AND s.revoked_at IS NULL AND s.expires_at>? AND u.status='active'`).bind(row.sessionId, now).first();
+    if (!active) return null;
     await this.database
       .prepare(
         "UPDATE auth_sessions SET last_seen_at = ? WHERE id = ? AND last_seen_at < ?",

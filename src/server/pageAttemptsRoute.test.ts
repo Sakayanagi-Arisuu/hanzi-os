@@ -1,7 +1,10 @@
 import { beforeEach, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => ({ identity: vi.fn(), database: vi.fn(), resolve: vi.fn(), limit: vi.fn(), record: vi.fn() }));
 vi.mock('../../app/chatgpt-auth', () => ({ getAuthenticatedUser: mocks.identity }));
-vi.mock('./d1', () => ({ getD1Database: mocks.database }));
+vi.mock('./d1', async importOriginal => ({
+  ...await importOriginal<typeof import('./d1')>(),
+  getD1Database: mocks.database,
+}));
 vi.mock('./syncRepository', () => ({ SyncRepository: class { resolveUser = mocks.resolve; } }));
 vi.mock('./lessonPageAttemptRepository', async importOriginal => ({
   ...await importOriginal<typeof import('./lessonPageAttemptRepository')>(),
@@ -48,6 +51,14 @@ it('uses authenticated ownership and returns a non-cacheable receipt for writes 
   expect(mocks.record).toHaveBeenCalledWith('owner-a', command);
   mocks.record.mockResolvedValue({ ...receipt, duplicate: true });
   expect((await POST(request())).status).toBe(200);
+});
+it('accepts scoped unscored page business observations and explicit unknown legacy time, never injected authority',async()=>{
+  const observation={version:1,contentVersion:`lesson-page-document-v1:sha256:${'a'.repeat(64)}`,pageId:'page',blockId:'block',blockKind:'reflection',action:'first-response',timeKnown:false};
+  const input={...command,occurredAt:'unknown',observation};
+  expect((await POST(request(input))).status).toBe(201);
+  expect(mocks.record).toHaveBeenCalledWith('owner-a',input);
+  expect((await POST(request({...input,observation:{...observation,masteryEligible:true}}))).status).toBe(422);
+  expect((await POST(request({...input,observation:{...observation,timeKnown:true}}))).status).toBe(422);
 });
 it('preserves explicit conflict and transient retry semantics without leaking internals', async () => {
   for (const error of [new PageAttemptConflictError('private detail'), new LearningResetEpochConflictError()]) {

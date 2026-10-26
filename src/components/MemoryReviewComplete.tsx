@@ -25,10 +25,10 @@ export function MemoryReviewComplete({
 }: MemoryReviewCompleteProps) {
   return (
     <div className="memory-experience memory-completion" role="status" aria-live="polite">
-      <div className="memory-completion-sigil" aria-hidden="true">✓</div>
-      <span className="memory-completion-code">MEM-04 · KẾT TRẬN</span>
-      <h1>Kết trận hoàn tất</h1>
-      <p><strong>{total}/{total}</strong> thẻ đã xử lý</p>
+      <div className="memory-completion-sigil" aria-hidden="true">{pending?'…':'✓'}</div>
+      <span className="memory-completion-code">{pending?'MEM-04 · CHỜ ĐỒNG BỘ':'MEM-04 · KẾT TRẬN'}</span>
+      <h1>{pending?'Lượt ôn đang chờ xác nhận':'Kết trận hoàn tất'}</h1>
+      <p><strong>{total}/{total}</strong> {pending ? "đánh giá đã lưu trên thiết bị" : "thẻ đã xử lý"}</p>
 
       <section className="memory-completion-stats" aria-label="Kết quả tự đánh giá của phiên">
         <div className="independent"><i aria-hidden="true">✓</i><strong>{independent}</strong><span>tự nhớ</span></div>

@@ -25,6 +25,7 @@ const {
 }));
 
 vi.mock("../../app/chatgpt-auth", () => ({ getChatGPTUser }));
+vi.mock('./studioAssessmentRepository',()=>({loadStudioAssessmentBank:vi.fn(async()=>({bank:[],selectionBank:[]}))}));
 vi.mock("./d1", () => ({
   getD1Database,
   SyncBackendUnavailableError: class extends Error {

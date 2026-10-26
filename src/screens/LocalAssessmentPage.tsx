@@ -37,6 +37,7 @@ import {
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { savePracticeMistake } from '../mistakes/practiceMistakes';
 import {
   deleteAssessmentResume,
   readAssessmentResume,
@@ -78,6 +79,8 @@ export function LocalAssessmentPage() {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState(() =>
     makeIdempotencyKey("diagnostic-session")
   );
@@ -195,11 +198,13 @@ export function LocalAssessmentPage() {
     }).catch(reportLearningResumeStorageError);
   }, [activeQuestions, checked, index, phase, resumeEntryKey, resumeScope, resumeStatus, selected, sessionId, sync.ownerKey]);
 
-  const check = () => {
-    if (!current || !selected || checked) return;
-    setChecked(true);
+  const check = async () => {
+    if (!current || !selected || checked || saving) return;
+    setSaving(true); setSaveError(null);
+    try {
     const isCorrect = selected === current.correct;
-    actions.recordPracticeEvidence({
+
+    await actions.recordPracticeEvidence({
       idempotencyKey: `${sessionId}:${current.id}`,
       activityVersion: ASSESSMENT_FORM_VERSION,
       source: "diagnostic",
@@ -224,6 +229,17 @@ export function LocalAssessmentPage() {
         ),
       },
     });
+    if (!isCorrect && resumeScope) void savePracticeMistake(sync.ownerKey, {
+      version: 1, source: 'assessment', activityId: `diagnostic:${current.id}`, activityVersion: current.itemVersion,
+      prompt: current.prompt, context: current.meta ?? '', answer: current.correct, options: current.options,
+      explanation: current.explanation, sourceLabel: 'Khảo nghiệm', occurredAt: new Date().toISOString(),
+      originId: sessionId,
+      skill: current.skill, ...(current.audio ? { spokenText: current.audio } : {}),
+    }, { ownerGeneration: resumeScope.expectedOwnerGeneration, resetEpoch: resumeScope.resetEpoch })
+      .catch(() => window.dispatchEvent(new Event('hanzi-storage-error')));
+    setChecked(true);
+    } catch { setSaveError('Chưa lưu được câu trả lời. Hãy giữ phiên mở và thử lại.'); }
+    finally { setSaving(false); }
   };
 
   const next = () => {
@@ -344,6 +360,7 @@ export function LocalAssessmentPage() {
         <div><i style={{ width: `${progress}%` }} /></div>
         <span>{index + 1}/{activeQuestions.length}</span>
       </header>
+      {saveError && <p role="alert">{saveError}</p>}
       <section className="assessment-question">
         <span className="system-kicker"><Sparkles size={15} /> {current.meta}</span>
         {current.audio ? (
@@ -387,7 +404,7 @@ export function LocalAssessmentPage() {
         <div>
           {checked ? <><strong>{selected === current.correct ? "Nhận định chính xác" : `Đáp án: ${current.correct}`}</strong><p>{current.explanation}</p></> : <p>Chọn phương án gần nhất với hiểu biết hiện tại của bạn.</p>}
         </div>
-        <button className="primary-button" disabled={!selected} type="button" onClick={checked ? next : check}>{checked ? (index === activeQuestions.length - 1 ? "Hoàn tất" : "Câu tiếp theo") : "Xác nhận"}<ArrowRight size={17} /></button>
+        <button className="primary-button" disabled={!selected || saving} type="button" onClick={checked ? next : check}>{saving ? 'Đang lưu…' : checked ? (index === activeQuestions.length - 1 ? "Hoàn tất" : "Câu tiếp theo") : "Xác nhận"}<ArrowRight size={17} /></button>
       </footer>
     </div>
   );

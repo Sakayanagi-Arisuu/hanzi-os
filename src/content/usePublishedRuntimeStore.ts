@@ -19,10 +19,9 @@ export const createPublishedRuntimeStore = <T,>(
   };
   const refresh = (fetcher: typeof fetch = fetch) => {
     if (activeRequest) return activeRequest;
-    if (snapshot.status === "fallback") update(initial);
     activeRequest = load(fetcher).then(
       (value) => update({ status: "ready", value }),
-      () => update({ status: "fallback", value: empty }),
+      () => update({ status: "fallback", value: snapshot.value }),
     ).finally(() => {
       activeRequest = null;
     });
@@ -30,7 +29,13 @@ export const createPublishedRuntimeStore = <T,>(
   };
   const useStore = () => {
     const state = useSyncExternalStore(subscribe, () => snapshot, () => initial);
-    useEffect(() => { void refresh(); }, []);
+    useEffect(() => {
+      const wake = () => { void refresh(); };
+      wake();
+      window.addEventListener('online', wake);
+      const timer = window.setInterval(wake, 300_000);
+      return () => { window.removeEventListener('online', wake); window.clearInterval(timer); };
+    }, []);
     const retry = useCallback(() => { void refresh(); }, []);
     return { ...state, retry };
   };

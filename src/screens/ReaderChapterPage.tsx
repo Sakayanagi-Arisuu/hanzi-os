@@ -20,7 +20,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useLocation, useNavigate, useParams } from "react-router";
+import { emitLearningJourneyReceipt } from '../learning/journeyReceiptEvent';
 import { speakMandarin } from "../lib/speech";
 import { ReaderDialog } from "../reader/library/ReaderDialog";
 import { ReaderWordDialog } from "../reader/library/ReaderWordDialog";
@@ -51,8 +52,12 @@ import {
   type ReaderMode,
 } from "../reader/library/readerProgress";
 import { useReaderProgress } from "../reader/library/useReaderProgress";
+import { ReaderStorageStatus } from '../reader/library/ReaderStorageStatus';
 import "../reader/library/readerLibrary.css";
 import { useLearning } from "../store/LearningStore";
+import { savePracticeMistake } from '../mistakes/practiceMistakes';
+import { currentWorkspaceScope } from '../sync/workspaceSync';
+import { practiceObservationsConfirmed } from '../sync/practiceConfirmation';
 
 type ChapterLoadState =
   | { phase: "loading"; slow: boolean }
@@ -88,10 +93,11 @@ function ParagraphText({
 }
 
 export function ReaderChapterPage() {
+  const location = useLocation();
   const { seriesId = "", chapterId = "" } = useParams();
   const navigate = useNavigate();
   const { state, actions, sync } = useLearning();
-  const { progress, scopeReady, setProgress, storageError } = useReaderProgress({
+  const { progress, scopeReady, setProgress, commitProgress, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
   });
@@ -180,7 +186,51 @@ export function ReaderChapterPage() {
   }, [chapterId, next, retryVersion, series, seriesId, summary]);
 
   const chapter = loadState.phase === "ready" ? loadState.chapter : null;
+  useEffect(() => {
+    if (!scopeReady || !chapter || progress.ownerKey !== sync.ownerKey) return;
+    const saved = progress.chapters[chapter.chapterId];
+    if (saved?.comprehensionVersion !== chapter.version) return;
+    let active = true;
+    void Promise.all((chapter.comprehension ?? []).flatMap(question => {
+      const attempt = saved.comprehensionAttempts?.[question.questionId];
+      if (!attempt || (attempt.firstAttemptCorrect && !attempt.answerExposed)) return [];
+      return [savePracticeMistake(sync.ownerKey, {
+        version: 1, source: 'reader', activityId: `${chapter.chapterId}:${question.questionId}`,
+        activityVersion: chapter.version, prompt: question.promptVi,
+        context: chapter.paragraphs.map(paragraph => paragraph.zhHans).join('\n').slice(0, 12_000),
+        answer: question.options[question.answerIndex], options: question.options,
+        explanation: question.explanationVi, sourceLabel: chapter.titleVi, occurredAt: attempt.answeredAt,
+      }, { ownerGeneration: { ownerKey: progress.ownerKey, generation: progress.ownerGeneration }, resetEpoch: progress.resetEpoch })];
+    })).catch(() => { if (active) setCompletionAnnouncement('Chưa chuyển được câu sai sang Nghịch Cảnh Lục. Câu trả lời vẫn nằm trong chương; mở lại chương để thử lại.'); });
+    return () => { active = false; };
+  }, [chapter, progress, scopeReady, sync.ownerKey]);
   const completed = Boolean(chapter && progress.chapters[chapter.chapterId]?.completedAt);
+  useEffect(() => {
+    if (!chapter || !completed || !scopeReady || !sync.session?.authenticated) return;
+    let active = true;
+    const confirm = async () => {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope || scope.ownerGeneration.generation !== progress.ownerGeneration || scope.resetEpoch !== progress.resetEpoch) return;
+      const confirmed = await practiceObservationsConfirmed(scope,
+        [`reader-library:${progress.ownerKey}:${chapter.chapterId}:complete`], [`reader.chapter:${chapter.chapterId}`]);
+      if (!active) return;
+      if (!confirmed) {
+        setCompletionAnnouncement('Lượt đọc được giữ trên thiết bị và đang chờ đồng bộ; chưa khép bước hành trình.');
+        return;
+      }
+      const requestedLesson = new URLSearchParams(location.search).get('lesson');
+      emitLearningJourneyReceipt({ stage: 'transfer', source: 'reader',
+        lessonId: requestedLesson && chapter.relatedLessonIds.includes(requestedLesson) ? requestedLesson : chapter.relatedLessonIds[0],
+        activityId: `reader-chapter:${chapter.chapterId}:${chapter.version}:complete` });
+      setCompletionAnnouncement('Đã đồng bộ lượt đọc. Đọc lại không cộng thêm phần thưởng hay kết quả học.');
+    };
+    const receive = () => { void confirm().catch(() => {
+      if (active) setCompletionAnnouncement('Chưa xác nhận được lượt đọc; dữ liệu trên thiết bị vẫn được giữ.');
+    }); };
+    receive();
+    window.addEventListener('hanzi-workspace-received', receive);
+    return () => { active = false; window.removeEventListener('hanzi-workspace-received', receive); };
+  }, [chapter, completed, location.search, progress.ownerGeneration, progress.ownerKey, progress.resetEpoch, scopeReady, sync.ownerKey, sync.session?.authenticated]);
   const comprehensionState = chapter
     ? readerComprehensionState(progress, chapter)
     : null;
@@ -309,7 +359,7 @@ export function ReaderChapterPage() {
       && entry.lexemeId
       && wasSaved === state.savedWords.includes(entry.lexemeId)
     ) {
-      void actions.toggleSavedWord(entry.lexemeId);
+      void actions.toggleSavedWord(entry.lexemeId).catch(() => setCompletionAnnouncement('Chưa đồng bộ mục từ với Ngọc giản; mục trong chương vẫn được giữ. Hãy thử lại từ Tàng Tự Khố.'));
     }
   };
   const togglePinyin = () => {
@@ -318,7 +368,7 @@ export function ReaderChapterPage() {
       return !current;
     });
   };
-  const finishChapter = () => {
+  const finishChapter = async () => {
     if (!chapter) return;
     if (comprehensionState && comprehensionState.total > 0 && !comprehensionState.complete) {
       comprehensionRef.current?.scrollIntoView({
@@ -331,8 +381,8 @@ export function ReaderChapterPage() {
     const firstAttemptScore = comprehensionState && comprehensionState.total > 0
       ? Math.round((comprehensionState.firstAttemptCorrect / comprehensionState.total) * 100)
       : null;
-    setProgress((current) => completeReaderChapter(current, chapter));
-    actions.recordPracticeEvidence({
+    try {
+    const disposition = await actions.recordPracticeEvidence({
       idempotencyKey: `reader-library:${progress.ownerKey}:${chapter.chapterId}:complete`,
       activityVersion: chapter.version,
       source: "reader",
@@ -356,7 +406,15 @@ export function ReaderChapterPage() {
         masteryClaimed: false,
       },
     });
-    setCompletionAnnouncement("Đã lưu hoàn thành chương. Đọc lại sẽ không cộng thêm phần thưởng hay kết quả học.");
+    await commitProgress((current) => completeReaderChapter(current, chapter));
+    if (disposition === 'committed') {
+      const requestedLesson = new URLSearchParams(location.search).get('lesson');
+      emitLearningJourneyReceipt({ stage: 'transfer', source: 'reader',
+        lessonId: requestedLesson && chapter.relatedLessonIds.includes(requestedLesson) ? requestedLesson : chapter.relatedLessonIds[0],
+        activityId: `reader-chapter:${chapter.chapterId}:${chapter.version}:complete` });
+    }
+    setCompletionAnnouncement(disposition === 'pending' ? 'Lượt đọc được giữ trên thiết bị và đang chờ đồng bộ; chưa khép bước hành trình.' : "Đã lưu hoàn thành chương. Đọc lại sẽ không cộng thêm phần thưởng hay kết quả học.");
+    } catch { setCompletionAnnouncement('Chưa lưu được lượt đọc. Dữ liệu cũ vẫn được giữ; hãy thử lại.'); }
   };
   const answerQuestion = (questionId: string, selectedAnswer: string) => {
     if (!chapter) return;
@@ -449,6 +507,8 @@ export function ReaderChapterPage() {
       </section>
     );
   }
+
+  if (!scopeReady) return <ReaderStorageStatus error={storageError} />;
 
   return (
     <section className="reader-chapter-shell" data-testid="reader-chapter-shell" data-reader-mode={mode}>

@@ -78,6 +78,9 @@ describe('lesson media storage',()=>{
      expect(await repo.releaseAccess('/media/shared')).toBe('free');
      insert.run(JSON.stringify({level:'hsk4',itemType:'character',content:{imageSrc:'/media/character'}}));
      expect(await repo.releaseAccess('/media/character')).toBe('free');
+     insert.run(JSON.stringify({level:'hsk4',itemType:'lesson',stableKey:'reader.series.test-book',content:{readerSeries:{cover:{src:'/media/book-cover'}}}}));
+     expect(await repo.releaseAccess('/media/book-cover')).toBe('free');
+     expect(await repo.releaseAccess('/media/paid')).toBe('premium');
      insert.run(JSON.stringify({content:{imageSrc:'/media/unknown'}}));
      expect(await repo.releaseAccess('/media/unknown')).toBe('unknown');
    }finally{sqlite.close();}

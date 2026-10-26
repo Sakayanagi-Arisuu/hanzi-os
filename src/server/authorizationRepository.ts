@@ -19,6 +19,8 @@ export type AuthorizedAccount = {
 export type AdminUserSummary = {
   userId: string;
   email: string;
+  displayName?: string;
+  username?: string;
   status: string;
   roles: AppRole[];
   controlRevision: number;
@@ -476,19 +478,22 @@ export class AuthorizationRepository {
       const escaped = query.toLocaleLowerCase("vi")
         .replace(/[\\%_]/gu, (value) => `\\${value}`);
       const pattern = `%${escaped}%`;
-      clauses.push(`EXISTS (
+      clauses.push(`(EXISTS (
         SELECT 1 FROM auth_identities searched_identity
          WHERE searched_identity.user_id = u.id
            AND searched_identity.email_verified = 1
            AND LOWER(COALESCE(searched_identity.normalized_email, '')) LIKE ? ESCAPE '\\'
-      )`);
-      values.push(pattern);
+      ) OR EXISTS (SELECT 1 FROM hanzi_password_credentials hc WHERE hc.user_id = u.id AND LOWER(hc.normalized_username) LIKE ? ESCAPE '\\')
+        OR EXISTS (SELECT 1 FROM profiles p WHERE p.user_id = u.id AND LOWER(p.display_name) LIKE ? ESCAPE '\\'))`);
+      values.push(pattern, pattern, pattern);
     }
     const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
     const [rows, count, summary] = await Promise.all([
       this.database
         .prepare(
           `SELECT u.id AS userId,
+                  COALESCE((SELECT p.display_name FROM profiles p WHERE p.user_id = u.id), '') AS displayName,
+                  COALESCE((SELECT hc.normalized_username FROM hanzi_password_credentials hc WHERE hc.user_id = u.id LIMIT 1), '') AS username,
                   COALESCE((
                     SELECT ai.normalized_email
                       FROM auth_identities ai
@@ -522,6 +527,8 @@ export class AuthorizationRepository {
         .all<{
           userId: string;
           email: string;
+          displayName: string;
+          username: string;
           status: string;
           controlRevision: number;
           lockedAt: number | null;
@@ -553,6 +560,8 @@ export class AuthorizationRepository {
       users: (rows.results ?? []).map((row) => ({
         userId: row.userId,
         email: row.email,
+        displayName: row.displayName,
+        username: row.username,
         status: row.status,
         roles: createAuthorization(normalizeRoles(row.roles.split(","))).roles,
         controlRevision: row.controlRevision,

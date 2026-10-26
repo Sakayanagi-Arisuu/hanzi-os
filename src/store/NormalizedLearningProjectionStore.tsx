@@ -343,8 +343,10 @@ export const canRetainProjectionDuringRefresh = (
   current: NormalizedLearningProjectionRuntimeSnapshot,
   accountKey: string,
 ) => current.ownerGeneration?.ownerKey === accountKey
-  && current.projection !== null
-  && current.authoritativeProgress !== null;
+  && ((current.projection !== null && current.authoritativeProgress !== null)
+    // Retain the same-owner denial during refresh; it grants no authority and
+    // avoids alternating the error screen with an empty loading snapshot.
+    || (current.phase === "unavailable" && current.reason === "content-unavailable"));
 
 const NormalizedLearningProjectionContext = createContext<
   NormalizedLearningProjectionRuntimeValue | null

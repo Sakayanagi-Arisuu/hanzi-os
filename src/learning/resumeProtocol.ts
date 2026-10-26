@@ -1,4 +1,4 @@
-import { answersMatch, buildExercises, type Exercise } from "../lib/exerciseGeneration";
+import { answersMatch, buildExercises, type Exercise } from "../lib/editorialExerciseGeneration";
 import type { ExerciseKind, Lesson, Skill } from "../types";
 import { isEditorialLessonSession, LEXICAL_EXERCISE_SUFFIX, lexicalActivityVersion } from "../content/lexicalEditorialCatalog";
 

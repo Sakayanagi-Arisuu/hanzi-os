@@ -6,6 +6,7 @@ import { CONTENT_VERSION } from "../data/curriculum";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
   promotedCourseReleaseState,
+  isPersonalStudyPolicy,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import type { D1Database } from "./d1";
@@ -36,6 +37,12 @@ export const ensureCurrentCourseVersion = async (
     .run();
 
   const promotedState = promotedCourseReleaseState(releasePolicy);
+  if (isPersonalStudyPolicy(releasePolicy)) {
+    await database.prepare(`UPDATE course_versions SET release_state = 'beta'
+      WHERE id = ? AND manifest_hash = ? AND release_state = 'review'
+      AND linguistic_review_status = 'pending'`)
+      .bind(CONTENT_VERSION, CURRENT_CONTENT_MANIFEST_SHA256).run();
+  }
   if (promotedState !== null) {
     await database
       .prepare(
@@ -76,6 +83,8 @@ export const ensureCurrentCourseVersion = async (
   if (
     !stored
     || stored.manifestHash !== CURRENT_CONTENT_MANIFEST_SHA256
+    || (isPersonalStudyPolicy(releasePolicy)
+      && (stored.releaseState !== 'beta' || !['pending', 'approved'].includes(stored.linguisticReviewStatus)))
     || (
       promotedState !== null
       && (

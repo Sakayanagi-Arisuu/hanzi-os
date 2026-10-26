@@ -11,6 +11,7 @@ import type {
 import { CourseVersionBindingError } from "./courseVersionRepository";
 import { MutationRateLimitBackendError } from "./mutationRateLimit";
 import { LearningResetEpochConflictError } from "./learningResetEpoch";
+import { deriveAccountKey } from '../lib/accountKey';
 
 const {
   getChatGPTUser,
@@ -125,6 +126,15 @@ beforeEach(() => {
 });
 
 describe("objective attempt API", () => {
+  it('keeps an offline correction with its original owner when the login cookie changes', async () => {
+    const input = request(command());
+    input.headers.set('x-learning-owner', await deriveAccountKey('another-learner@example.com'));
+    const response = await POST(input);
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ error: { code: 'OWNER_CHANGED', retryable: true } });
+    expect(getD1Database).not.toHaveBeenCalled();
+    expect(attemptRepository.commitObjectiveAttempt).not.toHaveBeenCalled();
+  });
   it("returns a permanent epoch conflict for a command leased before reset", async () => {
     attemptRepository.commitObjectiveAttempt.mockRejectedValue(
       new LearningResetEpochConflictError(),

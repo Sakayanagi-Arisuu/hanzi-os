@@ -1,0 +1,127 @@
+// Runtime adapter for lexical-editorial-2026.10.5. The foundation module stays
+// byte-bound to its immutable manifest for historical sessions and validation.
+import {
+  CONTENT_VERSION,
+  RELEASED_LESSONS,
+  WORD_BY_ID,
+} from "../data/curriculum";
+import { toneLabels } from "../lib/editorialExerciseGeneration";
+import type { EvidenceMethod, Skill } from "../types";
+import {
+  EDITORIAL_WORD_BY_ID, LEXICAL_EXERCISE_SUFFIX,
+  lexicalBaseExerciseId, lexicalActivityVersion,
+} from "../content/lexicalEditorialCatalog";
+
+export type AuthoritativeAnswer = {
+  answers: readonly string[];
+  activityVersion: string;
+  method: EvidenceMethod;
+  skill: Skill;
+  requiredForPass: boolean;
+  wordId?: string;
+};
+
+const releasedLessonById = new Map(
+  RELEASED_LESSONS.map((lesson) => [lesson.id, lesson]),
+);
+
+const specialTonePairAnswers = new Map<string, string>([
+  ["sandhi-ni3-hao3", "2 + 3"],
+  ["sandhi-bu4-shi4", "2 + 4"],
+  ["sandhi-yi1-ben3", "4 + 3"],
+]);
+
+export const getAuthoritativeLessonAnswer = (
+  lessonId: string,
+  questionId: string,
+): AuthoritativeAnswer | null => {
+  const lesson = releasedLessonById.get(lessonId);
+  if (!lesson) return null;
+  const editorial = questionId.endsWith(LEXICAL_EXERCISE_SUFFIX);
+  questionId = lexicalBaseExerciseId(questionId);
+
+  const specialAnswer = lesson.id === "boot-4"
+    ? specialTonePairAnswers.get(questionId)
+    : undefined;
+  if (specialAnswer && !editorial) {
+    return {
+      answers: [specialAnswer],
+      activityVersion: `${CONTENT_VERSION}:tone-sandhi:1`,
+      method: "phonology-recognition",
+      skill: "pronunciation",
+      requiredForPass: true,
+    };
+  }
+
+  for (const wordId of lesson.wordIds) {
+    const word = (editorial ? EDITORIAL_WORD_BY_ID : WORD_BY_ID).get(wordId);
+    if (!word) continue;
+    const baseVersion = `${lesson.contentVersion}:${lesson.id}:1`;
+    const activityVersion = editorial ? lexicalActivityVersion(baseVersion) : baseVersion;
+    if (questionId === `${wordId}-meaning`) {
+      return {
+        answers: [word.meaning],
+        activityVersion,
+        method: "meaning-selection",
+        skill: "vocabulary",
+        requiredForPass: false,
+        wordId,
+      };
+    }
+    if (questionId === `${wordId}-pinyin`) {
+      return {
+        answers: [word.pinyin],
+        activityVersion,
+        method: "phonology-recognition",
+        skill: "pronunciation",
+        requiredForPass: false,
+        wordId,
+      };
+    }
+    if (questionId === `${wordId}-listening`) {
+      return {
+        answers: [word.meaning],
+        activityVersion,
+        method: "listening-selection",
+        skill: "listening",
+        requiredForPass: false,
+        wordId,
+      };
+    }
+    if (questionId === `${wordId}-recall`) {
+      return {
+        answers: [...new Set([word.simplified, word.traditional])],
+        activityVersion,
+        method: "typed-character-recall",
+        skill: "writing",
+        requiredForPass: false,
+        wordId,
+      };
+    }
+    if (questionId === `${wordId}-sentence`) {
+      return {
+        answers: [word.exampleMeaning],
+        activityVersion,
+        method: "reading-comprehension",
+        skill: lesson.skills.includes("grammar") ? "grammar" : "reading",
+        requiredForPass: false,
+        wordId,
+      };
+    }
+    const tonePrefix = `${wordId}-tone-`;
+    if (questionId.startsWith(tonePrefix)) {
+      const syllableIndex = Number(questionId.slice(tonePrefix.length));
+      const syllable = word.syllables[syllableIndex];
+      if (!syllable || !Number.isInteger(syllableIndex)) return null;
+      return {
+        answers: [toneLabels[syllable.lexicalTone]],
+        activityVersion,
+        method: "phonology-recognition",
+        skill: "pronunciation",
+        requiredForPass: lesson.id === "boot-1",
+        wordId,
+      };
+    }
+  }
+  return null;
+};

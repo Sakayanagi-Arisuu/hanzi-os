@@ -9,10 +9,11 @@ import { sandboxCommerceEnabled } from "../../../../src/server/premiumAccess";
 const redirect = (request: Request, notice: string) => {
   const destination = new URL("/admin/premium", request.url);
   destination.searchParams.set("notice", notice);
+  destination.searchParams.set("tab", "plans");
   return Response.redirect(destination, 303);
 };
 export async function POST(request: Request) {
-  if (!sameOriginMutation(request) || !sandboxCommerceEnabled(request.url)) return redirect(request, "Thao tác không khả dụng.");
+  if (!sameOriginMutation(request)) return redirect(request, "Thao tác không khả dụng.");
   if (!request.headers.get("content-type")?.startsWith("application/x-www-form-urlencoded")) return redirect(request, "Biểu mẫu không hợp lệ.");
   const body = await readBoundedRequestText(request, 1000);
   if (!body.ok) return redirect(request, "Biểu mẫu quá dài.");
@@ -20,6 +21,7 @@ export async function POST(request: Request) {
   const planId = form.get("planId");
   const amount = Number(form.get("amount"));
   const currency = form.get("currency") ?? "hanzi";
+  if (currency === "hanzi" && !sandboxCommerceEnabled(request.url)) return redirect(request, "Ví Hanzi chỉ khả dụng trong môi trường thử nghiệm.");
   if (currency !== "hanzi" && currency !== "vnd") return redirect(request, "Đơn vị giá không hợp lệ.");
   if ((planId !== "hsk4-month" && planId !== "hsk4-year") || !Number.isSafeInteger(amount) || amount < 1 || amount > (currency === "vnd" ? 100_000_000 : 1_000_000)) {
     return redirect(request, "Gói hoặc giá không hợp lệ.");

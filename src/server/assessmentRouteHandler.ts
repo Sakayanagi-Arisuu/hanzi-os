@@ -1,4 +1,5 @@
 import { getChatGPTUser } from "../../app/chatgpt-auth";
+import { learningOwnerMismatch } from './learningOwnerHttp';
 import type { MutationRateLimitPolicy } from "./mutationRateLimit";
 import {
   consumeMutationRateLimit,
@@ -27,6 +28,7 @@ import {
   type AssessmentRepositoryOptions,
 } from "./assessmentRepository";
 import { SyncRepository } from "./syncRepository";
+import { loadStudioAssessmentBank } from './studioAssessmentRepository';
 import { noStoreJsonHeaders, type SyncApiError } from "../sync/protocol";
 
 const MAX_ASSESSMENT_REQUEST_BYTES = 16_000;
@@ -104,6 +106,7 @@ export const handleAssessmentMutation = async <TCommand, TReceipt>(
       );
     }
     const identity = await getChatGPTUser();
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     if (!identity) {
       return errorResponse(401, "AUTH_REQUIRED", config.authMessage, requestId);
     }
@@ -162,7 +165,7 @@ export const handleAssessmentMutation = async <TCommand, TReceipt>(
     }
     const repositoryOptions = typeof config.repositoryOptions === "function"
       ? await config.repositoryOptions({ database, userId, command: parsed.command })
-      : config.repositoryOptions;
+      : config.repositoryOptions ?? await loadStudioAssessmentBank(database);
     const receipt = await config.execute(
       new AssessmentRepository(database, repositoryOptions),
       userId,

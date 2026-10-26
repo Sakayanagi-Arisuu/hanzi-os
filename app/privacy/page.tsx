@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PublicFooter } from "../../src/components/PublicFooter";
 import "../../src/components/PolicyPages.css";
+import { publicOperator } from '../../src/server/publicOperator';
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Quyền riêng tư | HANZI.OS",
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const operator = await publicOperator();
   return (
     <main className="policy-main" id="top">
       <div className="policy-layout"><aside className="policy-toc"><p>TRONG TRANG NÀY</p><nav aria-label="Mục lục"><a href="#section-1"><span>01</span>Dữ liệu trên thiết bị và tài khoản tùy chọn</a><a href="#section-2"><span>02</span>Lưu trữ kỹ thuật và kết nối mạng</a><a href="#section-3"><span>03</span>Microphone và nhận dạng giọng nói</a><a href="#section-4"><span>04</span>Lưu giữ, chia sẻ và xóa</a><a href="#section-5"><span>05</span>Người học nhỏ tuổi và liên hệ</a></nav></aside><article className="policy-article">
@@ -40,7 +43,8 @@ export default function PrivacyPage() {
         <p role="note" className="policy-notice">
           Đây là bản công bố tạm thời phục vụ prototype, chưa phải chính sách
           đã được tư vấn hoặc phê duyệt pháp lý. Nội dung phải được rà soát và
-          bổ sung chủ thể vận hành cùng kênh liên hệ trước public beta.
+          hoàn thiện trước public beta. Thông tin người vận hành và kênh hỗ trợ
+          hiện có được ghi ở mục liên hệ bên dưới.
         </p>
 
         <section className="policy-section" id="section-1">
@@ -53,7 +57,13 @@ export default function PrivacyPage() {
             confidence và điểm khớp văn bản do trình duyệt trả về.
           </p>
           <p className="policy-copy">
-            Nếu đăng nhập bằng ChatGPT, HANZI.OS nhận email và tên hiển thị do
+            Khi tạo tài khoản HANZI.OS, máy chủ lưu tên đăng nhập, email, tên hiển
+            thị và bản băm mật khẩu có salt; không lưu mật khẩu dưới dạng văn bản
+            gốc. Phiên đăng nhập dùng cookie bảo mật. Dữ liệu học của tài khoản
+            được lưu trong Cloudflare D1 và đồng bộ với thiết bị khi có kết nối.
+          </p>
+          <p className="policy-copy">
+            Trên hạ tầng có hỗ trợ đăng nhập bằng ChatGPT, HANZI.OS nhận email và tên hiển thị do
             hạ tầng đăng nhập chuyển tiếp, tạo mã tài khoản nội bộ và đồng bộ bản
             chiếu tiến độ vào cơ sở dữ liệu D1. Hàng đợi ngoại tuyến được tách theo
             tài khoản và chống gửi chéo khi đổi người dùng. Transcript giọng nói
@@ -152,11 +162,18 @@ export default function PrivacyPage() {
 
         <section className="policy-section" id="section-4">
           <h2 className="policy-heading">Lưu giữ, chia sẻ và xóa</h2>
+          <p className="policy-copy"><a className="policy-link" href="/delete-account">Hướng dẫn xóa tài khoản trên web, kể cả khi đã gỡ ứng dụng</a>.</p>
           <p className="policy-copy">
             Dữ liệu cục bộ được giữ cho đến khi bạn xóa trong ứng dụng, xóa dữ
             liệu trình duyệt hoặc trình duyệt tự thu hồi bộ nhớ. Dữ liệu cloud
-            được giữ đến khi tài khoản bị xóa; API xóa dùng danh tính phía máy chủ
-            và xóa các bản ghi phụ thuộc. HANZI.OS không bán dữ liệu học. Việc
+            được giữ đến khi tài khoản bị xóa; quy trình xóa xác minh tài khoản
+            phía máy chủ và xóa dữ liệu học cùng thông tin đăng nhập HANZI.OS.
+            Khi kết nối bị ngắt, dữ liệu trên thiết bị được giữ đến khi có xác
+            nhận hoàn tất. Trạng thái yêu cầu được giữ trong khi xử lý; xác nhận
+            xóa được giữ trong 31 ngày sau khi hoàn tất để thiết bị nhận kết quả,
+            không chứa mật khẩu hoặc tiến độ học. Tài khoản gắn hồ sơ quản trị,
+            biên tập hoặc thanh toán cần hỗ trợ xử lý; quy trình tự xóa giữ các
+            hồ sơ đó. HANZI.OS không bán dữ liệu học. Việc
             xử lý hoặc lưu giữ âm thanh bởi dịch vụ nhận dạng của trình duyệt nằm
             ngoài quyền kiểm soát của prototype. HANZI.OS không lưu WAV gửi cho
             phản hồi âm học; chính sách xử lý của Azure được công bố riêng tại
@@ -172,14 +189,13 @@ export default function PrivacyPage() {
             huynh hoặc người giám hộ và không nhập thông tin nhận dạng không cần thiết.
           </p>
           <p className="policy-copy">
-            Kênh liên hệ về quyền riêng tư chưa được cấu hình trong prototype.
-            Chủ sản phẩm phải thay thế placeholder này bằng thông tin liên hệ có
-            người chịu trách nhiệm trước khi mời người dùng bên ngoài.
+            {operator ? <>Chủ dịch vụ: {operator.name}. Liên hệ quyền riêng tư: <a className="policy-link" href={`mailto:${operator.email}`}>{operator.email}</a>.</>
+              : <>Kênh liên hệ về quyền riêng tư chưa được cấu hình trong prototype. Chủ sản phẩm cần cấu hình thông tin liên hệ có người chịu trách nhiệm trước khi mời người dùng bên ngoài.</>}
           </p>
         </section>
 
         <footer className="policy-footer">
-          Cập nhật lần cuối: 13/08/2026 · Phạm vi: closed alpha local-first với đồng bộ tài khoản tùy chọn.
+          Cập nhật lần cuối: 14/10/2026 · Phạm vi: closed alpha local-first với đồng bộ tài khoản tùy chọn.
         </footer>
       </article></div><PublicFooter />
     </main>

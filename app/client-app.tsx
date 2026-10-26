@@ -5,7 +5,6 @@ import {
   StrictMode,
   Suspense,
   useEffect,
-  useRef,
   useState,
 } from "react";
 import { ResponsiveHeroBackdrop } from "../src/components/ResponsiveHeroBackdrop";
@@ -13,6 +12,9 @@ import {
   observeServiceWorkerLifecycle,
   unregisterDevelopmentServiceWorkers,
 } from "../src/lib/serviceWorkerRegistration";
+import { isNativeApp } from '../src/native/nativeRuntime';
+import { applyServiceWorkerUpdate } from '../src/lib/applyServiceWorkerUpdate';
+import { RecoveryStatusBoundary } from '../src/components/RecoveryStatusBoundary';
 
 const ClientRuntime = lazy(async () => ({
   default: (await import("./client-runtime")).ClientRuntime,
@@ -41,23 +43,18 @@ export function ClientApp() {
   const [storageError, setStorageError] = useState(false);
   const [serviceWorkerError, setServiceWorkerError] = useState(false);
   const [updateReady, setUpdateReady] = useState(false);
-  const registrationRef = useRef<ServiceWorkerRegistration | null>(null);
-  const reloadOnControllerChangeRef = useRef(false);
+  const [updateDismissed, setUpdateDismissed] = useState(false);
+  const [updateApplying, setUpdateApplying] = useState(false);
+  const [updateError, setUpdateError] = useState(false);
 
   useEffect(() => {
     setOnline(navigator.onLine);
     const handleOnline = () => setOnline(true);
     const handleOffline = () => setOnline(false);
     const handleStorageError = () => setStorageError(true);
-    const handleControllerChange = () => {
-      if (!reloadOnControllerChangeRef.current) return;
-      reloadOnControllerChangeRef.current = false;
-      window.location.reload();
-    };
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
     window.addEventListener("hanzi-storage-error", handleStorageError);
-    navigator.serviceWorker?.addEventListener("controllerchange", handleControllerChange);
     let stopObservingServiceWorker: (() => void) | null = null;
     let disposed = false;
 
@@ -85,16 +82,17 @@ export function ClientApp() {
       }
 
       setMounted(true);
+      if (isNativeApp()) return;
       if (!("serviceWorker" in navigator)) return;
-      navigator.serviceWorker.register("/sw.js").then((registration) => {
+      navigator.serviceWorker.register("/sw.js?offline=1").then((registration) => {
         if (disposed) return;
-        registrationRef.current = registration;
         stopObservingServiceWorker = observeServiceWorkerLifecycle(
           registration,
           {
             hasController: () =>
               Boolean(navigator.serviceWorker.controller),
             onInstallFailure: () => setServiceWorkerError(true),
+            onInstallSuccess: () => setServiceWorkerError(false),
             onUpdateReady: () => setUpdateReady(true),
           },
         );
@@ -110,7 +108,6 @@ export function ClientApp() {
       window.removeEventListener("online", handleOnline);
       window.removeEventListener("offline", handleOffline);
       window.removeEventListener("hanzi-storage-error", handleStorageError);
-      navigator.serviceWorker?.removeEventListener("controllerchange", handleControllerChange);
     };
   }, []);
 
@@ -118,24 +115,30 @@ export function ClientApp() {
     return <BootstrapShell />;
   }
 
+  const recoveryStatus = (!online || storageError || serviceWorkerError || (updateReady && !updateDismissed)) && (
+        <aside className="recovery-status" role="status">
+          {!online && <span>Đang ngoại tuyến · tiến độ sẽ tiếp tục lưu trên thiết bị.</span>}
+          {storageError && <span>Thay đổi vừa rồi chưa được lưu. Hãy giải phóng dung lượng trình duyệt rồi thử thao tác lại.</span>}
+          {serviceWorkerError && <button type="button" onClick={() => window.location.reload()}>Cài đặt ngoại tuyến lỗi · thử lại</button>}
+          {updateReady && !updateDismissed && <>
+            {updateError && <span>Chưa cập nhật được. Bạn có thể học tiếp và thử lại sau.</span>}
+            <div className="recovery-update-actions"><button type="button" disabled={updateApplying} onClick={async () => {
+              setUpdateApplying(true);
+              setUpdateError(false);
+              try { await applyServiceWorkerUpdate(navigator.serviceWorker, () => window.location.reload()); }
+              catch { setUpdateError(true); setUpdateApplying(false); }
+            }}>{updateApplying ? 'Đang cập nhật…' : 'Cập nhật ứng dụng'}</button><button type="button" aria-label="Để cập nhật sau" onClick={() => setUpdateDismissed(true)}>Để sau</button></div>
+          </>}
+        </aside>
+      );
+
   return (
-    <>
+    <RecoveryStatusBoundary status={recoveryStatus}>
       <StrictMode>
         <Suspense fallback={<BootstrapShell />}>
           <ClientRuntime />
         </Suspense>
       </StrictMode>
-      {(!online || storageError || serviceWorkerError || updateReady) && (
-        <aside className="recovery-status" role="status">
-          {!online && <span>Đang ngoại tuyến · tiến độ sẽ tiếp tục lưu trên thiết bị.</span>}
-          {storageError && <span>Thay đổi vừa rồi chưa được lưu. Hãy giải phóng dung lượng trình duyệt rồi thử thao tác lại.</span>}
-          {serviceWorkerError && <button type="button" onClick={() => window.location.reload()}>Cài đặt ngoại tuyến lỗi · thử lại</button>}
-          {updateReady && <button type="button" onClick={() => {
-            reloadOnControllerChangeRef.current = true;
-            registrationRef.current?.waiting?.postMessage({ type: "SKIP_WAITING" });
-          }}>Có bản cập nhật · áp dụng</button>}
-        </aside>
-      )}
-    </>
+    </RecoveryStatusBoundary>
   );
 }

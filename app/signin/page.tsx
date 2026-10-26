@@ -5,6 +5,7 @@ import {
   isLocalDevelopmentAuth,
 } from "../../src/server/authHttp";
 import { getRuntimeEnvironment } from "../../src/server/d1";
+import { authenticationCapabilities } from '../../src/server/authCapabilities';
 import "../../src/components/AuthGuild.css";
 import "../../src/components/GuildTypography.css";
 
@@ -31,6 +32,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   );
   const googleAvailable = Boolean(
     environment.GOOGLE_CLIENT_ID?.trim()
+    && environment.GOOGLE_CLIENT_SECRET?.trim()
     && environment.GOOGLE_REDIRECT_URI?.trim() === `${origin}/auth/google/callback`,
   );
   const facebookGraphVersion = environment.FACEBOOK_GRAPH_VERSION?.trim() ?? "";
@@ -44,6 +46,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   const returnTo = query.returnTo?.startsWith("/") && !query.returnTo.startsWith("//")
     ? query.returnTo.slice(0, 500)
     : "/";
+  const capabilities = authenticationCapabilities(environment, new Request(`${origin}/signin`));
   return (
     <main className="signin-page auth-guild">
       <div className="signin-grid" aria-hidden="true" />
@@ -57,11 +60,12 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
           <div className="auth-banner-copy"><strong lang="zh-Hans">汉<br />字</strong><span>VĂN HOÁ<br />KẾT NỐI<br />CON NGƯỜI</span></div><p className="auth-art-motto">TRI THỨC<br />VƯỢT THỜI GIAN<br />KẾT NỐI<br />MUÔN PHƯƠNG</p><p className="auth-art-footnote">HỌC CHỮ<br />HIỂU NGƯỜI<br />KIẾN TẠO TƯƠNG LAI</p>
         </section>
         <section className="signin-console">
-          {query.error && <p className="signin-alert" role="alert">Cổng vừa chọn chưa sẵn sàng. Hãy dùng tài khoản HANZI.OS hoặc thử lại sau.</p>}
+          {query.error && <p className="signin-alert" role="alert">Chưa hoàn tất đăng nhập. Hãy thử lại từ trang này.</p>}
           <AuthConsole
             mode="signin"
             returnTo={returnTo}
             localDevelopment={localDevelopment}
+            initialCapabilities={capabilities}
             googleAvailable={googleAvailable}
             facebookAvailable={facebookAvailable}
           />

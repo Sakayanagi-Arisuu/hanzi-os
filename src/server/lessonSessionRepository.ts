@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import {
   CURRENT_CONTENT_MANIFEST_SHA256,
 } from "../content/currentPackage";
@@ -9,7 +10,7 @@ import {
   buildExercises,
   type Exercise,
   type RandomSource,
-} from "../lib/exerciseGeneration";
+} from "../lib/editorialExerciseGeneration";
 import {
   canonicalLessonSessionForm,
   hashLessonSessionForm,
@@ -26,12 +27,12 @@ import type { Lesson } from "../types";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
+  isLearningContentAvailable,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
 import type { D1Database, D1RunResult } from "./d1";
-import { getAuthoritativeLessonAnswer } from "./authoritativeItemBank";
+import { getAuthoritativeLessonAnswer } from "./editorialItemBank";
 import {
   CURRENT_LEARNING_RESET_EPOCH_SQL,
   requireCurrentLearningResetEpoch,
@@ -41,6 +42,7 @@ import {
   normalizedLearningChangeOperationId,
 } from "./normalizedLearningChange";
 import { encodeOutboxEventPayload } from "./outboxEventContract";
+import { offlineLessonRandom } from '../learning/offlineLessonPlan';
 
 export class LessonSessionIdempotencyConflictError extends Error {
   readonly code = "LESSON_SESSION_IDEMPOTENCY_CONFLICT";
@@ -173,6 +175,7 @@ export class LessonSessionRepository {
       userId,
       enrollment,
       command.lessonId,
+      offlineLessonRandom(command.idempotencyKey) ?? this.randomSource,
     );
     const deviceRecordId = await this.registerDevice(userId, command);
 
@@ -258,7 +261,7 @@ export class LessonSessionRepository {
              AND enrollment.status = 'active'
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
          )
          AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
          AND (
@@ -397,7 +400,7 @@ export class LessonSessionRepository {
   }
 
   private requirePromotedPackage() {
-    if (!isPromotedContentReleasePolicy(this.publicationPolicy)) {
+    if (!isLearningContentAvailable(this.publicationPolicy)) {
       throw new LessonSessionContentUnavailableError(
         "The immutable current content package has not passed explicit promotion gates.",
       );
@@ -419,7 +422,7 @@ export class LessonSessionRepository {
          AND enrollment.status = 'active'
          AND course.manifest_hash = ?
          AND course.release_state IN ('beta', 'published')
-         AND course.linguistic_review_status = 'approved'
+         AND ${learningReviewSql()}
        LIMIT 1`,
     ).bind(
       userId,
@@ -444,6 +447,7 @@ export class LessonSessionRepository {
     userId: string,
     enrollment: EnrollmentContext,
     lessonId: string,
+    randomSource: RandomSource = this.randomSource,
   ): Promise<ServerLessonBinding> {
     const lesson = LESSON_BY_ID.get(lessonId);
     if (
@@ -498,7 +502,7 @@ export class LessonSessionRepository {
     const exercises = buildExercises(
       lesson,
       enrollment.script,
-      this.randomSource,
+      randomSource,
       true,
     );
     const expectedEvidenceCount = exercises.length;

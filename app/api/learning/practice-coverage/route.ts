@@ -1,4 +1,5 @@
 import { getChatGPTUser } from "../../../chatgpt-auth";
+import { learningOwnerMismatch } from '../../../../src/server/learningOwnerHttp';
 import { getD1Database } from "../../../../src/server/d1";
 import { SyncRepository } from "../../../../src/server/syncRepository";
 import { readCurrentLearningResetEpoch } from "../../../../src/server/learningResetEpoch";
@@ -6,10 +7,11 @@ import { publishedPracticeCatalog } from "../../../../src/server/practiceQuestio
 import { noStoreJsonHeaders } from "../../../../src/sync/protocol";
 
 export const dynamic = "force-dynamic";
-export async function GET() {
+export async function GET(request?: Request) {
   try {
     const database = await getD1Database();
     const identity = await getChatGPTUser();
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     const catalog = await publishedPracticeCatalog(database);
     let observed: string[] = [];
     let resetEpoch: number | null = null;

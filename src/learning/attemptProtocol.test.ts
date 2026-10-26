@@ -34,6 +34,13 @@ const command = (): LearningAttemptCommandV1 => ({
 });
 
 describe("learning attempt command protocol", () => {
+  it('preserves long published page identities only for remediation', () => {
+    const activityId = `lesson-page:${JSON.stringify(['lesson', 'p'.repeat(120), 'b'.repeat(120)])}`;
+    const input = { ...command(), source: 'mistake', method: 'typed-character-recall', sessionId: undefined, activityId };
+    expect(parseLearningAttemptCommand(input)).toMatchObject({ ok: true });
+    expect(parseLearningAttemptCommand({ ...command(), activityId })).toMatchObject({ ok: false });
+    expect(parseLearningAttemptCommand({ ...input, activityId: 'lesson-page:' + 'x'.repeat(2000) })).toMatchObject({ ok: false });
+  });
   it("parses a bounded objective command and normalizes its timestamp", () => {
     const parsed = parseLearningAttemptCommand({
       ...command(),

@@ -35,6 +35,9 @@ import { useLearning } from "../store/LearningStore";
 import { useCommerce } from "../commerce/CommerceProvider";
 import { useLearningJourney } from "../store/LearningJourneyStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+import { localAdaptivePilotAvailable } from '../personalization/adaptivePlanClient';
+import { CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE } from '../content/clientContentAvailability';
+import '../personalization/adaptiveUnit.css';
 
 function LessonSkillSigil({ index }: { index: number }) {
   const variant = index % 4;
@@ -82,6 +85,9 @@ function formatChapterNumber(index: number) {
 function CurrentLessonAutoAnchor({ lessonId }: { lessonId: string }) {
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
+      // Phone users can resume directly from the compact banner. Keep the
+      // catalog at its top instead of moving the viewport after navigation.
+      if (window.innerWidth <= 760) return;
       const target = document.getElementById(`path-lesson-${lessonId}`);
       if (!target) return;
       const bounds = target.getBoundingClientRect();
@@ -100,6 +106,8 @@ function CurrentLessonAutoAnchor({ lessonId }: { lessonId: string }) {
 }
 
 export function PathPage() {
+  const [localPilot, setLocalPilot] = useState(false);
+  useEffect(() => { setLocalPilot(localAdaptivePilotAvailable(location.hostname, CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE)); }, []);
   const commerce = useCommerce();
   const [expansionIndex, setExpansionIndex] = useState<PathExpansionIndex | null>(null);
   const { state, sync } = useLearning();
@@ -206,8 +214,15 @@ export function PathPage() {
           </ol>
         </div>
         <PathBannerInformation title={currentLesson?.title ?? "Hoàn tất Thiên Lộ"}
-          completed={completedCount} total={catalogLessonCount} finished={!currentLesson} />
+          completed={completedCount} total={catalogLessonCount} finished={!currentLesson} lessonId={currentLesson?.id} />
       </header>
+      <nav className="path-level-navigation" aria-label="Chọn chặng HSK">
+        {catalogGroups.map(({ path }) => <a key={path.id} href={`#path-level-${path.id}`} aria-current={path.id === curriculumView.path.pathId ? "location" : undefined}>{path.id.toUpperCase()}</a>)}
+      </nav>
+      {localPilot && <details className="adaptive-pilot-entry"><summary>Khảo Luyện · phiên luyện theo mục tiêu</summary>
+        <p>Lựa chọn thêm cho cụm giá và số lượng đã mở. Lượt luyện có mẫu và tự đối chiếu, chưa phải điểm thành thạo.</p>
+        <Link to="/path/practice">Chọn một lượt luyện phù hợp</Link>
+      </details>}
       <p className="visually-hidden">Toàn bộ {catalogLessonCount} bài từ HSK0 đến HSK4; {completedCount} bài đã thông qua, tiến độ chặng {selectedPath.label} là {progress}%.</p>
 
       {publishedLessons.status === "fallback" && (
@@ -252,7 +267,7 @@ export function PathPage() {
           const LevelStatusIcon = isActive ? Sparkles : isFuture ? LockKeyhole : levelCleared ? Check : CircleDot;
           const levelProgress = groupLessons.length === 0 ? 0 : Math.round((completedInGroup / groupLessons.length) * 100);
           return (
-            <section className="path-realm-group" data-level-status={levelStatus} data-realm-index={groupIndex} key={path.id}>
+            <section id={`path-level-${path.id}`} className="path-realm-group" data-level-status={levelStatus} data-realm-index={groupIndex} key={path.id}>
               <header className="path-realm-level">
                 <div className="path-realm-level-index" aria-hidden="true">
                   <SpiritBeastSeal level={path.id} />

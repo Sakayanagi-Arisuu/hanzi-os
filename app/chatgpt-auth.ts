@@ -10,7 +10,7 @@ import {
   SESSION_COOKIE_NAME,
   type FirstPartyAuthProvider,
 } from "../src/server/authRepository";
-import { getD1Database } from "../src/server/d1";
+import { getD1Database, SyncBackendUnavailableError } from "../src/server/d1";
 
 export { chatGPTSignInPath, chatGPTSignOutPath };
 
@@ -43,9 +43,11 @@ export async function getChatGPTUser(): Promise<ChatGPTUser | null> {
       const session = await new AuthRepository(await getD1Database())
         .resolveSession(sessionToken);
       if (session) return session;
-    } catch {
-      // Fail the first-party session closed, while preserving the trusted
-      // ChatGPT host-header compatibility path below when it is present.
+    } catch (error) {
+      // An unavailable provider is retryable, not an expired identity. Preserve
+      // the cookie/local learner state instead of returning authenticated:false.
+      if (error instanceof SyncBackendUnavailableError) throw error;
+      throw new SyncBackendUnavailableError('Không thể xác minh phiên đăng nhập lúc này.');
     }
   }
   const email = requestHeaders.get(USER_EMAIL_HEADER);

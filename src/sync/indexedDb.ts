@@ -1,9 +1,26 @@
+import { OWNER_RECOVERY_STORES, SYNC_DATABASE_VERSION } from './ownerRecoverySchema';
+export { OWNER_RECOVERY_STORES, SYNC_DATABASE_VERSION } from './ownerRecoverySchema';
 import type { LearningState } from "../types";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
 import type { CloudSyncDocumentV1 } from "./types";
+import { canonicalStringify } from "./canonicalHash";
+import { isLessonHistoryEvent, LESSON_HISTORY_ENTRY_PREFIX, type LessonHistoryEventV1 } from "../learning/lessonHistory";
+import { documentActivityHistoryEntries, documentActivityHistoryEvent } from './documentActivityHistory';
+import { avatarStorageKey } from '../profile/avatarContract';
+import { assertOwnerRecoveryIdle } from './ownerRecoveryFence';
+
+export class LessonHistoryStateChangedError extends Error {}
+
+export type GuestLessonHistoryCommit = {
+  expectedState: LearningState;
+  scope: ActiveOwnerLearningScope;
+  event: LessonHistoryEventV1;
+};
+
+export type DocumentMutationCommit = { expectedState: LearningState; scope: ActiveOwnerLearningScope };
 
 const DATABASE_NAME = "hanzi-os-sync-v1";
-export const SYNC_DATABASE_VERSION = 3;
+
 export const SYNC_META_STORE = "meta";
 export const SYNC_DOCUMENT_STORE = "documents";
 const DOCUMENT_STORE = SYNC_DOCUMENT_STORE;
@@ -299,6 +316,8 @@ export async function readOrInitializeOwnerGeneration(
   const transaction = database.transaction(META_STORE, "readwrite");
   const done = transactionDone(transaction);
   const store = transaction.objectStore(META_STORE);
+  try {
+  await assertOwnerRecoveryIdle(store);
   const record = await requestResult(
     store.get(ACTIVE_OWNER_GENERATION_KEY) as IDBRequest<MetaRecord | undefined>,
   );
@@ -313,11 +332,24 @@ export async function readOrInitializeOwnerGeneration(
   } satisfies MetaRecord);
   await done;
   return { ownerGeneration, existed: false };
+  } catch (error) {
+    abortTransaction(transaction);
+    await done.catch(() => undefined);
+    throw error;
+  }
 }
 
 export async function readOwnerGeneration(): Promise<OwnerGeneration | null> {
-  return readSyncMeta<OwnerGeneration>(ACTIVE_OWNER_GENERATION_KEY)
-    .then((value) => isOwnerGeneration(value) ? value : null);
+  const database = await openSyncDatabase();
+  const transaction = database.transaction(META_STORE, 'readonly');
+  const done = transactionDone(transaction);
+  try {
+    const store = transaction.objectStore(META_STORE);
+    await assertOwnerRecoveryIdle(store);
+    const row = await requestResult(store.get(ACTIVE_OWNER_GENERATION_KEY)) as MetaRecord | undefined;
+    await done;
+    return isOwnerGeneration(row?.value) ? row.value : null;
+  } catch (error) { abortTransaction(transaction); await done.catch(() => undefined); throw error; }
 }
 
 /**
@@ -326,7 +358,7 @@ export async function readOwnerGeneration(): Promise<OwnerGeneration | null> {
  * every later cache transaction so an owner switch between read and write
  * fails closed.
  */
-export async function readActiveOwnerLearningScope(): Promise<
+export async function readActiveOwnerLearningScope(options: { allowRecoveryPreview?: boolean } = {}): Promise<
   ActiveOwnerLearningScope | null
 > {
   const database = await openSyncDatabase();
@@ -336,6 +368,7 @@ export async function readActiveOwnerLearningScope(): Promise<
   );
   const done = transactionDone(transaction);
   try {
+    await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE), options.allowRecoveryPreview === true);
     const generationRecord = await requestResult(
       transaction.objectStore(META_STORE).get(ACTIVE_OWNER_GENERATION_KEY) as
         IDBRequest<MetaRecord | undefined>,
@@ -364,10 +397,57 @@ export async function readActiveOwnerLearningScope(): Promise<
   }
 }
 
+
+
+export type OwnerRecoverySnapshot = {
+  version: 1;
+  databaseVersion: number;
+  coverage: 'indexeddb-owner-only';
+  scope: ActiveOwnerLearningScope;
+  capturedAt: string;
+  stores: Record<typeof OWNER_RECOVERY_STORES[number], unknown[]>;
+  avatar: unknown;
+  excluded: readonly ['localStorage', 'CacheStorage', 'authentication', 'global-device-metadata'];
+};
+
+export async function captureOwnerRecoverySnapshot(scope: ActiveOwnerLearningScope): Promise<OwnerRecoverySnapshot> {
+  const database = await openSyncDatabase();
+  const knownStores: string[] = [META_STORE, ...OWNER_RECOVERY_STORES];
+  if (database.version !== SYNC_DATABASE_VERSION || [...database.objectStoreNames].some(name => !knownStores.includes(name))) {
+    throw new Error('Unsupported recovery database; retain all original data.');
+  }
+  const transaction = database.transaction(knownStores, 'readonly');
+  const done = transactionDone(transaction);
+  try {
+    await assertOwnerLearningScope(transaction, { expectedOwnerGeneration: scope.ownerGeneration,
+      resetEpoch: scope.resetEpoch, entryKey: 'recovery-snapshot' }, true);
+    const rows = await Promise.all(OWNER_RECOVERY_STORES.map(async name => {
+      const store = transaction.objectStore(name);
+      if (name === DOCUMENT_STORE || name === LOCAL_STATE_STORE) {
+        const value = await requestResult(store.get(scope.ownerGeneration.ownerKey));
+        return [name, value === undefined ? [] : [value]] as const;
+      }
+      return [name, await requestResult(store.index(OWNER_INDEX).getAll(scope.ownerGeneration.ownerKey))] as const;
+    }));
+    const avatar = await requestResult(transaction.objectStore(META_STORE).get(avatarStorageKey(scope.ownerGeneration.ownerKey)));
+    await done;
+    return { version: 1, databaseVersion: database.version, coverage: 'indexeddb-owner-only',
+      scope: structuredClone(scope), capturedAt: new Date().toISOString(),
+      stores: Object.fromEntries(rows) as OwnerRecoverySnapshot['stores'], avatar: avatar ?? null,
+      excluded: ['localStorage', 'CacheStorage', 'authentication', 'global-device-metadata'] };
+  } catch (error) {
+    abortTransaction(transaction);
+    await done.catch(() => undefined);
+    throw error;
+  }
+}
+
 const assertOwnerGeneration = async (
   transaction: IDBTransaction,
   expected: OwnerGeneration,
+  allowPreviewRead = false,
 ) => {
+  await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE), allowPreviewRead);
   const record = await requestResult(
     transaction.objectStore(META_STORE).get(ACTIVE_OWNER_GENERATION_KEY) as
       IDBRequest<MetaRecord | undefined>,
@@ -381,8 +461,9 @@ const assertOwnerGeneration = async (
 const assertOwnerLearningScope = async (
   transaction: IDBTransaction,
   scope: OwnerScopedCacheScope,
+  allowPreviewRead = false,
 ) => {
-  await assertOwnerGeneration(transaction, scope.expectedOwnerGeneration);
+  await assertOwnerGeneration(transaction, scope.expectedOwnerGeneration, allowPreviewRead);
   const documentRecord = await requestResult(
     transaction.objectStore(DOCUMENT_STORE).get(
       scope.expectedOwnerGeneration.ownerKey,
@@ -709,6 +790,7 @@ const deleteOwnerRecordsFromCacheStore = async (
   transaction: IDBTransaction,
   storeName: OwnerScopedCacheStoreName,
   ownerKey: string,
+  preserveHistory = true,
 ) => {
   const store = transaction.objectStore(storeName);
   const recordKeys = await requestResult(
@@ -716,15 +798,23 @@ const deleteOwnerRecordsFromCacheStore = async (
       IDBKeyRange.only(ownerKey),
     ),
   );
-  recordKeys.forEach((recordKey) => store.delete(recordKey));
+  for (const recordKey of recordKeys) {
+    if (preserveHistory && storeName === LESSON_RESUME_STORE) {
+      const record = await requestResult(store.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
+      if (record?.entryKey.startsWith(LESSON_HISTORY_ENTRY_PREFIX)
+        || record?.entryKey.startsWith('lesson-page-history:v1:') || record?.entryKey==='page-attempt-outbox:v1') continue;
+    }
+    store.delete(recordKey);
+  }
 };
 
 const deleteOwnerRecordsFromAllCaches = async (
   transaction: IDBTransaction,
   ownerKey: string,
+  preserveHistory = true,
 ) => {
   for (const storeName of OWNER_SCOPED_CACHE_STORES) {
-    await deleteOwnerRecordsFromCacheStore(transaction, storeName, ownerKey);
+    await deleteOwnerRecordsFromCacheStore(transaction, storeName, ownerKey, preserveHistory);
   }
 };
 
@@ -793,7 +883,8 @@ export const writeLessonResume = <T>(input: OwnerScopedCacheWrite<T>) =>
 /** Atomic read/modify/write for durable reading state shared across tabs.
  * The synchronous callback cannot outlive the IndexedDB transaction.
  */
-export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update: (previous: unknown) => T): Promise<T> {
+export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update: (previous: unknown) => T,
+  companion?:{entryKey:string;update:(previous:unknown,value:T)=>unknown}): Promise<T> {
   assertOwnerScopedCacheScope(scope);
   const database = await openSyncDatabase();
   const transaction = database.transaction([META_STORE, DOCUMENT_STORE, LESSON_RESUME_STORE], 'readwrite');
@@ -804,6 +895,14 @@ export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update
     const recordKey = ownerScopedCacheRecordKey(scope.expectedOwnerGeneration.ownerKey, scope.resetEpoch, scope.entryKey);
     const previous = await requestResult(store.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
     const value = update(previous?.value);
+    if(companion){
+      if(!companion.entryKey||companion.entryKey===scope.entryKey)throw new Error('Invalid reading companion key');
+      const companionKey=ownerScopedCacheRecordKey(scope.expectedOwnerGeneration.ownerKey,scope.resetEpoch,companion.entryKey);
+      const saved=await requestResult(store.get(companionKey) as IDBRequest<OwnerScopedCacheRecord<unknown>|undefined>);
+      const journal=companion.update(saved?.value,value);
+      store.put({schemaVersion:1,recordKey:companionKey,ownerKey:scope.expectedOwnerGeneration.ownerKey,
+        resetEpoch:scope.resetEpoch,entryKey:companion.entryKey,value:journal,updatedAt:new Date().toISOString()});
+    }
     store.put({schemaVersion: 1, recordKey, ownerKey: scope.expectedOwnerGeneration.ownerKey, resetEpoch: scope.resetEpoch, entryKey: scope.entryKey, value, updatedAt: new Date().toISOString()} satisfies OwnerScopedCacheRecord<T>);
     await done;
     return value;
@@ -886,15 +985,8 @@ export async function writeOwnerCheckpoint(
 ) {
   const database = await openSyncDatabase();
   const transaction = database.transaction(
-    expectedOwnerGeneration
-      ? [
+    [
           META_STORE,
-          DOCUMENT_STORE,
-          LOCAL_STATE_STORE,
-          LEARNING_COMMAND_OUTBOX_STORE,
-          ...OWNER_SCOPED_CACHE_STORES,
-        ]
-      : [
           DOCUMENT_STORE,
           LOCAL_STATE_STORE,
           LEARNING_COMMAND_OUTBOX_STORE,
@@ -904,6 +996,7 @@ export async function writeOwnerCheckpoint(
   );
   const done = transactionDone(transaction);
   try {
+    await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
     if (expectedOwnerGeneration) {
       await assertOwnerGeneration(transaction, expectedOwnerGeneration);
       if (ownerKey !== expectedOwnerGeneration.ownerKey) {
@@ -946,14 +1039,17 @@ async function persistSyncOperation(
   localState: LearningState,
   sourceOwnerToDelete?: string,
   expectedOwnerGeneration?: OwnerGeneration,
+  lessonHistory?: GuestLessonHistoryCommit,
+  documentMutation?: DocumentMutationCommit,
 ): Promise<{
   queued: PendingSyncOperation;
   ownerGeneration: OwnerGeneration | null;
 }> {
+  const documentEvents = (await documentActivityHistoryEntries(operation.document, operation.operationId, operation.kind))
+    .map(entry => documentActivityHistoryEvent(operation.ownerKey, operation.document.reset.epoch, entry));
   const database = await openSyncDatabase();
-  const transactionStores = expectedOwnerGeneration
-    ? [META_STORE, DOCUMENT_STORE, LOCAL_STATE_STORE, OUTBOX_STORE]
-    : [DOCUMENT_STORE, LOCAL_STATE_STORE, OUTBOX_STORE];
+  const transactionStores = [META_STORE, DOCUMENT_STORE, LOCAL_STATE_STORE, OUTBOX_STORE];
+  if (lessonHistory || documentMutation || documentEvents.length) transactionStores.push(LESSON_RESUME_STORE);
   if (sourceOwnerToDelete || operation.kind === "reset") {
     transactionStores.push(
       LEARNING_COMMAND_OUTBOX_STORE,
@@ -968,6 +1064,8 @@ async function persistSyncOperation(
   try {
     if (expectedOwnerGeneration) {
       await assertOwnerGeneration(transaction, expectedOwnerGeneration);
+    } else {
+      await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
     }
     if (
       sourceOwnerToDelete
@@ -992,6 +1090,37 @@ async function persistSyncOperation(
   const updatedAt = new Date().toISOString();
   const documents = transaction.objectStore(DOCUMENT_STORE);
   const localStates = transaction.objectStore(LOCAL_STATE_STORE);
+  if (documentMutation) {
+    await assertOwnerLearningScope(transaction, { expectedOwnerGeneration: documentMutation.scope.ownerGeneration,
+      resetEpoch: documentMutation.scope.resetEpoch, entryKey: 'document-mutation' });
+    if (operation.ownerKey !== documentMutation.scope.ownerGeneration.ownerKey
+      || operation.document.reset.epoch !== documentMutation.scope.resetEpoch) throw new StaleOwnerGenerationError();
+    const current = await requestResult(localStates.get(operation.ownerKey) as IDBRequest<OwnerLocalStateRecord | undefined>);
+    if (current && canonicalStringify(current.state) !== canonicalStringify(documentMutation.expectedState)) throw new LessonHistoryStateChangedError();
+  }
+  if (lessonHistory) {
+    const { event, scope } = lessonHistory;
+    await assertOwnerLearningScope(transaction, {
+      expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: scope.resetEpoch, entryKey: event.eventId,
+    });
+    if (!isLessonHistoryEvent(event) || event.ownerKey !== operation.ownerKey
+      || event.resetEpoch !== operation.document.reset.epoch
+      || event.resetEpoch !== scope.resetEpoch || event.lineage !== "guest-business-commit"
+      || scope.ownerGeneration.ownerKey !== operation.ownerKey)
+      throw new StaleOwnerGenerationError();
+    const current = await requestResult(localStates.get(operation.ownerKey) as IDBRequest<OwnerLocalStateRecord | undefined>);
+    if (current && canonicalStringify(current.state) !== canonicalStringify(lessonHistory.expectedState))
+      throw new LessonHistoryStateChangedError();
+    const history = transaction.objectStore(LESSON_RESUME_STORE);
+    const recordKey = ownerScopedCacheRecordKey(event.ownerKey, event.resetEpoch, event.eventId);
+    const existing = await requestResult(history.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
+    if (existing && (!isLessonHistoryEvent(existing.value)
+      || canonicalStringify(existing.value) !== canonicalStringify(event)))
+      throw new Error("Lượt trả lời đã có khác với bản đang lưu. Dữ liệu cũ vẫn được giữ; hãy mở lại bài.");
+    if (!existing) history.put({ schemaVersion: 1, recordKey, ownerKey: event.ownerKey,
+      resetEpoch: event.resetEpoch, entryKey: event.eventId, value: event, updatedAt,
+    } satisfies OwnerScopedCacheRecord<LessonHistoryEventV1>);
+  }
   documents.put({
     ownerKey: operation.ownerKey,
     revision: operation.baseRevision,
@@ -1047,6 +1176,15 @@ async function persistSyncOperation(
     commandKeys.forEach((recordKey) => learningCommands.delete(recordKey));
     await deleteOwnerRecordsFromAllCaches(transaction, operation.ownerKey);
   }
+  for (const event of documentEvents) {
+    if (!isLessonHistoryEvent(event)) throw new Error('Unsupported document history; retain source.');
+    const history = transaction.objectStore(LESSON_RESUME_STORE);
+    const recordKey = ownerScopedCacheRecordKey(event.ownerKey, event.resetEpoch, event.eventId);
+    const previous = await requestResult(history.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
+    if (previous && canonicalStringify(previous.value) !== canonicalStringify(event)) throw new Error('Conflicting document history; retain source.');
+    if (!previous) history.put({ schemaVersion: 1, recordKey, ownerKey: event.ownerKey, resetEpoch: event.resetEpoch,
+      entryKey: event.eventId, value: event, updatedAt } satisfies OwnerScopedCacheRecord<LessonHistoryEventV1>);
+  }
   outbox.put(queued);
     const nextOwnerGeneration = sourceOwnerToDelete && expectedOwnerGeneration
       ? {
@@ -1073,12 +1211,16 @@ export function enqueueSyncOperation(
   operation: NewSyncOperation,
   localState: LearningState,
   expectedOwnerGeneration?: OwnerGeneration,
+  lessonHistory?: GuestLessonHistoryCommit,
+  documentMutation?: DocumentMutationCommit,
 ) {
   return persistSyncOperation(
     operation,
     localState,
     undefined,
     expectedOwnerGeneration,
+    lessonHistory,
+    documentMutation,
   ).then(({ queued }) => queued);
 }
 
@@ -1224,7 +1366,10 @@ export async function listQuarantinedOperations(
 
 export async function markSyncAttempt(operationId: string) {
   const database = await openSyncDatabase();
-  const transaction = database.transaction(OUTBOX_STORE, "readwrite");
+  const transaction = database.transaction([META_STORE, OUTBOX_STORE], "readwrite");
+  const done = transactionDone(transaction);
+  try {
+  await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
   const store = transaction.objectStore(OUTBOX_STORE);
   const operation = await requestResult(
     store.get(operationId) as IDBRequest<PendingSyncOperation | undefined>,
@@ -1236,7 +1381,8 @@ export async function markSyncAttempt(operationId: string) {
       lastAttemptAt: new Date().toISOString(),
     } satisfies PendingSyncOperation);
   }
-  await transactionDone(transaction);
+  await done;
+  } catch (error) { abortTransaction(transaction); await done.catch(() => undefined); throw error; }
 }
 
 export async function quarantineSyncOperation(
@@ -1244,7 +1390,10 @@ export async function quarantineSyncOperation(
   reason: string,
 ) {
   const database = await openSyncDatabase();
-  const transaction = database.transaction(OUTBOX_STORE, "readwrite");
+  const transaction = database.transaction([META_STORE, OUTBOX_STORE], "readwrite");
+  const done = transactionDone(transaction);
+  try {
+  await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
   const store = transaction.objectStore(OUTBOX_STORE);
   const operation = await requestResult(
     store.get(operationId) as IDBRequest<PendingSyncOperation | undefined>,
@@ -1256,7 +1405,8 @@ export async function quarantineSyncOperation(
       quarantineReason: reason,
     } satisfies PendingSyncOperation);
   }
-  await transactionDone(transaction);
+  await done;
+  } catch (error) { abortTransaction(transaction); await done.catch(() => undefined); throw error; }
 }
 
 export async function acknowledgeSyncOperation(
@@ -1279,6 +1429,7 @@ export async function acknowledgeSyncOperation(
           ...OWNER_SCOPED_CACHE_STORES,
         ]
       : [
+          META_STORE,
           OUTBOX_STORE,
           DOCUMENT_STORE,
           LOCAL_STATE_STORE,
@@ -1289,6 +1440,7 @@ export async function acknowledgeSyncOperation(
   );
   const done = transactionDone(transaction);
   try {
+    await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
     if (expectedOwnerGeneration) {
       await assertOwnerGeneration(transaction, expectedOwnerGeneration);
       if (ownerKey !== expectedOwnerGeneration.ownerKey) {
@@ -1337,9 +1489,11 @@ export async function reassignPendingOperations(
 ) {
   if (fromOwnerKey === toOwnerKey) return;
   const database = await openSyncDatabase();
-  const transaction = database.transaction(OUTBOX_STORE, "readwrite");
+  const transaction = database.transaction([META_STORE, OUTBOX_STORE], "readwrite");
   const store = transaction.objectStore(OUTBOX_STORE);
   const done = transactionDone(transaction);
+  try {
+  await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
   const operations = await requestResult(
     store.index(OWNER_INDEX).getAll(IDBKeyRange.only(fromOwnerKey)) as
       IDBRequest<PendingSyncOperation[]>,
@@ -1348,12 +1502,14 @@ export async function reassignPendingOperations(
     store.put({ ...operation, ownerKey: toOwnerKey });
   });
   await done;
+  } catch (error) { abortTransaction(transaction); await done.catch(() => undefined); throw error; }
 }
 
 export async function deleteOwnerData(ownerKey: string) {
   const database = await openSyncDatabase();
   const transaction = database.transaction(
     [
+      META_STORE,
       DOCUMENT_STORE,
       LOCAL_STATE_STORE,
       OUTBOX_STORE,
@@ -1362,10 +1518,20 @@ export async function deleteOwnerData(ownerKey: string) {
     ],
     "readwrite",
   );
+  const done = transactionDone(transaction);
+  try {
+  await assertOwnerRecoveryIdle(transaction.objectStore(META_STORE));
+  const metadata = await requestResult(transaction.objectStore(META_STORE).getAll()) as MetaRecord[];
+  for (const row of metadata) {
+    if (row.key.startsWith('owner-recovery-job:v1:')
+      && (row.value as { scope?: ActiveOwnerLearningScope } | null)?.scope?.ownerGeneration.ownerKey === ownerKey) {
+      transaction.objectStore(META_STORE).delete(row.key);
+    }
+  }
   transaction.objectStore(DOCUMENT_STORE).delete(ownerKey);
+  transaction.objectStore(META_STORE).delete(avatarStorageKey(ownerKey));
   transaction.objectStore(LOCAL_STATE_STORE).delete(ownerKey);
   const outbox = transaction.objectStore(OUTBOX_STORE);
-  const done = transactionDone(transaction);
   const operationKeys = await requestResult(
     outbox.index(OWNER_INDEX).getAllKeys(IDBKeyRange.only(ownerKey)),
   );
@@ -1379,8 +1545,9 @@ export async function deleteOwnerData(ownerKey: string) {
       .getAllKeys(IDBKeyRange.only(ownerKey)),
   );
   commandKeys.forEach((recordKey) => learningCommands.delete(recordKey));
-  await deleteOwnerRecordsFromAllCaches(transaction, ownerKey);
+  await deleteOwnerRecordsFromAllCaches(transaction, ownerKey, false);
   await done;
+  } catch (error) { abortTransaction(transaction); await done.catch(() => undefined); throw error; }
 }
 
 export async function resetSyncDatabaseForTests() {

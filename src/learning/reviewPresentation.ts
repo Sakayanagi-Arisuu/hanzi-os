@@ -68,9 +68,9 @@ export const countReviewsToday = (
   now = new Date(),
 ) => {
   const today = localDayKey(now);
-  return evidence.filter((item) =>
+  return new Set(evidence.filter((item) =>
     item.source === "review" && localDayKey(new Date(item.occurredAt)) === today
-  ).length;
+  ).map(item=>item.idempotencyKey)).size;
 };
 
 export const getNextReviewDate = (

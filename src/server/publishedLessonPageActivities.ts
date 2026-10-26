@@ -1,12 +1,12 @@
 import {canonicalStudioJson,studioSha256} from '../content/studioContent';
 import {publishedRuntimeHeader,publishedRuntimeItems} from '../content/publishedStudioRuntimeContract';
-import {validateLessonPages,type LessonPageDocument} from '../learning/lessonPages';
+import {validateLessonPages,type LessonPageDocument,type LessonBlock} from '../learning/lessonPages';
 import {evaluateLessonActivity,type LessonActivity} from '../learning/lessonActivities';
 import {validateLessonActivitySources} from '../learning/lessonActivitySources';
 
 export type PublishedPageActivity={
  activityId:string;activityVersion:string;lessonId:string;pageId:string;blockId:string;
- revisionId:string;activity:LessonActivity;
+ revisionId:string;activity:LessonActivity;block:LessonBlock;
 };
 /** Accept only manifests obtained from the server's publishedRuntime repository.
  * A manifest-shaped browser payload must never be passed to this boundary.
@@ -32,7 +32,7 @@ export async function publishedLessonPageActivities(manifest:unknown):Promise<Ma
    if(block.kind!=='activity'||!block.activity)continue;
    const activityId=`lesson-page:${JSON.stringify([lessonId,page.id,block.id])}`;
    const bindingDigest=await studioSha256(canonicalStudioJson([header.item.revisionId,digest,page.id,block.id]));
-   registry.set(activityId,{activityId,activityVersion:`lesson-page-v1:${bindingDigest}`,lessonId,pageId:page.id,blockId:block.id,revisionId:String(header.item.revisionId),activity:structuredClone(block.activity)});
+   registry.set(activityId,{activityId,activityVersion:`lesson-page-v1:${bindingDigest}`,lessonId,pageId:page.id,blockId:block.id,revisionId:String(header.item.revisionId),activity:structuredClone(block.activity),block:structuredClone(block)});
   }
  }
  return registry;

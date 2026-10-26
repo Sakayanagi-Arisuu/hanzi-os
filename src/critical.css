@@ -1076,11 +1076,8 @@ html {
 }
 
 .recovery-status {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  z-index: 90;
-  width: min(420px, calc(100vw - 28px));
+  position: relative;
+  width: 100%;
   padding: 11px;
   display: grid;
   gap: 7px;
@@ -1089,9 +1086,20 @@ html {
   border: 1px solid #5e6f3a;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.38);
   font-size: 12px;
+  max-block-size: min(30dvh, 180px);
+  overflow-y: auto;
 }
 
 .recovery-status button { min-height: 44px; color: var(--gold); background: #211d10; border: 1px solid #6a582b; }
+.recovery-update-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.recovery-update-actions button { padding-inline: 12px; }
+.recovery-status-slot { min-width: 0; }
+.app-frame .app-stage:has(> .recovery-status-slot) {
+  --learner-stage-block: max(0px, calc(100dvh - var(--ngoc-header-height, 70px) - var(--ngoc-bottom-height, 0px) - var(--recovery-status-block, 0px)));
+}
+@media (max-width: 767px) {
+  .recovery-status { padding: 6px; }
+}
 
 .route-loader {
   min-height: calc(100vh - 70px);
@@ -1193,3 +1201,13 @@ html {
   ::view-transition-old(root),
   ::view-transition-new(root) { animation: none !important; }
 }
+/* A recovery session keeps its actions visible, including short landscape viewports. */
+.owner-recovery-gate { box-sizing: border-box; height: 100dvh; max-width: 48rem; margin: auto; padding: max(16px, env(safe-area-inset-top)) 20px max(16px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 16px; }
+.owner-recovery-gate header, .owner-recovery-gate footer { flex: 0 0 auto; }
+.owner-recovery-gate > .recovery-status-slot { flex: 0 0 auto; }
+.owner-recovery-gate > .recovery-status-slot:empty { display: none; }
+.owner-recovery-gate header h1 { font-size: clamp(20px, 4vw, 28px); margin: 0; }
+.owner-recovery-gate header p { margin: 0 0 8px; }
+.owner-recovery-gate section { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+.owner-recovery-gate footer { display: grid; gap: 8px; }
+.owner-recovery-gate button { min-height: 44px; }

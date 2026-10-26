@@ -1,3 +1,5 @@
+import { learningReviewSql } from "./contentReleasePolicy";
+import { LEXICAL_EXERCISE_SUFFIX } from "../content/lexicalEditorialCatalog";
 import {
   CONTENT_VERSION,
   RELEASED_LESSONS,
@@ -38,8 +40,8 @@ import {
 } from "../content/currentPackage";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
-  promotedCourseReleaseState,
+  isLearningContentAvailable,
+  learningCourseReleaseState,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import type { D1Database, D1RunResult } from "./d1";
@@ -480,7 +482,7 @@ const eligibleEnrollmentSql = `
   AND course.id = ?
   AND course.manifest_hash = ?
   AND course.release_state = ?
-  AND course.linguistic_review_status = 'approved'`;
+  AND ${learningReviewSql()}`;
 
 const eligibleEnrollmentBindings = (
   userId: string,
@@ -547,9 +549,9 @@ export class LearningProjectionRepository {
       releaseState: "beta" | "published",
     ) => Promise<T>,
   ): Promise<T> {
-    const releaseState = promotedCourseReleaseState(this.releasePolicy);
+    const releaseState = learningCourseReleaseState(this.releasePolicy);
     if (
-      !isPromotedContentReleasePolicy(this.releasePolicy)
+      !isLearningContentAvailable(this.releasePolicy)
       || releaseState === null
     ) {
       throw new LearningProjectionContentUnavailableError();
@@ -764,7 +766,11 @@ export class LearningProjectionRepository {
                    AND evidence.outcome = 'correct'
                    AND attempt.used_hint = 0
                    AND attempt.prior_exposure = 0
-                  THEN evidence.activity_id
+                  THEN CASE
+                    WHEN substr(evidence.activity_id, -${LEXICAL_EXERCISE_SUFFIX.length}) = '${LEXICAL_EXERCISE_SUFFIX}'
+                    THEN substr(evidence.activity_id, 1, length(evidence.activity_id) - ${LEXICAL_EXERCISE_SUFFIX.length})
+                    ELSE evidence.activity_id
+                  END
                 END) AS gateEligibleCorrectActivityCount
          FROM learning_evidence evidence
          INNER JOIN learning_attempts attempt

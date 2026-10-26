@@ -1,5 +1,5 @@
 import type { VocabularyItem } from "../types";
-import type { Exercise } from "../lib/exerciseGeneration";
+import type { Exercise } from "../lib/editorialExerciseGeneration";
 import { lexicalBaseExerciseId } from "../content/lexicalEditorialCatalog";
 
 type SpeechExerciseTarget = {

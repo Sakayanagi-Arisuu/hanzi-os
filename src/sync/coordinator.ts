@@ -1,4 +1,12 @@
 import type { LearningState } from "../types";
+import { guestLessonHistoryEvent } from "../learning/lessonHistory";
+import {guestReviewHistoryEvent} from '../learning/reviewHistory';
+import { AccountDeletionPendingError, beginAccountDeletionReceipt, forgetAccountDeletionReceipt, readAccountDeletionReceipts, sendAccountDeletionReceipt } from './accountDeletion';
+import { enableOfflineAccount, readOfflineAccount, revokeOfflineAccount } from './offlineAccount';
+import { readWorkspace, syncWorkspace } from './workspaceSync';
+import { flushIndependentQueues } from './flushIndependentQueues';
+import { readMockPracticeRuns, syncMockPractice } from './offlineMockPractice';
+import { pendingInteractionXp, flushInteractionXp } from './offlineInteractionXp';
 import {
   getOrCreateLocalIdentifier,
   LEARNING_OWNERSHIP_QUARANTINE_STORAGE_KEY,
@@ -31,12 +39,17 @@ import {
   readOwnerDocument,
   readOwnerGeneration,
   readOwnerLocalState,
+  readActiveOwnerLearningScope,
+  LessonHistoryStateChangedError,
   StaleOwnerGenerationError,
   transitionOwnerCheckpoint,
   writeOwnerCheckpoint,
   type OwnerGeneration,
   type PendingSyncOperation,
   type SyncOperationKind,
+  type ActiveOwnerLearningScope,
+  type GuestLessonHistoryCommit,
+  type DocumentMutationCommit,
 } from "./indexedDb";
 import {
   hashSyncPushOperation,
@@ -261,6 +274,7 @@ export class LearningSyncCoordinator {
   private document: CloudSyncDocumentV1;
   private session: CloudSession | null = null;
   private identityChecked = false;
+  private offlineSession = false;
   private ownerChangedDuringResolution = false;
   private status: LearningSyncStatus;
   private disposed = false;
@@ -390,6 +404,101 @@ export class LearningSyncCoordinator {
     return durable;
   }
 
+  recordDocumentMutation(scope: ActiveOwnerLearningScope, update: (current: LearningState) => LearningState): Promise<void> {
+    const durable = this.enqueueWork(() => this.withRequiredLock(async () => {
+      const { parsePersistedLearningState } = await import('../lib/learningStatePersistence');
+      for (let retry = 0; retry < 5; retry++) {
+        this.assertActive();
+        const active = await readActiveOwnerLearningScope();
+        if (!active || active.ownerGeneration.ownerKey !== scope.ownerGeneration.ownerKey
+          || active.ownerGeneration.generation !== scope.ownerGeneration.generation || active.resetEpoch !== scope.resetEpoch
+          || this.ownerKey !== scope.ownerGeneration.ownerKey) throw new StaleOwnerGenerationError();
+        const stored = await readOwnerLocalState(this.ownerKey) ?? this.options.getState();
+        if (!parsePersistedLearningState(stored, this.options.initialState).ok) throw new Error('Unreadable learner data; retain source.');
+        const checkpoint = await readOwnerDocument(this.ownerKey);
+        const next = update(stored);
+        if (canonicalStringify(next) === canonicalStringify(stored)) return;
+        const operationId = createOperationId('snapshot');
+        const now = new Date().toISOString();
+        const previousDocument = this.document;
+        this.document = evolveSyncDocument(checkpoint?.document ?? this.document, stored, next, now, operationId, 'snapshot');
+        try {
+          await this.queueDocumentOperation(operationId, 'snapshot', now, next, undefined, undefined, undefined,
+            { scope, expectedState: stored });
+        } catch (error) {
+          this.document = previousDocument;
+          if (error instanceof LessonHistoryStateChangedError) continue;
+          throw error;
+        }
+        const current = await readActiveOwnerLearningScope();
+        if (!current || current.ownerGeneration.ownerKey !== scope.ownerGeneration.ownerKey
+          || current.ownerGeneration.generation !== scope.ownerGeneration.generation || current.resetEpoch !== scope.resetEpoch) throw new StaleOwnerGenerationError();
+        if (!this.options.applyState(next)) throw new Error('Dữ liệu đã lưu trong nhật ký thiết bị; mở lại để cập nhật màn hình.');
+        return;
+      }
+      throw new LessonHistoryStateChangedError('Hồ sơ đã đổi ở cửa sổ khác; dữ liệu cũ vẫn được giữ.');
+    }), true);
+    void durable.then(() => {
+      if (this.session?.authenticated && navigator.onLine && !this.disposed) void this.syncNow();
+    }, () => undefined);
+    return durable;
+  }
+
+  recordLessonAttempt(
+    scope: ActiveOwnerLearningScope,
+    idempotencyKey: string,
+    update: (current: LearningState) => LearningState,
+    historySource:'lesson'|'review'|'activity'='lesson',
+  ): Promise<void> {
+    return this.enqueueWork(() => this.withRequiredLock(async () => {
+      const { parsePersistedLearningState } = await import("../lib/learningStatePersistence");
+      for (let retry = 0; retry < 5; retry++) {
+        this.assertActive();
+        const active = await readActiveOwnerLearningScope();
+        if (!active || active.ownerGeneration.ownerKey !== scope.ownerGeneration.ownerKey
+          || active.ownerGeneration.generation !== scope.ownerGeneration.generation
+          || active.resetEpoch !== scope.resetEpoch || this.ownerKey !== scope.ownerGeneration.ownerKey
+          || !this.ownerKey.startsWith("anonymous:") || this.session?.authenticated)
+          throw new StaleOwnerGenerationError();
+        const stored = await readOwnerLocalState(this.ownerKey) ?? this.options.getState();
+        const parsed = parsePersistedLearningState(stored, this.options.initialState);
+        if (!parsed.ok) throw new Error("Chưa đọc được lượt học đã lưu. Dữ liệu cũ vẫn được giữ trên thiết bị.");
+        const previous = stored;
+        const checkpoint = await readOwnerDocument(this.ownerKey);
+        const next = update(previous);
+        if (next === previous) return;
+        const evidence = next.evidence.find((item) => item.idempotencyKey === idempotencyKey);
+        if (!evidence) throw new Error("Chưa lưu được lượt trả lời. Dữ liệu đã có vẫn được giữ.");
+        const { guestActivityHistoryEvent } = await import('../learning/activityHistory');
+        const event = (historySource==='review'?guestReviewHistoryEvent:historySource==='activity'?guestActivityHistoryEvent:guestLessonHistoryEvent)({ ownerKey: this.ownerKey, resetEpoch: scope.resetEpoch,
+          installationId: this.installationId, deviceId: this.deviceId, evidence });
+        const operationId = createOperationId("snapshot");
+        const now = new Date().toISOString();
+        const previousDocument = this.document;
+        this.document = evolveSyncDocument(checkpoint?.document ?? this.document, previous, next, now, operationId, "snapshot");
+        try {
+          await this.queueDocumentOperation(operationId, "snapshot", now, next, undefined, undefined,
+            { scope, event, expectedState: stored });
+        } catch (error) {
+          this.document = previousDocument;
+          if (error instanceof LessonHistoryStateChangedError) continue;
+          throw error;
+        }
+        const currentScope = await readActiveOwnerLearningScope();
+        if (!currentScope || currentScope.ownerGeneration.ownerKey !== scope.ownerGeneration.ownerKey
+          || currentScope.ownerGeneration.generation !== scope.ownerGeneration.generation
+          || currentScope.resetEpoch !== scope.resetEpoch) throw new StaleOwnerGenerationError();
+        if (!this.options.applyState(next)) throw new Error("Lượt trả lời đã được lưu. Hãy mở lại bài để cập nhật màn hình.");
+        return;
+      }
+      throw new LessonHistoryStateChangedError("Bài đã thay đổi ở cửa sổ khác. Hãy mở lại để tiếp tục lượt đã lưu.");
+    }), true);
+  }
+
+  recordReviewGrade(scope:ActiveOwnerLearningScope,idempotencyKey:string,update:(current:LearningState)=>LearningState){
+    return this.recordLessonAttempt(scope,idempotencyKey,update,'review');
+  }
+
   syncNow() {
     return this.enqueueWork(async () => {
       await this.followPersistedOwnerIfChanged();
@@ -413,14 +522,14 @@ export class LearningSyncCoordinator {
               error: null,
             });
           } else {
-            this.publishStatus({ phase: "checking", error: null });
+            if (!await this.restoreOfflineSession()) this.publishStatus({ phase: "checking", error: null });
           }
           return;
         }
         this.publishStatus({ phase: "offline", error: null });
         return;
       }
-      if (!this.session?.authenticated) {
+      if (!this.session?.authenticated || this.offlineSession || this.status.phase === 'error') {
         if (!await this.resolveSessionAndOwner()) return;
         if (!this.ownerChangedDuringResolution) {
           await this.reconcileCurrentProjection();
@@ -484,22 +593,32 @@ export class LearningSyncCoordinator {
           throw new Error("Cần đồng bộ hết tiến độ trước khi xóa tài khoản.");
         }
 
-        const response = await fetch("/api/account", {
-          method: "DELETE",
-          headers: {
-            ...noStoreJsonHeaders,
-            accept: "application/json",
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ confirmation: "DELETE HANZI.OS" }),
-          cache: "no-store",
-          credentials: "same-origin",
-          signal: this.lifecycle.signal,
-        });
+        const receipt = beginAccountDeletionReceipt(this.ownerKey);
+        let deleted = await sendAccountDeletionReceipt(receipt, this.lifecycle.signal);
+        if (!deleted) deleted = await sendAccountDeletionReceipt(receipt, this.lifecycle.signal);
         this.assertActive();
-        if (!response.ok) throw new Error(await this.readApiError(response));
+        if (!deleted) throw new AccountDeletionPendingError('Yêu cầu xóa đang được xử lý. Dữ liệu trên thiết bị vẫn được giữ; bạn có thể kiểm tra kết quả trong Hồ sơ.');
 
-        const deletedOwner = this.ownerKey;
+        await this.finishDeletedOwnerUnlocked(this.ownerKey, receipt.token);
+      });
+    }, true);
+  }
+
+  resumeAccountDeletion(): Promise<boolean> {
+    let pending = false;
+    return this.enqueueWork(async () => {
+      await this.withRequiredLock(async () => {
+        for (const receipt of readAccountDeletionReceipts()) {
+          if (!await sendAccountDeletionReceipt(receipt, this.lifecycle.signal)) { pending = true; continue; }
+          this.assertActive();
+          await this.finishDeletedOwnerUnlocked(receipt.ownerKey, receipt.token);
+        }
+      });
+    }, true).then(() => pending);
+  }
+
+  private async finishDeletedOwnerUnlocked(deletedOwner: string, token: string) {
+    if (deletedOwner === this.ownerKey) {
         const anonymousSession: CloudSession = {
           authenticated: false,
           user: null,
@@ -510,8 +629,6 @@ export class LearningSyncCoordinator {
           anonymousSession,
         );
         this.assertActive();
-        await deleteOwnerData(deletedOwner);
-        this.assertActive();
         this.session = anonymousSession;
         const nextQueueCounts = await this.readCurrentQueueCounts();
         this.publishStatus({
@@ -521,8 +638,10 @@ export class LearningSyncCoordinator {
           ...nextQueueCounts,
           error: null,
         });
-      });
-    }, true);
+    }
+    await deleteOwnerData(deletedOwner);
+    forgetAccountDeletionReceipt(deletedOwner, token);
+    this.assertActive();
   }
 
   private enqueueWork(work: () => Promise<void>, propagate = false) {
@@ -646,6 +765,17 @@ export class LearningSyncCoordinator {
     }
   }
 
+  private async restoreOfflineSession() {
+    const session = await readOfflineAccount(this.ownerKey);
+    this.assertActive();
+    if (!session) return false;
+    this.session = session;
+    this.offlineSession = true;
+    this.identityChecked = true;
+    this.publishStatus({ phase: 'offline', session, ownerKey: this.ownerKey, error: null });
+    return true;
+  }
+
   private async resolveSessionAndOwner() {
     this.ownerChangedDuringResolution = false;
     let response: Response;
@@ -654,10 +784,11 @@ export class LearningSyncCoordinator {
         headers: { accept: "application/json" },
         cache: "no-store",
         credentials: "same-origin",
-        signal: this.lifecycle.signal,
+        signal: AbortSignal.any([this.lifecycle.signal, AbortSignal.timeout(12_000)]),
       });
     } catch {
       this.assertActive();
+      if (await this.restoreOfflineSession()) return false;
       if (
         !navigator.onLine
         && this.ownerKey.startsWith("anonymous:")
@@ -682,10 +813,18 @@ export class LearningSyncCoordinator {
       return false;
     }
     this.assertActive();
-    if (!response.ok) throw new Error("Không thể kiểm tra phiên đăng nhập.");
+    if (!response.ok) {
+      if ((response.status >= 500 || response.status === 408 || response.status === 429)
+        && await this.restoreOfflineSession()) return false;
+      throw new Error("Không thể kiểm tra phiên đăng nhập.");
+    }
     const session: unknown = await response.json();
     this.assertActive();
     if (!isCloudSession(session)) throw new Error("Phản hồi phiên đăng nhập không hợp lệ.");
+    if (!session.authenticated && !this.ownerKey.startsWith('anonymous:') && await this.restoreOfflineSession()) {
+      this.publishStatus({ error: 'Phiên máy chủ đã hết hạn. Tiến trình vẫn được lưu trong tài khoản này; đăng nhập lại để đồng bộ.' });
+      return false;
+    }
     const nextOwner = session.authenticated
       ? session.accountKey
       : anonymousOwnerKey(this.installationId);
@@ -703,10 +842,12 @@ export class LearningSyncCoordinator {
     }
     this.assertActive();
     this.session = session;
+    this.offlineSession = false;
     this.identityChecked = true;
     this.anonymousOwnershipProven = !session.authenticated;
     this.ownerBindingEstablished = true;
     writeLocalStorage(LEARNING_OWNER_STORAGE_KEY, this.ownerKey);
+    if (session.authenticated) await enableOfflineAccount(session);
     this.publishStatus({ session, ownerKey: this.ownerKey, error: null });
     return true;
   }
@@ -735,6 +876,7 @@ export class LearningSyncCoordinator {
       restoreTargetCheckpoint?: boolean;
     } = {},
   ) {
+    await revokeOfflineAccount();
     const previousOwner = this.ownerKey;
     const previousDocument = this.document;
     const previousRevision = this.revision;
@@ -1113,6 +1255,7 @@ export class LearningSyncCoordinator {
   }
 
   private async pullAndFlushUnlocked() {
+      if (this.offlineSession) return;
       this.publishStatus({ phase: "syncing", error: null });
       const response = await fetch(SYNC_ENDPOINT, {
         headers: { accept: "application/json" },
@@ -1159,6 +1302,16 @@ export class LearningSyncCoordinator {
         }
       }
       await this.flushUnlocked();
+      if (!this.offlineSession && this.session?.authenticated) {
+        const scope = { ownerGeneration: await this.requireCurrentOwnerGeneration(), resetEpoch: this.document.reset.epoch };
+        const signal = AbortSignal.any([this.lifecycle.signal, AbortSignal.timeout(30_000)]);
+        await flushIndependentQueues([
+          async () => { if ((await pendingInteractionXp(scope)).length) await flushInteractionXp(scope, signal); },
+          async () => { if ((await readMockPracticeRuns(scope)).some(run => run.submittedAt && !run.result)) await syncMockPractice(scope, signal); },
+          async () => { if ((await readWorkspace(scope)).pending.length) await syncWorkspace(scope, signal); },
+        ]);
+        await this.updatePendingCount();
+      }
   }
 
   private async flush() {
@@ -1166,6 +1319,7 @@ export class LearningSyncCoordinator {
   }
 
   private async flushUnlocked() {
+    if (this.offlineSession) return;
     if (!this.session?.authenticated || !navigator.onLine) return;
     this.publishStatus({ phase: "syncing", error: null });
     const operations = await listPendingOperations(this.ownerKey);
@@ -1247,7 +1401,7 @@ export class LearningSyncCoordinator {
   }
 
   private async flushNormalizedLearningCommandsUnlocked() {
-    if (!this.session?.authenticated || !navigator.onLine) {
+    if (!this.session?.authenticated || this.offlineSession || !navigator.onLine) {
       await this.updatePendingCount();
       return;
     }
@@ -1255,6 +1409,7 @@ export class LearningSyncCoordinator {
     const resetEpoch = this.document.reset.epoch;
     await this.assertNormalizedDeliveryFence(ownerGeneration, resetEpoch);
     const baseTransport = createSameOriginLearningCommandTransport({
+      expectedOwnerKey: ownerGeneration.ownerKey,
       origin: typeof location === "undefined"
         ? "http://localhost"
         : location.origin,
@@ -1405,6 +1560,10 @@ export class LearningSyncCoordinator {
   }
 
   private async handleUnauthorizedUnlocked() {
+    if (await this.restoreOfflineSession()) {
+      this.publishStatus({ error: 'Phiên máy chủ đã hết hạn. Tiến trình vẫn được giữ; đăng nhập lại để đồng bộ.' });
+      return;
+    }
     const anonymousSession: CloudSession = {
       authenticated: false,
       user: null,
@@ -1434,6 +1593,8 @@ export class LearningSyncCoordinator {
     localState: LearningState,
     sourceOwnerToDelete?: string,
     transitionGeneration?: OwnerGeneration,
+    lessonHistory?: GuestLessonHistoryCommit,
+    documentMutation?: DocumentMutationCommit,
   ): Promise<OwnerGeneration> {
     const expectedOwnerGeneration = transitionGeneration
       ?? await this.requireCurrentOwnerGeneration();
@@ -1465,7 +1626,7 @@ export class LearningSyncCoordinator {
         expectedOwnerGeneration,
       );
     } else {
-      await enqueueSyncOperation(operation, localState, expectedOwnerGeneration);
+      await enqueueSyncOperation(operation, localState, expectedOwnerGeneration, lessonHistory, documentMutation);
     }
     if (!this.disposed) {
       this.broadcast?.postMessage({ type: "queued", ownerKey: this.ownerKey });
@@ -1565,9 +1726,11 @@ export class LearningSyncCoordinator {
   private async readCurrentQueueCounts() {
     const ownerKey = this.ownerKey;
     const ownerGeneration = await this.requireCurrentOwnerGeneration();
-    const [pendingCount, normalized] = await Promise.all([
+    const scope = { ownerGeneration, resetEpoch: this.document.reset.epoch };
+    const [pendingCount, normalized, workspace, exams, xp] = await Promise.all([
       countPendingOperations(ownerKey),
       summarizeLearningCommandQueue(ownerGeneration),
+      readWorkspace(scope), readMockPracticeRuns(scope), pendingInteractionXp(scope),
     ]);
     this.assertActive();
     if (
@@ -1578,7 +1741,7 @@ export class LearningSyncCoordinator {
       throw new StaleOwnerGenerationError();
     }
     return {
-      pendingCount,
+      pendingCount: pendingCount + workspace.pending.length + exams.filter(run => run.submittedAt && !run.result).length + xp.length,
       normalizedPendingCount: normalized.pendingCount,
       normalizedQuarantinedCount: normalized.quarantinedCount,
     };

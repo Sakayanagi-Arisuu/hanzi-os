@@ -8,9 +8,10 @@ import {
   type ReaderJourneyStage,
 } from "../reader/ReaderExperience";
 import { useLearning } from "../store/LearningStore";
+import { savePracticeMistake } from '../mistakes/practiceMistakes';
 
 export function LocalReaderPage() {
-  const { state, actions } = useLearning();
+  const { state, actions, sync } = useLearning();
   const story = RELEASED_STORIES.find((item) => item.id === "first-day");
   const [stage, setStage] = useState<ReaderJourneyStage>("shelf");
   const [answer, setAnswer] = useState<string | null>(null);
@@ -19,6 +20,8 @@ export function LocalReaderPage() {
     makeIdempotencyKey("reader-local-check")
   );
   const [usedSupport, setUsedSupport] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   if (!story || !story.comprehension[0]) {
     return (
@@ -33,30 +36,26 @@ export function LocalReaderPage() {
   const question = story.comprehension[0];
   const correct = answer === question.correctAnswer;
 
-  const submitAnswer = () => {
-    if (!answer || checked) return;
-    setChecked(true);
-    actions.recordPracticeEvidence({
-      idempotencyKey: evidenceKey,
-      activityVersion: `${story.contentVersion}:${question.id}:1`,
-      source: "reader",
-      method: "reading-comprehension",
-      activityId: `${story.id}:${question.id}`,
-      skill: "reading",
-      outcome: correct ? "correct" : "incorrect",
-      score: correct ? 100 : 0,
-      metadata: {
-        selectedAnswer: answer,
-        correctAnswer: question.correctAnswer,
-        translationVisible: usedSupport,
-        usedHint: usedSupport,
-        priorExposure: state.evidence.some((item) =>
-          item.activityId === `${story.id}:${question.id}`
-        ),
-        measurementEligible: false,
-        answerExposure: "public-client",
-      },
+  const submitAnswer = async () => {
+    if (!answer || checked || busy) return;
+    setBusy(true); setSaveError(null);
+    try {
+    await actions.recordPracticeEvidence({
+      idempotencyKey: evidenceKey, activityVersion: `${story.contentVersion}:${question.id}:1`, source: 'reader',
+      method: 'reading-comprehension', activityId: `${story.id}:${question.id}`, skill: 'reading',
+      outcome: correct ? 'correct' : 'incorrect', score: correct ? 100 : 0,
+      metadata: { selectedAnswer: answer, correctAnswer: question.correctAnswer, usedHint: usedSupport,
+        translationVisible: usedSupport, measurementEligible: false, answerExposure: 'public-client',
+        priorExposure: state.evidence.some(item => item.activityId === `${story.id}:${question.id}`) },
     });
+    if (!correct) await savePracticeMistake(sync.ownerKey, {
+      version: 1, source: 'reader', activityId: `${story.id}:${question.id}`, activityVersion: `${story.contentVersion}:${question.id}:1`,
+      originId: evidenceKey, prompt: question.prompt, context: story.sentences.map(sentence => sentence.chinese).join('\n'), answer: question.correctAnswer,
+      options: question.options, explanation: question.explanation, sourceLabel: story.title, occurredAt: new Date().toISOString(),
+    });
+    setChecked(true);
+    } catch { setSaveError('Chưa lưu được câu trả lời. Dữ liệu cũ vẫn được giữ; hãy thử lại.'); }
+    finally { setBusy(false); }
   };
 
   const restart = () => {
@@ -68,7 +67,10 @@ export function LocalReaderPage() {
   };
 
   return (
+    <>
+    {saveError && <p role="alert">{saveError}</p>}
     <ReaderExperience
+      busy={busy}
       story={story}
       stage={stage}
       checkpoint={stage === "checkpoint" ? {
@@ -101,5 +103,6 @@ export function LocalReaderPage() {
       onContinueCheckpoint={() => setStage("result")}
       onRestart={restart}
     />
+    </>
   );
 }

@@ -32,12 +32,25 @@ export const initialReaderProgressScope = (
 const parseStoredValue = (
   raw: string | null,
   scope: ReaderProgressScope,
+  legacy = false,
 ) => {
   if (!raw) return null;
   try {
-    return parseReaderProgress(JSON.parse(raw), scope);
+    const value = JSON.parse(raw) as Partial<ReaderProgressDocument>;
+    if (legacy && value?.ownerKey !== scope.ownerKey) return null;
+    if (!value || ![1, 2].includes(Number(value.schemaVersion)) || value.ownerKey !== scope.ownerKey) throw new Error('Unsupported reader progress');
+    if (value.schemaVersion === 2 && (value.ownerGeneration !== scope.ownerGeneration || value.resetEpoch !== scope.resetEpoch
+      || !value.chapters || typeof value.chapters !== 'object' || Array.isArray(value.chapters)
+      || value.savedEntries !== undefined && (!value.savedEntries || typeof value.savedEntries !== 'object')
+      || value.supportEvents !== undefined && !Array.isArray(value.supportEvents))) throw new Error('Unreadable reader scope');
+    const document = parseReaderProgress(value, scope, new Date().toISOString(), true);
+    if (value.schemaVersion === 2 && (
+      Object.keys(value.chapters!).length > 0 && Object.keys(document.chapters).length === 0
+      || Object.keys(value.savedEntries ?? {}).length > 0 && Object.keys(document.savedEntries).length === 0
+      || (value.supportEvents?.length ?? 0) > 0 && document.supportEvents.length === 0)) throw new Error('Unreadable reader data');
+    return document;
   } catch {
-    return createEmptyReaderProgress(scope);
+    throw new Error('Không đọc được dữ liệu Reader. Bản gốc được giữ để khôi phục; không ghi đè bằng dữ liệu rỗng.');
   }
 };
 
@@ -45,16 +58,22 @@ export const readReaderProgress = (
   scope: ReaderProgressScope,
 ): ReaderProgressDocument => {
   const current = parseStoredValue(
-    readLocalStorage(readerProgressStorageKey(scope)),
+    readReaderStorage(readerProgressStorageKey(scope)),
     scope,
   );
   if (current) return current;
   const legacy = parseStoredValue(
-    readLocalStorage(READER_PROGRESS_LEGACY_STORAGE_KEY),
+    readReaderStorage(READER_PROGRESS_LEGACY_STORAGE_KEY),
     scope,
+    true,
   );
   return legacy ?? createEmptyReaderProgress(scope);
 };
+
+function readReaderStorage(key: string) {
+  try { return typeof localStorage === 'undefined' ? null : localStorage.getItem(key); }
+  catch { throw new Error('Chưa đọc được kho Reader. Dữ liệu cũ không bị thay thế.'); }
+}
 
 export const writeReaderProgress = (document: ReaderProgressDocument) =>
   writeLocalStorage(

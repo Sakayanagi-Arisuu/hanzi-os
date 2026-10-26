@@ -12,6 +12,9 @@ const workerPath = resolve(root, "dist/server/index.js");
 const host = process.env.E2E_HOST ?? "127.0.0.1";
 const port = Number.parseInt(process.env.E2E_PORT ?? "4173", 10);
 const readyNonce = process.env.E2E_READY_NONCE ?? "";
+const localApiOrigin = process.env.HANZI_OFFLINE_LOCAL_API_ORIGIN;
+if (localApiOrigin && (!["127.0.0.1", "localhost"].includes(new URL(localApiOrigin).hostname)
+  || !["127.0.0.1", "localhost"].includes(host))) throw new Error('Offline preview proxy must stay on loopback');
 const productionOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? `http://${host}:${port}`;
 const brotliCompress = promisify(brotliCompressCallback);
 const assetBufferCache = new Map();
@@ -185,6 +188,25 @@ const server = createServer(async (incoming, outgoing) => {
       },
     );
     const url = new URL(request.url);
+    if (localApiOrigin && url.pathname.startsWith('/api/')) {
+      const headers = new Headers(request.headers);
+      headers.delete('host');
+      headers.delete('accept-encoding');
+      if (headers.has('origin')) headers.set('origin', localApiOrigin);
+      if (headers.has('referer')) headers.set('referer', new URL(url.pathname, localApiOrigin).href);
+      const upstream = await fetch(new URL(url.pathname + url.search, localApiOrigin), {
+        method, headers, redirect: 'manual',
+        ...(hasBody ? { body: request.body, duplex: 'half' } : {}),
+      });
+      outgoing.statusCode = upstream.status;
+      upstream.headers.forEach((value, name) => {
+        if (!['content-encoding', 'content-length', 'set-cookie'].includes(name)) outgoing.setHeader(name, value);
+      });
+      if (upstream.headers.getSetCookie().length) outgoing.setHeader('set-cookie', upstream.headers.getSetCookie());
+      if (upstream.body) Readable.fromWeb(upstream.body).pipe(outgoing);
+      else outgoing.end();
+      return;
+    }
     const staticResponse = url.pathname.startsWith("/assets/")
       ? await fetchAsset(request)
       : null;

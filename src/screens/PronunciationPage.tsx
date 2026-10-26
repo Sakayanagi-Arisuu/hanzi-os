@@ -56,6 +56,8 @@ import {
   parseLocalVoiceConsentReceipt,
 } from "../lib/voiceConsent";
 import { useLearning } from "../store/LearningStore";
+import { currentWorkspaceScope } from '../sync/workspaceSync';
+import { saveSpeechSupport } from '../sync/speechSupport';
 import type { MandarinTone } from "../types";
 
 type CapturePhase = VoicePlaybackPhase
@@ -286,6 +288,8 @@ export function PronunciationPage() {
     activityId: string;
   } | null>(null);
   const rewardedMissionRef = useRef("");
+  const supportBusy = useRef(false);
+  const supportRetry = useRef<{ key: string; operationId: string } | null>(null);
   const phrase = practicePhrases[Math.min(phraseIndex, Math.max(0, practicePhrases.length - 1))];
   const activeToneData = toneData.find((tone) => tone.id === activeTone) ?? toneData[0];
   const phraseVoiceSource = `pronunciation:phrase:${phrase.id}`;
@@ -662,26 +666,46 @@ export function PronunciationPage() {
     if (nextOffset !== undefined) movePhrase(nextOffset);
   };
 
-  const playPhraseSample = () => {
+  const recordSupport = async (kind: 'phrase-tts' | 'word-tts' | 'audio-bypass', apply: () => void) => {
+    if (supportBusy.current) return;
+    supportBusy.current = true;
+    const attempt = activeAttemptRef.current;
+    try {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Learning scope changed');
+      const key = JSON.stringify([scope.ownerGeneration, scope.resetEpoch, phrase.id, kind]);
+      const operationId = supportRetry.current?.key === key ? supportRetry.current.operationId : `speech-support:${crypto.randomUUID()}`;
+      supportRetry.current = { key, operationId };
+      await saveSpeechSupport(scope, { activityId: phrase.activityId, phraseId: phrase.id, sourceWordId: phrase.focusWordId,
+        lessonId: mission.anchorLessonId, chinese: phrase.chinese, focusWord: phrase.focusWord,
+        contentVersion: CONTENT_VERSION, presentationVersion: LEXICAL_EDITORIAL_VERSION }, operationId, kind);
+      supportRetry.current = null;
+      if (attempt !== activeAttemptRef.current) return;
+      apply();
+    } catch { setError('Chưa lưu được lựa chọn hỗ trợ. Dữ liệu cũ vẫn được giữ; hãy thử lại.'); }
+    finally { supportBusy.current = false; }
+  };
+
+  const playPhraseSample = () => void recordSupport('phrase-tts', () => {
     const started = speakMandarin(phrase.chinese, 0.68, phraseVoiceSource);
     if (!started) {
       setError("Thiết bị chưa phát được âm mẫu tổng hợp. Bạn có thể bỏ hướng dẫn âm thanh và tự đọc.");
     }
-  };
+  });
 
-  const playFocusWord = () => {
+  const playFocusWord = () => void recordSupport('word-tts', () => {
     const started = speakMandarin(phrase.focusWord, 0.58, focusWordVoiceSource);
     if (!started) {
       setError("Thiết bị chưa phát được từ mẫu tổng hợp. Bạn có thể bỏ hướng dẫn âm thanh và tự đọc.");
     }
-  };
+  });
 
-  const skipAudioGuidance = () => {
+  const skipAudioGuidance = () => void recordSupport('audio-bypass', () => {
     cancelSpeech();
     setHeardFocusWordIds((current) => new Set(current).add(phrase.id));
     setHeardPhraseIds((current) => new Set(current).add(phrase.id));
     setError("");
-  };
+  });
 
   const completeWithoutRecognition = () => {
     cancelSpeech();
@@ -1032,7 +1056,7 @@ export function PronunciationPage() {
     setError("");
     setScore(null);
     setTranscript("");
-    recognition.onresult = (event) => {
+    recognition.onresult = async (event) => {
       if (attemptId !== activeAttemptRef.current) return;
       const result = event.results[0]?.[0];
       if (!result) return;
@@ -1042,11 +1066,8 @@ export function PronunciationPage() {
       const nextScore = transcriptMatchScore(result.transcript, targetChinese);
       const cleared = nextScore >= TRANSCRIPT_CLEAR_THRESHOLD;
 
-      if (cleared && !acousticScoringWasSelected) {
-        setCompletedPhraseIds((current) => new Set(current).add(targetPhraseId));
-      }
-
-      actions.recordPracticeEvidence({
+      try {
+      await actions.recordPracticeEvidence({
         idempotencyKey,
         activityVersion: `${CONTENT_VERSION}:browser-speech:2:${LEXICAL_EDITORIAL_VERSION}`,
         source: "pronunciation",
@@ -1068,9 +1089,17 @@ export function PronunciationPage() {
         },
       });
 
+      if (cleared && !acousticScoringWasSelected) {
+        setCompletedPhraseIds((current) => new Set(current).add(targetPhraseId));
+      }
+
       setTranscript(result.transcript);
       setScore(nextScore);
       setCapturePhase("result");
+      } catch {
+        setError('Chưa lưu được lượt luyện. Kết quả cũ được giữ; hãy thử lại.');
+        setCapturePhase('error');
+      }
     };
     recognition.onerror = (event) => {
       const denied = event.error === "not-allowed";

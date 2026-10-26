@@ -1,24 +1,20 @@
-import type { CSSProperties } from "react";
+import { ShieldCheck, ArrowLeft, BookOpenText, LayoutDashboard } from "lucide-react";
 import { AuthConsole } from "../../../src/components/AuthConsole";
+import { WorkspaceSignOut } from "../../../src/components/WorkspaceSignOut";
 import { getAuthenticatedUser } from "../../chatgpt-auth";
-
+import { resolveAuthorizedAccount } from '../../../src/server/authorizationRepository';
+import { getD1Database } from '../../../src/server/d1';
+import { hasPermission } from '../../../src/auth/authorization';
+import "../../thien-van.css";
+import "./security.css";
 export const dynamic = "force-dynamic";
-
-const page: CSSProperties = { minHeight: "100vh", padding: "clamp(20px,5vw,64px)", color: "#dcebe7", background: "radial-gradient(circle at 80% 0,#123d32 0,transparent 34%),#020907", fontFamily: "Inter,system-ui,sans-serif" };
-const shell: CSSProperties = { width: "min(900px,100%)", margin: "0 auto" };
-
 export default async function AccountSecurityPage() {
   const identity = await getAuthenticatedUser();
-  if (!identity) {
-    return <main style={page}><div style={shell}><h1>Bảo mật tài khoản</h1><p>Hãy đăng nhập để quản lý phương thức và phiên.</p><a href="/signin" style={{ color: "#61f2c0" }}>Mở đăng nhập</a></div></main>;
-  }
-  return (
-    <main style={page}>
-      <div style={shell}>
-        <nav style={{ display: "flex", justifyContent: "space-between", gap: 12 }}><a href="/profile" style={{ color: "#91aaa3", textDecoration: "none", fontSize: 12 }}>← Bảng Thuộc Tính</a><a href="/" style={{ color: "#91aaa3", textDecoration: "none", fontSize: 12 }}>HANZI.OS</a></nav>
-        <header style={{ padding: "38px 0 24px" }}><span style={{ color: "#61f2c0", fontFamily: "ui-monospace,monospace", fontSize: 11, letterSpacing: ".16em" }}>ACCOUNT SECURITY</span><h1 style={{ margin: "10px 0", fontSize: "clamp(34px,7vw,60px)", letterSpacing: "-.05em" }}>Bảo mật tài khoản</h1><p style={{ color: "#91aaa3", lineHeight: 1.7 }}>Quản lý danh tính đã xác minh, passkey và các phiên đang hoạt động mà không chạm vào dữ liệu học riêng.</p></header>
-        <AuthConsole mode="security" />
-      </div>
-    </main>
-  );
+  const account=identity?await resolveAuthorizedAccount(await getD1Database(),identity).catch(()=>null):null;
+  return <main className="tv-account">
+    <nav className="tv-account-nav" aria-label="Điều hướng tài khoản"><a className="tv-brand" href="/profile"><span>漢</span><div>HANZI.OS<small>THIÊN VĂN · TÀI KHOẢN</small></div></a><div>{account&&hasPermission(account.authorization,'content:workspace:read')&&<a href="/studio"><BookOpenText size={18}/> Biên Tập Viện</a>}{account&&hasPermission(account.authorization,'admin:users:read')&&<a href="/admin"><LayoutDashboard size={18}/> Quản trị</a>}<a href="/profile"><ArrowLeft size={18}/> Hồ sơ</a>{identity && <WorkspaceSignOut />}</div></nav>
+    <div className="tv-account-body"><header className="tv-hero"><span className="tv-eyebrow"><ShieldCheck size={18}/> BẢO VỆ TÀI KHOẢN</span><h1>Bảo mật tài khoản</h1><p>Quản lý cách đăng nhập và thiết bị của bạn.<br/>Mọi thay đổi đều giữ nguyên tiến độ học.</p></header>
+    {identity ? <AuthConsole mode="security"/> : <section className="auth-card"><h2>Đăng nhập để tiếp tục</h2><p>Chỉ bạn mới có thể quản lý phương thức đăng nhập của mình.</p><a className="auth-button" href="/signin?returnTo=%2Faccount%2Fsecurity">Mở đăng nhập</a></section>}
+    </div>
+  </main>;
 }

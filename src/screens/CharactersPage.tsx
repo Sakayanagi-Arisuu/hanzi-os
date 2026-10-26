@@ -16,8 +16,6 @@ import { useLocation, useNavigate } from "react-router";
 import {
   createCharacterForgeSession,
   getUniqueReleasedCharacterEntries,
-  parseCharacterForgeSession,
-  serializeCharacterForgeSession,
   type CharacterForgeSource,
 } from "../characters/characterForgeSession";
 import { mergePublishedStudioCharacters } from "../content/publishedStudioClient";
@@ -27,12 +25,7 @@ import {
   RELEASED_CHARACTER_PRACTICE,
   type ReleasedCharacterPracticeEntry,
 } from "../learning/richLessonContent";
-import {
-  CHARACTER_FORGE_SESSION_STORAGE_KEY,
-  getCharacterForgeSessionStorageKey,
-  readLocalStorage,
-  writeLocalStorage,
-} from "../lib/storageKeys";
+import { useWritingJournal } from '../sync/useWritingJournal';
 import { stripPinyinMarks } from "../lib/pinyin";
 import { useLearning } from "../store/LearningStore";
 import "./CharactersPage.css";
@@ -152,22 +145,13 @@ export function CharactersPage() {
   }, [pickerOpen]);
   const [missionStrokeCount, setMissionStrokeCount] = useState<number | null>(null);
   const [selectedHanzis, setSelectedHanzis] = useState<string[]>([]);
-  const forgeStorageKey = getCharacterForgeSessionStorageKey(sync.ownerKey);
-  const [resume, setResume] = useState(() => parseCharacterForgeSession(
-    readLocalStorage(forgeStorageKey)
-      ?? (sync.ownerKey.startsWith("anonymous:")
-        ? readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)
-        : null),
-  ));
-
-  useEffect(() => {
-    setResume(parseCharacterForgeSession(
-      readLocalStorage(forgeStorageKey)
-        ?? (sync.ownerKey.startsWith("anonymous:")
-          ? readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)
-          : null),
-    ));
-  }, [forgeStorageKey, sync.ownerKey]);
+  const journal = useWritingJournal(sync.ownerKey, state.contentVersion, characterEntries, state.profile.script);
+  const { start: startJournal, ready: journalReady, busy: journalBusy, error: journalError } = journal;
+  const resume = journal.snapshot
+    ? journal.compatible ? journal.snapshot.session : null
+    : journal.legacyCandidate;
+  const incompatibleResume = journal.ready && Boolean(journal.snapshot) && !journal.compatible;
+  const legacyRequestRef = useRef('');
 
   const counts = useMemo(() => Object.fromEntries(levels.map((item) => [
     item,
@@ -189,16 +173,20 @@ export function CharactersPage() {
     : [], [characterEntries, requestedLesson, requestedLessonId, uniqueCharacters]);
 
   useEffect(() => {
-    if (!requestedCharacter) return;
+    if (!requestedCharacter || !journalReady || journalBusy || journalError) return;
+    const requestKey = JSON.stringify([sync.ownerKey, requestedCharacter, requestedLesson?.id]);
+    if (legacyRequestRef.current === requestKey) return;
     const legacySession = legacyCharacterRequestToSession({
       character: requestedCharacter,
       lessonId: requestedLesson?.id ?? null,
       entries: characterEntries,
     });
     if (!legacySession) return;
-    writeLocalStorage(forgeStorageKey, serializeCharacterForgeSession(legacySession));
-    navigate(`/characters/session?source=legacy&char=${encodeURIComponent(requestedCharacter)}${requestedLesson ? `&lesson=${encodeURIComponent(requestedLesson.id)}` : ""}`, { replace: true });
-  }, [characterEntries, forgeStorageKey, navigate, requestedCharacter, requestedLesson]);
+    legacyRequestRef.current = requestKey;
+    void startJournal(legacySession).then(() => {
+      navigate(`/characters/session?source=legacy&char=${encodeURIComponent(requestedCharacter)}${requestedLesson ? `&lesson=${encodeURIComponent(requestedLesson.id)}` : ""}`, { replace: true });
+    }).catch(() => undefined);
+  }, [characterEntries, journalReady, journalBusy, journalError, startJournal, navigate, requestedCharacter, requestedLesson, sync.ownerKey]);
 
   useEffect(() => {
     if (!pickerOpen) return;
@@ -209,7 +197,7 @@ export function CharactersPage() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [pickerOpen, setPickerOpen]);
 
-  const startSession = ({
+  const startSession = async ({
     source,
     lessonId = null,
     requestedHanzis = [],
@@ -228,10 +216,11 @@ export function CharactersPage() {
       limit,
       offset: new Date().getDate(),
     });
-    if (!session) return;
-    writeLocalStorage(forgeStorageKey, serializeCharacterForgeSession(session));
-    setResume(session);
-    navigate(`/characters/session?source=${source}${lessonId ? `&lesson=${encodeURIComponent(lessonId)}` : ""}`);
+    if (!session || !journal.ready || journal.busy || journal.error) return;
+    try {
+      await journal.start(session);
+      navigate(`/characters/session?source=${source}${lessonId ? `&lesson=${encodeURIComponent(lessonId)}` : ""}`);
+    } catch { return; }
   };
 
   const missionEntry = lessonEntries[0]
@@ -260,7 +249,13 @@ export function CharactersPage() {
       ? {
           label: "Tiếp tục phiên đang dở",
           detail: `Chữ ${resume.currentIndex + 1}/${resume.hanzis.length} · tiến độ đã lưu trên thiết bị`,
-          action: () => navigate("/characters/session?resume=1"),
+            action: async () => {
+              if (journal.busy || !journal.ready || journal.error) return;
+              try {
+                if (!journal.snapshot && journal.legacyCandidate) await journal.start(journal.legacyCandidate, true);
+                navigate("/characters/session?resume=1");
+              } catch { return; }
+            },
         }
       : {
           label: "Bắt đầu Nhìn Xuyên",
@@ -270,6 +265,9 @@ export function CharactersPage() {
 
   return (
     <div className="forge-lobby guild-theme" data-picker-open={pickerOpen}>
+      {journal.error && <div role="alert">{journal.error}<button type="button" disabled={journal.busy} onClick={() => {
+        void journal.retry().then(() => navigate('/characters/session?resume=1')).catch(() => undefined);
+      }}>Thử lưu lại phiên</button></div>}
       <section className="guild-lobby-board" aria-labelledby="forge-lobby-title">
         <GuildBanner />
         <div className="guild-lobby-main">
@@ -291,8 +289,9 @@ export function CharactersPage() {
             </aside>
           </div>
           <section className="guild-journey-panel guild-panel"><h2>HÀNH TRÌNH LUYỆN CHỮ</h2><GuildJourney /></section>
+          {incompatibleResume && <p role="status">Học liệu đã đổi phiên bản. Phiên cũ được giữ; bắt đầu một phiên mới để luyện với nội dung hiện hành.</p>}
           <div className="guild-lobby-actions">
-            <button className="guild-primary" type="button" onClick={primary.action}><Compass /><span>{primary.label}</span><ChevronRight /></button>
+            <button className="guild-primary" type="button" disabled={!journal.ready || journal.busy || Boolean(journal.error)} onClick={primary.action}><Compass /><span>{journal.busy ? 'Đang lưu phiên…' : !journal.ready && !journal.error ? 'Đang đọc phiên…' : primary.label}</span><ChevronRight /></button>
             <button className="guild-secondary" type="button" onClick={() => setPickerOpen(true)}><Target /> Chọn chữ khác</button>
           </div>
           <p className="guild-disclosure"><ShieldCheck size={18} /> Chỉ mở luyện viết khi có dữ liệu thứ tự nét từ nguồn đã ghim.</p>

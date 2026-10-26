@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { accessDay } from "./analyticsActivity";
+import { currentWorkspaceScope, saveWorkspaceChanges } from '../sync/workspaceSync';
 
 const GUEST_ACCESS_KEY = "hanzi-os-guest-access-days-v1";
 export function readGuestAccessDays(): string[] {
@@ -22,6 +23,11 @@ export function useAccessDays(accountKey: string | null | undefined, resolved: b
       pending = true;
       try {
         if (accountKey) {
+          const scope = await currentWorkspaceScope(accountKey);
+          if (!scope) return;
+          await saveWorkspaceChanges(scope, [{ key: `access:${day}`, value: { day, provenance: 'device-visit' } }]);
+          recorded = day;
+          window.dispatchEvent(new Event('hanzi-access-recorded'));
           const response = await fetch("/api/learning/analytics", { method: "POST", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]) });
           if (!response.ok) return;
         } else {

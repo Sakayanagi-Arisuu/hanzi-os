@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { offlineRead } from '../sync/offlineRead';
 import type { Hsk4LevelCheckItem } from "../data/hsk4LevelCheck";
 import { HSK4_LEVEL_CHECK_SESSION_STORAGE_KEY } from "../lib/storageKeys";
 import {
@@ -38,7 +39,7 @@ export function Hsk4LevelCheckPage({ placement = false }: { placement?: boolean 
   const [result, setResult] = useState<{ bank: Hsk4Bank | null; error: string } | null>(null);
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/api/content/premium-level-check", { cache: "no-store", signal: controller.signal })
+    offlineRead("/api/content/premium-level-check", { cache: "no-store", signal: controller.signal })
       .then(async response => {
         if (!response.ok) throw new Error("Chưa tải được Khảo Nghiệm HSK4. Hãy thử lại.");
         const bank = await response.json() as Hsk4Bank;

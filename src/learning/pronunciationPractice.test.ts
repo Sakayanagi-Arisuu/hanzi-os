@@ -457,4 +457,16 @@ describe("pronunciation quest reward", () => {
     expect(result.state.dailyXp).toBe(5 + PRONUNCIATION_QUEST_XP);
     expect(result.state.streak).toBe(2);
   });
+
+  it('keeps lesson rewards and earlier speech missions after a long activity history', () => {
+    const state = makeState();
+    state.activityLog = Array.from({ length: 2001 }, (_, index) => ({
+      id: index === 0 ? 'lesson-reward:boot-1' : `practice-reward:daily-${index}`,
+      type: 'practice', label: 'Đã luyện', xp: 1, occurredAt: '2026-10-01T00:00:00Z',
+    }));
+    const result = applyPronunciationQuestReward(state, 'new-mission');
+    expect(result.state.activityLog).toHaveLength(2002);
+    expect(result.state.activityLog[0].id).toBe('lesson-reward:boot-1');
+    expect(applyPronunciationQuestReward(result.state, 'daily-1').awarded).toBe(false);
+  });
 });

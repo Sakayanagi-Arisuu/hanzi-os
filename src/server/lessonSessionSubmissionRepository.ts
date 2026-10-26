@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION, RELEASED_LESSONS } from "../data/curriculum";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
@@ -13,10 +14,10 @@ import {
   type SubmitLessonSessionReceiptV1,
 } from "../learning/lessonSessionSubmissionProtocol";
 import type { Lesson } from "../types";
-import { OBJECTIVE_SCORING_POLICY_VERSION } from "./attemptScoring";
+import { OBJECTIVE_SCORING_POLICY_VERSION } from "./editorialAttemptScoring";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
 import type { D1Database, D1RunResult } from "./d1";
-import { getAuthoritativeLessonAnswer } from "./authoritativeItemBank";
+import { getAuthoritativeLessonAnswer } from "./editorialItemBank";
 import {
   calculateLessonCompletionScore,
   LESSON_COMPLETION_POLICY_VERSION,
@@ -30,7 +31,7 @@ import {
   CURRENT_LESSON_SESSION_PUBLICATION_POLICY,
   type LessonSessionPublicationPolicy,
 } from "./lessonSessionRepository";
-import { isPromotedContentReleasePolicy } from "./contentReleasePolicy";
+import { isLearningContentAvailable } from "./contentReleasePolicy";
 import {
   CURRENT_LEARNING_RESET_EPOCH_SQL,
   requireCurrentLearningResetEpoch,
@@ -362,7 +363,7 @@ export class LessonSessionSubmissionRepository {
              AND enrollment.course_version_id = ?
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
              AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
              AND (
                SELECT COUNT(*) FROM learning_attempts attempt
@@ -638,7 +639,7 @@ export class LessonSessionSubmissionRepository {
   }
 
   private requirePromotedPackage() {
-    if (!isPromotedContentReleasePolicy(this.publicationPolicy)) {
+    if (!isLearningContentAvailable(this.publicationPolicy)) {
       throw new LessonSessionSubmissionUnavailableError(
         "The immutable current content package has not passed promotion gates.",
       );
@@ -676,7 +677,7 @@ export class LessonSessionSubmissionRepository {
          AND enrollment.course_version_id = ?
          AND course.manifest_hash = ?
          AND course.release_state IN ('beta', 'published')
-         AND course.linguistic_review_status = 'approved'
+         AND ${learningReviewSql()}
        LIMIT 1`,
     ).bind(
       userId,

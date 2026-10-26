@@ -1,4 +1,5 @@
 import type { ReaderChapter, ReaderSeries } from "./readerContentModel";
+import { offlineRead } from '../../sync/offlineRead';
 
 let catalogCache: Promise<ReaderSeries[]> | null = null;
 
@@ -9,7 +10,7 @@ const readJson = async (response: Response) => {
 
 export const loadEditorialReaderCatalog = (options: { retry?: boolean } = {}) => {
   if (options.retry) catalogCache = null;
-  catalogCache ??= fetch("/api/reader/editorial/catalog", {
+  catalogCache ??= offlineRead("/api/reader/editorial/catalog", {
     credentials: "same-origin",
     cache: "no-store",
   })
@@ -37,7 +38,7 @@ export const loadEditorialReaderChapter = async (
   seriesId: string,
   chapterId: string,
 ) => {
-  const payload = await fetch(
+  const payload = await offlineRead(
     `/api/reader/editorial/chapters/${encodeURIComponent(seriesId)}/${encodeURIComponent(chapterId)}`,
     { credentials: "same-origin", cache: "no-store" },
   ).then(readJson);

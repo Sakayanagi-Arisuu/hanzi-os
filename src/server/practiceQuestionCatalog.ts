@@ -1,5 +1,5 @@
 import { CONTENT_VERSION, RELEASED_LESSONS, RELEASED_STORIES, RELEASED_VOCABULARY } from "../data/curriculum";
-import { buildExerciseCatalog } from "../lib/exerciseGeneration";
+import { buildExerciseCatalog } from "../lib/editorialExerciseGeneration";
 import { ASSESSMENT_QUESTIONS } from "../data/assessment";
 import { HSK1_LEVEL_CHECK_ITEMS } from "../data/hsk1LevelCheck";
 import { HSK2_LEVEL_CHECK_ITEMS } from "../data/hsk2LevelCheck";

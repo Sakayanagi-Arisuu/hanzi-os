@@ -108,7 +108,7 @@ export function UserCard({
   const locked = user.status === "locked";
   return <article className="admin-card admin-user-card">
     <div className="admin-card-head">
-      <div className="admin-card-title"><span className="admin-avatar" aria-hidden="true">TK</span><div><strong>{user.email || "Tài khoản chưa có email"}</strong><small>Tạo ngày {formatDate(user.createdAt)}</small></div></div>
+      <div className="admin-card-title"><span className="admin-avatar" aria-hidden="true">TK</span><div><strong>{user.displayName || user.username || user.email || "Tài khoản chưa có tên"}</strong><small>{user.username || user.email} · Tạo ngày {formatDate(user.createdAt)}</small></div></div>
       <div className="admin-tag-list"><span className="admin-tag neutral">Hành Giả</span>{user.roles.includes("content_editor") && <span className="admin-tag cyan">Biên tập viên</span>}{user.roles.includes("admin") && <span className="admin-tag gold">Quản trị viên</span>}{locked && <span className="admin-tag coral">Đang khóa</span>}</div>
     </div>
     {user.lockReason && <div className="admin-card-note"><span className="admin-inline-glyph" aria-hidden="true">!</span> Lý do khóa: {user.lockReason}</div>}

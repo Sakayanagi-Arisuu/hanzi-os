@@ -109,7 +109,16 @@ html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-p
 html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-navigation button:disabled { color: #a3b09f; background: #21372a; border-color: #52694f; }
 html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress-track { background: #304b38; }
 html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress-track i { background: linear-gradient(90deg,#6e9d76,#ddc58a); }
-@media(max-height:500px){html[data-theme] .lesson-briefing-page .briefing-hero{display:flex;align-items:center;gap:12px;padding-bottom:4px}html[data-theme] .lesson-briefing-page .lesson-briefing-masthead{margin:0;flex-shrink:0}html[data-theme] .lesson-briefing-page .briefing-hero :is(.system-kicker,.briefing-chinese){display:none}html[data-theme] .lesson-briefing-page .briefing-hero h1{font-size:18px}html[data-theme] .lesson-briefing-page .briefing-hero-copy::after{display:none}}
+@media (max-height: 500px) {
+  html[data-theme] .lesson-briefing-page .briefing-hero { display:flex; align-items:center; gap:12px; padding-bottom:4px; }
+  html[data-theme] .lesson-briefing-page .lesson-briefing-masthead { min-height:44px; margin:0; flex-shrink:0; }
+  html[data-theme] .lesson-briefing-page .briefing-hero-copy { min-width:0; padding-right:0; }
+  html[data-theme] .lesson-briefing-page .briefing-hero :is(.system-kicker,.briefing-chinese,.realm-emblem) { display:none; }
+  html[data-theme] .lesson-briefing-page .briefing-hero h1 { font-size:18px; }
+  html[data-theme] .lesson-briefing-page .briefing-hero-copy::after { display:none; }
+  html[data-theme] .lesson-briefing-page .lesson-learning-progress { min-height:54px; padding:4px 8px; }
+  html[data-theme] .lesson-briefing-page .lesson-theory-navigation { min-height:56px; padding:4px 6px; }
+}
 html[data-theme] .lesson-briefing-page:has(.jade-lesson) .briefing-hero { display:none; }
 html[data-theme] .lesson-briefing-page .jade-lesson { max-height:none; }
 
@@ -191,3 +200,7 @@ html[data-theme] .lesson-live-page .exercise-stage.is-theory-review { overflow:h
 html[data-theme] .lesson-live-page .exercise-stage.is-theory-review .jade-lesson { flex:1 1 0; height:auto; max-height:none; min-height:0; }
 html[data-theme] .lesson-briefing-page:has(.jade-lesson) { padding:4px; box-shadow:none; }
 html[data-theme] .lesson-briefing-page:has(.jade-lesson) .lesson-briefing-scroll { gap:0; }
+.offline-study-control { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px 16px; }
+.offline-study-control > small { flex: 1 1 240px; line-height: 1.5; }
+.offline-study-control > p { flex-basis: 100%; margin: 0; line-height: 1.5; }
+.offline-study-control button { min-height: 44px; }

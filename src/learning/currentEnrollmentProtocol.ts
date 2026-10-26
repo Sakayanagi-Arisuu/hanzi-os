@@ -1,5 +1,5 @@
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import type { LearningGoal } from "../types";
 
 export const CURRENT_ENROLLMENT_PROTOCOL_VERSION = 1 as const;

@@ -1,0 +1,6 @@
+:root { --native-safe-top: env(safe-area-inset-top, 0px); }
+html, body, #root { min-height: 100%; background: #041710; }
+.native-signin { max-width: 440px; margin: 0 auto; padding: 20px; }
+.signin-nav { padding-top: max(16px, env(safe-area-inset-top)); }
+/* Android handles system bars and the keyboard by resizing the WebView.
+   Existing session layouts therefore keep their fixed header/footer contract. */

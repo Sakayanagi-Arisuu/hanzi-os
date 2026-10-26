@@ -1,3 +1,4 @@
+import { BankTransferRepository, bankOrderForAccess, cashLedgerEnabled } from "./bankTransferRepository";
 import { requiresPremium } from "../commerce/policy";
 import { getHskLessonPathId } from "../data/hskCurriculumGraph";
 import { CommerceRepository } from "./commerceRepository";
@@ -13,10 +14,11 @@ export function sandboxCommerceEnabled(url: string, environment = process.env.NO
 }
 export async function requestPremiumAccess(request: Request, database?: D1Database) {
   // A local simulation can never open HSK4 on a public/production deployment.
-  if (!sandboxCommerceEnabled(request.url)) return false;
+  if (!sandboxCommerceEnabled(request.url) && !cashLedgerEnabled(request.url)) return false;
   const db = database ?? await getD1Database();
   const account = await resolveCurrentAccount(db);
   if (!account) return false;
+  if (cashLedgerEnabled(request.url)) return premiumAccess((await new BankTransferRepository(db).orders(account.userId)).map(bankOrderForAccess)).active;
   const orders = await new CommerceRepository(db).orders(account.userId);
   const walletOrders = await new HanziPremiumRepository(db).orders(account.userId);
   return premiumAccess([...orders, ...walletOrders.map(asCommerceOrder)]).active;
@@ -35,7 +37,7 @@ export async function requirePremiumLesson(request: Request, lessonId: string): 
   const level = getHskLessonPathId(lessonId);
   if (level !== "hsk4") return null;
   try {
-    if (!sandboxCommerceEnabled(request.url)) return requirePremiumLevel(request, level);
+    if (!sandboxCommerceEnabled(request.url) && !cashLedgerEnabled(request.url)) return requirePremiumLevel(request, level);
     const database = await getD1Database();
     if (await new LessonAccessRepository(database).tierFor(lessonId) === "free") return null;
     return requirePremiumLevel(request, level);

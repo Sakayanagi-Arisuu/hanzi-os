@@ -32,6 +32,12 @@ const item = (
 });
 
 describe("remediation observatory model", () => {
+  it('keeps pending corrections visible as unresolved without issuing them again', () => {
+    const items = [item('waiting', { pending: true, occurrenceCount: 3 }), item('ready')];
+    expect(countActiveSignals(items)).toBe(4);
+    expect(selectRemediationSession(items).map(entry => entry.id)).toEqual(['ready']);
+    expect(buildSkillSignals(items)[0].count).toBe(4);
+  });
   it("preserves repository priority and caps a session at five open items", () => {
     const items = Array.from({ length: 7 }, (_, index) => item(String(index)));
     items[1] = item("resolved", { resolved: true });

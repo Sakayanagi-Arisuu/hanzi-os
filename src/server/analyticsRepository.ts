@@ -28,12 +28,14 @@ export class AnalyticsRepository {
       this.database.prepare(`SELECT COUNT(*) AS attempts,COUNT(DISTINCT activity_id) AS 'unique',
         COALESCE(SUM(outcome='correct'),0) AS correct,COALESCE(SUM(outcome='incorrect'),0) AS incorrect,
         COALESCE(SUM(outcome='self-review'),0) AS selfReview
-        FROM lesson_page_attempts WHERE user_id=? AND reset_epoch=?`).bind(userId,epoch)
+        FROM lesson_page_attempts WHERE user_id=? AND reset_epoch=?
+        AND (json_extract(response_json,'$.observation.action') IS NULL OR json_extract(response_json,'$.observation.action')='first-response')`).bind(userId,epoch)
         .all<NonNullable<AnalyticsActivity['pagePractice']>>(),
       // Receipt time is server-owned; the client timestamp is only a reported
       // learning time and must not place arbitrary days into account analytics.
       this.database.prepare(`SELECT date(created_at / 1000,'unixepoch','+7 hours') AS day,COUNT(*) AS count
-        FROM lesson_page_attempts WHERE user_id=? AND reset_epoch=? GROUP BY day`).bind(userId,epoch)
+        FROM lesson_page_attempts WHERE user_id=? AND reset_epoch=?
+        AND (json_extract(response_json,'$.observation.action') IS NULL OR json_extract(response_json,'$.observation.action')='first-response') GROUP BY day`).bind(userId,epoch)
         .all<{day:string;count:number}>(),
     ]);
     if (![practice, activity, access, pagePractice, pageDays].every(r => r.success && Array.isArray(r.results))) throw new Error("Analytics read failed");

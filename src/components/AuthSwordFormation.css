@@ -1,0 +1,69 @@
+.auth-sword-anchor {display:none;}
+.auth-sword-scene {position:absolute;left:3vw;top:170px;width:38vw;z-index:2;pointer-events:none;color:#e9d9a9;text-align:center;}
+.auth-sword-art {position:relative;width:100%;aspect-ratio:1;isolation:isolate;}
+.auth-sword-art svg {display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 5px #76ffcc88);}
+.auth-sword-aura {stroke:none;}
+.auth-guild:has(.auth-sword-scene) .signin-intro::after {display:none;}
+.sword-runes {stroke:#f2d68c;stroke-width:1;transform-origin:250px 250px;animation:sword-revolve 40s linear infinite;}
+.sword-inner-ring {stroke:#7dfcd0;stroke-width:1;opacity:.7;transform-origin:250px 250px;animation:sword-revolve 26s linear infinite reverse;}
+.sword-flight {transform-origin:250px 250px;animation:sword-revolve 16s linear infinite;}
+.sword-trail {stroke:#9bffdc;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:110 400;opacity:.28;}
+.ornate-flying-sword {filter:drop-shadow(0 0 2px #b6e4db55);}
+.flying-blade {fill:#effff5;stroke:#a8ffde;stroke-width:1;}
+.sword-hilt {stroke:#f5d890;stroke-width:3;stroke-linecap:round;}
+.sword-jade {fill:#88eec8;stroke:#f5d890;stroke-width:1;}
+.sword-tassel {stroke:#c9ede0;stroke-width:1;stroke-linecap:round;fill:none;}
+.central-tassel {stroke:#abd6bb;stroke-width:1.5;}
+.sword-center {animation:sword-levitate 4s ease-in-out infinite alternate;transform-origin:center;}
+.rendered-central-sword,.rendered-flying-sword {filter:none;}
+.ice-blade {fill:#539dcb;stroke:#d9f8ff;stroke-width:1.2;}
+.ice-facet-light {fill:#d1f6ff;}
+.ice-facet-deep {fill:#24629e;}
+.ice-spine {stroke:#fff;stroke-width:1;opacity:.9;}
+.ice-vine {stroke:#d2eeff;stroke-width:1.6;fill:none;}
+.ice-leaf {fill:#82c4e7;stroke:#e0f7ff;stroke-width:1;}
+.ice-guard {fill:#448bb6;stroke:#c2efff;stroke-width:1.2;}
+.ice-guard-etch {stroke:#edfaff;stroke-width:1;}
+.ice-grip {fill:#163966;stroke:#93d3f1;stroke-width:1.5;}
+.ice-petal-outer {fill:#30679c;stroke:#98ddff;stroke-width:1.4;}
+.ice-petal {fill:#80c6ef;stroke:#e1f8ff;stroke-width:1;}
+.ice-petal-heart {fill:#3382be;stroke:#b5efff;stroke-width:1;}
+.ice-rose-line {stroke:#e1faff;stroke-width:1.4;stroke-linejoin:round;}
+.ice-pommel {fill:#5fc9f0;stroke:#e2faff;stroke-width:1.4;}
+.sword-center .central-tassel {stroke:#a1d8ff;}
+.ice-glint {stroke:#ecfbff;stroke-width:1.3;stroke-linecap:round;}
+.central-blade {fill:#d5ffea;stroke:#fafff8;stroke-width:2;}
+.central-edge {stroke:#508e77;stroke-width:1.5;}
+.central-guard {fill:#edcd86;stroke:#fff1bd;stroke-width:2;}
+.central-grip {fill:#416a55;stroke:#edcd86;stroke-width:2;}
+.sword-qi {stroke:#d6fff1;stroke-width:3;stroke-linecap:round;stroke-dasharray:80 650;animation:sword-qi-sweep 4s ease-in-out infinite;filter:drop-shadow(0 0 9px #84ffd9);}
+.sword-qi path+path {stroke:#f3d58f;stroke-width:1;}
+.sword-sparks {fill:#f1e4b2;animation:sword-levitate 6s ease-in-out infinite alternate;}
+.sword-opening-ring {position:absolute;inset:18%;border:2px solid #b6ffe0;border-radius:50%;pointer-events:none;animation:sword-open 1600ms ease-out both;}
+.auth-sword-caption {margin-top:-20px;position:relative;text-shadow:0 3px 12px #000,0 0 30px #001910;}
+.auth-sword-caption span {font:600 10px/2 'Segoe UI',sans-serif;letter-spacing:.23em;color:#c7ffe5;}
+.auth-sword-caption strong {display:block;font:400 clamp(24px,2.6vw,40px)/1.35 var(--guild-serif,Georgia,serif);color:#ffedbc;}
+.auth-motion-toggle {position:relative;pointer-events:auto;min-height:44px;padding:8px 14px;margin-top:12px;border:1px solid #e0d3a45c;border-radius:24px;background:#061b18e8;color:#eee2bb;font:500 12px/1.5 'Segoe UI',sans-serif;cursor:pointer;}
+.auth-motion-toggle:focus-visible {outline:2px solid #f3dda3;outline-offset:4px;}
+.auth-sword-scene[data-paused=true] * {animation-play-state:paused!important;}
+.auth-guild .auth-signin-stack:has(.auth-sword-scene) {perspective:none;}
+.auth-guild .signin-console:has(.auth-sword-scene) {perspective:none;backdrop-filter:none;}
+.auth-guild .auth-signin-stack>.auth-sword-scene {animation:none!important;}
+@keyframes sword-revolve {to {transform:rotate(360deg);}}
+@keyframes sword-levitate {from {transform:translateY(-8px);}to {transform:translateY(8px);}}
+@keyframes sword-qi-sweep {0% {stroke-dashoffset:180;opacity:0;}25% {opacity:.85;}70%,100% {stroke-dashoffset:-640;opacity:0;}}
+@keyframes sword-open {from {opacity:1;transform:scale(.1);}to {opacity:0;transform:scale(2);}}
+@media(max-width:760px) {
+ .auth-sword-scene {position:relative;left:auto;top:auto;width:100%;height:222px;margin:-18px 0 6px;overflow:hidden;}
+ .auth-sword-art {position:absolute;width:196px;left:50%;top:-4px;transform:translateX(-50%);}
+ .auth-sword-caption {position:absolute;bottom:1px;left:0;text-align:left;margin:0;}
+ .auth-sword-caption span {font-size:8px;letter-spacing:.12em;background:#071e18d9;padding:4px;}
+ .auth-sword-caption strong {display:none;}
+ .auth-motion-toggle {position:absolute;right:0;bottom:0;margin:0;padding:6px 9px;font-size:10px;min-height:44px;}
+ .auth-guild .auth-signin-stack:has(.auth-sword-scene) .auth-entrance-mark {display:none;}
+ .auth-guild .signin-console:has(.auth-sword-scene) {padding-top:76px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .auth-sword-scene * {animation:none!important;transition:none!important;}
+ .sword-opening-ring,.sword-qi,.auth-motion-toggle {display:none;}
+}

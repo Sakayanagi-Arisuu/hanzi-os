@@ -5,11 +5,18 @@ import {
   Chrome,
   Eye,
   EyeOff,
+  Github,
   ShieldCheck,
   UserRoundPlus,
   Users,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { AuthCapabilities } from '../auth/authCapabilities';
+import { HANZI_PASSWORD_MIN_LENGTH, HANZI_PASSWORD_POLICY_MESSAGE, hanziPasswordMeetsPolicy } from '../auth/hanziPasswordPolicy';
+import { HanziPasswordReset } from './HanziPasswordReset';
+import { HanziEmailVerification } from './HanziEmailVerification';
+import { AuthGateSeal } from './AuthGateSeal';
+import { AuthSwordFormation } from './AuthSwordFormation';
 import "./AuthConsole.css";
 
 type PasskeyOperation = "register" | "signin" | "unlink";
@@ -17,12 +24,6 @@ type AuthFeedback = {
   message: string;
   tone: "error" | "info" | "success";
 };
-
-const HANZI_PASSWORD_MIN_LENGTH = 12;
-const hanziPasswordMeetsPolicy = (password: string) =>
-  [...password].length >= HANZI_PASSWORD_MIN_LENGTH
-  && /\p{L}/u.test(password)
-  && /\p{N}/u.test(password);
 
 type SecurityPayload = {
   account: { displayName: string; email: string };
@@ -47,6 +48,7 @@ type SecurityPayload = {
 const identityProviderLabel: Record<string, string> = {
   hanzi: "Tài khoản HANZI.OS",
   google: "Google",
+  github: 'GitHub',
   facebook: "Facebook",
   email_otp: "Email một lần",
   passkey: "Passkey",
@@ -136,12 +138,26 @@ export function AuthConsole({
   localDevelopment = false,
   googleAvailable = true,
   facebookAvailable = false,
+  googleOnly = false,
+  hanziAvailable = true,
+  githubAvailable = false,
+  initialCapabilities,
+  onGoogleSignIn,
+  onGithubSignIn,
+  onHanziSignIn,
 }: {
   mode: "signin" | "security";
   returnTo?: string;
   localDevelopment?: boolean;
   googleAvailable?: boolean;
   facebookAvailable?: boolean;
+  googleOnly?: boolean;
+  hanziAvailable?: boolean;
+  githubAvailable?: boolean;
+  initialCapabilities?: AuthCapabilities;
+  onGoogleSignIn?: () => Promise<void>;
+  onGithubSignIn?: () => Promise<void>;
+  onHanziSignIn?: (input: { operation: 'login' | 'register'; credentials: Record<string, string> }) => Promise<{ returnTo?: string }>;
 }) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -150,6 +166,14 @@ export function AuthConsole({
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [authView, setAuthView] = useState<"signin" | "register">("signin");
+  const [resetPassword, setResetPassword] = useState(false);
+  const recoveryTrigger = useRef<HTMLButtonElement>(null);
+  const restoreRecoveryFocus = useRef(false);
+  useEffect(() => {
+    if (!resetPassword && restoreRecoveryFocus.current) {
+      recoveryTrigger.current?.focus(); restoreRecoveryFocus.current = false;
+    }
+  }, [resetPassword]);
   const [demoAccounts, setDemoAccounts] = useState<Array<{
     username: string;
     email: string;
@@ -166,6 +190,22 @@ export function AuthConsole({
   const [feedback, setFeedback] = useState<AuthFeedback | null>(null);
   const [busy, setBusy] = useState(false);
   const [security, setSecurity] = useState<SecurityPayload | null>(null);
+  const [securityTab, setSecurityTab] = useState("methods");
+  const [mounted,setMounted]=useState(false);
+  const [capabilities, setCapabilities] = useState<AuthCapabilities>(initialCapabilities ?? {
+    google: googleAvailable, github: githubAvailable, hanzi: !googleOnly && hanziAvailable,
+    facebook: facebookAvailable, emailOtp: localDevelopment, passkey: false,
+  });
+  useEffect(()=>setMounted(true),[]);
+  useEffect(() => {
+    let active = true;
+    fetch('/api/auth/capabilities', { cache: 'no-store' }).then(async response => {
+      if (!response.ok) return;
+      const body = await response.json() as AuthCapabilities;
+      if (active) setCapabilities(body);
+    }).catch(() => { /* use the server-supplied readiness flags while offline */ });
+    return () => { active = false; };
+  }, []);
 
   const loadSecurity = async () => {
     const response = await fetch("/api/account/security", { cache: "no-store" });
@@ -212,13 +252,23 @@ export function AuthConsole({
     if (authView === "register" && !hanziPasswordMeetsPolicy(password)) {
       setFeedback({
         tone: "error",
-        message: "Mật khẩu cần ít nhất 12 ký tự, gồm tối thiểu một chữ và một số.",
+        message: HANZI_PASSWORD_POLICY_MESSAGE,
       });
       return;
     }
     setBusy(true);
     setFeedback(null);
     try {
+      const operation = authView === 'register' ? 'register' : 'login';
+      const credentials: Record<string, string> = authView === 'register'
+        ? { username, email, displayName, password, returnTo }
+        : { identifier: username, password, returnTo };
+      if (onHanziSignIn) {
+        const body = await onHanziSignIn({ operation, credentials });
+        setPassword(''); setPasswordConfirmation('');
+        window.location.assign(body.returnTo ?? returnTo);
+        return;
+      }
       const response = await fetch(`/api/auth/hanzi/${authView === "register" ? "register" : "login"}`, {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -402,9 +452,12 @@ export function AuthConsole({
 
   if (mode === "signin") {
     return (
-      <div className="auth-stack auth-signin-stack">
-        <header className="auth-guild-heading"><p>HANZI.OS · CỔNG HÀNH GIẢ</p><h1>{authView === "signin" ? "Chào mừng trở lại" : "Bắt đầu hành trình"}</h1><span>{authView === "signin" ? "Tiếp tục hành trình khám phá Hán ngữ. Tri thức luôn chờ bạn ở đây." : "Tạo tài khoản để lưu và đồng bộ hành trình học của bạn."}</span></header>
-        <form
+      <div className="auth-stack auth-signin-stack" data-auth-view={resetPassword ? 'recovery' : authView}>
+        <AuthSwordFormation />
+        <div className="auth-entrance-mark"><AuthGateSeal recovery={resetPassword} /><span>HANZI.OS <i /> {resetPassword ? 'TÌM LẠI HÀNH TRÌNH' : 'CỔNG HÀNH GIẢ'}</span></div>
+        <header className="auth-guild-heading"><p>HANZI.OS · CỔNG HÀNH GIẢ</p><h1>{resetPassword ? 'Khôi phục tài khoản' : authView === "signin" ? "Chào mừng trở lại" : "Bắt đầu hành trình"}</h1>{!resetPassword && <span>{authView === "signin" ? "Tiếp tục hành trình khám phá Hán ngữ. Tri thức luôn chờ bạn ở đây." : "Tạo tài khoản để lưu và đồng bộ hành trình học của bạn."}</span>}</header>
+        {capabilities.hanzi && resetPassword && capabilities.hanziPasswordReset && <HanziPasswordReset onBack={() => { restoreRecoveryFocus.current = true; setResetPassword(false); }} />}
+        {capabilities.hanzi && !resetPassword && <form
           className="auth-card auth-hanzi-card"
           onSubmit={(event) => {
             event.preventDefault();
@@ -441,7 +494,7 @@ export function AuthConsole({
                   aria-describedby={authView === "register" ? "hanzi-password-policy" : undefined}
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  placeholder={authView === "register" ? "Tối thiểu 12 ký tự" : "Mật khẩu HANZI.OS"}
+                  placeholder={authView === "register" ? `Tối thiểu ${HANZI_PASSWORD_MIN_LENGTH} ký tự` : "Mật khẩu HANZI.OS"}
                 />
                 <button type="button" aria-label={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"} onClick={() => setShowPassword((visible) => !visible)}>{showPassword ? <EyeOff size={17} /> : <Eye size={17} />}</button>
               </span>
@@ -453,7 +506,7 @@ export function AuthConsole({
               </label>
             )}
             {authView === "register" && (
-              <p id="hanzi-password-policy" className="auth-field-hint">Tên tài khoản dùng 3–32 ký tự a–z, số, dấu chấm, gạch dưới hoặc gạch ngang. Mật khẩu có ít nhất 12 ký tự, gồm tối thiểu một chữ và một số.</p>
+              <p id="hanzi-password-policy" className="auth-field-hint">Tên tài khoản dùng 3–32 ký tự a–z, số, dấu chấm, gạch dưới hoặc gạch ngang. {HANZI_PASSWORD_POLICY_MESSAGE}</p>
             )}
           </div>
           <button
@@ -465,13 +518,31 @@ export function AuthConsole({
             {authView === "register" ? <UserRoundPlus size={17} /> : <ArrowRight size={17} />}
           </button>
           <Feedback feedback={feedback} />
-        </form>
-        <p className="auth-switch">{authView === "signin" ? "Chưa có tài khoản?" : "Đã có tài khoản?"} <button type="button" disabled={busy} onClick={() => { setAuthView(authView === "signin" ? "register" : "signin"); setFeedback(null); }}>{authView === "signin" ? "Tạo tài khoản" : "Đăng nhập"}</button></p>
+        </form>}
+        {capabilities.hanzi && !resetPassword && <div className="auth-switch auth-entry-links">
+          {capabilities.hanziPasswordReset && authView === 'signin' && <button ref={recoveryTrigger} type="button" disabled={busy} onClick={() => { setResetPassword(true); setPassword(''); setFeedback(null); }}>Quên mật khẩu?</button>}
+          <button type="button" disabled={busy} onClick={() => { setAuthView(authView === "signin" ? "register" : "signin"); setFeedback(null); }}>{authView === "signin" ? "Tạo tài khoản" : "Quay lại đăng nhập"}</button>
+        </div>}
 
-        {(googleAvailable || facebookAvailable) && <section className="auth-provider-grid" aria-label="Cách đăng nhập khác">
-          {googleAvailable && <a className="auth-provider" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Chrome size={19} />Google<ArrowRight size={16} /></a>}
-          {facebookAvailable && <a className="auth-provider" href={`/auth/facebook/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Users size={19} />Facebook<ArrowRight size={16} /></a>}
+        {(capabilities.google || capabilities.github || capabilities.facebook) && <section className="auth-provider-grid" aria-label="Đăng nhập bằng tài khoản khác">
+          {capabilities.google && (onGoogleSignIn
+            ? <button className="auth-provider" type="button" disabled={busy} onClick={() => {
+              setBusy(true); setFeedback(null);
+              void onGoogleSignIn().catch((error: unknown) => setFeedback({ tone: 'error', message: error instanceof Error ? error.message : 'Chưa hoàn tất đăng nhập Google.' })).finally(() => setBusy(false));
+            }}><Chrome size={19} />Google<ArrowRight size={16} /></button>
+            : <a className="auth-provider" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Chrome size={19} />Google<ArrowRight size={16} /></a>)}
+          {capabilities.github && (onGithubSignIn
+            ? <button className="auth-provider" type="button" disabled={busy} onClick={() => {
+              setBusy(true); setFeedback(null);
+              void onGithubSignIn().catch((error: unknown) => setFeedback({ tone: 'error', message: error instanceof Error ? error.message : 'Chưa hoàn tất đăng nhập GitHub.' })).finally(() => setBusy(false));
+            }}><Github size={19} />GitHub<ArrowRight size={16} /></button>
+            : <a className="auth-provider" href={`/auth/github/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Github size={19} />GitHub<ArrowRight size={16} /></a>)}
+          {capabilities.facebook && <a className="auth-provider" href={`/auth/facebook/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Users size={19} />Facebook<ArrowRight size={16} /></a>}
         </section>}
+        {!capabilities.hanzi && <p className="auth-field-hint">Tài khoản HANZI.OS đang được chuẩn bị.</p>}
+        {!capabilities.github && <p className="auth-field-hint">Đăng nhập GitHub đang được chuẩn bị.</p>}
+        {!capabilities.google && <p className="auth-field-hint">Đăng nhập Google đang được chuẩn bị.</p>}
+        {!capabilities.hanzi && <Feedback feedback={feedback} />}
 
         {localDevelopment && demoAccounts.length > 0 && (
           <details className="auth-demo-accounts">
@@ -494,8 +565,11 @@ export function AuthConsole({
   }
 
   return (
-    <div className="auth-stack">
-      <section className="auth-card">
+    <div className="auth-stack" inert={!mounted} aria-busy={!mounted}>
+      <nav className="tv-security-tabs" aria-label="Các mục bảo mật">{[["methods","Phương thức đăng nhập"],...(capabilities.emailOtp ? [["email","Liên kết email"]] : []),["sessions","Phiên & thiết bị"]].map(([key,label])=><button key={key} type="button" aria-pressed={securityTab===key} onClick={()=>setSecurityTab(key!)}>{label}</button>)}</nav>
+      {!security && !feedback && <p role="status">Đang tải thông tin bảo mật…</p>}
+      {securityTab === 'methods' && security?.identities.some(identity => identity.provider === 'hanzi') && <HanziEmailVerification key={security.identities.find(identity => identity.provider === 'hanzi')!.id} onVerified={() => void loadSecurity().catch(() => setFeedback({ tone: 'error', message: 'Email đã xác minh; hãy tải lại thông tin bảo mật.' }))} />}
+      <section className="auth-card" hidden={securityTab!=="methods"}>
         <h2 className="auth-title">Phương thức đăng nhập</h2>
         <p className="auth-copy">Các phương thức chỉ được nối sau khi phiên hiện tại và nhà cung cấp mới đều xác minh. Email giống nhau không tự gộp tài khoản.</p>
         {security?.identities.map((identity) => (
@@ -514,22 +588,24 @@ export function AuthConsole({
           </div>
         ))}
         <div className="auth-row auth-actions">
-          <a className="auth-link" href="/auth/google/start?mode=link&returnTo=%2Faccount%2Fsecurity">Liên kết Google</a>
-          {security?.identities.some((identity) => identity.provider === "google") && <a className="auth-link" href="/auth/google/start?mode=unlink&returnTo=%2Faccount%2Fsecurity">Gỡ Google sau xác minh</a>}
-          <button className="auth-secondary" type="button" disabled={busy} onClick={() => runPasskey("register")}>Thêm passkey</button>
-          {security?.identities.some((identity) => identity.provider === "passkey") && <button className="auth-secondary" type="button" disabled={busy} onClick={() => runPasskey("unlink")}>Xóa passkey đã xác minh</button>}
+          {capabilities.google && <a className="auth-link" href="/auth/google/start?mode=link&returnTo=%2Faccount%2Fsecurity">Liên kết Google</a>}
+          {capabilities.google && security?.identities.some((identity) => identity.provider === "google") && <a className="auth-link" href="/auth/google/start?mode=unlink&returnTo=%2Faccount%2Fsecurity">Gỡ Google sau xác minh</a>}
+          {capabilities.github && <a className="auth-link" href="/auth/github/start?mode=link&returnTo=%2Faccount%2Fsecurity">Liên kết GitHub</a>}
+          {capabilities.github && security?.identities.some(identity => identity.provider === 'github') && <a className="auth-link" href="/auth/github/start?mode=unlink&returnTo=%2Faccount%2Fsecurity">Gỡ GitHub sau xác minh</a>}
+          {capabilities.passkey && <button className="auth-secondary" type="button" disabled={busy} onClick={() => runPasskey("register")}>Thêm passkey</button>}
+          {capabilities.passkey && security?.identities.some((identity) => identity.provider === "passkey") && <button className="auth-secondary" type="button" disabled={busy} onClick={() => runPasskey("unlink")}>Xóa passkey đã xác minh</button>}
         </div>
       </section>
-      <section className="auth-card">
+      <section className="auth-card" hidden={securityTab!=="email" || !capabilities.emailOtp}>
         <h2 className="auth-title">Liên kết email</h2>
         <div className="auth-row">
-          <input className="auth-input" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="ban@example.com" />
-          <select className="auth-input" value={emailMode} onChange={(event) => setEmailMode(event.target.value as typeof emailMode)}><option value="link">Liên kết</option><option value="unlink">Gỡ sau khi xác minh</option></select>
+          <label>Email<input className="auth-input" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="ban@example.com" /></label>
+          <label>Thao tác<select className="auth-input" value={emailMode} onChange={(event) => setEmailMode(event.target.value as typeof emailMode)}><option value="link">Liên kết</option><option value="unlink">Gỡ sau khi xác minh</option></select></label>
           <button className="auth-button" type="button" disabled={busy} onClick={() => requestEmailCode()}>Gửi mã</button>
         </div>
         {challenge && <div className="auth-row auth-row-spaced"><input className="auth-input" inputMode="numeric" autoComplete="one-time-code" value={code} onChange={(event) => setCode(event.target.value.replace(/\D/gu, "").slice(0, 6))} placeholder="000000" /><button className="auth-button" type="button" disabled={busy || code.length !== 6} onClick={verifyEmailCode}>Xác minh thay đổi</button></div>}
       </section>
-      <section className="auth-card">
+      <section className="auth-card" hidden={securityTab!=="sessions"}>
         <h2 className="auth-title">Phiên và thiết bị</h2>
         <p className="auth-copy">Thu hồi một phiên sẽ chặn cookie đó ngay trên máy chủ. Tiến độ local trên thiết bị không bị xóa.</p>
         {security?.sessions.map((session) => (

@@ -35,7 +35,7 @@ describe("HANZI.OS password credentials", () => {
     })).toThrow(HanziRegistrationValidationError);
   });
 
-  it("requires at least 12 characters with both a letter and a number", () => {
+  it("requires at least 8 characters with both a lowercase letter and a number", () => {
     const registration = (password: string) => validateHanziRegistration({
       username: "user.demo",
       email: "user@example.com",
@@ -43,13 +43,13 @@ describe("HANZI.OS password credentials", () => {
       displayName: "Người học",
     });
 
-    expect(() => registration("abcdefghij1")).toThrow(
-      "Mật khẩu phải có 12–128 ký tự",
+    expect(() => registration("abcdef1")).toThrow(
+      "Mật khẩu phải có 8–128 ký tự",
     );
     expect(() => registration("abcdefghijkl")).toThrow(
-      "Mật khẩu phải có 12–128 ký tự",
+      "Mật khẩu phải có 8–128 ký tự",
     );
-    expect(registration("abcdefghijk1").password).toBe("abcdefghijk1");
+    expect(registration("abcdefg1").password).toBe("abcdefg1");
   });
 
   it("uses a unique salt and verifies both real and missing credentials", async () => {

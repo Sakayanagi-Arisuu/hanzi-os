@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { isSavedLessonAnswer } from './offlineLessonAnswer';
+import type { QueuedObjectiveAttemptCommand } from '../sync/learningCommandOutbox';
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION } from "../data/curriculum";
 import type { NormalizedLessonRuntimeV1 } from "./normalizedLessonRuntime";
@@ -79,6 +81,20 @@ const projection = (): NormalizedLearningProjectionV1 => ({
 });
 
 describe("normalized lesson UI authority bindings", () => {
+  it('allows durable unanswered scoring only in the exact offline session, item and reset', () => {
+    const bound = binding();
+    const activity = bound.form.activities[0];
+    const pending = { kind: 'objective-attempt', status: 'pending', commandId: 'answer:1', sessionAlias: 'local:1',
+      resetEpoch: 0, command: { resetEpoch: 0, contentVersion: CONTENT_VERSION, source: 'lesson',
+        activityId: activity.activityId, activityVersion: activity.activityVersion, method: activity.method,
+        response: { kind: 'answer', answer: 'bạn', usedHint: false } } } as QueuedObjectiveAttemptCommand;
+    expect(isSavedLessonAnswer(pending, bound, 'answer:1', 'local:1', 0)).toBe(true);
+    expect(isSavedLessonAnswer(pending, bound, 'answer:1', 'local:2', 0)).toBe(false);
+    expect(isSavedLessonAnswer(pending, { ...bound, resetEpoch: 1 }, 'answer:1', 'local:1', 0)).toBe(false);
+    expect(isSavedLessonAnswer({ ...pending, status: 'quarantined' }, bound, 'answer:1', 'local:1', 0)).toBe(false);
+    bound.form.activities[0].activityVersion = 'another-version';
+    expect(isSavedLessonAnswer(pending, bound, 'answer:1', 'local:1', 0)).toBe(false);
+  });
   it("requires the projected active form to equal the local open receipt", () => {
     expect(activeProjectionMatchesOpenReceipt(projection(), receipt())).toBe(true);
     expect(activeProjectionMatchesSessionBinding(projection(), binding())).toBe(true);

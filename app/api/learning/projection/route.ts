@@ -10,6 +10,7 @@ import {
   LearningProjectionResetRaceError,
 } from "../../../../src/server/learningProjectionRepository";
 import { SyncRepository } from "../../../../src/server/syncRepository";
+import { loadStudioAssessmentBank } from '../../../../src/server/studioAssessmentRepository';
 import {
   noStoreJsonHeaders,
   type SyncApiError,
@@ -116,7 +117,8 @@ export async function GET(request: Request) {
     }
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);
-    const repository = new LearningProjectionRepository(database);
+    const { bank } = await loadStudioAssessmentBank(database);
+    const repository = new LearningProjectionRepository(database, undefined, undefined, bank);
     const projection = protocolVersion === LEARNING_PROJECTION_V4_PROTOCOL_VERSION
       ? await repository.readV4(userId)
       : protocolVersion === LEARNING_PROJECTION_V3_PROTOCOL_VERSION

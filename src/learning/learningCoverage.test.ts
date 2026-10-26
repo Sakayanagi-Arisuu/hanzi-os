@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { RELEASED_LESSONS } from "../data/curriculum";
 import { buildExerciseCatalog, type Exercise } from "../lib/exerciseGeneration";
+import { LEXICAL_EXERCISE_SUFFIX, lexicalActivityVersion } from "../content/lexicalEditorialCatalog";
 import { isEvidenceCombinationAllowed } from "../lib/evidencePolicy";
 import type { LearningEvidence, Skill } from "../types";
 import {
@@ -94,6 +95,21 @@ const methodForExercise = (exercise: Exercise) => {
 };
 
 describe("learner pillar signal", () => {
+  it("counts old and editorial versions as one item without accepting stale editorial evidence", () => {
+    const activity = activitiesForSkill("vocabulary", 1)[0]!;
+    const foundation = evidenceFor(activity, { id: "base", occurredAt: DAY_ONE, sessionId: "base-session" });
+    const editorial = {
+      ...evidenceFor(activity, { id: "editorial", occurredAt: DAY_TWO, sessionId: "editorial-session" }),
+      activityId: activity.activityId + LEXICAL_EXERCISE_SUFFIX,
+      activityVersion: lexicalActivityVersion(activity.activityVersion),
+    };
+    expect(deriveLocalLearnerActivityCoverage([editorial]).vocabulary.covered).toBe(1);
+    expect(deriveLocalLearnerActivityCoverage([foundation, editorial]).vocabulary).toMatchObject({
+      covered: 1, practiceCount: 1, state: "insufficient",
+    });
+    expect(deriveLocalLearnerActivityCoverage([{ ...editorial, activityVersion: "stale" }]).vocabulary.covered).toBe(0);
+    expect(deriveLocalLearnerActivityCoverage([{ ...editorial, metadata: { ...editorial.metadata, usedHint: true } }]).vocabulary.covered).toBe(0);
+  });
   it("enumerates the immutable released activity inventory separately from the signal sample", () => {
     expect(new Set(
       releasedActivityCatalog.map((activity) => activity.activityId),

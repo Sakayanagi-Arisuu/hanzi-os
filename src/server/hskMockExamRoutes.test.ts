@@ -1,4 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+vi.mock("../../app/chatgpt-auth", () => ({ getAuthenticatedUser: vi.fn(async () => null) }));
+vi.mock("./learningOwnerHttp", () => ({ learningOwnerMismatch: vi.fn(async () => null) }));
+vi.mock("./d1", async (importOriginal) => ({
+  ...await importOriginal<typeof import("./d1")>(),
+  getD1Database: vi.fn(async () => { throw new Error("Offline catalog fixture"); }),
+}));
 import { GET as getCatalog } from "../../app/api/exams/catalog/route";
 
 describe("HSK Mock Exam public routes", () => {

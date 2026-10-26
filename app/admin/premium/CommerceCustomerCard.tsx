@@ -14,14 +14,15 @@ export function CommerceCustomerCard({ customer }: { customer: Customer }) {
     <p><strong>{customer.displayName || customer.username || customer.userId}</strong>
       {customer.username ? ` · @${customer.username}` : ""} · {customer.status === "active" ? "Đang hoạt động" : "Tài khoản không hoạt động"}</p>
     <p>Mã tài khoản: {customer.userId}</p>
-    <p><strong>{customer.access.active ? `Premium đến ${date(customer.access.expiresAt!)}` : "Chưa có Premium hiệu lực"}</strong>
+    <p><strong>{customer.cashAccess.active ? `Premium thanh toán VNĐ đến ${date(customer.cashAccess.expiresAt!)}` : "Chưa có Premium thanh toán VNĐ hiệu lực"}</strong></p>
+    <p><strong>{customer.access.active ? `Quyền nội bộ/thử nghiệm đến ${date(customer.access.expiresAt!)}` : "Chưa có quyền nội bộ/thử nghiệm hiệu lực"}</strong>
       {` · Ví ${customer.wallet.balance.toLocaleString("vi-VN")} Hanzi · ${customer.orders.length} đơn · ${customer.tickets.length} yêu cầu hỗ trợ`}</p>
     <h3>Đơn và vòng đời gói</h3>
     {customer.orders.length === 0 ? <p>Chưa có đơn.</p> : <div style={{ overflowX: "auto" }}><table><thead><tr>
       <th>Ngày</th><th>Gói</th><th>Phương thức</th><th>Trạng thái</th><th>Yêu cầu hoàn</th>
     </tr></thead><tbody>{customer.orders.slice(0, 20).map(order => <tr key={order.id}>
       <td>{date(order.createdAt)}</td><td>{premiumPlan(order.planId)?.label}</td>
-      <td>{order.paymentMethod === "hanzi" ? `${order.hanziAmount} Hanzi` : "Sandbox không thu tiền"}</td>
+      <td>{order.paymentMethod === "bank_transfer" ? `${order.vndAmount?.toLocaleString("vi-VN")} ₫ · chuyển khoản` : order.paymentMethod === "hanzi" ? `${order.hanziAmount} Hanzi` : "Sandbox không thu tiền"}</td>
       <td>{ORDER_STATUS_LABELS[order.status]}</td>
       <td>{order.refundRejectedAt ? <>Từ chối {date(order.refundRejectedAt)} · {order.refundRejectionReason}</> : order.refundRequestedAt ? date(order.refundRequestedAt) : "—"}</td>
     </tr>)}</tbody></table>{customer.orders.length > 20 && <p>Đang hiển thị 20 đơn gần nhất.</p>}</div>}

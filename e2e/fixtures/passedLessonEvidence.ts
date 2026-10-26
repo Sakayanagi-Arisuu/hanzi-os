@@ -5,7 +5,7 @@ import {
   localLessonSessionProvenance,
   materializeLocalLessonRuntime,
 } from "../../src/learning/localLessonRuntime";
-import type { Exercise } from "../../src/lib/exerciseGeneration";
+import type { Exercise } from "../../src/lib/editorialExerciseGeneration";
 import { materializeEvidence, scoreLessonSession } from "../../src/lib/evidence";
 import type { EvidenceMethod, LearningEvidence } from "../../src/types";
 

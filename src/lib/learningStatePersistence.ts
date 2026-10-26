@@ -5,11 +5,13 @@ import {
   RELEASED_WORD_BY_ID,
 } from "../data/curriculum";
 import { getHskLessonRuntimeBinding } from "../data/hskCurriculumGraph";
+import { RELEASED_CHARACTER_PRACTICE } from '../learning/richLessonContent';
 import {
   resolvePersistedLocalLessonActivityProvenance,
   resolvePersistedLocalLessonSessionProvenance,
 } from "../learning/localLessonRuntime";
 import { isStartingLevel } from "../learning/startingLevels";
+import { validOptionalLearningPreferences, validOptionalLearningPreferenceClock } from '../learning/learningPreferences';
 import { buildLessonResumeExercises } from "../learning/resumeProtocol";
 import type {
   EvidenceMethod,
@@ -19,7 +21,7 @@ import type {
   LearningState,
   Skill,
 } from "../types";
-import { answersMatch, type Exercise } from "./exerciseGeneration";
+import { answersMatch, type Exercise } from "./editorialExerciseGeneration";
 import { scoreLessonSession } from "./evidence";
 import {
   downgradeReaderEvidenceTrust,
@@ -32,8 +34,10 @@ const MAX_COMPLETED_LESSONS = 2_000;
 const MAX_SAVED_WORDS = 5_000;
 const MAX_FSRS_CARDS = 5_000;
 const MAX_KNOWLEDGE = 20_000;
-const MAX_MISTAKES = 2_000;
-const MAX_ACTIVITY = 2_000;
+// Validation bound, not a rolling history limit. The curriculum can produce
+// more than 2,000 distinct errors; never discard them merely to fit a lobby.
+const MAX_MISTAKES = 100_000;
+const MAX_ACTIVITY = 100_000;
 const MAX_EVIDENCE = 20_000;
 
 const skills = [
@@ -190,6 +194,14 @@ const isReleasedEvidence = (evidence: LearningEvidence) => {
       || referencesReleasedWordReview(evidence.activityId);
   }
   if (evidence.source === "writing") {
+    const hanzi = evidence.metadata?.hanzi;
+    const lessonId = evidence.metadata?.sourceLessonId;
+    if (typeof hanzi === 'string' && (lessonId === null || typeof lessonId === 'string')
+      && evidence.activityId === `character-forge:${lessonId ?? 'free'}:${hanzi}`
+      && evidence.method === 'stroke-quiz' && evidence.skill === 'writing'
+      && evidence.outcome === 'unverified' && evidence.score === null && !evidence.verified && !evidence.masteryEligible) {
+      return RELEASED_CHARACTER_PRACTICE.some(entry => entry.hanzi === hanzi && (lessonId === null || entry.lessonId === lessonId));
+    }
     const [, wordId = ""] = evidence.activityId.split(":");
     return evidence.activityId.startsWith("stroke-quiz:")
       && RELEASED_WORD_BY_ID.has(wordId);
@@ -203,6 +215,8 @@ const validProfile = (value: unknown) => isRecord(value)
   && [10, 20, 30].includes(Number(value.dailyMinutes))
   && ["simplified", "traditional"].includes(String(value.script))
   && isStartingLevel(value.startingLevel)
+  && validOptionalLearningPreferences(value.learningPreferences)
+  && validOptionalLearningPreferenceClock(value.learningPreferencesClock, value.learningPreferences)
   && typeof value.onboarded === "boolean";
 
 const validCompletion = (value: unknown) => isRecord(value)
@@ -860,6 +874,10 @@ export function parsePersistedLearningState(
         script: (value.profile as LearningState["profile"]).script,
         startingLevel: (value.profile as LearningState["profile"]).startingLevel,
         onboarded: Boolean((value.profile as Record<string, unknown>).onboarded),
+        ...((value.profile as LearningState['profile']).learningPreferences !== undefined
+          ? { learningPreferences: structuredClone((value.profile as LearningState['profile']).learningPreferences) } : {}),
+        ...((value.profile as LearningState['profile']).learningPreferencesClock !== undefined
+          ? { learningPreferencesClock: structuredClone((value.profile as LearningState['profile']).learningPreferencesClock) } : {}),
       },
       xp: Number(value.xp),
       dailyXp: Number(value.dailyXp),

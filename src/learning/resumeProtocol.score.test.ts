@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { Exercise } from "../lib/exerciseGeneration";
+import type { Exercise } from "../lib/editorialExerciseGeneration";
 import { scoreLessonResumeAnswers } from "./resumeProtocol";
 
 const exercises: Exercise[] = Array.from({ length: 10 }, (_, index) => ({

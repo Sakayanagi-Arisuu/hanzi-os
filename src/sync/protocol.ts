@@ -1,5 +1,6 @@
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
 import { isStartingLevel } from "../learning/startingLevels";
+import { validOptionalLearningPreferences, validOptionalLearningPreferenceClock } from '../learning/learningPreferences';
 import {
   canonicalStringify,
   sha256Hex,
@@ -10,6 +11,7 @@ import type { FirstPartyAuthProvider } from "../server/authRepository";
 
 export const CLOUD_FIRST_PARTY_AUTH_PROVIDERS = [
   "google",
+  "github",
   "facebook",
   "hanzi",
   "email_otp",
@@ -216,6 +218,8 @@ const isProfileShape = (value: unknown) => isRecord(value)
   && [10, 20, 30].includes(Number(value.dailyMinutes))
   && ["simplified", "traditional"].includes(String(value.script))
   && isStartingLevel(value.startingLevel)
+  && validOptionalLearningPreferences(value.learningPreferences)
+  && validOptionalLearningPreferenceClock(value.learningPreferencesClock, value.learningPreferences)
   && typeof value.onboarded === "boolean";
 
 const isDiagnosticShape = (value: unknown) => isRecord(value)
@@ -234,7 +238,8 @@ const isLearningEvidenceShape = (value: unknown) => {
     && value.schemaVersion === 1
     && isNonEmptyString(value.contentVersion, 80)
     && isNonEmptyString(value.activityVersion, 160)
-    && isNonEmptyString(value.activityId, 240)
+    && isNonEmptyString(value.activityId, value.source === 'mistake' && typeof value.activityId === 'string'
+      && value.activityId.startsWith('lesson-page:') ? 2000 : 240)
     && isNonEmptyString(value.source, 32)
     && isNonEmptyString(value.method, 48)
     && isNonEmptyString(value.skill, 32)
@@ -263,6 +268,8 @@ const isCloudDocumentShape = (value: unknown) => {
     || !isRecord(value.savedWords)
     || Object.keys(value.savedWords).length > 5_000
   ) return false;
+  const preferenceClock = (value.profile.value as { learningPreferencesClock?: { counter: number } }).learningPreferencesClock;
+  if (preferenceClock && preferenceClock.counter > (value.profile.clock as { counter: number }).counter) return false;
   for (const entry of Object.values(value.savedWords)) {
     if (!isRecord(entry) || typeof entry.present !== "boolean" || !isClock(entry.clock)) {
       return false;

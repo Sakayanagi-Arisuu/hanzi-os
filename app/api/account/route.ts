@@ -7,8 +7,10 @@ import {
   mutationRateLimitHeaders,
   MutationRateLimitBackendError,
 } from "../../../src/server/mutationRateLimit";
-import { SyncRepository } from "../../../src/server/syncRepository";
+import { HostedPasswordLifecycleUnavailableError, SyncRepository } from "../../../src/server/syncRepository";
 import { noStoreJsonHeaders } from "../../../src/sync/protocol";
+import { recentFirstPartySession } from '../../../src/server/authHttp';
+import { AccountDeletionRestrictedError } from '../../../src/server/accountDeletionPolicy';
 
 export const dynamic = "force-dynamic";
 
@@ -28,11 +30,12 @@ const errorJson = (
 
 export async function DELETE(request: Request) {
   const origin = request.headers.get("origin");
-  if (origin && origin !== new URL(request.url).origin) {
+  if (origin !== new URL(request.url).origin) {
     return errorJson(403, "CROSS_ORIGIN_BLOCKED", "Yêu cầu xóa khác nguồn đã bị chặn.");
   }
   const identity = await getChatGPTUser();
   if (!identity) return errorJson(401, "AUTH_REQUIRED", "Đăng nhập để xóa tài khoản.");
+  if (!recentFirstPartySession(identity)) return errorJson(401, 'DELETION_REAUTH_REQUIRED', 'Hãy đăng nhập lại để xác nhận xóa tài khoản.');
 
   try {
     const database = await getD1Database();
@@ -103,12 +106,16 @@ export async function DELETE(request: Request) {
       );
     }
 
-    await repository.deleteAccount(userId);
+    if (!await repository.deleteAccount(userId)) return errorJson(409, 'ACCOUNT_DELETE_NOT_CONFIRMED', 'Chưa xác nhận được kết quả xóa. Dữ liệu trên thiết bị vẫn được giữ.', true);
     return Response.json(
       { deleted: true, deletedAt: new Date().toISOString() },
       { status: 200, headers: { ...noStoreJsonHeaders, ...rateHeaders } },
     );
   } catch (error) {
+    if (error instanceof AccountDeletionRestrictedError) return errorJson(409, 'ACCOUNT_DELETION_RESTRICTED',
+      'Tài khoản còn gắn hồ sơ biên tập, quản trị hoặc thanh toán. Hãy liên hệ hỗ trợ trước khi xóa.');
+    if (error instanceof HostedPasswordLifecycleUnavailableError) return errorJson(409, error.code,
+      'Chưa thể xóa tài khoản HANZI.OS lúc này. Tiến độ của bạn vẫn được giữ; hãy liên hệ hỗ trợ để được hướng dẫn.');
     if (error instanceof MutationRateLimitBackendError) {
       return errorJson(
         503,

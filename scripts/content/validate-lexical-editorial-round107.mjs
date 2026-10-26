@@ -1,11 +1,9 @@
-import {readFileSync,writeFileSync,existsSync,unlinkSync} from 'node:fs';
-import {createHash,randomUUID} from 'node:crypto';
-import {execFileSync} from 'node:child_process';
-import {pathToFileURL} from 'node:url';
-import {resolve} from 'node:path';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import * as legacy from '../../src/lib/exerciseGeneration.ts';
 import {RELEASED_LESSONS,CONTENT_VERSION} from '../../src/data/curriculum.ts';
-import {buildExercises,buildExerciseCatalog} from '../../src/lib/exerciseGeneration.ts';
-import {getAuthoritativeLessonAnswer} from '../../src/server/authoritativeItemBank.ts';
+import {buildExercises,buildExerciseCatalog} from '../../src/lib/editorialExerciseGeneration.ts';
+import {getAuthoritativeLessonAnswer} from '../../src/server/editorialItemBank.ts';
 import {parseLessonResume,buildLessonResumeExercises} from '../../src/learning/resumeProtocol.ts';
 import {LEXICAL_SESSION_MARKER,LEXICAL_EXERCISE_SUFFIX,EDITORIAL_WORD_BY_ID} from '../../src/content/lexicalEditorialCatalog.ts';
 import {ContentStudioRepository} from '../../src/server/contentStudioRepository.ts';
@@ -20,17 +18,9 @@ const manifest=JSON.parse(readFileSync(directory+'/manifest.json','utf8'));
 const snapshot=JSON.parse(bytes);
 const sha='sha256:'+createHash('sha256').update(bytes).digest('hex');
 if(sha!==manifest.wordCatalogSha256||snapshot.words.length!==manifest.wordCount)throw Error('Snapshot integrity mismatch');
-const temporary=resolve('.wrangler/demo-backups/legacy-exercise-round107-'+randomUUID()+'.ts');
-if(existsSync(temporary))throw Error('Temporary baseline already exists');
-const oldSource=execFileSync('git',['show','HEAD:src/lib/exerciseGeneration.ts'],{encoding:'utf8'})
- .replaceAll('"../data/curriculum"','"../../src/data/curriculum.ts"')
- .replaceAll('"../types"','"../../src/types.ts"')
- .replaceAll('"./pinyin"','"../../src/lib/pinyin.ts"');
-writeFileSync(temporary,oldSource);
 const db=openDatabase(findLocalDemoDatabase(process.cwd()),true);
 let candidates=0,localResumes=0,storedForms=0;
 try{
- const legacy=await import(pathToFileURL(temporary).href);
  const repo=new ContentStudioRepository(d1Adapter(db));
  for(const patch of snapshot.words){
   const source=await repo.getRevision(patch.sourceRevisionId);
@@ -67,4 +57,4 @@ try{
  if(db.prepare('PRAGMA foreign_key_check').all().length)throw Error('Foreign key violation');
  const olderPackageForms=db.prepare("SELECT count(*) n FROM lesson_sessions WHERE status='started' AND content_version<>?").get(CONTENT_VERSION).n;
  console.log({mode:'read-only-intrinsic-validation',words:snapshot.words.length,lessons:RELEASED_LESSONS.length,scripts:2,candidates,localResumes,storedForms,olderPackageFormsUntouched:olderPackageForms,legacyCatalogPreserved:true,persistedChanges:0,sha});
-}finally{db.close();unlinkSync(temporary);}
+}finally{db.close();}

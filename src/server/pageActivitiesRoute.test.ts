@@ -2,7 +2,10 @@ import {beforeEach,expect,it,vi} from 'vitest';
 import {emptyLessonBlock} from '../learning/lessonPages';
 import {emptyLessonActivity} from '../learning/lessonActivities';
 const {publishedRuntime}=vi.hoisted(()=>({publishedRuntime:vi.fn()}));
-vi.mock('./d1',()=>({getD1Database:vi.fn(async()=>({}))}));
+vi.mock('./d1',async importOriginal=>({
+ ...await importOriginal<typeof import('./d1')>(),
+ getD1Database:vi.fn(async()=>({})),
+}));
 vi.mock('./contentStudioRepository',()=>({ContentStudioRepository:class {publishedRuntime=publishedRuntime;}}));
 import {GET} from '../../app/api/learning/page-activities/route';
 const item=()=>({schemaVersion:1,itemType:'lesson',level:'hsk0',stableKey:'boot-1',title:'Bài',revisionId:'rev',revision:1,contentSha256:'header',publishedAt:1,content:{targetLessonId:'boot-1',lessonPages:{version:1,pages:[{id:'p',title:'Trang',layout:'focus',blocks:[{...emptyLessonBlock('b'),kind:'activity',body:'Điền từ',activity:{...emptyLessonActivity(),type:'cloze',acceptedAnswers:['秘密'],explanation:'Giải thích riêng'}}]}]}}});

@@ -8,6 +8,7 @@ import { requestCorrelationId } from "../../../../src/server/auditRepository";
 const redirect = (request: Request, notice: string) => {
   const destination = new URL("/admin/premium", request.url);
   destination.searchParams.set("notice", notice);
+  destination.searchParams.set("tab", "support");
   return Response.redirect(destination, 303);
 };
 export async function POST(request: Request) {

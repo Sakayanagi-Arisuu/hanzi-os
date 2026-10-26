@@ -11,8 +11,14 @@ const isOnboardingPath = () => {
     || new URLSearchParams(window.location.search).get(ONBOARDING_QUERY) === "1";
 };
 
-export function FirstRunExperience() {
-  const [showOnboarding, setShowOnboarding] = useState(isOnboardingPath);
+export function FirstRunExperience({ authenticated = false }: { authenticated?: boolean }) {
+  const [showOnboarding, setShowOnboarding] = useState(() => authenticated || isOnboardingPath());
+
+  useEffect(() => {
+    // A signed-in learner with no learning profile starts setup directly.
+    // Authentication is not completion of onboarding; keep the real setup flow.
+    if (authenticated) setShowOnboarding(true);
+  }, [authenticated]);
 
   useEffect(() => {
     const handlePopState = () => setShowOnboarding(isOnboardingPath());

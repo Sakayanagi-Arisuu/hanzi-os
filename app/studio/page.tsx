@@ -191,11 +191,12 @@ export default async function StudioPage({
         <header className="studio-welcome">
           <div className="studio-welcome-copy">
             <span className="studio-kicker"><Sparkles size={15} /> BIÊN TẬP VIỆN</span>
-            <h1>{selectedGroup ? selectedGroup.label : "Bạn muốn soạn gì?"}</h1>
+            <h1>{selectedGroup ? selectedGroup.label : "Hôm nay bạn muốn soạn gì?"}</h1>
+            {!selectedGroup && <p>Từng bài học tốt hơn, mở ra những hành trình xa hơn.</p>}
           </div>
           {selectedGroup
             ? <a className="studio-secondary-link" href="/studio#studio-create"><ArrowLeft size={18} /> Chọn nhóm khác</a>
-            : <a className="studio-secondary-link" href="#library-title"><LibraryBig size={18} /> Bản đang làm</a>}
+            : <a className="studio-secondary-link" href="#studio-create"><ListPlus size={18} /> Tạo nội dung</a>}
         </header>
 
         <section className="studio-baseline-strip" aria-label="Kho nội dung đang phục vụ người học">
@@ -256,12 +257,17 @@ export default async function StudioPage({
                 ? ["draft", "validated"].includes(revision.workflowState)
                 : false;
               const overdue = assignment?.dueAt ? assignment.dueAt < Date.now() : false;
-              return <article className="studio-revision-card" key={revision.id}>
+              return <article className="studio-revision-card studio-library-row" key={revision.id}>
                 <header><span className={stateClass(revision.workflowState)}>{STUDIO_WORKFLOW_LABELS[revision.workflowState]}</span><span className="studio-badge">{revision.level.toUpperCase()}</span></header>
-                {selectable && <label className="studio-bulk-select"><input type="checkbox" name="selection" value={`${revision.id}|${revision.rowVersion}`} /><span>Chọn để xử lý hàng loạt</span></label>}
-                <h3>{revision.title}</h3><p>{STUDIO_ITEM_PRESENTATION[revision.itemType].module} · {STUDIO_ITEM_PRESENTATION[revision.itemType].label} · bản {revision.revision}</p>
+                {selectable ? <label className="studio-bulk-select" title={`Chọn ${revision.title}`}><input type="checkbox" name="selection" value={`${revision.id}|${revision.rowVersion}`} aria-label={`Chọn ${revision.title} để xử lý hàng loạt`} /></label> : <span className="studio-selection-placeholder" aria-hidden="true" />}
+                <div className="studio-row-copy"><h3>{revision.title}</h3><p>{STUDIO_ITEM_PRESENTATION[revision.itemType].module} · {STUDIO_ITEM_PRESENTATION[revision.itemType].label} · bản {revision.revision}</p></div>
                 <div className="studio-assignment-summary"><span><UserRoundCheck size={14} /> {assignment ? (assignment.ownerUserId === account.userId ? "Bạn phụ trách" : "Biên tập viên khác phụ trách") : "Chưa phân công"}</span><span className={overdue ? "overdue" : ""}><CalendarClock size={14} /> {assignment?.dueAt ? `${overdue ? "Quá hạn" : "Hạn"} ${new Date(assignment.dueAt).toLocaleDateString("vi-VN")}` : "Chưa đặt hạn"}</span></div>
-                <a href={`/studio/items/${encodeURIComponent(revision.id)}`}>Tiếp tục soạn <ArrowRight size={15} /></a>
+                <div className="studio-row-actions">
+                  <a href={`/studio/items/${encodeURIComponent(revision.id)}`}>Mở nội dung <ArrowRight size={15} /></a>
+                  {selectable && canBulkValidate && revision.workflowState === "draft" && <button type="submit" form={`validate-${revision.id}`}><ShieldCheck size={16} /> Kiểm định</button>}
+                  {selectable && canBulkSubmit && <button className="studio-row-submit" type="submit" form={`submit-${revision.id}`} disabled={revision.workflowState !== "validated"} title={revision.workflowState !== "validated" ? "Kiểm định đạt trước khi gửi kiểm duyệt" : undefined}><Send size={16} /> Gửi kiểm duyệt</button>}
+                  {selectable && canBulkSubmit && revision.workflowState === "draft" && <small>Kiểm định đạt để gửi duyệt.</small>}
+                </div>
               </article>;
             })}
           </div>
@@ -271,6 +277,14 @@ export default async function StudioPage({
             {page < totalPages ? <a href={pageHref(page + 1)}>Trang sau <ArrowRight size={16} /></a> : <span aria-disabled="true">Trang sau <ArrowRight size={16} /></span>}
           </nav>}
         </form> : <div className="studio-empty"><div><LibraryBig size={28} /><p>Chưa có phiên bản trong xưởng khớp bộ lọc này. Kho người học phía trên vẫn được giữ nguyên.</p></div></div>}
+        {revisions.filter(revision => ["draft", "validated"].includes(revision.workflowState)).map(revision => <div key={`actions-${revision.id}`} hidden>
+          {(["validate", "submit"] as const).filter(action => action === "validate" ? canBulkValidate : canBulkSubmit).map(action => <form key={action} id={`${action}-${revision.id}`} action="/studio/actions" method="post">
+            <input type="hidden" name="action" value={action} />
+            <input type="hidden" name="revisionId" value={revision.id} />
+            <input type="hidden" name="expectedRowVersion" value={revision.rowVersion} />
+            <input type="hidden" name="idempotencyKey" value={`studio-${action}:${crypto.randomUUID()}`} />
+          </form>)}
+        </div>)}
       </section>
 
       {approvals.length > 0 && <section className="studio-section" aria-labelledby="approval-title"><header className="studio-section-heading"><div><span className="studio-kicker">HÀNG CHỜ PHÊ DUYỆT</span><h2 id="approval-title">Nội dung đang chờ Điều Hành Viên</h2></div><p>Biên tập viên có thể gửi duyệt nhưng không thể tự phát hành nội dung của mình.</p></header><div className="studio-revision-grid">{approvals.map((revision) => <article className="studio-revision-card" key={revision.id}><span className="studio-badge gold">Chờ phê duyệt</span><h3>{revision.title}</h3><p>{STUDIO_ITEM_PRESENTATION[revision.itemType].label} · bản {revision.revision}</p><a href={`/studio/items/${encodeURIComponent(revision.id)}`}>Kiểm tra nội dung <ArrowRight size={15} /></a></article>)}</div></section>}

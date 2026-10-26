@@ -1,11 +1,11 @@
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
   CURRENT_AUTHORITATIVE_COURSE_ID,
   type AuthoritativeReleasedLessonProgressV1,
 } from "../learning/authoritativeProgress";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
-import { canonicalStringify } from "../sync/document";
+import { canonicalStringify } from "../sync/canonicalHash";
 import {
   ASSESSMENT_SESSION_FORM_SCHEMA_VERSION,
   ASSESSMENT_SESSION_PROTOCOL_VERSION,

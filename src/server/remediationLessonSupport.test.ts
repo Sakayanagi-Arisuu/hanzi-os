@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { RELEASED_LESSONS } from "../data/curriculum";
-import { buildExerciseCatalog } from "../lib/exerciseGeneration";
+import { buildExerciseCatalog } from "../lib/editorialExerciseGeneration";
 import { crowdedPlaceSupport, remediationLessonSupport } from "./remediationLessonSupport";
 
 describe("context-bound remediation support", () => {

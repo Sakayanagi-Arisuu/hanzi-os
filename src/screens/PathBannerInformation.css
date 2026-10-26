@@ -24,6 +24,8 @@
   mask-repeat: no-repeat;
 }
 .path-banner-compact-seal { display: none; }
+.path-banner-mobile-heading,
+.path-banner-continue { display: none; }
 .path-banner-information {
   grid-area: 1 / 1;
   align-self: start;
@@ -101,19 +103,31 @@
   .path-banner-pennant > strong { font-size: 13px; }
 }
 @media (max-width: 760px) {
-  .path-page .path-route-banner { aspect-ratio: auto; }
+  .path-page .path-route-banner {
+    aspect-ratio: auto;
+    margin: 0 0 8px;
+    border: 1px solid #527d63;
+    border-radius: 12px;
+    background: linear-gradient(115deg, #123e30, #061c16 78%);
+    animation: none;
+  }
   .path-page .path-route-banner::before { display: none; }
-  .path-route-picture { position: relative; aspect-ratio: 588 / 146; }
-  .path-banner-information { grid-area: auto; margin: 0 5%; padding-block: 8px 16px; grid-template-columns: minmax(0, 1fr) 96px; gap: 14px; }
-  .path-banner-pennant { min-height: 132px; padding: 14px 14px 26px; gap: 8px; }
-  .path-banner-pennant > strong { font-size: 14px; }
-  .path-banner-pennant > svg { width: 26px; height: 26px; }
-  .path-banner-count { font-size: 20px; }
-  .path-banner-medallion { gap: 5px; }
-  .path-banner-medallion > small { font-size: 10px; }
-  /* At phone size the artwork's insets remain ornamental, with live text below. */
-  .path-banner-compact-seal { position: absolute; display: grid; place-items: center; background: #071e18; }
-  .path-banner-compact-seal svg { width: 80%; height: 80%; fill: none; stroke: #d7b96b; stroke-width: 1.8; }
-  .path-banner-compact-current { left: 68%; top: 21%; width: 8.5%; height: 30%; }
-  .path-banner-compact-total { left: 81%; top: 44%; width: 7.5%; aspect-ratio: 1; border-radius: 50%; }
+  .path-route-picture { display: none; }
+  .path-banner-information { grid-area: auto; margin: 0; padding: 12px 14px; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+  .path-banner-mobile-heading { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .path-banner-mobile-heading > strong { font-size: 20px; line-height: 1.25; color: #effbf6; }
+  .path-banner-mobile-heading > span { font-size: 12px; line-height: 1.5; color: #c3d8ce; }
+  .path-banner-pennant { grid-column: 1; grid-row: 2; min-height: 0; padding: 0; gap: 3px; align-items: flex-start; text-align: left; background: none; clip-path: none; filter: none; }
+  .path-banner-pennant::before,
+  .path-banner-pennant > svg,
+  .path-banner-rule { display: none; }
+  .path-banner-pennant > small { font-size: 10px; line-height: 1.4; letter-spacing: .03em; }
+  .path-banner-pennant > strong { font-size: 16px; line-height: 1.4; text-wrap: wrap; }
+  .path-banner-medallion { grid-column: 2; grid-row: 1; width: auto; aspect-ratio: auto; padding: 0; border: 0; border-radius: 0; gap: 2px; background: none; box-shadow: none; align-items: flex-end; }
+  .path-banner-count { font-size: 18px; }
+  .path-banner-medallion > small { font-size: 10px; line-height: 1.5; color: #c3d8ce; }
+  .path-banner-medallion > small br { display: none; }
+  .path-banner-continue { grid-column: 2; grid-row: 2; display: inline-flex; align-items: center; justify-content: center; align-self: center; gap: 4px; min-height: 48px; min-width: 96px; padding: 0 10px; border: 1px solid #c8ebc6; border-radius: 8px; color: #07301f; background: #b9e6bd; font-size: 14px; font-weight: 750; text-decoration: none; touch-action: manipulation; }
+  .path-banner-continue:active { background: #d6f3d7; }
+  .path-banner-continue:focus-visible { outline: 2px solid #e5cc83; outline-offset: 3px; }
 }

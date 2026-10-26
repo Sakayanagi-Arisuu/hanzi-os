@@ -45,6 +45,8 @@ export type ExerciseKind =
   | "recall";
 
 export type Profile = {
+  learningPreferences?: import('./learning/learningPreferences').LearningPreferences | null;
+  learningPreferencesClock?: import('./learning/learningPreferences').LearningPreferenceClock;
   name: string;
   goal: LearningGoal;
   dailyMinutes: 10 | 20 | 30;

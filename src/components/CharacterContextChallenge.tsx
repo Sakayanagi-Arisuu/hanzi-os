@@ -1,5 +1,5 @@
 import { Check, Swords, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getConfusableHanzis } from "../characters/characterForgeSession";
 
 export type CharacterChallengeEntry = {
@@ -16,13 +16,19 @@ export function CharacterContextChallenge({
   entries,
   onResolved,
   contextWords,
+  initialAnswer,
+  onBeforeResolve,
 }: {
   entry: CharacterChallengeEntry;
   entries: readonly CharacterChallengeEntry[];
   onResolved?: (correct: boolean) => void;
   contextWords?: readonly { word: string; pinyin: string; meaning: string }[];
+  initialAnswer?: string;
+  onBeforeResolve?: (answer: string, correct: boolean) => Promise<unknown>;
 }) {
-  const [answer, setAnswer] = useState<string | null>(null);
+  const [answer, setAnswer] = useState<string | null>(initialAnswer ?? null);
+  const [saving, setSaving] = useState(false);
+  useEffect(() => { if (initialAnswer !== undefined) setAnswer(initialAnswer); }, [initialAnswer]);
   const [showMap, setShowMap] = useState(false);
   const options = useMemo(() => {
     const verifiedConfusables = getConfusableHanzis(entry.hanzi)
@@ -43,10 +49,15 @@ export function CharacterContextChallenge({
   }, [entries, entry]);
   const blanked = entry.contextWord.replace(entry.displayHanzi, "□");
   const correct = answer === entry.displayHanzi;
-  const choose = (option: string) => {
-    if (answer !== null) return;
-    setAnswer(option);
-    onResolved?.(option === entry.displayHanzi);
+  const choose = async (option: string) => {
+    if (answer !== null || saving) return;
+    setSaving(true);
+    try {
+      await onBeforeResolve?.(option, option === entry.displayHanzi);
+      setAnswer(option);
+      onResolved?.(option === entry.displayHanzi);
+    } catch { return; }
+    finally { setSaving(false); }
   };
 
   return (
@@ -75,7 +86,7 @@ export function CharacterContextChallenge({
           <button
             key={option}
             type="button"
-            disabled={answer !== null}
+            disabled={answer !== null || saving}
             className={answer !== null ? option === entry.displayHanzi ? "is-correct" : option === answer ? "is-wrong" : "" : ""}
             onClick={() => choose(option)}
             aria-label={`Lựa chọn ${index + 1}: ${option}`}

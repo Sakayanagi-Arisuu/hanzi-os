@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
+import { House, ClipboardList, LibraryBig, Send, Users, ShieldCheck, Settings, History, Gem } from "lucide-react";
 import { authorizationLabel, type AppAuthorization } from "../../src/auth/authorization";
+import { AdminNavigation } from "./AdminNavigation";
+import { WorkspaceSignOut } from "../../src/components/WorkspaceSignOut";
 
 export type AdminNavKey =
   | "overview"
@@ -42,12 +45,13 @@ export const ADMIN_NAV_GROUPS: readonly AdminNavGroup[] = [
       { key: "security", href: "/admin/security", label: "Phiên đăng nhập", description: "Thiết bị và bảo mật", glyph: "PN" },
       { key: "configuration", href: "/admin/configuration", label: "Cấu hình", description: "Thiết lập vận hành", glyph: "CH" },
       { key: "activity", href: "/admin/activity", label: "Nhật ký hoạt động", description: "Lịch sử thay đổi", glyph: "NK" },
-      { key: "premium", href: "/admin/premium", label: "Premium thử nghiệm", description: "Gói và giao dịch local", glyph: "PR" },
+      { key: "premium", href: "/admin/premium", label: "Kinh doanh Premium", description: "Doanh thu, gói và đơn hàng", glyph: "PR" },
     ],
   },
 ] as const;
 
 const allItems = ADMIN_NAV_GROUPS.flatMap((group) => group.items);
+const navIcons = { overview: House, workflow: ClipboardList, content: LibraryBig, publishing: Send, access: Users, security: ShieldCheck, configuration: Settings, activity: History, premium: Gem };
 
 export const adminPageHref = (key: AdminNavKey) =>
   allItems.find((item) => item.key === key)?.href ?? "/admin";
@@ -119,25 +123,27 @@ export function AdminShell({
       <div className="admin-app-shell">
         <header className="admin-topbar">
           <a className="admin-brand" href="/admin" aria-label="HANZI.OS, về Tổng quan Cổng Quản Trị">
-            <span className="admin-brand-mark" aria-hidden="true">H</span>
+            <span className="admin-brand-mark" aria-hidden="true">漢</span>
             <span><strong>HANZI.OS</strong><small>CỔNG QUẢN TRỊ</small></span>
           </a>
           <div className="admin-topbar-actions">
             <a className="admin-quiet-action" href="/studio">Mở Biên Tập Viện</a>
             <a className="admin-quiet-action" href="/account/security">Tài khoản</a>
+            <WorkspaceSignOut />
           </div>
         </header>
 
         <div className="admin-layout">
           <aside className="admin-sidebar" aria-label="Điều hướng Cổng Quản Trị">
+            <AdminNavigation>
             <nav className="admin-nav">
               {ADMIN_NAV_GROUPS.map((group, groupIndex) => {
-                const groupActive = group.items.some((item) => item.key === current);
                 const content = <div className="admin-nav-group">
                   <span className="admin-nav-group-label">{group.label}</span>
                   {group.items.map((item) => {
                     const active = current === item.key;
                     const badge = badges?.[item.key];
+                    const Icon = navIcons[item.key];
                     return (
                       <a
                         className={`admin-nav-item${active ? " is-active" : ""}`}
@@ -145,7 +151,7 @@ export function AdminShell({
                         key={item.key}
                         aria-current={active ? "page" : undefined}
                       >
-                        <span className="admin-nav-glyph" aria-hidden="true">{item.glyph}</span>
+                        <span className="admin-nav-glyph" aria-hidden="true"><Icon size={19} /></span>
                         <span className="admin-nav-item-copy"><strong>{item.label}</strong></span>
                         {typeof badge === "number" && badge > 0 && <span className="admin-nav-badge" aria-label={`${badge} việc cần xử lý`}>{badge > 99 ? "99+" : badge}</span>}
                       </a>
@@ -154,13 +160,14 @@ export function AdminShell({
                 </div>;
                 return groupIndex === 0
                   ? <div key={group.label}>{content}</div>
-                  : <details className="admin-system-nav" open={groupActive} key={group.label}>
+                  : <details className="admin-system-nav" open key={group.label}>
                       <summary>Quản lý hệ thống</summary>
                       {content}
                     </details>;
               })}
             </nav>
             <span className="admin-sidebar-role">{authorizationLabel(authorization)}</span>
+            </AdminNavigation>
           </aside>
 
           <div className="admin-main-column" id="admin-main-content" tabIndex={-1}>

@@ -21,6 +21,7 @@ import {
   seriesCompletion,
 } from "../reader/library/readerProgress";
 import { useReaderProgress } from "../reader/library/useReaderProgress";
+import { ReaderStorageStatus } from '../reader/library/ReaderStorageStatus';
 import "../reader/library/readerLibrary.css";
 import { useLearning } from "../store/LearningStore";
 
@@ -37,7 +38,7 @@ const reviewedLexemeIds = (evidence: ReturnType<typeof useLearning>["state"]["ev
 export function ReaderSeriesPage() {
   const { seriesId = "" } = useParams();
   const { state, sync } = useLearning();
-  const { progress } = useReaderProgress({
+  const { progress, scopeReady, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
   });
@@ -66,6 +67,8 @@ export function ReaderSeriesPage() {
       .finally(() => { if (active) setEditorialLoading(false); });
     return () => { active = false; };
   }, [catalogRetry, seriesId, staticSeries]);
+
+  if (!scopeReady) return <ReaderStorageStatus error={storageError} />;
 
   if (editorialLoading) {
     return <section className="reader-recovery" role="status"><BookOpenText size={44} aria-hidden="true" /><span>VẠN QUYỂN CÁC</span><h1>Đang lấy sách từ gian biên tập…</h1></section>;

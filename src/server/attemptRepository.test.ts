@@ -1,4 +1,9 @@
 import { createHash } from "node:crypto";
+import { LessonHistoryRepository } from "./lessonHistoryRepository";
+import { ActivityHistoryRepository } from './activityHistoryRepository';
+import {LessonPageAttemptRepository} from './lessonPageAttemptRepository';
+import {readingPageHistory} from '../learning/lessonPageHistory';
+import {pageHistoryFixture} from '../learning/testing/pageHistoryFixture';
 import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
@@ -22,7 +27,7 @@ import {
   AttemptRepository,
   AttemptSessionUnavailableError,
 } from "./attemptRepository";
-import { scoreObjectiveAttempt } from "./attemptScoring";
+import { scoreObjectiveAttempt } from "./editorialAttemptScoring";
 import { CourseVersionBindingError } from "./courseVersionRepository";
 import type { LessonSessionPublicationPolicy } from "./lessonSessionRepository";
 import { LearningResetEpochConflictError } from "./learningResetEpoch";
@@ -258,6 +263,92 @@ const seedAdditionalSession = (
 };
 
 describe("normalized objective attempt repository", () => {
+  it("rebuilds history from the business transaction after lost replies, without analytics writes or double activity", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a"); seedUser(database, "user-b");
+    const input = command();
+    const receipt = await repositoryFor(database).commitObjectiveAttempt("user-a", input, scoreObjectiveAttempt(input));
+    const before = database.database.prepare("SELECT COUNT(*) AS n FROM learning_evidence").get();
+    const history = new LessonHistoryRepository(database);
+    const first = await history.readPage("user-a", "account:a", 0);
+    expect(first.events).toMatchObject([{ operationId: input.idempotencyKey, receiptRef: receipt.attemptId,
+      confirmationState: "confirmed", masteryEligible: false, assistance: { hint: false, priorExposure: false } }]);
+    expect(JSON.stringify(first)).not.toContain("correctAnswer");
+    expect(JSON.stringify(first)).not.toContain("response_json");
+    expect((await history.readPage("user-b", "account:b", 0)).events).toEqual([]);
+    await repositoryFor(database).commitObjectiveAttempt("user-a", input, scoreObjectiveAttempt(input));
+    expect((await history.readPage("user-a", "account:a", 0)).events).toHaveLength(1);
+    expect(database.database.prepare("SELECT COUNT(*) AS n FROM learning_evidence").get()).toEqual(before);
+    await expect(history.readPage("user-a", "account:a", 1)).rejects.toBeInstanceOf(LearningResetEpochConflictError);
+    database.database.close();
+  });
+  it("pages existing business rows with timestamp ties without duplicates or implicit truncation", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    for (let index = 0; index < 3; index++) {
+      const sessionId = index === 0 ? "user-a-session" : `history-page-${index}`;
+      if (index > 0) seedAdditionalSession(database, "user-a", sessionId);
+      const input = command({ idempotencyKey: `history-page:${index}`, deviceSequence: index + 1, sessionId });
+      await repositoryFor(database).commitObjectiveAttempt("user-a", input, scoreObjectiveAttempt(input));
+    }
+    database.database.prepare("UPDATE learning_attempts SET received_at=123456789").run();
+    const history = new LessonHistoryRepository(database);
+    const first = await history.readPage("user-a", "account:a", 0, { limit: 2 });
+    const last = await history.readPage("user-a", "account:a", 0, { limit: 2, cursor: first.nextCursor });
+    expect(first.events).toHaveLength(2); expect(last.events).toHaveLength(1);
+    expect(new Set([...first.events, ...last.events].map((entry) => entry.eventId)).size).toBe(3);
+    expect(last.nextCursor).toBeNull();
+    await expect(history.readPage("user-a", "account:a", 0, { cursor: { receivedAt: 1, attemptId: "" } })).rejects.toThrow("cursor");
+    database.database.close();
+  });
+  it('paginates objective and page sources together without duplicate counts or lost timestamp ties',async()=>{
+    const database=new SQLiteD1();
+    seedUser(database,'user-a');
+    const input=command();
+    await repositoryFor(database).commitObjectiveAttempt('user-a',input,scoreObjectiveAttempt(input));
+    const records=await readingPageHistory(`siwc_${'a'.repeat(64)}`,0,pageHistoryFixture());
+    for(const record of records.slice(0,2))await new LessonPageAttemptRepository(database).record('user-a',record.command);
+    database.database.exec('UPDATE learning_attempts SET received_at=123456789; UPDATE lesson_page_attempts SET created_at=123456789;');
+    const history=new LessonHistoryRepository(database);
+    const first=await history.readPage('user-a',`siwc_${'a'.repeat(64)}`,0,{limit:2});
+    const last=await history.readPage('user-a',`siwc_${'a'.repeat(64)}`,0,{limit:2,cursor:first.nextCursor});
+    const events=[...first.events,...last.events];
+    expect(events).toHaveLength(3);
+    expect(new Set(events.map(event=>event.eventId)).size).toBe(3);
+    expect(events.filter(event=>event.sourceType==='objective-lesson-attempt')).toHaveLength(1);
+    expect(events.filter(event=>event.sourceType==='lesson-page')).toHaveLength(2);
+    expect(last.nextCursor).toBeNull();
+    expect(JSON.stringify(events)).not.toContain('response_json');
+    database.database.close();
+  });
+  it('requires a same-owner page mistake and persists correction without mastery, including replay', async () => {
+    const database = new SQLiteD1();
+    seedUser(database, 'user-a');
+    seedUser(database, 'user-b');
+    const input = command({ source: 'mistake', sessionId: undefined, method: 'typed-character-recall',
+      activityId: 'lesson-page:["boot-1","page","block"]', activityVersion: 'lesson-page-v1:test' });
+    const score = { ...scoreObjectiveAttempt(command()), baseMasteryEligible: false, requiredForPass: false, sessionBinding: null,
+      remediationFeedback: { correctAnswer: '在', explanation: 'Vị trí' } };
+    const repository = repositoryFor(database);
+    await expect(repository.commitObjectiveAttempt('user-a', input, score)).rejects.toBeInstanceOf(AttemptSessionUnavailableError);
+    database.database.prepare(`INSERT INTO lesson_page_attempts
+      (id,user_id,reset_epoch,idempotency_key,request_hash,activity_id,activity_version,lesson_id,revision_id,response_json,outcome,occurred_at,created_at)
+      VALUES('page-origin','user-b',0,'page-key','hash',?,?,'boot-1','rev','{}','incorrect',?,?)`)
+      .run(input.activityId, input.activityVersion, input.occurredAt, Date.now());
+    await expect(repository.commitObjectiveAttempt('user-a', input, score)).rejects.toBeInstanceOf(AttemptSessionUnavailableError);
+    database.database.prepare("UPDATE lesson_page_attempts SET user_id='user-a' WHERE id='page-origin'").run();
+    const receipt = await repository.commitObjectiveAttempt('user-a', input, score);
+    expect(receipt).toMatchObject({ source: 'mistake', method: 'remediation-recall', remediationFeedback: score.remediationFeedback });
+    expect((await repository.commitObjectiveAttempt('user-a', input, score)).duplicate).toBe(true);
+    const history = new ActivityHistoryRepository(database);
+    const page = await history.readPage('user-a', 'account:a', 0);
+    expect(page.events).toMatchObject([{ operationId: input.idempotencyKey, module: 'mistakes',
+      sourceRecordRef: receipt.attemptId, authority: 'server-verified', confirmationState: 'confirmed', masteryEligible: false }]);
+    expect((await history.readPage('user-b', 'account:b', 0)).events).toEqual([]);
+    expect(await history.readPage('user-a', 'account:a', 0)).toEqual(page);
+    expect(database.database.prepare("SELECT count(*) AS n, mastery_eligible AS eligible FROM learning_evidence WHERE user_id='user-a'").get())
+      .toEqual({ n: 1, eligible: 0 });
+  });
   it("atomically writes idempotency, attempt, evidence, and outbox rows", async () => {
     const database = new SQLiteD1();
     seedUser(database, "user-a");

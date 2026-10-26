@@ -3,7 +3,12 @@ import { describe, expect, it, vi, beforeEach } from 'vitest';
 const mocks=vi.hoisted(()=>({
   access:vi.fn(), bytes:vi.fn(), premium:vi.fn(), studio:vi.fn(),
 }));
-vi.mock('./d1',()=>({getD1Database:vi.fn(async()=>({}))}));
+vi.mock('./d1',async importOriginal=>({
+ ...await importOriginal<typeof import('./d1')>(),
+ getD1Database:vi.fn(async()=>({})),
+}));
+vi.mock('../../app/chatgpt-auth',()=>({getAuthenticatedUser:vi.fn(async()=>null)}));
+vi.mock('./learningOwnerHttp',()=>({learningOwnerMismatch:vi.fn(async()=>null)}));
 vi.mock('./lessonMediaRepository',()=>({LessonMediaRepository:class {
   async get(){return {id:'00000000-0000-4000-8000-000000000001',mimeType:'image/png',byteLength:3};}
   async releaseAccess(){return mocks.access();}

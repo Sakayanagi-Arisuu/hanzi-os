@@ -46,11 +46,16 @@ import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 import { emitLearningJourneyReceipt } from "../learning/journeyReceiptEvent";
+import { saveMockResultMistakes } from '../mistakes/practiceMistakes';
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { allocateDeviceSequence } from "../sync/indexedDb";
 import { readExactNormalizedLessonEnvironment } from "../sync/normalizedLessonEnvironment";
+import { offlineRead } from '../sync/offlineRead';
+import { currentWorkspaceScope } from '../sync/workspaceSync';
+import { beginMockPractice, readMockPracticeRuns, saveMockPracticeRun, mockPracticeHistory } from '../sync/offlineMockPractice';
+import { MOCK_PRACTICE_CHANGED, type OfflineMockRun, type OfflineMockPackage } from '../assessment/offlineMockPractice';
 
-type CatalogEntry = {
+export type CatalogEntry = {
   accessTier?: 'free' | 'premium';
   locked?: boolean;
   examLevel: "hsk1" | "hsk2" | "hsk3" | "hsk4";
@@ -67,7 +72,7 @@ type CatalogEntry = {
   prerequisiteUnlockEligible: false;
   standardStructure: boolean;
   legacy: boolean;
-  sections: Array<{
+  sections: ReadonlyArray<{
     skill: string;
     label: string;
     itemCount: number;
@@ -117,7 +122,7 @@ type ActiveSession = {
 
 type DefinitionLoadState = "loading" | "ready" | "not-found" | "error";
 
-type MockResult = {
+export type MockResult = {
   sessionId: string;
   definition: CatalogEntry;
   contentVersion: string;
@@ -136,6 +141,7 @@ type MockResult = {
     itemVersion: string;
     skill: string;
     prompt: string;
+    spokenText?: string;
     selectedAnswer: string | null;
     correct: boolean;
     correctAnswer: string;
@@ -212,7 +218,7 @@ class MockExamRequestError extends Error {
 }
 
 const requestJson = async <T,>(url: string, init?: RequestInit): Promise<T> => {
-  const response = await fetch(url, init);
+  const response = await offlineRead(url, init);
   const raw = await response.text();
   let body: T & { error?: { code?: string; message?: string } };
   try {
@@ -232,9 +238,9 @@ const requestJson = async <T,>(url: string, init?: RequestInit): Promise<T> => {
   return body;
 };
 
-const postJson = <T,>(url: string, body: unknown) => requestJson<T>(url, {
+const postJson = <T,>(url: string, body: unknown, ownerKey: string) => requestJson<T>(url, {
   method: "POST",
-  headers: { "content-type": "application/json" },
+  headers: { "content-type": "application/json", "x-learning-owner": ownerKey },
   body: JSON.stringify(body),
 });
 
@@ -388,7 +394,7 @@ function MockExamCatalog() {
   const definition = forms.find((entry) =>
     entry.examLevel === activeLevel && entry.formKey === activeForm
   ) ?? null;
-  const destination = `/exams/${activeLevel}/${activeForm}`;
+  const destination = `/exams/${activeLevel}/${activeForm}?fresh=1`;
 
   return (
     <div
@@ -527,10 +533,19 @@ function MockExamHistory() {
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     if (!sync.session?.authenticated) return;
+    const owner = sync.session.accountKey;
+    let active = true;
+    const update = async () => {
+      const local = await mockPracticeHistory(owner);
+      if (active) setHistory(previous => [...new globalThis.Map([...(previous ?? []), ...local].map(item => [item.sessionId, item])).values()]);
+    };
+    void update();
     requestJson<{ history: MockResult[] }>("/api/exams/history")
-      .then((result) => setHistory(result.history))
-      .catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Không tải được lịch sử."));
-  }, [sync.session?.authenticated]);
+      .then(async result => { const local = await mockPracticeHistory(owner); if (active) setHistory([...result.history, ...local]); })
+      .catch((reason: unknown) => { if (active) setError(reason instanceof Error ? reason.message : "Không tải được lịch sử."); });
+    window.addEventListener(MOCK_PRACTICE_CHANGED, update); window.addEventListener('hanzi-workspace-received', update);
+    return () => { active = false; window.removeEventListener(MOCK_PRACTICE_CHANGED, update); window.removeEventListener('hanzi-workspace-received', update); };
+  }, [sync.session]);
   if (!sync.session?.authenticated) {
     return <div className="lesson-state-screen dungeon-state"><ShieldCheck size={42} /><span className="system-kicker">KHO CHIẾN TÍCH</span><h1>Đăng nhập để mở lịch sử</h1><Link className="primary-button" to="/signin?returnTo=%2Fexams%2Fhistory">Mở cổng đăng nhập</Link></div>;
   }
@@ -564,6 +579,7 @@ function MockExamRunner() {
   const { sync } = useLearning();
   const authority = useNormalizedLearningProjection();
   const [session, setSession] = useState<ActiveSession | null>(null);
+  const [deviceRun, setDeviceRun] = useState<OfflineMockRun | null>(null);
   const [definition, setDefinition] = useState<CatalogEntry | null>(null);
   const [definitionLoadState, setDefinitionLoadState] =
     useState<DefinitionLoadState>(routeSupported ? "loading" : "not-found");
@@ -592,6 +608,21 @@ function MockExamRunner() {
   ) ?? null;
   const sessionId = session?.binding.sessionId ?? null;
   const remainingMs = session ? Math.max(0, Date.parse(session.expiresAt) - now) : 0;
+
+  const installDeviceRun = useCallback((run: OfflineMockRun) => {
+    setDeviceRun(run); setDefinition(run.package.definition); setDefinitionLoadState('ready');
+    setResult(run.result);
+    setSession(run.submittedAt ? null : {
+      definition: run.package.definition,
+      binding: { sessionId: run.id, enrollmentId: 'device-practice', resetEpoch: authority.resetEpoch ?? 0,
+        contentVersion: run.package.contentVersion, blueprintId: run.package.form.blueprintId,
+        formVersion: run.package.form.formVersion, scoringPolicyVersion: run.package.form.scoringPolicyVersion,
+        expectedItemCount: run.package.form.items.length, form: run.package.form, formHash: run.package.formHash,
+        status: 'started', startedAt: run.startedAt },
+      expiresAt: new Date(Date.parse(run.startedAt) + run.package.definition.timeLimitMinutes * 60_000).toISOString(),
+      expired: false, recorded: run.answers,
+    });
+  }, [authority.resetEpoch]);
 
   useEffect(() => {
     if (!result) return;
@@ -630,6 +661,12 @@ function MockExamRunner() {
     setDefinitionLoadState("loading");
     setError(null);
     try {
+      const scope = await currentWorkspaceScope(sync.session.accountKey);
+      if (scope) {
+        const runs = await readMockPracticeRuns(scope);
+        const run = runs.filter(item => item.package.definition.examLevel === level && item.package.definition.formKey === form).at(-1);
+        if (run && (!run.result || searchParams.get('fresh') !== '1')) { installDeviceRun(run); return; }
+      }
       const payload = await requestJson<{
         session: ActiveSession | null;
         activeDoor: Pick<CatalogEntry, "examLevel" | "formKey"> | null;
@@ -665,14 +702,22 @@ function MockExamRunner() {
         setDefinitionLoadState(matched ? "ready" : "not-found");
       }
     } catch (reason) {
+      if (!(reason instanceof MockExamRequestError) || reason.status >= 500) {
+        try {
+          const catalog = await requestJson<{ forms: CatalogEntry[] }>('/api/exams/catalog');
+          const matched = catalog.forms.find(item => item.examLevel === level && item.formKey === form && !item.locked);
+          if (matched) { setDefinition(matched); setDefinitionLoadState('ready'); return; }
+        } catch { /* Keep the original error when no package was prepared. */ }
+      }
       setError(reason instanceof Error ? reason.message : "Không thể kiểm tra phiên đang mở.");
       setPremiumDenied(reason instanceof MockExamRequestError && reason.code === 'PREMIUM_REQUIRED');
       setDefinitionLoadState("error");
     }
-  }, [endpoint, form, level, navigate, routeSupported, sync.session?.authenticated]);
+  }, [endpoint, form, level, navigate, routeSupported, sync.session, installDeviceRun, searchParams]);
 
   useEffect(() => {
     setSession(null);
+    setDeviceRun(null);
     setDefinition(null);
     setResult(null);
     setSelected(null);
@@ -684,6 +729,19 @@ function MockExamRunner() {
     autoStartAttempted.current = false;
   }, [form, level, routeSupported]);
   useEffect(() => { void loadResume(); }, [loadResume]);
+  useEffect(() => {
+    const owner = sync.session?.authenticated ? sync.session.accountKey : null;
+    if (!owner || !deviceRun) return;
+    let active = true;
+    const update = async () => {
+      const scope = await currentWorkspaceScope(owner);
+      if (!scope) return;
+      const run = (await readMockPracticeRuns(scope)).find(item => item.id === deviceRun.id);
+      if (active && run && run.result) installDeviceRun(run);
+    };
+    window.addEventListener(MOCK_PRACTICE_CHANGED, update);
+    return () => { active = false; window.removeEventListener(MOCK_PRACTICE_CHANGED, update); };
+  }, [deviceRun, installDeviceRun, sync.session]);
   useEffect(() => {
     if (!sessionId) return;
     const timer = window.setInterval(() => setNow(Date.now()), 1_000);
@@ -703,6 +761,14 @@ function MockExamRunner() {
     setBusy(true);
     setError(null);
     try {
+      if (deviceRun && sync.session?.authenticated) {
+        const scope = await currentWorkspaceScope(sync.session.accountKey);
+        if (!scope) throw new Error('Tài khoản vừa thay đổi. Lượt luyện vẫn được giữ.');
+        const completed = { ...deviceRun, submittedAt: new Date().toISOString() };
+        await saveMockPracticeRun(scope, completed);
+        installDeviceRun(completed);
+        return;
+      }
       const environment = await commandEnvironment();
       if (!environment) throw new Error("Tài khoản đang được chuẩn bị. Hãy thử lại sau giây lát.");
       const storageKey = mockExamSubmitCommandStorageKey(
@@ -738,7 +804,13 @@ function MockExamRunner() {
       const response = await postJson<{ result: MockResult }>(
         `${endpoint}/submit`,
         command,
+        environment.ownerGeneration.ownerKey,
       );
+      const resultScope = await currentWorkspaceScope(environment.ownerGeneration.ownerKey);
+      if (resultScope && resultScope.resetEpoch === environment.resetEpoch
+        && resultScope.ownerGeneration.generation === environment.ownerGeneration.generation) {
+        await saveMockResultMistakes(resultScope, response.result);
+      }
       clearCompletedMockExamCommandKeys(
         window.sessionStorage,
         level,
@@ -795,7 +867,7 @@ function MockExamRunner() {
                 : null;
             },
           );
-          await postJson("/api/assessment/sessions/abandon", command);
+          await postJson("/api/assessment/sessions/abandon", command, environment.ownerGeneration.ownerKey);
           clearCompletedMockExamCommandKeys(
             window.sessionStorage,
             session.definition.examLevel,
@@ -822,7 +894,7 @@ function MockExamRunner() {
     } finally {
       setBusy(false);
     }
-  }, [busy, commandEnvironment, endpoint, form, level, navigate, nextExamPath, session]);
+  }, [busy, commandEnvironment, deviceRun, endpoint, form, level, navigate, nextExamPath, session, sync.session, installDeviceRun]);
 
   useEffect(() => {
     if (shouldAutoSubmitMockExam({
@@ -842,6 +914,15 @@ function MockExamRunner() {
     setBusy(true);
     setError(null);
     try {
+      if (sync.session?.authenticated) {
+        const scope = await currentWorkspaceScope(sync.session.accountKey);
+        if (!scope) throw new Error('Tài khoản đang được chuẩn bị. Hãy thử lại.');
+        const pack = await requestJson<OfflineMockPackage>(`${endpoint}/practice`);
+        installDeviceRun(await beginMockPractice(scope, pack));
+        setNow(Date.now());
+        navigate(`/exams/${level}/${form}`, { replace: true });
+        return;
+      }
       const environment = await commandEnvironment();
       if (!environment) throw new Error("Tài khoản đang được chuẩn bị. Hãy thử lại sau giây lát.");
       const storageKey = mockExamOpenCommandStorageKey(level, form);
@@ -873,7 +954,7 @@ function MockExamRunner() {
       const receipt = await postJson<Binding & {
         definition: CatalogEntry;
         expiresAt: string;
-      }>(`${endpoint}/sessions`, command);
+      }>(`${endpoint}/sessions`, command, environment.ownerGeneration.ownerKey);
       const active = openReceiptToSession(receipt as Binding & CatalogEntry & { definition: CatalogEntry; expiresAt: string });
       setDefinition(active.definition);
       setDefinitionLoadState("ready");
@@ -884,7 +965,7 @@ function MockExamRunner() {
     } finally {
       setBusy(false);
     }
-  }, [commandEnvironment, endpoint, form, level]);
+  }, [commandEnvironment, endpoint, form, level, sync.session, installDeviceRun, navigate]);
 
   useEffect(() => {
     if (
@@ -892,17 +973,30 @@ function MockExamRunner() {
       || !definition
       || session
       || result
+      || deviceRun?.submittedAt
       || autoStartAttempted.current
     ) return;
     autoStartAttempted.current = true;
     void start();
-  }, [definition, definitionLoadState, result, session, start]);
+  }, [definition, definitionLoadState, result, session, start, deviceRun]);
 
   const record = async () => {
     if (!session || !currentItem || !selected || busy) return;
     setBusy(true);
     setError(null);
     try {
+      if (deviceRun && sync.session?.authenticated) {
+        if (Date.now() >= Date.parse(session.expiresAt)) throw new Error('Đã hết giờ luyện. Lượt luyện sẽ được lưu tự động.');
+        const scope = await currentWorkspaceScope(sync.session.accountKey);
+        if (!scope) throw new Error('Tài khoản vừa thay đổi. Hãy tải lại trang.');
+        const next = { ...deviceRun, answers: [...deviceRun.answers, {
+          position: currentItem.position, itemId: currentItem.itemId, itemVersion: currentItem.itemVersion,
+          answer: selected, occurredAt: new Date().toISOString(),
+        }] };
+        await saveMockPracticeRun(scope, next);
+        installDeviceRun(next); setSelected(null);
+        return;
+      }
       const environment = await commandEnvironment();
       if (!environment) throw new Error("Phiên tài khoản vừa thay đổi. Hãy tải lại trang.");
       const storageKey = mockExamAttemptCommandStorageKey(
@@ -954,7 +1048,7 @@ function MockExamRunner() {
             : null;
         },
       );
-      await postJson(`${endpoint}/attempts`, command);
+      await postJson(`${endpoint}/attempts`, command, environment.ownerGeneration.ownerKey);
       clearMockExamAttemptCommand(
         window.sessionStorage,
         session.binding.sessionId,
@@ -994,6 +1088,10 @@ function MockExamRunner() {
     return <div className="lesson-state-screen dungeon-state"><ShieldCheck size={44} /><span className="system-kicker">CỬA ẢI CẦN DANH TÍNH</span><h1>Đăng nhập để bắt đầu</h1><p>Phiên đang làm và chiến tích sẽ được giữ lại cho lần quay về sau.</p><Link className="primary-button" to={`/signin?returnTo=${encodeURIComponent(`/exams/${level}/${form}`)}`}>Mở cổng đăng nhập <ArrowRight size={17} /></Link></div>;
   }
   if (result) return <MockExamResultView result={result} />;
+  if (deviceRun?.submittedAt) return <div className="lesson-state-screen dungeon-state" role="status"><Trophy size={42} />
+    <span className="system-kicker">LƯỢT LUYỆN ĐÃ LƯU</span><h1>Đã lưu {deviceRun.answers.length} câu trả lời</h1>
+    <p>Khi thiết bị kết nối được máy chủ, lượt luyện sẽ tự đồng bộ và nhận điểm. Bạn có thể rời trang hoặc đóng ứng dụng.</p>
+    <Link className="primary-button" to="/exams">Về Địa Thành HSK <ArrowRight size={17} /></Link></div>;
   if (definitionLoadState === "loading") {
     return <div className="lesson-state-screen dungeon-state" role="status"><Sparkles className="spin" size={42} /><span className="system-kicker">ĐỊA THÀNH ĐANG MỞ</span><h1>Đang gọi lại cửa ải…</h1><p>Phiên đang dở sẽ tiếp tục đúng vị trí trước đó.</p></div>;
   }
@@ -1078,7 +1176,7 @@ function MockExamRunner() {
     <div className={`mock-dungeon-live mock-exam-live ${selected ? "has-selection" : ""}`} data-level={session.definition.examLevel}>
       <header className="dungeon-runner-hud">
         <Link className="icon-button" to="/exams" aria-label="Rời bài thi"><ArrowLeft size={20} /></Link>
-        <div className="dungeon-runner-identity"><span>HSK{levelNumber(session.definition.examLevel)} · ĐỀ {session.definition.formKey.toUpperCase()}</span><strong>Bài thi mô phỏng</strong></div>
+        <div className="dungeon-runner-identity"><span>HSK{levelNumber(session.definition.examLevel)} · ĐỀ {session.definition.formKey.toUpperCase()}</span><strong>{deviceRun ? 'Bài luyện · lưu trên thiết bị' : 'Bài thi mô phỏng'}</strong></div>
         <div className={`dungeon-route-progress exam-section-progress sections-${session.definition.sections.length}`} role="progressbar" aria-label={`${session.recorded.length} trên ${session.binding.expectedItemCount} câu đã lưu`} aria-valuemin={0} aria-valuemax={session.binding.expectedItemCount} aria-valuenow={session.recorded.length}>
           {session.definition.sections.map((section, index) => (
             <span className={index < sectionIndex ? "cleared" : index === sectionIndex ? "current" : ""} key={section.skill}>

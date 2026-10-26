@@ -19,6 +19,7 @@ const localBindingConfig = {
     },
   ],
   r2_buckets: [],
+  images: { binding: 'IMAGES', remote: false },
 };
 
 export default defineConfig(async () => {
@@ -29,6 +30,10 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
+    define: {
+      __HANZI_LOCAL_OFFLINE_PREVIEW__: JSON.stringify(process.env.HANZI_LOCAL_OFFLINE_PREVIEW === '1'),
+      __HANZI_HOSTED_STUDY__: process.env.HANZI_HOSTED_STUDY_BUILD ?? 'null',
+    },
     server: {
       hmr: { overlay: false },
       ...(isCodexSeatbeltSandbox
@@ -40,7 +45,9 @@ export default defineConfig(async () => {
       sites(),
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
-        config: localBindingConfig,
+        ...(process.env.HANZI_CLOUDFLARE_CONFIG
+          ? { configPath: process.env.HANZI_CLOUDFLARE_CONFIG }
+          : { config: localBindingConfig }),
       }),
     ],
   };

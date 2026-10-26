@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MutationRateLimitBackendError } from "./mutationRateLimit";
+import { HostedPasswordLifecycleUnavailableError } from "./syncRepository";
 
 const {
   getChatGPTUser,
@@ -23,7 +24,8 @@ vi.mock("./d1", () => ({
     readonly code = "SYNC_BACKEND_UNAVAILABLE";
   },
 }));
-vi.mock("./syncRepository", () => ({
+vi.mock("./syncRepository", async (importOriginal) => ({
+  ...await importOriginal<typeof import("./syncRepository")>(),
   SyncRepository: function SyncRepository() {
     return repository;
   },
@@ -39,6 +41,7 @@ const identity = {
   displayName: "Learner",
   email: "learner@example.com",
   fullName: null,
+  userId: 'user-account', sessionId: 'fixture-session', authenticatedAt: Date.now(),
 };
 
 const request = (body: string, origin = "https://hanzi.test") =>
@@ -79,6 +82,17 @@ describe("account deletion mutation rate limit", () => {
     expect(response.status).toBe(403);
     expect(getChatGPTUser).not.toHaveBeenCalled();
     expect(consumeMutationRateLimit).not.toHaveBeenCalled();
+  });
+  it('requires recent first-party authentication before quota or graph mutation', async () => {
+    getChatGPTUser.mockResolvedValue({ ...identity, authenticatedAt: Date.now() - 700_000 });
+    expect((await DELETE(request(JSON.stringify({ confirmation: 'DELETE HANZI.OS' })))).status).toBe(401);
+    expect(repository.deleteAccount).not.toHaveBeenCalled();
+    expect(consumeMutationRateLimit).not.toHaveBeenCalled();
+  });
+  it('does not claim deletion when the graph repository reports no confirmed owner deletion', async () => {
+    repository.deleteAccount.mockResolvedValue(false);
+    const response = await DELETE(request(JSON.stringify({ confirmation: 'DELETE HANZI.OS' })));
+    expect(response.status).toBe(409); expect(await response.json()).not.toHaveProperty('deleted');
   });
 
   it("requires authentication before reading the body or consuming quota", async () => {
@@ -186,5 +200,14 @@ describe("account deletion mutation rate limit", () => {
     expect(response.headers.get("ratelimit-reset")).toBe("3600");
     expect(response.headers.get("retry-after")).toBeNull();
     expect(repository.deleteAccount).toHaveBeenCalledWith("user-account");
+  });
+
+  it("reports an unavailable hosted password lifecycle without claiming deletion succeeded", async () => {
+    repository.deleteAccount.mockRejectedValue(new HostedPasswordLifecycleUnavailableError());
+    const response = await DELETE(request(JSON.stringify({ confirmation: "DELETE HANZI.OS" })));
+    expect(response.status).toBe(409);
+    const body = await response.json();
+    expect(body).not.toHaveProperty("deleted");
+    expect(body).toMatchObject({ error: { code: new HostedPasswordLifecycleUnavailableError().code } });
   });
 });

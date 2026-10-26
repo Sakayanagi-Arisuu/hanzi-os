@@ -5,7 +5,7 @@ import { emptyLessonBlock } from "../learning/lessonPages";
 import { emptyLessonActivity } from "../learning/lessonActivities";
 import { practiceQuestionKey } from "../learning/practicePercent";
 import { RELEASED_LESSONS } from "../data/curriculum";
-import { buildExerciseCatalog } from "../lib/exerciseGeneration";
+import { buildExerciseCatalog } from "../lib/editorialExerciseGeneration";
 it("covers every released lesson question with stable deduplicated identities", () => {
   const catalog = baselinePracticeCatalog();
   const sets = Object.fromEntries(Object.entries(catalog).map(([skill, ids]) => [skill, new Set(ids)]));

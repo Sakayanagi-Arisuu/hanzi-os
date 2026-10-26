@@ -52,27 +52,7 @@ export const claimLessonInteractionXp = async (
   lessonId: string,
   resetEpoch: number,
 ) => {
-  const response = await fetch("/api/learning/xp", {
-    method: "POST",
-    credentials: "same-origin",
-    cache: "no-store",
-    redirect: "error",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ kind: "lesson", lessonId, resetEpoch }),
-  });
-  if (!response.ok) return null;
-  const value = await response.json() as {
-    awarded?: unknown;
-    amount?: unknown;
-    status?: unknown;
-  };
-  if (
-    typeof value.awarded !== "boolean"
-    || !finiteCount(value.amount)
-    || value.status !== "claimed"
-  ) return null;
-  notifyInteractionXpChanged();
-  return { awarded: value.awarded, amount: value.amount };
+  return claimInteractionXpDurably({ kind: 'lesson', lessonId, resetEpoch });
 };
 
 export const fetchAccountInteractionXp = async (
@@ -83,7 +63,7 @@ export const fetchAccountInteractionXp = async (
     dayStart: String(dayStart),
     dayEnd: String(dayEnd),
   });
-  const response = await fetch(`/api/learning/xp?${search}`, {
+  const response = await offlineRead(`/api/learning/xp?${search}`, {
     credentials: "same-origin",
     cache: "no-store",
     redirect: "error",
@@ -96,16 +76,8 @@ export const claimPronunciationInteractionXp = async (
   rewardKey: string,
   resetEpoch: number,
 ) => {
-  const response = await fetch("/api/learning/xp", {
-    method: "POST",
-    credentials: "same-origin",
-    cache: "no-store",
-    redirect: "error",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ rewardKey, resetEpoch }),
-  });
-  if (!response.ok) return false;
-  const value = await response.json() as { awarded?: unknown };
-  notifyInteractionXpChanged();
-  return value.awarded === true;
+  const receipt = await claimInteractionXpDurably({ rewardKey, resetEpoch });
+  return receipt?.awarded ?? null;
 };
+import { offlineRead } from '../sync/offlineRead';
+import { claimInteractionXpDurably } from '../sync/offlineInteractionXp';

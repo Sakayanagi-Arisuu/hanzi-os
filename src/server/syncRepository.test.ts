@@ -16,6 +16,9 @@ import type {
   D1RunResult,
 } from "./d1";
 import { ACCOUNT_EXPORT_TABLES, SyncRepository } from "./syncRepository";
+import { ActivityHistoryRepository } from './activityHistoryRepository';
+import { documentActivityHistoryEntries, documentActivityHistoryEvent } from '../sync/documentActivityHistory';
+import { projectLessonHistory } from '../learning/lessonHistory';
 
 const migrationDirectory = new URL("../../drizzle/", import.meta.url);
 const migration = readdirSync(migrationDirectory)
@@ -724,6 +727,40 @@ function tenantForeignKeySignatures(database: DatabaseSync) {
 }
 
 describe("D1 sync repository", () => {
+  it('commits saved/profile history with the canonical document, reconciles retries and rolls back on journal failure', async () => {
+    const d1 = new SQLiteD1();
+    const repository = new SyncRepository(d1);
+    const userId = await repository.resolveUser(user('document-history@example.com'));
+    const initial = await syncOperation('account:document-history');
+    await repository.compareAndSwapDocumentAndAppendChange(userId, 0, initial.document, initial);
+    const state = initial.document.state;
+    const updated = { ...state, savedWords: ['greet-ni'], profile: { ...state.profile, goal: 'travel' as const } };
+    const operationId = 'document:save-profile';
+    const document = evolveSyncDocument(initial.document, state, updated, '2026-10-19T01:00:00Z', operationId, 'snapshot');
+    const source = { ...initial, operationId, idempotencyKey: operationId, kind: 'snapshot' as const, baseRevision: 1, document };
+    const operation = { ...source, requestHash: await hashSyncPushOperation(source) };
+    const committed = await repository.compareAndSwapDocumentAndAppendChange(userId, 1, document, operation);
+    expect(committed).toMatchObject({ revision: 2 });
+    const history = await new ActivityHistoryRepository(d1).readPage(userId, operation.ownerKey, 0);
+    expect(history.events).toHaveLength(3);
+    const local = (await documentActivityHistoryEntries(document, operationId, 'snapshot'))
+      .map(entry => documentActivityHistoryEvent(operation.ownerKey, 0, entry));
+    expect(projectLessonHistory({ ownerKey: operation.ownerKey, resetEpoch: 0 }, [...local, ...history.events])).toHaveLength(3);
+    expect(history.events.every(event => event.confirmationState === 'confirmed' && event.score === null && !event.masteryEligible)).toBe(true);
+    await repository.compareAndSwapDocumentAndAppendChange(userId, 2, document, operation);
+    expect((await new ActivityHistoryRepository(d1).readPage(userId, operation.ownerKey, 0)).events).toEqual(history.events);
+    const rejectedDocument = evolveSyncDocument(document, updated, { ...updated, savedWords: [] }, '2026-10-19T02:00:00Z', 'document:remove', 'snapshot');
+    const rejected = { ...operation, operationId: 'document:remove', idempotencyKey: 'document:remove', document: rejectedDocument };
+    expect(await repository.compareAndSwapDocumentAndAppendChange(userId, 0, rejectedDocument, rejected)).toBeNull();
+    expect((await new ActivityHistoryRepository(d1).readPage(userId, operation.ownerKey, 0)).events).toEqual(history.events);
+    d1.database.exec("CREATE TRIGGER reject_document_history BEFORE INSERT ON learner_workspace_entries WHEN NEW.entry_key LIKE 'history.activity:document:%' BEGIN SELECT RAISE(ABORT,'fixture journal write failure'); END");
+    await expect(repository.compareAndSwapDocumentAndAppendChange(userId, 2, rejectedDocument, rejected)).rejects.toThrow('fixture journal');
+    expect((await repository.getLearningDocument(userId))?.revision).toBe(2);
+    expect((await repository.getLearningDocument(userId))?.document.savedWords['greet-ni'].present).toBe(true);
+    expect(await repository.getAppliedOperation(userId, rejected.operationId)).toBeNull();
+    expect((await new ActivityHistoryRepository(d1).readPage(userId, operation.ownerKey, 0)).events).toEqual(history.events);
+  });
+
   it("persists the expanded HSK3-4 starting-level contract", async () => {
     const d1 = new SQLiteD1();
     const repository = new SyncRepository(d1);
@@ -894,7 +931,14 @@ describe("D1 sync repository", () => {
     d1.database.prepare("INSERT INTO hanzi_wallets (user_id,balance,updated_at) VALUES (?,75,3)").run(userId);
     d1.database.prepare("INSERT INTO hanzi_wallet_entries (id,user_id,delta,kind,reference_id,actor_user_id,created_at) VALUES ('export-wallet-entry',?,75,'admin_credit','export-wallet-ref',?,3)").run(userId, userId);
     d1.database.prepare("INSERT INTO hanzi_premium_orders (id,user_id,plan_id,amount,idempotency_key,status,paid_at) VALUES ('export-hanzi-order',?,'hsk4-month',25,'export-hanzi-key','paid',3)").run(userId);
+    d1.database.prepare('INSERT INTO learner_workspace_entries(user_id,reset_epoch,entry_key,value_json,changed_at,change_id) VALUES(?,0,?,?,3,?)')
+      .run(userId, 'practice.mistake:export-fixture', '{"prompt":"我去学校。"}', 'workspace-export');
     const exported = await repository.exportAccountData(userId);
+    expect(exported.tables.learner_workspace_entries).toHaveLength(2);
+    expect(exported.tables.learner_workspace_entries).toEqual(expect.arrayContaining([expect.objectContaining({
+      entry_key: 'practice.mistake:export-fixture', value_json: { prompt: '我去学校。' },
+    }), expect.objectContaining({ value_json: expect.objectContaining({ module: 'profile', category: 'preference',
+      details: expect.objectContaining({ imported: true, goal: 'conversation' }) }) })]));
     expect(Object.keys(exported.tables)).toEqual([...ACCOUNT_EXPORT_TABLES]);
     expect(exported.rowCount).toBe(
       Object.values(exported.tables).reduce((total, rows) => total + rows.length, 0),

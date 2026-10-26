@@ -1,6 +1,7 @@
 export type ServiceWorkerLifecycleCallbacks = {
   hasController: () => boolean;
   onInstallFailure: () => void;
+  onInstallSuccess?: () => void;
   onUpdateReady: () => void;
 };
 
@@ -33,13 +34,32 @@ export function observeServiceWorkerLifecycle(
 ) {
   const cleanups: Array<() => void> = [];
   const observedWorkers = new Set<ServiceWorker>();
+  let latestWorker: ServiceWorker | null = null;
 
   const observeWorker = (worker: ServiceWorker | null) => {
     if (!worker || observedWorkers.has(worker)) return;
     observedWorkers.add(worker);
+    latestWorker = worker;
+    let installedSuccessfully = false;
+    let activatedSuccessfully = false;
+    let reportedFailure = false;
 
     const inspect = () => {
-      if (worker.state === "redundant") callbacks.onInstallFailure();
+      const successful = ['installed', 'activating', 'activated'].includes(worker.state);
+      if (successful && !installedSuccessfully) {
+        installedSuccessfully = true;
+        if (latestWorker === worker) callbacks.onInstallSuccess?.();
+      }
+      if (worker.state === 'activated') activatedSuccessfully = true;
+      const healthyReplacement = installedSuccessfully && [registration.waiting, registration.active]
+        .some(candidate => candidate && candidate !== worker && ['installed', 'activating', 'activated'].includes(candidate.state));
+      // Successful active/waiting workers become redundant when replaced.
+      // That transition is not a failed install, nor is a superseded attempt
+      // authoritative over the newer worker now being observed.
+      if (worker.state === "redundant" && !activatedSuccessfully && !healthyReplacement && latestWorker === worker && !reportedFailure) {
+        reportedFailure = true;
+        callbacks.onInstallFailure();
+      }
       if (
         worker.state === "installed"
         && callbacks.hasController()
@@ -56,7 +76,7 @@ export function observeServiceWorkerLifecycle(
     registration.removeEventListener("updatefound", handleUpdateFound)
   );
 
-  if (registration.waiting) callbacks.onUpdateReady();
+  if (registration.waiting) { callbacks.onInstallSuccess?.(); callbacks.onUpdateReady(); }
   observeWorker(registration.installing);
 
   return () => {

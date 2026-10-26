@@ -24,6 +24,8 @@ import {
 } from "react";
 import { Link, useParams } from "react-router";
 import { LessonQuestResult } from "../components/LessonQuestResult";
+import { isSavedLessonAnswer } from '../learning/offlineLessonAnswer';
+import { OFFLINE_LESSON_SEED_PREFIX, planOfflineLesson } from '../learning/offlineLessonPlan';
 import { LessonQuestTransition } from "../components/LessonQuestTransition";
 import { LessonTheoryPanel } from "../components/LessonTheoryPanel";
 import { HanziPinyinInput } from "../components/HanziPinyinInput";
@@ -101,7 +103,7 @@ type RuntimePhase =
   | "result"
   | "error";
 
-type AttemptOutcome = "idle" | "pending" | "correct" | "incorrect";
+type AttemptOutcome = "idle" | "pending" | "queued" | "correct" | "incorrect";
 
 class LessonTransitionDeadlineError extends Error {
   constructor() {
@@ -477,7 +479,12 @@ function AuthenticatedLessonPageScope({
       binding: LessonSessionAuthorityBindingV1,
     ) => {
       setPhase("loading");
-      const materializedPromise = dependency.kind === "lesson-session-open"
+      const materializedPromise = dependency.kind === "lesson-session-open" && dependency.status === 'pending'
+        ? materializeNormalizedLessonRuntimeFromAuthorityBinding({
+            lesson, script: state.profile.script, binding, authoritativeProgress: progress,
+            commandSeed: dependency.commandId,
+          })
+        : dependency.kind === "lesson-session-open"
         ? materializeNormalizedLessonRuntime({
             lesson,
             script: state.profile.script,
@@ -526,13 +533,13 @@ function AuthenticatedLessonPageScope({
             && !records.some((record) =>
               record.kind === "objective-attempt"
               && record.commandId === commandId
-              && record.status === "acknowledged"
+              && (isSavedLessonAnswer(record, binding, commandId, ids.sessionAlias, position) || (record.status === "acknowledged"
               && lessonAttemptReceiptMatchesSessionBinding(
                 record.receipt,
                 binding,
                 commandId,
                 position,
-              )
+              )))
             ),
         );
         setRuntime(materialized.runtime);
@@ -670,6 +677,13 @@ function AuthenticatedLessonPageScope({
       latestDependency.kind === "lesson-session-open"
       && latestDependency.status === "pending"
     ) {
+      if (latestDependency.commandId.startsWith(OFFLINE_LESSON_SEED_PREFIX)) {
+        void planOfflineLesson(lesson, state.profile.script, latestDependency.commandId,
+          progress.enrollmentId, progress.resetEpoch, latestDependency.enqueuedAt).then(binding => {
+          if (active) resumeSession(latestDependency, binding);
+        }).catch(() => { if (active) stopSafely('Chưa chuẩn bị được câu hỏi trên thiết bị.'); });
+        return () => { active = false; };
+      }
       setRuntime(null);
       setCommandIds(null);
       setSessionBinding(null);
@@ -759,8 +773,9 @@ function AuthenticatedLessonPageScope({
       setOutcome("idle");
       return;
     }
-    if (attempt.status === "pending") {
-      setOutcome("pending");
+    if (isSavedLessonAnswer(attempt, sessionBinding, commandId, commandIds.sessionAlias, index)) {
+      setSelected(attempt.command.response.kind === 'answer' ? attempt.command.response.answer : null);
+      setOutcome("queued");
       return;
     }
     if (
@@ -881,7 +896,7 @@ function AuthenticatedLessonPageScope({
         authoritativeProgress: progress,
         environment,
         openCommandId: makeIdempotencyKey(
-          `normalized-lesson-open:${lesson.id}`,
+          `${OFFLINE_LESSON_SEED_PREFIX}${lesson.id}`,
         ),
         enqueuedAt: new Date().toISOString(),
       });
@@ -959,13 +974,13 @@ function AuthenticatedLessonPageScope({
       return records.some((record) =>
         record.kind === "objective-attempt"
         && record.commandId === commandId
-        && record.status === "acknowledged"
+        && (isSavedLessonAnswer(record, sessionBinding, commandId, commandIds.sessionAlias, position) || (record.status === "acknowledged"
         && lessonAttemptReceiptMatchesSessionBinding(
           record.receipt,
           sessionBinding,
           commandId,
           position,
-        )
+        )))
       );
     });
     if (!allAcknowledged) {
@@ -1139,6 +1154,11 @@ function AuthenticatedLessonPageScope({
   }
 
   if (phase === "opening" || phase === "submitting" || phase === "abandoning") {
+    if (phase === 'submitting' && (sync.phase === 'offline' || sync.phase === 'error')) return <div className="lesson-state-screen" role="status">
+      <CircleCheck size={44} /><h1>Đã lưu bài trên thiết bị</h1>
+      <p>Câu trả lời sẽ tự gửi khi có mạng và bạn mở HANZI.OS. Kết quả và tiến độ vượt ải được xác nhận sau khi đồng bộ.</p>
+      <Link className="primary-button" to="/path">Trở về Thiên Lộ</Link>
+    </div>;
     return (
       <LessonQuestTransition
         kind={phase}
@@ -1460,7 +1480,7 @@ function AuthenticatedLessonPageScope({
           </>
         ) : (
           <>
-        {outcome === "pending" ? (
+        {outcome === 'queued' ? <p><CircleCheck size={17} /> Đã lưu trên máy · chờ đồng bộ để chấm. Bạn có thể làm câu tiếp theo.</p> : outcome === "pending" ? (
               <p><BrainCircuit size={17} /> Đang ghi nhận câu trả lời; lựa chọn tạm thời không thể đổi.</p>
         ) : checked ? (
           <div className="answer-explanation">
@@ -1483,10 +1503,10 @@ function AuthenticatedLessonPageScope({
         )}
         <button
           className="primary-button"
-          disabled={busy || outcome === "pending" || (!checked && !selected?.trim())}
+          disabled={busy || outcome === "pending" || (!checked && outcome !== 'queued' && !selected?.trim())}
           type="button"
           onClick={() => {
-            if (!checked) {
+            if (!checked && outcome !== 'queued') {
               void submitAnswer();
             } else {
               if (advanceLockRef.current) return;
@@ -1505,7 +1525,7 @@ function AuthenticatedLessonPageScope({
             }
           }}
         >
-          {checked
+          {checked || outcome === 'queued'
             ? index === runtime.activities.length - 1
               ? "Hoàn thành bài"
               : "Câu tiếp theo"

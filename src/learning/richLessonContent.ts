@@ -1,7 +1,7 @@
 import hsk1LevelRichLessonContentJson from "../../content/runtime/hsk1-level-rich-lessons.json";
 import hsk2LevelRichLessonContentJson from "../../content/runtime/hsk2-level-rich-lessons.json";
 import hsk3LevelRichLessonContentJson from "../../content/runtime/hsk3-level-rich-lessons.json";
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 
 export type RichDialogueTurn = {
   speaker: string;

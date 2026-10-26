@@ -273,3 +273,12 @@ html[data-theme='light'] .premium-page { background-image:linear-gradient(180deg
  .premium-option-price strong { font-size:21px; }
  .premium-plan-picker small { font-size:9px; }
 }
+
+.premium-bank-checkout { display:grid; gap:12px; margin-top:14px; }
+.premium-bank-checkout details { border:1px solid #436c60; border-radius:8px; padding:14px; }
+.premium-bank-checkout summary { cursor:pointer; min-height:44px; line-height:1.6; }
+.premium-bank-checkout dl>div { padding:8px 0; border-bottom:1px solid #315348; }
+.premium-bank-checkout dt { font-size:12px; color:#a8c6bc; }
+.premium-bank-checkout dd { margin:5px 0; overflow-wrap:anywhere; font-weight:600; }
+.premium-bank-checkout p { font-size:14px; line-height:1.65; }
+.premium-bank-checkout textarea { width:100%; min-height:90px; }

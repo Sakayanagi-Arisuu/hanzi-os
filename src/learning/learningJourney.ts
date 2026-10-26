@@ -76,6 +76,8 @@ export type BuildDailyLearningJourneyInput = {
   anchorLessonId?: string | null;
   /** Immediate recall targets from the anchored lesson; not a mastery claim. */
   reinforcementWordIds?: readonly string[];
+  /** Undefined keeps legacy callers; null means the full queue is still unknown. */
+  unresolvedMistakeCount?: number | null;
 };
 
 export type LearningJourneyStageProgress = Readonly<
@@ -163,6 +165,7 @@ const buildReviewStep = (
   reinforcementWordIds: readonly string[],
   minutes: number,
   anchorLesson: Lesson | undefined,
+  aggregateMistakes?: number | null,
 ): LearningJourneyStep => {
   const unresolvedMistakes = state.mistakes.filter((mistake) =>
     !mistake.resolved
@@ -175,7 +178,13 @@ const buildReviewStep = (
     unresolvedMistakes.flatMap((mistake) => mistake.wordId ? [mistake.wordId] : []),
   );
 
-  if (unresolvedMistakes.length > 0) {
+  if (aggregateMistakes === null) return {
+    id: `journey:${goal}:review`, sequence: 2, stage: 'review', stageLabel: 'Ôn', kind: 'mistakes',
+    title: 'Kiểm tra mục cần ôn', reason: 'Đang xác nhận câu cần luyện từ các phiên học trên thiết bị và tài khoản.',
+    to: '/mistakes', minutes, status: 'action', sourceLessonId: anchorLesson?.id ?? null, wordIds: [],
+  };
+  const openCount = aggregateMistakes ?? unresolvedMistakes.length;
+  if (openCount > 0) {
     return {
       id: `journey:${goal}:review`,
       sequence: 2,
@@ -183,7 +192,7 @@ const buildReviewStep = (
       stageLabel: "Ôn",
       kind: "mistakes",
       title: "Sửa lỗi đang mở",
-      reason: `${unresolvedMistakes.length} lỗi từ nội dung đang học chưa được sửa xong; xử lý chúng trước khi thêm một lượt vận dụng mới.`,
+      reason: `${openCount} lỗi từ nội dung đang học chưa được sửa xong; xử lý chúng trước khi thêm một lượt vận dụng mới.`,
       to: "/mistakes",
       minutes,
       status: "action",
@@ -416,6 +425,7 @@ export const buildDailyLearningJourney = ({
   dueWordIds,
   anchorLessonId,
   reinforcementWordIds = [],
+  unresolvedMistakeCount: aggregateMistakes,
 }: BuildDailyLearningJourneyInput): DailyLearningJourney => {
   const nextLesson = anchorLessonId === undefined ? getNextLesson(state) : null;
   const anchoredLesson = anchorLessonId
@@ -431,7 +441,7 @@ export const buildDailyLearningJourney = ({
   const releasedReinforcementWordIds = uniqueReleasedWordIds(
     reinforcementWordIds,
   );
-  const unresolvedMistakeCount = state.mistakes.filter((mistake) =>
+  const unresolvedMistakeCount = aggregateMistakes ?? state.mistakes.filter((mistake) =>
     !mistake.resolved
     && isMistakeFromActivePathContent(
       mistake,
@@ -453,6 +463,7 @@ export const buildDailyLearningJourney = ({
       releasedReinforcementWordIds,
       minutes.review,
       transferSourceLesson,
+      aggregateMistakes,
     ),
     buildTransferStep(state, transferSourceLesson, minutes.transfer),
     buildCloseStep(state.profile.goal, transferSourceLesson, minutes.close),
@@ -478,10 +489,13 @@ export const buildDailyLearningJourney = ({
 export const projectLearningJourneyProgress = (
   journey: DailyLearningJourney,
   progress: LearningJourneyStageProgress,
+  options: { requireReviewReceipt?: boolean } = {},
 ): DailyLearningJourney => {
   const completed = new Set<LearningJourneyStage>(
     journey.steps
-      .filter((step) => progress[step.stage] === true || step.status === "clear")
+      .filter((step) => progress[step.stage] === true || (
+        step.status === "clear" && !(options.requireReviewReceipt && step.stage === "review")
+      ))
       .map((step) => step.stage),
   );
   const current = journey.steps.find((step) => !completed.has(step.stage));

@@ -1,3 +1,6 @@
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router";
+
 export function PathBannerSeal() {
   return <svg viewBox="0 0 72 72" aria-hidden="true">
     <circle cx="36" cy="36" r="29" />
@@ -5,10 +8,11 @@ export function PathBannerSeal() {
   </svg>;
 }
 
-export function PathBannerInformation({ title, completed, total, finished }: {
-  title: string; completed: number; total: number; finished: boolean;
+export function PathBannerInformation({ title, completed, total, finished, lessonId }: {
+  title: string; completed: number; total: number; finished: boolean; lessonId?: string;
 }) {
   return <div className="path-banner-information" aria-live="polite">
+    <div className="path-banner-mobile-heading" aria-hidden="true"><strong>Thiên Lộ</strong><span>Lộ trình HSK0–HSK4</span></div>
     <div className="path-banner-pennant">
       <small>{finished ? "ĐÃ THÔNG QUAN" : "ĐANG TU LUYỆN"}</small>
       <span className="path-banner-rule" aria-hidden="true" />
@@ -19,5 +23,6 @@ export function PathBannerInformation({ title, completed, total, finished }: {
       <span className="path-banner-count"><strong>{completed}</strong><i>/</i><span>{total}</span></span>
       <small>Bài đã<br />thông qua</small>
     </div>
+    {lessonId && <Link className="path-banner-continue" to={`/lesson/${lessonId}`} aria-label={`Học tiếp: ${title}`} viewTransition>Học tiếp <ChevronRight size={18} /></Link>}
   </div>;
 }

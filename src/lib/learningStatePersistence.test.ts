@@ -14,13 +14,32 @@ import type {
   LearningState,
   Skill,
 } from "../types";
-import type { Exercise } from "./exerciseGeneration";
+import type { Exercise } from "./editorialExerciseGeneration";
 import { materializeEvidence, scoreLessonSession } from "./evidence";
 import { parseLearningStateImport } from "./learningStateImport";
 import { parsePersistedLearningState } from "./learningStatePersistence";
+import { RELEASED_CHARACTER_PRACTICE } from '../learning/richLessonContent';
 
 const TIME = "2026-07-26T00:00:00.000Z";
 const COMPLETION_TIME = "2026-07-26T00:01:00.000Z";
+
+it('retains released character-forge self-review through reload without admitting fabricated mastery or source IDs', () => {
+  const entry = RELEASED_CHARACTER_PRACTICE[0]!;
+  const state = structuredClone(INITIAL_LEARNING_STATE);
+  const activity = materializeEvidence({ idempotencyKey: 'forge-summary', activityId: `character-forge:free:${entry.hanzi}`,
+    activityVersion: 'forge-v1', source: 'writing', method: 'stroke-quiz', skill: 'writing', outcome: 'unverified', score: null,
+    metadata: { hanzi: entry.hanzi, sourceLessonId: null, sessionSummary: true } }, TIME);
+  const parsed = parsePersistedLearningState({ ...state, evidence: [activity] }, INITIAL_LEARNING_STATE);
+  expect(parsed.ok).toBe(true);
+  if (!parsed.ok) return;
+  expect(parsed.state.evidence).toEqual([activity]);
+  expect(parsed.state.skillMastery).toEqual(state.skillMastery);
+  expect(parsed.state.completedLessons).toEqual(state.completedLessons);
+  const unknown = { ...activity, activityId: 'character-forge:free:龘', metadata: { hanzi: '龘', sourceLessonId: null } };
+  const rejected = parsePersistedLearningState({ ...state, evidence: [unknown] }, INITIAL_LEARNING_STATE);
+  expect(rejected.ok).toBe(true);
+  if (rejected.ok) expect(rejected.state.evidence).toEqual([]);
+});
 
 const methodForExercise = (exercise: Exercise): EvidenceMethod => {
   if (exercise.kind === "meaning") return "meaning-selection";
@@ -430,6 +449,14 @@ describe("trusted persisted learning state", () => {
       outcome: "correct",
       score: 100,
     });
+  });
+
+  it('does not reject an established learner solely for having more than 2000 mistakes', () => {
+    const state = persistedFixture();
+    state.mistakes = Array.from({ length: 2001 }, (_, index) => ({ ...state.mistakes[0], id: `boot-1:history-${index}` }));
+    const result = parsePersistedLearningState(JSON.parse(JSON.stringify(state)), INITIAL_LEARNING_STATE);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.state.mistakes).toHaveLength(2001);
   });
 
   it("persists the HSK4 starting-level preference without changing mastery", () => {

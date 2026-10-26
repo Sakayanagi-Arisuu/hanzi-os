@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     try { input = JSON.parse(body.text); }
     catch { return failure(400, 'INVALID_JSON', 'Không đọc được câu trả lời.'); }
     const command = parsePageAttemptCommand(input);
-    if (!command || (!command.response.text.trim() && !command.response.answerIds.length)) {
+    if (!command || (!command.observation && !command.response.text.trim() && !command.response.answerIds.length)) {
       return failure(422, 'INVALID_PAGE_ATTEMPT', 'Câu trả lời chưa đầy đủ hoặc không hợp lệ.');
     }
     const premiumGate = await requirePremiumLesson(request, command.lessonId);

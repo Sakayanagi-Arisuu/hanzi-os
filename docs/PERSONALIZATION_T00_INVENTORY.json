@@ -1,0 +1,4352 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "personalization-t00-2026-10-18",
+  "authority": "design-audit-only",
+  "learnerRoutes": [
+    "/",
+    "/path",
+    "/lesson/:lessonId",
+    "/path/expansion",
+    "/path/expansion/:missionId",
+    "/review",
+    "/mistakes",
+    "/assessment",
+    "/assessment/hsk1",
+    "/assessment/hsk2",
+    "/assessment/hsk3",
+    "/assessment/hsk4",
+    "/assessment/placement/hsk1",
+    "/assessment/placement/hsk2",
+    "/assessment/placement/hsk3",
+    "/assessment/placement/hsk4",
+    "/exams",
+    "/exams/history",
+    "/exams/:level/:form",
+    "/pronunciation",
+    "/characters",
+    "/characters/session",
+    "/reader",
+    "/reader/series/:seriesId",
+    "/reader/series/:seriesId/chapter/:chapterId",
+    "/reader/challenge",
+    "/dictionary",
+    "/analytics",
+    "/profile",
+    "/profile/premium",
+    "*"
+  ],
+  "bootstrapRoutes": [
+    "/onboarding",
+    "?setup=1"
+  ],
+  "serverRoutes": [
+    {
+      "file": "app/[[...route]]/page.tsx",
+      "kind": "page",
+      "route": "/[[...route]]",
+      "methods": [],
+      "sha256": "36d6f3b2c2f5de714641b1ceefe00fd9e21b3b660a4486dfb83cf96f06d70a2f",
+      "module": "learner-shell"
+    },
+    {
+      "file": "app/account/security/page.tsx",
+      "kind": "page",
+      "route": "/account/security",
+      "methods": [],
+      "sha256": "8b3220f3768a7f0331d7c5aebf95ef2b29fa0369c514ef5a31300407da01fbad",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/admin/access/page.tsx",
+      "kind": "page",
+      "route": "/admin/access",
+      "methods": [],
+      "sha256": "c1aefb8200c0af6583adc5623b10f48c5f6cb3610ed836b869ff82e8c5cc0182",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/activity/page.tsx",
+      "kind": "page",
+      "route": "/admin/activity",
+      "methods": [],
+      "sha256": "4172f7dddbb699b1c2fb83a6c52affb78afd2b4e45f59afededeba43d78ec16e",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/configuration/page.tsx",
+      "kind": "page",
+      "route": "/admin/configuration",
+      "methods": [],
+      "sha256": "cdb3cad02c6b14095c0278251debb9792a88acfa1078944cdea40fef5836a929",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/content/page.tsx",
+      "kind": "page",
+      "route": "/admin/content",
+      "methods": [],
+      "sha256": "2442cd8bfaac07754ad9dc2f32327f70e85c1b6500f56a5ce270ede2d92f89d5",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/editorial-assignments/route.ts",
+      "kind": "handler",
+      "route": "/admin/editorial-assignments",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "5ff1494e425825c8ad1bfdd7b57baf4bbab69ceb9455c8e7919470003e4b9904",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/page.tsx",
+      "kind": "page",
+      "route": "/admin",
+      "methods": [],
+      "sha256": "f7faaa559e10ccad1ca2432006e31e2e41030c40b3bebdff598ac340a0a60883",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/premium/access/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/access",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "b3b176bd3fd97eac6ec60908e6584e385957f388e14173f12810eff947f9b5f2",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/export/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/export",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "04ac1b514fe6cf5699276c172dcf7d81e39111a5c33abca3837524fdc2ef7158",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/page.tsx",
+      "kind": "page",
+      "route": "/admin/premium",
+      "methods": [],
+      "sha256": "27e9c92025400a9b3fad43f1f9ec1438346d93d2a3c4297f3d1751c294935029",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/price/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/price",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "1ebe408f6bf51eb3c932ae4971fc89ab6768712840d086a6f816f4f80c463efe",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/reconcile/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/reconcile",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "4e348ef43db3a27245ccff167a6e37396921d93e29e4e71dcff06cf6cfe49be9",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/refund/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/refund",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "53bb89727502277cc53cdeebc4c48a13e066b55db84629cad5dc28d27f525cde",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/reject-refund/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/reject-refund",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "1e451c53b98d0e3f1c7fa644fa0a9566130754e8c56dcb98a0b00ffe8b3140e4",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/settings/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/settings",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "70765e46bd5ec23c5248b6b63c2ff536a1ba2b9043720f25625463046bec2dc9",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/support/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/support",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "22bf745b4bdb7beb82885c02b9e357dcfd8c71866998752f6da31bee8340a572",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/premium/wallet/route.ts",
+      "kind": "handler",
+      "route": "/admin/premium/wallet",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "18dd0fa3e4e6fc3b2acf124c4a21d2862953d596467f06a80debde0ca0c86ef2",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/admin/publishing/page.tsx",
+      "kind": "page",
+      "route": "/admin/publishing",
+      "methods": [],
+      "sha256": "1b5d1ceb7f5ad432e5c6518d7ca6a8f024640f8894a88ab08f3b086fe40f380d",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/releases/route.ts",
+      "kind": "handler",
+      "route": "/admin/releases",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "e78c52e18fff1271a989a9f43db81a8a65110ee51184b70613d531624d37d246",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/roles/route.ts",
+      "kind": "handler",
+      "route": "/admin/roles",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "5ca69f0fb5f1ff50a577f428d70f1018c1f5db35e9c7aef657b82bc5927dce41",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/security/page.tsx",
+      "kind": "page",
+      "route": "/admin/security",
+      "methods": [],
+      "sha256": "1b730f1142dc7655e20dda2b9f45b2f01e662583036b71d6016af2574b4c9a11",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/sessions/route.ts",
+      "kind": "handler",
+      "route": "/admin/sessions",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "4917906669e4320579c0b2b60e79dd2f3016776ede04521f64d961c0a595c44f",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/settings/route.ts",
+      "kind": "handler",
+      "route": "/admin/settings",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "f8f928d45b8d0f50e1043ac7cd3a26bf61953acd1816fb67757f39903c0ab4d2",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/status/route.ts",
+      "kind": "handler",
+      "route": "/admin/status",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "a0568057bcae81cf49015b84a708d2c89f20ec4ebfad0f533ba4c1321f9b8049",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/admin/workflow/page.tsx",
+      "kind": "page",
+      "route": "/admin/workflow",
+      "methods": [],
+      "sha256": "f57de00ce5036e8d910fe8c607706f7c0c89669cecc01acb13b38fc4a61cf749",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/account/deletion/route.ts",
+      "kind": "handler",
+      "route": "/api/account/deletion",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "0401bb58bb16bbc01e6a7dc89c4d53e871fe9eb74ccf0475d5fbb17c79b57f33",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/account/export/route.ts",
+      "kind": "handler",
+      "route": "/api/account/export",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "fb05e9f571042041a5df2f2f8418bffed00521222922d9ac642ed27d7a41cc5e",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/account/route.ts",
+      "kind": "handler",
+      "route": "/api/account",
+      "methods": [
+        "DELETE"
+      ],
+      "sha256": "b50bffb760365d860eaa11d10c7ed0c5ecc2ce7852070f3814c5f4af22905fdb",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/account/security/route.ts",
+      "kind": "handler",
+      "route": "/api/account/security",
+      "methods": [
+        "GET",
+        "DELETE"
+      ],
+      "sha256": "ad10143e89f62a37a395d9db1c1eb757a7365a0503a2a9394cbd766b04d59d9b",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/admin/audit/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/audit",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "219268b348e794751a0dfd3d0d595de6d37706d18718313ff3bb432f37b0a459",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/admin/sessions/[sessionId]/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/sessions/[sessionId]",
+      "methods": [
+        "DELETE"
+      ],
+      "sha256": "4e5adb4f12c30da9cd5505285f191abffdbe1a036b95e82c2ab9d3bd75679d43",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/admin/sessions/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/sessions",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "2db88729e85d12543fe740a4e98b108b6de525eb1c618a712aad051f80db398a",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/admin/settings/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/settings",
+      "methods": [
+        "GET",
+        "PUT"
+      ],
+      "sha256": "36da7f994e317338f3b20c02579aee8cf3d439a8d111bea0fe4c73eca154be04",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/admin/users/[userId]/roles/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/users/[userId]/roles",
+      "methods": [
+        "PUT"
+      ],
+      "sha256": "380b56db021ed05b888032e8dc8e7870b8bb069de67651c4a8e9db1194ff29f1",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/admin/users/[userId]/status/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/users/[userId]/status",
+      "methods": [
+        "PUT"
+      ],
+      "sha256": "c3ef5dc49b1c54cda266ea5c4851cc55833f799361c596b1e08527b0d1e28b58",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/admin/users/route.ts",
+      "kind": "handler",
+      "route": "/api/admin/users",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "9b01335944bf7e9cea533323f64fb46a497b0fa66fa2072f950db8b28039c376",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/assessment/attempts/route.ts",
+      "kind": "handler",
+      "route": "/api/assessment/attempts",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "0c77dde4c93e4e12c14f2c1b20c5a7400224f420f632e5dc7f758620cac354c6",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/assessment/sessions/abandon/route.ts",
+      "kind": "handler",
+      "route": "/api/assessment/sessions/abandon",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "b18f46a09fc67dcd4bbc8780f0ec770c6bf239379804d9ac3e8dd2d5a6b8e1c3",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/assessment/sessions/route.ts",
+      "kind": "handler",
+      "route": "/api/assessment/sessions",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "c91757339b11e49944ae1b08b31162f534aae21a8199d2a11a02f7fe59c40f75",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/assessment/sessions/submit/route.ts",
+      "kind": "handler",
+      "route": "/api/assessment/sessions/submit",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "a668d10aad9aa32624e138a5bd033921eb5440619aa74e2000c48e760af6fcdb",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/auth/capabilities/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/capabilities",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "3a57117f49c8a6d6f4cff16f9c41e660a1a71fbbb765202887eb51bbf07a72e1",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/email/request/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/email/request",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "416ab929da83c87d3e67b11d293a63a5b1f320c15e4b2f119b74927777086e5a",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/email/verify/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/email/verify",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "b43ea1dd7bc91169187fc62a2584969d7258e3f5e3f842114307ccfe57e3759e",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/demo-accounts/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/demo-accounts",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "0b30fde3ea0fa081afa32882feeaca813673d1938aafa5755a95a676c6d976f4",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/email-verification/complete/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/email-verification/complete",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "b2ead98d406375f44c0e4016aeca59e19cd40398d47ec9607f435219646ce32c",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/email-verification/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/email-verification",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "ee3e7640b83727a456f6827df861c0b0f07d4e979a987db1480bfe8f598af34c",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/login/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/login",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "a4d5f0a5e07b63e0bc09ba454ab247dbce3cb17563919b9e73c8a879290b5859",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/password-reset/complete/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/password-reset/complete",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "8a7b765048fb1ae8d6b97001eace0049a39e049ad3839555e5cf6d3c9af785e2",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/password-reset/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/password-reset",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "ca4cc619391ddd6ce984ecea638e8bbab721a6b3cb754b0bf715ca924a31ecd6",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/hanzi/register/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/hanzi/register",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "9cd910d0c6745e2e157c632b81e4e3b37d5bc692f2666214fced35899d952b33",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/mobile/exchange/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/mobile/exchange",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "726ce77963f9c65469db5ca06b564de7b97cfb52d75adffe881e7e8f3c981659",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/mobile/google/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/mobile/google",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "cbca966ef98d83f46ae2873b18b8a5fc34fc40ba4cd1af7ca4d0333250e6a03b",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/mobile/start/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/mobile/start",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "10bde9b3af3b28ea18b86b64cb4ec7f41b2ec7dac4ff6b570500d3b701c136b6",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/passkey/options/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/passkey/options",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "78a3335b6cf6110477b49ac23d92219e246fce00208efe8c31c53fa15af5d05e",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/passkey/verify/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/passkey/verify",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "d939aaec674ce4fdc8c7642712d65570a97d3adbf757c95381e573a9bdaeb233",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/auth/signout/route.ts",
+      "kind": "handler",
+      "route": "/api/auth/signout",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "deb6958f942b26dd84a4996cf4664d48574912766067142c6c766cdf814fc87d",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/commerce/bank-transfer/route.ts",
+      "kind": "handler",
+      "route": "/api/commerce/bank-transfer",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "befb4b5578534116ba4f5cd262822e3b1fe7a770a93fc7426673db5e4ce0d2b0",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/api/commerce/route.ts",
+      "kind": "handler",
+      "route": "/api/commerce",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "f3ceac96fefc283b081701a889cc493301d4320e6ba616bd187c27c0810f23c8",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/api/content/media/[file]/route.ts",
+      "kind": "handler",
+      "route": "/api/content/media/[file]",
+      "methods": [
+        "GET",
+        "DELETE"
+      ],
+      "sha256": "08563fcaec2556ae5fa7cef1b4637805882522a1a467e6d5b4792044644d7eca",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/content/media/route.ts",
+      "kind": "handler",
+      "route": "/api/content/media",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "6726408bb86c42efaf4ca5ac6f219eca7d5658291e2695e548799e6aa60e3b0c",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/content/offline-inventory/route.ts",
+      "kind": "handler",
+      "route": "/api/content/offline-inventory",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "16b88fbce3bf0dedc37694c297aef914b2f9c1ddfa065d582616fb689f3d9699",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/content/premium-characters/route.ts",
+      "kind": "handler",
+      "route": "/api/content/premium-characters",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "1583620a19b897d3c102140fb1952ec166727ea38ef13465c5c7e40c8a32362c",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/content/premium-level-check/route.ts",
+      "kind": "handler",
+      "route": "/api/content/premium-level-check",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "abd99c8e03f0ffcf8d4fc7716a6fe06c689d95764034a1d8ae6d3345cc527c07",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/content/premium-rich/route.ts",
+      "kind": "handler",
+      "route": "/api/content/premium-rich",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "7baa9725c5029775b778134389942f93e9e7a961e6c5a0e6a979428d894c0fa6",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/content/runtime/route.ts",
+      "kind": "handler",
+      "route": "/api/content/runtime",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "30dc47d63508dbbb9fd092cd2934cb82ead3281e743fe891db30027d741d138b",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/dev/runtime-error/route.ts",
+      "kind": "handler",
+      "route": "/api/dev/runtime-error",
+      "methods": [
+        "POST",
+        "GET"
+      ],
+      "sha256": "d2726a3a195605f4a515bd169fefbc215482fd74351499b238c34c27baf5d4e0",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/api/exams/[level]/[form]/attempts/route.ts",
+      "kind": "handler",
+      "route": "/api/exams/[level]/[form]/attempts",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "03b71049ab9adc3f1422a6e1743be9bef15902cf2f4fe4e5b1ee03027a6af201",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/exams/[level]/[form]/practice/route.ts",
+      "kind": "handler",
+      "route": "/api/exams/[level]/[form]/practice",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "0825d4ecc41c45e6b59b19f255d2e8dedc42186e24d1dc5004a9a11b0e651bb5",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/exams/[level]/[form]/sessions/route.ts",
+      "kind": "handler",
+      "route": "/api/exams/[level]/[form]/sessions",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "666161f7d1fcad92144d498f0b9674006a9479a6c23b2992d66375f57f236719",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/exams/[level]/[form]/submit/route.ts",
+      "kind": "handler",
+      "route": "/api/exams/[level]/[form]/submit",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "90ce64e81a38155302d183b178fd2a07ffcaeacad4c86d1a780f59226a84acf0",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/exams/catalog/route.ts",
+      "kind": "handler",
+      "route": "/api/exams/catalog",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "ce5a6a8755f0598f839c07e9ea6c64fd403155b6705fd311a70608b5f0576e6a",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/exams/history/route.ts",
+      "kind": "handler",
+      "route": "/api/exams/history",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "9a24ec58d8ef7eefe48680bb61fb06c23d4fdc09e5f7e0cac9682c4f0e06973c",
+      "module": "assessment"
+    },
+    {
+      "file": "app/api/health/live/route.ts",
+      "kind": "handler",
+      "route": "/api/health/live",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "sha256": "a91caaa26813b3fb54608630c90ebcf40d7e4a4c9563aa101153f26b691c2378",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/api/health/ready/route.ts",
+      "kind": "handler",
+      "route": "/api/health/ready",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "sha256": "5974e0963ddb4d74cff10437a4f3eedbd7511842a6361fcc7093999a78206a66",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/api/learning/analytics/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/analytics",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "0a3a1dbdbabd8955de86b6caeda59d734ea8177b6da2debc0f8fe84af60f4416",
+      "module": "overview"
+    },
+    {
+      "file": "app/api/learning/attempts/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/attempts",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "f8cce914bda9e8801a2c415bd9890459622b07f0fe4f18db943b792bc105085e",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/enrollment/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/enrollment",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "08499dee57e496f1ce8b2238d7cd94aa738b5cebe1b9a1a47f5089eb40a79fb1",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/lesson-sessions/abandon/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/lesson-sessions/abandon",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "759053a0a93f389e9b4bf8561d3ac56ec49d431978b5cf368a8155a3a5048791",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/lesson-sessions/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/lesson-sessions",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "3ad60241fbe8ae8ff0f5be065b2e637274efe21ee0049d1d1a45964b923d101a",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/lesson-sessions/submit/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/lesson-sessions/submit",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "0ecc0c2662b1438e7b7d3c04a94f85dd1bcc3363714b75ebc54383d3a9682ad0",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/mistakes/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/mistakes",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "d1c357e729f62f83b11cf982279d76850bca285caf561d4a3d800aa8311c3892",
+      "module": "mistakes"
+    },
+    {
+      "file": "app/api/learning/page-activities/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/page-activities",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "b91fc9bb11f0d7565a2a82d40d4cb7516aba12ff845248985487b7ff0c2dbf05",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/page-attempts/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/page-attempts",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "cb72db6415f514f13428dfcd5e5e15caf3b5eff00cfeb20763d2928447803f31",
+      "module": "lessons"
+    },
+    {
+      "file": "app/api/learning/practice-coverage/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/practice-coverage",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "80656d2e6f6e11935c7add3a23c114d9cd9cea9c7fa80c0b577bc479e0b7a5e8",
+      "module": "overview"
+    },
+    {
+      "file": "app/api/learning/practice-mistakes/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/practice-mistakes",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "76dd3ba096c2b48c1dd4278ee8781e1b80205b34775b1752d0e6caaf2b6a3630",
+      "module": "mistakes"
+    },
+    {
+      "file": "app/api/learning/projection/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/projection",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "fdf06e14b38e3f67bd9733c7535019296778b0617ea37e71092b5ab93beec57a",
+      "module": "overview"
+    },
+    {
+      "file": "app/api/learning/reader-attempts/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/reader-attempts",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "20e6bd28816cc8ecd904ae66ca98dd7d110481471497f1c9359f72bc0ea6ec9d",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/learning/reader-sessions/abandon/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/reader-sessions/abandon",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "18a85381fc62797a8f705f14bc7de5380c3e3f02956e4ec2d45924e91bdc0788",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/learning/reader-sessions/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/reader-sessions",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "54d39d8a6f0e8307051b3ee4481a0c1c0330a40dac87809fe3198fb2871fe178",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/learning/reader-sessions/submit/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/reader-sessions/submit",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "2f3af189da73b28f2c87c6c56961de2da7beee20654006337f74c39f1c26d300",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/learning/reviews/grade/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/reviews/grade",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "a45a8a3bbd0669b4f2f301e2c10f18ff1aff9c9bd6583a56e335ef2c7102c36a",
+      "module": "review"
+    },
+    {
+      "file": "app/api/learning/reviews/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/reviews",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "sha256": "c24585ca641ea4b9ef73f7b7b24e9e6b26f558d4a8b6ceb75464eb17ba998836",
+      "module": "review"
+    },
+    {
+      "file": "app/api/learning/workspace/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/workspace",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "4824b5718792b8c76eef8b7ccc721e7571dca5a6cb411fc049e4573044439a98",
+      "module": "sync-recovery-offline"
+    },
+    {
+      "file": "app/api/learning/xp/route.ts",
+      "kind": "handler",
+      "route": "/api/learning/xp",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "c09ff028949a831a8df89d7d95d11639b688edd4f824b09d6d9769b6cf21ac91",
+      "module": "overview"
+    },
+    {
+      "file": "app/api/local-demo/reader-progress/route.ts",
+      "kind": "handler",
+      "route": "/api/local-demo/reader-progress",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "83d4a0d3c0f5244ad569588dae4f39f97a9609cab682e4d61327566f88d80ae6",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/premium-support/route.ts",
+      "kind": "handler",
+      "route": "/api/premium-support",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "31202af5f5b9285a2182ab93c2f4d3fb39f3d49f76afdeace5bea94fd342fe82",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/api/reader/editorial/catalog/route.ts",
+      "kind": "handler",
+      "route": "/api/reader/editorial/catalog",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "cc21cdf8904f064a24e55e6f95c8aba7491fa8e486dc5f952cdc628e34d3793b",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/reader/editorial/chapters/[seriesId]/[chapterId]/route.ts",
+      "kind": "handler",
+      "route": "/api/reader/editorial/chapters/[seriesId]/[chapterId]",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "c95223dd71911cb58268a37fd9ad3df4b88eb82abad55004b4e64c08998abc8d",
+      "module": "reader"
+    },
+    {
+      "file": "app/api/session/route.ts",
+      "kind": "handler",
+      "route": "/api/session",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "ab0e3c39f595b62bd5dab14a168ec5b39e0a61580dd2a9249c9d6667ca32827b",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/api/speech/pronunciation/assess/route.ts",
+      "kind": "handler",
+      "route": "/api/speech/pronunciation/assess",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "f648dbed84a70a2c2bfb77ec0ae5e3968adf44f32187273b7cd0c4e43c04eaaa",
+      "module": "speech"
+    },
+    {
+      "file": "app/api/studio/exams/authoring/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/exams/authoring",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "bb28a6ef9862f2fd4b3c31f19e5bc05d0b4f6458949aa0e497300d8efc14223b",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/items/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/items",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "42466732e37f6f8f942808ffe2da543edc3608b232f859fe3cc4132f87ff661e",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/reader-series/enrich/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/reader-series/enrich",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "79f4cbed5336b1d092b80d989b69e9bcdc9f506e66f8efdeb26de87137c0a1d9",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/reader-series/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/reader-series",
+      "methods": [
+        "PUT",
+        "POST"
+      ],
+      "sha256": "28282822b56ba729a18c07c6a3431dae562df9374b6819a38cf10ac9828eb1e4",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/releases/[eventId]/replay/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/releases/[eventId]/replay",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "c35d9968783e57ba3a775608803fd7d5685cfd35147efb5d200b0f0877df47ff",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/revisions/[revisionId]/fork/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/revisions/[revisionId]/fork",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "11fa18297aea9a8aabb6598e98ca83850f45bf410d775ed3d2269c4213c397d7",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/revisions/[revisionId]/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/revisions/[revisionId]",
+      "methods": [
+        "GET",
+        "PUT"
+      ],
+      "sha256": "b5fe6b1ea100dc3bfeeb99c9d99ba7c26a448bb980f2535f366cd96f3b3fc880",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/revisions/[revisionId]/transition/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/revisions/[revisionId]/transition",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "56a5288e60971e8f0a6d26a2bf9d1ded27bcb903ec452657dc5dc1cea1391609",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/studio/revisions/[revisionId]/validate/route.ts",
+      "kind": "handler",
+      "route": "/api/studio/revisions/[revisionId]/validate",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "c3c805bac35b84833883d291040748956218aeba84e87935380b6f51b0127cf1",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/api/sync/route.ts",
+      "kind": "handler",
+      "route": "/api/sync",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "16cbe9a1c23fe348518846cc6dc1f5ea6b1996cd664e8aec9b75c947e61b9721",
+      "module": "sync-recovery-offline"
+    },
+    {
+      "file": "app/api/system/preferences/route.ts",
+      "kind": "handler",
+      "route": "/api/system/preferences",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "db8b187bd6b7f868352139896b8228f02872a5b28beabc6719f20796f3738337",
+      "module": "profile"
+    },
+    {
+      "file": "app/api/wallet/level-rewards/route.ts",
+      "kind": "handler",
+      "route": "/api/wallet/level-rewards",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "76be27c934f0ce8195b9e3f567b6a3b431b729db416956125732e6458848b249",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/api/wallet/route.ts",
+      "kind": "handler",
+      "route": "/api/wallet",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sha256": "053a076eae19d123d941909b729de8c6c6ab5f0099e8b4befac1df7b1e58f716",
+      "module": "commerce-boundary"
+    },
+    {
+      "file": "app/auth/facebook/callback/route.ts",
+      "kind": "handler",
+      "route": "/auth/facebook/callback",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "d9edbef69c5ced10c988fd9246b8c3ee4d20697f2db05d523cd782b59ebdf7aa",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/auth/facebook/start/route.ts",
+      "kind": "handler",
+      "route": "/auth/facebook/start",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "71929f0a7093705e0953aeb424064a4e539ddf0a2e284ac8dcd43d4a23f06852",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/auth/github/callback/route.ts",
+      "kind": "handler",
+      "route": "/auth/github/callback",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "d0ce8f6a089b5e75e3c49a39db39b06641511d7647dd5273aca6e4ec256aa9eb",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/auth/github/start/route.ts",
+      "kind": "handler",
+      "route": "/auth/github/start",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "b2503264e7baab4a8a9b289e57c92f65f93c9b01d38201e80c45a8ce67550400",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/auth/google/callback/route.ts",
+      "kind": "handler",
+      "route": "/auth/google/callback",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "4a9d44b7f707ff7c3976398b276e96754caf4263dc99254fcdb37894566aba2d",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/auth/google/start/route.ts",
+      "kind": "handler",
+      "route": "/auth/google/start",
+      "methods": [
+        "GET"
+      ],
+      "sha256": "39ef9beab4e5214a24e3151741e8ce79a00bc659b4f6fd92f35f9bac52258a1f",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/auth/hanzi/action/page.tsx",
+      "kind": "page",
+      "route": "/auth/hanzi/action",
+      "methods": [],
+      "sha256": "36c42e68bd9f7f3245d6364ccdf253152de5547924c10928635a02719aaed4d9",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/delete-account/page.tsx",
+      "kind": "page",
+      "route": "/delete-account",
+      "methods": [],
+      "sha256": "cdf6d99d26b7c7dc9d47607aa6b626c3f0272d5cec0a8a31d47956f7c91c48f0",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/privacy/page.tsx",
+      "kind": "page",
+      "route": "/privacy",
+      "methods": [],
+      "sha256": "968cb32f3a133cd28b7d556b98c5f7cd8acbc83c9693017b722639bbaf60ed1a",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/signin/page.tsx",
+      "kind": "page",
+      "route": "/signin",
+      "methods": [],
+      "sha256": "47342fd99eab42b03c11d645708d196731e4c907c2721906e84804da94989f3b",
+      "module": "account-auth-RBAC"
+    },
+    {
+      "file": "app/studio/actions/route.ts",
+      "kind": "handler",
+      "route": "/studio/actions",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "a753b85a70592eb28add2d565dafd4177f53089390ab3621f6364d9c9b230883",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/assessment/page.tsx",
+      "kind": "page",
+      "route": "/studio/assessment",
+      "methods": [],
+      "sha256": "8fab8b70e40c2ee814a5bb19b3e618991f3ae973e3d20d09eba2a9ea8c2ae453",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/bulk/route.ts",
+      "kind": "handler",
+      "route": "/studio/bulk",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "939d842daabcad3f426be87b2a798eab10e6654235b1642e912110990281b092",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/catalog/page.tsx",
+      "kind": "page",
+      "route": "/studio/catalog",
+      "methods": [],
+      "sha256": "6340b6b2a799b8b14660af2fd54b2fd98758d78b96dcd8bf2b423a889d97c792",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/exams/access/route.ts",
+      "kind": "handler",
+      "route": "/studio/exams/access",
+      "methods": [
+        "POST"
+      ],
+      "sha256": "09b7ea4a808c7017f0b4976fb7ab7b291bb6ff44190796aacc0a9c84e32f7553",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/exams/page.tsx",
+      "kind": "page",
+      "route": "/studio/exams",
+      "methods": [],
+      "sha256": "bf728c587855dba72788891475abe064000d7b9eff6693221a334a05c8d349db",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/items/[revisionId]/page.tsx",
+      "kind": "page",
+      "route": "/studio/items/[revisionId]",
+      "methods": [],
+      "sha256": "138b475a80cf77b5e5fa053c4ff71f854a51d86f0915be897afed3fbd6be373f",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/library/page.tsx",
+      "kind": "page",
+      "route": "/studio/library",
+      "methods": [],
+      "sha256": "c422cfc736dbf334c42aa94ecdd093c1528192fd39a560177f718e95597bd5cc",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/studio/page.tsx",
+      "kind": "page",
+      "route": "/studio",
+      "methods": [],
+      "sha256": "549faf6df352b479227db3ca0095facb0fe92e0e6ad5d8a8a4fdeb293e1ff55c",
+      "module": "authoring-admin-release"
+    },
+    {
+      "file": "app/terms/page.tsx",
+      "kind": "page",
+      "route": "/terms",
+      "methods": [],
+      "sha256": "f49aba3d9c9646831495ca3b8a02a19b8366f29357d5c75c60f1e54f06a09405",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/voice-data/page.tsx",
+      "kind": "page",
+      "route": "/voice-data",
+      "methods": [],
+      "sha256": "27ff2bcb6aed084846b4f02800ef410512c8063afef20b06375a1de9b075f699",
+      "module": "operations-legal"
+    },
+    {
+      "file": "app/welcome/page.tsx",
+      "kind": "page",
+      "route": "/welcome",
+      "methods": [],
+      "sha256": "18de98470679ca888df1377e007be7aa2ba87d7132191fb248c0c4b07fe0b595",
+      "module": "onboarding"
+    }
+  ],
+  "sourceBindings": [
+    {
+      "file": "AGENTS.md",
+      "sha256": "9bbdf56baf7c2489dfaec2459f456d40f56490c3bf8fc39020034266c7bdcf35"
+    },
+    {
+      "file": "docs/PERSONALIZATION_IMPLEMENTATION_PLAN.md",
+      "sha256": "6ee02bd24e6765e3414bfb2381d99f274a6c60a033ef6b057c33c201169b1d2d"
+    },
+    {
+      "file": "docs/SYSTEM_INTEGRATION_AUDIT.md",
+      "sha256": "adced84049398c3289285a782951e13994b31c6895e1f5a1b4a542dd45514697"
+    },
+    {
+      "file": "src/lib/acousticVoiceConsent.ts",
+      "sha256": "32053c6b22c274e4c64249467cf7365bbf6f6d137e66f22c521fdafc5e5ac6e9"
+    },
+    {
+      "file": "src/lib/voiceConsent.ts",
+      "sha256": "4f74fda3fc22ba36ee1712aa93de755188376a4b56f1d0ad9a494178fe76fc0c"
+    },
+    {
+      "file": "src/sync/offlineAccount.ts",
+      "sha256": "de63c12115663d39d96246c1ef603b4c8f1cf9940afae035aa5b0c8b86210cac"
+    },
+    {
+      "file": "src/commerce/offlineEntitlement.ts",
+      "sha256": "d0f789056f1f73c69b4b8ec213bea9a3f39683f09080d9b70c16e5b668b6cabf"
+    },
+    {
+      "file": "src/sync/offlinePreparationStatus.ts",
+      "sha256": "5a1de8f78d61c78c4e5925d7c8a8fdbec16402f8132aecebe42bfd4bd06f9c5b"
+    },
+    {
+      "file": "src/App.tsx",
+      "sha256": "1514610f02d1a993a2aec72759a2b430f756c1c1ea44ee298d2534e72637f947"
+    },
+    {
+      "file": "app/client-app.tsx",
+      "sha256": "a2eb3a2b0d7ffc9486f91f70b0a5c9d603be6d4c707be55a12192548078dc2a7"
+    },
+    {
+      "file": "app/client-runtime.tsx",
+      "sha256": "5072bd276f1139e12e74c18fb62a9d14edb881884ff097a8cc2a244e7a60e2e1"
+    },
+    {
+      "file": "src/OnboardedLearningRuntime.tsx",
+      "sha256": "c727c2581cf53f120ac725c25883272ce27ea124467ea5182490a03edeb156f8"
+    },
+    {
+      "file": "src/types.ts",
+      "sha256": "7c317fcfc58cc7a76bcf38211632826ccf48a1fcb0d36b0515bbe6306078f4fa"
+    },
+    {
+      "file": "src/store/LearningStore.tsx",
+      "sha256": "6310de693280667ec11da696f777f0dcd92c28dce1084b2ec231b32ede34a17a"
+    },
+    {
+      "file": "src/store/LearningJourneyStore.tsx",
+      "sha256": "8e08586a0c202ee0efc8322b65f453c2f8714274c1b62d5f3b3c527e4374cecc"
+    },
+    {
+      "file": "src/learning/learningJourney.ts",
+      "sha256": "035ae39ae63044c98865f8221ac25a505684c93924c84cc4b7aa553f69a98efa"
+    },
+    {
+      "file": "src/lib/adaptive.ts",
+      "sha256": "fc905e8742b82bb99ba4cae0df5fb2759cfba233d0257ea358ea4e6ce81073ab"
+    },
+    {
+      "file": "src/lib/storageKeys.ts",
+      "sha256": "aff1b4572b0ac81afba60cdb59d8a0aac9ad8cc0df85f7ec8c7033b6f1e30cc1"
+    },
+    {
+      "file": "src/sync/indexedDb.ts",
+      "sha256": "0f6cc44d86febc46db083ad4767d50ef7dd881c3ee7e6a7e429c5dd689a820a5"
+    },
+    {
+      "file": "src/sync/coordinator.ts",
+      "sha256": "429e5477b49604ee72023182f9da48c63c28f751854759b2a2c2e751b3b08e6d"
+    },
+    {
+      "file": "src/sync/workspaceSync.ts",
+      "sha256": "a080aae981e63259633f4e402cd524b188bc20caf1df1545cdee9fb67c205cf5"
+    },
+    {
+      "file": "src/sync/workspaceProtocol.ts",
+      "sha256": "9f5279e005bff6b2f35326104251034f8d665221eccdacd4a99e18ecb4bbd496"
+    },
+    {
+      "file": "src/sync/offlineRead.ts",
+      "sha256": "7d3ffd24cffa98fd64831141f585dc9ef0b5acdb9be226034082676ad244c11d"
+    },
+    {
+      "file": "src/sync/offlineMockPractice.ts",
+      "sha256": "c31c8695647fccafdf0d5e9a470e6061c5b00cbda2018ce264cc107612c1b29c"
+    },
+    {
+      "file": "src/sync/offlineInteractionXp.ts",
+      "sha256": "565e79d4f10ccb92ba83301c1f50a96f39ffc09d12f2341762647cd3ddd765f6"
+    },
+    {
+      "file": "src/sync/offlinePageBindings.ts",
+      "sha256": "67a4e86f756a511383b4c048fff1be137aebb03316597be6e81aa0171d139504"
+    },
+    {
+      "file": "src/lib/learningRecoveryBundle.ts",
+      "sha256": "8c04cd3c6f29b27e04b585de937a319bdca236bd79d701523559df6f75014cf0"
+    },
+    {
+      "file": "src/lib/ownerResetStorage.ts",
+      "sha256": "7df4ba7e93a17a01ab31df8de21a268df565c654c00c1c579e86a3ef8c195eb8"
+    },
+    {
+      "file": "src/reader/library/readerProgressStorage.ts",
+      "sha256": "c758a76d02747fdb04106fa046f2b5775417a9fe1e9e4b96051f8c4216bae197"
+    },
+    {
+      "file": "src/screens/ProfilePage.tsx",
+      "sha256": "fcbc651abc88e08231910b16f18746e9f976d2d7fc770461582d81741ba735dc"
+    },
+    {
+      "file": "src/components/NgocHeader.tsx",
+      "sha256": "509b7d2a45f47f9255cd3d00f5dece8d1b6416b1b7e28869b7ce4483fae42db4"
+    },
+    {
+      "file": "src/native/nativeRuntime.ts",
+      "sha256": "7ccbe7211d5184155fa2f4263cf776fc1d91441545b89d2dfcd201f8c2dfcbb8"
+    },
+    {
+      "file": "src/server/syncRepository.ts",
+      "sha256": "64ccca07b55989593c483739031ed8e10d293127e5b1175b58282cde61a47f95"
+    },
+    {
+      "file": "db/schema.ts",
+      "sha256": "259082c7f3b280cdbe8625f9e7b7a729e4d9049dc71a29b67dd1458fe1fb0e3d"
+    },
+    {
+      "file": "capacitor.config.ts",
+      "sha256": "d3069211e4b6d91ae37fa4697c67741f00203eb994429fc4004503333d27cfbf"
+    },
+    {
+      "file": "mobile/release-config.json",
+      "sha256": "5803e3a25313de0ba095494ac1d31e5af8d836cb940f5a1fa17b08ecceec2d5c"
+    },
+    {
+      "file": "content/registry.json",
+      "sha256": "2dffcd1fc0fba5ee712ce4e56738daf2964a48ed1541d3963be5503903e58e50"
+    },
+    {
+      "file": "content/runtime/lexical-editorial-adapter.json",
+      "sha256": "3a5680d5efb11fd45176080f990b6e7f62f72b5b8fd2ad9c5ae6fd08a798c1a8"
+    },
+    {
+      "file": "content/runtime/hsk0-4-runtime-catalog.json",
+      "sha256": "37d54773b818c49f4e2f7f34a7687824b2abc74ed8bbffa5043dc2f4fdab8f93"
+    },
+    {
+      "file": "content/packages/foundation-2026.08.7/runtime-catalog.json",
+      "sha256": "cb56f59a5cb9252c2164ad13da087c94e078489db805067a84f342d5dc0e2da4"
+    },
+    {
+      "file": "content/packages/foundation-2026.08.7/item-catalog.json",
+      "sha256": "f40ec4a44420c8f31f277e6b08272072d49bed8de697a4015143433121423059"
+    },
+    {
+      "file": "content/runtime/hsk1-level-rich-lessons.json",
+      "sha256": "dce7bb61ae2eedaa304cc938991dd2ce226217926f72e56547bb4d79cb5ef005"
+    },
+    {
+      "file": "content/runtime/hsk2-level-rich-lessons.json",
+      "sha256": "816933e1d02031855b9d819386ecac458fb01e1c621bef9ea594b3d3a19a2a12"
+    },
+    {
+      "file": "content/runtime/hsk3-level-rich-lessons.json",
+      "sha256": "6fa291d611720e56436f39c7ec6f1fe2dd5eebafcb25b039372c75720069b919"
+    },
+    {
+      "file": "content/runtime/hsk4-level-rich-lessons.json",
+      "sha256": "6e01827f3500b51d2a58964d6ed4f0e58f49de5b32a54c79e804ddf63784caec"
+    },
+    {
+      "file": "content/drafts/thien-lo-everyday-batch-v2.json",
+      "sha256": "5fa4eb98d25ea026c1949ef0ce8e8ffb38061a93dc2737ee887574c6b5ae4789"
+    },
+    {
+      "file": "content/drafts/thien-lo-everyday-activity-targets.json",
+      "sha256": "d83d839534b8440aae81d9a6543e4b253df28151970d50e97e61f5698e311d57"
+    },
+    {
+      "file": "content/review/thien-lo-everyday-batch-v2-local.json",
+      "sha256": "a5aa3dc28f485edb85c1d1c009157f3c43f93e645a2070f2fb79f9db013b5f41"
+    },
+    {
+      "file": "content/review/thien-lo-everyday-activity-targets-local.json",
+      "sha256": "82262556f829023f773a23ff4c711c7e043cff293578e92b4b7ae8f6f91ef238"
+    },
+    {
+      "file": "src/content/publishedStudioLessons.ts",
+      "sha256": "1c82e2b07146f4632f5cc382d95811d98e338ac35b5fd63dae57d2738be76699"
+    },
+    {
+      "file": "src/learning/lessonPages.ts",
+      "sha256": "9f23cd0ed07886b63b80c0831d21c43767735994ef2029364dac479ca2c1ce57"
+    },
+    {
+      "file": "src/learning/lessonActivityTarget.ts",
+      "sha256": "4a6b69832ed61d4697ef9c79932180c87bb6489a712f53a5651c11434f42d91f"
+    },
+    {
+      "file": "src/server/lessonPageAttemptRepository.ts",
+      "sha256": "39d50eff5f65ac209f304e43b2b7197ff0d08f35da9a35ffcefcf14949510c1a"
+    },
+    {
+      "file": "src/learning/lessonReadingSession.ts",
+      "sha256": "2033e647968675da643ab8d676c59be6cf7ed6326dc96bef2ce29336b8698f8a"
+    },
+    {
+      "file": "src/learning/integratedJourney.ts",
+      "sha256": "c0ed29a01439ab29158010505fc4442610dcbfaa778bf708515a7ff59ed17cf6"
+    },
+    {
+      "file": "src/lib/evidencePolicy.ts",
+      "sha256": "fbfa664e787ba7e69ae6fafde4aa7af05412c5731a75555c2a0cfe311d796f1b"
+    },
+    {
+      "file": "src/lib/evidence.ts",
+      "sha256": "04273bc6dca38ad15c3e3b8c3bb3ae34eae6869f77b5238977cd77f585aae921"
+    },
+    {
+      "file": "src/server/analyticsRepository.ts",
+      "sha256": "2c64bc1843f5cfbf9e708a1922d4403328d6d9105b6f26114182725367d351b8"
+    },
+    {
+      "file": "src/server/workspaceRepository.ts",
+      "sha256": "24ad131402c77883896284e58ca33e9e23c7bc0312252d68c7dcebbb89abfce4"
+    },
+    {
+      "file": "src/content/clientContentAvailability.ts",
+      "sha256": "df0343de85ee7ac189b8c065a0c45c6930481579d50e6e366fbc6ff5f5f879c3"
+    },
+    {
+      "file": "src/content/lexicalEditorialCatalog.ts",
+      "sha256": "d60bc07740d4f48ade9dc80b572668e80f635dbcb1097be501f698170a0653a8"
+    },
+    {
+      "file": "src/mistakes/practiceMistakes.ts",
+      "sha256": "bab65636d64e6f4f600158af413db6b82a464889fabf0092fa7545f711121c1a"
+    },
+    {
+      "file": "src/mistakes/localPageMistakes.ts",
+      "sha256": "f1fedbd98238a093f62f29554a07ae1fe1c864c2630c418a8f2471d70ea3a5ac"
+    },
+    {
+      "file": "src/system/systemUiPreferences.tsx",
+      "sha256": "9bb177764e67cf7ebbfafe296cabb8da249becf18b558697539c1ae0b56995cc"
+    },
+    {
+      "file": "src/components/FirstRunExperience.tsx",
+      "sha256": "f0cf2cbc48f7bfdf95cbaa93aa52c800547e0ac0b7812120880713d309a7a993"
+    },
+    {
+      "file": "src/screens/PathPage.tsx",
+      "sha256": "d62e078e926961d89b625b3527c571a88c9d7756b8a8fa011f25a2fc00d70cf5"
+    },
+    {
+      "file": "src/learning/learningJourney.test.ts",
+      "sha256": "6c609df9db29b283b65d9c75317bd7066a52031ebf471b15794e364e511990b2"
+    },
+    {
+      "file": "src/screens/LessonPage.tsx",
+      "sha256": "1fdd32ae045f2d43821d601ea1f363e19fdb7de32d877af8ff76875f99b46e26"
+    },
+    {
+      "file": "src/screens/AuthenticatedLessonPage.tsx",
+      "sha256": "85c83cfc15899ac18624cec297db034bbf04dfd9382d4a958a0585155d9f52e5"
+    },
+    {
+      "file": "src/server/learningProjectionRepository.ts",
+      "sha256": "caba991741266dbf8a12993c6177bd6863583560aa11f21b0031a801497ab1c6"
+    },
+    {
+      "file": "src/learning/normalizedLessonRuntime.test.ts",
+      "sha256": "2b642a6a766f6c37af8c3e2b9d7f16e81f46887cecfc22d9310e2d21de5aa819"
+    },
+    {
+      "file": "src/server/attemptRepository.test.ts",
+      "sha256": "055393d6d9893a9e8535c860df47e3c479f249476ac8a66ea6687bc116fc79e5"
+    },
+    {
+      "file": "src/components/ResumableLessonReader.tsx",
+      "sha256": "54ec06df6fe6dd26cf3991cf2ae7264ebe9e379aa14e352ea9695d906ba2f8ee"
+    },
+    {
+      "file": "src/server/pageRemediationRepository.ts",
+      "sha256": "9b33b05d6928ba50563a3b4a3f69074b186bb0daa834c759e6f0d27674610664"
+    },
+    {
+      "file": "src/learning/lessonReadingSession.test.ts",
+      "sha256": "b97752773a33898449561ac87203777a3a9bc76d24e131d2f68b6344cfcaff02"
+    },
+    {
+      "file": "src/server/lessonPageAttemptRepository.test.ts",
+      "sha256": "93aaa7695bc1c6aaca8ff210eb9e1f6be796e7422fd2f3341cd7559150195880"
+    },
+    {
+      "file": "src/mistakes/localPageMistakes.test.ts",
+      "sha256": "3a20b9fa7e012733d74d67d230f451929b0c9763656e4fae3ed51a3e32af2c68"
+    },
+    {
+      "file": "src/screens/ReviewPage.tsx",
+      "sha256": "40189a1f3332f649b4cb5f9fc7f67aec03cbfb1b1e773cd113b753b20897acd4"
+    },
+    {
+      "file": "src/screens/AuthenticatedReviewPage.tsx",
+      "sha256": "ec5db0884b33d05fcf725428f15c142ecd1584bca2ba781232ab31665c57fff1"
+    },
+    {
+      "file": "src/learning/reviewProtocol.test.ts",
+      "sha256": "ab4cbd158d9465555688e3ea2e65a090328882bb329d20c67f1758e6ab8f396d"
+    },
+    {
+      "file": "src/server/reviewRepository.test.ts",
+      "sha256": "e7f1201388ac1d49a960ecb1615d42e32ed9d783abcfff50d7fa9ff6b93a3188"
+    },
+    {
+      "file": "src/screens/MistakesPage.tsx",
+      "sha256": "8900d5b697ec5c4ef635f4cfc2ae8d7b6addf082455569262909ddf6424cca7a"
+    },
+    {
+      "file": "src/screens/AuthenticatedMistakesPage.tsx",
+      "sha256": "8ff8345673faf0161de3918c430eebf1432defc9c57b7be3832d85fe21fec806"
+    },
+    {
+      "file": "src/learning/useLearnerOverview.ts",
+      "sha256": "40c78a2d67df0765ea2430f75bf45b2f1a4ec44769fbc79dd51fad0cbc87cee1"
+    },
+    {
+      "file": "src/server/mistakeQueueRepository.test.ts",
+      "sha256": "256c56e3990f6597f8fc1284355e4124b64c08d350dca27d0b39128348f7973d"
+    },
+    {
+      "file": "src/server/assessmentPracticeMistakesRepository.ts",
+      "sha256": "688df683937afc56e2490830637ab2d3e25161514257f88f1ab07c8f58a4cc33"
+    },
+    {
+      "file": "src/mistakes/practiceMistakes.test.ts",
+      "sha256": "f7728a0c4bc8f9325f761be96f6bf9e76883ce3451302212c2279843bbbdc522"
+    },
+    {
+      "file": "src/server/assessmentPracticeMistakesRepository.test.ts",
+      "sha256": "341ac48d955b0e9c4a6038e0593fd62e5f8b154b1fc890cbc4dec2beee2a98b3"
+    },
+    {
+      "file": "src/screens/ReaderChallengePage.tsx",
+      "sha256": "3c5885f6df168c117fc51bc203d0155ca30227d802949356c5cc3f40028d0795"
+    },
+    {
+      "file": "src/reader/readerLifecycleProtocols.test.ts",
+      "sha256": "a319d4ad1f4f07f422c8264adb0171e70a8764162a57b32742adcd30a93b0856"
+    },
+    {
+      "file": "src/screens/ReaderChapterPage.tsx",
+      "sha256": "924a5877a8c8d4f3f26e5ea7b5dbb2d9ca327c390d6b3c7a0ea370d5a9fefb84"
+    },
+    {
+      "file": "src/reader/library/readerWorkspace.test.ts",
+      "sha256": "cc689e166aab58e59313aab609a06f356e002652c5f3ef615e56ce236abcf14d"
+    },
+    {
+      "file": "src/screens/ReaderPage.tsx",
+      "sha256": "99786b4b939096a23b972b83123dcc6669460ce329aa6dc8aaa5309144f90bd6"
+    },
+    {
+      "file": "src/screens/ReaderSeriesPage.tsx",
+      "sha256": "bfc3597166586b710846267e0c1e53e745284659fe697f2f9076e06dee9c3d32"
+    },
+    {
+      "file": "src/screens/DictionaryPage.tsx",
+      "sha256": "04911ebadd8960bd17c34fa71a0c96bf7e38fbf47fc3d8ed8ea62d749ccf03e0"
+    },
+    {
+      "file": "src/sync/workspaceSync.test.ts",
+      "sha256": "2189384ce02d648113198f83873d47da02af455ec1526f21429b7c5f37a6461e"
+    },
+    {
+      "file": "src/screens/MegaLexiconPage.tsx",
+      "sha256": "6aa8de667b24006df1169018aa3e99ddfc4d62303a2fe940a8b13fd7363a9d4a"
+    },
+    {
+      "file": "src/components/PublishedVocabularyReference.tsx",
+      "sha256": "32a092486363c380eaae64f4b0f2bae7b728003968b4ec5bac2c8206cc54ad5a"
+    },
+    {
+      "file": "src/content/megaLexicon.test.ts",
+      "sha256": "6de1b6e766774cbc84e63d87542417dd11f59639e571e5652e94f33b9945b29c"
+    },
+    {
+      "file": "src/screens/PronunciationQuestPage.tsx",
+      "sha256": "ca2922d50bd430586eabb5e0f0eeaf8aeca133c000301aaf962cc9c8e3a38742"
+    },
+    {
+      "file": "src/screens/AnalyticsPage.tsx",
+      "sha256": "982fd95d1aae0a106cc1e66a576202353abbe32ebe3422e036ef8dff1b447fc3"
+    },
+    {
+      "file": "src/learning/pronunciationPractice.test.ts",
+      "sha256": "a4e0a841476cbb85db6bebff8da622d812faa2667626cfe3f28bae5b66d621f1"
+    },
+    {
+      "file": "src/learning/pronunciationReport.test.ts",
+      "sha256": "a74e75f020779dc4077d4605a2401c89a93e8ad00fcec594f7053f77d7ce46f7"
+    },
+    {
+      "file": "src/screens/CharactersPage.tsx",
+      "sha256": "c3e8cae8bf8a3b80b5115cf41f0fd3a6dfd3eed81bd69cdbe8a4d1415777049b"
+    },
+    {
+      "file": "src/screens/CharacterForgeSessionPage.tsx",
+      "sha256": "9443a6c389b91c5f23102b3941a962ff19b3152cdcfedf7a7a22624e59362850"
+    },
+    {
+      "file": "src/characters/characterForgeSession.test.ts",
+      "sha256": "7b47e7d008f6cac9dc60b6ffe1c9cd2e7115f9a1ad68fbc77638363fd327126f"
+    },
+    {
+      "file": "src/characters/hanziStrokeData.test.ts",
+      "sha256": "eb4c131fd4bf135afa214a9f52e277d8fc415fac6f29f05cd11c1cde0aad767a"
+    },
+    {
+      "file": "src/screens/AssessmentPage.tsx",
+      "sha256": "9cd946d32c1bf4a6572b1ca5b15573db870133cad5b8997102075f88f7644eea"
+    },
+    {
+      "file": "src/screens/HskLevelCheckPage.tsx",
+      "sha256": "20c2d8953d2db25df82fc36257cb8857a52c7f6841f6721f2ce6b909e27cb65b"
+    },
+    {
+      "file": "src/server/assessmentRepository.test.ts",
+      "sha256": "12a5f0ef93d7a1d5f58a16821f8b6c11f96399d322b7792c864000c64a8630d4"
+    },
+    {
+      "file": "src/assessment/placementResume.test.ts",
+      "sha256": "77d74a21a6e14873b0a53feaa40487fbf378dea90ef91025c05ba05ab405842f"
+    },
+    {
+      "file": "src/assessment/placementSafety.test.ts",
+      "sha256": "6e4e48c14cbd40219d4d0c1b968dde50dbec547fc685409af1dbb3f3d5b7e821"
+    },
+    {
+      "file": "src/screens/AuthenticatedAssessmentPage.tsx",
+      "sha256": "10d576c8629906ccd7bdb97b5a5f9bf1e38a85cff64ff4f90202c7e2d5e90ad2"
+    },
+    {
+      "file": "src/screens/MockExamsPage.tsx",
+      "sha256": "291b92609205ef6e9c2cd35d79b5ad8d556f371389db2462e7c1942d849be3d1"
+    },
+    {
+      "file": "src/server/hskMockExamRepository.test.ts",
+      "sha256": "9395fc677ff90e889f571f8b0296fae1fde3e4d08071d6d84122fea98b3d3d65"
+    },
+    {
+      "file": "src/sync/offlineMockPractice.test.ts",
+      "sha256": "8a35384898a135595f86d3c61195d7a29a0244606a11f489cd1d3b4f5e27bb65"
+    },
+    {
+      "file": "src/server/offlineMockPractice.test.ts",
+      "sha256": "97895c4b3398704872c7ac49d1626c2e18d3e566fc4ac01c2f1968891e534bb2"
+    },
+    {
+      "file": "src/learning/useAnalyticsActivity.ts",
+      "sha256": "5c8eb02feef12158288b6b1d87ef8690d0f5632f4370e614519b27f3b10d2c1b"
+    },
+    {
+      "file": "src/screens/DashboardPage.tsx",
+      "sha256": "fa42800c698e70622e28bdf707a892c3842a941815a30dfd6ac4247116ce00ae"
+    },
+    {
+      "file": "src/server/analyticsRepository.test.ts",
+      "sha256": "8cd91ebfb277977ca9b093a94b442dabd5310e913d002534bc670fe200ea1b60"
+    },
+    {
+      "file": "src/learning/integratedJourney.test.ts",
+      "sha256": "a02c85a6b25afb7b55c6c673f5224ed16c78cabfb175c5136eef5d8e621d6360"
+    },
+    {
+      "file": "src/lib/adaptive.test.ts",
+      "sha256": "a327fc1055e0bceb4675c406e221480b3d7770dbeef367ffd690d8cbf6164d23"
+    },
+    {
+      "file": "src/audio/AudioEngineProvider.tsx",
+      "sha256": "6dff6bbd3c40a431b53bbee828b78d85a3eea3b9a5dcb186a0e7e450f06e52d2"
+    },
+    {
+      "file": "src/system/systemUiPreferences.test.ts",
+      "sha256": "89bfca626ebbd242935035a7624ba577636958331c3fab0aa62e51418b12d237"
+    },
+    {
+      "file": "src/server/systemPreferencesRoute.test.ts",
+      "sha256": "ac29f43de5cf239790f69ecc977e4aaa12925fdf0448fc234c2768429e7cfb1d"
+    },
+    {
+      "file": "src/server/accountDeletionRepository.ts",
+      "sha256": "4b075780672056b318c56ace6caab4cf8ed5216ceed71a657880b026d3845162"
+    },
+    {
+      "file": "src/native/nativeRuntime.test.ts",
+      "sha256": "b6f33b993b65bf4794efb5f91b17f623ab3d83f9f83ed214af4a5ca4ac34fc1c"
+    },
+    {
+      "file": "src/store/LearningContext.ts",
+      "sha256": "2077ea7ee435bdcbd36baacd8adaa07ab1b5a4261304f2b38bf8caf9613de6ed"
+    },
+    {
+      "file": "src/lib/learningStatePersistence.test.ts",
+      "sha256": "a3c61d1309781f2750ad64f151fe412c356f2fe568a736edd9194ad8fcdb500a"
+    },
+    {
+      "file": "src/server/syncRepository.test.ts",
+      "sha256": "baf59a3dab751392596822614d73074556019d7be33bd60695f293c3928e5164"
+    },
+    {
+      "file": "src/sync/normalizedLessonEnvironment.ts",
+      "sha256": "95cc86ea8f9ff17231e297701cccc480fdf992be0b2caed086e574d75ce595ee"
+    },
+    {
+      "file": "src/server/normalizedCommandOwnerBoundary.test.ts",
+      "sha256": "1c9cf9403c6b1d18cef29c7a8658a8d6df08d72ca7c9583af86ff638cb1244c9"
+    },
+    {
+      "file": "src/reader/library/readerWorkspace.ts",
+      "sha256": "5174350bbbc570851fa014ed4a4206f3fddb5f72cf382b43170fd39eaa279ce8"
+    },
+    {
+      "file": "src/sync/workspaceCompatibility.test.ts",
+      "sha256": "a9402463ab8ff405124a005768cf78af8a5f04f80ce0558d55b1be051900abb9"
+    },
+    {
+      "file": "src/sync/flushIndependentQueues.ts",
+      "sha256": "fb8edff8416b21ad3ad5a62f0734d29d1efb2050d09e61630dc970deebf11799"
+    },
+    {
+      "file": "src/store/InteractionXpStore.tsx",
+      "sha256": "f5a28dbd43b533700b2b4bf27710980f9c50711723163ded0beab77b65672abc"
+    },
+    {
+      "file": "src/sync/useWorkspaceSync.ts",
+      "sha256": "c5c85255eac12b02a299e536da8827ff9fb04d2b14c95b34852080379f6593fd"
+    },
+    {
+      "file": "src/sync/offlineInteractionXp.test.ts",
+      "sha256": "b87d28371c856f24f84937d938d5e3bdd54f611f76dd439aebbbfb23b33ddd8e"
+    },
+    {
+      "file": "src/sync/flushIndependentQueues.test.ts",
+      "sha256": "5814cebaef21e36f647aadeba54efb1b5b638ec3ceac951dc094dfc94e58143b"
+    },
+    {
+      "file": "src/lib/learningStateImport.ts",
+      "sha256": "86800331b52ca66581510f4bc38c37be841f7200d35f3194f16a172ccf564cc4"
+    },
+    {
+      "file": "src/lib/learningRecoveryBundle.test.ts",
+      "sha256": "7a304aa90aca399f75520cd3002c58f008bdc413471e227ac53e4194592cba08"
+    },
+    {
+      "file": "src/lib/ownerResetStorage.test.ts",
+      "sha256": "e66eb73ba4a007a9d5718b77083f5e8c30f949de10de478b77ba665ef15f4c91"
+    },
+    {
+      "file": "app/api/session/route.ts",
+      "sha256": "ab0e3c39f595b62bd5dab14a168ec5b39e0a61580dd2a9249c9d6667ca32827b"
+    },
+    {
+      "file": "app/account/security/page.tsx",
+      "sha256": "8b3220f3768a7f0331d7c5aebf95ef2b29fa0369c514ef5a31300407da01fbad"
+    },
+    {
+      "file": "app/admin/access/page.tsx",
+      "sha256": "c1aefb8200c0af6583adc5623b10f48c5f6cb3610ed836b869ff82e8c5cc0182"
+    },
+    {
+      "file": "src/server/accountDeletionRepository.test.ts",
+      "sha256": "ebbefd3775f04991b1c8a37a2b8f41abbd266465d728f7402effda533e51eee0"
+    },
+    {
+      "file": "src/lib/prepareOfflineStudy.ts",
+      "sha256": "d55f4a3f727cbf6f8cca50d8d2d3c05984955a59e8334d0212e1a19272480e74"
+    },
+    {
+      "file": "public/sw.js",
+      "sha256": "4c9a6a7ec3169ba9abc47605094a11fddb4129e941f3ba6f1176a492a9df0055"
+    },
+    {
+      "file": "src/components/OfflineReadiness.tsx",
+      "sha256": "f35be764e35cdab383be6417dd82ee8efa5dd1d57b6b79e17fb3725f9422e5bd"
+    },
+    {
+      "file": "src/sync/offlineRead.test.ts",
+      "sha256": "65b4648c7fe7a69ca699b8be3ccd2649faafd5266c4f5d276bc097a662ba8d84"
+    },
+    {
+      "file": "src/lib/serviceWorkerPolicy.test.ts",
+      "sha256": "dda8a72306153adeee46bced504942b52d98008f00c1ccf826d9ddf60b32ab40"
+    },
+    {
+      "file": "src/server/androidAppPackaging.test.ts",
+      "sha256": "1d1dc3269513a351ff0c0811c0d1a432d97fb1228df24167e69b501fc016afe8"
+    },
+    {
+      "file": "app/studio/page.tsx",
+      "sha256": "549faf6df352b479227db3ca0095facb0fe92e0e6ad5d8a8a4fdeb293e1ff55c"
+    },
+    {
+      "file": "app/admin/publishing/page.tsx",
+      "sha256": "1b5d1ceb7f5ad432e5c6518d7ca6a8f024640f8894a88ab08f3b086fe40f380d"
+    },
+    {
+      "file": "src/server/contentStudioRepository.ts",
+      "sha256": "806c6dc662aaede42dd55b42cced85726853437c6167e879e7e19ecf7a3ec3ea"
+    },
+    {
+      "file": "src/reader/library/editorialReaderClient.ts",
+      "sha256": "5522c390c580f4ab4a2b8bfba3287c9f5b50b11dcb642e73ece176deb86667e4"
+    },
+    {
+      "file": "src/server/studioAssessmentRepository.ts",
+      "sha256": "1d9c15f1d5df77943696b68e9f70ed703cb2fb2358d898e47cfa5b4fa34550ac"
+    },
+    {
+      "file": "src/server/contentStudioRepository.test.ts",
+      "sha256": "c91983452031cbefe6f7b7344e7dcc3e5bc80daf94ab77dab81329b716a71ed5"
+    },
+    {
+      "file": "src/server/contentReleaseWorker.test.ts",
+      "sha256": "de47161da52777ee548d5fb6e1e7a224211394444d681049cec9a835fffa513f"
+    },
+    {
+      "file": "src/commerce/CommerceProvider.tsx",
+      "sha256": "e231c3524baa3a7bd5b5044e43813e7164faba1d18bca173fd70587b0427db0d"
+    },
+    {
+      "file": "app/admin/premium/page.tsx",
+      "sha256": "27e9c92025400a9b3fad43f1f9ec1438346d93d2a3c4297f3d1751c294935029"
+    },
+    {
+      "file": "src/screens/PremiumPage.tsx",
+      "sha256": "0eec93281fa4d9ed948df646d3904b217fd4f4ac55949cf1ff22c40510249405"
+    },
+    {
+      "file": "src/server/lessonAccessRepository.ts",
+      "sha256": "f1cbfb048b961357a714b071da60d78b97e2d0d777eeb44071e589c065aaf1e4"
+    },
+    {
+      "file": "src/server/mockExamAccessRepository.ts",
+      "sha256": "b979c686b85fc749f4441321672ab34e0c7dfd0e582a72a490330f85a9a5af78"
+    },
+    {
+      "file": "src/server/lessonAccessRepository.test.ts",
+      "sha256": "35b5650d22b5bb44087477ad168db4b40b01f4bbd256df2801c674ad44f45c79"
+    },
+    {
+      "file": "src/server/mockExamAccessRepository.test.ts",
+      "sha256": "62f26f81a6b3260a69584247686994fd254d1a49853fa8974bd16731111677c8"
+    }
+  ],
+  "d1SchemaTables": [
+    "commerce_sandbox_orders",
+    "hanzi_wallets",
+    "hanzi_wallet_entries",
+    "hanzi_plan_prices",
+    "premium_vnd_prices",
+    "hanzi_premium_orders",
+    "lesson_access_rules",
+    "mock_exam_access_rules",
+    "premium_support_tickets",
+    "lesson_page_attempts",
+    "learner_access_days",
+    "account_deletion_jobs",
+    "users",
+    "auth_identities",
+    "auth_sessions",
+    "auth_challenges",
+    "hanzi_password_credentials",
+    "hosted_hanzi_aliases",
+    "auth_login_rate_limits",
+    "hosted_credential_states",
+    "passkey_credentials",
+    "user_roles",
+    "system_settings",
+    "audit_events",
+    "profiles",
+    "devices",
+    "mutation_rate_limits",
+    "course_versions",
+    "content_items",
+    "content_revisions",
+    "content_workflow_events",
+    "content_revision_assignment_events",
+    "content_release_outbox_events",
+    "content_release_packages",
+    "content_release_heads",
+    "enrollments",
+    "idempotency_records",
+    "learning_documents",
+    "lesson_sessions",
+    "reader_sessions",
+    "reader_item_exposures",
+    "assessment_sessions",
+    "assessment_item_exposures",
+    "assessment_attempts",
+    "assessment_skill_results",
+    "learning_attempts",
+    "reader_session_attempts",
+    "learning_evidence",
+    "fsrs_cards",
+    "review_logs",
+    "xp_ledger",
+    "sync_changes",
+    "local_import_receipts",
+    "outbox_events",
+    "editorial_assignment_events",
+    "lesson_media_assets",
+    "lesson_media_chunks"
+  ],
+  "pilot": [
+    {
+      "id": "hsk1-time-place-events-01-numbers",
+      "unitId": "hsk1-time-place-events",
+      "title": "Số đếm nền tảng",
+      "chineseTitle": "基础数字",
+      "objective": "Đọc và dùng số từ từ không đến hàng nghìn trong câu hỏi đáp ngắn.",
+      "minutes": 30,
+      "xp": 150,
+      "skills": [
+        "vocabulary",
+        "listening",
+        "reading",
+        "grammar",
+        "speaking"
+      ],
+      "wordIds": [
+        "hsk-vocab-00002",
+        "hsk-vocab-00006",
+        "hsk-vocab-00007",
+        "hsk-vocab-00049",
+        "hsk-vocab-00095",
+        "hsk-vocab-00111",
+        "hsk-vocab-00112",
+        "hsk-vocab-00113",
+        "hsk-vocab-00160",
+        "hsk-vocab-00162",
+        "hsk-vocab-00173",
+        "hsk-vocab-00184",
+        "hsk-vocab-00198",
+        "hsk-vocab-00223",
+        "hsk-vocab-00254"
+      ],
+      "prerequisiteIds": [
+        "survival-9"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.08.7",
+      "authoringLessonId": "hsk1-time-place-events:01-numbers",
+      "dialogueTurns": 4,
+      "grammarIds": [
+        "hsk1-grammar-row-011"
+      ],
+      "taskIds": [
+        "hsk1-guided-task:hsk1-time-place-events:01-numbers"
+      ],
+      "topicIds": []
+    },
+    {
+      "id": "daily-1",
+      "unitId": "daily",
+      "title": "Số lượng và tiền",
+      "chineseTitle": "数量和价格",
+      "objective": "Hỏi số lượng, giá tiền và dùng lượng từ trong trao đổi ngắn.",
+      "minutes": 30,
+      "xp": 150,
+      "skills": [
+        "vocabulary",
+        "listening",
+        "reading",
+        "grammar",
+        "speaking"
+      ],
+      "wordIds": [
+        "hsk-vocab-00046",
+        "hsk-vocab-00047",
+        "hsk-vocab-00060",
+        "hsk-vocab-00085",
+        "hsk-vocab-00104",
+        "hsk-vocab-00105",
+        "hsk-vocab-00164",
+        "hsk-vocab-00180",
+        "hsk-vocab-00258",
+        "hsk-vocab-00261",
+        "hsk-vocab-00262",
+        "hsk-vocab-00268"
+      ],
+      "prerequisiteIds": [
+        "hsk1-time-place-events-06-weather-and-residence"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.08.7",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "dialogueTurns": 4,
+      "grammarIds": [
+        "hsk1-grammar-row-012",
+        "hsk1-grammar-row-013",
+        "hsk1-grammar-row-063"
+      ],
+      "taskIds": [
+        "hsk1-task-09"
+      ],
+      "topicIds": [
+        "hsk1-topic-017"
+      ]
+    },
+    {
+      "id": "daily-3",
+      "unitId": "daily",
+      "title": "Mua sắm và quần áo",
+      "chineseTitle": "购物和衣服",
+      "objective": "Hỏi giá, đánh giá đắt rẻ và trao đổi khi mua quần áo.",
+      "minutes": 30,
+      "xp": 150,
+      "skills": [
+        "vocabulary",
+        "listening",
+        "reading",
+        "grammar",
+        "speaking"
+      ],
+      "wordIds": [
+        "hsk-vocab-00019",
+        "hsk-vocab-00023",
+        "hsk-vocab-00034",
+        "hsk-vocab-00040",
+        "hsk-vocab-00065",
+        "hsk-vocab-00089",
+        "hsk-vocab-00116",
+        "hsk-vocab-00117",
+        "hsk-vocab-00157",
+        "hsk-vocab-00174",
+        "hsk-vocab-00255",
+        "hsk-vocab-00278"
+      ],
+      "prerequisiteIds": [
+        "daily-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.08.7",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "dialogueTurns": 4,
+      "grammarIds": [
+        "hsk1-pattern:hsk1-daily-life:03-shopping-and-clothing"
+      ],
+      "taskIds": [
+        "hsk1-task-03"
+      ],
+      "topicIds": [
+        "hsk1-topic-004",
+        "hsk1-topic-005",
+        "hsk1-topic-016",
+        "hsk1-topic-018"
+      ]
+    }
+  ],
+  "foundationAudioAssetCount": 0,
+  "pilotDrafts": [
+    {
+      "lessonId": "daily-1",
+      "pageCount": 11,
+      "mediaCount": 0,
+      "activities": [
+        {
+          "pageId": "daily-1:v2:choice",
+          "blockId": "daily-1:v2:block:choice",
+          "type": "choice",
+          "prompt": "Theo giá trong hội thoại, hai quả táo giá bao nhiêu?"
+        },
+        {
+          "pageId": "daily-1:v2:guided",
+          "blockId": "daily-1:v2:block:guided",
+          "type": "cloze",
+          "prompt": "Điền 元 hoặc 个: 两____苹果六元。"
+        },
+        {
+          "pageId": "daily-1:v2:transfer",
+          "blockId": "daily-1:v2:block:produce",
+          "type": "rubric",
+          "prompt": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp."
+        }
+      ],
+      "review": {
+        "lessonId": "daily-1",
+        "sourceContentSha256": "sha256:df1028268f52a868fc2e7548841b8e9164725bd89a178c7bb0be18a4a54f9bee",
+        "aiSelfReview": {
+          "accuracy": true,
+          "levelFit": true,
+          "pedagogy": true,
+          "answerIntegrity": true,
+          "originality": true
+        }
+      },
+      "pointer": "/items/0/lessonPages"
+    },
+    {
+      "lessonId": "daily-3",
+      "pageCount": 11,
+      "mediaCount": 0,
+      "activities": [
+        {
+          "pageId": "daily-3:v2:choice",
+          "blockId": "daily-3:v2:block:choice",
+          "type": "choice",
+          "prompt": "Áo giá hai mươi tệ, khách đưa ba mươi. Người bán nói câu nào để trả lại đúng tiền thừa?"
+        },
+        {
+          "pageId": "daily-3:v2:guided",
+          "blockId": "daily-3:v2:block:guided",
+          "type": "cloze",
+          "prompt": "Điền 买 hoặc 卖: bạn là khách đang mua áo, 我____这件衣服。"
+        },
+        {
+          "pageId": "daily-3:v2:transfer",
+          "blockId": "daily-3:v2:block:produce",
+          "type": "rubric",
+          "prompt": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp."
+        }
+      ],
+      "review": {
+        "lessonId": "daily-3",
+        "sourceContentSha256": "sha256:e01dc1bf52ca93f00fdb437b43c603b09234caa5dafe2663a1e90bdd0aa980a3",
+        "aiSelfReview": {
+          "accuracy": true,
+          "levelFit": true,
+          "pedagogy": true,
+          "answerIntegrity": true,
+          "originality": true
+        }
+      },
+      "pointer": "/items/2/lessonPages"
+    },
+    {
+      "lessonId": "hsk1-time-place-events-01-numbers",
+      "pageCount": 11,
+      "mediaCount": 0,
+      "activities": [
+        {
+          "pageId": "hsk1-time-place-events-01-numbers:v2:choice",
+          "blockId": "hsk1-time-place-events-01-numbers:v2:block:choice",
+          "type": "choice",
+          "prompt": "Đọc số lượng hai quyển sách theo mẫu cơ bản nào?"
+        },
+        {
+          "pageId": "hsk1-time-place-events-01-numbers:v2:guided",
+          "blockId": "hsk1-time-place-events-01-numbers:v2:block:guided",
+          "type": "cloze",
+          "prompt": "Điền 二 hoặc 两: “hai mươi” là ____十。"
+        },
+        {
+          "pageId": "hsk1-time-place-events-01-numbers:v2:transfer",
+          "blockId": "hsk1-time-place-events-01-numbers:v2:block:produce",
+          "type": "rubric",
+          "prompt": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp."
+        }
+      ],
+      "review": {
+        "lessonId": "hsk1-time-place-events-01-numbers",
+        "sourceContentSha256": "sha256:b77c76c9fe1c7f5da930dcb3c7eb80c57046b65fdaf0e482571ac32cf92b0e6e",
+        "aiSelfReview": {
+          "accuracy": true,
+          "levelFit": true,
+          "pedagogy": true,
+          "answerIntegrity": true,
+          "originality": true
+        }
+      },
+      "pointer": "/items/4/lessonPages"
+    }
+  ],
+  "draftStatus": "draft-not-published",
+  "migrationFiles": [
+    "drizzle/0000_redundant_wildside.sql",
+    "drizzle/0001_colossal_falcon.sql",
+    "drizzle/0002_fluffy_night_nurse.sql",
+    "drizzle/0003_silly_ironclad.sql",
+    "drizzle/0004_boring_randall_flagg.sql",
+    "drizzle/0005_brown_magus.sql",
+    "drizzle/0006_assessment_server_v1.sql",
+    "drizzle/0007_outbox_delivery_leases.sql",
+    "drizzle/0008_jittery_betty_ross.sql",
+    "drizzle/0009_handy_synch.sql",
+    "drizzle/0010_silent_mathemanic.sql",
+    "drizzle/0011_outstanding_mojo.sql",
+    "drizzle/0012_hesitant_deadpool.sql",
+    "drizzle/0013_chemical_hitman.sql",
+    "drizzle/0014_gigantic_diamondback.sql",
+    "drizzle/0015_good_green_goblin.sql",
+    "drizzle/0016_yielding_rawhide_kid.sql",
+    "drizzle/0017_brainy_proteus.sql",
+    "drizzle/0018_tranquil_giant_girl.sql",
+    "drizzle/0019_ordinary_guardian.sql",
+    "drizzle/0020_neat_quasimodo.sql",
+    "drizzle/0021_sleepy_gorilla_man.sql",
+    "drizzle/0022_tearful_lady_ursula.sql",
+    "drizzle/0023_brave_mandrill.sql",
+    "drizzle/0024_thien_lo_media.sql",
+    "drizzle/0025_lesson_page_attempts.sql",
+    "drizzle/0026_hsk4_premium_sandbox.sql",
+    "drizzle/0027_premium_support.sql",
+    "drizzle/0028_living_marvex.sql",
+    "drizzle/0029_burly_midnight.sql",
+    "drizzle/0030_next_talos.sql",
+    "drizzle/0031_hanzi_refund_rejection.sql",
+    "drizzle/0032_mock_exam_access.sql",
+    "drizzle/0033_level_reward_coins.sql",
+    "drizzle/0034_premium_vnd_prices.sql",
+    "drizzle/0035_commerce_operations.sql",
+    "drizzle/0036_commerce_cash_event_guard.sql",
+    "drizzle/0037_bank_transfer_orders.sql",
+    "drizzle/0038_offline_workspace.sql",
+    "drizzle/0039_hosted_password_github.sql",
+    "drizzle/0040_hosted_credential_state.sql",
+    "drizzle/0041_account_deletion_jobs.sql"
+  ],
+  "sourceRevision": "08e89c7699b2c1bc366df01a42e3b9c96cb97bc7",
+  "date": "2026-10-18",
+  "timezone": "Asia/Saigon",
+  "status": "IN-REVIEW",
+  "scopeNotice": "Source inventory only; hashes bind the dirty working tree, not HEAD, deployment, D1 contents or installed APK. migrationFiles list historical SQL, not a live table count.",
+  "requirements": [
+    {
+      "id": "R01",
+      "requirement": "Avatar web/Capacitor guest/account",
+      "tasks": [
+        "A01",
+        "A02",
+        "T04",
+        "T17",
+        "T19"
+      ],
+      "edges": [
+        "E23",
+        "E24"
+      ]
+    },
+    {
+      "id": "R02",
+      "requirement": "Durable history from every learning source and learner timeline",
+      "tasks": [
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "edges": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E21",
+        "E22",
+        "E35"
+      ]
+    },
+    {
+      "id": "R03",
+      "requirement": "Preserve IDs/progress/FSRS/mistakes/rewards/owner/reset/resumes/outbox and device recovery",
+      "tasks": [
+        "T04",
+        "T11",
+        "T17",
+        "T19"
+      ],
+      "edges": [
+        "E25",
+        "E26",
+        "E27",
+        "E28",
+        "E29",
+        "E30",
+        "E31",
+        "E32"
+      ]
+    },
+    {
+      "id": "R04",
+      "requirement": "Adaptive competency path with substantively different session content",
+      "tasks": [
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14"
+      ],
+      "edges": [
+        "E01",
+        "E02",
+        "E20",
+        "E21",
+        "E22",
+        "E35"
+      ]
+    },
+    {
+      "id": "R05",
+      "requirement": "Audit and repair all learner/platform/authoring/native module links",
+      "tasks": [
+        "T00",
+        "T02",
+        "T12",
+        "T16",
+        "T17",
+        "T19"
+      ],
+      "edges": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E21",
+        "E22",
+        "E23",
+        "E24",
+        "E25",
+        "E26",
+        "E27",
+        "E28",
+        "E29",
+        "E30",
+        "E31",
+        "E32",
+        "E33",
+        "E34",
+        "E35"
+      ]
+    },
+    {
+      "id": "R06",
+      "requirement": "Content provenance/review/authoring and measured learning/UX outcomes",
+      "tasks": [
+        "T08",
+        "T15",
+        "T18",
+        "T19"
+      ],
+      "edges": [
+        "E32",
+        "E33",
+        "E34",
+        "E35"
+      ]
+    }
+  ],
+  "lifecyclePolicies": {
+    "L1": "Capture ownerKey+ownerGeneration+resetEpoch before async work; keep source/version and first assistance; same retry identity, preserve pending on outage; reject stale scope; no authority promotion; same-key/different-payload conflict retained. Per-edge refinements below.",
+    "L2": "Server-owned publication/RBAC/resource version, audited changes and immutable release; no learner progress writes. Replay/revoke/cache use exact revision; no deployment or external mutation in T00."
+  },
+  "edges": [
+    {
+      "id": "E01",
+      "module": "onboarding",
+      "intent": "Starting level and returner safety",
+      "producers": [
+        "src/components/FirstRunExperience.tsx",
+        "app/client-runtime.tsx"
+      ],
+      "payloadVersion": "Profile/LearningState schema2; placement baseline",
+      "stores": [
+        "localStorage learning-state",
+        "IDB documents/local-states",
+        "D1 profiles/enrollments/assessment_sessions"
+      ],
+      "authority": "Guest projection; account placement/enrollment server",
+      "consumers": [
+        "src/lib/adaptive.ts",
+        "src/screens/PathPage.tsx"
+      ],
+      "trigger": "onboard/placement submit/return",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Never overwrite established returner progress; scoped placement resume",
+      "issues": [
+        "G04"
+      ],
+      "tasks": [
+        "T05",
+        "T06",
+        "T14",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/learningJourney.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E02",
+      "module": "lessons",
+      "intent": "Objective lesson attempts, submission and pass",
+      "producers": [
+        "src/screens/LessonPage.tsx",
+        "src/screens/AuthenticatedLessonPage.tsx"
+      ],
+      "payloadVersion": "foundation + lexical-2026.10.5; normalized command + session/form revision",
+      "stores": [
+        "IDB learning-command-outbox/lesson-resumes/learning-projections",
+        "D1 lesson_sessions/learning_attempts/learning_evidence"
+      ],
+      "authority": "Account server validates frozen session and scores; guest local adapter",
+      "consumers": [
+        "src/server/learningProjectionRepository.ts",
+        "src/store/LearningStore.tsx"
+      ],
+      "trigger": "open/answer/submit/abandon/reload",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Submit receipt owns pass/reward; subset units never submit entire source lesson",
+      "issues": [
+        "G02",
+        "G04"
+      ],
+      "tasks": [
+        "T01",
+        "T02",
+        "T07",
+        "T11",
+        "T12"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/normalizedLessonRuntime.test.ts",
+          "src/server/attemptRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E03",
+      "module": "lessons",
+      "intent": "Rich page practice, immutable first answer and correction",
+      "producers": [
+        "src/components/ResumableLessonReader.tsx"
+      ],
+      "payloadVersion": "LessonPageDocument1; LessonPageFirstAttempt1; lesson-page-v1:sha256 binding",
+      "stores": [
+        "IDB lesson-resumes:lesson-reading:v1/page-bindings:v1/page-correction:v1",
+        "D1 lesson_page_attempts"
+      ],
+      "authority": "Pinned server revision for account; descriptive guest/page outcomes, masteryEligible false",
+      "consumers": [
+        "src/mistakes/localPageMistakes.ts",
+        "src/server/pageRemediationRepository.ts",
+        "src/server/analyticsRepository.ts"
+      ],
+      "trigger": "page check/reveal/correct/reopen",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Retain pinned document and firstAttempt; no overwriting support by last correct answer",
+      "issues": [
+        "G02",
+        "G12"
+      ],
+      "tasks": [
+        "T02",
+        "T07",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/lessonReadingSession.test.ts",
+          "src/server/lessonPageAttemptRepository.test.ts",
+          "src/mistakes/localPageMistakes.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E04",
+      "module": "review",
+      "intent": "Activated cards, FSRS grades and pending receipt",
+      "producers": [
+        "src/screens/ReviewPage.tsx",
+        "src/screens/AuthenticatedReviewPage.tsx"
+      ],
+      "payloadVersion": "review protocol; card/offer/revision; fsrs-rating unverified",
+      "stores": [
+        "LearningState fsrsCards",
+        "IDB learning-command-outbox",
+        "D1 fsrs_cards/review_logs"
+      ],
+      "authority": "Existing FSRS scheduler and account activation server",
+      "consumers": [
+        "src/store/LearningJourneyStore.tsx",
+        "src/server/learningProjectionRepository.ts"
+      ],
+      "trigger": "grade/flush/return",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Pending grade keeps review incomplete; repeated rating is not independent recall",
+      "issues": [
+        "G02"
+      ],
+      "tasks": [
+        "T02",
+        "T09",
+        "T12",
+        "T14",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/reviewProtocol.test.ts",
+          "src/server/reviewRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E05",
+      "module": "mistakes",
+      "intent": "Verified objective mistakes and remediation",
+      "producers": [
+        "src/screens/MistakesPage.tsx",
+        "src/screens/AuthenticatedMistakesPage.tsx"
+      ],
+      "payloadVersion": "activityId+activityVersion; objective attempt receipts",
+      "stores": [
+        "LearningState mistakes/evidence",
+        "D1 learning_attempts/learning_evidence",
+        "IDB learning-command-outbox"
+      ],
+      "authority": "Only source-valid independent corrections change eligible objective state",
+      "consumers": [
+        "src/learning/useLearnerOverview.ts",
+        "src/learning/learningJourney.ts"
+      ],
+      "trigger": "wrong answer/correction/return",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Pending remains unresolved; hint/reveal cannot silently resolve",
+      "issues": [
+        "G02"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/mistakeQueueRepository.test.ts",
+          "src/mistakes/localPageMistakes.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E06",
+      "module": "mistakes",
+      "intent": "Reader/assessment/page practice mistakes and origin revisit",
+      "producers": [
+        "src/mistakes/practiceMistakes.ts",
+        "src/mistakes/localPageMistakes.ts"
+      ],
+      "payloadVersion": "practice mistake/correction1; exact originId/version",
+      "stores": [
+        "IDB lesson-resumes:workspace-sync:v1",
+        "D1 learner_workspace_entries",
+        "IDB page-correction:v1"
+      ],
+      "authority": "Descriptive correction; never mastery",
+      "consumers": [
+        "src/screens/MistakesPage.tsx",
+        "src/server/assessmentPracticeMistakesRepository.ts"
+      ],
+      "trigger": "reader answer/terminal assessment import/correction",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Same-origin first error retained; newer origin reopens; transaction protects old-tab overwrite",
+      "issues": [
+        "G02",
+        "G07"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/mistakes/practiceMistakes.test.ts",
+          "src/server/assessmentPracticeMistakesRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E07",
+      "module": "reader",
+      "intent": "Legacy Reader session lifecycle",
+      "producers": [
+        "src/screens/ReaderChallengePage.tsx"
+      ],
+      "payloadVersion": "reader session/form/item version; normalized reader commands",
+      "stores": [
+        "IDB learning-command-outbox/lesson-resumes",
+        "D1 reader_sessions/reader_session_attempts/reader_item_exposures"
+      ],
+      "authority": "Server session/exposure; legacy guest remains practice",
+      "consumers": [
+        "src/screens/MistakesPage.tsx",
+        "src/server/learningProjectionRepository.ts"
+      ],
+      "trigger": "open/answer/submit/abandon",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep old forms and source context; no new account session offline without authority",
+      "issues": [
+        "G02"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/reader/readerLifecycleProtocols.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E08",
+      "module": "reader",
+      "intent": "Chapter answers/support and journey transfer",
+      "producers": [
+        "src/screens/ReaderChapterPage.tsx"
+      ],
+      "payloadVersion": "Reader progress v2; chapter comprehensionVersion; answer observations",
+      "stores": [
+        "localStorage reader-progress-v2 scoped by owner/generation/epoch",
+        "IDB workspace-sync:v1",
+        "D1 learner_workspace_entries"
+      ],
+      "authority": "Chapter practice, not verified mastery",
+      "consumers": [
+        "src/mistakes/practiceMistakes.ts",
+        "src/store/LearningJourneyStore.tsx"
+      ],
+      "trigger": "answer/pinyin/translation/complete/reopen",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep version/context/first errors; old version never remapped; >500 support display differs from journal",
+      "issues": [
+        "G02",
+        "G07"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/reader/library/readerWorkspace.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E09",
+      "module": "reader",
+      "intent": "Position/bookmark/contextual saved entry",
+      "producers": [
+        "src/reader/library/readerProgressStorage.ts"
+      ],
+      "payloadVersion": "reader chapter/answer/saved/bookmark/position/support workspace prefixes",
+      "stores": [
+        "localStorage reader-progress-v2",
+        "IDB workspace-sync:v1",
+        "D1 learner_workspace_entries"
+      ],
+      "authority": "Descriptive workspace; core word saved through existing policy",
+      "consumers": [
+        "src/screens/ReaderPage.tsx",
+        "src/screens/ReaderSeriesPage.tsx",
+        "src/screens/DictionaryPage.tsx"
+      ],
+      "trigger": "read/lookup/save/remove/sync",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Merge per answer, preserve tombstones; outside-core gloss does not fabricate core ID",
+      "issues": [
+        "G02",
+        "G03"
+      ],
+      "tasks": [
+        "T02",
+        "T04",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/reader/library/readerWorkspace.test.ts",
+          "src/sync/workspaceSync.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E10",
+      "module": "dictionary",
+      "intent": "Lookup/core save/manual study/lesson challenge",
+      "producers": [
+        "src/screens/DictionaryPage.tsx"
+      ],
+      "payloadVersion": "released wordId + lexical derivative; saved-word clock",
+      "stores": [
+        "LearningState savedWords",
+        "IDB documents/outbox",
+        "D1 learning_documents"
+      ],
+      "authority": "Saved/lookup/manual study are observations; account card needs activated lesson",
+      "consumers": [
+        "src/screens/ProfilePage.tsx",
+        "src/screens/ReaderChapterPage.tsx",
+        "src/store/LearningJourneyStore.tsx"
+      ],
+      "trigger": "lookup/save/unsave/challenge complete",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Only matching lesson words count toward transfer; no account FSRS creation from saved-only words",
+      "issues": [
+        "G02"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/learningJourney.test.ts",
+          "src/server/reviewRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E11",
+      "module": "expansion",
+      "intent": "Expansion self-study missions and curated references; persistence gap",
+      "producers": [
+        "src/screens/MegaLexiconPage.tsx"
+      ],
+      "payloadVersion": "MegaLexiconArtifact missionId/wordIds; no durable learner event version",
+      "stores": [
+        "VocabularyMission React index/revealed only; no durable activity/event/save/resume producer",
+        "Content artifact/browser cache is not learner progress"
+      ],
+      "authority": "Reference/mission practice; no new mastery authority",
+      "consumers": [
+        "src/screens/MegaLexiconPage.tsx",
+        "src/screens/PathPage.tsx"
+      ],
+      "trigger": "mission select/play/reveal/next/return",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Reload loses ephemeral mission position; future history/resume must classify reveal as exposure/self-study, not an objectively answered attempt",
+      "issues": [
+        "G02",
+        "G11"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/content/megaLexicon.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E12",
+      "module": "speech",
+      "intent": "Speaking mission completion and acoustic/manual result",
+      "producers": [
+        "src/screens/PronunciationQuestPage.tsx"
+      ],
+      "payloadVersion": "pronunciation mission rewardKey; service response; speech-transcript",
+      "stores": [
+        "LearningState activityLog/reward IDs; legacy speech-transcript evidence retained, active mission completion does not persist acoustic attempt report",
+        "IDB offline-interaction-xp:v1",
+        "D1 xp_ledger; detailed report in component state"
+      ],
+      "authority": "Synthetic/manual/transcript not pronunciation score; acoustic response separate",
+      "consumers": [
+        "src/screens/AnalyticsPage.tsx",
+        "src/store/LearningJourneyStore.tsx"
+      ],
+      "trigger": "play/consent/capture/service/manual complete",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Abort callback on owner change; no raw audio analytics upload; mission receipt not mastery",
+      "issues": [
+        "G02",
+        "G10"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/pronunciationPractice.test.ts",
+          "src/learning/pronunciationReport.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E13",
+      "module": "writing",
+      "intent": "Stroke/practice/IME/paper alternative",
+      "producers": [
+        "src/screens/CharactersPage.tsx",
+        "src/screens/CharacterForgeSessionPage.tsx"
+      ],
+      "payloadVersion": "character-forge session1; source data provenance; assisted stages",
+      "stores": [
+        "owner-scoped character-forge localStorage",
+        "LearningState evidence",
+        "journey checkpoint"
+      ],
+      "authority": "Unverified practice with assistance; stroke quiz not mastery",
+      "consumers": [
+        "src/screens/AnalyticsPage.tsx",
+        "src/store/LearningJourneyStore.tsx"
+      ],
+      "trigger": "stroke/prediction/IME/paper/complete",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep support/replay; unavailable licensed stroke data disables tracing with escape hatch",
+      "issues": [
+        "G02",
+        "G06"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/characters/characterForgeSession.test.ts",
+          "src/characters/hanziStrokeData.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E14",
+      "module": "assessment",
+      "intent": "Placement and HSK1-4 level checks guest",
+      "producers": [
+        "src/screens/AssessmentPage.tsx",
+        "src/screens/HskLevelCheckPage.tsx"
+      ],
+      "payloadVersion": "owned HSK level-check/placement-gate1; diagnostic result",
+      "stores": [
+        "owned localStorage placement/level-check sessions",
+        "LearningState diagnostic/evidence",
+        "practice workspace"
+      ],
+      "authority": "Diagnostic context, no fabricated mastery or source lesson completion",
+      "consumers": [
+        "src/screens/PathPage.tsx",
+        "src/mistakes/practiceMistakes.ts"
+      ],
+      "trigger": "diagnostic/check/submit/return",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep returner baseline; item already shown cannot count unseen holdout",
+      "issues": [
+        "G02",
+        "G04"
+      ],
+      "tasks": [
+        "T02",
+        "T06",
+        "T09",
+        "T14",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/assessment/placementResume.test.ts",
+          "src/assessment/placementSafety.test.ts",
+          "src/server/assessmentRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E15",
+      "module": "assessment",
+      "intent": "Account assessment lifecycle and terminal results",
+      "producers": [
+        "src/screens/AuthenticatedAssessmentPage.tsx"
+      ],
+      "payloadVersion": "assessment session/form hash/item position/version; normalized commands",
+      "stores": [
+        "IDB learning-command-outbox/assessment-resumes",
+        "D1 assessment_sessions/assessment_attempts/assessment_skill_results"
+      ],
+      "authority": "Server validates source and terminal state",
+      "consumers": [
+        "src/server/assessmentPracticeMistakesRepository.ts",
+        "src/server/learningProjectionRepository.ts"
+      ],
+      "trigger": "open/answer/submit/history",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "No answer keys or remediation import from active exam; immutable issued version",
+      "issues": [
+        "G02",
+        "G06"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/assessmentRepository.test.ts",
+          "src/server/assessmentPracticeMistakesRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E16",
+      "module": "assessment",
+      "intent": "Online mock catalog, run and result/history",
+      "producers": [
+        "src/screens/MockExamsPage.tsx"
+      ],
+      "payloadVersion": "examLevel/formKey/formHash/item version; server session",
+      "stores": [
+        "D1 assessment sessions/attempts/results",
+        "IDB assessment-resumes"
+      ],
+      "authority": "Server form/scoring; weak-skill links do not grant mastery",
+      "consumers": [
+        "src/screens/MockExamsPage.tsx",
+        "src/mistakes/practiceMistakes.ts"
+      ],
+      "trigger": "run/submit/history/revisit",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Entitlement checked on new open; keep issued submit/history after entitlement change",
+      "issues": [
+        "G02",
+        "G06"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/hskMockExamRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E17",
+      "module": "assessment",
+      "intent": "Offline mock answers, delayed scoring and history",
+      "producers": [
+        "src/sync/offlineMockPractice.ts"
+      ],
+      "payloadVersion": "OfflineMockRun1 + immutable formHash; device-timed",
+      "stores": [
+        "IDB lesson-resumes:offline-mock-practice:v1",
+        "workspace exam.practice",
+        "D1 learner_workspace_entries"
+      ],
+      "authority": "Provisional device practice; confirmed descriptive result after server scoring",
+      "consumers": [
+        "src/screens/MockExamsPage.tsx",
+        "src/mistakes/practiceMistakes.ts"
+      ],
+      "trigger": "offline begin/answer/submit/reconnect",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep append-only answers and pending result; never issue certificate/mastery or fake elapsed time",
+      "issues": [
+        "G02",
+        "G03"
+      ],
+      "tasks": [
+        "T02",
+        "T04",
+        "T12",
+        "T17"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/sync/offlineMockPractice.test.ts",
+          "src/server/offlineMockPractice.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E18",
+      "module": "overview",
+      "intent": "Access day vs measured practice analytics",
+      "producers": [
+        "src/learning/useAnalyticsActivity.ts",
+        "src/server/analyticsRepository.ts"
+      ],
+      "payloadVersion": "AnalyticsActivity; visit provenance; UTC+7 existing days",
+      "stores": [
+        "D1 learner_access_days/learning_attempts/lesson_page_attempts",
+        "workspace access",
+        "LearningState activityLog/evidence"
+      ],
+      "authority": "Descriptive aggregation only; receipt time for account page counts",
+      "consumers": [
+        "src/screens/AnalyticsPage.tsx",
+        "src/screens/DashboardPage.tsx"
+      ],
+      "trigger": "visit/activity/read",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Do not infer practice from route visit or fill missing duration; unknown differs from zero",
+      "issues": [
+        "G02"
+      ],
+      "tasks": [
+        "T01",
+        "T02",
+        "T03",
+        "T09",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/analyticsRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E19",
+      "module": "overview",
+      "intent": "All-source mistakes/due/coverage summary",
+      "producers": [
+        "src/learning/useLearnerOverview.ts"
+      ],
+      "payloadVersion": "unknown/null/pending union; practice coverage",
+      "stores": [
+        "server + guest snapshots/workspace/projection",
+        "offline-read:v1"
+      ],
+      "authority": "Read-only projections",
+      "consumers": [
+        "src/screens/PathPage.tsx",
+        "src/screens/DashboardPage.tsx",
+        "src/screens/AnalyticsPage.tsx"
+      ],
+      "trigger": "online/focus/queue change",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Pending/partial sources cannot imply empty queue or review completion",
+      "issues": [
+        "G02"
+      ],
+      "tasks": [
+        "T02",
+        "T12",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/learningJourney.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E20",
+      "module": "overview",
+      "intent": "Four-stage journey receipts and legacy anchor",
+      "producers": [
+        "src/store/LearningJourneyStore.tsx"
+      ],
+      "payloadVersion": "IntegratedJourneyCheckpoint1; receipt(activityId,source,lessonId)",
+      "stores": [
+        "localStorage hanzi-os-integrated-journey-v1:<scope>"
+      ],
+      "authority": "Orchestration only; account anchor from authoritative projection",
+      "consumers": [
+        "src/screens/DashboardPage.tsx",
+        "src/screens/PathPage.tsx"
+      ],
+      "trigger": "lesson/review/transfer/close receipt",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Dedup receipt, retain anchor/resume; guest resetEpoch currently hardcoded 0 requires regression",
+      "issues": [
+        "G04",
+        "G09"
+      ],
+      "tasks": [
+        "T04",
+        "T10",
+        "T11",
+        "T12",
+        "T13"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/learning/integratedJourney.test.ts",
+          "src/learning/learningJourney.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E21",
+      "module": "overview",
+      "intent": "Existing lesson recommendation baseline",
+      "producers": [
+        "src/lib/adaptive.ts",
+        "src/learning/learningJourney.ts"
+      ],
+      "payloadVersion": "completedLessons score/goal/skills + dueWordIds",
+      "stores": [
+        "LearningState/projection; no unit/session composer"
+      ],
+      "authority": "Existing pass policy remains intact; no competency authority yet",
+      "consumers": [
+        "src/screens/PathPage.tsx",
+        "src/store/LearningJourneyStore.tsx"
+      ],
+      "trigger": "daily/re-entry/goal change",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Baseline must stay callable if adaptive unavailable; compare unit/task/support differences",
+      "issues": [
+        "G04",
+        "G08"
+      ],
+      "tasks": [
+        "T05",
+        "T06",
+        "T09",
+        "T10",
+        "T13",
+        "T14"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/lib/adaptive.test.ts",
+          "src/learning/learningJourney.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E22",
+      "module": "profile",
+      "intent": "Profile goal/minutes and device UI preferences",
+      "producers": [
+        "src/screens/ProfilePage.tsx",
+        "src/system/systemUiPreferences.tsx"
+      ],
+      "payloadVersion": "Profile schema2 dailyMinutes10/20/30; system-ui1; public default preferences",
+      "stores": [
+        "LearningState profile/clocked sync",
+        "localStorage hanzi-os-system-ui-v1",
+        "D1 profiles/system_settings"
+      ],
+      "authority": "Self-declared goals separate from evidence; sound/motion are device settings",
+      "consumers": [
+        "src/components/NgocHeader.tsx",
+        "src/lib/adaptive.ts",
+        "src/audio/AudioEngineProvider.tsx"
+      ],
+      "trigger": "profile save/settings/onboarding default",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "5-minute session preference needs new separate contract; preserve current 10/20/30 daily goal",
+      "issues": [
+        "G08"
+      ],
+      "tasks": [
+        "T05",
+        "T13",
+        "T16"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/system/systemUiPreferences.test.ts",
+          "src/server/systemPreferencesRoute.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E23",
+      "module": "profile",
+      "intent": "Guest avatar select/crop/save/cancel/remove",
+      "producers": [
+        "src/screens/ProfilePage.tsx",
+        "src/components/NgocHeader.tsx"
+      ],
+      "payloadVersion": "Not implemented; current initials/name only; proposed avatar metadata1",
+      "stores": [
+        "Future owner blob store; no base64 in LearningState"
+      ],
+      "authority": "Owner-fenced local blob only",
+      "consumers": [
+        "src/components/NgocHeader.tsx",
+        "src/screens/ProfilePage.tsx"
+      ],
+      "trigger": "future picker/preview/save/remove",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep old image on quota/decode/stale-owner failure; reset learning preserves avatar",
+      "issues": [
+        "G01"
+      ],
+      "tasks": [
+        "A01",
+        "T04",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E24",
+      "module": "profile",
+      "intent": "Account avatar media revision/native picker",
+      "producers": [
+        "src/native/nativeRuntime.ts"
+      ],
+      "payloadVersion": "No avatar endpoint/storage/picker contract yet; native request already carries binary bytes via base64",
+      "stores": [
+        "Future account media adapter+metadata; existing authoring media not avatar storage"
+      ],
+      "authority": "Server ownership/re-encode/revision check required",
+      "consumers": [
+        "src/components/NgocHeader.tsx",
+        "src/screens/ProfilePage.tsx",
+        "src/server/accountDeletionRepository.ts"
+      ],
+      "trigger": "future upload/replace/delete/two sessions",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Native request is transport, not verified picker/crop/upload lifecycle; no new cloud service",
+      "issues": [
+        "G01",
+        "G06"
+      ],
+      "tasks": [
+        "A02",
+        "T04",
+        "T17",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/native/nativeRuntime.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E25",
+      "module": "sync-recovery-offline",
+      "intent": "Durable guest/account document mutation and import",
+      "producers": [
+        "src/store/LearningStore.tsx",
+        "src/sync/coordinator.ts"
+      ],
+      "payloadVersion": "LearningState2 / CloudSyncDocument1 / SyncClock / reset epoch",
+      "stores": [
+        "localStorage primary/recovery/corrupt/quarantine",
+        "IDB meta/documents/local-states/outbox",
+        "D1 learning_documents/sync_changes/idempotency_records/local_import_receipts"
+      ],
+      "authority": "Server distrusts imported aggregates; compatibility projection is not verified evidence",
+      "consumers": [
+        "src/store/LearningContext.ts",
+        "src/server/syncRepository.ts"
+      ],
+      "trigger": "persist/adopt/signin/sync/import",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Durable write before UI; preserve corruption/quota original; imported fields never elevate authority",
+      "issues": [
+        "G03",
+        "G07"
+      ],
+      "tasks": [
+        "T01",
+        "T04",
+        "T17"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/lib/learningStatePersistence.test.ts",
+          "src/server/syncRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E26",
+      "module": "sync-recovery-offline",
+      "intent": "Normalized command dispatch, projection and resume",
+      "producers": [
+        "src/sync/indexedDb.ts",
+        "src/sync/normalizedLessonEnvironment.ts"
+      ],
+      "payloadVersion": "IDB3 owner generation/epoch; normalized command envelope; projection1-4",
+      "stores": [
+        "IDB learning-command-outbox/learning-projections/lesson-resumes/assessment-resumes",
+        "D1 command receipts/session records"
+      ],
+      "authority": "Owner/reset/version validation at server + local generation fence",
+      "consumers": [
+        "src/screens/AuthenticatedLessonPage.tsx",
+        "src/screens/AuthenticatedReviewPage.tsx",
+        "src/screens/AuthenticatedAssessmentPage.tsx"
+      ],
+      "trigger": "queued/open/reload/ack/retry/quarantine",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "No command replay across owner/reset/install; preserve alias/manifest/ack and unsupported raw payload",
+      "issues": [
+        "G03",
+        "G06"
+      ],
+      "tasks": [
+        "T01",
+        "T04",
+        "T11",
+        "T17"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/normalizedCommandOwnerBoundary.test.ts",
+          "src/learning/normalizedLessonRuntime.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E27",
+      "module": "sync-recovery-offline",
+      "intent": "Workspace two-way sync and old APK capabilities",
+      "producers": [
+        "src/sync/workspaceSync.ts",
+        "src/sync/workspaceProtocol.ts"
+      ],
+      "payloadVersion": "workspace1; x-learning-workspace-version:2",
+      "stores": [
+        "IDB lesson-resumes:workspace-sync:v1",
+        "D1 learner_workspace_entries"
+      ],
+      "authority": "Descriptive only; changedAt/changeId conflict order",
+      "consumers": [
+        "src/reader/library/readerWorkspace.ts",
+        "src/mistakes/practiceMistakes.ts"
+      ],
+      "trigger": "change/focus/online/flush",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "100-entry/400k batch is transfer paging, not truncation; unknown version throws and keeps raw journal; filter response to old clients",
+      "issues": [
+        "G02",
+        "G03"
+      ],
+      "tasks": [
+        "T02",
+        "T04",
+        "T17"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/sync/workspaceSync.test.ts",
+          "src/sync/workspaceCompatibility.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E28",
+      "module": "sync-recovery-offline",
+      "intent": "XP reward dedup and independent queues",
+      "producers": [
+        "src/sync/offlineInteractionXp.ts",
+        "src/sync/flushIndependentQueues.ts"
+      ],
+      "payloadVersion": "offline-interaction-xp1; rewardKey/lessonId+epoch",
+      "stores": [
+        "IDB lesson-resumes journal",
+        "D1 xp_ledger",
+        "LearningState activity reward IDs"
+      ],
+      "authority": "XP server ledger, no mastery evidence",
+      "consumers": [
+        "src/store/InteractionXpStore.tsx",
+        "src/sync/useWorkspaceSync.ts"
+      ],
+      "trigger": "mission/lesson/online",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "XP failure cannot starve workspace/mock; pending reward cannot count as confirmed new award",
+      "issues": [
+        "G02",
+        "G03"
+      ],
+      "tasks": [
+        "T02",
+        "T04",
+        "T12",
+        "T17"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/sync/offlineInteractionXp.test.ts",
+          "src/sync/flushIndependentQueues.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E29",
+      "module": "profile",
+      "intent": "Client recovery/cloud export and reset",
+      "producers": [
+        "src/screens/ProfilePage.tsx",
+        "src/lib/learningRecoveryBundle.ts"
+      ],
+      "payloadVersion": "client-recovery2 projection+counts; cloud export13",
+      "stores": [
+        "IDB journals and localStorage are source stores not all exported",
+        "D1 owner export tables",
+        "future full-device manifest"
+      ],
+      "authority": "Export/import cannot mint verified receipts; cloud export redacts known secrets",
+      "consumers": [
+        "src/lib/learningStateImport.ts",
+        "src/lib/ownerResetStorage.ts",
+        "src/server/syncRepository.ts"
+      ],
+      "trigger": "export/import/reset",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Round-trip must include all mandatory journals before full-device label; learning reset != preference reset != avatar delete",
+      "issues": [
+        "G03",
+        "G09"
+      ],
+      "tasks": [
+        "T04",
+        "T17",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/lib/learningRecoveryBundle.test.ts",
+          "src/lib/ownerResetStorage.test.ts",
+          "src/server/syncRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E30",
+      "module": "account-auth-RBAC",
+      "intent": "Identity/session/security/signout/delete/role fences",
+      "producers": [
+        "app/api/session/route.ts",
+        "src/server/accountDeletionRepository.ts"
+      ],
+      "payloadVersion": "server identity; owner generation; auth lifecycle/deletion job",
+      "stores": [
+        "D1 users/auth*/roles/deletion_jobs",
+        "native encrypted session; no secrets in history/recovery"
+      ],
+      "authority": "Server session/RBAC only; header cannot select identity",
+      "consumers": [
+        "src/sync/coordinator.ts",
+        "app/account/security/page.tsx",
+        "app/admin/access/page.tsx"
+      ],
+      "trigger": "signin/switch/signout/delete/deep-link",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Quarantine old owner pending; delete only authenticated owner incl future avatar/events; no provider/email/role changes in audit",
+      "issues": [
+        "G06"
+      ],
+      "tasks": [
+        "A02",
+        "T04",
+        "T17",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/normalizedCommandOwnerBoundary.test.ts",
+          "src/server/accountDeletionRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E31",
+      "module": "Android-PWA-runtime",
+      "intent": "Offline prepare/cache/entitlement and SW updates",
+      "producers": [
+        "src/lib/prepareOfflineStudy.ts",
+        "src/sync/offlineRead.ts",
+        "public/sw.js"
+      ],
+      "payloadVersion": "offline manifest/content hashes; owner cached reads; entitlement <=30 days/actual expiry",
+      "stores": [
+        "CacheStorage/app-private media",
+        "IDB lesson-resumes:offline-read:v1/page-bindings:v1"
+      ],
+      "authority": "Cache availability never entitlement; 401/403/404 no cached override",
+      "consumers": [
+        "src/components/OfflineReadiness.tsx",
+        "app/client-app.tsx"
+      ],
+      "trigger": "prepare/503/offline/update",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Cache partial/quota/revoked content => actionable fallback preserving progress; SW change cannot discard journals",
+      "issues": [
+        "G03",
+        "G06"
+      ],
+      "tasks": [
+        "T04",
+        "T07",
+        "T11",
+        "T17",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/sync/offlineRead.test.ts",
+          "src/lib/serviceWorkerPolicy.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E32",
+      "module": "Android-PWA-runtime",
+      "intent": "Capacitor transport/native lifecycle vs browser/TWA",
+      "producers": [
+        "src/native/nativeRuntime.ts",
+        "capacitor.config.ts",
+        "mobile/release-config.json"
+      ],
+      "payloadVersion": "HanziDevice binary request/headers; HanziSpeech; native pinned origin; package0.3.1/code4 declared",
+      "stores": [
+        "WebView localStorage/IDB at https://localhost",
+        "private media/Keystore; Chrome stores separate"
+      ],
+      "authority": "Native transports existing server authority, no cross-store implicit migration",
+      "consumers": [
+        "app/client-app.tsx",
+        "src/screens/ProfilePage.tsx",
+        "src/screens/PronunciationQuestPage.tsx"
+      ],
+      "trigger": "app start/back/resume/picker/save/update",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Preserve x-learning headers; no account leak on late callback; TWA rollback retains Chrome; picker/mic/reopen needs device",
+      "issues": [
+        "G01",
+        "G03",
+        "G06"
+      ],
+      "tasks": [
+        "A02",
+        "T04",
+        "T17",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/native/nativeRuntime.test.ts",
+          "src/server/androidAppPackaging.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E33",
+      "module": "authoring-admin-release",
+      "intent": "Author/review/publish/replay/revoke content and media",
+      "producers": [
+        "app/studio/page.tsx",
+        "app/admin/publishing/page.tsx",
+        "src/server/contentStudioRepository.ts"
+      ],
+      "payloadVersion": "revision/content sha; release event/package/head; media hash/provenance",
+      "stores": [
+        "D1 content_items/revisions/workflow/release outbox/packages/heads/media",
+        "Git immutable packages/drafts/reviews"
+      ],
+      "authority": "Server RBAC + reviewed immutable release; local authorization != human review",
+      "consumers": [
+        "src/content/publishedStudioLessons.ts",
+        "src/reader/library/editorialReaderClient.ts",
+        "src/server/studioAssessmentRepository.ts"
+      ],
+      "trigger": "draft/review/release/rollback/read",
+      "lifecyclePolicy": "L2",
+      "lifecycle": "Keys stay server; retain foundation scoring hashes; published head/draft mismatch is not silently resolved by latest draft",
+      "issues": [
+        "G05",
+        "G12"
+      ],
+      "tasks": [
+        "T07",
+        "T08",
+        "T15",
+        "T17"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/contentStudioRepository.test.ts",
+          "src/server/contentReleaseWorker.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E34",
+      "module": "commerce-boundary",
+      "intent": "Existing Premium/ledger/support isolation and eligibility",
+      "producers": [
+        "src/commerce/CommerceProvider.tsx",
+        "app/admin/premium/page.tsx"
+      ],
+      "payloadVersion": "entitlement/lesson access/mock access/reward dedup",
+      "stores": [
+        "D1 commerce/wallet/premium support/access rules",
+        "offline entitlement cache"
+      ],
+      "authority": "Server entitlement only; no new payment/provider activation",
+      "consumers": [
+        "src/screens/PremiumPage.tsx",
+        "src/server/lessonAccessRepository.ts",
+        "src/server/mockExamAccessRepository.ts"
+      ],
+      "trigger": "open/history/retry/expiry",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "Keep historical/submitted activity when access expires; no private key/media in public unit fixture",
+      "issues": [
+        "G06"
+      ],
+      "tasks": [
+        "T07",
+        "T10",
+        "T17",
+        "T19"
+      ],
+      "evidence": {
+        "existingTests": [
+          "src/server/lessonAccessRepository.test.ts",
+          "src/server/mockExamAccessRepository.test.ts"
+        ],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    },
+    {
+      "id": "E35",
+      "module": "overview",
+      "intent": "Future unified events -> learner model -> composer -> adaptive runner -> all consumers",
+      "producers": [
+        "src/store/LearningStore.tsx",
+        "src/learning/learningJourney.ts"
+      ],
+      "payloadVersion": "Design-only event1/competency1/unit1/manifest1, see baseline contracts",
+      "stores": [
+        "Future transactional event journal/rebuildable projection + versioned session manifests"
+      ],
+      "authority": "Adapters reuse current scoring/progress/FSRS; event journal not independent grant authority",
+      "consumers": [
+        "src/screens/PathPage.tsx",
+        "src/screens/ProfilePage.tsx",
+        "src/screens/AnalyticsPage.tsx"
+      ],
+      "trigger": "future event ingest/shadow compose/persisted safe boundary",
+      "lifecyclePolicy": "L1",
+      "lifecycle": "No runtime implemented; four needs must change units/tasks/support, source IDs/rewards preserved; opt-out and flag fallback",
+      "issues": [
+        "G02",
+        "G04",
+        "G05",
+        "G08"
+      ],
+      "tasks": [
+        "T01",
+        "T02",
+        "T03",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T18"
+      ],
+      "evidence": {
+        "existingTests": [],
+        "rerunInT00": false
+      },
+      "status": "IN-REVIEW"
+    }
+  ],
+  "issues": [
+    {
+      "id": "G01",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "A01",
+        "A02"
+      ],
+      "finding": "Current Header initials/Profile have no avatar lifecycle; no owner blob metadata/account media endpoint/native picker implementation."
+    },
+    {
+      "id": "G02",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "finding": "No unified durable history contract/timeline/index across all sources; current activityLog/evidence/SQL analytics/Reader/workspace cover different subsets."
+    },
+    {
+      "id": "G03",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T04",
+        "T17"
+      ],
+      "finding": "Client recovery exports projection and pending counts, not full journals/resumes/workspace/media; cloud owner export differs from device recovery."
+    },
+    {
+      "id": "G04",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T06",
+        "T07",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14"
+      ],
+      "finding": "Current adaptive/journey selects lessons and stages; no competency DAG/unit extractor/frozen adaptive manifest contract implemented."
+    },
+    {
+      "id": "G05",
+      "status": "BLOCKED",
+      "tasks": [
+        "T08",
+        "T15"
+      ],
+      "finding": "Pilot draft has 9 activities and no attached audio across 3 lessons; humanReviewed false. Listening contrast/new held-out delayed probes and reviewed measurement content absent from pinned pilot inventory."
+    },
+    {
+      "id": "G06",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T17",
+        "T19"
+      ],
+      "finding": "This turn does not verify current D1/hosted build/installed device. Prior fixture, build and release records remain scoped historical evidence."
+    },
+    {
+      "id": "G07",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T02",
+        "T03"
+      ],
+      "finding": "Legacy backfill needs record lineage/cursor; unsupported/missing source-version or lost old-cutoff history remains unknown, never invented."
+    },
+    {
+      "id": "G08",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T05",
+        "T10",
+        "T13"
+      ],
+      "finding": "Existing dailyMinutes supports 10/20/30 only; 5-minute session budget and capabilities/opt-out need separate versioned preferences."
+    },
+    {
+      "id": "G09",
+      "status": "IN-REVIEW",
+      "tasks": [
+        "T04",
+        "T11",
+        "T17"
+      ],
+      "finding": "LearningJourneyStore uses guest resetEpoch 0 while durable stores carry reset epoch. Add guest reset with same anchor/old tab fixture before choosing adapter migration; no loss reproduction or fix claimed."
+    },
+    {
+      "id": "G10",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T02",
+        "T03",
+        "T16"
+      ],
+      "finding": "Pronunciation detailed acoustic report is component state; mission completion/reward evidence differs from durable per-attempt history. Audit exact receipt persistence and privacy in speech slice."
+    },
+    {
+      "id": "G11",
+      "status": "NOT-REVIEWED",
+      "tasks": [
+        "T02",
+        "T03",
+        "T12",
+        "T16"
+      ],
+      "finding": "Expansion VocabularyMission stores index/revealed only in React. No durable progress/history/save/receipt producer; reload/resume and event adapters require a separate slice without claiming FSRS/mastery."
+    },
+    {
+      "id": "G12",
+      "status": "IN-REVIEW",
+      "tasks": [
+        "T07",
+        "T08",
+        "T15",
+        "T17"
+      ],
+      "finding": "Pinned Git draft says draft-not-published and old review has source hashes; live published release head not read. Resolve exact revision before extracting units, never call latest draft released."
+    }
+  ],
+  "learnerRouteCoverage": [
+    {
+      "route": "/",
+      "edges": [
+        "E18",
+        "E19",
+        "E20",
+        "E21"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/path",
+      "edges": [
+        "E19",
+        "E20",
+        "E21",
+        "E35"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/lesson/:lessonId",
+      "edges": [
+        "E02",
+        "E03"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/path/expansion",
+      "edges": [
+        "E11"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/path/expansion/:missionId",
+      "edges": [
+        "E11"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/review",
+      "edges": [
+        "E04"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/mistakes",
+      "edges": [
+        "E05",
+        "E06"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/hsk1",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/hsk2",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/hsk3",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/hsk4",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/placement/hsk1",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/placement/hsk2",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/placement/hsk3",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/assessment/placement/hsk4",
+      "edges": [
+        "E14",
+        "E15"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/exams",
+      "edges": [
+        "E16",
+        "E17"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/exams/history",
+      "edges": [
+        "E16",
+        "E17"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/exams/:level/:form",
+      "edges": [
+        "E16",
+        "E17"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/pronunciation",
+      "edges": [
+        "E12"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/characters",
+      "edges": [
+        "E13"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/characters/session",
+      "edges": [
+        "E13"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/reader",
+      "edges": [
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/reader/series/:seriesId",
+      "edges": [
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/reader/series/:seriesId/chapter/:chapterId",
+      "edges": [
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/reader/challenge",
+      "edges": [
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/dictionary",
+      "edges": [
+        "E10"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/analytics",
+      "edges": [
+        "E18",
+        "E19"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/profile",
+      "edges": [
+        "E22",
+        "E23",
+        "E24",
+        "E29",
+        "E30"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "/profile/premium",
+      "edges": [
+        "E34"
+      ],
+      "status": "IN-REVIEW"
+    },
+    {
+      "route": "*",
+      "edges": [
+        "E01"
+      ],
+      "status": "IN-REVIEW"
+    }
+  ]
+}

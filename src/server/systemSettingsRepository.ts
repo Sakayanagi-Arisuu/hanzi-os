@@ -33,8 +33,8 @@ export const SYSTEM_SETTING_DEFINITIONS: Record<
     },
   },
   content_preview_enabled: {
-    label: "Preview nội dung quản trị",
-    description: "Cờ an toàn dành cho Content Studio M3; không phát hành draft cho learner.",
+    label: "Xem trước nội dung biên tập",
+    description: "Bật hoặc tắt tab Xem trước trong bàn biên tập; không phát hành bản nháp cho người học.",
     defaultValue: false,
     validate(value) {
       if (typeof value !== "boolean") throw new Error("Cờ preview phải là boolean.");
@@ -43,8 +43,8 @@ export const SYSTEM_SETTING_DEFINITIONS: Record<
   },
   default_daily_minutes: {
     label: "Nhịp học mặc định",
-    description: "Số phút gợi ý ban đầu, từ 5 đến 120; không sửa hồ sơ đã tạo.",
-    defaultValue: 15,
+    description: "Gợi ý cho người mới: quy về lựa chọn gần nhất 10, 20 hoặc 30 phút (mốc 15 và 25). Không sửa hồ sơ cũ hay lựa chọn người học đã nhập.",
+    defaultValue: 20,
     validate(value) {
       if (!Number.isInteger(value) || Number(value) < 5 || Number(value) > 120) {
         throw new Error("Nhịp học mặc định phải là số nguyên từ 5 đến 120.");
@@ -54,7 +54,7 @@ export const SYSTEM_SETTING_DEFINITIONS: Record<
   },
   maintenance_banner: {
     label: "Thông báo vận hành",
-    description: "Dòng thông báo thuần văn bản; để trống để ẩn.",
+    description: "Hiện trong mục Thông báo trên thanh hệ thống người học; để trống để ẩn.",
     defaultValue: "",
     validate(value) {
       if (typeof value !== "string" || value.length > 160) {

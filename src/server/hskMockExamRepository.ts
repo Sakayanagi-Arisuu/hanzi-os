@@ -276,6 +276,7 @@ export class HskMockExamRepository {
         itemVersion: attempt.itemVersion,
         skill: item.skill as HskMockExamSkill,
         prompt: presentation.prompt,
+        ...(item.stimulusText ? { spokenText: item.stimulusText } : {}),
         selectedAnswer: parseResponseAnswer(attempt.responseJson),
         correct: attempt.outcome === "correct",
         correctAnswer: item.correctAnswer,

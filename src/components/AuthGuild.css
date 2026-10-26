@@ -42,6 +42,15 @@
 .auth-guild-legal { display:flex; justify-content:center; align-items:center; gap:14px; font-size:11px; color:#afbcae; margin:0; }
 .auth-guild-legal a { min-height:44px; display:inline-flex; align-items:center; }
 .auth-guild :is(a,button,summary):focus-visible { outline:2px solid #dcca94; outline-offset:4px; }
+.auth-guild .auth-provider-grid { grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; }
+.auth-guild .auth-provider { min-width:0; min-height:44px; font:inherit; cursor:pointer; }
+.auth-guild .auth-provider:disabled { opacity:.55; cursor:not-allowed; }
+@media(max-width:760px) {
+  .auth-guild .auth-signin-stack { gap:12px; }
+  .auth-guild .auth-signin-stack .auth-guild-heading p { margin-bottom:8px; }
+  .auth-guild .auth-signin-stack .auth-guild-heading h1 { font-size:28px; margin-bottom:8px; }
+  .auth-guild .auth-signin-stack .auth-provider-grid { gap:8px; }
+}
 @media(min-width:1000px) { .auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-form-grid { grid-template-columns:1fr 1fr; } .auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-field-hint {grid-column:1/-1} }
 @media(max-width:760px) { .auth-guild .signin-nav {padding:0 20px;height:64px} .auth-guild .signin-nav a:last-child {font-size:11px;letter-spacing:0} .auth-guild .signin-shell {grid-template-columns:1fr;min-height:calc(100dvh - 64px)} .auth-guild .signin-intro {display:none} .auth-guild .signin-console {padding:32px 24px;max-width:500px} .auth-guild-heading h1 {font-size:34px} .auth-guild .auth-form-grid {grid-template-columns:1fr} }
 @media(prefers-reduced-motion:reduce) { .auth-guild * {animation:none!important;transition:none!important} }
@@ -92,4 +101,90 @@
   .auth-guild .signin-console {padding-top:85px}
   .auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-form-grid {grid-template-columns:1fr}
   .auth-guild .auth-stack {gap:12px}
+}
+
+/* Cổng Hành Giả: finite entrance choreography, then motion only on interaction. */
+.signin-page.auth-guild {
+  --gate-gold:#e9cf91; --gate-ink:#071b18; --gate-jade:#a7e7ca;
+  background:radial-gradient(ellipse at 80% 10%,#234d3b66,transparent 55%),#04120f;
+}
+.auth-guild .signin-shell { grid-template-columns:44% 56%; border-color:#c8ae6d55; }
+.auth-guild .signin-intro { overflow:hidden; background-image:linear-gradient(0deg,#02120ee8,transparent 60%),url('/auth-jade-academy-v2.png'); }
+.auth-guild .signin-intro::after {
+  content:''; position:absolute; width:70%; aspect-ratio:1; left:15%; top:20%; border:1px solid #ffe4a45c;
+  border-radius:50%; box-shadow:0 0 0 18px #eac77f09,0 0 0 19px #f7e0a42b,inset 0 0 100px #e1cd8930;
+  background:radial-gradient(circle,transparent 53%,#e8d69816 70%,transparent 71%);
+  pointer-events:none; animation:gate-halo-enter 1600ms cubic-bezier(.16,1,.3,1) both;
+}
+.auth-guild .signin-console { max-width:640px; padding:90px 48px 28px; perspective:1000px; }
+.auth-guild .auth-signin-stack {
+  position:relative; gap:14px; padding:30px; border:1px solid #bba57152; border-radius:24px 4px 24px 4px;
+  background:linear-gradient(140deg,#21433780,#0b221edb 42%,#071914ee);
+  box-shadow:0 28px 90px #0005,inset 0 1px #ffe6b323; isolation:isolate;
+}
+.auth-guild .auth-signin-stack::before {
+  content:''; position:absolute; pointer-events:none; inset:-1px 25% auto; height:1px;
+  background:linear-gradient(90deg,transparent,var(--gate-gold),transparent); box-shadow:0 0 22px #efc87980;
+}
+.auth-entrance-mark { display:flex; align-items:center; gap:16px; }
+.auth-entrance-mark > span { font:600 10px/1.7 var(--sans, sans-serif); letter-spacing:.12em; color:#d7c698; }
+.auth-entrance-mark i { display:inline-block; width:3px; height:3px; margin:0 6px 3px; background:#d7c698; transform:rotate(45deg); }
+.auth-gate-seal { position:relative; width:88px; height:88px; flex:0 0 88px; display:grid; place-items:center; }
+.auth-gate-seal svg { position:absolute; inset:0; width:100%; height:100%; stroke:#dfc889; stroke-width:.8; overflow:visible; }
+.auth-gate-seal > span { font:32px/1 'Microsoft YaHei',serif; color:#f3dfac; text-shadow:0 0 24px #c2df9290; }
+.auth-seal-orbit { transform-origin:80px 80px; animation:gate-orbit-enter 1500ms cubic-bezier(.16,1,.3,1) both; }
+.auth-seal-core { transform-origin:80px 80px; transition:transform 650ms cubic-bezier(.16,1,.3,1); }
+.auth-seal-light { stroke:#f7e6b6; stroke-width:2; stroke-dasharray:160; animation:gate-trace 1400ms ease both; }
+.auth-seal-star { fill:#fff1c7; stroke:none; }
+.auth-signin-stack:focus-within .auth-seal-core { transform:rotate(90deg); }
+.auth-guild .auth-guild-heading h1 { font-size:clamp(28px,3vw,40px); line-height:1.2; color:#f5e4bb; margin:0 0 8px; }
+.auth-guild .auth-guild-heading > span { color:#c5d2c6; font-size:14px; }
+.auth-guild .auth-signin-stack[data-auth-view='signin'] > :not(.auth-entrance-mark) { animation:gate-form-enter 650ms cubic-bezier(.16,1,.3,1) both; }
+.auth-guild .auth-signin-stack[data-auth-view='recovery'] > :not(.auth-entrance-mark) { animation:gate-recovery-enter 650ms cubic-bezier(.16,1,.3,1) both; }
+.auth-guild .auth-signin-stack[data-auth-view='register'] > :not(.auth-entrance-mark) { animation:gate-form-enter 650ms cubic-bezier(.16,1,.3,1) both; }
+.auth-guild .auth-signin-stack .auth-input { border-color:#b8c7a44d; border-radius:8px; background:#041811a3; transition:border-color 180ms,box-shadow 180ms; }
+.auth-guild .auth-signin-stack .auth-input:focus { outline:2px solid #dcc88f; outline-offset:3px; box-shadow:0 0 24px #a5d6ac16; }
+.auth-guild .auth-signin-stack .auth-wide-button {
+  position:relative; overflow:hidden; margin-top:18px; min-height:48px; padding:10px 12px;
+  color:#102d22; background:linear-gradient(110deg,#f3e4b5,#cbb477 55%,#e6d29b); border-color:#ead79b;
+  box-shadow:0 5px 22px #e3c58114,inset 0 1px #fff8d5; border-radius:8px;
+  font:650 15px/1.5 'Segoe UI',Arial,sans-serif; letter-spacing:0; word-spacing:0;
+  font-kerning:normal; font-variant-ligatures:none; text-rendering:optimizeLegibility;
+  transform:none; transition:box-shadow 200ms,filter 200ms;
+}
+.auth-guild .auth-signin-stack .auth-wide-button::after {
+  content:''; position:absolute; inset:-50% auto -50% -50%; width:30%; background:linear-gradient(90deg,transparent,#fff9,transparent);
+  transform:skewX(-22deg); pointer-events:none;
+}
+.auth-guild .auth-signin-stack .auth-wide-button:hover:not(:disabled)::after { animation:gate-button-light 650ms ease-out; }
+.auth-guild .auth-signin-stack .auth-wide-button:active:not(:disabled) { filter:brightness(.93); }
+.auth-guild .auth-signin-stack .auth-provider { border-radius:8px; background:#0c251e; border-color:#c5ad753d; font-size:14px; }
+.auth-guild .auth-signin-stack .auth-guest-link { background:transparent; border-color:#8fb79d45; border-radius:8px; }
+.auth-guild .auth-password-reset .auth-title { font:600 16px/1.4 var(--sans,sans-serif); color:#c9e3d3; margin:0 0 8px; }
+.auth-guild .auth-password-reset .auth-copy { color:#c9d8cd; font-size:15px; line-height:1.6; margin:0 0 18px; }
+.auth-guild .auth-password-reset .auth-reset-back { border:0; border-radius:8px; background:transparent; color:#ead8ae; font:500 14px/1.5 var(--sans,sans-serif); }
+.auth-guild .auth-guild-legal { font-size:12px; }
+.auth-guild .auth-entry-links {display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;}
+.auth-guild .auth-entry-links button {padding:0;font-size:13px;}
+@keyframes gate-orbit-enter { from { opacity:0; transform:rotate(-100deg) scale(.6); } to {opacity:1;transform:rotate(0) scale(1);} }
+@keyframes gate-trace { from {stroke-dashoffset:160;opacity:0;} to {stroke-dashoffset:0;opacity:1;} }
+@keyframes gate-halo-enter { from {opacity:0;transform:scale(.7) rotate(-25deg);} to {opacity:1;transform:scale(1) rotate(0);} }
+@keyframes gate-form-enter { from {opacity:0;transform:translateY(14px) rotateX(-3deg);} to {opacity:1;transform:none;} }
+@keyframes gate-recovery-enter { from {opacity:0;transform:translateX(14px);} to {opacity:1;transform:none;} }
+@keyframes gate-button-light { to {left:140%;} }
+@media(max-width:760px) {
+  .auth-guild .signin-shell {grid-template-columns:1fr;min-height:calc(100dvh - 20px);}
+  .auth-guild .signin-console {padding:84px 12px 20px;max-width:500px;}
+  .auth-guild .auth-signin-stack {padding:20px;gap:12px;border-radius:20px 4px 20px 4px;}
+  .auth-guild .auth-guild-heading h1 {font-size:28px;}
+  .auth-gate-seal {width:64px;height:64px;flex-basis:64px;}
+  .auth-gate-seal > span {font-size:26px;}
+  .auth-entrance-mark {gap:10px;}
+  .auth-entrance-mark > span {font-size:9px;letter-spacing:.06em;}
+  .auth-guild .auth-signin-stack .auth-form-grid {gap:12px;}
+  .auth-guild .auth-signin-stack .auth-guild-heading > span {font-size:13px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .auth-guild .auth-signin-stack *, .auth-guild .signin-intro::after {animation:none!important;transition:none!important;}
+  .auth-guild .auth-signin-stack .auth-wide-button::after {display:none;}
 }

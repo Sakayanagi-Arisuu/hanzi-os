@@ -7,6 +7,8 @@ import {
 import { exchangeGoogleAuthorizationCode } from "../../../../src/server/googleIdentity";
 import { AuditRepository, requestCorrelationId } from "../../../../src/server/auditRepository";
 import { AuthorizationRepository } from "../../../../src/server/authorizationRepository";
+import { clearGoogleStateCookie, hasGoogleBrowserBinding } from '../../../../src/server/googleBrowserBinding';
+import { createMobileCompletion } from '../../../../src/server/mobileAuth';
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +24,7 @@ export async function GET(request: Request) {
   if (!state || !code || url.searchParams.has("error")) {
     return failure(request, "google_cancelled");
   }
+  if (!hasGoogleBrowserBinding(request, state)) return failure(request, 'google_state');
   try {
     const { database, environment, repository } = await loadAuthRuntime();
     const config = googleConfig(environment, request);
@@ -83,6 +86,12 @@ export async function GET(request: Request) {
       provider: "google",
       ...google,
     }, challenge.kind === "google_link" ? challenge.userId ?? undefined : undefined);
+    if (challenge.kind === 'google_signin' && typeof challenge.payload.mobileCodeChallenge === 'string') {
+      const destination = await createMobileCompletion(repository, { ...linked,
+        codeChallenge: challenge.payload.mobileCodeChallenge });
+      return new Response(null, { status: 303, headers: { location: destination,
+        'cache-control': 'private, no-store', 'set-cookie': clearGoogleStateCookie() } });
+    }
     const session = await repository.createSession({
       userId: linked.userId,
       identityId: linked.identityId,
@@ -109,12 +118,12 @@ export async function GET(request: Request) {
           (await new AuthorizationRepository(database).getAuthorization(linked.userId)).roles,
         )
       : returnTo;
+    const responseHeaders = new Headers(sessionResponseHeaders(session.token));
+    responseHeaders.set('location', new URL(destination, url.origin).toString());
+    responseHeaders.append('set-cookie', clearGoogleStateCookie());
     return new Response(null, {
       status: 303,
-      headers: {
-        ...sessionResponseHeaders(session.token),
-        location: new URL(destination, url.origin).toString(),
-      },
+      headers: responseHeaders,
     });
   } catch {
     return failure(request, "google_failed");

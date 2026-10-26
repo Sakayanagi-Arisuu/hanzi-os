@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { loadPublishedStudioVocabulary } from "../content/publishedStudioClient";
 import type { DictionaryWord } from "../content/publishedStudioVocabulary";
-import { LESSON_BY_ID, RELEASED_WORD_BY_ID } from "../data/curriculum";
 
 /** Supplementary reading only: never feeds scoring, session regeneration or commands. */
 export function PublishedVocabularyReference({
@@ -15,38 +14,36 @@ export function PublishedVocabularyReference({
   const [opened, setOpened] = useState(false);
   const [reference, setReference] = useState<DictionaryWord | null>(null);
   const [phase, setPhase] = useState<"idle" | "loading" | "ready" | "unavailable">("idle");
-  const knownWord = wordId ? RELEASED_WORD_BY_ID.get(wordId) : undefined;
-  const knownLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
 
   useEffect(() => {
-    if (!opened || !knownWord) return;
+    if (!opened || !wordId) return;
     const controller = new AbortController();
     setPhase("loading");
     loadPublishedStudioVocabulary(fetch, controller.signal)
       .then((words) => {
         if (controller.signal.aborted) return;
-        setReference(words.find((word) => word.sourceVocabularyId === knownWord.id) ?? null);
+        setReference(words.find((word) => word.sourceVocabularyId === wordId || word.id === wordId) ?? null);
         setPhase("ready");
       })
       .catch(() => {
         if (!controller.signal.aborted) setPhase("unavailable");
       });
     return () => controller.abort();
-  }, [opened, knownWord]);
+  }, [opened, wordId]);
 
-  if (!knownWord && !knownLesson) return null;
+  if (!wordId && !lessonId) return null;
   const params = new URLSearchParams();
-  if (knownWord) {
-    params.set("word", knownWord.id);
+  if (wordId) {
+    params.set("word", wordId);
     params.set("view", "detail");
-  } else if (knownLesson) params.set("lesson", knownLesson.id);
+  } else if (lessonId) params.set("lesson", lessonId);
 
   return (
     <details className="memory-example-panel" onToggle={(event) => setOpened(event.currentTarget.open)}>
       <summary style={{ minHeight: 44, display: "flex", alignItems: "center", cursor: "pointer" }}>
-        {knownWord ? `Tra ngữ cảnh của ${knownWord.simplified}` : "Tra từ trong bài gốc"}
+        {wordId ? "Tra ngữ cảnh của từ này" : "Tra từ trong bài gốc"}
       </summary>
-      {opened && knownWord && (
+      {opened && wordId && (
         <div>
           {phase === "loading" && <p role="status">Đang tải ngữ cảnh…</p>}
           {reference && <>
@@ -61,7 +58,7 @@ export function PublishedVocabularyReference({
         </div>
       )}
       <Link className="secondary-button" to={`/dictionary?${params.toString()}`}>
-        Mở Từ điển{knownWord ? ` · ${knownWord.simplified}` : ""}
+        Mở Từ điển{reference ? ` · ${reference.simplified}` : ""}
       </Link>
     </details>
   );

@@ -12,7 +12,7 @@
   color: var(--sys-text); background: radial-gradient(ellipse at 25% 40%, #061410, #030d10 80%);
   overflow: hidden;
 }
-.profile-page.sys-overview { grid-template-rows: auto auto minmax(0, 1fr) auto; }
+.profile-page.sys-overview { grid-template-rows: none; grid-auto-rows: max-content; align-content: start; overflow-y: auto; }
 .sys-guild .premium-profile-link {
   margin: 0;
   min-width: 0;
@@ -218,3 +218,8 @@
   .profile-page.sys-overview { height: auto; min-height: var(--learner-stage-block); }
   .sys-overview .sys-category-list button { min-height: 60px; }
 }
+.learning-preferences-fields select { min-height: 44px; width: 100%; max-width: 100%; }
+.learning-preferences-fields .learning-preference-check { display: flex; align-items: center; min-height: 44px; padding: 8px 0; cursor: pointer; }
+.learning-preferences-fields .learning-preference-check > span { display: flex; align-items: center; gap: 12px; }
+.learning-preferences-fields .learning-preference-check input { width: 20px; height: 20px; flex: 0 0 20px; margin: 0; }
+.learning-preferences-fields button { min-height: 44px; }

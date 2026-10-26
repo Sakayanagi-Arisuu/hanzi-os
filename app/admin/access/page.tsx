@@ -1,3 +1,4 @@
+import { UserDirectory } from "./UserDirectory";
 import { AdminSection, EmptyState, MetricCard, UserCard } from "../adminComponents";
 import { AdminShell, AdminState } from "../AdminShell";
 import { loadAdminContext } from "../adminServer";
@@ -149,7 +150,7 @@ export default async function AdminAccessPage({
       <div className="admin-metric-grid"><MetricCard value={userPage.summary.active} label="Tài khoản đang hoạt động" hint={`${userPage.summary.total} tài khoản toàn hệ thống`} /><MetricCard value={userPage.summary.editors} label="Biên tập viên" hint="Có thể soạn nội dung" tone="cyan" /><MetricCard value={userPage.summary.admins} label="Quản trị viên" hint="Có thể duyệt và phát hành" tone="gold" /><MetricCard value={userPage.summary.locked} label="Đang khóa" hint="Cần rà soát nếu có" tone={userPage.summary.locked > 0 ? "coral" : "jade"} /></div>
     </AdminSection>
 
-    <AdminSection title="Ma trận trách nhiệm" description="Mỗi cột là quyền thật được máy chủ kiểm tra, không phải nhãn trang trí. Dấu “Không” là ranh giới chủ đích của quy trình." eyebrow="PHÂN QUYỀN">
+    <details className="tv-permission-guide"><summary>Vai trò nào được làm gì?</summary><AdminSection title="Ma trận trách nhiệm" description="Mỗi cột là quyền thật được máy chủ kiểm tra, không phải nhãn trang trí. Dấu “Không” là ranh giới chủ đích của quy trình." eyebrow="PHÂN QUYỀN">
       <div className="admin-capability-matrix" role="table" aria-label="Ma trận quyền theo vai trò">
         <div className="admin-capability-row admin-capability-head" role="row">
           <span role="columnheader">Khả năng</span>
@@ -166,17 +167,17 @@ export default async function AdminAccessPage({
         </div>)}
       </div>
       <div className="admin-separation-note" role="note"><strong>Nguyên tắc bốn mắt</strong><p>Biên tập viên có thể soạn và gửi duyệt nhưng không thể tự phê duyệt hoặc phát hành. Quản trị viên có thể duyệt và phát hành nhưng không thể dùng vai trò quản trị để tự soạn bản nháp.</p><div><a className="admin-content-link" href="/studio">Mở Biên Tập Viện</a><a className="admin-content-link" href="/admin/workflow">Mở Công việc</a></div></div>
-    </AdminSection>
+    </AdminSection></details>
 
     <AdminSection title="Danh sách tài khoản" description={`${userPage.filteredTotal} tài khoản khớp bộ lọc. Mỗi thay đổi cần xác minh lại; không thể tự thu quyền quản trị hoặc tự khóa tài khoản đang dùng.`} eyebrow="QUẢN LÝ">
       <form className="admin-list-filter admin-user-filter" method="get">
-        <label><span>Tìm tài khoản</span><input type="search" name="q" defaultValue={search} maxLength={120} placeholder="Email tài khoản" /></label>
+        <label><span>Tìm tài khoản</span><input type="search" name="q" defaultValue={search} maxLength={120} placeholder="Tên, tên đăng nhập hoặc email" /></label>
         <label><span>Vai trò</span><select name="role" defaultValue={role}><option value="all">Tất cả vai trò</option><option value="learner_only">Chỉ người học</option><option value="content_editor">Biên tập viên</option><option value="admin">Quản trị viên</option></select></label>
         <label><span>Trạng thái</span><select name="status" defaultValue={status}><option value="all">Tất cả trạng thái</option><option value="active">Đang hoạt động</option><option value="locked">Đang khóa</option></select></label>
         <button className="admin-button is-primary" type="submit">Lọc tài khoản</button>
         {(search || role !== "all" || status !== "all") && <a className="admin-button is-secondary" href="/admin/access">Xóa bộ lọc</a>}
       </form>
-      {userPage.users.length === 0 ? <EmptyState title="Không có tài khoản phù hợp" description={userPage.summary.total === 0 ? "Tài khoản sẽ xuất hiện sau khi đăng nhập và được hệ thống đồng bộ." : "Thử bỏ bớt từ khóa hoặc chọn bộ lọc khác."} /> : <div className="admin-card-list">{userPage.users.map((user) => <UserCard key={user.userId} user={user} currentUserId={state.context.account.userId} stepUpReady={state.context.stepUpReady} returnTo={pageHref(page)} />)}</div>}
+      {userPage.users.length === 0 ? <EmptyState title="Không có tài khoản phù hợp" description={userPage.summary.total === 0 ? "Tài khoản sẽ xuất hiện sau khi đăng nhập và được hệ thống đồng bộ." : "Thử bỏ bớt từ khóa hoặc chọn bộ lọc khác."} /> : <UserDirectory entries={userPage.users.map(user => ({ id: user.userId, label: [user.displayName, user.username ? "@" + user.username : user.email].filter(Boolean).join(" · ") || "Tài khoản nội bộ", roles: user.roles.map(role => role === "admin" ? "Quản trị viên" : role === "content_editor" ? "Biên tập viên" : "Người học").join(" · ") || "Người học", content: <UserCard user={user} currentUserId={state.context.account.userId} stepUpReady={state.context.stepUpReady} returnTo={pageHref(page)} /> }))} />}
       {totalPages > 1 && <nav className="admin-pagination" aria-label="Phân trang tài khoản">
         {page > 1 ? <a href={pageHref(page - 1)}>← Trang trước</a> : <span aria-disabled="true">← Trang trước</span>}
         <strong>Trang {page}/{totalPages} · {userPage.filteredTotal} kết quả</strong>

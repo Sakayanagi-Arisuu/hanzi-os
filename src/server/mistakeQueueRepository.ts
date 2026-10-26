@@ -1,8 +1,9 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import {
   CONTENT_VERSION,
   LESSON_BY_ID,
 } from "../data/curriculum";
-import { buildExerciseCatalog, type Exercise } from "../lib/exerciseGeneration";
+import { buildExerciseCatalog, type Exercise } from "../lib/editorialExerciseGeneration";
 import type { ObjectiveAttemptMethod } from "../learning/attemptProtocol";
 import {
   MISTAKE_QUEUE_PROTOCOL_VERSION,
@@ -16,12 +17,14 @@ import {
 } from "./authoritativeReaderItemBank";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
+  isLearningContentAvailable,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import type { D1Database, D1RunResult } from "./d1";
 import { readCurrentLearningResetEpoch } from "./learningResetEpoch";
 import { remediationLessonSupport } from "./remediationLessonSupport";
+import { createPageRemediationResolver } from './pageRemediationRepository';
+import { pageRemediationPresentation } from '../mistakes/pageRemediation';
 
 export class MistakeQueueUnavailableError extends Error {
   readonly code = "MISTAKE_QUEUE_UNAVAILABLE";
@@ -231,7 +234,7 @@ export class MistakeQueueRepository {
   ) {}
 
   async read(userId: string): Promise<MistakeQueueV1> {
-    if (!isPromotedContentReleasePolicy(this.releasePolicy)) {
+    if (!isLearningContentAvailable(this.releasePolicy)) {
       throw new MistakeQueueUnavailableError(
         "Nghịch Cảnh Lục chỉ hoạt động với đúng gói nội dung đã mở cho phiên local.",
       );
@@ -248,7 +251,7 @@ export class MistakeQueueRepository {
        WHERE enrollment.user_id = ? AND enrollment.course_version_id = ?
          AND enrollment.status = 'active'
          AND course.release_state IN ('beta', 'published')
-         AND course.linguistic_review_status = 'approved'
+         AND ${learningReviewSql()}
        LIMIT 2`,
     ).bind(userId, CONTENT_VERSION).all<EnrollmentRow>();
     const enrollments = rows(enrollmentResult, "enrollment hiện tại");
@@ -279,8 +282,7 @@ export class MistakeQueueRepository {
              AND evidence.outcome = attempt.outcome
              AND evidence.verified = 1
          )
-       ORDER BY attempt.occurred_at ASC, attempt.received_at ASC, attempt.id ASC
-       LIMIT 4000`,
+       ORDER BY attempt.occurred_at ASC, attempt.received_at ASC, attempt.id ASC`,
     ).bind(
       userId,
       enrollment.enrollmentId,
@@ -288,6 +290,24 @@ export class MistakeQueueRepository {
       CONTENT_VERSION,
     ).all<AttemptRow>();
     const attempts = rows(attemptResult, "lịch sử attempt");
+    const pageResult = await this.database.prepare(`SELECT activity_id AS activityId, activity_version AS activityVersion,
+      occurred_at AS occurredAt, created_at AS receivedAt FROM lesson_page_attempts
+      WHERE user_id = ? AND reset_epoch = ? AND outcome = 'incorrect'
+      ORDER BY occurred_at ASC, created_at ASC, id ASC`).bind(userId, resetEpoch)
+      .all<{ activityId: string; activityVersion: string; occurredAt: string; receivedAt: number }>();
+    const resolvePage = createPageRemediationResolver(this.database);
+    const pagePresentations = new Map<string, Presentation>();
+    for (const row of rows(pageResult, 'lỗi trong trang bài học')) {
+      const entry = await resolvePage(row.activityId, row.activityVersion);
+      if (!entry) throw new MistakeQueueIntegrityError('Không thể khôi phục nội dung câu sai trong bài học.');
+      const presentation = pageRemediationPresentation(entry.block);
+      if (!presentation) continue;
+      pagePresentations.set(remediationKey(row.activityId, row.activityVersion), presentation);
+      attempts.push({ ...row, occurredAt: Date.parse(row.occurredAt), source: 'lesson',
+        method: 'typed-character-recall', skill: entry.activity.learningTarget?.skill ?? 'reading',
+        outcome: 'incorrect', usedHint: 0 });
+    }
+    attempts.sort((left, right) => left.occurredAt - right.occurredAt || left.receivedAt - right.receivedAt);
     const signals = new Map<string, OriginSignal>();
     for (const attempt of attempts) {
       if (
@@ -316,9 +336,9 @@ export class MistakeQueueRepository {
     }
 
     const items = [...signals.values()].flatMap((signal) => {
-      const presentation = signal.originSource === "lesson"
+      const presentation = pagePresentations.get(remediationKey(signal.activityId, signal.activityVersion)) ?? (signal.originSource === "lesson"
         ? lessonPresentation(signal, enrollment.script)
-        : readerPresentation(signal);
+        : readerPresentation(signal));
       if (!presentation) return [];
       const progress = deriveRemediationProgress(signal, attempts);
       return [{

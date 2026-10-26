@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { MAX_LEARNING_RESET_EPOCH } from "../learning/resetEpoch";
+import { DEFAULT_LEARNING_PREFERENCES } from '../learning/learningPreferences';
 import type { LearningState } from "../types";
 import { createInitialSyncDocument } from "./document";
 import {
@@ -50,6 +51,18 @@ async function operation(): Promise<SyncPushOperationV1> {
 }
 
 describe("sync wire protocol", () => {
+  it('round-trips declared learning preferences and rejects a future schema before overwriting server data', async () => {
+    const input = await operation();
+    input.document.state.profile.learningPreferences = { ...DEFAULT_LEARNING_PREFERENCES, sessionMinutes: 5 };
+    input.document.profile.value.learningPreferences = input.document.state.profile.learningPreferences;
+    expect(parseSyncPushOperation(input)).toMatchObject({ ok: true });
+    input.document.profile.value.learningPreferencesClock = { ...input.document.profile.clock,
+      counter: input.document.profile.clock.counter + 1 };
+    expect(parseSyncPushOperation(input)).toMatchObject({ ok: false });
+    delete input.document.profile.value.learningPreferencesClock;
+    input.document.state.profile.learningPreferences.version = 99 as 1;
+    expect(parseSyncPushOperation(input)).toMatchObject({ ok: false });
+  });
   it("validates a canonical operation and keeps owner reassignment out of its hash", async () => {
     const input = await operation();
     expect(parseSyncPushOperation(input)).toMatchObject({ ok: true });

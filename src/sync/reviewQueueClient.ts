@@ -1,4 +1,4 @@
-import { CONTENT_VERSION } from "../data/curriculum";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
   parseReviewQueue,
   type ReviewQueueV1,

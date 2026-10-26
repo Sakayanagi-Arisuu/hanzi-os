@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import {
   READER_ABANDONMENT_IDEMPOTENCY_SCOPE,
   READER_ABANDONMENT_PROTOCOL_VERSION,
@@ -60,7 +61,7 @@ import {
 } from "./authoritativeReaderItemBank";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
+  isLearningContentAvailable,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import { ensureCurrentCourseVersion } from "./courseVersionRepository";
@@ -357,7 +358,7 @@ export class ReaderRepository {
              AND profile.script = ?
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
          )
          AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
          AND NOT EXISTS (
@@ -694,7 +695,7 @@ export class ReaderRepository {
              AND enrollment.status = 'active'
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
              AND EXISTS (
                SELECT 1 FROM reader_item_exposures exposure
                WHERE exposure.user_id = session.user_id
@@ -1164,7 +1165,7 @@ export class ReaderRepository {
              AND enrollment.status = 'active'
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
-             AND course.linguistic_review_status = 'approved'
+             AND ${learningReviewSql()}
              AND (
                SELECT COUNT(*) FROM reader_session_attempts binding
                WHERE binding.user_id = session.user_id
@@ -1555,7 +1556,7 @@ export class ReaderRepository {
   }
 
   private async requireReleasedContent() {
-    if (!isPromotedContentReleasePolicy(this.publicationPolicy)) {
+    if (!isLearningContentAvailable(this.publicationPolicy)) {
       throw new ReaderContentUnavailableError(
         "The immutable current content package has not passed explicit promotion gates.",
       );
@@ -1579,7 +1580,7 @@ export class ReaderRepository {
          AND profile.script = ?
          AND course.manifest_hash = ?
          AND course.release_state IN ('beta', 'published')
-         AND course.linguistic_review_status = 'approved'
+         AND ${learningReviewSql()}
        LIMIT 1`,
     ).bind(
       userId,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { offlineRead } from '../sync/offlineRead';
 import type { RichLessonContent } from "../learning/richLessonContent";
 
 type Result = { lessonId: string; content: RichLessonContent | null; error: string };
@@ -9,7 +10,7 @@ export function usePremiumRichLesson(lessonId: string | undefined, enabled: bool
   useEffect(() => {
     if (!enabled || !lessonId) return;
     const controller = new AbortController();
-    fetch(`/api/content/premium-rich?lessonId=${encodeURIComponent(lessonId)}`, {
+    offlineRead(`/api/content/premium-rich?lessonId=${encodeURIComponent(lessonId)}`, {
       cache: "no-store",
       signal: controller.signal,
     }).then(async response => {

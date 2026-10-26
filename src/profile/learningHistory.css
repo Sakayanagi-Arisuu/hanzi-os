@@ -1,0 +1,10 @@
+.learning-history { min-width: 0; padding: 16px; }
+.learning-history p { line-height: 1.5; }
+.history-filters { display: flex; flex-wrap: wrap; gap: 16px; margin-block: 16px; }
+.history-filters label { display: grid; gap: 8px; min-width: 0; flex: 1 1 180px; }
+.history-filters select { width: 100%; max-width: 100%; min-height: 48px; color: inherit; background: var(--surface, Canvas); border: 1px solid currentColor; border-radius: 8px; padding: 8px; }
+.history-day ol { list-style: none; padding: 0; display: grid; gap: 12px; }
+.history-day article { padding: 12px; border: 1px solid var(--border-color, currentColor); border-radius: 8px; overflow-wrap: anywhere; }
+.history-day h4 { margin-block: 0 8px; }
+.learning-history summary, .learning-history a, .learning-history button { min-height: 44px; display: flex; align-items: center; padding-block: 8px; }
+.learning-history :focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 3px; }

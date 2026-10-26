@@ -1,3 +1,7 @@
+import { createRecentQueue } from "../sync/recentQueue";
+import { usePracticeMistakes } from '../mistakes/usePracticeMistakes';
+import { pageActivityLessonId } from '../mistakes/pageRemediation';
+import { offlineRead } from '../sync/offlineRead';
 import { AlertTriangle, LoaderCircle, Map, RefreshCw, ShieldCheck } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router";
@@ -23,6 +27,14 @@ import {
 } from "../lib/storageKeys";
 import { speakMandarin } from "../lib/speech";
 import { allocateDeviceSequence } from "../sync/indexedDb";
+import { useLearning } from '../store/LearningContext';
+import { resolveLearningResumeOwnerScope } from '../sync/learningResumeStore';
+import { enqueueObjectiveAttemptCommand, LEARNING_COMMAND_QUEUE_CHANGED_EVENT, listLearningCommandRecords } from '../sync/learningCommandOutbox';
+import { readPageAttemptOutbox } from '../sync/pageAttemptOutbox';
+import { saveMistakeRevisit } from '../sync/mistakeRevisit';
+import { saveMistakeSupport } from '../sync/mistakeSupport';
+
+const recentMistakeQueue = createRecentQueue<MistakeQueueV1>();
 
 type QueuePhase = "loading" | "ready" | "error";
 
@@ -82,7 +94,7 @@ const readErrorMessage = async (response: Response) => {
 
 const originDetail = (item: MistakeQueueItemV1) => {
   if (item.originSource === "reader") return "Bài đọc đã phát hành";
-  const lessonId = item.activityId.split(":")[0] ?? item.activityId;
+  const lessonId = pageActivityLessonId(item.activityId) ?? item.activityId.split(":")[0] ?? item.activityId;
   const sequence = lessonId.match(/(?:boot|daily)-(\d+)/u)?.[1];
   if (sequence) {
     return lessonId.startsWith("boot-")
@@ -96,7 +108,8 @@ const toObservatoryItem = (
   item: MistakeQueueItemV1,
 ): RemediationObservatoryItem => ({
   id: item.remediationId,
-  referenceLessonId: item.originSource === "lesson" ? item.activityId.split(":")[0] : undefined,
+  activityVersion: item.activityVersion,
+  referenceLessonId: item.originSource === "lesson" ? pageActivityLessonId(item.activityId) ?? item.activityId.split(":")[0] : undefined,
   skill: item.skill,
   skillLabel: skillLabels[item.skill],
   kindLabel: kindLabels[item.kind],
@@ -115,11 +128,16 @@ const toObservatoryItem = (
   lastAttemptAt: new Date(item.lastAttemptAt).getTime(),
 });
 
-export function AuthenticatedMistakesPage() {
-  const [phase, setPhase] = useState<QueuePhase>("loading");
-  const [queue, setQueue] = useState<MistakeQueueV1 | null>(null);
+export function AuthenticatedMistakesPage({ scope, resetEpoch }: { scope: string | null; resetEpoch: number | null }) {
+  const { sync, actions } = useLearning();
+  const practice = usePracticeMistakes(sync.ownerKey, true);
+  const [phase, setPhase] = useState<QueuePhase>(() => recentMistakeQueue.read(scope) ? "ready" : "loading");
+  const [queue, setQueue] = useState<MistakeQueueV1 | null>(() => recentMistakeQueue.read(scope));
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [pendingActivities, setPendingActivities] = useState<Set<string>>(new Set());
+  const [queueConfirmed, setQueueConfirmed] = useState(false);
+  const queueLoadGeneration = useRef(0);
   const attemptStartedAt = useRef(Date.now());
   const pendingCommand = useRef<{
     itemId: string;
@@ -129,9 +147,10 @@ export function AuthenticatedMistakesPage() {
   } | null>(null);
 
   const loadQueue = useCallback(async (signal?: AbortSignal) => {
+    const loadGeneration = ++queueLoadGeneration.current;
     setError(null);
     try {
-      const response = await fetch("/api/learning/mistakes", {
+      const response = await offlineRead("/api/learning/mistakes", {
         cache: "no-store",
         headers: { accept: "application/json" },
         signal,
@@ -144,34 +163,58 @@ export function AuthenticatedMistakesPage() {
       }
       const parsed = parseMistakeQueue(await response.json());
       if (!parsed) throw new Error("Hàng đợi Nghịch Cảnh không hợp lệ.");
+      if (signal?.aborted) return;
+      if (resetEpoch !== null && parsed.resetEpoch !== resetEpoch) throw new Error("Tiến độ vừa thay đổi. Hãy tải lại trang để tiếp tục.");
+      const ownerScope = await resolveLearningResumeOwnerScope(sync.ownerKey);
+      const pending = (await listLearningCommandRecords(ownerScope.ownerGeneration)).filter(record => record.kind === 'objective-attempt'
+        && record.command.source === 'mistake' && record.status !== 'acknowledged' && record.resetEpoch === parsed.resetEpoch);
+      const pendingPages = (await readPageAttemptOutbox(ownerScope)).some(record => record.delivery?.status !== 'acknowledged');
+      if (signal?.aborted || loadGeneration !== queueLoadGeneration.current) return;
+      setQueueConfirmed(response.headers.get('x-hanzi-offline') !== '1' && !pendingPages && pending.length === 0);
+      setPendingActivities(new Set(pending.flatMap(record => record.kind === 'objective-attempt'
+        ? [JSON.stringify([record.command.activityId, record.command.activityVersion])] : [])));
+      recentMistakeQueue.write(scope, parsed);
       setQueue(parsed);
       setPhase("ready");
     } catch (caught) {
-      if (signal?.aborted) return;
+      if (signal?.aborted || loadGeneration !== queueLoadGeneration.current) return;
       setError(caught instanceof Error ? caught.message : "Đã có lỗi xảy ra.");
       setPhase("error");
     }
-  }, []);
+  }, [scope, resetEpoch, sync.ownerKey]);
 
   useEffect(() => {
     if (!CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE) return;
     const controller = new AbortController();
     void loadQueue(controller.signal);
-    return () => controller.abort();
-  }, [loadQueue]);
+    const refresh = () => { void loadQueue(controller.signal); };
+    window.addEventListener('hanzi-page-attempts-updated', refresh);
+    window.addEventListener(LEARNING_COMMAND_QUEUE_CHANGED_EVENT, refresh);
+    window.addEventListener('focus', refresh);
+    window.addEventListener('online', refresh);
+    return () => {
+      controller.abort();
+      window.removeEventListener('hanzi-page-attempts-updated', refresh);
+      window.removeEventListener(LEARNING_COMMAND_QUEUE_CHANGED_EVENT, refresh);
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('online', refresh);
+    };
+  }, [loadQueue, scope]);
 
   useEffect(() => {
-    if (phase !== "ready" || !queue || queue.openCount > 0) return;
+    if (!queueConfirmed || phase !== "ready" || !queue || queue.openCount > 0 || !practice.ready || practice.error || practice.items.some(item => !item.resolved)) return;
     emitLearningJourneyReceipt({
       stage: "review",
       source: "mistakes",
       activityId: `mistakes:account:${queue.resetEpoch}:${queue.generatedAt}`,
     });
-  }, [phase, queue]);
+  }, [phase, queue, queueConfirmed, practice.ready, practice.error, practice.items]);
 
   const items = useMemo(
-    () => queue?.items.map(toObservatoryItem) ?? [],
-    [queue],
+    () => queue?.items.map(item => ({ ...toObservatoryItem(item),
+      pending: pendingActivities.has(JSON.stringify([item.activityId, item.activityVersion])),
+    })) ?? [],
+    [queue, pendingActivities],
   );
 
   const submit = async (
@@ -179,11 +222,18 @@ export function AuthenticatedMistakesPage() {
     answer: string,
     usedHint: boolean,
   ): Promise<RemediationObservatoryFeedback> => {
+    if (item.id.startsWith('practice.mistake:')) return practice.submit(item, answer, usedHint);
     if (!queue || submitting) throw new Error("Lượt kiểm tra chưa sẵn sàng.");
     const queueItem = queue.items.find((entry) => entry.remediationId === item.id);
     if (!queueItem || queueItem.resolved) {
       throw new Error("Dấu vết này vừa thay đổi; hãy trở lại bản đồ.");
     }
+    if (pendingActivities.has(JSON.stringify([queueItem.activityId, queueItem.activityVersion]))) {
+      throw new Error("Câu trả lời đã lưu và đang chờ xác nhận. Hãy đồng bộ để nhận kết quả.");
+    }
+    recentMistakeQueue.clear();
+    queueLoadGeneration.current += 1;
+    setQueueConfirmed(false);
     setSubmitting(true);
     setError(null);
     try {
@@ -222,21 +272,21 @@ export function AuthenticatedMistakesPage() {
         };
         pendingCommand.current = { itemId: item.id, answer, usedHint, command };
       }
-      const response = await fetch("/api/learning/attempts", {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(command),
-      });
-      if (!response.ok) {
-        throw new Error(
-          await readErrorMessage(response)
-            ?? "Chưa thể ghi lượt hóa giải; bạn có thể thử gửi lại.",
-        );
+      const ownerScope = await resolveLearningResumeOwnerScope(sync.ownerKey);
+      if (ownerScope.resetEpoch !== command.resetEpoch) throw new Error('Tiến độ đã thay đổi. Hãy mở lại lượt luyện.');
+      const { deviceSequence: _sequence, resetEpoch: _epoch, ...queuedCommand } = command;
+      const queued = await enqueueObjectiveAttemptCommand({ ownerGeneration: ownerScope.ownerGeneration,
+        expectedResetEpoch: ownerScope.resetEpoch, command: queuedCommand });
+      setPendingActivities(current => new Set([...current, JSON.stringify([queueItem.activityId, queueItem.activityVersion])]));
+      pendingCommand.current = null;
+      void actions.syncNow().catch(() => undefined);
+      const delivered = (await listLearningCommandRecords(ownerScope.ownerGeneration)).find(record => record.commandId === queued.commandId);
+      const receipt: unknown = delivered?.kind === 'objective-attempt' ? delivered.receipt : null;
+      if (!receipt) {
+        attemptStartedAt.current = Date.now();
+        return { outcome: 'pending', resolved: false, answer, usedHint,
+          explanation: 'Câu trả lời đã lưu trên thiết bị. Kết quả sẽ được xác nhận khi kết nối lại.' };
       }
-      const receipt: unknown = await response.json();
       if (!validReceipt(receipt)) {
         throw new Error("Kết quả chấm không đúng giao thức hiện tại.");
       }
@@ -276,7 +326,7 @@ export function AuthenticatedMistakesPage() {
     );
   }
 
-  if (phase === "loading") {
+  if (phase === "loading" || (!practice.localReady && !practice.error)) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <LoaderCircle className="spin" size={44} />
@@ -302,12 +352,22 @@ export function AuthenticatedMistakesPage() {
 
   return (
     <RemediationObservatory
-      items={items}
-      resolvedCount={queue.resolvedCount}
+      items={[...items, ...practice.items]}
+      resolvedCount={queue.resolvedCount + practice.items.filter(item => item.resolved).length}
       submitting={submitting}
-      error={error}
+      error={error ?? practice.error}
       onSubmit={submit}
+      onRevisit={async (item, operationId) => {
+        const ownerScope = await resolveLearningResumeOwnerScope(sync.ownerKey);
+        if (ownerScope.resetEpoch !== resetEpoch) throw new Error('Learning scope changed');
+        await saveMistakeRevisit(ownerScope, item, operationId);
+      }}
       onSpeak={(text) => speakMandarin(text, 0.78)}
+      onSupport={async (item, kind, operationId) => {
+        const ownerScope = await resolveLearningResumeOwnerScope(sync.ownerKey);
+        if (ownerScope.resetEpoch !== resetEpoch) throw new Error('Learning scope changed');
+        await saveMistakeSupport(ownerScope, item, kind, operationId);
+      }}
     />
   );
 }

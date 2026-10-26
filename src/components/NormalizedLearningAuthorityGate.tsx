@@ -8,8 +8,11 @@ import type {
 const messageForReason = (
   reason: NormalizedLearningProjectionRuntimeReason | null,
 ) => {
-  if (reason === "content-unavailable" || reason === "no-released-enrollment") {
-    return "Kho bài học đang được chuẩn bị cho tài khoản này. Tiến độ trên máy vẫn được giữ nguyên.";
+  if (reason === "content-unavailable") {
+    return "Kho bài học chưa được phát hành trên phiên bản web này. Người vận hành cần mở bản học đã kiểm duyệt; thử lại hoặc đăng nhập lại chưa thể khắc phục. Tiến độ của bạn vẫn được giữ nguyên.";
+  }
+  if (reason === "no-released-enrollment") {
+    return "Tài khoản chưa được nối với lộ trình đã phát hành. Tiến độ trên máy vẫn được giữ nguyên.";
   }
   if (reason === "authentication-required" || reason === "owner-scope-mismatch") {
     return "Quyền sở hữu kho học đã thay đổi. Hãy chờ hệ thống xác nhận đúng tài khoản trước khi tiếp tục.";
@@ -31,13 +34,13 @@ export function NormalizedLearningAuthorityGate({
 }) {
   const loading = phase === "loading";
   return (
-    <div className="lesson-state-screen" role="status" aria-live="polite">
+    <div className="lesson-state-screen learning-authority-gate" role="status" aria-live="polite">
       {loading ? <BrainCircuit size={44} /> : <ShieldAlert size={44} />}
       <h1>{loading ? "Đang khôi phục hành trình" : "Chưa thể mở kho học"}</h1>
       <p>{loading
         ? "Hệ thống đang nối tài khoản với tiến độ mới nhất."
         : messageForReason(reason)}</p>
-      {!loading && (
+      {!loading && reason !== "content-unavailable" && (
         <button className="primary-button" type="button" onClick={refresh}>
           <RefreshCw size={17} /> Thử xác nhận lại
         </button>

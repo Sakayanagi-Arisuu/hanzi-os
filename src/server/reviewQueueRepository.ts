@@ -1,3 +1,4 @@
+import { learningReviewSql } from "./contentReleasePolicy";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
@@ -16,8 +17,8 @@ import {
 import type { D1Database, D1RunResult } from "./d1";
 import {
   CURRENT_CONTENT_RELEASE_POLICY,
-  isPromotedContentReleasePolicy,
-  promotedCourseReleaseState,
+  isLearningContentAvailable,
+  learningCourseReleaseState,
   type ContentReleasePolicy,
 } from "./contentReleasePolicy";
 import { readCurrentLearningResetEpoch } from "./learningResetEpoch";
@@ -122,9 +123,9 @@ export class ReviewQueueRepository {
     userId: string,
     now = Date.now(),
   ): Promise<ReviewQueueV1> {
-    const releaseState = promotedCourseReleaseState(this.releasePolicy);
+    const releaseState = learningCourseReleaseState(this.releasePolicy);
     if (
-      !isPromotedContentReleasePolicy(this.releasePolicy)
+      !isLearningContentAvailable(this.releasePolicy)
       || releaseState === null
     ) {
       throw new ReviewQueueUnavailableError(
@@ -179,7 +180,7 @@ export class ReviewQueueRepository {
       AND course.id = ?
       AND course.manifest_hash = ?
       AND course.release_state = ?
-      AND course.linguistic_review_status = 'approved'`;
+      AND ${learningReviewSql()}`;
     const results = await this.database.batch([
       this.database.prepare(
         `SELECT enrollment.id AS enrollmentId

@@ -4,7 +4,7 @@ import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION, RELEASED_LESSONS } from "../data/curriculum";
-import { buildExercises, type Exercise } from "../lib/exerciseGeneration";
+import { buildExercises, type Exercise } from "../lib/editorialExerciseGeneration";
 import {
   canonicalLessonSessionForm,
   type LessonSessionFormV1,

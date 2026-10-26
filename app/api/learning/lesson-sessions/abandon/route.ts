@@ -1,4 +1,5 @@
 import { getChatGPTUser } from "../../../../chatgpt-auth";
+import { learningOwnerMismatch } from '../../../../../src/server/learningOwnerHttp';
 import {
   parseAbandonLessonSessionCommand,
   type AbandonLessonSessionReceiptV1,
@@ -70,6 +71,7 @@ export async function POST(request: Request) {
       );
     }
     const identity = await getChatGPTUser();
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     if (!identity) {
       return errorResponse(
         401,

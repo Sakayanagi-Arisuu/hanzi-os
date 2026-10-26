@@ -29,6 +29,7 @@ export default async function AdminConfigurationPage({
     status={query.error ? { kind: "error", message: query.error } : query.updated ? { kind: "updated", message: "Đã lưu cấu hình." } : null}
   >
     <AdminSection title="Thiết lập hệ thống" description="Chỉ những thiết lập an toàn được phép thay đổi mới xuất hiện; bí mật đăng nhập và khóa mã hóa không bao giờ được nhập tại đây." eyebrow="CẤU HÌNH">
+      <p className="admin-notice">Thay đổi áp dụng khi mở lại trang liên quan. Nhịp học chỉ gợi ý cho hồ sơ mới; các hồ sơ đã thiết lập được giữ nguyên.</p>
       <div className="admin-card-list">{settings.map((setting) => <SettingCard key={setting.key} setting={setting} stepUpReady={state.context.stepUpReady} />)}</div>
     </AdminSection>
     <AdminSection title="Trình tự thay đổi an toàn" description="Nếu thay đổi ảnh hưởng người học, hãy ghi chú lý do trong bàn giao nội bộ và theo dõi lại sau khi lưu." eyebrow="HƯỚNG DẪN">

@@ -1,0 +1,1021 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "personalization-t00-2026-10-18",
+  "status": "IN-REVIEW",
+  "purpose": "Declarative T00 design fixtures, not runnable planner manifests or real learner evidence; no runtime import.",
+  "contentVersion": "foundation-2026.08.7",
+  "clock": {
+    "now": "2026-10-18T03:00:00.000Z",
+    "timezone": "Asia/Saigon",
+    "source": "synthetic-test-only"
+  },
+  "defaultScope": {
+    "ownerKey": "fixture:guest-a",
+    "ownerGeneration": 7,
+    "resetEpoch": 3,
+    "installationId": "fixture-install-a",
+    "deviceId": "fixture-device-a"
+  },
+  "defaults": {
+    "durationSeconds": 600,
+    "online": true,
+    "audio": true,
+    "microphone": true,
+    "entitlement": "free",
+    "allowInference": true,
+    "contentReview": "unreviewed",
+    "authorityGrants": []
+  },
+  "competencies": [
+    {
+      "id": "c.number.quantity",
+      "version": 1,
+      "objectiveVi": "Phân biệt số lượng và cách dùng 二/两 trong ngữ cảnh.",
+      "skill": "grammar",
+      "modality": "text",
+      "prerequisites": [],
+      "sourceLessonIds": [
+        "hsk1-time-place-events-01-numbers"
+      ],
+      "evidencePolicy": {
+        "status": "requires-human-review",
+        "minimumDistinctItems": null,
+        "minimumDelayedDays": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "c.price.comprehend",
+      "version": 1,
+      "objectiveVi": "Hiểu giá và số lượng trong lượt hỏi đáp; evidence nghe phải có stimulus audio được ghim.",
+      "skill": "listening",
+      "modality": "audio",
+      "prerequisites": [
+        "c.number.quantity"
+      ],
+      "sourceLessonIds": [
+        "daily-1"
+      ],
+      "evidencePolicy": {
+        "status": "requires-human-review",
+        "minimumDistinctItems": null,
+        "minimumDelayedDays": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "c.price.produce",
+      "version": 1,
+      "objectiveVi": "Tự hỏi và trả lời giá/số lượng trong tình huống cho trước.",
+      "skill": "speaking",
+      "modality": "speech",
+      "prerequisites": [
+        "c.number.quantity"
+      ],
+      "sourceLessonIds": [
+        "daily-1"
+      ],
+      "evidencePolicy": {
+        "status": "requires-human-review",
+        "minimumDistinctItems": null,
+        "minimumDelayedDays": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "c.shop.transfer",
+      "version": 1,
+      "objectiveVi": "Dùng thông tin sản phẩm, giá và tiền thừa trong tình huống khác mẫu đã học.",
+      "skill": "reading",
+      "modality": "text",
+      "prerequisites": [
+        "c.number.quantity"
+      ],
+      "sourceLessonIds": [
+        "daily-3"
+      ],
+      "evidencePolicy": {
+        "status": "requires-human-review",
+        "minimumDistinctItems": null,
+        "minimumDelayedDays": null,
+        "threshold": null
+      }
+    }
+  ],
+  "units": [
+    {
+      "id": "u.number.rule",
+      "version": 1,
+      "availability": "existing-local-source",
+      "source": {
+        "file": "content/runtime/hsk1-level-rich-lessons.json",
+        "lessonId": "hsk1-time-place-events-01-numbers",
+        "section": "grammar",
+        "entryId": "hsk1-grammar-row-011"
+      },
+      "contextSections": [
+        "dialogue"
+      ],
+      "competencyId": "c.number.quantity",
+      "taskType": "explanation",
+      "skill": "grammar",
+      "modality": "text",
+      "estimatedSeconds": 45,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-pinyin",
+        "optional-translation"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "personal-local-study",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.price.dialogue",
+      "version": 1,
+      "availability": "existing-local-source",
+      "source": {
+        "file": "content/runtime/hsk1-level-rich-lessons.json",
+        "lessonId": "daily-1",
+        "section": "dialogue"
+      },
+      "contextSections": [
+        "dialogue"
+      ],
+      "competencyId": "c.price.comprehend",
+      "taskType": "dialogue-context",
+      "skill": "reading",
+      "modality": "text",
+      "estimatedSeconds": 55,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-pinyin",
+        "optional-translation"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "personal-local-study",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.price.rule",
+      "version": 1,
+      "availability": "existing-local-source",
+      "source": {
+        "file": "content/runtime/hsk1-level-rich-lessons.json",
+        "lessonId": "daily-1",
+        "section": "grammar",
+        "entryId": "hsk1-grammar-row-063"
+      },
+      "contextSections": [
+        "dialogue"
+      ],
+      "competencyId": "c.price.comprehend",
+      "taskType": "explanation",
+      "skill": "grammar",
+      "modality": "text",
+      "estimatedSeconds": 45,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-pinyin",
+        "optional-translation"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "personal-local-study",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.price.task09",
+      "version": 1,
+      "availability": "existing-local-source",
+      "source": {
+        "file": "content/runtime/hsk1-level-rich-lessons.json",
+        "lessonId": "daily-1",
+        "section": "tasks",
+        "entryId": "hsk1-task-09"
+      },
+      "contextSections": [
+        "dialogue",
+        "grammar"
+      ],
+      "competencyId": "c.price.produce",
+      "taskType": "guided-role-play",
+      "skill": "speaking",
+      "modality": "speech",
+      "estimatedSeconds": 90,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-pinyin",
+        "optional-translation"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "personal-local-study",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.price.cloze",
+      "version": 1,
+      "availability": "existing-draft",
+      "source": {
+        "file": "content/drafts/thien-lo-everyday-batch-v2.json",
+        "lessonId": "daily-1",
+        "documentPointer": "/items/0/lessonPages",
+        "pageIds": [
+          "daily-1:v2:guided"
+        ]
+      },
+      "contextPageIds": [
+        "daily-1:v2:context",
+        "daily-1:v2:dialogue",
+        "daily-1:v2:meaning"
+      ],
+      "competencyId": "c.number.quantity",
+      "taskType": "cloze",
+      "skill": "grammar",
+      "modality": "text",
+      "estimatedSeconds": 55,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-hint",
+        "prior-exposure-preserved"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "draft-not-published",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.price.production",
+      "version": 1,
+      "availability": "existing-draft",
+      "source": {
+        "file": "content/drafts/thien-lo-everyday-batch-v2.json",
+        "lessonId": "daily-1",
+        "documentPointer": "/items/0/lessonPages",
+        "pageIds": [
+          "daily-1:v2:transfer"
+        ]
+      },
+      "contextPageIds": [
+        "daily-1:v2:context",
+        "daily-1:v2:dialogue",
+        "daily-1:v2:meaning",
+        "daily-1:v2:transfer"
+      ],
+      "competencyId": "c.price.produce",
+      "taskType": "rubric-production",
+      "skill": "writing",
+      "modality": "text",
+      "estimatedSeconds": 100,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-word-bank",
+        "ime-marked-assisted",
+        "optional-pinyin"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "draft-not-published",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.shop.transfer",
+      "version": 1,
+      "availability": "existing-draft",
+      "source": {
+        "file": "content/drafts/thien-lo-everyday-batch-v2.json",
+        "lessonId": "daily-3",
+        "documentPointer": "/items/2/lessonPages",
+        "pageIds": [
+          "daily-3:v2:transfer"
+        ]
+      },
+      "contextPageIds": [
+        "daily-3:v2:context",
+        "daily-3:v2:dialogue",
+        "daily-3:v2:meaning",
+        "daily-3:v2:transfer"
+      ],
+      "competencyId": "c.shop.transfer",
+      "taskType": "rubric-production",
+      "skill": "writing",
+      "modality": "text",
+      "estimatedSeconds": 105,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-word-bank",
+        "ime-marked-assisted",
+        "optional-pinyin"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "draft-not-published",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.shop.choice",
+      "version": 1,
+      "availability": "existing-draft",
+      "source": {
+        "file": "content/drafts/thien-lo-everyday-batch-v2.json",
+        "lessonId": "daily-3",
+        "documentPointer": "/items/2/lessonPages",
+        "pageIds": [
+          "daily-3:v2:choice"
+        ]
+      },
+      "contextPageIds": [
+        "daily-3:v2:context",
+        "daily-3:v2:dialogue"
+      ],
+      "competencyId": "c.shop.transfer",
+      "taskType": "choice",
+      "skill": "reading",
+      "modality": "text",
+      "estimatedSeconds": 55,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [
+        "optional-hint",
+        "prior-exposure-preserved"
+      ],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": "draft-not-published",
+      "requiresGaps": []
+    },
+    {
+      "id": "u.price.listen-contrast",
+      "version": 1,
+      "availability": "missing-content",
+      "source": null,
+      "competencyId": "c.price.comprehend",
+      "taskType": "listening-discrimination",
+      "skill": "listening",
+      "modality": "audio",
+      "estimatedSeconds": 95,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": null,
+      "requiresGaps": [
+        "gap.listen-contrast"
+      ]
+    },
+    {
+      "id": "u.price.listen-new",
+      "version": 1,
+      "availability": "missing-content",
+      "source": null,
+      "competencyId": "c.price.comprehend",
+      "taskType": "listening-new-context",
+      "skill": "listening",
+      "modality": "audio",
+      "estimatedSeconds": 80,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": null,
+      "requiresGaps": [
+        "gap.listen-new"
+      ]
+    },
+    {
+      "id": "u.price.delayed-new",
+      "version": 1,
+      "availability": "missing-content",
+      "source": null,
+      "competencyId": "c.number.quantity",
+      "taskType": "independent-delayed-recall",
+      "skill": "grammar",
+      "modality": "text",
+      "estimatedSeconds": 75,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": null,
+      "requiresGaps": [
+        "gap.delayed-new"
+      ]
+    },
+    {
+      "id": "u.price.challenge-new",
+      "version": 1,
+      "availability": "missing-content",
+      "source": null,
+      "competencyId": "c.shop.transfer",
+      "taskType": "unseen-transfer-challenge",
+      "skill": "reading",
+      "modality": "text",
+      "estimatedSeconds": 85,
+      "timeBasis": "planning-budget-not-measured",
+      "support": [],
+      "humanReviewed": false,
+      "masteryEligible": false,
+      "sourceRelease": null,
+      "requiresGaps": [
+        "gap.challenge-new"
+      ]
+    }
+  ],
+  "contentGaps": [
+    {
+      "id": "gap.listen-contrast",
+      "task": "T08",
+      "requirement": "Authored contrasting price/quantity stimuli with immutable audio/transcript/license, distractor rationale and genuine human review."
+    },
+    {
+      "id": "gap.listen-new",
+      "task": "T08",
+      "requirement": "Unseen price/quantity audio context held out from teaching; preserve exact stimulus and exposure."
+    },
+    {
+      "id": "gap.delayed-new",
+      "task": "T08",
+      "requirement": "Separate unseen recall items with item-family/exposure lineage; do not relabel repeated taught item as new."
+    },
+    {
+      "id": "gap.challenge-new",
+      "task": "T08",
+      "requirement": "Unseen shop transfer/challenge objective with reviewed rubric/scoring and exact source/context."
+    },
+    {
+      "id": "gap.measurement-policy",
+      "task": "T06",
+      "requirement": "Human-reviewed skill/modality-specific minimum distinct items, dispersion and measurement policy; thresholds intentionally null."
+    }
+  ],
+  "needs": [
+    {
+      "id": "F01-listening-gap",
+      "need": "Meaning understood, price heard incorrectly",
+      "input": {
+        "priorObservations": [
+          {
+            "skill": "vocabulary",
+            "outcome": "correct",
+            "uniqueItems": 4,
+            "assistance": "none"
+          },
+          {
+            "skill": "listening",
+            "outcome": "incorrect",
+            "uniqueItems": 2,
+            "assistance": "none"
+          }
+        ]
+      },
+      "targetPlan": [
+        "u.price.listen-contrast",
+        "u.price.listen-new"
+      ],
+      "supportPolicy": "Contrast then remove transcript for fresh listening item",
+      "baselineExpected": {
+        "status": "content-blocked",
+        "missing": [
+          "gap.listen-contrast",
+          "gap.listen-new"
+        ],
+        "fallbackUnits": [
+          "u.price.dialogue",
+          "u.price.rule"
+        ],
+        "notice": "Text/TTS practice available; listening remains unassessed."
+      },
+      "assertions": [
+        "Require audio and pinned stimuli before selecting targetPlan.",
+        "Do not replay full vocabulary introduction solely because listening is weak.",
+        "Text fallback cannot satisfy listening evidence."
+      ]
+    },
+    {
+      "id": "F02-production-gap",
+      "need": "Input understood, cannot produce sentence independently",
+      "input": {
+        "priorObservations": [
+          {
+            "skill": "reading",
+            "outcome": "correct",
+            "uniqueItems": 4,
+            "assistance": "none"
+          },
+          {
+            "skill": "speaking",
+            "outcome": "unverified",
+            "uniqueItems": 1,
+            "assistance": "model-needed"
+          }
+        ]
+      },
+      "targetPlan": [
+        "u.price.cloze",
+        "u.price.production"
+      ],
+      "supportPolicy": "Word bank then self-produced new price context, retain IME/model exposure",
+      "baselineExpected": {
+        "status": "practice-only",
+        "missing": [],
+        "fallbackUnits": [
+          "u.price.rule",
+          "u.price.task09"
+        ],
+        "notice": "Draft production uses self-review; no speaking or writing mastery receipt."
+      },
+      "assertions": [
+        "Production differs from recognition: learner writes/role-plays response.",
+        "No speech score from typing, transcript or self-review.",
+        "Draft units require exact permitted revision before any runner use."
+      ]
+    },
+    {
+      "id": "F03-delayed-gap",
+      "need": "Correct in session, weak delayed independent recall",
+      "input": {
+        "priorObservations": [
+          {
+            "skill": "grammar",
+            "outcome": "correct",
+            "uniqueItems": 2,
+            "assistance": "none",
+            "daysAgo": 0
+          },
+          {
+            "skill": "grammar",
+            "outcome": "incorrect",
+            "uniqueItems": 1,
+            "assistance": "none",
+            "daysAgo": 7
+          }
+        ],
+        "fsrs": {
+          "source": "fixture-scheduler-offer",
+          "dueWordIds": [
+            "hsk-vocab-00105",
+            "hsk-vocab-00164"
+          ],
+          "offerRevision": "fixture-offer-v1"
+        }
+      },
+      "targetPlan": [
+        "u.price.delayed-new",
+        "u.price.rule"
+      ],
+      "supportPolicy": "Probe unseen item before optional explanation; due cards keep FSRS schedule",
+      "baselineExpected": {
+        "status": "content-blocked",
+        "missing": [
+          "gap.delayed-new"
+        ],
+        "fallbackUnits": [
+          "u.price.rule"
+        ],
+        "notice": "Use available FSRS due offers; no new-coverage claim from repeated item."
+      },
+      "assertions": [
+        "Consume scheduler offers; never create a competing due date.",
+        "Preserve first delayed failure and exposure even after same-session correction.",
+        "Seven days is synthetic fixture spacing, not an approved mastery threshold."
+      ]
+    },
+    {
+      "id": "F04-basic-evidence",
+      "need": "Sufficient basic evidence supplied by synthetic policy harness",
+      "input": {
+        "eligibility": {
+          "source": "synthetic-policy-fixture-not-real-evidence",
+          "basicEvidence": "sufficient-for-intro-skip-only",
+          "reviewedPolicyId": null
+        },
+        "priorObservations": []
+      },
+      "targetPlan": [
+        "u.price.challenge-new",
+        "u.shop.transfer"
+      ],
+      "supportPolicy": "Skip introduction only after real policy eventually validates; provide optional help",
+      "baselineExpected": {
+        "status": "content-blocked",
+        "missing": [
+          "gap.challenge-new",
+          "gap.measurement-policy"
+        ],
+        "fallbackUnits": [
+          "u.price.task09"
+        ],
+        "notice": "Current policy is unreviewed; source lesson prerequisites and completion unchanged."
+      },
+      "assertions": [
+        "No automatic source-lesson pass or prerequisite unlock.",
+        "Challenge/transfer replaces basic drill when content and reviewed policy become eligible.",
+        "Imported/legacy completion cannot satisfy synthetic or future evidence policy."
+      ]
+    }
+  ],
+  "contexts": [
+    {
+      "id": "F05-unknown",
+      "input": {
+        "priorObservations": [],
+        "inferredState": "unknown",
+        "allowInference": true,
+        "durationSeconds": 300
+      },
+      "targetPlan": [
+        "u.number.rule",
+        "u.price.dialogue"
+      ],
+      "baselineExpected": {
+        "status": "practice-only",
+        "missing": [],
+        "fallbackUnits": [
+          "u.price.dialogue"
+        ]
+      },
+      "assertions": [
+        "Unknown remains unknown; offer short optional diagnostic/manual choice.",
+        "Do not force repeated placement or label low ability.",
+        "Diagnostic has explicit time budget."
+      ]
+    },
+    {
+      "id": "F06-offline-prepared",
+      "extends": "F02-production-gap",
+      "input": {
+        "online": false,
+        "audio": false,
+        "microphone": false,
+        "durationSeconds": 300,
+        "cachedUnitIds": [
+          "u.price.cloze",
+          "u.price.production"
+        ],
+        "cachedBinding": "exact-version-owner-reset"
+      },
+      "targetPlan": [
+        "u.price.cloze",
+        "u.price.production"
+      ],
+      "baselineExpected": {
+        "status": "practice-only",
+        "missing": [],
+        "fallbackUnits": [
+          "u.price.cloze"
+        ]
+      },
+      "assertions": [
+        "Use only validated cached exact version and existing entitlement.",
+        "Persist answers before next; account events stay provisional.",
+        "Never create fresh server-authoritative lesson session offline."
+      ]
+    },
+    {
+      "id": "F07-no-microphone",
+      "extends": "F02-production-gap",
+      "input": {
+        "microphone": false,
+        "audio": true
+      },
+      "targetPlan": [
+        "u.price.cloze",
+        "u.price.production"
+      ],
+      "baselineExpected": {
+        "status": "practice-only",
+        "missing": [],
+        "fallbackUnits": [
+          "u.price.rule"
+        ]
+      },
+      "assertions": [
+        "No permission prompt or capture task.",
+        "Typed/manual output tagged by actual modality and IME assistance.",
+        "Speaking remains unknown, not failed or mastered."
+      ]
+    },
+    {
+      "id": "F08-five-minutes",
+      "extends": "F04-basic-evidence",
+      "input": {
+        "durationSeconds": 300,
+        "transitionBudgetSeconds": 40
+      },
+      "targetPlan": [
+        "u.price.challenge-new",
+        "u.shop.transfer"
+      ],
+      "baselineExpected": {
+        "status": "content-blocked",
+        "missing": [
+          "gap.challenge-new",
+          "gap.measurement-policy"
+        ],
+        "fallbackUnits": [
+          "u.price.dialogue",
+          "u.price.rule"
+        ]
+      },
+      "assertions": [
+        "Estimated unit total plus transition budget <=300 seconds.",
+        "Daily goal 10/20/30 stays separate from 5-minute session.",
+        "Keep essential context; do not run full 30-minute source lesson."
+      ]
+    },
+    {
+      "id": "F09-offline-empty",
+      "input": {
+        "online": false,
+        "audio": false,
+        "microphone": false,
+        "cachedUnitIds": [],
+        "entitlement": "unknown"
+      },
+      "targetPlan": [],
+      "baselineExpected": {
+        "status": "no-candidate",
+        "missing": [],
+        "fallbackUnits": []
+      },
+      "assertions": [
+        "Explain unavailable prepared content, allow exit/prepare later.",
+        "No fabricated units or downgrade to unsafe authority/cache."
+      ]
+    },
+    {
+      "id": "F10-no-audio",
+      "extends": "F01-listening-gap",
+      "input": {
+        "audio": false,
+        "microphone": false
+      },
+      "targetPlan": [
+        "u.price.dialogue",
+        "u.price.rule"
+      ],
+      "baselineExpected": {
+        "status": "practice-only",
+        "missing": [],
+        "fallbackUnits": [
+          "u.price.dialogue"
+        ]
+      },
+      "assertions": [
+        "Offer explicit task change to text; listening need remains unresolved.",
+        "Microphone and playback are independent capabilities.",
+        "No silent TTS substitution for native reviewed evidence."
+      ]
+    },
+    {
+      "id": "F11-opt-out",
+      "input": {
+        "allowInference": false,
+        "durationSeconds": 300
+      },
+      "targetPlan": [
+        "u.price.dialogue",
+        "u.price.rule"
+      ],
+      "baselineExpected": {
+        "status": "manual-selection",
+        "missing": [],
+        "fallbackUnits": [
+          "u.price.dialogue"
+        ]
+      },
+      "assertions": [
+        "Manual source lesson remains available.",
+        "Opt-out clears inferred preferences, not progress or event history."
+      ]
+    }
+  ],
+  "lifecycleFixtures": [
+    {
+      "id": "L01-ack-retry",
+      "tasks": [
+        "T01"
+      ],
+      "edgeIds": [
+        "E02",
+        "E25",
+        "E26"
+      ],
+      "sequence": [
+        "commit lesson attempt and transactional event/outbox",
+        "crash before HTTP receipt",
+        "reload/resend same operation",
+        "receive receipt twice or late"
+      ],
+      "expected": [
+        "one logical event; observation upgraded provisional->confirmed",
+        "no double XP, lesson completion or activity count",
+        "different payload on same operation quarantined"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L02-owner-reset",
+      "tasks": [
+        "T01",
+        "T04",
+        "T11",
+        "T17"
+      ],
+      "edgeIds": [
+        "E20",
+        "E25",
+        "E26",
+        "E30"
+      ],
+      "sequence": [
+        "A epoch3 opens async session/avatar save",
+        "switch to B generation8 or reset A to epoch4",
+        "deliver old callback/ack",
+        "reload"
+      ],
+      "expected": [
+        "no cross-owner write or epoch replay",
+        "A epoch3 raw pending retained or quarantined with reason",
+        "guest journey same anchor cannot reuse old receipt"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L03-recovery-round-trip",
+      "tasks": [
+        "T04"
+      ],
+      "edgeIds": [
+        "E23",
+        "E24",
+        "E27",
+        "E28",
+        "E29",
+        "E32"
+      ],
+      "sequence": [
+        "synthetic source has 150 mistakes, 2001 reward IDs, workspace and normalized/page/mock/XP pending journals, owner resumes, avatar blob metadata",
+        "export manifest and hashes",
+        "stage restore and verify scope",
+        "inject quota/corrupt/version failure then reload"
+      ],
+      "expected": [
+        "successful round-trip keeps every mandatory store/count/byte binding",
+        "failure leaves original intact with rollback",
+        "different owner/reset/install never replays commands; descriptive quarantine only"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L04-context-version-revoked",
+      "tasks": [
+        "T07",
+        "T11"
+      ],
+      "edgeIds": [
+        "E03",
+        "E08",
+        "E33",
+        "E35"
+      ],
+      "sequence": [
+        "freeze manifest and source context",
+        "publish/revoke a source revision while answering",
+        "persist current step",
+        "resume after reload"
+      ],
+      "expected": [
+        "never replace current question mid-answer",
+        "exact version retained or explicit safe fallback with answers preserved",
+        "no answer-key/Premium leakage"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L05-avatar-lifecycle",
+      "tasks": [
+        "A01",
+        "A02",
+        "T19"
+      ],
+      "edgeIds": [
+        "E23",
+        "E24",
+        "E32"
+      ],
+      "sequence": [
+        "select/crop/preview/cancel",
+        "decode/quota failure during save",
+        "two account sessions replace/remove with revision conflict",
+        "Android picker cancel/background/reopen"
+      ],
+      "expected": [
+        "Header/Profile share saved metadata and fallback initials",
+        "old image survives failure; delete tombstone prevents old image resurrection",
+        "learning reset preserves avatar; account deletion removes only owned media"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L06-assistance-import",
+      "tasks": [
+        "T02",
+        "T09",
+        "T14"
+      ],
+      "edgeIds": [
+        "E04",
+        "E06",
+        "E12",
+        "E13",
+        "E35"
+      ],
+      "sequence": [
+        "repeat same item 20 times",
+        "reveal/hint/IME then correct",
+        "import legacy completion/TTS/transcript/XP",
+        "late duplicate and clock skew"
+      ],
+      "expected": [
+        "independent unique coverage unchanged",
+        "unknown skill stays unknown unless valid measurement evidence",
+        "same occurrence retains initial failure and assistance; UTC+7 streak policy unchanged"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L07-long-history",
+      "tasks": [
+        "T03",
+        "T18",
+        "T19"
+      ],
+      "edgeIds": [
+        "E18",
+        "E29",
+        "E35"
+      ],
+      "sequence": [
+        "generate 100000 synthetic events with seed1792282800, mixed sources/dates and duplicate receipts",
+        "index owner/reset/occurredAt+eventId",
+        "read first page50 then paginate across timestamp ties",
+        "measure20 warm runs after5 warmups"
+      ],
+      "expected": [
+        "no truncation/loss/duplicate rows at page boundaries",
+        "target p95 first page<1000ms and cached composer<200ms on recorded reference machine",
+        "report cold load, memory and index/rebuild separately; no measured claim yet"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "L08-native-old-client",
+      "tasks": [
+        "A02",
+        "T17",
+        "T19"
+      ],
+      "edgeIds": [
+        "E24",
+        "E27",
+        "E31",
+        "E32"
+      ],
+      "sequence": [
+        "old APK workspace capability absent",
+        "new client writes answer/practice entries",
+        "old client syncs bookmark",
+        "upgrade same package/signature and restore online"
+      ],
+      "expected": [
+        "old response filters extension keys without deleting new DB data",
+        "keep Chrome/TWA and Capacitor stores separate",
+        "real device mic/IME/picker/reopen/quota required; simulated bridge not accepted"
+      ],
+      "implemented": false
+    }
+  ],
+  "comparison": {
+    "compareNeeds": [
+      "F01-listening-gap",
+      "F02-production-gap",
+      "F03-delayed-gap",
+      "F04-basic-evidence"
+    ],
+    "differenceFields": [
+      "unitIds",
+      "taskTypes",
+      "supportPolicy",
+      "modality"
+    ],
+    "forbiddenProof": [
+      "renamed lesson",
+      "reordered same lesson list",
+      "XP/streak uplift"
+    ],
+    "currentlyExecutableAsAdaptive": false
+  }
+}

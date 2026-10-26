@@ -1,3 +1,4 @@
+import { HOSTED_PERSONAL_STUDY, PACKAGED_PERSONAL_STUDY } from '../content/clientContentAvailability';
 import {
   BriefcaseBusiness,
   Award,
@@ -31,6 +32,11 @@ import {
   Keyboard,
 } from "lucide-react";
 import { useRef, useState } from "react";
+import { OfflineReadiness } from '../components/OfflineReadiness';
+import { AccountDeletionRecovery } from '../components/AccountDeletionRecovery';
+import { AccountDeletionReauthenticationRequiredError } from '../sync/accountDeletion';
+import { NativeAppUpdate } from '../native/NativeAppUpdate';
+import { isNativeApp, saveNativeJson } from '../native/nativeRuntime';
 import { Link, useSearchParams } from "react-router";
 import { Crown } from "lucide-react";
 import "./SystemGuild.css";
@@ -68,6 +74,10 @@ import {
   type SystemVoiceProfile,
 } from "../system/systemUiPreferences";
 import type { LearningGoal, Profile } from "../types";
+import { AvatarEditor } from '../profile/AvatarEditor';
+import { LearningHistoryPanel } from '../profile/LearningHistoryPanel';
+import { LearningPreferencesFields } from '../profile/LearningPreferencesFields';
+import { DeviceRecoveryControls } from '../profile/DeviceRecoveryControls';
 
 const goals: Array<{ id: LearningGoal; label: string; description: string; icon: typeof Target }> = [
   { id: "conversation", label: "Giao tiếp", description: "Ưu tiên nghe và nói đời sống", icon: MessageCircle },
@@ -109,6 +119,7 @@ const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
   const [previewView, setPreviewView] = useState("display");
+  const [historyOpen, setHistoryOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const requestedView = searchParams.get("view");
   const view = ["journey", "display", "audio", "account"].includes(requestedView ?? "") ? requestedView! : "overview";
@@ -188,13 +199,18 @@ export function ProfilePage() {
     setSaved(false);
   };
 
-  const save = () => {
-    actions.updateProfile({ ...draft, name: draft.name.trim() || "Hành giả vô danh" });
-    setSaved(true);
-    notify("Cấu hình hành trình đã được lưu trên thiết bị này.");
+  const save = async () => {
+    try {
+      await actions.updateProfile({ ...draft, name: draft.name.trim() || "Hành giả vô danh" });
+      setSaved(true);
+      notify(sync.session?.authenticated ? 'Đã lưu trên thiết bị; cấu hình sẽ đồng bộ khi kết nối sẵn sàng.' : 'Cấu hình hành trình đã được lưu trên thiết bị này.');
+    } catch {
+      setSaved(false);
+      notify('Chưa lưu được cấu hình. Dữ liệu cũ vẫn được giữ; hãy thử lại.', 'warning');
+    }
   };
 
-  const exportProgress = () => {
+  const exportProgress = async () => {
     const bundle = createLearningRecoveryBundle({
       state,
       syncPhase: sync.phase,
@@ -202,30 +218,40 @@ export function ProfilePage() {
       normalizedPendingCount: sync.normalizedPendingCount,
       normalizedQuarantinedCount: sync.normalizedQuarantinedCount,
     });
+    const filename = `hanzi-os-recovery-${new Date().toISOString().slice(0, 10)}.json`;
+    if (isNativeApp()) {
+      try { await saveNativeJson(filename, JSON.stringify(bundle, null, 2)); }
+      catch { notify('Bản sao chưa được lưu. Tiến trình trên thiết bị vẫn được giữ.', 'warning'); return; }
+    } else {
     const blob = new Blob([JSON.stringify(bundle, null, 2)], {
       type: "application/json",
     });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = `hanzi-os-recovery-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.download = filename;
     document.body.append(anchor);
     anchor.click();
     anchor.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    }
     setExportedSnapshot(currentSnapshot);
     notify(
-      sync.normalizedQuarantinedCount > 0
-        ? `Đã tạo bản phục hồi; bản này chỉ ghi số lượng ${sync.normalizedQuarantinedCount} lệnh học bị cách ly và không tự xóa chúng.`
-        : sync.normalizedPendingCount > 0
-          ? `Đã tạo bản phục hồi; ${sync.normalizedPendingCount} lệnh học chuẩn hóa vẫn chờ máy chủ xác nhận.`
-          : sync.pendingCount > 0
-        ? `Đã tạo bản phục hồi gồm cả ${sync.pendingCount} thay đổi cục bộ đang chờ.`
-        : "Đã tạo bản phục hồi của trạng thái hiện tại trên thiết bị.",
+      sync.normalizedQuarantinedCount > 0 || sync.normalizedPendingCount > 0 || sync.pendingCount > 0
+        ? 'Đã xuất tiến độ học hiện tại. Các lượt chưa gửi và tiến độ đọc vẫn nằm trên thiết bị; hãy đồng bộ trước khi chuyển máy.'
+        : 'Đã xuất tiến độ học hiện tại. Dùng bản xuất cloud để giữ thêm dữ liệu đọc đã đồng bộ.',
     );
   };
 
-  const exportCloudSnapshot = () => {
+  const exportCloudSnapshot = async () => {
+    if (isNativeApp()) {
+      try {
+        const response = await fetch('/api/account/export', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Export unavailable');
+        await saveNativeJson(`hanzi-os-cloud-${new Date().toISOString().slice(0, 10)}.json`, await response.text());
+      } catch { notify('Chưa xuất được dữ liệu máy chủ. Hãy giữ mạng và thử lại.', 'warning'); }
+      return;
+    }
     window.location.assign("/api/account/export");
   };
 
@@ -309,6 +335,9 @@ export function ProfilePage() {
       notify("Tài khoản cloud và dữ liệu máy chủ đã được xóa.", "warning");
       window.location.assign(signedOutDestination(provider));
     } catch (error) {
+      if (error instanceof AccountDeletionReauthenticationRequiredError) {
+        window.location.assign('/signin?stepUp=1&returnTo=%2Fprofile'); return;
+      }
       notify(
         error instanceof Error ? error.message : "Không thể xóa tài khoản lúc này.",
         "warning",
@@ -352,6 +381,7 @@ export function ProfilePage() {
 
   return (
     <div className={`content-page profile-page sys-guild sys-${view}`}>
+      {(HOSTED_PERSONAL_STUDY || PACKAGED_PERSONAL_STUDY) && <p className="study-preview-note">Bản học thử cho đồ án · Nội dung có hỗ trợ AI, chưa được người duyệt xác nhận. Kết quả dùng để tự học, không phải chứng nhận HSK.</p>}
       <header className="page-hero profile-hero">
         <div><div className="realm-emblem" aria-hidden="true" />
           <span className="system-kicker"><CircleUserRound size={18} /> {view === "overview" ? "BẢNG THUỘC TÍNH" : `CẤU HÌNH HỆ THỐNG · ${heading[0].toUpperCase()}`}</span>
@@ -360,7 +390,10 @@ export function ProfilePage() {
         </div>
         <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(displayedLevel).padStart(2, "0")}</strong><small>{interactionXp.pending ? "Đang hợp nhất EXP" : `${rank.title} · ${interactionXp.totalXp} XP tương tác`}</small></div>
       </header>
+      {(view === 'overview' || view === 'account') && <AvatarEditor name={state.profile.name} />}
+      {view === 'overview' && <details className="sys-advanced" onToggle={event => setHistoryOpen(event.currentTarget.open)}><summary>Nhật ký tu luyện · Lịch sử học tập</summary>{historyOpen && <LearningHistoryPanel />}</details>}
       {view === "overview" && <Link className="premium-profile-link" to="/profile/premium"><Crown size={24} aria-hidden="true" /><span><strong>Mở bài Thiên Lộ HSK4 với Premium</strong><small>Bài HSK0–HSK3 miễn phí · Xem gói và mua bằng Ví Hanzi</small></span><span className="premium-profile-action">Xem gói <ChevronRight size={20} aria-hidden="true" /></span></Link>}
+      {view === 'overview' && <AccountDeletionRecovery resume={actions.resumeAccountDeletion} ready={sync.phase !== 'checking'} />}
       {view !== "overview" && <button className="sys-back" onClick={() => openView("overview")} type="button"><ArrowLeft size={18} /> Tổng quan</button>}
       {view === "overview" && <div className="sys-overview-grid">
         <nav aria-label="Các mục cấu hình hệ thống" className="sys-category-list">
@@ -477,6 +510,7 @@ export function ProfilePage() {
               ))}
             </div>
           </fieldset>
+          <LearningPreferencesFields value={draft.learningPreferences} onChange={learningPreferences => updateDraft({ learningPreferences })} />
           <details className="sys-advanced"><summary>Điểm khởi hành & hệ chữ</summary>
           <fieldset className="profile-fieldset inline-fieldset">
             <legend id="profile-starting-level-legend">Căn Cơ Tự Khai · không miễn bài tiên quyết</legend>
@@ -768,6 +802,8 @@ export function ProfilePage() {
               <p>{sync.session?.authenticated ? "Tiến trình được lưu trên thiết bị trước; thay đổi khi mất mạng sẽ được gửi lại khi có kết nối." : "Bài học, XP và lịch FSRS được lưu cục bộ; đăng nhập để phục hồi trên thiết bị khác."}</p>
             </div>
           </div>
+          <OfflineReadiness ownerKey={sync.ownerKey} />
+          <NativeAppUpdate />
           <dl className="data-counters">
             <div><dt>Thử Luyện đã thông qua</dt><dd>{completedCount ?? "—"}</dd></div>
             <div><dt>Từ đã lưu</dt><dd>{state.savedWords.filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
@@ -779,7 +815,9 @@ export function ProfilePage() {
               <RefreshCw className={sync.phase === "syncing" ? "spin" : ""} size={17} /> {sync.phase === "syncing" ? "Đang đồng bộ..." : "Đồng bộ ngay"}
             </button>
           )}
-          <button className="secondary-button full-button" type="button" onClick={exportProgress}><Download size={17} /> Xuất bản phục hồi hiện tại</button>
+          <p>Bản xuất hiện tại chỉ giữ tiến độ học, chưa chứa đầy đủ lịch sử, phiên dở, lượt chờ gửi và ảnh đại diện. Đừng xóa bộ nhớ trình duyệt hoặc gỡ ứng dụng để chuyển dữ liệu bằng bản này.</p>
+          <button className="secondary-button full-button" type="button" onClick={exportProgress}><Download size={17} /> Xuất bản tiến độ hiện tại</button>
+          <DeviceRecoveryControls ownerKey={sync.ownerKey} />
           {sync.session?.authenticated && (
             <button className="secondary-button full-button" type="button" onClick={exportCloudSnapshot}><Cloud size={17} /> Xuất snapshot cloud đã xác nhận</button>
           )}
@@ -794,7 +832,7 @@ export function ProfilePage() {
           <details className="danger-zone">
             <summary>Đặt lại hoặc xóa dữ liệu</summary>
             <p>{sync.session?.authenticated ? "Đặt lại tiến độ học trên tài khoản; lệnh vẫn an toàn khi ngoại tuyến và sẽ gửi khi có mạng." : "Đưa tiến độ học trên thiết bị này về lần khởi tạo đầu tiên."}</p>
-            <button type="button" onClick={() => setShowResetConfirm(true)}><RotateCcw size={17} /> Xóa toàn bộ dữ liệu HANZI.OS</button>
+            <button type="button" onClick={() => setShowResetConfirm(true)}><RotateCcw size={17} /> Đặt lại tiến độ hiện tại</button>
             {sync.session?.authenticated && (
               <>
                 <small className="account-delete-readiness" role="status">
@@ -818,8 +856,8 @@ export function ProfilePage() {
       <ConfirmModal
         open={showResetConfirm}
         title="Đưa hệ thống về khởi nguyên?"
-        description={sync.session?.authenticated ? "Tiến độ, phiên đang dở và cấu hình học sẽ được đặt lại trên tài khoản sau khi hàng đợi đồng bộ được xác nhận. Tài khoản đăng nhập không bị xóa." : "Tiến độ, phiên đang dở, cấu hình, đồng ý giọng nói và cache HANZI.OS trên thiết bị này sẽ bị xóa. Không thể hoàn tác."}
-        confirmLabel="Xóa toàn bộ dữ liệu"
+        description={sync.session?.authenticated ? "Tiến độ và phiên đang dở của tài khoản hiện tại sẽ được đặt lại sau khi hàng đợi đồng bộ được xác nhận. Bản phục hồi và cài đặt thiết bị được giữ." : "Tiến độ và phiên đang dở của hành giả hiện tại sẽ về trạng thái khởi tạo. Bản phục hồi, cài đặt thiết bị và dữ liệu các hồ sơ khác được giữ. Hãy xuất bản phục hồi trước khi đặt lại."}
+        confirmLabel="Đặt lại tiến độ"
         onConfirm={reset}
         onCancel={() => setShowResetConfirm(false)}
       />

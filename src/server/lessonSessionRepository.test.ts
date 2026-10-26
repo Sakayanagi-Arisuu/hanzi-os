@@ -7,6 +7,7 @@ import {
   RELEASED_LESSONS,
 } from "../data/curriculum";
 import type { OpenLessonSessionCommandV1 } from "../learning/lessonSessionProtocol";
+import { planOfflineLesson } from '../learning/offlineLessonPlan';
 import type {
   D1Database,
   D1PreparedStatement,
@@ -138,6 +139,19 @@ const promotedPolicy: LessonSessionPublicationPolicy = {
 
 const repository = (database: SQLiteD1) =>
   new LessonSessionRepository(database, promotedPolicy, () => 0.5);
+
+it('reproduces the offline practice form without trusting a client score or a client session receipt', async () => {
+  const database = new SQLiteD1();
+  seedUser(database, 'user-a');
+  const request = command('user-a', { idempotencyKey: 'offline-lesson-v1:boot-1:unique-command' });
+  const planned = await planOfflineLesson(firstLesson, 'simplified', request.idempotencyKey,
+    request.enrollmentId, request.resetEpoch, '2026-10-09T00:00:00.000Z');
+  const receipt = await repository(database).open('user-a', request);
+  expect(receipt.form).toEqual(planned.form);
+  expect(receipt.formHash).toBe(planned.formHash);
+  expect(receipt.sessionId).not.toBe(planned.sessionId);
+  expect((await repository(database).open('user-a', request)).sessionId).toBe(receipt.sessionId);
+});
 
 const command = (
   userId = "user-a",

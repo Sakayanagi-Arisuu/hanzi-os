@@ -2,6 +2,8 @@ node_modules/
 dist/
 .agents/
 tmp/
+.deploy/
+config/cloudflare-release.local.json
 *.log
 *.tsbuildinfo
 .vite/
@@ -31,6 +33,18 @@ secrets.local/
 !*.secret.example
 
 # Private keys and signing credentials. Public certificates are not ignored.
+/android/.gradle/
+/android/**/build/
+/android/local.properties
+/mobile/android/.gradle/
+/mobile/android/**/build/
+/mobile/android/local.properties
+/mobile/android/app/src/main/assets/public/
+/mobile/android/app/src/main/assets/capacitor.config.json
+/mobile/android/app/src/main/assets/capacitor.plugins.json
+/config/android-tools.local.json
+/public/downloads/*.apk
+/public/downloads/android-release.json
 *.pem
 *.key
 *.p12

@@ -21,7 +21,8 @@ import {
   X,
 } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router";
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { RecoveryStatusSlot } from './RecoveryStatusBoundary';
+import { useCallback, useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import {
   resolvePlacementResumeDestination,
   type PlacementResumeDestination,
@@ -47,26 +48,19 @@ import { useSystemUi } from "../system/systemUiPreferences";
 import { SystemPromotionOverlay } from "./system/SystemPromotionOverlay";
 import { SystemStatusHologram } from "./system/SystemStatusHologram";
 import { NgocHeader } from "./NgocHeader";
+import { useAvatar } from '../profile/useAvatar';
 import { useAwakeningMotion } from "../system/useAwakeningMotion";
 import { AwakeningVignette } from "./system/AwakeningVignette";
+import { activeLearnerZone, learnerPrimaryZones, learnerToolDestinations } from './learnerNavigation';
+import './learnerNavigation.css';
 
-const navItems = [
-  { to: "/", label: "Thức Tỉnh Điện", short: "Tâm", icon: Gauge },
-  { to: "/path", label: "Thiên Lộ", short: "Lộ", icon: Map },
-  { to: "/review", label: "Ký Ức Trận", short: "Ôn", icon: BrainCircuit },
-  { to: "/mistakes", label: "Nghịch Cảnh Lục", short: "Lỗi", icon: Swords },
-  { to: "/pronunciation", label: "Vạn Âm Điện", short: "Âm", icon: Mic2 },
-  { to: "/characters", label: "Thần Văn Lô", short: "Chữ", icon: PenTool },
-  { to: "/reader", label: "Vạn Quyển Các", short: "Đọc", icon: BookOpenText },
-  { to: "/exams", label: "Phòng Luyện Đề", short: "Thi", icon: Target },
-  { to: "/dictionary", label: "Tàng Tự Khố", short: "Từ", icon: Search },
-  { to: "/analytics", label: "Thiên Cơ Kính", short: "Số", icon: BarChart3 },
-];
+const navigationIcons = { Gauge, Map, BrainCircuit, Swords, Mic2, PenTool, BookOpenText, Target, Search, BarChart3, Settings, Crown, LayoutGrid };
 
 const ASSESSMENT_INVITE_SESSION_KEY = "hanzi-os-assessment-invite-v1";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { state, sync, level } = useLearning();
+  const avatar = useAvatar();
   const placementContext = usePlacementContext();
   usePageAttemptPump(sync.session?.authenticated && sync.ownerKey === sync.session.accountKey ? sync.ownerKey : '');
   useAccessDays(sync.session?.authenticated ? sync.session.accountKey : null, sync.session !== null);
@@ -82,6 +76,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const lessonRoute = location.pathname.startsWith("/lesson/");
   const reviewRoute = location.pathname === "/review";
   const remediationRoute = location.pathname === "/mistakes";
+  const speechRoute = location.pathname === "/pronunciation" || location.pathname.startsWith("/pronunciation/");
   const readerChapterRoute = /^\/reader\/series\/[^/]+\/chapter\/[^/]+$/u
     .test(location.pathname);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -96,6 +91,15 @@ export function AppShell({ children }: { children: ReactNode }) {
   const statusButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuCloseRef = useRef<HTMLButtonElement>(null);
+  const activeZone = activeLearnerZone(location.pathname);
+  const togglePracticeMenu = (event: MouseEvent<HTMLButtonElement>) => {
+    mobileMenuButtonRef.current = event.currentTarget;
+    setMobileMenuOpen(open => !open);
+  };
+  const navigateFromMenu = () => {
+    setMobileMenuOpen(false);
+    mainRef.current?.focus({ preventScroll: true });
+  };
 
   useEffect(() => setMobileMenuOpen(false), [location.pathname]);
   useEffect(() => {
@@ -135,6 +139,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (
       state.diagnostic.completed
+      || mobileMenuOpen
+      || statusOpen
       || hasLearningProgress(state)
       || !placementContext.ready
       || placementContext.preservePath
@@ -143,6 +149,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       || lessonRoute
       || reviewRoute
       || remediationRoute
+      || speechRoute
     ) return;
     const ownerKey = sync.session?.authenticated
       ? sync.session.accountKey
@@ -161,13 +168,17 @@ export function AppShell({ children }: { children: ReactNode }) {
     setAssessmentInviteOpen(true);
     const voiceTimer = window.setTimeout(() => playAssessmentInvite(resume), 450);
     return () => window.clearTimeout(voiceTimer);
-  }, [lessonRoute, location.pathname, playAssessmentInvite, readerRoute, remediationRoute, reviewRoute, state, sync.ownerKey, sync.session, placementContext.ready, placementContext.preservePath, placementContext.snapshot]);
+  }, [lessonRoute, location.pathname, mobileMenuOpen, statusOpen, playAssessmentInvite, readerRoute, remediationRoute, reviewRoute, speechRoute, state, sync.ownerKey, sync.session, placementContext.ready, placementContext.preservePath, placementContext.snapshot]);
 
   useEffect(() => {
-    if (!readerRoute && !lessonRoute && !reviewRoute && !remediationRoute) return;
+    if (mobileMenuOpen || statusOpen) cancelSpeech();
+  }, [mobileMenuOpen, statusOpen, cancelSpeech]);
+
+  useEffect(() => {
+    if (!readerRoute && !lessonRoute && !reviewRoute && !remediationRoute && !speechRoute) return;
     cancelSpeech();
     setAssessmentInviteOpen(false);
-  }, [cancelSpeech, lessonRoute, readerRoute, remediationRoute, reviewRoute]);
+  }, [cancelSpeech, lessonRoute, readerRoute, remediationRoute, reviewRoute, speechRoute]);
 
   useEffect(() => {
     if (state.diagnostic.completed || hasLearningProgress(state) || placementContext.preservePath) setAssessmentInviteOpen(false);
@@ -185,6 +196,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement) return;
       if (event.altKey && event.key.toLowerCase() === "s") {
         event.preventDefault();
+        if (mobileMenuOpen) return;
         if (statusOpen) {
           emitSystemSignal({ type: "system.panel-closed", sourceId: "status:shortcut" });
           setStatusOpen(false);
@@ -195,7 +207,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     };
     window.addEventListener("keydown", handleSummonShortcut);
     return () => window.removeEventListener("keydown", handleSummonShortcut);
-  }, [statusOpen, summonStatus]);
+  }, [mobileMenuOpen, statusOpen, summonStatus]);
   const closeStatus = useCallback(() => setStatusOpen(false), []);
 
   useEffect(() => {
@@ -276,13 +288,14 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
 
         <nav className="primary-nav" aria-label="Điều hướng chính">
-          {navItems.map(({ to, label, icon: Icon }) => (
-            <NavLink key={to} to={to} end={to === "/"} viewTransition aria-label={label} title={label}>
-              <Icon size={19} />
-              <span>{label}</span>
-              <ChevronRight className="nav-chevron" size={15} />
-            </NavLink>
-          ))}
+          {learnerPrimaryZones.map(zone => {
+            const Icon = navigationIcons[zone.icon];
+            const label = `${zone.label} · ${zone.lore}`;
+            const content = <><Icon size={19} aria-hidden="true" /><span className="learner-zone-copy"><strong>{zone.label}</strong><small>{zone.lore}</small></span><ChevronRight className="nav-chevron" size={15} aria-hidden="true" /></>;
+            return zone.to === null
+              ? <button key={zone.id} type="button" className={`learner-zone-trigger${mobileMenuOpen || activeZone === zone.id ? ' active' : ''}`} onClick={togglePracticeMenu} aria-label={label} title={label} aria-haspopup="dialog" aria-expanded={mobileMenuOpen} aria-controls="mobile-system-menu">{content}</button>
+              : <Link key={zone.id} to={zone.to} viewTransition className={activeZone === zone.id ? 'active' : ''} aria-current={activeZone === zone.id ? 'location' : undefined} aria-label={label} title={label}>{content}</Link>;
+          })}
         </nav>
 
         <div className="rail-footer">
@@ -307,55 +320,50 @@ export function AppShell({ children }: { children: ReactNode }) {
           title={page.title}
           plainTitle={page.plain}
           name={state.profile.name}
+          avatarUrl={avatar.url}
           statusOpen={statusOpen}
           statusButtonRef={statusButtonRef}
           onSummon={summonStatus}
         />
 
+        <RecoveryStatusSlot />
         <main className="main-stage" id="main-content" ref={mainRef} tabIndex={-1}><AwakeningVignette stageRef={mainRef} mode={resolvedMotion} quality={motionQuality} />{children}</main>
       </div>
 
       <nav className="mobile-nav" aria-label="Điều hướng di động">
-        {navItems.slice(0, 4).map(({ to, short, icon: Icon }) => (
-          <NavLink key={to} to={to} end={to === "/"} viewTransition>
-            <Icon size={19} />
-            <span>{short}</span>
-          </NavLink>
-        ))}
-        <button className={mobileMenuOpen ? "active" : ""} ref={mobileMenuButtonRef} type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-expanded={mobileMenuOpen} aria-controls="mobile-system-menu">
-          <LayoutGrid size={19} />
-          <span>Khác</span>
-        </button>
+        {learnerPrimaryZones.map(zone => {
+          const Icon = navigationIcons[zone.icon];
+          const content = <><Icon size={19} aria-hidden="true" /><span>{zone.label}</span></>;
+          return zone.to === null
+            ? <button key={zone.id} className={mobileMenuOpen || activeZone === zone.id ? 'active' : ''} type="button" onClick={togglePracticeMenu} aria-label="Luyện · chọn công cụ" aria-haspopup="dialog" aria-expanded={mobileMenuOpen} aria-controls="mobile-system-menu">{content}</button>
+            : <Link key={zone.id} to={zone.to} viewTransition className={activeZone === zone.id ? 'active' : ''} aria-current={activeZone === zone.id ? 'location' : undefined} aria-label={`${zone.label} · ${zone.lore}`}>{content}</Link>;
+        })}
       </nav>
 
       {mobileMenuOpen && (
-        <div className="mobile-menu-scrim" onMouseDown={() => {
+        <div className="mobile-menu-scrim learner-practice-scrim" onMouseDown={() => {
           setMobileMenuOpen(false);
           mobileMenuButtonRef.current?.focus();
         }}>
-          <section id="mobile-system-menu" className="mobile-system-menu" onMouseDown={(event) => event.stopPropagation()} aria-label="Mở rộng điều hướng" aria-modal="true" role="dialog">
+          <section id="mobile-system-menu" className="mobile-system-menu learner-practice-menu" onMouseDown={(event) => event.stopPropagation()} aria-label="Công cụ học và luyện tập" aria-modal="true" role="dialog">
             <header>
-              <div><small>SYSTEM MODULES</small><strong>Điện chức năng</strong></div>
-              <button ref={mobileMenuCloseRef} type="button" onClick={() => { setMobileMenuOpen(false); mobileMenuButtonRef.current?.focus(); }} aria-label="Đóng bảng chức năng"><X size={19} /></button>
+              <div><small>LUYỆN · CÔNG CỤ HỌC</small><strong>Chọn nơi luyện tập</strong></div>
+              <button ref={mobileMenuCloseRef} type="button" onClick={() => { setMobileMenuOpen(false); mobileMenuButtonRef.current?.focus(); }} aria-label="Đóng công cụ học"><X size={19} /></button>
             </header>
             <nav>
-              {navItems.slice(4).map(({ to, label, icon: Icon }) => (
-                <NavLink key={to} to={to} viewTransition>
-                  <Icon size={20} />
-                  <span>{label}</span>
-                  <ChevronRight size={16} />
-                </NavLink>
-              ))}
-              <NavLink to="/assessment" viewTransition><Target size={20} /><span>Khảo Nghiệm Căn Cơ</span><ChevronRight size={16} /></NavLink>
-              <NavLink to="/profile/premium" viewTransition><Crown size={20} /><span>Gói Premium</span><ChevronRight size={16} /></NavLink>
-              <NavLink to="/profile" viewTransition><Settings size={20} /><span>Bảng Thuộc Tính</span><ChevronRight size={16} /></NavLink>
+              {learnerToolDestinations.map(({ to, label, description, icon }) => {
+                const Icon = navigationIcons[icon];
+                return <NavLink key={to} to={to} end={to === '/'} viewTransition onClick={navigateFromMenu}>
+                  <Icon size={20} aria-hidden="true" /><span>{label}<small>{description}</small></span><ChevronRight size={16} aria-hidden="true" />
+                </NavLink>;
+              })}
             </nav>
           </section>
         </div>
       )}
       {!readerChapterRoute && <SystemStatusHologram open={statusOpen} onClose={closeStatus} returnFocusRef={statusButtonRef} />}
       {!readerChapterRoute && <SystemPromotionOverlay />}
-      {assessmentInviteOpen && !readerRoute && !lessonRoute && !reviewRoute && !remediationRoute && (
+      {assessmentInviteOpen && !mobileMenuOpen && !statusOpen && !readerRoute && !lessonRoute && !reviewRoute && !remediationRoute && !speechRoute && (
         <aside className="assessment-invite" role="status" aria-label="Lời mời Khảo Nghiệm Căn Cơ">
           <header>
             <Target size={20} aria-hidden="true" />

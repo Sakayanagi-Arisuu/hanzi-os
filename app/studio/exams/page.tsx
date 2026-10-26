@@ -32,13 +32,13 @@ export default async function ExamAccessPage({ searchParams }: { searchParams: P
     {query.notice && <p className="studio-alert" role="status">{query.notice}</p>}{query.error && <p className="studio-alert error" role="alert">{query.error}</p>}
     {!canChange && <p className="studio-alert">Biên tập viên chọn quyền trong bản nháp bộ đề. Thay quyền của đề đang phát hành cần tài khoản có quyền phát hành nội dung.</p>}
     <section className="studio-section"><h2>Soạn bộ đề bằng biểu mẫu</h2><p>Soạn câu hỏi, kiểm định và phát hành vào ngân hàng; sau đó ghép câu theo kỹ năng vào cửa G–L. Bộ đề chỉ đến người học sau khi được duyệt và phát hành.</p><div className="studio-two-columns"><a className="studio-button" href="/studio?create=exam_item">Soạn câu hỏi</a><a className="studio-button" href="/studio?create=exam_form">Soạn bộ đề G–L</a></div></section>
-    {HSK_EXAM_LEVELS.map(level=><section className="studio-section" key={level}><h2>{level.toUpperCase()}</h2><div className="studio-repeat-stack">{definitions.filter(item=>item.examLevel===level).map(item=>{
+    {HSK_EXAM_LEVELS.map((level,index)=><details className="tv-exam-level" key={level} open={index===0}><summary>{level.toUpperCase()} · Bộ đề & quyền truy cập</summary><section className="studio-section"><div className="studio-repeat-stack">{definitions.filter(item=>item.examLevel===level).map(item=>{
       const tier = mockExamTier(item.formKey,rules.get(`${level}:${item.formKey}`) ?? item.accessTier);
       return <form className="studio-two-columns" key={item.formKey} action="/studio/exams/access" method="post">
         <input type="hidden" name="examLevel" value={level}/><input type="hidden" name="formKey" value={item.formKey}/>
         <div><strong>Cửa {item.formKey.toUpperCase()} · {item.title}</strong><p>{item.itemCount} câu · {item.timeLimitMinutes} phút</p></div>
         <label><span>Quyền truy cập</span><select name="tier" defaultValue={tier} disabled={!canChange}><option value="free">Miễn phí</option><option value="premium">Premium</option></select><button className="studio-button" type="submit" disabled={!canChange}>Lưu quyền cửa {item.formKey.toUpperCase()}</button></label>
       </form>;
-    })}</div></section>)}
+    })}</div></section></details>)}
   </div></main>;
 }

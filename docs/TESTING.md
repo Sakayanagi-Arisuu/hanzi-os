@@ -1,6 +1,6 @@
 # Chạy và kiểm thử HANZI.OS theo từng module
 
-Cập nhật: **10/08/2026**.
+Cập nhật: **09/10/2026**.
 
 ## 1. Chạy local
 
@@ -21,6 +21,66 @@ session và dữ liệu server local. `npm run clean:local` chỉ được xóa 
 tạo được và phải giữ `.wrangler/`, `docs/reports/`, `output/`, `content/`.
 
 ## 2. Chu trình nghiệm thu một module
+
+### Kiểm thử học offline tại local
+
+Service worker chỉ bật trong bản build. Dùng hai terminal, giữ D1 hiện có:
+
+```powershell
+# Terminal 1: API local, không tự chạy migration
+npx vinext dev
+
+# Terminal 2: build và preview offline
+npm run build:offline-local
+node scripts/serve-offline-local.mjs
+```
+
+Mở http://127.0.0.1:4174; preview chuyển API về http://localhost:3000.
+Đợi terminal API báo `Local: http://localhost:3000/` trước khi chạy browser test.
+Hai địa chỉ có browser storage riêng: tiến độ guest ở port 3000 không tự xuất
+hiện ở 4174, không xóa storage để chuyển. Tài khoản dùng cùng D1 local.
+Đăng nhập và giữ web mở để ứng dụng tự chuẩn bị dữ liệu. Trong **Hồ sơ → Dữ liệu
+trên thiết bị**, xem trạng thái chuẩn bị; nếu chưa đủ, giữ mạng/server và thử lại.
+Không cần tải thủ công từng bài. Chỉ thử mất mạng sau khi nội dung cần học đã lưu.
+Sau đó ngắt mạng hoặc dừng terminal API: tài khoản đã lưu vẫn hiện, bài được mở
+offline, câu trả lời và lượt nộp giữ qua đóng/mở lại. Khôi phục API và mạng khi
+web mở để tự đồng bộ. Server lỗi 503 cũng được xử lý khi thiết bị vẫn có Internet.
+
+Port 4174 chỉ là công cụ kiểm thử bản build. Người dùng PWA đã cài từ một origin
+HTTPS có thể mở ứng dụng khi server tắt; họ không cần chạy server/terminal riêng.
+Lần đầu đăng nhập/cài/chuẩn bị nội dung vẫn cần server. Hosting không cần cho
+implementation local; kiểm cài PWA trên điện thoại thật cần HTTPS có thể truy cập.
+Đã có APK TWA và bản Capacitor với build/gate riêng tại ANDROID_APP.md. Đồng bộ chạy khi ứng dụng mở, không cam kết tác vụ nền
+khi hệ điều hành đã đóng ứng dụng.
+
+Danh tính offline và quyền Premium được lưu có thời hạn tối đa 30 ngày, quyền
+Premium không vượt ngày hết hạn thực. Học liệu chưa lưu, nội dung vừa xuất bản,
+chấm âm học phát âm, chức năng quản trị/thanh toán và cấp phiên có authority từ
+server vẫn cần kết nối. Lượt luyện đề mới dùng giờ thiết bị, chờ server chấm và
+lưu lịch sử luyện; không tự tạo mastery/XP/chứng nhận hoặc mở prerequisite.
+Phiên luyện đề server đã cấp trước thay đổi vẫn dùng adapter cũ, chưa có journal
+offline mới. Khảo luyện đọc cũ cần server cấp phiên mới; phiên đã cấp có outbox.
+Không xóa browser storage để sửa lỗi: phần chờ gửi phải được giữ theo owner/reset.
+
+Migration `0038_offline_workspace.sql` bổ sung workspace mô tả (vị trí đọc, ngày
+truy cập, lịch sử luyện đề) và không thay bảng evidence. D1 local hiện đã áp dụng;
+bản sao trước migration nằm ở `tmp/pre-offline-workspace-1791533308291.sqlite`.
+Nếu chạy trên database khác, áp dụng migration trước khi kiểm đồng bộ workspace.
+
+Browser regression riêng (tạo fixture tài khoản trên D1 local, xóa sau test):
+
+```powershell
+npx playwright test --config playwright.offline.config.ts
+```
+
+Kết quả/screenshot nằm trong `tmp/`; không dùng browser profile của người học.
+Đây là preview local, không phải public hosting hoặc nghiệm thu production.
+Sau mỗi build, khởi động lại preview để nó đọc worker/chunk mới. Đừng chạy build
+đồng thời browser test trên máy ít RAM; API dev có thể chậm hoặc lỗi gián đoạn.
+`build:offline-local` bật practice preview chỉ ở localhost/127.0.0.1 để kiểm các
+màn còn bị cờ phát hành đóng trong build mặc định. Cờ không mở trên hostname
+khác, không thay content promotion và không bật production. Build thông thường
+vẫn giữ gate phát hành; không deploy bản preview local.
 
 Theo yêu cầu ưu tiên Thiên Lộ/Xưởng ngày 20/09/2026, tổng JS/CSS toàn ứng dụng
 cộng hero vượt 1 MiB chỉ là cảnh báo theo dõi trong `check-bundle-budget.mjs`.

@@ -7,6 +7,11 @@ import {publishedLessonPageActivities} from './publishedLessonPageActivities';
 import {emptyLessonBlock} from '../learning/lessonPages';
 import {emptyLessonActivity} from '../learning/lessonActivities';
 import {matchPageAttemptReceipt,parsePageAttemptCommand} from '../learning/pageAttemptCommand';
+import {MistakeQueueRepository} from './mistakeQueueRepository';
+import {scorePageRemediation} from './pageRemediationRepository';
+import {contentReleasePolicyForEnvironment} from './contentReleasePolicy';
+import {CONTENT_VERSION} from '../data/curriculum';
+import type {LearningAttemptCommandV1} from '../learning/attemptProtocol';
 const {publishedRuntime,releasedLessonRuntimeRevisions}=vi.hoisted(()=>({publishedRuntime:vi.fn(),releasedLessonRuntimeRevisions:vi.fn()}));
 vi.mock('./contentStudioRepository',()=>({ContentStudioRepository:class{publishedRuntime=publishedRuntime;releasedLessonRuntimeRevisions=releasedLessonRuntimeRevisions;}}));
 let sqlite:DatabaseSync,db:D1Database;
@@ -23,6 +28,40 @@ beforeEach(()=>{
  releasedLessonRuntimeRevisions.mockReset();releasedLessonRuntimeRevisions.mockResolvedValue([]);
 });
 afterEach(()=>sqlite.close());
+it('carries published page mistakes into remediation, replays corrections and isolates owners/resets', async () => {
+ const c=await command();
+ await new LessonPageAttemptRepository(db).record('a',{...c,response:{...c.response,text:'错'}});
+ releasedLessonRuntimeRevisions.mockResolvedValue(manifest.items);
+ sqlite.exec(`CREATE TABLE profiles(user_id TEXT,script TEXT);
+ CREATE TABLE enrollments(id TEXT,user_id TEXT,course_version_id TEXT,status TEXT);
+ CREATE TABLE course_versions(id TEXT,release_state TEXT,linguistic_review_status TEXT);
+ CREATE TABLE learning_attempts(id TEXT,user_id TEXT,enrollment_id TEXT,reset_epoch INTEGER,content_version TEXT,activity_id TEXT,activity_version TEXT,source TEXT,method TEXT,skill TEXT,outcome TEXT,used_hint INTEGER,occurred_at INTEGER,received_at INTEGER);
+ CREATE TABLE learning_evidence(user_id TEXT,attempt_id TEXT,reset_epoch INTEGER,source TEXT,outcome TEXT,verified INTEGER);
+ INSERT INTO profiles VALUES('a','simplified'),('b','simplified');`);
+ sqlite.prepare("INSERT INTO course_versions VALUES(?,'published','approved')").run(CONTENT_VERSION);
+ for(const owner of ['a','b'])sqlite.prepare("INSERT INTO enrollments VALUES(?,?,?,'active')").run(owner,owner,CONTENT_VERSION);
+ const queue=new MistakeQueueRepository(db,contentReleasePolicyForEnvironment('development'));
+ let result=await queue.read('a');
+ expect(result.openCount).toBe(1);expect(result.items[0].prompt).toBe('Điền');
+ expect(result.items[0]).not.toHaveProperty('correctAnswer');
+ expect((await queue.read('b')).items).toEqual([]);
+ const correction={source:'mistake',method:'typed-character-recall',activityId:c.activityId,activityVersion:c.activityVersion,
+  response:{answer:'在',usedHint:false}} as LearningAttemptCommandV1;
+ const score=await scorePageRemediation(db,correction);
+ expect(score.outcome).toBe('correct');expect(score.baseMasteryEligible).toBe(false);
+ expect(score.remediationFeedback?.correctAnswer).toBe('在');
+ await expect(scorePageRemediation(db,{...correction,activityVersion:'changed'})).rejects.toThrow('unavailable');
+ const insert=sqlite.prepare('INSERT INTO learning_attempts VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+ const evidence=sqlite.prepare('INSERT INTO learning_evidence VALUES(?,?,?,?,?,?)');
+ // A correction after the old 4000-row boundary must still close the mistake.
+ for(let index=0;index<4001;index++){
+  insert.run(String(index),'a','a',0,CONTENT_VERSION,c.activityId,c.activityVersion,'mistake','remediation-recall','reading','correct',index<4000?1:0,Date.parse(c.occurredAt)+index+1,Date.now()+index+1);
+  evidence.run('a',String(index),0,'mistake','correct',1);
+ }
+ result=await queue.read('a');expect(result.openCount).toBe(0);expect(result.resolvedCount).toBe(1);
+ sqlite.prepare('INSERT INTO learning_documents VALUES(?,?)').run('a',JSON.stringify({reset:{epoch:1}}));
+ expect((await queue.read('a')).items).toEqual([]);
+});
 const command=async()=>{
  const entry=[...(await publishedLessonPageActivities(manifest)).values()][0];
  return {version:1,idempotencyKey:'one',resetEpoch:0,lessonId:'boot-1',activityId:entry.activityId,activityVersion:entry.activityVersion,occurredAt:'2026-09-14T10:00:00Z',response:{text:'在',answerIds:[],usedHint:false,priorFeedback:false,priorReveal:false}};

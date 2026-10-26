@@ -1,9 +1,11 @@
-import { CONTENT_VERSION, RELEASED_WORD_BY_ID } from "../data/curriculum";
-import { EDITORIAL_WORD_BY_ID, LEXICAL_EDITORIAL_VERSION } from "../content/lexicalEditorialCatalog";
-import { canonicalStringify, sha256Hex } from "../sync/document";
+import { CONTENT_VERSION } from "../data/contentIdentity";
+import runtimeIds from "../../content/packages/foundation-2026.08.7/runtime-ids.json";
+import editorialManifest from "../../content/packages/lexical-editorial-2026.10.5/manifest.json";
+import { canonicalStringify, sha256Hex } from "../sync/canonicalHash";
 import { isValidLearningResetEpoch } from "./resetEpoch";
 
 export const REVIEW_PROTOCOL_VERSION = 1 as const;
+const RELEASED_WORD_IDS = new Set(runtimeIds.vocabularyIds);
 export const REVIEW_IDEMPOTENCY_SCOPE = "learning-review-v1";
 export const REVIEW_QUEUE_PROTOCOL_VERSION = 1 as const;
 export const REVIEW_QUEUE_MAX_OFFERS = 12;
@@ -13,6 +15,14 @@ export const REVIEW_SCHEDULER_VERSION =
   "ts-fsrs-5.4.1:retention-0.9:no-fuzz:v1" as const;
 
 export type ReviewRating = 1 | 2 | 3 | 4;
+export type ReviewHistoryContextV1={version:1;occurredAt:string;hint:boolean;reveal:boolean};
+export const isReviewHistoryContext=(value:unknown):value is ReviewHistoryContextV1=>{
+  if(!value||typeof value!=='object'||Array.isArray(value))return false;
+  const entry=value as Record<string,unknown>;
+  return entry.version===1&&typeof entry.occurredAt==='string'&&entry.occurredAt.length<=40&&Number.isFinite(Date.parse(entry.occurredAt))
+    &&typeof entry.hint==='boolean'&&typeof entry.reveal==='boolean'
+    &&Object.keys(entry).every(key=>['version','occurredAt','hint','reveal'].includes(key));
+};
 
 export type ReviewQueueCardV1 = {
   cardId: string;
@@ -52,6 +62,7 @@ export type GradeReviewCommandV1 = {
   expectedCardRevision: number;
   rating: ReviewRating;
   durationMs?: number;
+  historyContext?:ReviewHistoryContextV1;
 };
 
 export type GradeReviewReceiptV1 = {
@@ -98,6 +109,7 @@ const COMMAND_KEYS = new Set([
   "expectedCardRevision",
   "rating",
   "durationMs",
+  "historyContext",
 ]);
 
 const QUEUE_KEYS = new Set([
@@ -127,7 +139,7 @@ const exactKeys = (
   allowed: ReadonlySet<string>,
 ) => Object.keys(value).every((key) => allowed.has(key))
   && [...allowed].every((key) =>
-    key === "durationMs" || Object.hasOwn(value, key)
+    key === "durationMs" || key === "historyContext" || Object.hasOwn(value, key)
   );
 
 const boundedString = (value: unknown, maximum: number): value is string =>
@@ -156,13 +168,10 @@ const canonicalTimestamp = (value: unknown): value is string => {
 export const reviewWordVersion = (wordId: string) =>
   `${CONTENT_VERSION}:vocabulary:${wordId}:1`;
 export const editorialReviewWordVersion = (wordId: string) =>
-  `${reviewWordVersion(wordId)}:${LEXICAL_EDITORIAL_VERSION}`;
+  `${reviewWordVersion(wordId)}:${editorialManifest.version}`;
 export const isSupportedReviewWordVersion = (wordId: string, version: unknown) =>
-  RELEASED_WORD_BY_ID.has(wordId) && (version === reviewWordVersion(wordId)
+  RELEASED_WORD_IDS.has(wordId) && (version === reviewWordVersion(wordId)
     || version === editorialReviewWordVersion(wordId));
-export const reviewPresentationWord = (wordId: string, version: string) =>
-  version === editorialReviewWordVersion(wordId)
-    ? EDITORIAL_WORD_BY_ID.get(wordId) : RELEASED_WORD_BY_ID.get(wordId);
 
 export const parseGradeReviewCommand = (
   input: unknown,
@@ -182,11 +191,12 @@ export const parseGradeReviewCommand = (
     || !boundedString(input.deviceId, 160)
     || !positiveInteger(input.deviceSequence)
     || !isValidLearningResetEpoch(input.resetEpoch)
+    || input.historyContext!==undefined&&!isReviewHistoryContext(input.historyContext)
     || input.contentVersion !== CONTENT_VERSION
     || input.schedulerVersion !== REVIEW_SCHEDULER_VERSION
     || !boundedString(input.cardId, 160)
     || !boundedString(input.wordId, 160)
-    || !RELEASED_WORD_BY_ID.has(input.wordId)
+    || !RELEASED_WORD_IDS.has(input.wordId)
     || !isSupportedReviewWordVersion(input.wordId, input.wordVersion)
     || !positiveInteger(input.expectedCardRevision)
     || typeof input.rating !== "number"
@@ -219,6 +229,7 @@ export const parseGradeReviewCommand = (
       ...(input.durationMs === undefined
         ? {}
         : { durationMs: input.durationMs }),
+      ...(input.historyContext===undefined?{}:{historyContext:structuredClone(input.historyContext) as ReviewHistoryContextV1}),
     },
   };
 };
@@ -248,7 +259,7 @@ export const parseReviewQueue = (input: unknown): ReviewQueueParseResult => {
       || !boundedString(candidate.cardId, 160)
       || !positiveInteger(candidate.cardRevision)
       || !boundedString(candidate.wordId, 160)
-      || !RELEASED_WORD_BY_ID.has(candidate.wordId)
+      || !RELEASED_WORD_IDS.has(candidate.wordId)
       || !isSupportedReviewWordVersion(candidate.wordId, candidate.wordVersion)
       || candidate.modality !== REVIEW_MODALITY
       || !canonicalTimestamp(candidate.dueAt)
@@ -280,3 +291,13 @@ export const parseReviewQueue = (input: unknown): ReviewQueueParseResult => {
 export const hashGradeReviewCommand = (
   command: GradeReviewCommandV1,
 ) => sha256Hex(canonicalStringify(command));
+
+export function parseReviewHistoryCommand(input:unknown):(Omit<GradeReviewCommandV1,'schedulerVersion'>&{schedulerVersion:string})|null{
+  if(!isRecord(input)||!exactKeys(input,COMMAND_KEYS)||input.protocolVersion!==1
+    ||!['idempotencyKey','installationId','deviceId','contentVersion','schedulerVersion','cardId','wordId','wordVersion'].every(key=>boundedString(input[key],240))
+    ||!positiveInteger(input.deviceSequence)||!positiveInteger(input.expectedCardRevision)||!isValidLearningResetEpoch(input.resetEpoch)
+    ||typeof input.rating!=='number'||![1,2,3,4].includes(input.rating)
+    ||input.durationMs!==undefined&&!duration(input.durationMs)
+    ||input.historyContext!==undefined&&!isReviewHistoryContext(input.historyContext))return null;
+  return structuredClone(input) as Omit<GradeReviewCommandV1,'schedulerVersion'>&{schedulerVersion:string};
+}

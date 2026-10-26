@@ -1,0 +1,52 @@
+import groovy.json.JsonSlurper
+
+plugins { id 'com.android.application' }
+
+def config = new JsonSlurper().parse(rootProject.file('twa-config.json'))
+def releaseKey = System.getenv('HANZI_ANDROID_KEYSTORE')
+def releasePassword = System.getenv('HANZI_ANDROID_STORE_PASSWORD')
+def releaseAlias = System.getenv('HANZI_ANDROID_KEY_ALIAS')
+def releaseKeyPassword = System.getenv('HANZI_ANDROID_KEY_PASSWORD')
+
+android {
+    namespace config.applicationId
+    compileSdk config.compileSdk
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        applicationId config.applicationId
+        minSdk config.minSdk
+        targetSdk config.targetSdk
+        versionCode config.versionCode
+        versionName config.versionName
+        manifestPlaceholders = [launchHost: new URI(config.origin).host,
+                                startUrl: config.origin + '/']
+    }
+    signingConfigs {
+        release {
+            if (releaseKey && releasePassword && releaseAlias && releaseKeyPassword) {
+                storeFile file(releaseKey)
+                storePassword releasePassword
+                keyAlias releaseAlias
+                keyPassword releaseKeyPassword
+            }
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+    }
+    lint { abortOnError true }
+}
+
+gradle.taskGraph.whenReady { graph ->
+    if (graph.allTasks.any { it.name.toLowerCase().contains('release') }
+        && !(releaseKey && releasePassword && releaseAlias && releaseKeyPassword)) {
+        throw new GradleException('Release signing is required. Use npm run android:build; never distribute a debug APK.')
+    }
+}
+
+dependencies {
+    implementation "com.google.androidbrowserhelper:androidbrowserhelper:${config.browserHelperVersion}"
+}

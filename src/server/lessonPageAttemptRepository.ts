@@ -30,6 +30,19 @@ export class LessonPageAttemptRepository{
    return receipt(row,duplicate);
   };
   const previous=await existing();if(previous)return acknowledge(previous,true);
+  if(command.observation){
+   const observation=command.observation;
+   if(command.activityId!==`lesson-page:${JSON.stringify([command.lessonId,observation.pageId,observation.blockId])}`
+    ||command.activityVersion!==observation.contentVersion)throw new TypeError('Invalid page practice source');
+   const id=randomUUID();
+   await this.db.prepare(`INSERT INTO lesson_page_attempts (id,user_id,reset_epoch,idempotency_key,request_hash,activity_id,activity_version,lesson_id,revision_id,response_json,outcome,occurred_at,created_at)
+    SELECT ?,?,?,?,?,?,?,?,?,?,?,?,? WHERE ${CURRENT_LEARNING_RESET_EPOCH_SQL}
+    AND EXISTS(SELECT 1 FROM users WHERE id=? AND status='active')
+    ON CONFLICT(user_id,reset_epoch,idempotency_key) DO NOTHING`).bind(id,userId,command.resetEpoch,command.idempotencyKey,hash,command.activityId,command.activityVersion,command.lessonId,'unknown',canonicalStudioJson({...command.response,observation}),'self-review',command.occurredAt,Date.now(),userId,command.resetEpoch,userId).run();
+   const row=await existing();
+   if(!row){await requireCurrentLearningResetEpoch(this.db,userId,command.resetEpoch);throw new PageAttemptConflictError('Account unavailable');}
+   return acknowledge(row,row.id!==id);
+  }
   const studio=new ContentStudioRepository(this.db);
   const manifest=await studio.publishedRuntime({itemType:'lesson',learnerSafe:true});
   let registry=await publishedLessonPageActivities({...manifest,items:manifest.items.filter(item=>item.content.targetLessonId===command.lessonId)});

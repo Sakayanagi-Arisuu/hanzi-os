@@ -1,4 +1,6 @@
 import { getChatGPTUser } from "../../../chatgpt-auth";
+import { deriveAccountKey } from '../../../../src/lib/accountKey';
+import { learningOwnerMismatch } from '../../../../src/server/learningOwnerHttp';
 import {
   getD1Database,
   SyncBackendUnavailableError,
@@ -58,6 +60,7 @@ export async function GET(request: Request) {
     if (!identity) {
       return errorResponse(401, "AUTH_REQUIRED", "Đăng nhập để tải EXP tài khoản.", requestId);
     }
+    const mismatch = await learningOwnerMismatch(request, identity); if (mismatch) return mismatch;
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);
     const projection = await new InteractionXpRepository(database).read(
@@ -119,6 +122,10 @@ export async function POST(request: Request) {
     const identity = await getChatGPTUser();
     if (!identity) {
       return errorResponse(401, "AUTH_REQUIRED", "Đăng nhập để nhận EXP tài khoản.", requestId);
+    }
+    const expectedOwner = request.headers.get('x-learning-owner');
+    if (expectedOwner && expectedOwner !== await deriveAccountKey(identity.userId || identity.email)) {
+      return errorResponse(409, 'OWNER_CHANGED', 'Tài khoản vừa thay đổi; thưởng vẫn được giữ trên thiết bị.', requestId);
     }
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);

@@ -29,6 +29,9 @@ import {
   ReviewRepository,
 } from "./reviewRepository";
 import { createAuthoritativeReviewCard } from "./reviewScheduler";
+import {ReviewHistoryRepository} from './reviewHistoryRepository';
+import {projectLessonHistory} from '../learning/lessonHistory';
+import {commandReviewHistoryEvents} from '../sync/reviewHistory';
 
 const migrationDirectory = new URL("../../drizzle/", import.meta.url);
 const migrations = readdirSync(migrationDirectory)
@@ -305,6 +308,56 @@ const reviewGraphCounts = (database: SQLiteD1) =>
   ).get(REVIEW_IDEMPOTENCY_SCOPE) as Record<string, number>;
 
 describe("server-authoritative review repository", () => {
+  it('backfills archived business versions idempotently and retains rows after malformed context', async () => {
+    const database = new SQLiteD1();
+    seedReviewAuthority(database);
+    await repositoryFor(database).grade('user-a', command());
+    database.database.exec(`INSERT INTO course_versions (id,course_id,schema_version,manifest_hash,release_state,created_at)
+      VALUES ('archived-content','hanzi-os-core',1,'archived-manifest','retired',0);
+      UPDATE learning_attempts SET content_version='archived-content', activity_version='archived-word', response_json='{}';
+      UPDATE review_logs SET pre_card_json='{}', post_card_json='{}', scheduler_version='archived-scheduler'`);
+    const history = new ReviewHistoryRepository(database);
+    const page = await history.readPage('user-a', 'account:a', 0);
+    expect(await history.readPage('user-a', 'account:a', 0)).toEqual(page);
+    expect(page.events[0]).toMatchObject({contentVersion:'archived-content', activityVersion:'archived-word',
+      clockSource:'server-received', sourceRecordRef:expect.any(String), lineage:'server-business-record', assistance:{hint:null,reveal:null},
+      review:{rating:3, wordVersion:'archived-word', schedulerVersion:'archived-scheduler',cardRevision:null,nextCardRevision:null,nextDueAt:null}});
+    database.database.exec(`UPDATE learning_attempts SET response_json='{"historyContext":{"version":99}}'`);
+    const before = database.database.prepare('SELECT * FROM review_logs').all();
+    await expect(history.readPage('user-a', 'account:a', 0)).rejects.toThrow('retain');
+    expect(database.database.prepare('SELECT * FROM review_logs').all()).toEqual(before);
+    database.database.close();
+  });
+
+  it('rebuilds confirmed self-ratings from the business transaction, including context and two reviews of one card',async()=>{
+    const database=new SQLiteD1();seedReviewAuthority(database);seedReviewAuthority(database,'user-b');
+    const input=command({historyContext:{version:1,occurredAt:new Date(NOW-500).toISOString(),hint:true,reveal:true}});
+    const first=await repositoryFor(database).grade('user-a',input);
+    expect(await repositoryFor(database).grade('user-a',input)).toEqual({...first,duplicate:true});
+    const history=new ReviewHistoryRepository(database);
+    const page=await history.readPage('user-a','account:a',0);
+    expect(page.events).toHaveLength(1);
+    expect(page.events[0]).toMatchObject({operationId:input.idempotencyKey,authority:'server-recorded',outcome:'self-review',score:null,
+      occurredAt:input.historyContext!.occurredAt,assistance:{hint:true,reveal:true},review:{cardId,wordId,rating:3,cardRevision:1,nextCardRevision:2,reportedDurationMs:1250}});
+    expect((await history.readPage('user-b','account:b',0)).events).toEqual([]);
+    const pending=commandReviewHistoryEvents([{outboxVersion:1,kind:'review-grade',ownerKey:'account:a',resetEpoch:0,commandId:input.idempotencyKey,
+      deviceSequence:input.deviceSequence,command:input,recordKey:'local-command',status:'pending'} as Parameters<typeof commandReviewHistoryEvents>[0][number]]);
+    expect(projectLessonHistory({ownerKey:'account:a',resetEpoch:0},[...pending,...page.events])).toHaveLength(1);
+    const later=Date.parse(first.nextDueAt)+1;
+    await new ReviewRepository(database,promotedPolicy,()=>later).grade('user-a',command({idempotencyKey:'review:second',deviceSequence:2,expectedCardRevision:2,rating:1}));
+    database.database.exec('UPDATE review_logs SET received_at=123456');
+    const firstPage=await history.readPage('user-a','account:a',0,{limit:1});
+    const lastPage=await history.readPage('user-a','account:a',0,{limit:1,cursor:firstPage.nextCursor});
+    expect(new Set([...firstPage.events,...lastPage.events].map(event=>event.eventId)).size).toBe(2);
+    expect(lastPage.nextCursor).toBeNull();
+    const legacy=[...firstPage.events,...lastPage.events].find(event=>event.operationId==='review:second')!;
+    expect(legacy).toMatchObject({clockSource:'server-received',assistance:{hint:null,reveal:null},review:{rating:1}});
+    expect(reviewGraphCounts(database)).toMatchObject({reviewLogCount:2,attemptCount:2,xpCount:0});
+    const before=database.database.prepare('SELECT count(*) AS count FROM review_logs').get();
+    await expect(history.readPage('user-a','account:a',1)).rejects.toBeInstanceOf(LearningResetEpochConflictError);
+    expect(database.database.prepare('SELECT count(*) AS count FROM review_logs').get()).toEqual(before);
+    database.database.close();
+  });
   it("atomically writes the nine-step review graph without XP or mastery", async () => {
     const database = new SQLiteD1();
     seedReviewAuthority(database);

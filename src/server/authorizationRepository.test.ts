@@ -315,6 +315,11 @@ describe("authorization repository", () => {
     expect(second.users).toHaveLength(1);
     expect(first.users[0]?.userId).not.toBe(second.users[0]?.userId);
     expect([...first.users, ...second.users].every((user) => user.roles.includes("content_editor"))).toBe(true);
+    database.database.prepare("INSERT INTO profiles (user_id, display_name, goal, daily_minutes, script, starting_level, created_at, updated_at) VALUES (?, 'Linh Chi', 'hsk', 20, 'simplified', 'zero', 1, 1)").run(userIds[1]!);
+    const byName = await repository.listUserPage({ query: "Linh Chi" });
+    expect(byName.filteredTotal).toBe(1);
+    expect(byName.users[0]).toMatchObject({ userId: userIds[1], displayName: "Linh Chi" });
+    expect((await repository.listUserPage({ query: "%" })).filteredTotal).toBe(0);
   });
 
   it("paginates filtered audit events while keeping append-only global totals", async () => {

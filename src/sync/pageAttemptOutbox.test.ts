@@ -96,7 +96,7 @@ it('rejects an in-flight acknowledgement after the canonical reset epoch advance
 });
 it('recovers saved first answers after enqueue was interrupted and ignores corrected draft text',async()=>{
  const cache={expectedOwnerGeneration:scope.ownerGeneration,resetEpoch:0,entryKey:'lesson-reading:v1:"boot-1"'};
- const snapshot:LessonReadingSession={version:1,lessonId:'boot-1',index:0,showTranscript:false,document:{version:1,pages:[{id:'p',title:'Trang',layout:'focus',blocks:[{...emptyLessonBlock('b'),kind:'activity',activity:emptyLessonActivity()}]}]},drafts:{b:{text:'corrected answer',revealed:false,compared:true,firstAttempt:{version:1,text:'first wrong answer',answerIds:[],occurredAt:'2026-09-14T10:00:00Z',usedHint:false,priorFeedback:false,priorReveal:false,binding:{activityId:'lesson-page:["boot-1","p","b"]',activityVersion:`lesson-page-v1:sha256:${'a'.repeat(64)}`,pageId:'p',blockId:'b',revisionId:'r'}}}}};
+ const snapshot:LessonReadingSession={version:1,lessonId:'boot-1',index:0,showTranscript:false,document:{version:1,pages:[{id:'p',title:'Trang',layout:'focus',blocks:[{...emptyLessonBlock('b'),kind:'activity',body:'Điền',activity:{...emptyLessonActivity(),type:'cloze',acceptedAnswers:['在'],explanation:'Vị trí'}}]}]},drafts:{b:{text:'corrected answer',revealed:false,compared:true,firstAttempt:{version:1,text:'first wrong answer',answerIds:[],occurredAt:'2026-09-14T10:00:00Z',usedHint:false,priorFeedback:false,priorReveal:false,binding:{activityId:'lesson-page:["boot-1","p","b"]',activityVersion:`lesson-page-v1:sha256:${'a'.repeat(64)}`,pageId:'p',blockId:'b',revisionId:'r'}}}}};
  await writeLessonResume({...cache,value:snapshot});
  expect(await readPageAttemptOutbox(scope)).toEqual([]);
  await resetSyncDatabaseForTests();

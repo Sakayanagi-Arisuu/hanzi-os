@@ -1,3 +1,5 @@
+import { AssessmentEditor } from '../../assessment/AssessmentEditor';
+import { SystemSettingsRepository } from '../../../../src/server/systemSettingsRepository';
 import {
   ArrowLeft,
   BookOpenText,
@@ -15,6 +17,9 @@ import {
   UserRoundCheck,
 } from "lucide-react";
 import { getAuthenticatedUser } from "../../../chatgpt-auth";
+import { RevisionWorkspace } from "../../RevisionWorkspace";
+import { ReaderSeriesStudio } from "../../library/ReaderSeriesStudio";
+import { parseEditorialReaderBook } from "../../../../src/reader/editorialReaderContent";
 import { hasPermission } from "../../../../src/auth/authorization";
 import {
   STUDIO_ITEM_PRESENTATION,
@@ -120,6 +125,8 @@ export default async function StudioRevisionPage({
     const canFork = ["published", "archived"].includes(revision.workflowState)
       && hasPermission(account.authorization, "content:drafts:write");
     const presentation = STUDIO_ITEM_PRESENTATION[revision.itemType];
+    const previewEnabled = (await new SystemSettingsRepository(database).get("content_preview_enabled")).value === true;
+    const readerBook = revision.content.contentKind === "reader-series" ? parseEditorialReaderBook(revision.content.readerSeries) : null;
     const examFormSuggestions = undefined;
     const examQuestionChoices = undefined;
 
@@ -137,6 +144,7 @@ export default async function StudioRevisionPage({
         {query.error && <div className="studio-alert error" role="alert">{query.error}</div>}
       </header>
 
+      <RevisionWorkspace previewEnabled={previewEnabled}>
       <section className="studio-section" aria-labelledby="assignment-title">
         <header className="studio-section-heading"><div><span className="studio-kicker">ĐIỀU PHỐI BIÊN TẬP</span><h2 id="assignment-title">Trách nhiệm và hạn xử lý</h2></div><p>Phân công do Điều Hành Viên quản lý. Mỗi thay đổi được lưu nối tiếp để không mất dấu người chịu trách nhiệm.</p></header>
         <div className="studio-ops-grid">
@@ -149,7 +157,7 @@ export default async function StudioRevisionPage({
 
       {canEdit ? <section className="studio-section" aria-labelledby="editor-title">
         <header className="studio-section-heading"><div><span className="studio-kicker">BÀN SOẠN NỘI DUNG</span><h2 id="editor-title">Chỉnh sửa bằng biểu mẫu</h2></div><p>Mọi trường kỹ thuật được hệ thống tự xử lý. Hãy tập trung vào tiếng Trung, Pinyin, nghĩa Việt và chất lượng sư phạm.</p></header>
-        <StudioStructuredEditor mode="update" draftSeed={crypto.randomUUID().slice(0, 8)} revisionId={revision.id} expectedRowVersion={revision.rowVersion} initialItemType={revision.itemType} initialLevel={revision.level} initialTitle={revision.title} initialStableKey={revision.stableKey} initialContent={revision.content} examFormSuggestions={examFormSuggestions} examQuestionChoices={examQuestionChoices} />
+        {revision.content.contentKind === "assessment-item" ? <AssessmentEditor revision={revision} /> : readerBook?.ok ? <ReaderSeriesStudio revisions={[]} canDraft aiAvailable={Boolean(process.env.GOOGLE_API_KEY?.trim() || process.env.GEMINI_API_KEY?.trim())} initialRevision={revision} initialBook={readerBook.book} /> : <StudioStructuredEditor mode="update" draftSeed={crypto.randomUUID().slice(0, 8)} revisionId={revision.id} expectedRowVersion={revision.rowVersion} initialItemType={revision.itemType} initialLevel={revision.level} initialTitle={revision.title} initialStableKey={revision.stableKey} initialContent={revision.content} examFormSuggestions={examFormSuggestions} examQuestionChoices={examQuestionChoices} />}
       </section> : <section className="studio-section" aria-labelledby="preview-title"><header className="studio-section-heading"><div><span className="studio-kicker">NỘI DUNG ĐÃ KHÓA</span><h2 id="preview-title">Bản xem trước</h2></div><p>Trạng thái hiện tại không cho phép sửa trực tiếp. Bạn vẫn có thể xem đúng cách nội dung xuất hiện trong giao diện học.</p></header><StudioContentPreview title={revision.title} revisionId={revision.id} itemType={revision.itemType} content={revision.content} /></section>}
 
       <section className="studio-section" aria-labelledby="impact-title">
@@ -192,6 +200,7 @@ export default async function StudioRevisionPage({
         <h3>Lịch sử kiểm định và phát hành</h3>
         <div className="studio-history-grid">{history.events.map((event) => <article className="studio-history-card" key={event.id}><span className={stateClass(event.toState)}>{event.fromState ? `${STUDIO_WORKFLOW_LABELS[event.fromState]} → ` : ""}{STUDIO_WORKFLOW_LABELS[event.toState]}</span>{typeof event.metadata.note === "string" && event.metadata.note && <p>{event.metadata.note}</p>}<small>{new Date(event.occurredAt).toLocaleString("vi-VN")}</small></article>)}</div>
       </div></details>
+      </RevisionWorkspace>
     </div></main>;
   } catch (error) {
     return <RevisionLocked missing={error instanceof ContentStudioNotFoundError} />;

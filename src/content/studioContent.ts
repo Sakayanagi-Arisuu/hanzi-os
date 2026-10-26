@@ -1,4 +1,5 @@
 import { validStudioGrammarExamples } from './studioLessonGrammar';
+import { assessmentItemErrors } from './studioAssessment';
 import {
   HSK_BUILT_IN_EXAM_FORM_KEYS,
   HSK_STANDARD_EXAM_STRUCTURE,
@@ -470,6 +471,11 @@ export async function validateStudioContent(
       );
     });
     addRequired(errors, answerIntegrity, "exercises", "Thực hành cần đáp án Trung–Pinyin–Việt, ít nhất hai lựa chọn nhiễu khác nhau và lời giải.");
+  } else if (itemType === "exam_item" && content.contentKind === "assessment-item") {
+    const issues = assessmentItemErrors(content);
+    for (const message of issues) addRequired(errors, false, 'assessment', message);
+    contextualChinese = issues.length === 0;
+    answerIntegrity = issues.length === 0;
   } else if (itemType === "exam_item") {
     addRequired(errors, nonEmpty(content.promptVi), "promptVi", "Thiếu đề bài.");
     addRequired(errors, ["listening", "reading", "vocabulary", "grammar", "writing"].includes(String(content.skill)), "skill", "Kỹ năng thi không hợp lệ.");

@@ -1,4 +1,7 @@
 import "fake-indexeddb/auto";
+import {commandReviewHistoryEvents,readLocalReviewHistory,readAccountReviewHistoryPage} from './reviewHistory';
+import {projectLessonHistory} from '../learning/lessonHistory';
+import {reviewPersonalizationInput} from '../learning/reviewHistory';
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CONTENT_VERSION, RELEASED_LESSONS } from "../data/curriculum";
 import {
@@ -187,6 +190,54 @@ afterEach(async () => {
 });
 
 describe("durable review-grade learning command", () => {
+  it('projects offline/crash/retry receipts once and a second review of the same card separately',async()=>{
+    const owner=(await readOrInitializeOwnerGeneration('account:review-history')).ownerGeneration;
+    const scope={ownerGeneration:owner,resetEpoch:0};
+    const request={...command(),historyContext:{version:1 as const,occurredAt:NOW.toISOString(),hint:true,reveal:true}};
+    const queued=await enqueueReviewGradeCommand(input(owner,request));
+    const pending=await readLocalReviewHistory(scope);
+    expect(pending).toMatchObject([{confirmationState:'provisional',assistance:{hint:true,reveal:true},review:{rating:3,ratingKind:'self-reported'}}]);
+    await flushLearningCommandOutbox({ownerGeneration:owner,transport:transport(async()=>{throw new TypeError('lost response');}),now:()=>NOW});
+    await resetSyncDatabaseForTests();
+    expect(await readLocalReviewHistory(scope)).toEqual(pending);
+    await flushLearningCommandOutbox({ownerGeneration:owner,transport:transport(async sent=>response(200,receipt(sent,true))),now:()=>new Date(NOW.getTime()+120000)});
+    const confirmed=await readLocalReviewHistory(scope);
+    expect(confirmed).toMatchObject([{confirmationState:'confirmed',authority:'server-recorded',outcome:'self-review',score:null,masteryEligible:false}]);
+    expect(projectLessonHistory({ownerKey:owner.ownerKey,resetEpoch:0},[...pending,...confirmed,...pending])).toHaveLength(1);
+    await enqueueReviewGradeCommand(input(owner,{...request,idempotencyKey:'review-second',expectedCardRevision:4}));
+    const second=commandReviewHistoryEvents(await listLearningCommandRecords(owner));
+    expect(second).toHaveLength(2);expect(new Set(second.map(event=>event.itemId)).size).toBe(1);
+    expect(reviewPersonalizationInput({ownerKey:owner.ownerKey,resetEpoch:0},second).filter(entry=>entry.disposition==='pending')).toHaveLength(1);
+    await flushLearningCommandOutbox({ownerGeneration:owner,transport:transport(async()=>response(409,{error:{code:'REVIEW_CARD_REVISION_CONFLICT',retryable:false}})),now:()=>new Date(NOW.getTime()+240000)});
+    expect((await readLocalReviewHistory(scope)).filter(event=>event.confirmationState==='quarantined')).toHaveLength(1);
+    expect((await listLearningCommandRecords(owner)).find(entry=>entry.commandId===queued.commandId)?.status).toBe('acknowledged');
+  });
+  it('retains raw review commands on unknown schema, read/network failure and late owner responses',async()=>{
+    const owner=(await readOrInitializeOwnerGeneration('account:review-read')).ownerGeneration,scope={ownerGeneration:owner,resetEpoch:0};
+    const queued=await enqueueReviewGradeCommand(input(owner));
+    const before=await listLearningCommandRecords(owner);
+    await expect(readAccountReviewHistoryPage(scope,{send:async()=>new Response(null,{status:503})})).rejects.toThrow('retained');
+    expect(await listLearningCommandRecords(owner)).toEqual(before);
+    await expect(readAccountReviewHistoryPage(scope,{send:async()=>{
+      await writeSyncMeta(ACTIVE_OWNER_GENERATION_KEY,{ownerKey:'account:other',generation:owner.generation+1});
+      return Response.json({schemaVersion:1,ownerKey:owner.ownerKey,resetEpoch:0,events:[],nextCursor:null});
+    }})).rejects.toBeInstanceOf(StaleOwnerGenerationError);
+    await writeSyncMeta(ACTIVE_OWNER_GENERATION_KEY,owner);
+    await overwriteRecord(queued.recordKey,record=>({...record,outboxVersion:99 as 1}));
+    await expect(readLocalReviewHistory(scope)).rejects.toThrow('retain');
+    expect((await listLearningCommandRecords(owner))[0].outboxVersion).toBe(99);
+  });
+  it('reads old content/item/scheduler versions for history without rewriting or making them sendable',async()=>{
+    const owner=(await readOrInitializeOwnerGeneration('account:review-legacy')).ownerGeneration;
+    const queued=await enqueueReviewGradeCommand(input(owner));
+    await overwriteRecord(queued.recordKey,record=>record.kind==='review-grade'?{...record,command:{...record.command,
+      contentVersion:'old-content-v1',wordVersion:'old-word-v1',schedulerVersion:'old-scheduler-v1' as typeof REVIEW_SCHEDULER_VERSION}}:record);
+    const records=await listLearningCommandRecords(owner),events=commandReviewHistoryEvents(records);
+    expect(events).toMatchObject([{contentVersion:'old-content-v1',activityVersion:'old-word-v1',occurredAt:null,clockSource:'unknown',
+      review:{wordVersion:'old-word-v1',schedulerVersion:'old-scheduler-v1'},assistance:{hint:null,reveal:null}}]);
+    expect((await prepareLearningCommand(records[0].recordKey,owner)).state).toBe('invalid');
+    expect(await listLearningCommandRecords(owner)).toEqual(records);
+  });
   it("allocates authority fields and treats an exact retry as one owner-scoped record", async () => {
     const ownerA = (
       await readOrInitializeOwnerGeneration("account:review-a")

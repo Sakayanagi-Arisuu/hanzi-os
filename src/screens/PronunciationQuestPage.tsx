@@ -57,9 +57,17 @@ import {
 import { removeLocalStorage, writeLocalStorage } from "../lib/storageKeys";
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+import { emitLearningJourneyReceipt } from '../learning/journeyReceiptEvent';
 import { PronunciationQuestComplete } from "../components/PronunciationQuestComplete";
 import { PronunciationLessonLibrary } from "../components/PronunciationLessonLibrary";
 import "./PronunciationJade.css";
+import { CONTENT_VERSION } from '../data/contentIdentity';
+import { currentWorkspaceScope } from '../sync/workspaceSync';
+import { saveDescriptiveActivity } from '../sync/activityObservations';
+import { practiceObservationsConfirmed } from '../sync/practiceConfirmation';
+import { saveSpeechSupport } from '../sync/speechSupport';
+import { sha256Hex } from '../sync/canonicalHash';
+import { openSpeechSession, completeSpeechSessionItem, type SpeechMissionSource } from '../sync/speechSession';
 
 type QuestPhase =
   | "idle"
@@ -117,15 +125,21 @@ const weakWord = (assessment: AcousticPronunciationAssessment) => assessment.wor
   .toSorted((left, right) => left.accuracyScore - right.accuracyScore)[0] ?? null;
 
 export function PronunciationQuestPage() {
+  const { sync } = useLearning();
+  const location = useLocation();
+  const requestedLessonId = new URLSearchParams(location.search).get("lesson");
+  useEffect(() => {
+    document.getElementById('main-content')?.focus({ preventScroll: true });
+  }, [sync.ownerKey, requestedLessonId]);
+  return <PronunciationQuestSession key={JSON.stringify([sync.ownerKey, requestedLessonId])}
+    requestedLessonId={requestedLessonId} />;
+}
+
+function PronunciationQuestSession({ requestedLessonId }: { requestedLessonId: string | null }) {
   const { state, actions, sync } = useLearning();
   const normalized = useNormalizedLearningProjection();
   const { cancelSpeech, playback, speakMandarin } = useAudioEngine();
-  const location = useLocation();
   const navigate = useNavigate();
-  const requestedLessonId = useMemo(
-    () => new URLSearchParams(location.search).get("lesson"),
-    [location.search],
-  );
   const authenticated = sync.session?.authenticated === true;
   const passedLessonIds = useMemo<ReadonlySet<string> | null>(() => {
     if (!authenticated) return null;
@@ -172,7 +186,15 @@ export function PronunciationQuestPage() {
     }),
     [passedLessonIds, unlockedLessonIds, state],
   );
+  // An explicit source link must never silently open another lesson's session.
+  // Keep the shared daily-selector fallback intact for its other consumers.
+  const sourceUnavailable = requestedLessonId !== null && (
+    requestedLessonId !== mission.anchorLessonId
+    || !lessonOptions.some(lesson => lesson.id === requestedLessonId)
+  );
   const [phraseIndex, setPhraseIndex] = useState(0);
+  const supportBusy = useRef(false);
+  const supportRetry = useRef<{ key: string; operationId: string } | null>(null);
   const [heardWords, setHeardWords] = useState<Set<string>>(() => new Set());
   const [heardSentences, setHeardSentences] = useState<Set<string>>(() => new Set());
   const [completedPhrases, setCompletedPhrases] = useState<Set<string>>(() => new Set());
@@ -190,6 +212,11 @@ export function PronunciationQuestPage() {
   const settlingRef = useRef(false);
   const rewardedMissionRef = useRef("");
   const activeMissionRef = useRef(mission.id);
+  const historySessionRef = useRef(crypto.randomUUID());
+  const completionLock = useRef(false);
+  const [historyPending, setHistoryPending] = useState(false);
+  const [resumeKey, setResumeKey] = useState<string | null>(null);
+  const resumeSource = useRef<SpeechMissionSource | null>(null);
 
   const closeLessonLibrary = useCallback(() => setLessonLibraryOpen(false), []);
   const selectLesson = useCallback((lessonId: string) => {
@@ -198,6 +225,32 @@ export function PronunciationQuestPage() {
   }, [navigate]);
 
   const phrases = mission.challenges;
+  const missionSnapshot = JSON.stringify({ missionId: mission.id, lessonId: mission.anchorLessonId,
+    contentVersion: CONTENT_VERSION, phrases });
+  useEffect(() => {
+    let active = true;
+    setResumeKey(null);
+    resumeSource.current = null;
+    if (sourceUnavailable) return;
+    void (async () => {
+      const frozen = JSON.parse(missionSnapshot) as { missionId: string; lessonId: string; contentVersion: string; phrases: { id: string }[] };
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Learning scope changed');
+      const source: SpeechMissionSource = { missionId: frozen.missionId, lessonId: frozen.lessonId,
+        contentVersion: frozen.contentVersion, version: `speech-mission:sha256:${await sha256Hex(frozen)}`,
+        itemIds: frozen.phrases.map(item => item.id) };
+      const saved = await openSpeechSession(scope, source);
+      if (!active) return;
+      resumeSource.current = source;
+      historySessionRef.current = saved.id;
+      setCompletedPhrases(new Set(saved.completed));
+      setManualPhrases(new Set(saved.manual));
+      setPhraseIndex(saved.index);
+      setHistoryPending(saved.pending);
+      setResumeKey(missionSnapshot);
+    })().catch(() => { if (active) setError('Chưa đọc được phiên luyện đã lưu. Dữ liệu cũ vẫn được giữ; hãy tải lại để thử tiếp.'); });
+    return () => { active = false; };
+  }, [missionSnapshot, sourceUnavailable, sync.ownerKey]);
   const phrase = phrases[Math.min(phraseIndex, Math.max(0, phrases.length - 1))];
   if (!phrase) {
     throw new Error("Pronunciation mission has no released challenge.");
@@ -214,7 +267,7 @@ export function PronunciationQuestPage() {
     && (playback.phase === "preparing" || playback.phase === "playing");
   const isPlaying = isPlayingWord || isPlayingSentence;
   const isRequestBusy = phase === "requesting" || phase === "uploading";
-  const sessionComplete = isPronunciationMissionComplete({
+  const sessionComplete = !sourceUnavailable && resumeKey === missionSnapshot && isPronunciationMissionComplete({
     missionId: mission.id,
     activeMissionId: activeMissionRef.current,
     challengeIds: phrases.map((candidate) => candidate.id),
@@ -238,6 +291,9 @@ export function PronunciationQuestPage() {
   useEffect(() => {
     if (activeMissionRef.current === mission.id) return;
     activeMissionRef.current = mission.id;
+    historySessionRef.current = crypto.randomUUID();
+    completionLock.current = false;
+    setHistoryPending(false);
     rewardedMissionRef.current = "";
     attemptRef.current += 1;
     settlingRef.current = false;
@@ -301,6 +357,33 @@ export function PronunciationQuestPage() {
   }, [cancelSpeech]);
 
   useEffect(() => {
+    if (!sourceUnavailable) return;
+    attemptRef.current += 1;
+    requestRef.current?.abort();
+    void recorderRef.current?.abort();
+    cancelSpeech();
+  }, [cancelSpeech, sourceUnavailable]);
+
+  useEffect(() => {
+    if (!sessionComplete) return;
+    let active = true;
+    const confirm = async () => {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) return;
+      const confirmed = !sync.session?.authenticated || await practiceObservationsConfirmed(scope,
+        phrases.map(candidate => `speech:${historySessionRef.current}:${candidate.id}`));
+      if (!active) return;
+      setHistoryPending(!confirmed);
+      if (confirmed) emitLearningJourneyReceipt({ stage: 'transfer', source: 'pronunciation', lessonId: mission.anchorLessonId,
+        activityId: `pronunciation:${mission.rewardKey}:complete` });
+    };
+    const receive = () => { void confirm().catch(() => { if (active) setHistoryPending(true); }); };
+    receive();
+    window.addEventListener('hanzi-workspace-received', receive);
+    return () => { active = false; window.removeEventListener('hanzi-workspace-received', receive); };
+  }, [mission.anchorLessonId, mission.rewardKey, phrases, sessionComplete, sync.ownerKey, sync.session?.authenticated]);
+
+  useEffect(() => {
     if (!sessionComplete || rewardedMissionRef.current === mission.rewardKey) return;
     rewardedMissionRef.current = mission.rewardKey;
     const localAwarded = actions.completePronunciationMission(mission.rewardKey);
@@ -315,17 +398,37 @@ export function PronunciationQuestPage() {
     ).then(setRewardAwarded).catch(() => setRewardAwarded(false));
   }, [actions, mission.rewardKey, normalized.resetEpoch, sessionComplete, sync.session]);
 
-  const playWord = () => {
+  const recordSupport = async (kind: 'word-tts' | 'phrase-tts', apply: () => void) => {
+    if (supportBusy.current) return;
+    supportBusy.current = true;
+    const attempt = attemptRef.current;
+    try {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Learning scope changed');
+      const key = JSON.stringify([scope.ownerGeneration, scope.resetEpoch, phrase.id, kind]);
+      const operationId = supportRetry.current?.key === key ? supportRetry.current.operationId : `speech-support:${crypto.randomUUID()}`;
+      supportRetry.current = { key, operationId };
+      await saveSpeechSupport(scope, { activityId: phrase.activityId, phraseId: phrase.id, sourceWordId: phrase.focusWordId,
+        lessonId: mission.anchorLessonId, chinese: phrase.chinese, focusWord: phrase.focusWord,
+        contentVersion: CONTENT_VERSION, presentationVersion: CONTENT_VERSION }, operationId, kind);
+      supportRetry.current = null;
+      if (attempt !== attemptRef.current) return;
+      apply();
+    } catch { setError('Chưa lưu được yêu cầu đọc máy. Dữ liệu cũ vẫn được giữ; hãy thử lại.'); }
+    finally { supportBusy.current = false; }
+  };
+
+  const playWord = () => void recordSupport('word-tts', () => {
     resetCapture();
     const started = speakMandarin(phrase.focusWord, 0.62, wordSourceId);
     if (!started) setError("Chưa phát được âm mẫu. Bạn có thể tiếp tục bằng Pinyin bên dưới.");
-  };
+  });
 
-  const playSentence = () => {
+  const playSentence = () => void recordSupport('phrase-tts', () => {
     resetCapture();
     const started = speakMandarin(phrase.chinese, 0.72, sentenceSourceId);
     if (!started) setError("Chưa phát được câu mẫu. Bạn có thể tiếp tục bằng Pinyin bên dưới.");
-  };
+  });
 
   const grantConsent = () => {
     if (!sync.ownerKey) {
@@ -346,6 +449,7 @@ export function PronunciationQuestPage() {
 
   const submitRecording = async (recording: MandarinPcmRecording, attempt: number) => {
     if (attempt !== attemptRef.current) return;
+    const historySession = historySessionRef.current;
     setPhase("uploading");
     const controller = new AbortController();
     requestRef.current = controller;
@@ -356,6 +460,16 @@ export function PronunciationQuestPage() {
         quality: recording.quality,
         signal: controller.signal,
       });
+      if (attempt !== attemptRef.current) return;
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Learning scope changed');
+      if (attempt !== attemptRef.current) return;
+      await saveDescriptiveActivity(scope, { operationId: `speech-acoustic:${historySession}:${phrase.id}:${attempt}`,
+        module: 'speech', category: 'self-review', sourceId: phrase.activityId, itemId: phrase.id,
+        contentVersion: CONTENT_VERSION, activityVersion: phrase.activityId, modality: 'speech',
+        details: { provider: response.assessment.provider, providerApi: response.assessment.providerApi,
+          calibration: response.assessment.calibration, lexicalToneAssessment: response.assessment.lexicalToneAssessment,
+          ...response.assessment.aggregate } });
       if (attempt !== attemptRef.current) return;
       setAssessment({ phraseId: phrase.id, result: response.assessment });
       setPhase("result");
@@ -438,15 +552,30 @@ export function PronunciationQuestPage() {
     }
   };
 
-  const moveToNext = (manual = false) => {
-    const nextCompleted = new Set(completedPhrases).add(phrase.id);
+  const moveToNext = async (manual = false) => {
+    if (completionLock.current) return;
+    const source = resumeSource.current;
+    if (!source || source.missionId !== mission.id || resumeKey !== missionSnapshot) return;
+    const historySession = historySessionRef.current;
+    completionLock.current = true;
+    try {
+    const scope = await currentWorkspaceScope(sync.ownerKey);
+    if (!scope) throw new Error('Learning scope changed');
+    const saved = await completeSpeechSessionItem(scope, source, historySession, phrase.id, phrase.activityId,
+      { manual, acousticReportAvailable: !manual && currentAssessment !== null,
+        wordPlaybackCompleted: wordHeard, sentencePlaybackCompleted: sentenceHeard });
+    if (historySession !== historySessionRef.current || saved.id !== historySession) return;
+    setHistoryPending(saved.pending);
+    const nextCompleted = new Set(saved.completed);
     setCompletedPhrases(nextCompleted);
-    if (manual) setManualPhrases((current) => new Set(current).add(phrase.id));
+    setManualPhrases(new Set(saved.manual));
     resetCapture();
     const nextIndex = phrases.findIndex((candidate, index) => (
       index > phraseIndex && !nextCompleted.has(candidate.id)
     ));
     if (nextIndex >= 0) setPhraseIndex(nextIndex);
+    } catch { setError('Chưa lưu được lượt luyện. Hãy giữ phiên mở và thử lại.'); }
+    finally { completionLock.current = false; }
   };
 
   const retry = () => resetCapture();
@@ -500,8 +629,43 @@ export function PronunciationQuestPage() {
     .map((tone) => tone === 0 ? "thanh nhẹ" : `thanh ${tone}`)
     .join(" + ");
 
+  const replaySession = async () => {
+    if (completionLock.current || !resumeSource.current) return;
+    completionLock.current = true;
+    try {
+      const scope = await currentWorkspaceScope(sync.ownerKey);
+      if (!scope) throw new Error('Learning scope changed');
+      const saved = await openSpeechSession(scope, resumeSource.current, true);
+      historySessionRef.current = saved.id;
+      setPhraseIndex(0);
+      setHeardWords(new Set());
+      setHeardSentences(new Set());
+      setCompletedPhrases(new Set());
+      setManualPhrases(new Set());
+      setRewardAwarded(false);
+      setHistoryPending(saved.pending);
+    } catch { setError('Chưa lưu được phiên luyện mới. Phiên cũ vẫn được giữ; hãy thử lại.'); }
+    finally { completionLock.current = false; }
+  };
+
+  if (sourceUnavailable) return <section className="pronunciation-source-unavailable" aria-labelledby="pronunciation-source-title">
+    <header><p>VẠN ÂM ĐIỆN · LUYỆN NÓI</p><h1 id="pronunciation-source-title">Nguồn bài luyện chưa mở được</h1></header>
+    <div><p>Bài trong liên kết chưa có trong các bài luyện bạn có thể mở lúc này. Phiên đã lưu và những lượt luyện trước vẫn được giữ.</p>
+      <p>Chọn lại một bài đã mở để tiếp tục đúng nguồn.</p></div>
+    <footer><button type="button" className="primary-button" onClick={() => setLessonLibraryOpen(true)}>Chọn bài luyện khác</button>
+      <Link to="/path">Về Thiên Lộ</Link></footer>
+    <PronunciationLessonLibrary open={lessonLibraryOpen} options={lessonOptions} selectedLessonId={requestedLessonId ?? ''}
+      onClose={closeLessonLibrary} onSelect={selectLesson} />
+  </section>;
+
+  if (resumeKey !== missionSnapshot) return <div className="lesson-state-screen" role={error ? 'alert' : 'status'}>
+    <h1>{error ? 'Chưa mở được phiên luyện' : 'Đang nối phiên Vạn Âm Điện'}</h1>
+    <p>{error || 'Đang đọc tiến độ và những lượt đang chờ đồng bộ trên thiết bị.'}</p>
+    {error && <button type="button" className="primary-button" onClick={() => window.location.reload()}>Tải lại để thử tiếp</button>}
+  </div>;
+
   return (
-    <main className="pronunciation-quest-page jade-resonance">
+    <div className="pronunciation-quest-page jade-resonance">
       <section
         className={`pronunciation-quest-shell ${lessonLibraryOpen ? "has-library" : ""}`}
         aria-labelledby="pronunciation-quest-title"
@@ -549,15 +713,9 @@ export function PronunciationQuestPage() {
             phraseCount={phrases.length}
             assessedCount={Math.max(0, phrases.length - manualPhrases.size)}
             rewardAwarded={rewardAwarded}
+            pending={historyPending}
             onChooseLesson={() => setLessonLibraryOpen(true)}
-            onReplay={() => {
-              setPhraseIndex(0);
-              setHeardWords(new Set());
-              setHeardSentences(new Set());
-              setCompletedPhrases(new Set());
-              setManualPhrases(new Set());
-              setRewardAwarded(false);
-            }}
+            onReplay={() => void replaySession()}
           />
         ) : (
           <>
@@ -718,6 +876,6 @@ export function PronunciationQuestPage() {
           onSelect={selectLesson}
         />
       </section>
-    </main>
+    </div>
   );
 }

@@ -161,13 +161,14 @@ export const STUDIO_MODULE_AUTHORING_COVERAGE: readonly StudioModuleAuthoringCov
   },
   {
     id: "exams",
-    module: "Khảo Nghiệm · Phòng Luyện Đề",
+    module: "Phòng Luyện Đề",
     plainLabel: "Đánh giá và luyện đề",
     learnerContent: "Câu đánh giá, lựa chọn, đáp án, lời giải và cấu trúc bộ đề.",
     methods: [
-      method("exam_item", "Soạn câu đánh giá", "Dùng chung cho khảo nghiệm đầu vào và luyện đề."),
+      method("exam_item", "Soạn câu đánh giá", "Câu hỏi để ghép bộ đề luyện; không tự thay ngân hàng Khảo Nghiệm Căn Cơ."),
       method("exam_form", "Ghép bộ đề", "Ghép câu đã kiểm định theo cấu trúc HSK chuẩn."),
     ],
+    derived: "Khảo Nghiệm Căn Cơ có bàn biên tập riêng tại mục Khảo nghiệm đầu vào. Câu đã duyệt và phát hành được cấp cho phiên mới; phiên đang làm giữ phiên bản đã nhận.",
   },
   {
     id: "dictionary",

@@ -10,7 +10,7 @@ function setup() {
   db.exec(`CREATE TABLE learning_documents(user_id TEXT, document_json TEXT);
     CREATE TABLE learning_attempts(user_id TEXT, reset_epoch INTEGER, skill TEXT, activity_id TEXT, outcome TEXT, occurred_at INTEGER);
     CREATE TABLE learner_access_days(user_id TEXT, day TEXT, first_seen_at INTEGER, provenance TEXT, PRIMARY KEY(user_id,day));
-    CREATE TABLE lesson_page_attempts(user_id TEXT,reset_epoch INTEGER,activity_id TEXT,outcome TEXT,created_at INTEGER);
+    CREATE TABLE lesson_page_attempts(user_id TEXT,reset_epoch INTEGER,activity_id TEXT,outcome TEXT,created_at INTEGER,response_json TEXT DEFAULT '{}');
     INSERT INTO learning_documents VALUES ('a','{"reset":{"epoch":1}}');
     INSERT INTO learning_attempts VALUES ('a',0,'vocabulary','old','correct',1789059600000),
       ('a',1,'vocabulary','one','correct',1789059600000), ('a',1,'vocabulary','one','incorrect',1789059600000),
@@ -25,10 +25,11 @@ function setup() {
 describe("account analytics", () => {
   it('counts page practice in activity days without inventing skill mastery or including other owners/epochs',async()=>{
     const {repository,db}=setup();
-    const insert=db.prepare('INSERT INTO lesson_page_attempts VALUES(?,?,?,?,?)');
+    const insert=db.prepare('INSERT INTO lesson_page_attempts(user_id,reset_epoch,activity_id,outcome,created_at) VALUES(?,?,?,?,?)');
     const time=Date.parse('2026-09-14T17:30:00Z');
     insert.run('a',1,'page-a','correct',time);insert.run('a',1,'page-a','incorrect',time);insert.run('a',1,'page-b','self-review',time);
     insert.run('a',0,'old','correct',time);insert.run('b',1,'other','correct',time);
+    for(const action of ['view','hint','tts'])db.prepare('INSERT INTO lesson_page_attempts VALUES(?,?,?,?,?,?)').run('a',1,'exposure','self-review',time,JSON.stringify({observation:{action}}));
     const result=await repository.read('a');
     expect(result.pagePractice).toEqual({attempts:3,unique:2,correct:1,incorrect:1,selfReview:1});
     expect(result.days.find(d=>d.day==='2026-09-15')?.count).toBe(3);

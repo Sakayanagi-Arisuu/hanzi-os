@@ -24,7 +24,8 @@ export type CommerceOrder = {
   refundRequestedAt: number | null; refundReason: string | null;
   refundedBy: string | null;
   refundRejectedAt?: number | null; refundRejectedBy?: string | null; refundRejectionReason?: string | null;
-  paymentMethod?: "hanzi" | "sandbox";
+  paymentMethod?: "hanzi" | "sandbox" | "bank_transfer";
+  vndAmount?: number;
   hanziAmount?: number;
 };
 /** Replay only successful non-refunded purchases, in a stable order. */
@@ -56,5 +57,5 @@ export function effectiveCommerceSnapshot(snapshot: CommerceSnapshot, receivedAt
 }
 export const ORDER_STATUS_LABELS: Record<CommerceOrder["status"], string> = {
   pending: "Chờ xác nhận", paid: "Đã kích hoạt", failed: "Không thành công",
-  cancelled: "Đã hủy", refunded: "Đã hoàn giao dịch thử nghiệm",
+  cancelled: "Đã hủy", refunded: "Đã hoàn giao dịch",
 };

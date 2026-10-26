@@ -1,4 +1,7 @@
 import "fake-indexeddb/auto";
+import { commandLessonHistoryEvents, readLocalLessonHistory } from "./lessonHistory";
+import { projectLessonHistory } from "../learning/lessonHistory";
+import { createSameOriginLearningCommandTransport, flushLearningCommandOutbox } from "./learningCommandCoordinator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { CONTENT_VERSION } from "../data/curriculum";
 import { hashLessonSessionForm } from "../learning/lessonSessionProtocol";
@@ -156,6 +159,16 @@ const readerAttemptInput = (
   },
 });
 
+it('prepares a durable remediation answer without inventing a lesson session dependency', async () => {
+  const { ownerGeneration } = await readOrInitializeOwnerGeneration('account:a');
+  const input = readerAttemptInput(ownerGeneration, 'mistake');
+  const record = await enqueueObjectiveAttemptCommand({ ...input,
+    command: { ...input.command, source: 'mistake' } });
+  const prepared = await prepareLearningCommand(record.recordKey, ownerGeneration);
+  expect(prepared.state).toBe('ready');
+  expect(record.dependencyRecordKey).toBeNull();
+});
+
 const submissionInput = (ownerGeneration: OwnerGeneration) => ({
   ownerGeneration,
   expectedResetEpoch: 0,
@@ -270,6 +283,35 @@ afterEach(async () => {
 });
 
 describe("normalized learning command IndexedDB journal", () => {
+  it("projects one lesson activity through offline retry, lost server reply, reload and repeated receipt", async () => {
+    const { ownerGeneration } = await readOrInitializeOwnerGeneration("account:a");
+    const session = await enqueueLessonSessionCommand(lessonSessionInput(ownerGeneration));
+    await acknowledgeLearningCommand(session.recordKey, ownerGeneration, await openReceipt(session));
+    const input = lessonAttemptInput(ownerGeneration);
+    const attempt = await enqueueObjectiveAttemptCommand(input);
+    const scope = { ownerGeneration, resetEpoch: 0 };
+    const provisional = await readLocalLessonHistory(scope);
+    expect(provisional).toMatchObject([{ confirmationState: "provisional", outcome: "unknown" }]);
+    let calls = 0;
+    const receipt = { protocolVersion: 1 as const, idempotencyKey: attempt.commandId, duplicate: true,
+      attemptId: "history-attempt", evidenceId: "history-evidence", resetEpoch: 0, source: "lesson" as const,
+      method: attempt.command.method, activityId: attempt.command.activityId, activityVersion: attempt.command.activityVersion,
+      skill: "vocabulary" as const, outcome: "correct" as const, score: 100 as const, verification: "server-objective" as const };
+    const transport = createSameOriginLearningCommandTransport({ origin: "https://hanzi.example", fetch: async () => {
+      if (++calls === 1) throw new TypeError("server committed but reply lost");
+      return Response.json(receipt);
+    } });
+    expect((await flushLearningCommandOutbox({ ownerGeneration, transport })).retried).toBe(1);
+    await resetSyncDatabaseForTests();
+    expect(await readLocalLessonHistory(scope)).toHaveLength(1);
+    await releaseLearningCommandRetry(attempt.recordKey, ownerGeneration);
+    expect((await flushLearningCommandOutbox({ ownerGeneration, transport })).acknowledged).toBe(1);
+    await acknowledgeLearningCommand(attempt.recordKey, ownerGeneration, receipt);
+    const confirmed = await readLocalLessonHistory(scope);
+    expect(confirmed).toMatchObject([{ eventId: provisional[0].eventId, confirmationState: "confirmed", outcome: "correct", masteryEligible: false }]);
+    expect(projectLessonHistory({ ownerKey: ownerGeneration.ownerKey, resetEpoch: 0 }, [...provisional, ...confirmed])).toHaveLength(1);
+    expect(commandLessonHistoryEvents(await listLearningCommandRecords(ownerGeneration))).toHaveLength(1);
+  });
   it("upgrades a version-one database without touching the snapshot outbox", async () => {
     const legacyDatabase = await openVersionOneDatabase();
     const transaction = legacyDatabase.transaction("outbox", "readwrite");
