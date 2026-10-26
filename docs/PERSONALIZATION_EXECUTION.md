@@ -1,3 +1,12 @@
+## Cá nhân hóa v2 · cập nhật PWA không bị tải nền giữ lại · 26/10/2026
+
+- **Module:** T17 — IN-REVIEW.
+- **Người học thấy gì:** khi bấm Cập nhật ứng dụng, worker đang active dừng riêng tải chuẩn bị offline để nhường kích hoạt; không xóa cache/media/nháp/outbox. Lỗi cập nhật mở lại khả năng tải offline trên đúng worker cũ. Timeout10giây và việc không tự reload muộn vẫn giữ; bản active cũ chưa hỗ trợ protocol vẫn có thể timeout và cần thử lại.
+- **Đã kiểm:** native browser baselinev2 với public/sw.js thật và request prepare bị giữ đã tái hiện lỗi; sau sửa finalv5 qua4.6giây toàn journey, không tăng timeout sản phẩm/force-click. Request kế tiếp chưa gửi, localStorage và IndexedDB fixture resume/outbox cùng private CacheStorage còn nguyên. Unitv4 3file/49test, typecheckv3/lintv3 exit0 gồm cancel private fetch giữ bytes cũ, failure resume đúng worker và late activation không reload. Lượt kiểm bị ngắt ở môi trường không tính pass. Fullv30 CHECK_EXIT0:565file/3640test; typecheck/global lint/content/DB/restore43migration64table/build qua,239JS/192private markers vắng; advisory+388.6KiB. Source4file giữ nguyên trong gate. Full-app4327 giữ session/avatar/10phút/Giao tiếp sau reload, nhưng nút update vẫn timeout cả lần thử lại; chưa xác định worker active đã nhận protocol mới, không gán full-app update pass. Không clear/unregister storage. Proof tmp/personalization-pwa-full-app-v30.png.
+- **Dữ liệu giữ được:** không đổi schema/migration/producer/authority/FSRS/completion/saved/resume/outbox. HSK0 4/4 rich0/4, rich HSK1–4 40/40/55/78=213/213. Binding405/0drift, baseline scoring/content pins giữ. Không clear browser storage, sửa docs/reports/output/.wrangler hoặc bật dịch vụ ngoài.
+- **Git:** checkpoint trước79ba221 đã commit/push thành công, nhánh codex/pause-2026-09-16 đồng bộ origin. Delta T17 chốt gate để commit/push riêng; không deploy/APK hoặc tự USER-ACCEPTED/humanReviewed.
+- **Tiếp theo:** T03: audit giảm clone workspace dư trong aggregate history, không đổi schema/authority. Full-app cập nhật từ worker cũ còn mở; Bounded storage/recovery lớn/device/content review/cohort và các consumer còn mở, chưa hoàn tất toàn kế hoạch.
+
 ## Cá nhân hóa v2 · chốt avatar account và checkpoint Git · 26/10/2026
 
 - **Module:** A02/T19 — IN-REVIEW; chưa USER-ACCEPTED hoặc hoàn tất toàn bộ kế hoạch.

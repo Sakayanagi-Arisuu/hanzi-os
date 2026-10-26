@@ -6,6 +6,8 @@ const ASSET_CACHE = `${CACHE_PREFIX}assets-${CACHE_VERSION}`;
 const PRIVATE_MEDIA_PREFIX = `${CACHE_PREFIX}learner-media-`;
 
 const ACTIVE_CACHES = new Set([SHELL_CACHE, PAGE_CACHE, ASSET_CACHE]);
+const offlinePreparations = new Set();
+let offlinePreparationPaused = false;
 const IS_LOCAL_DEVELOPMENT = ["localhost", "127.0.0.1"].includes(
   self.location.hostname,
 ) && !String(self.location.search || '').includes('offline=1');
@@ -254,15 +256,28 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("message", (event) => {
+  if (event.data?.type === 'RESUME_OFFLINE_PREPARATION') {
+    offlinePreparationPaused = false;
+    return;
+  }
+  if (event.data?.type === 'PAUSE_OFFLINE_PREPARATION') {
+    offlinePreparationPaused = true;
+    for (const controller of offlinePreparations) controller.abort();
+    return;
+  }
   if (event.data?.type === "SKIP_WAITING") {
     // Keep a dormant waiting worker alive until activation was requested.
     event.waitUntil(self.skipWaiting());
     return;
   }
   if (event.data?.type === 'PREPARE_OFFLINE') {
+    const controller = new AbortController();
+    offlinePreparations.add(controller);
     event.waitUntil((async () => {
       try {
+        if (offlinePreparationPaused) throw new Error('Offline preparation paused for update');
         const shell = await caches.open(SHELL_CACHE);
+        controller.signal.throwIfAborted();
         if (!await shell.match('/offline-shell') || !await shell.match('/offline-assets.json')) {
           throw new Error('Offline shell incomplete');
         }
@@ -272,18 +287,22 @@ self.addEventListener("message", (event) => {
           || url.includes('..') || url.includes('\\') || url.includes('?'))) throw new Error('Invalid offline resources');
         const media = shell;
         for (const url of new Set(urls)) {
+          controller.signal.throwIfAborted();
           if (url.startsWith('/api/content/media/')) {
-            const response = await privateLearnerMedia(new Request(new URL(url, self.location.origin)), true);
+            const response = await privateLearnerMedia(new Request(new URL(url, self.location.origin), { signal: controller.signal }), true);
             if (!response.ok) throw new Error('Offline private media unavailable');
             continue;
           }
-          const response = await fetch(new Request(url, { cache: 'reload' }));
+          const response = await fetch(new Request(url, { cache: 'reload', signal: controller.signal }));
+          controller.signal.throwIfAborted();
           if (!isCacheable(response)) throw new Error('Offline resource unavailable');
           await media.put(url, response);
         }
         event.ports[0]?.postMessage({ ok: true });
       } catch {
         event.ports[0]?.postMessage({ ok: false });
+      } finally {
+        offlinePreparations.delete(controller);
       }
     })());
   }
@@ -368,16 +387,18 @@ async function mediaRange(response, range) {
 }
 
 async function privateLearnerMedia(request, requireStored = false) {
+  request.signal.throwIfAborted();
   const scope = await learnerMediaScope();
   if (!scope) return requireStored ? new Response(null, { status: 503 }) : fetch(request);
   const cache = await caches.open(PRIVATE_MEDIA_PREFIX + scope.key);
   const headers = new Headers(request.headers);
   headers.delete('range');
   headers.set('x-learning-owner', scope.ownerKey);
-  const full = new Request(request, { headers, signal: AbortSignal.timeout(12_000) });
+  const full = new Request(request, { headers, signal: AbortSignal.any([request.signal, AbortSignal.timeout(12_000)]) });
   let response;
   try { response = await fetch(full); }
   catch { response = null; }
+  request.signal.throwIfAborted();
   const current = await learnerMediaScope();
   if (scope.key !== current?.key) return new Response(null, { status: 409 });
   if (response && [401, 403, 404].includes(response.status)) {
@@ -392,6 +413,7 @@ async function privateLearnerMedia(request, requireStored = false) {
     let stored = false;
     try {
       const blob = await response.clone().blob();
+      request.signal.throwIfAborted();
       if (blob.size <= 20 * 1024 * 1024) {
         await cache.put(full, new Response(blob, { headers: storedHeaders }));
         stored = true;

@@ -115,6 +115,11 @@
       "sha256": "b0ce66e7e962e9799b728a9edc3f41bf63bc0ef2d1014faa9d56a2c3a5087c41"
     },
     {
+      "file": "public/sw.js",
+      "previousSha256": "4c9a6a7ec3169ba9abc47605094a11fddb4129e941f3ba6f1176a492a9df0055",
+      "sha256": "9d676b8a8d7352c2ab9a8f4d96c189a148a5d5cad6078b4988b44df0d5e6ac4f"
+    },
+    {
       "file": "scripts/prepare-cloudflare.mjs",
       "sha256": "9607f19e8b64db02aac0b66a6d70830a59f408fa3aa79c25671ab298c1a1c108",
       "previousSha256": null
@@ -265,6 +270,16 @@
       "sha256": "76f6cd71133fc84422fcdefabfded5c8110a9010ad71c129df4d4cff0070abf5"
     },
     {
+      "file": "src/lib/applyServiceWorkerUpdate.test.ts",
+      "previousSha256": null,
+      "sha256": "3062d929ff6cb4e936f2a803645d170d19f09b117e96269c0384dbf423308807"
+    },
+    {
+      "file": "src/lib/applyServiceWorkerUpdate.ts",
+      "previousSha256": null,
+      "sha256": "18b1f135a7141512954a0591b2f644d03be1c776b76e9aba623d8290dc12bf3a"
+    },
+    {
       "file": "src/lib/historyWork.ts",
       "sha256": "811f7e5911333729043fdd6bb4a58b06f3f710e23de67a7bdc2320265c6066f7",
       "previousSha256": null
@@ -283,6 +298,11 @@
       "file": "src/lib/learningStatePersistence.ts",
       "sha256": "6fdf35e19ba665b87959bae8c6ed56be4910b215301408321e4e925e13c6e9ca",
       "previousSha256": null
+    },
+    {
+      "file": "src/lib/serviceWorkerPolicy.test.ts",
+      "previousSha256": "dda8a72306153adeee46bced504942b52d98008f00c1ccf826d9ddf60b32ab40",
+      "sha256": "ba0f2ce41b25730b176f3b0cbdabe9ded25a2a8f42c203806e32db7cea402ad2"
     },
     {
       "file": "src/lib/serviceWorkerRegistration.test.ts",
@@ -3166,6 +3186,34 @@
           "file": "wrangler.local.jsonc",
           "previousSha256": null,
           "sha256": "599fb44c3e344a9fde9c2fbade824cf23cbbc2f69150f2164fccfda432495ee5"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "status": "IN-REVIEW",
+      "task": "T17 explicit update releases active-worker offline preparation",
+      "notes": "Real browser baselinev2 reproduced ten-second update timeout while actual public/sw.js PREPARE_OFFLINE fetch was held. Initialv1 fixture had incorrect no-store shell and was rejected correctly; fixture fixed, app not loosened. On explicit update, pause only optional preparation in active worker, abort public/private preparation fetches, then request waiting skipWaiting. No cache/DB/progress purge or automatic background reload. Failure restores future preparation only on same still-active worker, keeping timeout and late-listener cleanup. Real browser finalv5 passes with held fetch unreleased until finally; next URL not fetched; localStorage, synthetic IDB resume/outbox and private CacheStorage bytes retained. Unit finalv4 3files/49tests/typecheckv3/lintv3 exit0. Earlier environment-interrupted checks not pass. Older active workers may ignore pause and retain safe timeout/retry; not device or full app update proof. Fullv30 running on frozen four-file source. Prior integrated Git checkpoint79ba221 pushed normally; no new push yet. Final fullv30 CHECK_EXIT0:565files/3640tests,43migrations64tables,239JS192markers absent. Full-app4327 still times out twice including retry after reload; account/avatar/preferences retained, no clear or unregister. Active worker protocol version unconfirmed; no full-app update pass. Proof tmp/personalization-pwa-full-app-v30.png.",
+      "changes": [
+        {
+          "file": "public/sw.js",
+          "previousSha256": "4c9a6a7ec3169ba9abc47605094a11fddb4129e941f3ba6f1176a492a9df0055",
+          "sha256": "9d676b8a8d7352c2ab9a8f4d96c189a148a5d5cad6078b4988b44df0d5e6ac4f"
+        },
+        {
+          "file": "src/lib/applyServiceWorkerUpdate.ts",
+          "previousSha256": null,
+          "sha256": "18b1f135a7141512954a0591b2f644d03be1c776b76e9aba623d8290dc12bf3a"
+        },
+        {
+          "file": "src/lib/applyServiceWorkerUpdate.test.ts",
+          "previousSha256": null,
+          "sha256": "3062d929ff6cb4e936f2a803645d170d19f09b117e96269c0384dbf423308807"
+        },
+        {
+          "file": "src/lib/serviceWorkerPolicy.test.ts",
+          "previousSha256": "dda8a72306153adeee46bced504942b52d98008f00c1ccf826d9ddf60b32ab40",
+          "sha256": "ba0f2ce41b25730b176f3b0cbdabe9ded25a2a8f42c203806e32db7cea402ad2"
         }
       ]
     }

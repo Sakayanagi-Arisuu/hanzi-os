@@ -42,6 +42,7 @@ const loadServiceWorker = (overrides: {
     Response,
     URL,
     AbortSignal,
+    AbortController,
     indexedDB: overrides.indexedDB,
     caches: overrides.caches ?? {},
     fetch: overrides.fetch ?? vi.fn(),
@@ -69,6 +70,42 @@ const loadServiceWorker = (overrides: {
 };
 
 describe("service worker privacy policy", () => {
+  it('interrupts only optional preparation, releases its message, and refuses more preparation until replacement', async () => {
+    const put = vi.fn(), remove = vi.fn();
+    const send = vi.fn((request: Request) => new Promise<Response>((_resolve, reject) => {
+      request.signal.addEventListener('abort', () => reject(new DOMException('Cancelled', 'AbortError')), { once: true });
+    }));
+    const worker = loadServiceWorker({ fetch: send, caches: { open: async () => ({ match: async () => new Response('existing shell'), put }), delete: remove } });
+    const reply = vi.fn(); let work!: Promise<unknown>;
+    worker.listeners.message({ data: { type: 'PREPARE_OFFLINE', urls: ['/images/held.png', '/images/next.png'] }, ports: [{ postMessage: reply }],
+      waitUntil: (value: Promise<unknown>) => { work = value; } } as never);
+    await vi.waitFor(() => expect(send).toHaveBeenCalledOnce());
+    worker.listeners.message({ data: { type: 'PAUSE_OFFLINE_PREPARATION' } } as never);
+    await work;
+    expect(send.mock.calls[0][0].signal.aborted).toBe(true); expect(reply).toHaveBeenCalledExactlyOnceWith({ ok: false });
+    expect(put).not.toHaveBeenCalled(); expect(remove).not.toHaveBeenCalled();
+    worker.listeners.message({ data: { type: 'PREPARE_OFFLINE', urls: ['/images/retry.png'] }, ports: [{ postMessage: reply }],
+      waitUntil: (value: Promise<unknown>) => { work = value; } } as never);
+    await work; expect(send).toHaveBeenCalledOnce(); expect(reply).toHaveBeenCalledTimes(2);
+  });
+  it('stores the complete requested preparation and acknowledges it when no update was requested', async () => {
+    const put = vi.fn(), reply = vi.fn(), send = vi.fn(async () => new Response('synthetic media'));
+    const worker = loadServiceWorker({ fetch: send, caches: { open: async () => ({ match: async () => new Response('shell'), put }) } });
+    let work!: Promise<unknown>;
+    worker.listeners.message({ data: { type: 'PREPARE_OFFLINE', urls: ['/images/a.png', '/images/b.png'] }, ports: [{ postMessage: reply }],
+      waitUntil: (value: Promise<unknown>) => { work = value; } } as never);
+    await work; expect(send).toHaveBeenCalledTimes(2); expect(put).toHaveBeenCalledTimes(2); expect(reply).toHaveBeenCalledExactlyOnceWith({ ok: true });
+  });
+  it('permits a fresh download retry after an update failure resumes preparation', async () => {
+    const send = vi.fn(async () => new Response('retry media')), put = vi.fn(), reply = vi.fn();
+    const worker = loadServiceWorker({ fetch: send, caches: { open: async () => ({ match: async () => new Response('shell'), put }) } });
+    worker.listeners.message({ data: { type: 'PAUSE_OFFLINE_PREPARATION' } } as never);
+    worker.listeners.message({ data: { type: 'RESUME_OFFLINE_PREPARATION' } } as never);
+    let work!: Promise<unknown>;
+    worker.listeners.message({ data: { type: 'PREPARE_OFFLINE', urls: ['/images/retry.png'] }, ports: [{ postMessage: reply }],
+      waitUntil: (value: Promise<unknown>) => { work = value; } } as never);
+    await work; expect(send).toHaveBeenCalledOnce(); expect(put).toHaveBeenCalledOnce(); expect(reply).toHaveBeenCalledExactlyOnceWith({ ok: true });
+  });
   it('keeps an explicit update message alive until skipWaiting resolves', async () => {
     const activation = Promise.resolve();
     const skipWaiting = vi.fn().mockReturnValue(activation);
@@ -202,6 +239,20 @@ describe("service worker privacy policy", () => {
     send.mockResolvedValue(new Response('editor preview', { headers: { 'content-type': 'image/png' } }));
     await serviceWorker.privateLearnerMedia(request);
     expect(put).toHaveBeenCalledTimes(2);
+    send.mockResolvedValue(new Response('retained private bytes', { headers: { 'content-type': 'image/png', 'x-hanzi-learner-media': 'free' } }));
+    await serviceWorker.privateLearnerMedia(request);
+    const controller = new AbortController();
+    send.mockImplementation((networkRequest: Request) => new Promise<Response>((_resolve, reject) => {
+      networkRequest.signal.addEventListener('abort', () => reject(new DOMException('Cancelled', 'AbortError')), { once: true });
+    }));
+    const beforeAbort = send.mock.calls.length;
+    const aborted = serviceWorker.privateLearnerMedia(new Request(request, { signal: controller.signal }), true);
+    const rejected = expect(aborted).rejects.toMatchObject({ name: 'AbortError' });
+    await vi.waitFor(() => expect(send.mock.calls.length).toBe(beforeAbort + 1));
+    controller.abort(); await rejected;
+    expect(put).toHaveBeenCalledTimes(3);
+    expect(entries.size).toBe(1);
+    expect(await [...entries.values()][0].clone().text()).toBe('retained private bytes');
     database.close();
   });
 
