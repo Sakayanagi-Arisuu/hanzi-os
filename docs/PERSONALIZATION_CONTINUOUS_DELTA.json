@@ -60,6 +60,11 @@
       "previousSha256": "5072bd276f1139e12e74c18fb62a9d14edb881884ff097a8cc2a244e7a60e2e1"
     },
     {
+      "file": "app/studio/StudioShell.tsx",
+      "previousSha256": null,
+      "sha256": "4554ac3d71f2e0b6a6b18b550eba407567e48d2ed164299849cba44add561acc"
+    },
+    {
       "file": "app/studio/catalog/page.tsx",
       "previousSha256": null,
       "sha256": "cd16b4dd93b3039eac45b74d1fa196e0800c38148b22e29333f0839db465e155"
@@ -73,11 +78,6 @@
       "file": "app/studio/items/[revisionId]/page.tsx",
       "previousSha256": null,
       "sha256": "6fca9b3b1c5f72c62feca4fe222d27f72a9394dccaf9fb06d734128663fc7f6e"
-    },
-    {
-      "file": "app/studio/StudioShell.tsx",
-      "previousSha256": null,
-      "sha256": "4554ac3d71f2e0b6a6b18b550eba407567e48d2ed164299849cba44add561acc"
     },
     {
       "file": "content/drafts/personalization-price-pilot-2026.10.21.json",
@@ -160,21 +160,6 @@
       "previousSha256": null
     },
     {
-      "file": "src/components/learnerNavigation.css",
-      "sha256": "9c34ce609460e1145202d0e3e991da1e72d8222c9a441fc7ac83c58a95787e57",
-      "previousSha256": null
-    },
-    {
-      "file": "src/components/learnerNavigation.test.ts",
-      "sha256": "da3a42be118a8937ba25b30a0108e1a2a99568efcccb657a639c7aae7bce5c51",
-      "previousSha256": null
-    },
-    {
-      "file": "src/components/learnerNavigation.ts",
-      "sha256": "387dbd90ec220192f75bc8c8bbbb8b37cf1a927219028238bb7ae8f370bab36a",
-      "previousSha256": null
-    },
-    {
       "file": "src/components/NgocHeader.tsx",
       "sha256": "c13c1a12b034875a688f93d7c035833a43bc6a7d951de608ebb51ad3617c13f9",
       "previousSha256": "509b7d2a45f47f9255cd3d00f5dece8d1b6416b1b7e28869b7ce4483fae42db4"
@@ -213,6 +198,21 @@
       "file": "src/components/SystemOnboarding.tsx",
       "previousSha256": null,
       "sha256": "c22f5d8ed7f363872f8bf0700a309719cc731b4c7d844931cb8caafac321000c"
+    },
+    {
+      "file": "src/components/learnerNavigation.css",
+      "sha256": "9c34ce609460e1145202d0e3e991da1e72d8222c9a441fc7ac83c58a95787e57",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/learnerNavigation.test.ts",
+      "sha256": "da3a42be118a8937ba25b30a0108e1a2a99568efcccb657a639c7aae7bce5c51",
+      "previousSha256": null
+    },
+    {
+      "file": "src/components/learnerNavigation.ts",
+      "sha256": "387dbd90ec220192f75bc8c8bbbb8b37cf1a927219028238bb7ae8f370bab36a",
+      "previousSha256": null
     },
     {
       "file": "src/critical.css",
@@ -340,6 +340,26 @@
       "sha256": "0b97bdf5acb11bc303144b78cda9886eeaba1985b9f938cb5fcc44b7a505933a"
     },
     {
+      "file": "src/personalization/AdaptiveSessionRunner.tsx",
+      "sha256": "bce664298456cefd5ccaf358737cdfb95fe134560e45b821aea803071bc2defd",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/AdaptiveUnitRenderer.test.ts",
+      "sha256": "b68d3517c1c9b7dfe2922216cb8da3ef98b8d0652d7db4ce27f4372b901fcf60",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/AdaptiveUnitRenderer.tsx",
+      "sha256": "6be15a40d00c4970df7e2b3d7bd9e7c331868596c22b651909de3a334e10e508",
+      "previousSha256": null
+    },
+    {
+      "file": "src/personalization/PilotCompetencyMapPanel.tsx",
+      "sha256": "4481056ef38546e4fb752b447e4b13c9936d145e44a6c166ac21a92e0fe32ee2",
+      "previousSha256": null
+    },
+    {
       "file": "src/personalization/adaptivePlanClient.test.ts",
       "sha256": "ccc24444f24b0695c54828c7d9c27e05f4302c190e6ddc1eb3603a0456b0e55a",
       "previousSha256": null
@@ -360,11 +380,6 @@
       "previousSha256": null
     },
     {
-      "file": "src/personalization/AdaptiveSessionRunner.tsx",
-      "sha256": "bce664298456cefd5ccaf358737cdfb95fe134560e45b821aea803071bc2defd",
-      "previousSha256": null
-    },
-    {
       "file": "src/personalization/adaptiveUnit.css",
       "sha256": "6d3986effb34d4b5193a30caa58b70a7358868dbd953843ba26333d2771768c1",
       "previousSha256": null
@@ -377,16 +392,6 @@
     {
       "file": "src/personalization/adaptiveUnitClient.ts",
       "sha256": "aa8756002d81a2ded8c48b03f2f1bb379acb7aa0a77f95d86020da03d9901f69",
-      "previousSha256": null
-    },
-    {
-      "file": "src/personalization/AdaptiveUnitRenderer.test.ts",
-      "sha256": "b68d3517c1c9b7dfe2922216cb8da3ef98b8d0652d7db4ce27f4372b901fcf60",
-      "previousSha256": null
-    },
-    {
-      "file": "src/personalization/AdaptiveUnitRenderer.tsx",
-      "sha256": "6be15a40d00c4970df7e2b3d7bd9e7c331868596c22b651909de3a334e10e508",
       "previousSha256": null
     },
     {
@@ -450,11 +455,6 @@
       "previousSha256": null
     },
     {
-      "file": "src/personalization/PilotCompetencyMapPanel.tsx",
-      "sha256": "4481056ef38546e4fb752b447e4b13c9936d145e44a6c166ac21a92e0fe32ee2",
-      "previousSha256": null
-    },
-    {
       "file": "src/personalization/pilotDraftVariants.test.ts",
       "sha256": "a75c76305dc593598ae6af42b0e3ce82ef05f5e87d1b06af6494d9836affdb38",
       "previousSha256": null
@@ -495,6 +495,36 @@
       "previousSha256": null
     },
     {
+      "file": "src/profile/AvatarEditor.tsx",
+      "sha256": "ab836db3aaa8ec21494070b02861062edb5f7d51d36ef74e4562d7955976a86b",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/AvatarImage.tsx",
+      "sha256": "13b1e58ed9202810e9273db5d4c1ab7ce9cbd40c31021f97011a59066060572a",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/DeviceRecoveryControls.tsx",
+      "sha256": "cc452941f6e20034f2a7caf115e7279db068503461860ca96b16b799d7908f4f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/LearningHistoryPanel.tsx",
+      "sha256": "57f02ae7a3ef74bb969c9456fab847c422249a28d585f1cdfb935380854ef5e5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/LearningPreferencesFields.tsx",
+      "sha256": "f6ea6fa6175de4e11f8a67d355ce0f6dc1d120390accf00b1e1ab9f1e2d9a4ca",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/OwnerRecoveryGate.tsx",
+      "sha256": "b621cdff809fd356d82f14f6e7786c5fa4b099d86703c02ff54b61333a3fea95",
+      "previousSha256": null
+    },
+    {
       "file": "src/profile/accountAvatarClient.test.ts",
       "sha256": "90c7f30e94a9d99bdb41d4d740601c5ebc4302afd6dc229f1f27355dd82fbe81",
       "previousSha256": null
@@ -525,16 +555,6 @@
       "previousSha256": null
     },
     {
-      "file": "src/profile/AvatarEditor.tsx",
-      "sha256": "ab836db3aaa8ec21494070b02861062edb5f7d51d36ef74e4562d7955976a86b",
-      "previousSha256": null
-    },
-    {
-      "file": "src/profile/AvatarImage.tsx",
-      "sha256": "13b1e58ed9202810e9273db5d4c1ab7ce9cbd40c31021f97011a59066060572a",
-      "previousSha256": null
-    },
-    {
       "file": "src/profile/avatarRaster.test.ts",
       "sha256": "27816e27004fcf8452afbe99641a96f5f841c92c874a66751a6676bf02acef2d",
       "previousSha256": null
@@ -552,11 +572,6 @@
     {
       "file": "src/profile/avatarStorage.ts",
       "sha256": "1d70857893bcbe1df09c1b142cc82cdc204d85704374880afb9f139f7276a6c5",
-      "previousSha256": null
-    },
-    {
-      "file": "src/profile/DeviceRecoveryControls.tsx",
-      "sha256": "cc452941f6e20034f2a7caf115e7279db068503461860ca96b16b799d7908f4f",
       "previousSha256": null
     },
     {
@@ -585,23 +600,13 @@
       "previousSha256": null
     },
     {
-      "file": "src/profile/LearningHistoryPanel.tsx",
-      "sha256": "57f02ae7a3ef74bb969c9456fab847c422249a28d585f1cdfb935380854ef5e5",
-      "previousSha256": null
-    },
-    {
-      "file": "src/profile/LearningPreferencesFields.tsx",
-      "sha256": "f6ea6fa6175de4e11f8a67d355ce0f6dc1d120390accf00b1e1ab9f1e2d9a4ca",
-      "previousSha256": null
-    },
-    {
-      "file": "src/profile/OwnerRecoveryGate.tsx",
-      "sha256": "b621cdff809fd356d82f14f6e7786c5fa4b099d86703c02ff54b61333a3fea95",
-      "previousSha256": null
-    },
-    {
       "file": "src/profile/useAvatar.ts",
       "sha256": "55853e38e8b312661429b9e7f32372fdf95a7cec63e67ba4d01dce4446ab2c79",
+      "previousSha256": null
+    },
+    {
+      "file": "src/reader/library/ReaderStorageStatus.tsx",
+      "sha256": "ffdbe4864293ff798c457a02e83f54ad7467c11b0dc302b6b99674d626ec1760",
       "previousSha256": null
     },
     {
@@ -617,11 +622,6 @@
     {
       "file": "src/reader/library/readerStorageSafety.test.ts",
       "sha256": "99aec46530f5e114bc53fcedc1d58090e279f0512ada7fef01007d1ce8a82242",
-      "previousSha256": null
-    },
-    {
-      "file": "src/reader/library/ReaderStorageStatus.tsx",
-      "sha256": "ffdbe4864293ff798c457a02e83f54ad7467c11b0dc302b6b99674d626ec1760",
       "previousSha256": null
     },
     {
@@ -655,11 +655,6 @@
       "previousSha256": null
     },
     {
-      "file": "src/screens/charactersResume.test.ts",
-      "sha256": "7d3ce69f42ff33e382bd6d989cf04092fd494d14b8dbe12c149c71d97c0792f5",
-      "previousSha256": null
-    },
-    {
       "file": "src/screens/DictionaryExperience.css",
       "sha256": "fb319075b5fc939d1518725c156eedfce6ed62e5d3142d9deabbd407ed104e77",
       "previousSha256": null
@@ -673,16 +668,6 @@
       "file": "src/screens/DictionaryPage.tsx",
       "sha256": "c926dd00ed4c991d55e53047338334d86f6f07147a6adbceb80ad0e7ad934f9d",
       "previousSha256": "04911ebadd8960bd17c34fa71a0c96bf7e38fbf47fc3d8ed8ea62d749ccf03e0"
-    },
-    {
-      "file": "src/screens/dictionarySelection.test.ts",
-      "sha256": "2dd7c3985976bb06603649667fa5be865cc5371e6d646094ffb491880c50d32f",
-      "previousSha256": null
-    },
-    {
-      "file": "src/screens/dictionarySelection.ts",
-      "sha256": "e50e6ac8a1b59457e3cfc7d64ffca4f9597899e9a2f403fe6684bf8925684304",
-      "previousSha256": null
     },
     {
       "file": "src/screens/DictionaryStudyDialog.tsx",
@@ -762,6 +747,21 @@
     {
       "file": "src/screens/SystemGuild.css",
       "sha256": "8b1e54f4d3ae68520072e1b44b383da48a86d201a2bd0ac5c1a9d122a1a7b720",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/charactersResume.test.ts",
+      "sha256": "7d3ce69f42ff33e382bd6d989cf04092fd494d14b8dbe12c149c71d97c0792f5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/dictionarySelection.test.ts",
+      "sha256": "2dd7c3985976bb06603649667fa5be865cc5371e6d646094ffb491880c50d32f",
+      "previousSha256": null
+    },
+    {
+      "file": "src/screens/dictionarySelection.ts",
+      "sha256": "e50e6ac8a1b59457e3cfc7d64ffca4f9597899e9a2f403fe6684bf8925684304",
       "previousSha256": null
     },
     {
@@ -991,7 +991,7 @@
     },
     {
       "file": "src/sync/indexedDb.ts",
-      "sha256": "708778b7c8b7ae66228c5959c9bded3ba83f7a6f1b87201ff7d61bac477f25f5",
+      "sha256": "b175530c53241a2643e9b10662dc4451db909d6515e6bbf7a7d20adf4c81206d",
       "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
     },
     {
@@ -1196,12 +1196,12 @@
     },
     {
       "file": "src/sync/workspaceSync.test.ts",
-      "sha256": "ece3dd86dd6b3a155b10e66337599a0e2168ee4a79c6469030615de5746e2151",
+      "sha256": "d8f138525c1776d9bf479c0ca431c2f441cad1ec7081f3172c15558825562b52",
       "previousSha256": "2189384ce02d648113198f83873d47da02af455ec1526f21429b7c5f37a6461e"
     },
     {
       "file": "src/sync/workspaceSync.ts",
-      "sha256": "7f20f21f693848b0bd2312be075cb5444c6174bcbd4da2568425f008ac0d99de",
+      "sha256": "297ddc654ca7a898eb8b1f5538ede5da16e71f173492699802d6c8e55e93f8c8",
       "previousSha256": "a080aae981e63259633f4e402cd524b188bc20caf1df1545cdee9fb67c205cf5"
     },
     {
@@ -3252,6 +3252,29 @@
           "file": "src/sync/workspaceSync.ts",
           "previousSha256": "8d7090e2327b45eb232974b1b5b673a4497c1bc8ca272d2bc94de7c09cf2ddea",
           "sha256": "7f20f21f693848b0bd2312be075cb5444c6174bcbd4da2568425f008ac0d99de"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "status": "IN-REVIEW",
+      "task": "T03 canonical workspace wrapper validation on read and atomic write",
+      "notes": "Baseline five corrupt wrapper cases all failed expected rejection (test exit1), proving synchronous reads accepted malformed owner/reset/schema/key or absent journal. Reuse one wrapper/value-presence guard for sync and cooperative reads and inside update transaction before callback, including acknowledgment after in-flight tampering. Missing record still initializes normally. No format/schema/data migration. Targetedv1 4files29tests and syncv2 51files415tests/typecheck/lint/buildv1 exit0; build239JS192private markers absent. Native compiled4344 synthetic IndexedDB: ack/read/cooperative/save reject; raw row and two pending retained exactly, sent once. D1 original65/65immutable preserved,0missing/changed,integrityOK/FK0. Fullv31 predates this delta; no new full-check claim. Storage pagination/memory/recovery/account/device/human/cohort remain open. Prior commits through5e3a1a3 pushed to origin using existing Sakayanagi credential selection.",
+      "changes": [
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "708778b7c8b7ae66228c5959c9bded3ba83f7a6f1b87201ff7d61bac477f25f5",
+          "sha256": "b175530c53241a2643e9b10662dc4451db909d6515e6bbf7a7d20adf4c81206d"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "7f20f21f693848b0bd2312be075cb5444c6174bcbd4da2568425f008ac0d99de",
+          "sha256": "297ddc654ca7a898eb8b1f5538ede5da16e71f173492699802d6c8e55e93f8c8"
+        },
+        {
+          "file": "src/sync/workspaceSync.test.ts",
+          "previousSha256": "ece3dd86dd6b3a155b10e66337599a0e2168ee4a79c6469030615de5746e2151",
+          "sha256": "d8f138525c1776d9bf479c0ca431c2f441cad1ec7081f3172c15558825562b52"
         }
       ]
     }

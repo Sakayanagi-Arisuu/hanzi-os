@@ -1,3 +1,12 @@
+## Cá nhân hóa v2 · giữ raw workspace khi wrapper bất thường · 27/10/2026
+
+- **Module:** T03 — IN-REVIEW.
+- **Người học thấy gì:** workspace sai owner/reset/schema/key hoặc có record mà thiếu payload sẽ dừng đọc/lưu, giữ nguyên dữ liệu để khôi phục. Ack đến sau lúc record thay đổi không ghi đè wrapper hoặc xóa pending. Record chưa tồn tại vẫn khởi tạo bình thường; chưa chia trang/migration.
+- **Đã kiểm:** baseline5case fail như dự kiến; sau sửa targetedv1 4file/29test, syncv2 toàn51file/415test, typecheck/lint/buildv1 exit0;239JS/192private markers vắng. Browser compiled4344 IndexedDB thật: ack/sync-read/cooperative-read/save đều reject, rawRetained=true và2pending còn; proof tmp/personalization-workspace-wrapper-native-v1.json/png. Fullv31 là gate trước delta này, không dùng thay gate source mới.
+- **Dữ liệu giữ được:** không đổi schema/IDs/FSRS/completion/saved/resume/outbox/authority/owner/reset. D1 nguồn65/65immutable còn,0missing/changed,integrityOK/FK0. HSK0 4/4 rich0/4; rich HSK1–4 40/40/55/78=213/213. Không clear browser storage hoặc sửa docs/reports/output/.wrangler. Chỉ origin fixture4344 dùng dữ liệu tổng hợp.
+- **Git:** các commit tới5e3a1a3 đã push thành công lên origin/codex/pause-2026-09-16 bằng credential Sakayanagi hiện có; thông tin giữ local ở các mốc cũ là lịch sử, đã được yêu cầu push lại. Mốc wrapper chốt commit riêng sau gate; không deploy/APK/USER-ACCEPTED/humanReviewed.
+- **Tiếp theo:** T03 lưu workspace theo trang cần adapter đọc/ghi nguyên tử, tương thích journal cũ và phục hồi; chưa hoàn tất bounded storage/memory. T04 recovery lớn, FSRS/consumer, account/device, content review/cohort còn mở.
+
 ## Cá nhân hóa v2 · đọc workspace một lần trong lịch sử tổng hợp · 26/10/2026
 
 - **Module:** T03 — IN-REVIEW.

@@ -913,7 +913,8 @@ export const writeLessonResume = <T>(input: OwnerScopedCacheWrite<T>) =>
  * The synchronous callback cannot outlive the IndexedDB transaction.
  */
 export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update: (previous: unknown) => T,
-  companion?:{entryKey:string;update:(previous:unknown,value:T)=>unknown}): Promise<T> {
+  companion?:{entryKey:string;update:(previous:unknown,value:T)=>unknown},
+  validatePreviousRecord?: (record: OwnerScopedCacheRecord<unknown> | undefined) => void): Promise<T> {
   assertOwnerScopedCacheScope(scope);
   const database = await openSyncDatabase();
   const transaction = database.transaction([META_STORE, DOCUMENT_STORE, LESSON_RESUME_STORE], 'readwrite');
@@ -923,6 +924,9 @@ export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update
     const store = transaction.objectStore(LESSON_RESUME_STORE);
     const recordKey = ownerScopedCacheRecordKey(scope.expectedOwnerGeneration.ownerKey, scope.resetEpoch, scope.entryKey);
     const previous = await requestResult(store.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
+    // Domain-specific integrity checks must run inside the writer transaction,
+    // before its callback can replace a malformed record's scope or payload.
+    validatePreviousRecord?.(previous);
     const value = update(previous?.value);
     if(companion){
       if(!companion.entryKey||companion.entryKey===scope.entryKey)throw new Error('Invalid reading companion key');

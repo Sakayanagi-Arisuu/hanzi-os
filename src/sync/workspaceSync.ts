@@ -1,4 +1,4 @@
-import { readActiveOwnerLearningScope, readLessonResume, updateLessonResume, StaleOwnerGenerationError, type ActiveOwnerLearningScope } from './indexedDb';
+import { readActiveOwnerLearningScope, readLessonResume, updateLessonResume, StaleOwnerGenerationError, type ActiveOwnerLearningScope, type OwnerScopedCacheRecord } from './indexedDb';
 import { mergeWorkspaceEntries, validWorkspaceEntry, WORKSPACE_EXTENSIONS_HEADER, type WorkspaceDocument, type WorkspaceEntry } from './workspaceProtocol';
 import { workspaceHistoryEntry } from './workspaceHistory';
 import { isImmutableActivityRecordKey } from './immutableActivityRecord';
@@ -16,20 +16,25 @@ const parse = (value: unknown): Journal => {
   throw new Error('Không đọc được dữ liệu đọc và luyện đã lưu. Hãy giữ dữ liệu trên thiết bị để khôi phục.');
 };
 const scopeFor = (scope: ActiveOwnerLearningScope) => ({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: scope.resetEpoch, entryKey: KEY });
+function workspaceValue(scope: ActiveOwnerLearningScope, record: OwnerScopedCacheRecord<unknown> | null | undefined) {
+  if (record != null && (record.schemaVersion !== 1 || record.ownerKey !== scope.ownerGeneration.ownerKey
+    || record.resetEpoch !== scope.resetEpoch || record.entryKey !== KEY || record.value === undefined
+    || record.recordKey !== JSON.stringify([scope.ownerGeneration.ownerKey, scope.resetEpoch, KEY]))) {
+    throw new Error('Không đọc được dữ liệu đọc và luyện đã lưu. Hãy giữ dữ liệu trên thiết bị để khôi phục.');
+  }
+  return record?.value;
+}
+const updateWorkspace = (scope: ActiveOwnerLearningScope, update: (journal: Journal) => Journal) =>
+  updateLessonResume(scopeFor(scope), previous => update(parse(previous)), undefined,
+    record => { workspaceValue(scope, record); });
 export async function readWorkspace(scope: ActiveOwnerLearningScope) {
-  return parse((await readLessonResume(scopeFor(scope)))?.value);
+  return parse(workspaceValue(scope, await readLessonResume(scopeFor(scope))));
 }
 
 /** Same parser predicates as readWorkspace, scheduled in batches for large IDB
  * snapshots. The final owner fence is required after yielding to other tasks. */
 export async function readWorkspaceCooperatively(scope: ActiveOwnerLearningScope) {
-  const record = await readLessonResume(scopeFor(scope));
-  if (record && (record.schemaVersion !== 1 || record.ownerKey !== scope.ownerGeneration.ownerKey
-    || record.resetEpoch !== scope.resetEpoch || record.entryKey !== KEY
-    || record.recordKey !== JSON.stringify([scope.ownerGeneration.ownerKey, scope.resetEpoch, KEY]))) {
-    throw new Error('Không đọc được dữ liệu đọc và luyện đã lưu. Hãy giữ dữ liệu trên thiết bị để khôi phục.');
-  }
-  const value = record?.value;
+  const value = workspaceValue(scope, await readLessonResume(scopeFor(scope)));
   const journal = value as Journal | undefined;
   if (journal?.version !== 1 || !Array.isArray(journal.entries) || !Array.isArray(journal.pending)
     || journal.entries.length + journal.pending.length < HISTORY_COOPERATIVE_THRESHOLD) return parse(value);
@@ -52,8 +57,7 @@ export async function saveWorkspaceChanges(scope: ActiveOwnerLearningScope, chan
   validateCurrent?: (entries: readonly WorkspaceEntry[]) => void) {
   if (!changes.length) return;
   let changed = false;
-  await updateLessonResume(scopeFor(scope), previous => {
-    const journal = parse(previous);
+  await updateWorkspace(scope, journal => {
     validateCurrent?.(journal.entries);
     const stamp = journal.entries.reduce((latest, entry) => Math.max(latest, entry.changedAt + 1), Date.now());
     const entries = changes.filter(change => {
@@ -93,8 +97,7 @@ export async function syncWorkspace(scope: ActiveOwnerLearningScope, signal: Abo
     && (isImmutableActivityRecordKey(entry.key) ? remote.changeId === entry.changeId && JSON.stringify(remote.value) === JSON.stringify(entry.value)
       : remote.changedAt > entry.changedAt || (remote.changedAt === entry.changedAt && remote.changeId >= entry.changeId))))
     .map(entry => entry.changeId));
-  await updateLessonResume(scopeFor(scope), previous => {
-    const current = parse(previous);
+  await updateWorkspace(scope, current => {
     return { version: 1, entries: mergeWorkspaceEntries(current.entries, received.entries),
       pending: current.pending.filter(entry => !sent.has(entry.changeId)) } satisfies Journal;
   });
