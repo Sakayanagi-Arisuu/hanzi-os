@@ -1,3 +1,14 @@
+## Cá nhân hóa v2 · workspace theo trang / nhường lượt projection · 27/10/2026
+
+- **Module:** T03 — IN-REVIEW; chưa hoàn tất toàn kế hoạch hoặc USER-ACCEPTED.
+- **Người học thấy gì:** journal lớn chuyển sang các record theo trang khi lưu thành công; đọc legacy không tự migration. Root/pages/pending và dọn trang cũ cùng transaction; quota/trang hỏng/owner-reset lạ dừng và giữ dữ liệu. Pending chỉ dùng tham chiếu khi cùng object với entry, giữ chính xác payload khác dù cùng key/changeId. Projection giữ reducer/comparator/thứ tự cũ, nhường CPU theo ngân sách.
+- **Đã kiểm:** focusedv10 53file/450test, typecheck/lint exit0. Fullv33 CHECK_EXIT0:566file/3688test; typecheck/global lint/content/DB/restore43migration64table/build qua,239JS/192private markers vắng. Asset advisory+390.4KiB và provenance local/unattestable, không production/device pass. Fullv32 chủ động dừng để sửa byte budget của typed-view backing buffer; regression fail trước sửa rồi pass, không gọi v32 đạt. Binding408/0drift, source9file giữ cố định suốt gate.
+- **Browser:** fixture compiled4347 dùng adapter/history/IndexedDB thật và dữ liệu tổng hợp riêng:100k unique/mastery0,200kentries+200kpending,root166bytes/423entry+391pendingpages;5073ms/gap68ms, proof `tmp/personalization-workspace-pages-reference-native-v11.json/png`. Hủy native transaction sau ghi trang mới giữ root/keyset/toàn bộ entries+pending,0changed event; proof native-abort-v2. Capture v9 trước đó chỉ có trạng thái sẵn sàng sau HMR, không dùng làm proof. Account4327 dùng cookie hiện có+D1 cô lập: nút Cập nhật ứng dụng→reload qua,0update error,Header/Profile cả2ảnh256px và10phút/Giao tiếp còn; lịch sử20→40→42/42. Một visit mới so mốc41, không sửa lịch sử cũ. Proof full-app-v33.json và profile/history-v33.png trong tmp.
+- **Dữ liệu giữ được:** DBversion3/bảy store/canonical key/flat server protocol v1 không đổi; payloadmanifestv2 đọc legacy và format full-pending cũ. Page≤512item/256KiB, legacy nhỏ<2000lane-items và≤512KiB; tính cả Blob/backing buffer, vượt giới hạn giữ nguồn. Old client không hiểu v2 fail-closed; recovery codec/apply/rollback có regression. D1 nguồn65/65immutable giữ nguyên,0missing/changed,integrityOK/FK0. HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213. Không reset progress/FSRS/saved/resume/outbox/owner/reset hoặc sửa .wrangler/docs/reports/output.
+- **Giới hạn:** vẫn materialize/project toàn history trong RAM; lần migration đầu vẫn phải đọc legacy lớn. Một phép đo desktop không chứng minh total-memory/device/cohort readiness. Archive64/128MiB vẫn fail-closed; không nâng limit hoặc cắt lịch sử để đạt gate.
+- **Git:** wrapper30becbc đã push. Chốt pages/fairness theo coherent module và push cùng nhánh đã được người dùng yêu cầu; không deploy/APK/humanReviewed.
+- **Tiếp theo:** web4327 bật để người dùng test mốc T03. Các nhóm còn mở: history paging/memory, recovery lớn/account/native/conflict, FSRS và Reader/Nói/Viết/assessment consumers, avatar device/offline, content/audio review/T15, cohort/delayed recall và nghiệm thu. Không tự chạy lại toàn backlog hoặc suy phần trăm.
+
 ## Cá nhân hóa v2 · giữ raw workspace khi wrapper bất thường · 27/10/2026
 
 - **Module:** T03 — IN-REVIEW.
@@ -168,7 +179,7 @@ USER-ACCEPTED/humanReviewed mới. Source local khác preview và bản phát h�
 | A02 | IN-REVIEW | Private API/storage/server re-encode/UI/local offline binding implemented; targeted63test/Gradle7test/browser3journey/full app cookie save→Header/Profile256px→reload qua. Fullv29 565file/3634test, restore43migration64table/build qua; local config delta typecheck/lint/build qua. Device/picker/offline cache/cloud/human acceptance còn mở. |
 | T01 | IN-REVIEW | Lesson transaction/event/reconcile; không đổi nghiệm thu |
 | T02 | IN-REVIEW | Coverage10slice trong T02_CONTINUOUS; writing primary/first-response/support/resume mới có handoff T02_WRITING, còn gaps/source cụ thể, không khép toàn T02 |
-| T03 | IN-REVIEW | Scoped batch + exact-key cursor tránh clone workspace dư; canonical wrapper/parser fail-closed. Fullv31 3650test, account history41/41 qua; native100k unique/mastery0. Còn bounded storage/memory/latency/device và T02 coverage |
+| T03 | IN-REVIEW | Legacy-compatible atomic paged workspace implemented; fullv33 3688test/build/restore qua. Native100k unique/mastery0,5073ms/gap68ms; abort giữ200kentries+200kpending. Account42/42 sau PWA update; vẫn materialize toàn bộ trong RAM, chưa total-memory/device pass hoặc T02 coverage đầy đủ |
 | T04 | IN-REVIEW | Device v2 local seal + guest web apply/preimage/resume/rollback/boot gate implemented; browser hai tab/reload/rollback qua; còn account/cross-reset/cache/native/conflict-resolution, chưa full-device |
 | T05 | IN-REVIEW | Profile preferences/session context/opt-out/reset riêng đã có; handoff T05, chưa runner đổi nhanh/cold-start/account-D1/native |
 | T06 | IN-REVIEW | Four-node graph/DAG/aliases + real source context hashes; policy unreviewed/null, handoff T06_T07 |
@@ -184,7 +195,7 @@ USER-ACCEPTED/humanReviewed mới. Source local khác preview và bản phát h�
 | T16 | IN-REVIEW | Đã sửa banner/CTA/Profile/writing/dictionary/mistake support và năm vùng navigation; E2Ev10 6/6. Chưa audit hết learner/rich CTA/G09/device |
 | T17 | IN-REVIEW | Install redirect/routing đã sửa. Explicit update dừng riêng optional preparation; native held-fetch regression qua. Fullv30/v31 pass; full-app4327 sau lifecycle đóng/mở bình thường→update/reload qua, dữ liệu còn. Legacy worker không hỗ trợ protocol vẫn có thể timeout; device/release audit còn mở |
 | T18 | IN-REVIEW | Protocol + synthetic replay/CLI/frozen input verifier đã có (14test/typecheck/CLI verify pass); còn baseline arms/reviewed item split/device performance/power/cohort/recall thật, không claim hiệu quả |
-| T19 | IN-REVIEW | Fullv31 CHECK_EXIT0:565file/3650test,restore43migration64table/build239JS192markers qua. Full app avatar/update/history41/41 qua. Commit mới giữ local theo người dùng; không deploy. Bounded storage/recovery/consumer/device/human/cohort và production readiness vẫn mở |
+| T19 | IN-REVIEW | Fullv33 CHECK_EXIT0:566file/3688test,restore43migration64table/build239JS192markers qua; account PWA/avatar/preferences/history42/42 giữ. Các mốc trước đã push theo yêu cầu; bounded memory/recovery/consumer/device/human/cohort và production readiness còn mở |
 
 ## Điểm tiếp tục
 

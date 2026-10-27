@@ -1,4 +1,4 @@
-import { forEachHistoryBatch, HISTORY_COOPERATIVE_THRESHOLD } from '../lib/historyWork';
+import { createHistoryYieldCheckpoint, forEachHistoryBatch, HISTORY_COOPERATIVE_THRESHOLD } from '../lib/historyWork';
 import type { EvidenceMethod, LearningEvidence, Skill } from "../types";
 import { canonicalStringify } from "../sync/canonicalHash";
 import { isValidLearningResetEpoch } from "./resetEpoch";
@@ -236,9 +236,32 @@ function addHistoryProjectionEvent(scope: HistoryProjectionScope, result: Map<st
     result.set(event.eventId, previous&&event.sourceType==='lesson-page'?{...event,revisionId:event.revisionId??previous.revisionId}:event);
 }
 
+const compareHistoryEvents = (left: LessonHistoryEventV1, right: LessonHistoryEventV1) =>
+  (right.occurredAt ?? "").localeCompare(left.occurredAt ?? "") || right.eventId.localeCompare(left.eventId);
 function sortedHistoryProjection(result: Map<string, LessonHistoryEventV1>): LessonHistoryEventV1[] {
-  return [...result.values()].sort((left, right) => (right.occurredAt ?? "").localeCompare(left.occurredAt ?? "")
-    || right.eventId.localeCompare(left.eventId));
+  return [...result.values()].sort(compareHistoryEvents);
+}
+
+async function sortedHistoryProjectionCooperatively(result: Map<string, LessonHistoryEventV1>) {
+  let source = [...result.values()], target = new Array<LessonHistoryEventV1>(source.length);
+  const checkpoint = createHistoryYieldCheckpoint();
+  let work = 0, deadline = performance.now() + 8;
+  for (let width = 1; width < source.length; width *= 2) {
+    for (let start = 0; start < source.length; start += width * 2) {
+      const middle = Math.min(start + width, source.length), end = Math.min(start + width * 2, source.length);
+      let left = start, right = middle, position = start;
+      while (left < middle || right < end) {
+        // Left wins comparator ties, matching stable Array.sort exactly.
+        target[position++] = left < middle && (right >= end || compareHistoryEvents(source[left], source[right]) <= 0)
+          ? source[left++] : source[right++];
+        if (++work % 512 === 0 && performance.now() >= deadline) {
+          await checkpoint(); deadline = performance.now() + 8;
+        }
+      }
+    }
+    [source, target] = [target, source];
+  }
+  return source;
 }
 
 export function projectLessonHistory(scope: HistoryProjectionScope, events: readonly LessonHistoryEventV1[]): LessonHistoryEventV1[] {
@@ -251,5 +274,5 @@ export async function projectLessonHistoryCooperatively(scope: HistoryProjection
   if (events.length < HISTORY_COOPERATIVE_THRESHOLD) return projectLessonHistory(scope, events);
   const result = new Map<string, LessonHistoryEventV1>();
   await forEachHistoryBatch(events.length, index => addHistoryProjectionEvent(scope, result, events[index]));
-  return sortedHistoryProjection(result);
+  return sortedHistoryProjectionCooperatively(result);
 }

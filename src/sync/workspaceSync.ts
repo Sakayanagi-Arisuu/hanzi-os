@@ -1,8 +1,9 @@
-import { readActiveOwnerLearningScope, readLessonResume, updateLessonResume, StaleOwnerGenerationError, type ActiveOwnerLearningScope, type OwnerScopedCacheRecord } from './indexedDb';
+import { readActiveOwnerLearningScope, StaleOwnerGenerationError, type ActiveOwnerLearningScope, type OwnerScopedCacheRecord } from './indexedDb';
 import { mergeWorkspaceEntries, validWorkspaceEntry, WORKSPACE_EXTENSIONS_HEADER, type WorkspaceDocument, type WorkspaceEntry } from './workspaceProtocol';
 import { workspaceHistoryEntry } from './workspaceHistory';
 import { isImmutableActivityRecordKey } from './immutableActivityRecord';
 import { forEachHistoryBatch, HISTORY_COOPERATIVE_THRESHOLD } from '../lib/historyWork';
+import { readWorkspaceStorage, updateWorkspaceStorage } from './workspaceStorage';
 
 const KEY = 'workspace-sync:v1';
 export const WORKSPACE_CHANGED = 'hanzi-workspace-changed';
@@ -15,7 +16,6 @@ const parse = (value: unknown): Journal => {
     && journal.entries.every(validWorkspaceEntry) && journal.pending.every(validWorkspaceEntry)) return journal;
   throw new Error('Không đọc được dữ liệu đọc và luyện đã lưu. Hãy giữ dữ liệu trên thiết bị để khôi phục.');
 };
-const scopeFor = (scope: ActiveOwnerLearningScope) => ({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: scope.resetEpoch, entryKey: KEY });
 function workspaceValue(scope: ActiveOwnerLearningScope, record: OwnerScopedCacheRecord<unknown> | null | undefined) {
   if (record != null && (record.schemaVersion !== 1 || record.ownerKey !== scope.ownerGeneration.ownerKey
     || record.resetEpoch !== scope.resetEpoch || record.entryKey !== KEY || record.value === undefined
@@ -25,16 +25,31 @@ function workspaceValue(scope: ActiveOwnerLearningScope, record: OwnerScopedCach
   return record?.value;
 }
 const updateWorkspace = (scope: ActiveOwnerLearningScope, update: (journal: Journal) => Journal) =>
-  updateLessonResume(scopeFor(scope), previous => update(parse(previous)), undefined,
-    record => { workspaceValue(scope, record); });
+  updateWorkspaceStorage(scope, previous => update(parse(previous)));
 export async function readWorkspace(scope: ActiveOwnerLearningScope) {
-  return parse(workspaceValue(scope, await readLessonResume(scopeFor(scope))));
+  const loaded = await readWorkspaceStorage(scope);
+  const value = workspaceValue(scope, loaded.record);
+  return loaded.root ? value as Journal : parse(value);
+}
+
+async function requireWorkspaceScope(scope: ActiveOwnerLearningScope) {
+  const active = await currentWorkspaceScope(scope.ownerGeneration.ownerKey);
+  if (!active || active.resetEpoch !== scope.resetEpoch || active.ownerGeneration.generation !== scope.ownerGeneration.generation) {
+    throw new StaleOwnerGenerationError();
+  }
 }
 
 /** Same parser predicates as readWorkspace, scheduled in batches for large IDB
  * snapshots. The final owner fence is required after yielding to other tasks. */
 export async function readWorkspaceCooperatively(scope: ActiveOwnerLearningScope) {
-  const value = workspaceValue(scope, await readLessonResume(scopeFor(scope)));
+  const loaded = await readWorkspaceStorage(scope);
+  const value = workspaceValue(scope, loaded.record);
+  if (loaded.root) {
+    // Every page was validated inside the scoped IDB snapshot. Avoid repeating
+    // the full journal parser after its bounded requests have already yielded.
+    await requireWorkspaceScope(scope);
+    return value as Journal;
+  }
   const journal = value as Journal | undefined;
   if (journal?.version !== 1 || !Array.isArray(journal.entries) || !Array.isArray(journal.pending)
     || journal.entries.length + journal.pending.length < HISTORY_COOPERATIVE_THRESHOLD) return parse(value);
@@ -46,21 +61,21 @@ export async function readWorkspaceCooperatively(scope: ActiveOwnerLearningScope
       }
     });
   }
-  const active = await currentWorkspaceScope(scope.ownerGeneration.ownerKey);
-  if (!active || active.resetEpoch !== scope.resetEpoch || active.ownerGeneration.generation !== scope.ownerGeneration.generation) {
-    throw new StaleOwnerGenerationError();
-  }
+  await requireWorkspaceScope(scope);
   return journal;
 }
 export async function saveWorkspaceChanges(scope: ActiveOwnerLearningScope, changes: Array<{ key: string; value: unknown; changedAt?: number }>,
   shouldReplace?: (existing: WorkspaceEntry | undefined, value: unknown) => boolean,
   validateCurrent?: (entries: readonly WorkspaceEntry[]) => void) {
   if (!changes.length) return;
+  // Page writes yield between IDB requests. Freeze newly submitted values before
+  // that work so caller edits cannot change a later page of the same commit.
+  const submitted = structuredClone(changes);
   let changed = false;
   await updateWorkspace(scope, journal => {
     validateCurrent?.(journal.entries);
     const stamp = journal.entries.reduce((latest, entry) => Math.max(latest, entry.changedAt + 1), Date.now());
-    const entries = changes.filter(change => {
+    const entries = submitted.filter(change => {
       const existing = journal.entries.find(entry => entry.key === change.key);
       if (shouldReplace && !shouldReplace(existing, change.value)) return false;
       return !existing || JSON.stringify(existing.value) !== JSON.stringify(change.value);

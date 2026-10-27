@@ -161,7 +161,18 @@ award đã được server xác nhận. Quyền rich HSK4 offline không vượt
 đã xác minh và ngày hết hạn.
 
 `workspaceSync` trao đổi journal theo key với LWW có tie-break `changeId`, giữ
-concurrent edit chưa được acknowledgement. Migration 0038 thêm bảng workspace
+concurrent edit chưa được acknowledgement. Local workspace giữ canonical key
+`workspace-sync:v1` và DBversion3, nhưng payload lớn dùng manifestv2 + các page
+owner/reset/revision trong cùng lesson-resumes. Page payload≤256KiB/512item;
+legacy nhỏ≤512KiB và dưới2000 lane-item vẫn đọc/ghi tương thích. Chỉ một lần ghi
+thành công mới chuyển format; root/pages/pending/cleanup commit hoặc rollback
+cùng transaction. Pending trùng chính object được ghi reference tới entries;
+khác object giữ exact inline, không suy bằng key/changeId/JSON. History key cursor
+bỏ qua namespace page theo physical primary key; recovery vẫn bao gồm mọi raw
+row trong bảy store. Old client gặp payload mới phải fail-closed, cần app mới hoặc
+khôi phục snapshot cũ bằng runtime hiện có; không hạ schema/xóa page thủ công.
+Đọc/project toàn history vẫn cần bộ nhớ theo tổng dữ liệu, chưa là storage paging
+cho UI. Migration 0038 thêm bảng workspace
 cho vị trí đọc/ngày truy cập/lịch sử luyện, không cấp evidence/mastery. Luyện đề
 thiết bị lưu exact form không answer key và câu trả lời atomic theo owner/reset;
 server tái dựng item từ bank, kiểm hash/version/option/thời gian rồi lưu summary.

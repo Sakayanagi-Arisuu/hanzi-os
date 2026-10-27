@@ -8,6 +8,7 @@ import { isLessonHistoryEvent, LESSON_HISTORY_ENTRY_PREFIX, type LessonHistoryEv
 import { documentActivityHistoryEntries, documentActivityHistoryEvent } from './documentActivityHistory';
 import { avatarStorageKey } from '../profile/avatarContract';
 import { assertOwnerRecoveryIdle } from './ownerRecoveryFence';
+import { WORKSPACE_PAGE_PREFIX } from './workspaceStorageFormat';
 
 export class LessonHistoryStateChangedError extends Error {}
 
@@ -861,6 +862,24 @@ export const deleteLearningProjection = (scope: OwnerScopedCacheScope) =>
 export const readLessonResume = <T>(scope: OwnerScopedCacheScope) =>
   readOwnerScopedCache<T>(LESSON_RESUME_STORE, scope);
 
+/** Await only requests on this store: network, timers and workers would outlive
+ * the active IndexedDB transaction. Ownership and recovery fences apply first. */
+export async function withLessonResumeTransaction<T>(scope: OwnerScopedCacheScope, mode: IDBTransactionMode,
+  run: (store: IDBObjectStore) => Promise<T>): Promise<T> {
+  assertOwnerScopedCacheScope(scope);
+  const database = await openSyncDatabase();
+  const transaction = database.transaction([META_STORE, DOCUMENT_STORE, LESSON_RESUME_STORE], mode);
+  const done = transactionDone(transaction);
+  try {
+    await assertOwnerLearningScope(transaction, scope);
+    const value = await run(transaction.objectStore(LESSON_RESUME_STORE));
+    await done;
+    return value;
+  } catch (error) {
+    abortTransaction(transaction); await done.catch(() => undefined); throw error;
+  }
+}
+
 /** Read only the active owner's current reset epoch, including archived lesson
  * revisions. No other account's drafts enter the caller's analytics input.
  */
@@ -876,12 +895,13 @@ export async function listLessonResumes(scope: ActiveOwnerLearningScope, exclude
     const index = store.index(OWNER_SCOPED_CACHE_OWNER_EPOCH_INDEX);
     const range = IDBKeyRange.only([scope.ownerGeneration.ownerKey, scope.resetEpoch]);
     let records: OwnerScopedCacheRecord<unknown>[];
-    if (excludeEntryKey === undefined) {
-      records = await requestResult(index.getAll(range) as IDBRequest<OwnerScopedCacheRecord<unknown>[]>);
-    } else {
+    {
       // A key cursor avoids cloning the large journal that the caller reads
       // separately. Match the actual primary key, never a row's entryKey field.
-      const excluded = ownerScopedCacheRecordKey(scope.ownerGeneration.ownerKey, scope.resetEpoch, excludeEntryKey);
+      const excluded = excludeEntryKey === undefined ? null
+        : ownerScopedCacheRecordKey(scope.ownerGeneration.ownerKey, scope.resetEpoch, excludeEntryKey);
+      const pagePrefix = ownerScopedCacheRecordKey(scope.ownerGeneration.ownerKey, scope.resetEpoch, WORKSPACE_PAGE_PREFIX).slice(0, -2);
+      const pageEnd = pagePrefix.slice(0, -1) + ';';
       records = await new Promise<OwnerScopedCacheRecord<unknown>[]>((resolve, reject) => {
         const rows: OwnerScopedCacheRecord<unknown>[] = [];
         let pending = 0, exhausted = false, count = 0;
@@ -891,7 +911,12 @@ export async function listLessonResumes(scope: ActiveOwnerLearningScope, exclude
         cursor.onsuccess = () => {
           const current = cursor.result;
           if (!current) { exhausted = true; finish(); return; }
-          if (current.primaryKey !== excluded) {
+          if (typeof current.primaryKey === 'string' && current.primaryKey.startsWith(pagePrefix)
+            && typeof current.continuePrimaryKey === 'function') {
+            current.continuePrimaryKey(current.key, pageEnd);
+            return;
+          }
+          if (current.primaryKey !== excluded && !(typeof current.primaryKey === 'string' && current.primaryKey.startsWith(pagePrefix))) {
             const position = count++;
             pending++;
             const read = store.get(current.primaryKey) as IDBRequest<OwnerScopedCacheRecord<unknown>>;
@@ -913,8 +938,7 @@ export const writeLessonResume = <T>(input: OwnerScopedCacheWrite<T>) =>
  * The synchronous callback cannot outlive the IndexedDB transaction.
  */
 export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update: (previous: unknown) => T,
-  companion?:{entryKey:string;update:(previous:unknown,value:T)=>unknown},
-  validatePreviousRecord?: (record: OwnerScopedCacheRecord<unknown> | undefined) => void): Promise<T> {
+  companion?:{entryKey:string;update:(previous:unknown,value:T)=>unknown}): Promise<T> {
   assertOwnerScopedCacheScope(scope);
   const database = await openSyncDatabase();
   const transaction = database.transaction([META_STORE, DOCUMENT_STORE, LESSON_RESUME_STORE], 'readwrite');
@@ -924,9 +948,6 @@ export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update
     const store = transaction.objectStore(LESSON_RESUME_STORE);
     const recordKey = ownerScopedCacheRecordKey(scope.expectedOwnerGeneration.ownerKey, scope.resetEpoch, scope.entryKey);
     const previous = await requestResult(store.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
-    // Domain-specific integrity checks must run inside the writer transaction,
-    // before its callback can replace a malformed record's scope or payload.
-    validatePreviousRecord?.(previous);
     const value = update(previous?.value);
     if(companion){
       if(!companion.entryKey||companion.entryKey===scope.entryKey)throw new Error('Invalid reading companion key');

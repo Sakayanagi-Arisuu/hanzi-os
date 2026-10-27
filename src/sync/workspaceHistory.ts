@@ -18,7 +18,10 @@ export function workspaceEntriesWithHistory(entries: readonly WorkspaceEntry[]):
 
 export async function workspaceEntriesWithHistoryCooperatively(entries: readonly WorkspaceEntry[]): Promise<WorkspaceEntry[]> {
   if (entries.length < HISTORY_COOPERATIVE_THRESHOLD) return workspaceEntriesWithHistory(entries);
-  const result = [...entries], keys = new Set(entries.map(entry => entry.key));
+  const result: WorkspaceEntry[] = [], keys = new Set<string>();
+  await forEachHistoryBatch(entries.length, index => {
+    result.push(entries[index]); keys.add(entries[index].key);
+  });
   await forEachHistoryBatch(entries.length, index => {
     const history = workspaceHistoryEntry(entries[index]);
     if (history && !keys.has(history.key)) { keys.add(history.key); result.push(history); }
@@ -127,7 +130,10 @@ function workspaceHistoryEventFromEntry(scope: { ownerKey: string; resetEpoch: n
 
 export async function workspaceHistoryEventsCooperatively(scope: { ownerKey: string; resetEpoch: number }, entries: readonly WorkspaceEntry[], pending: readonly WorkspaceEntry[], server = false) {
   if (entries.length < HISTORY_COOPERATIVE_THRESHOLD) return workspaceHistoryEvents(scope, entries, pending, server);
-  const pendingIds = new Set(pending.map(record => record.changeId)), result: LessonHistoryEventV1[] = [];
+  const pendingIds = new Set<string>(), result: LessonHistoryEventV1[] = [];
+  await forEachHistoryBatch(pending.length, index => {
+    if (index in pending) pendingIds.add(pending[index].changeId);
+  });
   await forEachHistoryBatch(entries.length, index => {
     if (index in entries && entries[index].key.startsWith(WORKSPACE_HISTORY_PREFIX)) {
       result.push(workspaceHistoryEventFromEntry(scope, entries[index], pendingIds, server));

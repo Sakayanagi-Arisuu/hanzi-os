@@ -251,12 +251,12 @@
     },
     {
       "file": "src/learning/lessonHistory.ts",
-      "sha256": "521c8c09df563f5e838979dfb2e3c3304594cb56ec3cb9918a88ca95bd7a333c",
+      "sha256": "fd740091c796eb84737423507107077158ad6f91f844c38bd77a64de4406bc05",
       "previousSha256": "cf0feca6351c275962553b92d1fe7900d9f33ae208d25c6ae8519743230711a1"
     },
     {
       "file": "src/learning/lessonHistoryCooperative.test.ts",
-      "sha256": "cd6e179966108fb68fc9f4b29dc6225290e1e4771109030c78ee321da0726ca2",
+      "sha256": "548639700f457d9955bb1d7c341c182390c1b6f439a91baec46531cde25d946a",
       "previousSha256": null
     },
     {
@@ -281,7 +281,7 @@
     },
     {
       "file": "src/lib/historyWork.ts",
-      "sha256": "811f7e5911333729043fdd6bb4a58b06f3f710e23de67a7bdc2320265c6066f7",
+      "sha256": "b1058e1a651e26c7a6dd823875e12569c56e84f62c8f3c3ab0ac77df54918420",
       "previousSha256": null
     },
     {
@@ -991,7 +991,7 @@
     },
     {
       "file": "src/sync/indexedDb.ts",
-      "sha256": "b175530c53241a2643e9b10662dc4451db909d6515e6bbf7a7d20adf4c81206d",
+      "sha256": "d5c40f13d9a4ecda65cb5cd7e252ac1d60e0be0891a9314b0210334ae5bfdebf",
       "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
     },
     {
@@ -1176,7 +1176,7 @@
     },
     {
       "file": "src/sync/workspaceHistory.ts",
-      "sha256": "61542a7b10b20c5d3f934076ad92deafcd7798ba9557bb3d6be0c04159caed82",
+      "sha256": "07169b1ebe693b7b7e6792dca048ccc4c0d1f6c37cb87132b3b7c4b29413a673",
       "previousSha256": null
     },
     {
@@ -1195,13 +1195,28 @@
       "previousSha256": "9f5279e005bff6b2f35326104251034f8d665221eccdacd4a99e18ecb4bbd496"
     },
     {
+      "file": "src/sync/workspaceStorage.test.ts",
+      "previousSha256": null,
+      "sha256": "e6bc1965742fc3086d89af4b984079efded0b021e015a354869bc2beeb4d300a"
+    },
+    {
+      "file": "src/sync/workspaceStorage.ts",
+      "previousSha256": null,
+      "sha256": "1da2587d3b14e1e713a89c8c5dfaa3aa3b53de4c884f2af0e171dd5013197a7f"
+    },
+    {
+      "file": "src/sync/workspaceStorageFormat.ts",
+      "previousSha256": null,
+      "sha256": "5f985a3a805ea5ba7bb5b44b243ea7d86b04d86f4f8d95490e89a11cfa8d8d13"
+    },
+    {
       "file": "src/sync/workspaceSync.test.ts",
       "sha256": "d8f138525c1776d9bf479c0ca431c2f441cad1ec7081f3172c15558825562b52",
       "previousSha256": "2189384ce02d648113198f83873d47da02af455ec1526f21429b7c5f37a6461e"
     },
     {
       "file": "src/sync/workspaceSync.ts",
-      "sha256": "297ddc654ca7a898eb8b1f5538ede5da16e71f173492699802d6c8e55e93f8c8",
+      "sha256": "483dcfb94c4a804a0e7fabefc0b775477fa5d4854110f64e249cc517f8139974",
       "previousSha256": "a080aae981e63259633f4e402cd524b188bc20caf1df1545cdee9fb67c205cf5"
     },
     {
@@ -3277,6 +3292,84 @@
           "sha256": "d8f138525c1776d9bf479c0ca431c2f441cad1ec7081f3172c15558825562b52"
         }
       ]
+    },
+    {
+      "date": "2026-10-27",
+      "status": "IN-REVIEW",
+      "task": "T03 bounded workspace records, atomic page migration, and cooperative projection fairness",
+      "notes": "Local DBversion3/seven recovery stores/canonical workspace-sync:v1 key unchanged; read legacy without migration; successful normal write over2000 lane-items or512KiB moves to version2 manifest and scoped revision pages <=512items/256KiB payload. Validate wrappers/revision/lane/index/count/dense arrays/bytes including binary. Pending references only pointer-identical source objects, otherwise exact inline payload, including stale same-ID pending/undefined/Blob. Scoped snapshot/input captured before awaits. New pages+root+prior referenced-page cleanup atomic; failures preserve all old data; unreferenced forensic rows retained. Key cursor seeks past actual page primary-key namespace, not wrapper labels. Logical API and flat server v1/ack rules unchanged. Existing codec/apply rollback tested for legacy/paged transitions and stale owner generation; archive size caps unchanged. Projection reducer/comparator unchanged, native sync sort retained; async stable merge sort and local scheduling fairness avoid continuation-starved timers. Unit parity covers shuffled boundary lengths/Unicode collation ties/conflicts/no input mutation. Scopedv9 53files449tests/typecheck/lint exit0. Earlier scopedv7 52files439tests and targetedv8 3files49tests overlap, not summed. Synthetic prototype128 gap927→36ms/elapsed1381→3782;512 gap941→27ms/1356→2820, no production inference. Actual full-pending native4346 integrity100k/mastery0 but7274ms/gap2556 then5492/gap1776, not latency pass. Final ref/fairness native4347:100k unique/mastery0,200kentries200kpending,root166bytes,423entry391pending pages;5076ms/gap61ms vs ref pre-fairness4390/gap1724. Single desktop observation, no total-memory bound/device/cohort claim. Native abort and fullv32 pending; runtime/test source now frozen. No .wrangler/reports/output/user-origin reset/content/scoring pin changes.",
+      "changes": [
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "b175530c53241a2643e9b10662dc4451db909d6515e6bbf7a7d20adf4c81206d",
+          "sha256": "d5c40f13d9a4ecda65cb5cd7e252ac1d60e0be0891a9314b0210334ae5bfdebf"
+        },
+        {
+          "file": "src/sync/workspaceSync.ts",
+          "previousSha256": "297ddc654ca7a898eb8b1f5538ede5da16e71f173492699802d6c8e55e93f8c8",
+          "sha256": "483dcfb94c4a804a0e7fabefc0b775477fa5d4854110f64e249cc517f8139974"
+        },
+        {
+          "file": "src/sync/workspaceStorage.ts",
+          "previousSha256": null,
+          "sha256": "376a0063c23158511101f9e25d5aa0dff9fc8504cda6a0c5bae597a97fbc7adc"
+        },
+        {
+          "file": "src/sync/workspaceStorageFormat.ts",
+          "previousSha256": null,
+          "sha256": "5f985a3a805ea5ba7bb5b44b243ea7d86b04d86f4f8d95490e89a11cfa8d8d13"
+        },
+        {
+          "file": "src/sync/workspaceStorage.test.ts",
+          "previousSha256": null,
+          "sha256": "ead366e72cc25090c015df8514c02b340489449f07a94ae11b0732a701fb8f67"
+        },
+        {
+          "file": "src/sync/workspaceHistory.ts",
+          "previousSha256": "61542a7b10b20c5d3f934076ad92deafcd7798ba9557bb3d6be0c04159caed82",
+          "sha256": "07169b1ebe693b7b7e6792dca048ccc4c0d1f6c37cb87132b3b7c4b29413a673"
+        },
+        {
+          "file": "src/lib/historyWork.ts",
+          "previousSha256": "811f7e5911333729043fdd6bb4a58b06f3f710e23de67a7bdc2320265c6066f7",
+          "sha256": "b1058e1a651e26c7a6dd823875e12569c56e84f62c8f3c3ab0ac77df54918420"
+        },
+        {
+          "file": "src/learning/lessonHistory.ts",
+          "previousSha256": "521c8c09df563f5e838979dfb2e3c3304594cb56ec3cb9918a88ca95bd7a333c",
+          "sha256": "fd740091c796eb84737423507107077158ad6f91f844c38bd77a64de4406bc05"
+        },
+        {
+          "file": "src/learning/lessonHistoryCooperative.test.ts",
+          "previousSha256": "cd6e179966108fb68fc9f4b29dc6225290e1e4771109030c78ee321da0726ca2",
+          "sha256": "548639700f457d9955bb1d7c341c182390c1b6f439a91baec46531cde25d946a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "status": "IN-REVIEW",
+      "task": "T03 backing-buffer byte budget and final focused gate",
+      "notes": "Fullv32 intentionally interrupted before completion for backing-buffer budget audit, never a pass. New regression failed before fix; counts full shared ArrayBuffer once for typed views. Oversized payload rejection preserves legacy root and exact buffer. Scopedv10 53files450tests, typecheckv10/lintv10 exit0. Native abort proof retained original root/keyset/200k entries+200k pending and emitted zero change events. Earlier 5076ms/gap61 observed in browser but v9 capture reloaded to ready state; repeat final proof after fullv33. Source/tests frozen for fullv33; no content/scoring pins changed.",
+      "changes": [
+        {
+          "file": "src/sync/workspaceStorage.test.ts",
+          "previousSha256": "ead366e72cc25090c015df8514c02b340489449f07a94ae11b0732a701fb8f67",
+          "sha256": "e6bc1965742fc3086d89af4b984079efded0b021e015a354869bc2beeb4d300a"
+        },
+        {
+          "file": "src/sync/workspaceStorage.ts",
+          "previousSha256": "376a0063c23158511101f9e25d5aa0dff9fc8504cda6a0c5bae597a97fbc7adc",
+          "sha256": "1da2587d3b14e1e713a89c8c5dfaa3aa3b53de4c884f2af0e171dd5013197a7f"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "status": "IN-REVIEW",
+      "task": "T03 paged workspace final frozen-source gate and native/account evidence",
+      "notes": "Fullv33 CHECK_EXIT0:566files3688tests; typecheck/global lint/content/schema/restore43migrations64tables/build passed.239JS192private markers absent; assets advisory+390.4KiB, local/unattestable build provenance retained.408bindings0drift. Final compiled native4347 proof v11:100k unique/mastery0,200k entries200k pending,root166bytes,423entry391pending pages,5073ms/gap68ms. Actual final native abort-v2 keeps root/keyset/all entries+pending,0change events. Earlier v9 capture was ready state after HMR, not valid performance artifact. Real full-app4327 existing cookie+isolated D1 update button reload passed; avatar2x256px/preferences10min communication retained;history20to40to42/42,one new visit. Original D1 immutable65/65 retained,0missing/changed,integrityOK/FK0. No source/test changes during gate. Full logical history remains materialized; no total-memory/device/cohort/human acceptance claim. User authorized coherent commit and normal push current branch; no deploy/APK.",
+      "changes": []
     }
   ]
 }
