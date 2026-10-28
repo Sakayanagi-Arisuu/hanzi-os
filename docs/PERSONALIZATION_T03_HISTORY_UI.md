@@ -1,3 +1,13 @@
+## Cá nhân hóa v2 · lịch sử Hồ sơ nhường lượt / AI self-review · 28/10/2026
+
+- **Module:** T03 — IN-REVIEW. Theo yêu cầu mới, tự review code và bằng chứng; đây là AI review, không ghi humanReviewed hoặc USER-ACCEPTED.
+- **Người học thấy gì:** ba bước ghép lịch sử local/remote trên Hồ sơ dùng projector nhường lượt, không quay lại sort đồng bộ sau đọc lớn. Owner/generation/reset được kiểm lại sau xử lý; request cũ do reset/navigation bị bỏ. Chỉ cập nhật remote cache/cursor cùng dữ liệu hiển thị sau fence cuối; không phát lượt học mới.
+- **Đã kiểm:** targetedv3 9file/66test, typecheckv2/lintv2/buildv1 exit0;239JS/192private markers vắng, advisory+390.6KiB, provenance local/unattestable. Fullv33 là baseline trước delta3file, không dùng thay gate delta. Browser baseline component cũ không nhường lượt ở reconciliation remote; bản compiled cuối qua3journey: lọc trong lúc projection đang giữ, reset có thông báo và reset im lặng. Epoch mới tải2→3lượt, kết quả/cursor cũ không trở lại. UI/IndexedDB thật, API mock2lượt/trang, origin4348/context cách ly;0page errors. Proof `tmp/personalization-profile-reconcile-browser-after-v2.json` và ảnh responsive/notified-reset/silent-reset. Unitv1 chỉ lỗi so timestamp lúc capture snapshot; đã loại đúng capturedAt, vẫn so toàn dữ liệu bền vững, v3 qua.
+- **AI review:** rà đủ3điểm gọi, giữ reducer/comparator/dedup/receipt precedence/conflict guard gốc; kiểm cancellation trước/sau await và trước commit refs/state. Không đổi scoring/FSRS/quyền, API server hoặc schema. 8regression mới kiểm kết quả canonical, input/raw snapshot không đổi, owner/generation/reset thay trong yield, request hủy và conflict. Không dùng AI review làm bằng chứng audio native/recall độc lập hoặc hiệu quả học thật.
+- **Dữ liệu giữ được:** root không đổi,5000entries+5000pending giữ trong fixture read-only; D1 gốc65/65immutable không mất/đổi,integrityOK/FK0. HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213. Không reset nguồn người học hoặc sửa/stage .wrangler/docs/reports/output. Binding410/0drift sau audit3file.
+- **Giới hạn:** vẫn đọc/ghép toàn history trong RAM; không total-memory/device performance pass. Browser fixture không phải account-D1 end-to-end mới. Native picker/offline, recovery lớn, FSRS/consumer, nội dung/audio/T15 và cohort/delayed recall còn mở; tự review không tạo bằng chứng chưa đo.
+- **Git / tiếp theo:** chốt coherent T03 và push nhánh hiện có theo yêu cầu đã được cấp; web4327 dùng build mới+D1 clone giữ sẵn để test. Tiếp T03 bounded-memory consumer; chưa khép toàn kế hoạch, không deploy/APK.
+
 ## Cá nhân hóa v2 · workspace theo trang / nhường lượt projection · 27/10/2026
 
 - **Module:** T03 — IN-REVIEW; chưa hoàn tất toàn kế hoạch hoặc USER-ACCEPTED.

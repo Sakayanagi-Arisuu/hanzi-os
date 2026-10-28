@@ -511,7 +511,7 @@
     },
     {
       "file": "src/profile/LearningHistoryPanel.tsx",
-      "sha256": "57f02ae7a3ef74bb969c9456fab847c422249a28d585f1cdfb935380854ef5e5",
+      "sha256": "b116688f00bbdc834d2be415191c24246da068d577f114161032d09dd1340273",
       "previousSha256": null
     },
     {
@@ -593,6 +593,16 @@
       "file": "src/profile/historyPresentation.ts",
       "sha256": "e320d4cfc7bdade2a18ff4a502783b117a7d23d49adf681b7950f33187f8dbc9",
       "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyReconciliation.test.ts",
+      "previousSha256": null,
+      "sha256": "4ae1d279763bc17e1c86b7deb006d11455f0023fe2d8db8df9a39d0cb5314c45"
+    },
+    {
+      "file": "src/profile/historyReconciliation.ts",
+      "previousSha256": null,
+      "sha256": "29a6f46a84dbf730bbce578cc6a1473f87fd2f0f223ef289adc692d336609545"
     },
     {
       "file": "src/profile/learningHistory.css",
@@ -3370,6 +3380,29 @@
       "task": "T03 paged workspace final frozen-source gate and native/account evidence",
       "notes": "Fullv33 CHECK_EXIT0:566files3688tests; typecheck/global lint/content/schema/restore43migrations64tables/build passed.239JS192private markers absent; assets advisory+390.4KiB, local/unattestable build provenance retained.408bindings0drift. Final compiled native4347 proof v11:100k unique/mastery0,200k entries200k pending,root166bytes,423entry391pending pages,5073ms/gap68ms. Actual final native abort-v2 keeps root/keyset/all entries+pending,0change events. Earlier v9 capture was ready state after HMR, not valid performance artifact. Real full-app4327 existing cookie+isolated D1 update button reload passed; avatar2x256px/preferences10min communication retained;history20to40to42/42,one new visit. Original D1 immutable65/65 retained,0missing/changed,integrityOK/FK0. No source/test changes during gate. Full logical history remains materialized; no total-memory/device/cohort/human acceptance claim. User authorized coherent commit and normal push current branch; no deploy/APK.",
       "changes": []
+    },
+    {
+      "date": "2026-10-28",
+      "status": "IN-REVIEW",
+      "task": "T03 cooperative profile reconciliation with durable scope and request fences; AI self-review",
+      "notes": "User asked to continue and perform AI review instead of waiting for human review. Recorded as AI review only; no humanReviewed flag, release gate, mastery claim or USER-ACCEPTED change. Reviewed all three synchronous UI reconciliation sites, canonical reducer/order/dedup/conflict semantics, cancellation and final cursor/event commit boundary. Shared cooperative projector retained; owner generation/reset validated after yielding and request lifecycle checked after every await before UI/cache publication. Browser baseline old component did not yield at remote reconciliation; final compiled fixture4348 passes responsive filter during held UI projection, notified reset, silent reset and next-page2to3 in new epoch. Actual UI/native IndexedDB, mocked account API (2 remote events/page), isolated contexts; exact root/5000 entries5000 pending unchanged in read-only scenario,0page errors. Unitv1 failed only because snapshot capture timestamps differed; compare excludes only that timestamp, all durable fields still compared. Targetedv3 9files66tests/typecheckv2/lintv2/buildv1 exit0;239JS192private markers absent,asset advisory+390.6KiB,local/unattestable build. Existing fullv33 is baseline before this three-file delta, not a new full-suite pass. Original D1 immutable65/65 unchanged,integrityOK/FK0. Full history still materialized/concatenated in memory; filter/validation/render/device/oversized recovery/content/consumer/cohort limits remain.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "57f02ae7a3ef74bb969c9456fab847c422249a28d585f1cdfb935380854ef5e5",
+          "sha256": "b116688f00bbdc834d2be415191c24246da068d577f114161032d09dd1340273"
+        },
+        {
+          "file": "src/profile/historyReconciliation.ts",
+          "previousSha256": null,
+          "sha256": "29a6f46a84dbf730bbce578cc6a1473f87fd2f0f223ef289adc692d336609545"
+        },
+        {
+          "file": "src/profile/historyReconciliation.test.ts",
+          "previousSha256": null,
+          "sha256": "4ae1d279763bc17e1c86b7deb006d11455f0023fe2d8db8df9a39d0cb5314c45"
+        }
+      ]
     }
   ]
 }

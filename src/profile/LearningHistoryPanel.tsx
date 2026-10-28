@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { useLearning } from '../store/LearningContext';
-import { projectLessonHistory, type HistoryModule, type LessonHistoryEventV1 } from '../learning/lessonHistory';
+import { type HistoryModule, type LessonHistoryEventV1 } from '../learning/lessonHistory';
+import { reconcileProfileHistory } from './historyReconciliation';
 import { readLocalLearningHistory } from '../sync/reviewHistory';
 import { readAccountLessonHistoryPage } from '../sync/lessonHistory';
 import { currentWorkspaceScope, WORKSPACE_CHANGED } from '../sync/workspaceSync';
@@ -62,7 +63,10 @@ export function LearningHistoryPanel() {
       }
       const local = await readLocalLearningHistory(scope);
       if (generation !== lifecycle.current || controller.signal.aborted) return;
-      setEvents(projectLessonHistory({ ownerKey: sync.ownerKey, resetEpoch: scope.resetEpoch }, [...local, ...remoteEvents.current]));
+      const requestIsCurrent = () => generation === lifecycle.current && !controller.signal.aborted;
+      const initial = await reconcileProfileHistory(scope, [...local, ...remoteEvents.current], requestIsCurrent);
+      if (initial === null || !requestIsCurrent()) return;
+      setEvents(initial);
       setReady(true);
       if (authenticated) {
         const selected = sources.filter(source => mode === 'refresh' || hasMoreHistory(pages.current[source]));
@@ -71,11 +75,15 @@ export function LearningHistoryPanel() {
           send: (input, init) => fetch(input, { ...init, signal: controller.signal }),
         })));
         if (generation !== lifecycle.current || controller.signal.aborted) return;
-        const combined = projectLessonHistory({ ownerKey: sync.ownerKey, resetEpoch: scope.resetEpoch }, [...remoteEvents.current, ...received.flatMap(page => page.events)]);
+        const combined = await reconcileProfileHistory(scope, [...remoteEvents.current, ...received.flatMap(page => page.events)], requestIsCurrent);
+        if (combined === null || !requestIsCurrent()) return;
         const paging = { ...pages.current };
         selected.forEach((source, index) => { paging[source] = advanceHistoryPage(paging[source], received[index], mode); });
+        const reconciled = await reconcileProfileHistory(scope, [...local, ...combined], requestIsCurrent);
+        if (reconciled === null || !requestIsCurrent()) return;
+        // Commit cursor and events together only after the final async fence.
         remoteEvents.current = combined; pages.current = paging;
-        setEvents(projectLessonHistory({ ownerKey: sync.ownerKey, resetEpoch: scope.resetEpoch }, [...local, ...combined]));
+        setEvents(reconciled);
         setMore(sources.some(source => hasMoreHistory(paging[source])));
       }
       failedMode.current = null;
