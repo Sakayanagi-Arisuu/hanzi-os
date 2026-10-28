@@ -941,7 +941,7 @@
     },
     {
       "file": "src/sync/activityHistory.ts",
-      "sha256": "6972ee558b334df923a8c59a48fef07417835f68d3cf2a571f1b4f96b39a44de",
+      "sha256": "5fb77805ca1d46704dcb8031c239b0650249f6b2799888921f224372f29ddf96",
       "previousSha256": null
     },
     {
@@ -1036,12 +1036,12 @@
     },
     {
       "file": "src/sync/localHistoryReadBatch.test.ts",
-      "sha256": "add6f478b7b23df6c57d2327d7c0943bd1fb971eceef973b253f2dc91edaab4a",
+      "sha256": "054267b2a7078b14b27d499bfabf04a076d6a6d2b1d5b31dad9e45096823cbda",
       "previousSha256": null
     },
     {
       "file": "src/sync/localHistoryReadBatch.ts",
-      "sha256": "924795abaf99cbf242468f8f4a0ef727c915fa24633cfbb7da53c8be95cf19a2",
+      "sha256": "7fcef962515ae0e9d08d820f2359a02f175286200b53e58b5b6b7c4a5afd8c8c",
       "previousSha256": null
     },
     {
@@ -1216,7 +1216,7 @@
     },
     {
       "file": "src/sync/workspaceHistory.ts",
-      "sha256": "07169b1ebe693b7b7e6792dca048ccc4c0d1f6c37cb87132b3b7c4b29413a673",
+      "sha256": "f010c94bb220fc08f8d6480e37088cfb1746342e0e9ab40a5c65c0710b4189b4",
       "previousSha256": null
     },
     {
@@ -1237,12 +1237,12 @@
     {
       "file": "src/sync/workspaceStorage.test.ts",
       "previousSha256": null,
-      "sha256": "e6bc1965742fc3086d89af4b984079efded0b021e015a354869bc2beeb4d300a"
+      "sha256": "42b95fdcc276c5dd94ec62a6c1bae091b253d3314824454e32736a1e9db78cc4"
     },
     {
       "file": "src/sync/workspaceStorage.ts",
       "previousSha256": null,
-      "sha256": "1da2587d3b14e1e713a89c8c5dfaa3aa3b53de4c884f2af0e171dd5013197a7f"
+      "sha256": "b495ae34f22c1128a341420decd200103ab2af2a1201307c469cc28cd31708ca"
     },
     {
       "file": "src/sync/workspaceStorageFormat.ts",
@@ -1308,6 +1308,16 @@
       "file": "wrangler.local.jsonc",
       "previousSha256": null,
       "sha256": "599fb44c3e344a9fde9c2fbade824cf23cbbc2f69150f2164fccfda432495ee5"
+    },
+    {
+      "file": "src/sync/workspaceHistoryProjection.test.ts",
+      "sha256": "604b5b80e84c356cbde7d02b1c36d840df7adeb2486813224edaab01871fd334",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/workspaceHistoryProjection.ts",
+      "sha256": "8626d9c6a269383d251ae4e4bc90d6b291e71a63ba3a11bbaccf87f47b1fdbac",
+      "previousSha256": null
     }
   ],
   "completedTechnicalGates": [
@@ -3600,6 +3610,61 @@
       "status": "IN-REVIEW",
       "task": "Frozen continuation fullv35 and compiled native verification",
       "notes": "Fullv35 CHECK_EXIT0:570files3754tests; typecheck/global lint/content/schema/restore43migrations64tables/build pass.239JS192private markers absent;asset advisory+393.3KiB,local/unattestable provenance retained. Source27files frozen throughout;416bindings0drift. Fullv34 interrupted explicitly,not a pass. Compiled fixture rechecks all exit0:history3cases(v3),large recovery(v2),avatar API-offline cache(v2),source handoff portrait+landscape(v5),7 journeys total across distinct fixtures. Final recovery file19,528bytes vs7,208,978 legacy-v2 bytes,5,605,311inner bytes;exact binary/legacy auth/apply/rollback/gen2/nojob. Source disclosure keyboard Enter/24px CSS text emulation CTA/footer pass;not OS Dynamic Type or actual lesson renderer. Avatar exactprivate bytes/read-only API-offline reload/owner switch/tombstone pass with mock server. Gradle v2 was cached success;v3 explicitly reran test task offline using existing JDK21/SDK/cache,7tests0fail (64tasks:1executed63up-to-date). No install/system env change. Capacitor verify passes existing packaged UI only;no new APK/device claim. Synthetic replay+verification five cases exit0,efficacy not measured. Original D1 immutable65/65 unchanged,0missing/changed,integrityOK/FK0. Full app4327 restarted on existing isolated D1 for user testing;not a new authenticated browser/account-D1 proof. No USER-ACCEPTED/humanReviewed/release/content/scoring/FSRS authority changes. Full source-memory bounds,over-cap streaming recovery,FSRS/Reader/Nói/Viết/assessment receipt integration,physical devices/cohort remain open.",
+      "changes": []
+    },
+    {
+      "date": "2026-10-28",
+      "status": "IN-REVIEW",
+      "task": "T03 paged source projection for local history",
+      "notes": "AI self-review. Reuse the exact page validator and readonly snapshot; project paged source payloads to compact history fields and pending identities, retaining descriptor precedence, source rejection, pending refs and owner fences. Legacy clone, full output, state/outbox and writer memory remain open. Baseline/scoring/content pins unchanged; full gate and native evidence recorded at checkpoint.",
+      "changes": [
+        {
+          "file": "src/sync/workspaceStorage.ts",
+          "previousSha256": "1da2587d3b14e1e713a89c8c5dfaa3aa3b53de4c884f2af0e171dd5013197a7f",
+          "sha256": "b495ae34f22c1128a341420decd200103ab2af2a1201307c469cc28cd31708ca"
+        },
+        {
+          "file": "src/sync/workspaceStorage.test.ts",
+          "previousSha256": "e6bc1965742fc3086d89af4b984079efded0b021e015a354869bc2beeb4d300a",
+          "sha256": "42b95fdcc276c5dd94ec62a6c1bae091b253d3314824454e32736a1e9db78cc4"
+        },
+        {
+          "file": "src/sync/workspaceHistory.ts",
+          "previousSha256": "07169b1ebe693b7b7e6792dca048ccc4c0d1f6c37cb87132b3b7c4b29413a673",
+          "sha256": "f010c94bb220fc08f8d6480e37088cfb1746342e0e9ab40a5c65c0710b4189b4"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjection.ts",
+          "previousSha256": null,
+          "sha256": "8626d9c6a269383d251ae4e4bc90d6b291e71a63ba3a11bbaccf87f47b1fdbac"
+        },
+        {
+          "file": "src/sync/workspaceHistoryProjection.test.ts",
+          "previousSha256": null,
+          "sha256": "604b5b80e84c356cbde7d02b1c36d840df7adeb2486813224edaab01871fd334"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": "924795abaf99cbf242468f8f4a0ef727c915fa24633cfbb7da53c8be95cf19a2",
+          "sha256": "7fcef962515ae0e9d08d820f2359a02f175286200b53e58b5b6b7c4a5afd8c8c"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.test.ts",
+          "previousSha256": "add6f478b7b23df6c57d2327d7c0943bd1fb971eceef973b253f2dc91edaab4a",
+          "sha256": "054267b2a7078b14b27d499bfabf04a076d6a6d2b1d5b31dad9e45096823cbda"
+        },
+        {
+          "file": "src/sync/activityHistory.ts",
+          "previousSha256": "6972ee558b334df923a8c59a48fef07417835f68d3cf2a571f1b4f96b39a44de",
+          "sha256": "5fb77805ca1d46704dcb8031c239b0650249f6b2799888921f224372f29ddf96"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "status": "IN-REVIEW",
+      "task": "T03 frozen fullv36 and compiled source projection evidence",
+      "notes": "Fullv36 CHECK_EXIT0: 571file/3763test, typecheck/global lint/content/schema/restore43migration64table/build qua; 239JS/192private markers vắng. Provenance local/unattestable; advisory asset không là device/performance pass. Native compiled100k-v1 cũng giữ100000unique/mastery0,200000entries200000pending,423entry+391pendingpage;6601ms/gap96ms chỉ là một quan sát desktop. Source8files frozen throughout;418bindings0drift. Targetedv3:6files60tests. Native4353 compiled-v2 2400unique/mastery0,4800entries4800pending/416pages;57,600,000rawUTF16bytes;no writes during aggregate read,root unchanged. Forced-GC JS heap retained full70,552,788bytes/compact11,735,552/history13,387,160;16samples during page reads maxfull83,671,386/compact25,913,898/history30,439,066bytes. Sampled desktop JS heap only,not true peak/native RSS or device bound. UI4348 compiled-v4 responsive/notified-reset/silent-reset all pass with mock API/native IDB;5000entries5000pending unchanged. Generic and history legacy paths fence owner after cooperative yields. D1 original65/65immutable unchanged,0missing/changed,integrityOK/FK0;HSK0 4/4 rich0/4 and HSK1-4rich213/213 preserved. Full output/identities/descriptors,state/outbox,legacy primary and writer memory still grow with input. Recovery over-cap/account/native,FSRS/other receipts,physical devices and efficacy remain open;AI review is not human review or user acceptance.",
       "changes": []
     }
   ]

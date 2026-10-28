@@ -1,6 +1,8 @@
 import { listLessonResumes, readOwnerLocalState, readActiveOwnerLearningScope, StaleOwnerGenerationError, type ActiveOwnerLearningScope } from './indexedDb';
 import { listLearningCommandRecords } from './learningCommandOutbox';
 import { readWorkspaceCooperatively } from './workspaceSync';
+import { workspaceEntriesWithHistoryCooperatively, workspaceHistoryEventsCooperatively } from './workspaceHistory';
+import { readWorkspaceHistoryProjection } from './workspaceHistoryProjection';
 
 /** One history load only: never retain this batch across refreshes or owners. */
 export class LocalHistoryReadBatch {
@@ -9,6 +11,7 @@ export class LocalHistoryReadBatch {
   private commandsRequest?: ReturnType<typeof listLearningCommandRecords>;
   private stateRequest?: ReturnType<typeof readOwnerLocalState>;
   private workspaceRequest?: ReturnType<typeof readWorkspaceCooperatively>;
+  private workspaceHistoryRequest?: ReturnType<typeof readWorkspaceHistoryProjection>;
 
   constructor(scope: ActiveOwnerLearningScope, private readonly aggregate = false) { this.scope = structuredClone(scope); }
 
@@ -21,13 +24,20 @@ export class LocalHistoryReadBatch {
   resumes(scope: ActiveOwnerLearningScope) {
     this.requireScope(scope);
     return this.resumesRequest ??= this.aggregate
-      ? this.workspace(scope).then(() => listLessonResumes(this.scope, 'workspace-sync:v1'))
+      ? this.workspaceHistory(scope).then(() => listLessonResumes(this.scope, 'workspace-sync:v1'))
       : listLessonResumes(this.scope);
   }
 
   workspace(scope: ActiveOwnerLearningScope) {
     this.requireScope(scope);
     return this.workspaceRequest ??= readWorkspaceCooperatively(this.scope);
+  }
+
+  workspaceHistory(scope: ActiveOwnerLearningScope) {
+    this.requireScope(scope);
+    return this.workspaceHistoryRequest ??= this.aggregate ? readWorkspaceHistoryProjection(this.scope)
+      : this.workspace(scope).then(async journal => workspaceHistoryEventsCooperatively({ ownerKey: this.scope.ownerGeneration.ownerKey,
+        resetEpoch: this.scope.resetEpoch }, await workspaceEntriesWithHistoryCooperatively(journal.entries), journal.pending));
   }
 
   commands(scope: ActiveOwnerLearningScope) {

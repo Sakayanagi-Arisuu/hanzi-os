@@ -13,6 +13,7 @@ import { createInitialSyncDocument } from './document';
 import { createOwnerDeviceRecoveryArchive } from './ownerDeviceRecovery';
 import { prepareOwnerRecovery, beginOwnerRecovery, continueOwnerRecovery, finishOwnerRecovery, rollBackOwnerRecovery } from './ownerRecoveryApply';
 import { LEARNING_OWNER_STORAGE_KEY } from '../lib/storageKeys';
+import { readWorkspaceHistoryProjection } from './workspaceHistoryProjection';
 
 let scope: ActiveOwnerLearningScope;
 const cacheScope = () => ({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: scope.resetEpoch, entryKey: 'workspace-sync:v1' });
@@ -148,6 +149,7 @@ it.each([-1, 0.5, 999999, 'wrong'])('rejects invalid pending references without 
   const value = page.value as { entries: unknown[] }; value.entries[0] = { ref };
   await put(page); const before = await dump();
   await expect(readWorkspace(scope)).rejects.toThrow('giữ dữ liệu');
+  await expect(readWorkspaceHistoryProjection(scope)).rejects.toThrow('giữ dữ liệu');
   await expect(migrate()).rejects.toThrow('giữ dữ liệu');
   expect(await dump()).toEqual(before);
 });
@@ -211,6 +213,7 @@ it.each(['owner', 'epoch', 'revision', 'index', 'missing', 'payload'])('retains 
   }
   await put(page); const before = await dump();
   await expect(readWorkspace(scope)).rejects.toThrow('giữ dữ liệu');
+  await expect(readWorkspaceHistoryProjection(scope)).rejects.toThrow('giữ dữ liệu');
   await expect(migrate()).rejects.toThrow('giữ dữ liệu');
   expect(await dump()).toEqual(before);
 });

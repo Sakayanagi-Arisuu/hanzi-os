@@ -1,8 +1,10 @@
-import { withLessonResumeTransaction, type ActiveOwnerLearningScope, type OwnerScopedCacheRecord } from './indexedDb';
+import { withLessonResumeTransaction, readActiveOwnerLearningScope, StaleOwnerGenerationError, type ActiveOwnerLearningScope, type OwnerScopedCacheRecord } from './indexedDb';
 import { validWorkspaceEntry, type WorkspaceEntry } from './workspaceProtocol';
 import { WORKSPACE_CACHE_KEY, WORKSPACE_PAGE_PREFIX, WORKSPACE_PAGE_MAX_BYTES, WORKSPACE_PAGE_MAX_ITEMS, WORKSPACE_PAGED_THRESHOLD, WORKSPACE_LEGACY_MAX_BYTES } from './workspaceStorageFormat';
+import { forEachHistoryBatch } from '../lib/historyWork';
 
 type Journal = { version: 1; entries: WorkspaceEntry[]; pending: WorkspaceEntry[] };
+type ProjectedJournal<T> = { version: 1; entries: T[]; pending: T[] };
 type Lane = 'entries' | 'pending';
 type Manifest = { version: 2; storage: 'pages-v1' | 'pages-ref-v1'; revision: string;
   entries: { count: number; pages: number }; pending: { count: number; pages: number } };
@@ -55,12 +57,13 @@ function manifest(value: unknown): Manifest | null {
       || (root[lane].count === 0) !== (root[lane].pages === 0))) throw failure();
   return root;
 }
-async function materialize(scope: ActiveOwnerLearningScope, store: IDBObjectStore, record: OwnerScopedCacheRecord<unknown> | undefined) {
+async function materialize<T>(scope: ActiveOwnerLearningScope, store: IDBObjectStore, record: OwnerScopedCacheRecord<unknown> | undefined,
+  project: (entry: WorkspaceEntry, lane: Lane) => T) {
   if (!record) return { record: null, root: null };
   validateRecord(scope, WORKSPACE_CACHE_KEY, record);
   const root = manifest(record.value);
   if (!root) return { record, root };
-  const journal: Journal = { version: 1, entries: [], pending: [] };
+  const journal: ProjectedJournal<T> = { version: 1, entries: [], pending: [] };
   for (const lane of lanes) {
     for (let index = 0; index < root[lane].pages; index++) {
       const entryKey = pageEntryKey(root.revision, lane, index);
@@ -80,7 +83,7 @@ async function materialize(scope: ActiveOwnerLearningScope, store: IDBObjectStor
           journal.pending.push(journal.entries[entry.ref]);
         } else {
           if (!validWorkspaceEntry(entry)) throw failure();
-          journal[lane].push(entry);
+          journal[lane].push(project(entry, lane));
         }
       }
     }
@@ -116,8 +119,38 @@ export async function readWorkspaceStorage(scope: ActiveOwnerLearningScope) {
   scope = structuredClone(scope);
   return withLessonResumeTransaction(cacheScope(scope), 'readonly', async store => {
     const record = await request<OwnerScopedCacheRecord<unknown> | undefined>(store.get(recordKey(scope, WORKSPACE_CACHE_KEY)));
-    return materialize(scope, store, record);
+    return materialize(scope, store, record, entry => entry);
   });
+}
+/** Select synchronously while each page is in the same readonly transaction.
+ * Only the selected values survive the next page request. Legacy single-record
+ * journals still require one full structured clone; this read never migrates.
+ * A pending reference reuses the selected entry object, just as the full reader
+ * reuses the original entry. The selector is not called again for references.
+ * The selector must not return a Promise or perform external side effects. */
+export async function projectWorkspaceStorage<T>(scope: ActiveOwnerLearningScope, project: (entry: WorkspaceEntry, lane: Lane) => T): Promise<ProjectedJournal<T>> {
+  scope = structuredClone(scope);
+  const loaded = await withLessonResumeTransaction(cacheScope(scope), 'readonly', async store => {
+    const raw = await request<OwnerScopedCacheRecord<unknown> | undefined>(store.get(recordKey(scope, WORKSPACE_CACHE_KEY)));
+    return materialize(scope, store, raw, project);
+  });
+  if (loaded.root) return loaded.record!.value as ProjectedJournal<T>;
+  if (!loaded.record) return { version: 1, entries: [], pending: [] };
+  const journal = loaded.record.value as Journal;
+  if (journal?.version !== 1 || lanes.some(lane => !Array.isArray(journal[lane]))) throw failure();
+  const result: ProjectedJournal<T> = { version: 1, entries: new Array(journal.entries.length), pending: new Array(journal.pending.length) };
+  // A legacy clone is unavoidable, but validation/projection must still yield
+  // outside the IDB transaction. Preserve Array.every/map sparse-hole behavior.
+  for (const lane of lanes) await forEachHistoryBatch(journal[lane].length, index => {
+    if (index in journal[lane] && !validWorkspaceEntry(journal[lane][index])) throw failure();
+  });
+  for (const lane of lanes) await forEachHistoryBatch(journal[lane].length, index => {
+    if (index in journal[lane]) result[lane][index] = project(journal[lane][index], lane);
+  });
+  const active = await readActiveOwnerLearningScope();
+  if (!active || active.ownerGeneration.ownerKey !== scope.ownerGeneration.ownerKey
+    || active.ownerGeneration.generation !== scope.ownerGeneration.generation || active.resetEpoch !== scope.resetEpoch) throw new StaleOwnerGenerationError();
+  return result;
 }
 /** Legacy data is changed only by a successful normal write. Root, pages, old
  * page removal and pending acknowledgment commit together, or all roll back. */
@@ -125,7 +158,7 @@ export async function updateWorkspaceStorage<T extends Journal>(scope: ActiveOwn
   scope = structuredClone(scope);
   return withLessonResumeTransaction(cacheScope(scope), 'readwrite', async store => {
     const raw = await request<OwnerScopedCacheRecord<unknown> | undefined>(store.get(recordKey(scope, WORKSPACE_CACHE_KEY)));
-    const previous = await materialize(scope, store, raw);
+    const previous = await materialize(scope, store, raw, entry => entry);
     const journal = update(previous.record?.value);
     if (journal.version !== 1 || lanes.some(lane => !Array.isArray(journal[lane])
       || Object.keys(journal[lane]).length !== journal[lane].length

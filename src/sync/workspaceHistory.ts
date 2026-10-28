@@ -112,7 +112,7 @@ export function workspaceHistoryReceiptRef(value: WorkspaceHistoryDescriptor) {
     : `${WORKSPACE_HISTORY_PREFIX}${value.sourceChangeId}`;
 }
 
-export function workspaceHistoryEvents(scope: { ownerKey: string; resetEpoch: number }, entries: readonly WorkspaceEntry[], pending: readonly WorkspaceEntry[], server = false) {
+export function workspaceHistoryEvents(scope: { ownerKey: string; resetEpoch: number }, entries: readonly WorkspaceEntry[], pending: readonly Pick<WorkspaceEntry, 'changeId'>[], server = false) {
   const pendingIds = new Set(pending.map(record => record.changeId));
   return entries.filter(entry => entry.key.startsWith(WORKSPACE_HISTORY_PREFIX)).map(entry => workspaceHistoryEventFromEntry(scope, entry, pendingIds, server));
 }
@@ -128,7 +128,7 @@ function workspaceHistoryEventFromEntry(scope: { ownerKey: string; resetEpoch: n
       receiptRef: !guest && confirmed ? workspaceHistoryReceiptRef(entry.value) : null };
 }
 
-export async function workspaceHistoryEventsCooperatively(scope: { ownerKey: string; resetEpoch: number }, entries: readonly WorkspaceEntry[], pending: readonly WorkspaceEntry[], server = false) {
+export async function workspaceHistoryEventsCooperatively(scope: { ownerKey: string; resetEpoch: number }, entries: readonly WorkspaceEntry[], pending: readonly Pick<WorkspaceEntry, 'changeId'>[], server = false) {
   if (entries.length < HISTORY_COOPERATIVE_THRESHOLD) return workspaceHistoryEvents(scope, entries, pending, server);
   const pendingIds = new Set<string>(), result: LessonHistoryEventV1[] = [];
   await forEachHistoryBatch(pending.length, index => {

@@ -1,3 +1,9 @@
+## T03 · chọn payload lịch sử khi đọc page · 28/10/2026 · IN-REVIEW
+
+Aggregate history dùng projectWorkspaceStorage trên cùng readonly snapshot/validator với full reader: không giữ raw nguồn sau từng page; chỉ compact identity/descriptor, ưu tiên descriptor lưu sẵn, kiểm cả pending ref/inline. Legacy vẫn clone cả primary nhưng validation/projection nhường lượt; owner/reset được fence sau yield. Full writer/sync/recovery không đổi. Targetedv3 60test; compiled native-v2 đủ2400unique/mastery0 và4800entries4800pending,416page; UI-v4 qua3journey. Chi tiết heap desktop/giới hạn xem checkpoint28/10. Fullv36 CHECK_EXIT0: 571file/3763test, typecheck/global lint/content/schema/restore43migration64table/build qua; 239JS/192private markers vắng. Provenance local/unattestable; advisory asset không là device/performance pass. Native compiled100k-v1 cũng giữ100000unique/mastery0,200000entries200000pending,423entry+391pendingpage;6601ms/gap96ms chỉ là một quan sát desktop.
+
+AI self-review, không humanReviewed/USER-ACCEPTED. Full output/state/outbox/legacy/writer vẫn chưa có hard total-memory bound; không suy thành thiết bị hoặc efficacy pass.
+
 ## T03 · giảm bộ nhớ phụ lịch sử · 28/10/2026 · IN-REVIEW
 
 Grouped projector giữ source order/reducer/conflict/stable sort, không tạo mảng input ghép toàn bộ; display selector chỉ giữ số lượt đang mở, đếm/lọc memoized. 100k-event window regression và ngưỡng1999/2000/2001/many-small-groups qua. Fullv35 570file/3754test/build qua, compiled history-v3 gồm3case reset/cancel/filter, root5000entries5000pending không đổi. Vẫn materialize nguồn; chưa hard total-memory/device pass.

@@ -171,10 +171,16 @@ khác object giữ exact inline, không suy bằng key/changeId/JSON. History ke
 bỏ qua namespace page theo physical primary key; recovery vẫn bao gồm mọi raw
 row trong bảy store. Old client gặp payload mới phải fail-closed, cần app mới hoặc
 khôi phục snapshot cũ bằng runtime hiện có; không hạ schema/xóa page thủ công.
-Đọc/project toàn history vẫn cần bộ nhớ theo tổng dữ liệu, chưa là storage paging
-cho UI. Projector nhận các nhóm nguồn theo thứ tự, không tạo thêm mảng ghép toàn
-bộ; Hồ sơ giữ riêng cửa sổ hiển thị và đếm/lọc memoized. Những giới hạn này chỉ
-giảm bộ nhớ phụ, không tạo hard bound cho journal hoặc primary record legacy.
+Đường lịch sử tổng hợp chọn thông tin lịch sử ngay trong transaction đọc từng
+page, dùng chung validator với full reader. Chỉ giữ key/changeId, descriptor gốc
+và descriptor suy từ nguồn; pending reference trỏ tới kết quả đã chọn. Payload
+nguồn không được ráp thành journal đầy đủ trong đường này. Descriptor lưu sẵn
+giữ ưu tiên, mọi nguồn/pending/page vẫn được kiểm; đọc legacy chỉ đọc, không tự
+migration. Các vòng xử lý legacy và descriptor nhường lượt rồi kiểm lại owner.
+Kết quả history đầy đủ, tập identity/descriptor và các nguồn state/outbox khác
+vẫn tăng theo số hoạt động; ghi/sync/recovery vẫn dùng full reader. Đây chưa là
+hard bound toàn bộ RAM hoặc paging kết quả cho UI. Projector nhận các nhóm theo
+thứ tự, không tạo thêm mảng ghép; Hồ sơ giữ cửa sổ hiển thị và đếm/lọc memoized.
 
 Recovery giữ DBversion3/bảy store và codec inner v1. Binary codec hỗ trợ Blob,
 ArrayBuffer và các view cố định, giữ backing bytes/offset/kiểu; không chuẩn hóa

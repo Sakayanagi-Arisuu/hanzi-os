@@ -7,7 +7,6 @@ import { isLessonHistoryEvent, LESSON_HISTORY_ENTRY_PREFIX, projectLessonHistory
 import { type LearningCommandOutboxRecord } from './learningCommandOutbox';
 import { readActiveOwnerLearningScope, StaleOwnerGenerationError, type ActiveOwnerLearningScope } from './indexedDb';
 import { PAGE_CORRECTION_HISTORY_PREFIX } from './mistakeHistory';
-import { workspaceEntriesWithHistoryCooperatively, workspaceHistoryEventsCooperatively } from './workspaceHistory';
 import { readAccountLessonHistoryPage } from './lessonHistory';
 
 export function commandActivityHistoryEvents(records: readonly LearningCommandOutboxRecord[]): LessonHistoryEventV1[] {
@@ -73,8 +72,8 @@ export function commandActivityHistoryEvents(records: readonly LearningCommandOu
 
 export async function readLocalActivityHistory(scope: ActiveOwnerLearningScope, batch = new LocalHistoryReadBatch(scope)) {
   const owner = { ownerKey: scope.ownerGeneration.ownerKey, resetEpoch: scope.resetEpoch };
-  const [records, commands, state, workspace] = await Promise.all([batch.resumes(scope),
-    batch.commands(scope), batch.state(scope), batch.workspace(scope)]);
+  const [records, commands, state, workspaceEvents] = await Promise.all([batch.resumes(scope),
+    batch.commands(scope), batch.state(scope), batch.workspaceHistory(scope)]);
   const events: LessonHistoryEventV1[] = [];
   events.push(...mockPracticeHistoryEvents(owner.ownerKey, owner.resetEpoch, await readMockPracticeRuns(scope)));
   for (const record of records) {
@@ -96,8 +95,7 @@ export async function readLocalActivityHistory(scope: ActiveOwnerLearningScope, 
       if (!eventIds.has(event.eventId)) { eventIds.add(event.eventId); events.push(event); }
     }
   }
-  const workspaceEntries = await workspaceEntriesWithHistoryCooperatively(workspace.entries);
-  for (const event of await workspaceHistoryEventsCooperatively(owner, workspaceEntries, workspace.pending)) events.push(event);
+  for (const event of workspaceEvents) events.push(event);
   for (const event of commandActivityHistoryEvents(commands.filter(entry => entry.resetEpoch === scope.resetEpoch))) events.push(event);
   const projected = await projectLessonHistoryCooperatively(owner, events);
   const active = await readActiveOwnerLearningScope();

@@ -11,6 +11,7 @@ import { INITIAL_LEARNING_STATE } from '../store/LearningStore';
 import { createInitialSyncDocument } from './document';
 import { LESSON_HISTORY_ENTRY_PREFIX, projectLessonHistory } from '../learning/lessonHistory';
 import * as workspace from './workspaceSync';
+import * as workspaceProjection from './workspaceHistoryProjection';
 
 let scope: database.ActiveOwnerLearningScope;
 async function clear() {
@@ -37,6 +38,7 @@ it('matches independent source projections while loading each shared store once 
   const commands = vi.spyOn(commandOutbox, 'listLearningCommandRecords');
   const state = vi.spyOn(database, 'readOwnerLocalState');
   const canonical = vi.spyOn(workspace, 'readWorkspaceCooperatively');
+  const projection = vi.spyOn(workspaceProjection, 'readWorkspaceHistoryProjection');
   const independent = projectLessonHistory({ ownerKey: scope.ownerGeneration.ownerKey, resetEpoch: scope.resetEpoch }, [
     ...await readLocalLessonHistory(scope), ...await readLocalReviewHistory(scope), ...await readLocalActivityHistory(scope),
   ]);
@@ -47,7 +49,8 @@ it('matches independent source projections while loading each shared store once 
   expect(combined).toHaveLength(2);
   expect(combined.every(event => !event.masteryEligible && event.score === null)).toBe(true);
   expect(snapshots).toHaveBeenCalledTimes(1); expect(commands).toHaveBeenCalledTimes(1); expect(state).toHaveBeenCalledTimes(1);
-  expect(canonical).toHaveBeenCalledTimes(1);
+  expect(canonical).not.toHaveBeenCalled();
+  expect(projection).toHaveBeenCalledTimes(1);
   expect(snapshots).toHaveBeenCalledWith(scope, 'workspace-sync:v1');
 });
 
@@ -75,6 +78,7 @@ it('never reuses a batch across owner, generation, reset or mutation of the orig
     expect(() => batch.commands(current)).toThrow(database.StaleOwnerGenerationError);
     expect(() => batch.state(current)).toThrow(database.StaleOwnerGenerationError);
     expect(() => batch.workspace(current)).toThrow(database.StaleOwnerGenerationError);
+    expect(() => batch.workspaceHistory(current)).toThrow(database.StaleOwnerGenerationError);
   }
 });
 
@@ -125,7 +129,7 @@ it.each([{ schemaVersion: 2 }, { ownerKey: 'anonymous:forged' }, { resetEpoch: 1
 it('propagates canonical read failure, retries fresh, and leaves workspace pending and recovery data unchanged', async () => {
   await save('first');
   const before = await database.captureOwnerRecoverySnapshot(scope);
-  vi.spyOn(workspace, 'readWorkspaceCooperatively').mockRejectedValueOnce(Error('canonical unavailable'));
+  vi.spyOn(workspaceProjection, 'readWorkspaceHistoryProjection').mockRejectedValueOnce(Error('canonical unavailable'));
   await expect(readLocalLearningHistory(scope)).rejects.toThrow('canonical unavailable');
   expect(await readLocalLearningHistory(scope)).toHaveLength(1);
   expect((await database.captureOwnerRecoverySnapshot(scope)).stores).toEqual(before.stores);
