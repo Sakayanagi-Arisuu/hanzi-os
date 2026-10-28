@@ -271,8 +271,23 @@ export function projectLessonHistory(scope: HistoryProjectionScope, events: read
 }
 
 export async function projectLessonHistoryCooperatively(scope: HistoryProjectionScope, events: readonly LessonHistoryEventV1[]): Promise<LessonHistoryEventV1[]> {
-  if (events.length < HISTORY_COOPERATIVE_THRESHOLD) return projectLessonHistory(scope, events);
+  return projectLessonHistoryGroupsCooperatively(scope, [events]);
+}
+
+/** Reconcile source groups in the same order without a full concatenated input
+ * array. The canonical reducer still validates every event, including groups
+ * that do not contribute any new IDs. */
+export async function projectLessonHistoryGroupsCooperatively(scope: HistoryProjectionScope,
+  groups: readonly (readonly LessonHistoryEventV1[])[]): Promise<LessonHistoryEventV1[]> {
+  const length = groups.reduce((count, group) => count + group.length, 0);
+  const cooperative = length >= HISTORY_COOPERATIVE_THRESHOLD;
   const result = new Map<string, LessonHistoryEventV1>();
-  await forEachHistoryBatch(events.length, index => addHistoryProjectionEvent(scope, result, events[index]));
-  return sortedHistoryProjectionCooperatively(result);
+  let group = 0, position = 0;
+  const visit = () => {
+    while (position >= groups[group].length) { group++; position = 0; }
+    addHistoryProjectionEvent(scope, result, groups[group][position++]);
+  };
+  if (cooperative) await forEachHistoryBatch(length, visit);
+  else for (let index = 0; index < length; index++) visit();
+  return cooperative ? sortedHistoryProjectionCooperatively(result) : sortedHistoryProjection(result);
 }

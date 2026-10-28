@@ -1,3 +1,9 @@
+## T12 · từ phiên luyện sang bài nguồn và quay lại · 28/10/2026 · IN-REVIEW
+
+Mục phụ Học theo bài nguồn lưu draft trước khi điều hướng; đọc lại phiên bền vững, dirty/change/conflict/failed-save chặn rời phiên. Không đổi cursor/receipt/completion/FSRS; destination lesson giữ gate hiện có. Renderer đối chiếu sourceLessonId với unit đã pin và accessible name ổn định. Native compiled-v5 đi→về→reload375×667/667×375 giữ response/IME/cursor1/receipt1/primary, quota chặn; keyboard/24px CSS text/CTA44px/footer qua. Đích lesson là fixture, không full lesson renderer/account proof. Fullv35 3754test pass. FSRS receipt và Reader/Nói/Viết/assessment handoff đầy đủ vẫn mở.
+
+AI self-review; không humanReviewed/USER-ACCEPTED. Gate/bằng chứng/giới hạn tích hợp xem checkpoint28/10; không sửa dữ liệu nguồn hoặc inventory HSK.
+
 # T12 · consumer của phiên luyện pilot
 
 22/10/2026 · IN-REVIEW, audit delta của T11; chưa nghiệm thu toàn T12.

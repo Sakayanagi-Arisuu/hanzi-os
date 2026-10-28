@@ -1,6 +1,6 @@
 import { LocalHistoryReadBatch } from './localHistoryReadBatch';
 import {createReviewHistoryEvent,guestReviewHistoryEvent,reviewHistoryIsUsable} from '../learning/reviewHistory';
-import {isLessonHistoryEvent,LESSON_HISTORY_ENTRY_PREFIX,projectLessonHistoryCooperatively,type LessonHistoryEventV1} from '../learning/lessonHistory';
+import {isLessonHistoryEvent,LESSON_HISTORY_ENTRY_PREFIX,projectLessonHistoryCooperatively,projectLessonHistoryGroupsCooperatively,type LessonHistoryEventV1} from '../learning/lessonHistory';
 import {parseReviewHistoryCommand,REVIEW_MODALITY} from '../learning/reviewProtocol';
 import {type LearningCommandOutboxRecord} from './learningCommandOutbox';
 import {readActiveOwnerLearningScope,StaleOwnerGenerationError,type ActiveOwnerLearningScope} from './indexedDb';
@@ -55,8 +55,8 @@ export async function readLocalReviewHistory(scope:ActiveOwnerLearningScope,batc
 export async function readLocalLearningHistory(scope:ActiveOwnerLearningScope){
   const { readLocalActivityHistory } = await import('./activityHistory');
   const batch = new LocalHistoryReadBatch(scope, true);
-  const projected = await projectLessonHistoryCooperatively({ownerKey:scope.ownerGeneration.ownerKey,resetEpoch:scope.resetEpoch},[
-    ...await readLocalLessonHistory(scope,batch),...await readLocalReviewHistory(scope,batch),...await readLocalActivityHistory(scope,batch)]);
+  const projected = await projectLessonHistoryGroupsCooperatively({ownerKey:scope.ownerGeneration.ownerKey,resetEpoch:scope.resetEpoch},[
+    await readLocalLessonHistory(scope,batch),await readLocalReviewHistory(scope,batch),await readLocalActivityHistory(scope,batch)]);
   await batch.assertCurrent(scope);
   return projected;
 }

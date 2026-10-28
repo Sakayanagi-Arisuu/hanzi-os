@@ -8,6 +8,7 @@ import { AdaptiveUnitRenderer } from './AdaptiveUnitRenderer';
 import { fetchAdaptiveUnit } from './adaptiveUnitClient';
 
 type Props = { scope: ActiveOwnerLearningScope; onExit: () => void;
+  onOpenSource?: (href: string) => void;
   materialize?: (scope: ActiveOwnerLearningScope, snapshot: AdaptiveSession, signal: AbortSignal) => Promise<LearningUnit> };
 const accountUnit = async (scope: ActiveOwnerLearningScope, snapshot: AdaptiveSession, signal: AbortSignal) =>
   (await fetchAdaptiveUnit(scope, snapshot, { signal })).unit;
@@ -23,7 +24,7 @@ function RunnerStatus({ title, children, actions }: { title: string; children: R
     <div className="adaptive-unit-content"><div className="adaptive-unit-reading">{children}</div></div><footer>{actions}</footer></section>;
 }
 
-function Runner({ scope, onExit, materialize = accountUnit }: Props) {
+function Runner({ scope, onExit, onOpenSource, materialize = accountUnit }: Props) {
   // Parent rerenders may recreate the scope object without changing its identity.
   const ownerKey = scope.ownerGeneration.ownerKey, generation = scope.ownerGeneration.generation, resetEpoch = scope.resetEpoch;
   const stableScope = useMemo(() => ({ ownerGeneration: { ownerKey, generation }, resetEpoch }), [ownerKey, generation, resetEpoch]);
@@ -84,6 +85,11 @@ function Runner({ scope, onExit, materialize = accountUnit }: Props) {
     try { await controller.flushDraft(); onExit(); } catch { /* Keep visible draft and recovery controls. */ }
   };
   const retry = () => { void controller.flushDraft().catch(() => undefined); };
+  const openSource = async () => {
+    if (timer.current) clearTimeout(timer.current);
+    const href = await controller.sourceLessonPath();
+    onOpenSource?.(href);
+  };
   const reload = () => {
     if (timer.current) clearTimeout(timer.current);
     void controller.reloadSaved({ discardVisibleDraft: true }).then(() => setSourceRevision(value => value + 1)).catch(() => undefined);
@@ -112,5 +118,6 @@ function Runner({ scope, onExit, materialize = accountUnit }: Props) {
       controller.updateDraft(draft);
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(retry, 350);
-    }} onSupport={controller.support} onPractice={controller.practice} onAdvance={controller.advance} onExit={() => void exit()} onRetryDraft={retry} />;
+    }} onSupport={controller.support} onPractice={controller.practice} onAdvance={controller.advance} onExit={() => void exit()} onRetryDraft={retry}
+    onOpenSource={onOpenSource ? openSource : undefined} />;
 }

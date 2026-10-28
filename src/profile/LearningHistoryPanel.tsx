@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { useLearning } from '../store/LearningContext';
 import { type HistoryModule, type LessonHistoryEventV1 } from '../learning/lessonHistory';
-import { reconcileProfileHistory } from './historyReconciliation';
+import { reconcileProfileHistoryGroups } from './historyReconciliation';
+import { selectHistoryWindow } from './historyWindow';
 import { readLocalLearningHistory } from '../sync/reviewHistory';
 import { readAccountLessonHistoryPage } from '../sync/lessonHistory';
 import { currentWorkspaceScope, WORKSPACE_CHANGED } from '../sync/workspaceSync';
@@ -64,7 +65,7 @@ export function LearningHistoryPanel() {
       const local = await readLocalLearningHistory(scope);
       if (generation !== lifecycle.current || controller.signal.aborted) return;
       const requestIsCurrent = () => generation === lifecycle.current && !controller.signal.aborted;
-      const initial = await reconcileProfileHistory(scope, [...local, ...remoteEvents.current], requestIsCurrent);
+      const initial = await reconcileProfileHistoryGroups(scope, [local, remoteEvents.current], requestIsCurrent);
       if (initial === null || !requestIsCurrent()) return;
       setEvents(initial);
       setReady(true);
@@ -75,11 +76,11 @@ export function LearningHistoryPanel() {
           send: (input, init) => fetch(input, { ...init, signal: controller.signal }),
         })));
         if (generation !== lifecycle.current || controller.signal.aborted) return;
-        const combined = await reconcileProfileHistory(scope, [...remoteEvents.current, ...received.flatMap(page => page.events)], requestIsCurrent);
+        const combined = await reconcileProfileHistoryGroups(scope, [remoteEvents.current, ...received.map(page => page.events)], requestIsCurrent);
         if (combined === null || !requestIsCurrent()) return;
         const paging = { ...pages.current };
         selected.forEach((source, index) => { paging[source] = advanceHistoryPage(paging[source], received[index], mode); });
-        const reconciled = await reconcileProfileHistory(scope, [...local, ...combined], requestIsCurrent);
+        const reconciled = await reconcileProfileHistoryGroups(scope, [local, combined], requestIsCurrent);
         if (reconciled === null || !requestIsCurrent()) return;
         // Commit cursor and events together only after the final async fence.
         remoteEvents.current = combined; pages.current = paging;
@@ -123,10 +124,9 @@ export function LearningHistoryPanel() {
       window.removeEventListener('hanzi-learning-reset', reset);
     };
   }, [load, clearCache, invalidateRequest]);
-  const filtered = events.filter(event => (module === 'all' || event.module === module) && (skill === 'all' || (skill === 'unknown' ? event.skill === null : event.skill === skill)));
-  const displayed = filtered.slice(0, visibleCount);
+  const { count: filteredCount, displayed } = useMemo(() => selectHistoryWindow(events, module, skill, visibleCount), [events, module, skill, visibleCount]);
   const groups = new Map<string, LessonHistoryEventV1[]>();
-  displayed.forEach(event => { const day = historyDay(event); groups.set(day, [...groups.get(day) ?? [], event]); });
+  displayed.forEach(event => { const day = historyDay(event); const group = groups.get(day); if (group) group.push(event); else groups.set(day, [event]); });
   return <section className="learning-history" aria-labelledby="learning-history-heading">
     <h2 id="learning-history-heading">Nhật ký tu luyện · Lịch sử học tập</h2>
     <p>Ghi lại lượt học, hỗ trợ và tự ôn. Nhật ký không tự cấp XP, mở khóa hay kết luận mức thành thạo. Một số nguồn đang được nối tiếp; đây chưa phải toàn bộ lịch sử cũ.</p>
@@ -134,7 +134,7 @@ export function LearningHistoryPanel() {
       <label>Kỹ năng<select aria-label="Kỹ năng" value={skill} onChange={event => { setSkill(event.target.value); setVisibleCount(20); }}><option value="all">Tất cả kỹ năng</option>{Object.entries(HISTORY_SKILL_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}<option value="unknown">Chưa xác định kỹ năng</option></select></label></div>
     {busy && <p role="status">Đang đọc lịch sử đã lưu…</p>}
     {error && <div role="alert"><p>{error}</p><button type="button" className="secondary-button" disabled={busy} onClick={() => void load(failedMode.current ?? 'refresh')}>Đọc lại lịch sử</button></div>}
-    {ready && !error && !busy && !filtered.length && <p role="status">Chưa có hoạt động phù hợp trong phần lịch sử đã tải.</p>}
+    {ready && !error && !busy && !filteredCount && <p role="status">Chưa có hoạt động phù hợp trong phần lịch sử đã tải.</p>}
     {[...groups].map(([day, records]) => <section key={day} className="history-day"><h3>{day}</h3><ol>{records.map(event => {
       const source = historySourceLink(event);
       return <li key={event.eventId}><article><h4>{HISTORY_MODULE_LABELS[event.module]}</h4><p>{historyActivityLabel(event)}</p><p>{historyOutcomeLabel(event)}</p>
@@ -143,7 +143,7 @@ export function LearningHistoryPanel() {
           <p>{event.contentVersion === 'unknown' ? 'Chưa rõ phiên bản học liệu.' : 'Giữ liên kết với phiên bản học liệu của lượt này; bài hiện tại có thể đã đổi.'} Chưa đo thời lượng hoạt động.</p></details>
         <Link to={source.href}>{source.label}</Link></article></li>;
     })}</ol></section>)}
-    {(filtered.length > visibleCount || more) && <button className="secondary-button" type="button" disabled={busy} onClick={() => { if (filtered.length > visibleCount) setVisibleCount(value => value + 20); else { setVisibleCount(value => value + 20); void load('more'); } }}>Xem thêm lịch sử</button>}
-    {ready && <p role="status">Đang hiện {displayed.length} lượt trong {filtered.length} lượt phù hợp đã tải. Truy cập khu học khác với trả lời hoặc tự ôn.</p>}
+    {(filteredCount > visibleCount || more) && <button className="secondary-button" type="button" disabled={busy} onClick={() => { if (filteredCount > visibleCount) setVisibleCount(value => value + 20); else { setVisibleCount(value => value + 20); void load('more'); } }}>Xem thêm lịch sử</button>}
+    {ready && <p role="status">Đang hiện {displayed.length} lượt trong {filteredCount} lượt phù hợp đã tải. Truy cập khu học khác với trả lời hoặc tự ôn.</p>}
   </section>;
 }

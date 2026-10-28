@@ -25,6 +25,26 @@ export async function readAvatar(owner: OwnerGeneration) {
     await done; return record;
   } catch (error) { try { transaction.abort(); } catch { await done.catch(() => undefined); } await done.catch(() => undefined); throw error; }
 }
+/** Server-validated account media only. This derived private cache grants no
+ * authentication or upload permission and cannot replace a newer revision. */
+export async function cacheAccountAvatar(owner: OwnerGeneration, record: AvatarRecord | null) {
+  if (owner.ownerKey.startsWith('anonymous:')) throw Error('Account cache cannot adopt guest media');
+  if (record !== null) parseAvatarRecord(record, owner.ownerKey);
+  const database = await openSyncDatabase();
+  const transaction = database.transaction(SYNC_META_STORE, 'readwrite'), done = completed(transaction);
+  try {
+    const store = transaction.objectStore(SYNC_META_STORE);
+    await requireOwner(store, owner);
+    const key = avatarStorageKey(owner.ownerKey);
+    const saved = await requestValue(store.get(key)) as { value?: unknown } | undefined;
+    const previous = parseAvatarRecord(saved?.value, owner.ownerKey);
+    const selected = (previous?.revision ?? 0) > (record?.revision ?? 0) ? previous : record;
+    if (selected !== null && selected === record) store.put({ key, value: record });
+    await done;
+    return selected;
+  } catch (error) { try { transaction.abort(); } catch { await done.catch(() => undefined); } await done.catch(() => undefined); throw error; }
+}
+
 export async function saveGuestAvatar(owner: OwnerGeneration, expectedRevision: number, blob: Blob | null) {
   if (!owner.ownerKey.startsWith('anonymous:')) throw new Error('Ảnh tài khoản cần adapter máy chủ; chưa gửi ảnh lên cloud.');
   if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0 || expectedRevision >= Number.MAX_SAFE_INTEGER) throw new Error('Avatar revision is invalid');

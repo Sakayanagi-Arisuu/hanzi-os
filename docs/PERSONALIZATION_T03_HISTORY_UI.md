@@ -1,3 +1,9 @@
+## T03 · giảm bộ nhớ phụ lịch sử · 28/10/2026 · IN-REVIEW
+
+Grouped projector giữ source order/reducer/conflict/stable sort, không tạo mảng input ghép toàn bộ; display selector chỉ giữ số lượt đang mở, đếm/lọc memoized. 100k-event window regression và ngưỡng1999/2000/2001/many-small-groups qua. Fullv35 570file/3754test/build qua, compiled history-v3 gồm3case reset/cancel/filter, root5000entries5000pending không đổi. Vẫn materialize nguồn; chưa hard total-memory/device pass.
+
+AI self-review; không humanReviewed/USER-ACCEPTED. Gate/bằng chứng/giới hạn tích hợp xem checkpoint28/10; không sửa dữ liệu nguồn hoặc inventory HSK.
+
 ## Cá nhân hóa v2 · lịch sử Hồ sơ nhường lượt / AI self-review · 28/10/2026
 
 - **Module:** T03 — IN-REVIEW. Theo yêu cầu mới, tự review code và bằng chứng; đây là AI review, không ghi humanReviewed hoặc USER-ACCEPTED.

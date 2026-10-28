@@ -2,10 +2,11 @@ import { canonicalStringify, sha256Hex } from './canonicalHash';
 import { OWNER_RECOVERY_STORES, SYNC_DATABASE_VERSION } from './ownerRecoverySchema';
 import type { ActiveOwnerLearningScope, OwnerRecoverySnapshot } from './indexedDb';
 import { avatarStorageKey, parseAvatarRecord } from '../profile/avatarContract';
+import { encodeRecoveryBinary, decodeRecoveryBinary, recoveryHex, recoveryHexBytes, type EncodedRecoveryBinary } from './recoveryBinary';
 
 type Encoded = null | string | number | boolean | { kind: 'undefined' }
   | { kind: 'array'; values: Encoded[] } | { kind: 'object'; entries: [string, Encoded][] }
-  | { kind: 'blob'; mime: string; hex: string };
+  | { kind: 'blob'; mime: string; hex: string } | EncodedRecoveryBinary;
 type DeviceBinding = { installationId: string; deviceId: string };
 const MAX_ARCHIVE_CHARS = 64 * 1024 * 1024;
 
@@ -23,7 +24,9 @@ async function encode(value: unknown, seen = new WeakSet<object>(), depth = 0): 
   seen.add(value);
   try {
     if (value instanceof Blob) return { kind: 'blob', mime: value.type,
-      hex: Array.from(new Uint8Array(await value.arrayBuffer()), byte => byte.toString(16).padStart(2, '0')).join('') };
+      hex: recoveryHex(new Uint8Array(await value.arrayBuffer())) };
+    const binary = encodeRecoveryBinary(value);
+    if (binary) return binary;
     if (Array.isArray(value)) {
       if (Object.keys(value).length !== value.length) throw new Error('Unsupported sparse recovery array; retain source.');
       const values: Encoded[] = [];
@@ -43,6 +46,8 @@ function decode(value: unknown, depth = 0): unknown {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Invalid recovery value.');
   const encoded = value as Encoded & Record<string, unknown>;
+  const binary = decodeRecoveryBinary(encoded);
+  if (binary) return binary;
   if (encoded.kind === 'undefined' && Object.keys(encoded).length === 1) return undefined;
   if (encoded.kind === 'array' && Object.keys(encoded).length === 2 && Array.isArray(encoded.values)) return encoded.values.map(child => decode(child, depth + 1));
   if (encoded.kind === 'object' && Object.keys(encoded).length === 2 && Array.isArray(encoded.entries)) {
@@ -55,7 +60,7 @@ function decode(value: unknown, depth = 0): unknown {
   }
   if (encoded.kind === 'blob' && Object.keys(encoded).length === 3 && typeof encoded.mime === 'string'
     && typeof encoded.hex === 'string' && encoded.hex.length % 2 === 0 && /^[a-f0-9]*$/.test(encoded.hex)) {
-    return new Blob([Uint8Array.from(encoded.hex.match(/.{2}/g) ?? [], byte => parseInt(byte, 16))], { type: encoded.mime });
+    return new Blob([recoveryHexBytes(encoded.hex)], { type: encoded.mime });
   }
   throw new Error('Unsupported recovery encoding.');
 }

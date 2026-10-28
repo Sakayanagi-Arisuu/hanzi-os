@@ -1,4 +1,5 @@
 import * as core from './ownerRecoveryArchiveCore';
+import { recoveryBinaryType } from './recoveryBinary';
 
 export type CodecTask = keyof typeof core;
 export type CodecArgs<T extends CodecTask> = Parameters<typeof core[T]>;
@@ -21,6 +22,7 @@ export function canCloneRecoveryInput(value: unknown, seen = new WeakSet<object>
   if (value === null || ['undefined', 'string', 'boolean', 'number'].includes(typeof value)) return true;
   if (typeof value !== 'object' || seen.has(value)) return false;
   if (value instanceof Blob) return Object.getPrototypeOf(value) === Blob.prototype;
+  if (recoveryBinaryType(value) !== null) return true;
   const prototype = Object.getPrototypeOf(value);
   if (!Array.isArray(value) && prototype !== Object.prototype && prototype !== null) return false;
   if (Array.isArray(value) && prototype !== Array.prototype) return false;

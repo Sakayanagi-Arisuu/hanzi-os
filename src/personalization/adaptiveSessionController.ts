@@ -82,6 +82,19 @@ export class AdaptiveSessionController {
     this.publish({ journal: saved, draftStatus: this.dirty ? 'saving' : 'saved', error: '' });
   }
   flushDraft = () => this.enqueue(() => this.persistDraft());
+  sourceLessonPath = () => this.enqueue(async () => {
+    await this.persistDraft();
+    const journal = this.requireJournal();
+    const current = await readAdaptiveSession(this.scope);
+    if (this.disposed || this.dirty) throw Error('Draft changed while preparing source navigation');
+    if (!current || canonicalStringify(current.snapshot) !== canonicalStringify(journal.snapshot)) {
+      this.publish({ conflict: true });
+      throw Error('Saved session changed before source navigation');
+    }
+    const step = current.snapshot.manifest.steps[current.snapshot.cursor];
+    if (current.snapshot.archived || current.snapshot.manifest.shadowOnly || step?.kind !== 'unit' || !step.sourceLessonId) throw Error('Source lesson unavailable');
+    return `/lesson/${encodeURIComponent(step.sourceLessonId)}`;
+  });
   support = (kind: Support) => this.enqueue(async () => {
     await this.persistDraft();
     const journal = await recordAdaptiveSupport(this.scope, this.requireJournal().snapshot, kind);

@@ -251,12 +251,12 @@
     },
     {
       "file": "src/learning/lessonHistory.ts",
-      "sha256": "fd740091c796eb84737423507107077158ad6f91f844c38bd77a64de4406bc05",
+      "sha256": "e66379b4861dd6ba15673cf9f8d09a707a3706374657722a80f15d5f9a5f2960",
       "previousSha256": "cf0feca6351c275962553b92d1fe7900d9f33ae208d25c6ae8519743230711a1"
     },
     {
       "file": "src/learning/lessonHistoryCooperative.test.ts",
-      "sha256": "548639700f457d9955bb1d7c341c182390c1b6f439a91baec46531cde25d946a",
+      "sha256": "30c1dd3b9491635a956a11464ab527c8d47df3fcbd411aef6e5241de60e8de5a",
       "previousSha256": null
     },
     {
@@ -341,17 +341,17 @@
     },
     {
       "file": "src/personalization/AdaptiveSessionRunner.tsx",
-      "sha256": "bce664298456cefd5ccaf358737cdfb95fe134560e45b821aea803071bc2defd",
+      "sha256": "a04df398eb959a6bce931396eb286d2cf95e0c280f3d642748f1e894df196180",
       "previousSha256": null
     },
     {
       "file": "src/personalization/AdaptiveUnitRenderer.test.ts",
-      "sha256": "b68d3517c1c9b7dfe2922216cb8da3ef98b8d0652d7db4ce27f4372b901fcf60",
+      "sha256": "d1e7b1072191d15c17c8749a323b6a773bcd743ed5c9c3a4ddcb08dd16ed23dc",
       "previousSha256": null
     },
     {
       "file": "src/personalization/AdaptiveUnitRenderer.tsx",
-      "sha256": "6be15a40d00c4970df7e2b3d7bd9e7c331868596c22b651909de3a334e10e508",
+      "sha256": "044fa8ad06b2bda76b71f9ce90c9ff8a745aee56fd366a0c619ff3e856cc0209",
       "previousSha256": null
     },
     {
@@ -371,12 +371,12 @@
     },
     {
       "file": "src/personalization/adaptiveSessionController.test.ts",
-      "sha256": "7e8697788e2b8320c7f71665ff1fdd82d07401ce98336dd9701216df88b1e431",
+      "sha256": "4aa6ec868ffbc4a42a98275bf1d257fc8edcabf89eaff7a246a77b38c8a79719",
       "previousSha256": null
     },
     {
       "file": "src/personalization/adaptiveSessionController.ts",
-      "sha256": "eb8361775f854fbb9562d32cc013a3332f114c534a957203d7dd869a8217eebb",
+      "sha256": "5c8c2c91e9dd5a720028878acf7f839e43459cf3a1b1cedb56b1355e905fe0a7",
       "previousSha256": null
     },
     {
@@ -511,7 +511,7 @@
     },
     {
       "file": "src/profile/LearningHistoryPanel.tsx",
-      "sha256": "b116688f00bbdc834d2be415191c24246da068d577f114161032d09dd1340273",
+      "sha256": "801e18e2afd46b549f940974b6a2fc525e8462f5cb10635acaee70b9b482d4d3",
       "previousSha256": null
     },
     {
@@ -526,12 +526,12 @@
     },
     {
       "file": "src/profile/accountAvatarClient.test.ts",
-      "sha256": "90c7f30e94a9d99bdb41d4d740601c5ebc4302afd6dc229f1f27355dd82fbe81",
+      "sha256": "46e39e281be71bd78536275d21773986c63990a4e635f16ff9fde537f9f32adb",
       "previousSha256": null
     },
     {
       "file": "src/profile/accountAvatarClient.ts",
-      "sha256": "2d2e908c855cc1b8ebca7f66090a6d2da8967f57db3ee866d7126c08cb42472e",
+      "sha256": "ea97ff0b804cf3bbbc1e0e40f790c676ba3573b417442152953c9abd4d05980b",
       "previousSha256": null
     },
     {
@@ -571,7 +571,7 @@
     },
     {
       "file": "src/profile/avatarStorage.ts",
-      "sha256": "1d70857893bcbe1df09c1b142cc82cdc204d85704374880afb9f139f7276a6c5",
+      "sha256": "80737a4993e1b1a34b169af27edafbe2d7567b0d64e6ce41598e6a4944e34349",
       "previousSha256": null
     },
     {
@@ -602,7 +602,17 @@
     {
       "file": "src/profile/historyReconciliation.ts",
       "previousSha256": null,
-      "sha256": "29a6f46a84dbf730bbce578cc6a1473f87fd2f0f223ef289adc692d336609545"
+      "sha256": "a945f7174e035ea320b3093c0261a7d4989c154a3380b7532c5ca9d09e5e21b0"
+    },
+    {
+      "file": "src/profile/historyWindow.test.ts",
+      "sha256": "a236da759a00ceac5d4e7e9ce5145da3dce48b792a0a669f101e917fb405c4a5",
+      "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyWindow.ts",
+      "sha256": "c0c66e09c072488c5fac386bed109b3a0abaa3ac04153f2da36914b7b567494c",
+      "previousSha256": null
     },
     {
       "file": "src/profile/learningHistory.css",
@@ -611,7 +621,7 @@
     },
     {
       "file": "src/profile/useAvatar.ts",
-      "sha256": "55853e38e8b312661429b9e7f32372fdf95a7cec63e67ba4d01dce4446ab2c79",
+      "sha256": "933ffae3d924f8f288bb2d423f3b9f13c03d043bb4ffd92bd304361c6e55b350",
       "previousSha256": null
     },
     {
@@ -646,7 +656,7 @@
     },
     {
       "file": "src/screens/AdaptivePracticePage.tsx",
-      "sha256": "047963f0f51c1c2e054485eabd7d55dd2776cd72e427ddef14a3fbf41c7253ec",
+      "sha256": "2801a13e0a8339e7555f2ca87d6c6594199d85f0e258331a69206934a02ef3ab",
       "previousSha256": null
     },
     {
@@ -1001,7 +1011,7 @@
     },
     {
       "file": "src/sync/indexedDb.ts",
-      "sha256": "d5c40f13d9a4ecda65cb5cd7e252ac1d60e0be0891a9314b0210334ae5bfdebf",
+      "sha256": "4a7d2d8a701b99087c4f7cb21f3b167ac47526b3174c4f278c46d04a165b9ac8",
       "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
     },
     {
@@ -1066,17 +1076,17 @@
     },
     {
       "file": "src/sync/ownerDeviceRecovery.test.ts",
-      "sha256": "b282655e26a82d542a611a3abec621f31b79b6580c7f70ba626825ec7a923696",
+      "sha256": "335ece112b864b5acc8a3e11994987f5c3774be5f7b4a0823863eff733c8475a",
       "previousSha256": null
     },
     {
       "file": "src/sync/ownerDeviceRecovery.ts",
-      "sha256": "5883fb6b0bd64975c4f4d28046433f8d67487a12d1ea67bc7bd1c6f2a42a5d3f",
+      "sha256": "866858543af51671bade0c0683abedf42f37e1d5ffc18af1470630bc49dc90a7",
       "previousSha256": null
     },
     {
       "file": "src/sync/ownerRecoveryApply.test.ts",
-      "sha256": "f629e0021c6771d9cca16d79a4565bbab5c43870218b486bbf25cceeaece4b91",
+      "sha256": "dffeeacd500cec753a47c3fad0ba9f818b27d943f9d73c1a5fac3be7302aa1e5",
       "previousSha256": null
     },
     {
@@ -1096,7 +1106,12 @@
     },
     {
       "file": "src/sync/ownerRecoveryArchiveCore.ts",
-      "sha256": "b30ef428b715829ae636facea8019b52eaf9555c8a93641eefc619d0ba1c496a",
+      "sha256": "90abe1e4f9dd9199bf99f5317138fce4b8e294776d3908fecc3ba69a35c25cf0",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/ownerRecoveryBinary.test.ts",
+      "sha256": "e6ac50422e0e3d727e71635d41d5009a14942cea3fed328d300c70eeca0d9d9b",
       "previousSha256": null
     },
     {
@@ -1111,7 +1126,7 @@
     },
     {
       "file": "src/sync/ownerRecoveryCodecTask.ts",
-      "sha256": "4185a00aaca5a06e6e11181ebb92947e00080c6dc482c9ee42bd1503e3a45946",
+      "sha256": "0117ad6254007f03c69fec1dbd06383be9d49fbf979eea8fd79b9796520891ba",
       "previousSha256": null
     },
     {
@@ -1160,8 +1175,23 @@
       "previousSha256": null
     },
     {
+      "file": "src/sync/recoveryBinary.ts",
+      "sha256": "d1d8cf4cd17cc192bf1037d2cccba542ab7fe5325b37f992474613991b3b1f8c",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/recoveryCompression.test.ts",
+      "sha256": "38e7a45302378c0a5f07643a251dc9bcaf4e9ef3cdf443a0c4101912bc9706bb",
+      "previousSha256": null
+    },
+    {
+      "file": "src/sync/recoveryCompression.ts",
+      "sha256": "c27e2e7398dde576962d09d2893e5ca27ac92e77c5649754de63e6942352924c",
+      "previousSha256": null
+    },
+    {
       "file": "src/sync/reviewHistory.ts",
-      "sha256": "4c592da9e9ef044cbcfe1e3b1fe4e55836fd671bbec823154771fa2dde1bd143",
+      "sha256": "24410a0b78eff65e1b6d5c619e9ff59b1c6df3950f3878b958d55d500372af2e",
       "previousSha256": "39cf05bfef606c9a4b73041f5767631a96b57dcf2111cd135c06a78bf7c6517e"
     },
     {
@@ -3403,6 +3433,174 @@
           "sha256": "4ae1d279763bc17e1c86b7deb006d11455f0023fe2d8db8df9a39d0cb5314c45"
         }
       ]
+    },
+    {
+      "date": "2026-10-28",
+      "status": "IN-REVIEW",
+      "task": "T03 bounded auxiliary history allocations; T04 compressed/binary recovery; A02 private offline cache; T12 draft-safe source handoff",
+      "notes": "User explicitly requested continuing all listed groups without stopping, AI review, then confirmed no device/cohort and requested technical checks first. Audited26changed/new source/test files;416overlay bindings expected. Grouped projection preserves canonical source order/reducer/conflict/stable sort without full concatenated input; display selector stores requested window only and memoizes count/filters. Full source history and primary legacy records still materialize. Recovery fixed native binary views/full backing bytes and uses bounded hex chunks. Large device archives optionally signed gzip/base64 v3; v1/v2 still decode, v1 inspect-only, logical64Mi chars and outer128Mi bytes/chars limits unchanged. Decompression checks declared bytes, strict metadata/base64/gzip and unchanged logical cap; unsupported compression retains v2. Raw first capture released before second observation. Native4350:2.4M UTF16-unit payload,5,605,311 inner bytes,7,208,978 legacy-v2 file bytes→19,524 compressed bytes; exact Blob/DataView,legacy v2 auth/v1 inspect,apply→rollback,generation2/job null,0errors. Actual Worker/IDB/Web Crypto, synthetic isolated source. Account cache only server-validated WebP in existing owner META avatar slot, atomic revision monotonicity/tombstones, no authority/upload grants; cached display API-offline reload and owner isolation native4351 passed, API mock. Guest never uploaded. T12 source navigation flushes dirty draft, rechecks stored session and retains cursor/receipts; quota/conflict blocks navigation. Native4352 actual page/runner/IDB with fixture prerequisite and mock lesson destination passed375x667/667x375/reload,primary unchanged; no account lesson-renderer claim. Stable aria-labels fixed after browser showed exact textarea label incorporated the answer. Targeted history78/recovery99/avatar58/personalization78 overlap,not summed. Typechecks/global lint exit0; fullv34 pending with runtime/tests frozen now. Existing synthetic replay+verification five cases exit0, efficacy not measured. Gradle attempted offline but JAVA_HOME/java absent in current environment,9009; no installation or account/device changes. No USER-ACCEPTED/humanReviewed/mastery/release-policy changes. No reports/output/.wrangler/user-origin clearing.",
+      "changes": [
+        {
+          "file": "src/learning/lessonHistory.ts",
+          "previousSha256": "fd740091c796eb84737423507107077158ad6f91f844c38bd77a64de4406bc05",
+          "sha256": "e66379b4861dd6ba15673cf9f8d09a707a3706374657722a80f15d5f9a5f2960"
+        },
+        {
+          "file": "src/learning/lessonHistoryCooperative.test.ts",
+          "previousSha256": "548639700f457d9955bb1d7c341c182390c1b6f439a91baec46531cde25d946a",
+          "sha256": "30c1dd3b9491635a956a11464ab527c8d47df3fcbd411aef6e5241de60e8de5a"
+        },
+        {
+          "file": "src/personalization/AdaptiveSessionRunner.tsx",
+          "previousSha256": "bce664298456cefd5ccaf358737cdfb95fe134560e45b821aea803071bc2defd",
+          "sha256": "a04df398eb959a6bce931396eb286d2cf95e0c280f3d642748f1e894df196180"
+        },
+        {
+          "file": "src/personalization/AdaptiveUnitRenderer.test.ts",
+          "previousSha256": "b68d3517c1c9b7dfe2922216cb8da3ef98b8d0652d7db4ce27f4372b901fcf60",
+          "sha256": "d1e7b1072191d15c17c8749a323b6a773bcd743ed5c9c3a4ddcb08dd16ed23dc"
+        },
+        {
+          "file": "src/personalization/AdaptiveUnitRenderer.tsx",
+          "previousSha256": "6be15a40d00c4970df7e2b3d7bd9e7c331868596c22b651909de3a334e10e508",
+          "sha256": "044fa8ad06b2bda76b71f9ce90c9ff8a745aee56fd366a0c619ff3e856cc0209"
+        },
+        {
+          "file": "src/personalization/adaptiveSessionController.test.ts",
+          "previousSha256": "7e8697788e2b8320c7f71665ff1fdd82d07401ce98336dd9701216df88b1e431",
+          "sha256": "4aa6ec868ffbc4a42a98275bf1d257fc8edcabf89eaff7a246a77b38c8a79719"
+        },
+        {
+          "file": "src/personalization/adaptiveSessionController.ts",
+          "previousSha256": "eb8361775f854fbb9562d32cc013a3332f114c534a957203d7dd869a8217eebb",
+          "sha256": "5c8c2c91e9dd5a720028878acf7f839e43459cf3a1b1cedb56b1355e905fe0a7"
+        },
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "b116688f00bbdc834d2be415191c24246da068d577f114161032d09dd1340273",
+          "sha256": "801e18e2afd46b549f940974b6a2fc525e8462f5cb10635acaee70b9b482d4d3"
+        },
+        {
+          "file": "src/profile/accountAvatarClient.test.ts",
+          "previousSha256": "90c7f30e94a9d99bdb41d4d740601c5ebc4302afd6dc229f1f27355dd82fbe81",
+          "sha256": "46e39e281be71bd78536275d21773986c63990a4e635f16ff9fde537f9f32adb"
+        },
+        {
+          "file": "src/profile/accountAvatarClient.ts",
+          "previousSha256": "2d2e908c855cc1b8ebca7f66090a6d2da8967f57db3ee866d7126c08cb42472e",
+          "sha256": "ea97ff0b804cf3bbbc1e0e40f790c676ba3573b417442152953c9abd4d05980b"
+        },
+        {
+          "file": "src/profile/avatarStorage.ts",
+          "previousSha256": "1d70857893bcbe1df09c1b142cc82cdc204d85704374880afb9f139f7276a6c5",
+          "sha256": "80737a4993e1b1a34b169af27edafbe2d7567b0d64e6ce41598e6a4944e34349"
+        },
+        {
+          "file": "src/profile/historyReconciliation.ts",
+          "previousSha256": "29a6f46a84dbf730bbce578cc6a1473f87fd2f0f223ef289adc692d336609545",
+          "sha256": "a945f7174e035ea320b3093c0261a7d4989c154a3380b7532c5ca9d09e5e21b0"
+        },
+        {
+          "file": "src/profile/useAvatar.ts",
+          "previousSha256": "55853e38e8b312661429b9e7f32372fdf95a7cec63e67ba4d01dce4446ab2c79",
+          "sha256": "933ffae3d924f8f288bb2d423f3b9f13c03d043bb4ffd92bd304361c6e55b350"
+        },
+        {
+          "file": "src/screens/AdaptivePracticePage.tsx",
+          "previousSha256": "047963f0f51c1c2e054485eabd7d55dd2776cd72e427ddef14a3fbf41c7253ec",
+          "sha256": "2801a13e0a8339e7555f2ca87d6c6594199d85f0e258331a69206934a02ef3ab"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.test.ts",
+          "previousSha256": "b282655e26a82d542a611a3abec621f31b79b6580c7f70ba626825ec7a923696",
+          "sha256": "d41b92d5d8dad2bc9f6f042630db8a39da241fd3e76fbf5b0d5b6e26086e9e76"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.ts",
+          "previousSha256": "5883fb6b0bd64975c4f4d28046433f8d67487a12d1ea67bc7bd1c6f2a42a5d3f",
+          "sha256": "abf9f5d409cc2d931167b9ed45e6ffee112012c57f52c901e608ba6e8c6c63a1"
+        },
+        {
+          "file": "src/sync/ownerRecoveryApply.test.ts",
+          "previousSha256": "f629e0021c6771d9cca16d79a4565bbab5c43870218b486bbf25cceeaece4b91",
+          "sha256": "dffeeacd500cec753a47c3fad0ba9f818b27d943f9d73c1a5fac3be7302aa1e5"
+        },
+        {
+          "file": "src/sync/ownerRecoveryArchiveCore.ts",
+          "previousSha256": "b30ef428b715829ae636facea8019b52eaf9555c8a93641eefc619d0ba1c496a",
+          "sha256": "90abe1e4f9dd9199bf99f5317138fce4b8e294776d3908fecc3ba69a35c25cf0"
+        },
+        {
+          "file": "src/sync/ownerRecoveryCodecTask.ts",
+          "previousSha256": "4185a00aaca5a06e6e11181ebb92947e00080c6dc482c9ee42bd1503e3a45946",
+          "sha256": "0117ad6254007f03c69fec1dbd06383be9d49fbf979eea8fd79b9796520891ba"
+        },
+        {
+          "file": "src/sync/reviewHistory.ts",
+          "previousSha256": "4c592da9e9ef044cbcfe1e3b1fe4e55836fd671bbec823154771fa2dde1bd143",
+          "sha256": "24410a0b78eff65e1b6d5c619e9ff59b1c6df3950f3878b958d55d500372af2e"
+        },
+        {
+          "file": "src/profile/historyWindow.ts",
+          "previousSha256": null,
+          "sha256": "c0c66e09c072488c5fac386bed109b3a0abaa3ac04153f2da36914b7b567494c"
+        },
+        {
+          "file": "src/profile/historyWindow.test.ts",
+          "previousSha256": null,
+          "sha256": "a236da759a00ceac5d4e7e9ce5145da3dce48b792a0a669f101e917fb405c4a5"
+        },
+        {
+          "file": "src/sync/recoveryBinary.ts",
+          "previousSha256": null,
+          "sha256": "d1d8cf4cd17cc192bf1037d2cccba542ab7fe5325b37f992474613991b3b1f8c"
+        },
+        {
+          "file": "src/sync/ownerRecoveryBinary.test.ts",
+          "previousSha256": null,
+          "sha256": "e6ac50422e0e3d727e71635d41d5009a14942cea3fed328d300c70eeca0d9d9b"
+        },
+        {
+          "file": "src/sync/recoveryCompression.ts",
+          "previousSha256": null,
+          "sha256": "c27e2e7398dde576962d09d2893e5ca27ac92e77c5649754de63e6942352924c"
+        },
+        {
+          "file": "src/sync/recoveryCompression.test.ts",
+          "previousSha256": null,
+          "sha256": "38e7a45302378c0a5f07643a251dc9bcaf4e9ef3cdf443a0c4101912bc9706bb"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "status": "IN-REVIEW",
+      "task": "T04 scope-only recovery staging fence without redundant full snapshot",
+      "notes": "Fullv34 deliberately interrupted, marker INTERRUPTED_REDUNDANT_RECOVERY_CAPTURE_AUDIT,not a pass. Staging previously bulk-cloned every owner store only to recheck scope. Regression with getAll forbidden failed before fix. New assertOwnerRecoveryScope uses existing owner/reset/recovery-preview fences with only META/document; exact known-store presence/version check preserves the previous implicit all-store transaction schema gate,including missing stores. Targeted finalv2 15files152tests/typecheck/lint exit0.416bindings/0drift after27file audit. Fullv35 starts on frozen runtime/tests. Earlier Gradle9009 was missing JAVA_HOME in shell; discovered existing local JDK21/SDK and cached Gradle8.13,rerunning offline with process-local env only; no installation or system setting change. Static capacitor verify exit0 applies existing packaged assets,not new APK/device proof.",
+      "changes": [
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "d5c40f13d9a4ecda65cb5cd7e252ac1d60e0be0891a9314b0210334ae5bfdebf",
+          "sha256": "4a7d2d8a701b99087c4f7cb21f3b167ac47526b3174c4f278c46d04a165b9ac8"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.ts",
+          "previousSha256": "abf9f5d409cc2d931167b9ed45e6ffee112012c57f52c901e608ba6e8c6c63a1",
+          "sha256": "866858543af51671bade0c0683abedf42f37e1d5ffc18af1470630bc49dc90a7"
+        },
+        {
+          "file": "src/sync/ownerDeviceRecovery.test.ts",
+          "previousSha256": "d41b92d5d8dad2bc9f6f042630db8a39da241fd3e76fbf5b0d5b6e26086e9e76",
+          "sha256": "335ece112b864b5acc8a3e11994987f5c3774be5f7b4a0823863eff733c8475a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "status": "IN-REVIEW",
+      "task": "Frozen continuation fullv35 and compiled native verification",
+      "notes": "Fullv35 CHECK_EXIT0:570files3754tests; typecheck/global lint/content/schema/restore43migrations64tables/build pass.239JS192private markers absent;asset advisory+393.3KiB,local/unattestable provenance retained. Source27files frozen throughout;416bindings0drift. Fullv34 interrupted explicitly,not a pass. Compiled fixture rechecks all exit0:history3cases(v3),large recovery(v2),avatar API-offline cache(v2),source handoff portrait+landscape(v5),7 journeys total across distinct fixtures. Final recovery file19,528bytes vs7,208,978 legacy-v2 bytes,5,605,311inner bytes;exact binary/legacy auth/apply/rollback/gen2/nojob. Source disclosure keyboard Enter/24px CSS text emulation CTA/footer pass;not OS Dynamic Type or actual lesson renderer. Avatar exactprivate bytes/read-only API-offline reload/owner switch/tombstone pass with mock server. Gradle v2 was cached success;v3 explicitly reran test task offline using existing JDK21/SDK/cache,7tests0fail (64tasks:1executed63up-to-date). No install/system env change. Capacitor verify passes existing packaged UI only;no new APK/device claim. Synthetic replay+verification five cases exit0,efficacy not measured. Original D1 immutable65/65 unchanged,0missing/changed,integrityOK/FK0. Full app4327 restarted on existing isolated D1 for user testing;not a new authenticated browser/account-D1 proof. No USER-ACCEPTED/humanReviewed/release/content/scoring/FSRS authority changes. Full source-memory bounds,over-cap streaming recovery,FSRS/Reader/Nói/Viết/assessment receipt integration,physical devices/cohort remain open.",
+      "changes": []
     }
   ]
 }

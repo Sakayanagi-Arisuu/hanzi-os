@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { createOwnerDeviceRecoveryArchive, ownerRecoveryLocalKeys, stageOwnerDeviceRecoveryArchive } from './ownerDeviceRecovery';
-import { captureOwnerRecoverySnapshot, readActiveOwnerLearningScope, readOrInitializeOwnerGeneration,
+import { assertOwnerRecoveryScope, captureOwnerRecoverySnapshot, readActiveOwnerLearningScope, readOrInitializeOwnerGeneration,
   resetSyncDatabaseForTests, writeLessonResume, writeSyncMeta, type ActiveOwnerLearningScope } from './indexedDb';
 import { saveGuestAvatar } from '../profile/avatarStorage';
 import { getCharacterForgeSessionStorageKey, LEARNING_OWNER_STORAGE_KEY, LEARNING_STORAGE_KEY } from '../lib/storageKeys';
@@ -86,4 +86,43 @@ it('rejects changed sources/read errors, corruption, missing resources and cross
   await expect(stageOwnerDeviceRecoveryArchive(source, scope, { ...binding, deviceId: 'other-device' })).rejects.toThrow('installation');
   await expect(stageOwnerDeviceRecoveryArchive(source, { ...scope, resetEpoch: 1 }, binding)).rejects.toThrow();
   expect((await captureOwnerRecoverySnapshot(scope)).stores).toEqual(before.stores);
+});
+
+it('uses signed compressed v3 for large journals and keeps exact raw values while staging', async () => {
+  const raw = '汉字\\"🙂'.repeat(100_000);
+  await writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: 0, entryKey: 'large-raw-journal', value: { version: 99, raw } });
+  const before = await captureOwnerRecoverySnapshot(scope);
+  const source = await createOwnerDeviceRecoveryArchive(scope, binding, storage), envelope = JSON.parse(source);
+  expect(envelope.version).toBe(3);
+  expect(envelope.payload.idb.codec).toBe('gzip-base64-v1');
+  expect(source.length).toBeLessThan(raw.length / 5);
+  const staged = await stageOwnerDeviceRecoveryArchive(source, scope, binding);
+  expect(staged.restoreAuthenticity).toBe('same-installation-capture');
+  expect(staged.snapshot.stores).toEqual(before.stores);
+  expect((await captureOwnerRecoverySnapshot(scope)).stores).toEqual(before.stores);
+  envelope.payload.idb.byteLength = 1; envelope.checksum = await sha256Hex(envelope.payload);
+  await expect(stageOwnerDeviceRecoveryArchive(JSON.stringify(envelope), scope, binding)).rejects.toThrow('declared size');
+  expect((await captureOwnerRecoverySnapshot(scope)).stores).toEqual(before.stores);
+});
+
+it('revalidates live recovery scope without cloning unrelated source stores again', async () => {
+  await writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: 0, entryKey: 'retain-large-source', value: 'original' });
+  const source = await createOwnerDeviceRecoveryArchive(scope, binding, storage);
+  const bulk = vi.spyOn(IDBIndex.prototype, 'getAll').mockImplementation(() => { throw Error('Unexpected bulk clone during scope-only validation'); });
+  const staged = await stageOwnerDeviceRecoveryArchive(source, scope, binding);
+  expect(staged.restoreAuthenticity).toBe('same-installation-capture');
+  expect(bulk).not.toHaveBeenCalled();
+});
+
+it('keeps the complete recovery database schema fence when only checking scope', async () => {
+  await clear();
+  await new Promise<void>((resolve, reject) => {
+    const request = indexedDB.open('hanzi-os-sync-v1', 3);
+    request.onupgradeneeded = () => {
+      request.result.createObjectStore('meta', { keyPath: 'key' });
+      request.result.createObjectStore('documents', { keyPath: 'ownerKey' });
+    };
+    request.onsuccess = () => { request.result.close(); resolve(); }; request.onerror = () => reject(request.error);
+  });
+  await expect(assertOwnerRecoveryScope(scope)).rejects.toThrow('Unsupported recovery database');
 });

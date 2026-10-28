@@ -350,3 +350,28 @@ it('retains newer local data when an old tab writes during preview, allowing a f
   expect(values.get(key)).toBe('newer-raw'); expect((await readOwnerRecoveryStatus()).preview?.id).toBe(paused.id);
   await cancelOwnerRecoveryPreview(); expect(values.get(key)).toBe('newer-raw');
 });
+
+it.each([false, true])('applies a compressed large journal with binary views and retains exact rollback data: rollback=%s', async rollback => {
+  const buffer = new Uint8Array([0, 1, 128, 255, 42, 17]).buffer;
+  const archived = { version: 99, raw: '汉字\\"'.repeat(100_000), view: new DataView(buffer, 2, 3) };
+  await write(archived);
+  const source = await createOwnerDeviceRecoveryArchive(scope, binding, storage);
+  expect(JSON.parse(source).version).toBe(3);
+  const current = { version: 99, raw: 'current-journal', view: new Uint8Array([255, 128, 0]) };
+  await write(current);
+  const preview = await prepareOwnerRecovery(source, scope, binding, storage);
+  await beginOwnerRecovery(source, scope, binding, preview.digest, storage);
+  await continueOwnerRecovery(storage); await continueOwnerRecovery(storage);
+  if (rollback) { await rollBackOwnerRecovery(); await continueOwnerRecovery(storage); await continueOwnerRecovery(storage); }
+  await finishOwnerRecovery(storage);
+  const active = (await readActiveOwnerLearningScope())!;
+  const restored = await read(active) as { raw: string; view: ArrayBufferView };
+  const expected = rollback ? current : archived;
+  expect(restored.raw).toBe(expected.raw);
+  expect(restored.view.constructor).toBe(expected.view.constructor);
+  expect(restored.view.byteOffset).toBe(expected.view.byteOffset);
+  expect(restored.view.byteLength).toBe(expected.view.byteLength);
+  expect([...new Uint8Array(restored.view.buffer)]).toEqual([...new Uint8Array(expected.view.buffer)]);
+  expect(await readPendingOwnerRecovery()).toBeNull();
+  await expect(read(scope)).rejects.toThrow();
+});

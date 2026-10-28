@@ -59,3 +59,17 @@ it('preserves the frozen session and shows a fallback instead of rendering a sub
   expect(markup).toContain('Phiên đã lưu được giữ nguyên');
   expect(markup).not.toContain('aria-label="Ngữ cảnh đầy đủ"');
 });
+
+it('offers source navigation only when supplied and keeps it secondary to the primary task', async () => {
+  const props = await fixture(true);
+  const markup = renderToStaticMarkup(createElement(AdaptiveUnitRenderer, { ...props, onOpenSource: async () => undefined }));
+  expect(markup).toContain('<summary>Học theo bài nguồn</summary>');
+  expect(markup).toContain('Lưu nháp và mở bài nguồn');
+  expect(markup).not.toMatch(/Lưu nháp và mở bài nguồn[^<]*https:/);
+  const step = props.journal.snapshot.manifest.steps[props.journal.snapshot.cursor]!;
+  if (step.kind !== 'unit') throw Error('Unit required');
+  step.sourceLessonId = 'substituted-source';
+  const invalid = renderToStaticMarkup(createElement(AdaptiveUnitRenderer, { ...props, onOpenSource: async () => undefined }));
+  expect(invalid).toContain('Phiên đã lưu được giữ nguyên');
+  expect(invalid).not.toContain('Lưu nháp và mở bài nguồn');
+});

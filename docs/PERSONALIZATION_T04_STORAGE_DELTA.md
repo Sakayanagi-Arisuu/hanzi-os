@@ -1,3 +1,9 @@
+## T04 · recovery nhị phân / nén v3 / scope-only fence · 28/10/2026 · IN-REVIEW
+
+Giữ buffer nền/offset/typed constructor, Blob exact; hex dùng chunk thay mảng ký tự từng byte. Large device envelope v3 nén gzip/base64 có HMAC, v2 nhỏ và v1/v2 reader giữ; budget giải nén không tăng cap64Mi chars/128Mi bytes. Không còn full snapshot getAll chỉ để kiểm scope; vẫn kiểm đủ known stores/owner/reset/preview. Native compiled-v2:5,605,311inner bytes,7,208,978v2bytes→19,528v3bytes,apply/rollback/legacy authenticity qua; fullv35 3754test pass. Over-cap streaming/account/native file restore vẫn mở; old client gặp v3/new binary kind phải fail-closed, không tự xóa bản sao.
+
+AI self-review; không humanReviewed/USER-ACCEPTED. Gate/bằng chứng/giới hạn tích hợp xem checkpoint28/10; không sửa dữ liệu nguồn hoặc inventory HSK.
+
 ## Cá nhân hóa v2 · chốt source giữ lại / fullv19 · 24/10/2026
 
 - **Module:** T04 codec/recovery + T03 local history — IN-REVIEW; không USER-ACCEPTED toàn plan.

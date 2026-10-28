@@ -19,13 +19,15 @@ export function useAvatar() {
     void (async () => {
       const scope = await readActiveOwnerLearningScope();
       if (!scope || scope.ownerGeneration.ownerKey !== ownerKey) return;
+      if (!ownerKey.startsWith('anonymous:')) {
+        // Cached media is for display; uploads need fresh server metadata.
+        const cached = await readAvatar(scope.ownerGeneration).catch(() => null);
+        if (cached && active) setSnapshot({ owner: scope.ownerGeneration, record: cached, uploadAvailable: false });
+      }
       const account = ownerKey.startsWith('anonymous:') ? null : await readAccountAvatar(scope.ownerGeneration, { signal: abort.signal });
       const record = account ? account.record : await readAvatar(scope.ownerGeneration);
       if (active) {
-        setSnapshot(previous => ({ owner: scope.ownerGeneration,
-          record: previous?.owner.ownerKey === ownerKey && previous.owner.generation === scope.ownerGeneration.generation
-            && previous.record?.revision === record?.revision ? previous.record : record,
-          uploadAvailable: account?.snapshot.uploadAvailable ?? true }));
+        setSnapshot({ owner: scope.ownerGeneration, record, uploadAvailable: account?.snapshot.uploadAvailable ?? true });
         setError('');
       }
     })().catch(() => { if (active) setError('Chưa đọc được ảnh đại diện; ảnh cũ vẫn được giữ.'); });
@@ -39,11 +41,12 @@ export function useAvatar() {
   }, [ownerKey, blob]);
   useEffect(() => {
     window.addEventListener(AVATAR_CHANGED, retry); window.addEventListener('focus', retry); window.addEventListener('hanzi-learning-reset', retry);
+    window.addEventListener('online', retry);
     let channel: BroadcastChannel | null = null;
     try { if (typeof BroadcastChannel !== 'undefined') channel = new BroadcastChannel(AVATAR_CHANGED); }
     catch { /* Focus and local events still refresh the image. */ }
     if (channel) channel.onmessage = retry;
-    return () => { window.removeEventListener(AVATAR_CHANGED, retry); window.removeEventListener('focus', retry); window.removeEventListener('hanzi-learning-reset', retry); channel?.close(); };
+    return () => { window.removeEventListener(AVATAR_CHANGED, retry); window.removeEventListener('focus', retry); window.removeEventListener('online', retry); window.removeEventListener('hanzi-learning-reset', retry); channel?.close(); };
   }, [retry]);
   const current = snapshot?.owner.ownerKey === ownerKey ? snapshot : null;
   return { owner: current?.owner ?? null, record: current?.record ?? null, ready: Boolean(current) && !error,

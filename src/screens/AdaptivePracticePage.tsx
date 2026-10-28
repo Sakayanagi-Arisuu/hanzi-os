@@ -110,7 +110,7 @@ function PracticeEntry() {
     } catch { if (alive.current) setError('Chưa lưu trữ được phiên. Dữ liệu được giữ; hãy đọc lại phiên trước khi thử lại.'); }
     finally { if (alive.current) setBusy(false); }
   };
-  if (running && scope) return <AdaptiveSessionRunner scope={scope} onExit={() => navigate('/path')}
+  if (running && scope) return <AdaptiveSessionRunner scope={scope} onExit={() => navigate('/path')} onOpenSource={href => navigate(href)}
     materialize={sync.session?.authenticated ? undefined : materializeGuestPilotUnit} />;
   const unfinished = saved && !['finished', 'archived'].includes(saved.status);
   const branches = sessions.filter(journal => journal.status === 'active');
@@ -128,12 +128,12 @@ function PracticeEntry() {
           {saved.snapshot.manifest.shadowOnly && <p>Phiên này là bản xem trước kỹ thuật, chưa mở để thực hiện. Bạn vẫn có thể học theo bài trên Thiên Lộ.</p>}</>
           : <><p>Pilot giá và số lượng dùng bài nguồn đã mở trong tiến độ của bạn. Nội dung có AI hỗ trợ, chưa qua thẩm định của giáo viên hoặc người bản ngữ.</p>
             <p>Lượt tự đối chiếu không thay bài kiểm chứng, không tự thông qua bài nguồn hoặc đổi lịch ôn.</p>
-            <label className="adaptive-unit-answer">Mục tiêu lượt luyện<select disabled={busy} value={goal} onChange={event => { change(); setGoal(event.target.value as typeof goal); }}>
+            <label className="adaptive-unit-answer">Mục tiêu lượt luyện<select aria-label="Mục tiêu lượt luyện" disabled={busy} value={goal} onChange={event => { change(); setGoal(event.target.value as typeof goal); }}>
               <option value="quantity">Số lượng và lượng từ</option><option value="produce">Hỏi và trả lời giá</option><option value="listen">Luyện nghe giá</option><option value="transfer">Đọc tình huống mua sắm</option>
               <option value="automatic" disabled={state.profile.learningPreferences?.allowInference !== true}>Gợi ý từ lịch sử · tự nguyện</option>
             </select></label>
             {goal === 'automatic' && <p>Chỉ dùng lịch sử khi bạn cho phép trong Hồ sơ. Sau thời gian nghỉ, hệ thống có thể gợi ý phần mở đầu tối đa 5 phút; bạn luôn có thể tự chọn mục tiêu khác. Đây không phải kiểm tra trí nhớ.</p>}
-            <label className="adaptive-unit-answer">Thời lượng<select disabled={busy} value={minutes} onChange={event => { change(); setMinutes(Number(event.target.value) as 5 | 10 | 20); }}>
+            <label className="adaptive-unit-answer">Thời lượng<select aria-label="Thời lượng" disabled={busy} value={minutes} onChange={event => { change(); setMinutes(Number(event.target.value) as 5 | 10 | 20); }}>
               <option value={5}>5 phút</option><option value={10}>10 phút</option><option value={20}>20 phút</option></select></label>
             <label className="adaptive-unit-check"><input type="checkbox" disabled={busy} checked={audio} onChange={event => { change(); setAudio(event.target.checked); }} />Tôi có thể nghe âm thanh</label>
             <label className="adaptive-unit-check"><input type="checkbox" disabled={busy} checked={microphone} onChange={event => { change(); setMicrophone(event.target.checked); }} />Tôi có thể luyện nói thành tiếng</label>

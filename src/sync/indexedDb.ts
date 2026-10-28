@@ -411,12 +411,31 @@ export type OwnerRecoverySnapshot = {
   excluded: readonly ['localStorage', 'CacheStorage', 'authentication', 'global-device-metadata'];
 };
 
-export async function captureOwnerRecoverySnapshot(scope: ActiveOwnerLearningScope): Promise<OwnerRecoverySnapshot> {
-  const database = await openSyncDatabase();
+function requireRecoveryDatabase(database: IDBDatabase) {
   const knownStores: string[] = [META_STORE, ...OWNER_RECOVERY_STORES];
-  if (database.version !== SYNC_DATABASE_VERSION || [...database.objectStoreNames].some(name => !knownStores.includes(name))) {
+  if (database.version !== SYNC_DATABASE_VERSION || [...database.objectStoreNames].some(name => !knownStores.includes(name))
+    || knownStores.some(name => !database.objectStoreNames.contains(name))) {
     throw new Error('Unsupported recovery database; retain all original data.');
   }
+}
+
+/** A post-await owner/reset/schema fence, not another copy of all owner data.
+ * Recovery preview remains permitted exactly as for snapshot capture. */
+export async function assertOwnerRecoveryScope(scope: ActiveOwnerLearningScope): Promise<void> {
+  const database = await openSyncDatabase();
+  requireRecoveryDatabase(database);
+  const transaction = database.transaction([META_STORE, DOCUMENT_STORE], 'readonly'), done = transactionDone(transaction);
+  try {
+    await assertOwnerLearningScope(transaction, { expectedOwnerGeneration: scope.ownerGeneration,
+      resetEpoch: scope.resetEpoch, entryKey: 'recovery-snapshot' }, true);
+    await done;
+  } catch (error) { abortTransaction(transaction); await done.catch(() => undefined); throw error; }
+}
+
+export async function captureOwnerRecoverySnapshot(scope: ActiveOwnerLearningScope): Promise<OwnerRecoverySnapshot> {
+  const database = await openSyncDatabase();
+  requireRecoveryDatabase(database);
+  const knownStores: string[] = [META_STORE, ...OWNER_RECOVERY_STORES];
   const transaction = database.transaction(knownStores, 'readonly');
   const done = transactionDone(transaction);
   try {

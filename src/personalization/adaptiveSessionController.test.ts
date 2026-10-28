@@ -11,6 +11,7 @@ import { sealPracticeManifest } from './practiceManifest';
 import { AdaptiveSessionController } from './adaptiveSessionController';
 import { readAdaptiveDraftRecoveries } from '../sync/adaptiveDraftRecovery';
 import { readWorkspace, saveWorkspaceChanges } from '../sync/workspaceSync';
+import * as adaptiveSession from '../sync/adaptiveSession';
 
 let scope: ActiveOwnerLearningScope;
 const clear = async () => {
@@ -61,6 +62,38 @@ it('serializes draft/support/receipt/next and restores the exact typed answer an
   expect(snapshot.support[snapshot.manifest.steps[1]!.stepId]?.reveal).toBe(true);
   await resumed.advance();
   expect(resumed.getState().journal!.status).toBe('finished');
+});
+
+it('saves the latest draft before opening its frozen source lesson and resumes the same unfinished step', async () => {
+  const controller = await production();
+  const before = controller.getState().journal!.snapshot;
+  const step = before.manifest.steps[before.cursor]!; if (step.kind !== 'unit') throw Error('Unit required');
+  controller.updateDraft({ response: '三本书多少钱？', ime: true });
+  expect(await controller.sourceLessonPath()).toBe(`/lesson/${encodeURIComponent(step.sourceLessonId)}`);
+  controller.dispose();
+  const resumed = new AdaptiveSessionController(scope); await resumed.hydrate();
+  expect(resumed.getState().draft).toEqual({ response: '三本书多少钱？', ime: true });
+  const saved = resumed.getState().journal!.snapshot;
+  expect(saved.cursor).toBe(before.cursor); expect(saved.receipts).toEqual(before.receipts);
+  expect(saved.manifest).toEqual(before.manifest); expect(resumed.getState().journal!.status).toBe('active');
+});
+
+it('does not produce a navigation path after a draft save failure and keeps the visible answer', async () => {
+  const controller = await production(), before = await readAdaptiveSession(scope);
+  controller.updateDraft({ response: '保留我的草稿', ime: true });
+  vi.spyOn(adaptiveSession, 'recordAdaptiveDraft').mockRejectedValueOnce(new DOMException('quota', 'QuotaExceededError'));
+  await expect(controller.sourceLessonPath()).rejects.toThrow('quota');
+  expect(controller.getState().draft.response).toBe('保留我的草稿');
+  expect(controller.getState().draftStatus).toBe('error');
+  expect((await readAdaptiveSession(scope))!.snapshot).toEqual(before!.snapshot);
+});
+
+it('blocks source navigation if another tab changed the saved step before leaving', async () => {
+  const controller = await production(), before = controller.getState().journal!.snapshot;
+  await recordAdaptiveSupport(scope, before, 'pinyin');
+  await expect(controller.sourceLessonPath()).rejects.toThrow('changed before');
+  expect(controller.getState().conflict).toBe(true);
+  expect((await readAdaptiveSession(scope))!.snapshot.cursor).toBe(before.cursor);
 });
 
 it('retains a dirty answer on external revision and requires explicit reload without silently rebasing', async () => {

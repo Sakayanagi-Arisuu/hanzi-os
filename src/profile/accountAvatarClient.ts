@@ -1,5 +1,5 @@
 import { readActiveOwnerLearningScope, type OwnerGeneration } from '../sync/indexedDb';
-import { AVATAR_CHANGED } from './avatarStorage';
+import { AVATAR_CHANGED, cacheAccountAvatar } from './avatarStorage';
 import { AVATAR_MAX_OUTPUT_BYTES, AVATAR_SIZE, type AvatarRecord } from './avatarContract';
 import { parseAccountAvatarSnapshot } from './accountAvatarContract';
 import { readAvatarBytes } from './avatarBinary';
@@ -35,8 +35,12 @@ export async function readAccountAvatar(owner: OwnerGeneration, options: Options
     blob = new Blob([Uint8Array.from(bytes)], { type: 'image/webp' });
   }
   await requireOwner(owner); options.signal?.throwIfAborted();
-  const record: AvatarRecord | null = snapshot.revision ? { version: 1, ownerKey: owner.ownerKey, revision: snapshot.revision, updatedAt: snapshot.updatedAt!, blob } : null;
-  return { snapshot, record };
+  let record: AvatarRecord | null = snapshot.revision ? { version: 1, ownerKey: owner.ownerKey, revision: snapshot.revision, updatedAt: snapshot.updatedAt!, blob } : null;
+  let offlineCached = false;
+  try { record = await cacheAccountAvatar(owner, record); offlineCached = true; }
+  catch { /* Keep a verified online read usable when the derived cache is unavailable. */ }
+  await requireOwner(owner); options.signal?.throwIfAborted();
+  return { snapshot, record, offlineCached };
 }
 export async function saveAccountAvatar(owner: OwnerGeneration, expectedRevision: number, blob: Blob | null, operationId: string, options: Options = {}) {
   await requireOwner(owner);
@@ -51,6 +55,11 @@ export async function saveAccountAvatar(owner: OwnerGeneration, expectedRevision
   const snapshot = parseAccountAvatarSnapshot(body.snapshot, owner.ownerKey);
   if (body.committedRevision !== expectedRevision + 1 || snapshot.revision < expectedRevision + 1) throw new AccountAvatarClientError('AVATAR_RECEIPT_INVALID');
   await requireOwner(owner); options.signal?.throwIfAborted();
+  if (!snapshot.hasImage && snapshot.revision) {
+    try { await cacheAccountAvatar(owner, { version: 1, ownerKey: owner.ownerKey, revision: snapshot.revision, updatedAt: snapshot.updatedAt!, blob: null }); }
+    catch { /* The server receipt remains valid when local caching is unavailable. */ }
+    await requireOwner(owner); options.signal?.throwIfAborted();
+  }
   if (typeof window !== 'undefined') window.dispatchEvent(new Event(AVATAR_CHANGED));
   if (typeof BroadcastChannel !== 'undefined') {
     let channel: BroadcastChannel | undefined;

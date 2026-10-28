@@ -172,7 +172,30 @@ bỏ qua namespace page theo physical primary key; recovery vẫn bao gồm mọ
 row trong bảy store. Old client gặp payload mới phải fail-closed, cần app mới hoặc
 khôi phục snapshot cũ bằng runtime hiện có; không hạ schema/xóa page thủ công.
 Đọc/project toàn history vẫn cần bộ nhớ theo tổng dữ liệu, chưa là storage paging
-cho UI. Migration 0038 thêm bảng workspace
+cho UI. Projector nhận các nhóm nguồn theo thứ tự, không tạo thêm mảng ghép toàn
+bộ; Hồ sơ giữ riêng cửa sổ hiển thị và đếm/lọc memoized. Những giới hạn này chỉ
+giảm bộ nhớ phụ, không tạo hard bound cho journal hoặc primary record legacy.
+
+Recovery giữ DBversion3/bảy store và codec inner v1. Binary codec hỗ trợ Blob,
+ArrayBuffer và các view cố định, giữ backing bytes/offset/kiểu; không chuẩn hóa
+subclass hay metadata không hiểu. Device envelope nhỏ vẫn v2; envelope lớn có
+thể dùng v3 với gzip/base64 và HMAC cùng installation. Bộ đọc giữ v1 inspect-only,
+v2/v3 có kiểm seal; nén không tăng cap inner64Mi ký tự hoặc outer128Mi byte/ký tự.
+Giải nén kiểm declared bytes, logical cap và checksum trước staging. Kiểm scope
+cuối không clone lại bảy store, nhưng vẫn kiểm đủ schema/owner/generation/reset
+và recovery fence. Không coi transport nén là streaming apply cho dữ liệu vô hạn.
+
+Ảnh account được tải và kiểm WebP phía client trước khi cache vào slot avatar
+META của chính owner. Cache revision thấp không đè revision/tombstone mới; đổi
+owner/generation được fence trong transaction. Cache dùng hiển thị offline, không
+cấp danh tính/quyền upload, không gửi ảnh guest lên account. Xóa dữ liệu owner
+vẫn xóa đúng slot; phục hồi account và native files cần adapter riêng.
+
+Khảo Luyện có thể lưu nháp rồi mở lesson đã ghim ở bước hiện tại. Handoff kiểm
+lại phiên bền vững và không advance cursor, tạo receipt hoặc điều chỉnh FSRS.
+Đích lesson giữ gate quyền/nội dung hiện có; quay lại entry đọc lại chính phiên.
+
+Migration 0038 thêm bảng workspace
 cho vị trí đọc/ngày truy cập/lịch sử luyện, không cấp evidence/mastery. Luyện đề
 thiết bị lưu exact form không answer key và câu trả lời atomic theo owner/reset;
 server tái dựng item từ bank, kiểm hash/version/option/thời gian rồi lưu summary.

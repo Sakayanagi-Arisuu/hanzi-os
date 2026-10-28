@@ -1,3 +1,9 @@
+## A02 · cache ảnh account để xem offline · 28/10/2026 · IN-REVIEW
+
+Chỉ cache ảnh WebP256px đã được server xác minh, trong slot avatar META của đúng owner; transaction owner/generation và revision monotonic/tombstone giữ ảnh mới trước response cũ. Không upload guest/không dùng cache cấp quyền; cached display trước revalidation, upload disabled đến khi có metadata mới. Cache quota/unknown schema giữ raw và không làm hỏng online read/receipt; deleteOwnerData xóa đúng slot. Native compiled-v2 với API mock:2ảnh256px→API-offline reload, owner isolation, tombstone reload qua; fullv35 3754test pass. Chưa actual account-D1 mới/device picker/OS offline.
+
+AI self-review; không humanReviewed/USER-ACCEPTED. Gate/bằng chứng/giới hạn tích hợp xem checkpoint28/10; không sửa dữ liệu nguồn hoặc inventory HSK.
+
 ## Cá nhân hóa v2 · chốt avatar account và checkpoint Git · 26/10/2026
 
 - **Module:** A02/T19 — IN-REVIEW; chưa USER-ACCEPTED hoặc hoàn tất toàn bộ kế hoạch.

@@ -11,6 +11,7 @@ export type AdaptiveUnitRendererProps = {
   onPractice: (receipt: AdaptivePracticeReceipt) => Promise<unknown>;
   onAdvance: () => Promise<unknown>; onExit: () => void;
   onRetryDraft?: () => void;
+  onOpenSource?: () => Promise<unknown>;
   playSynthetic?: (text: string) => void;
 };
 
@@ -18,7 +19,7 @@ export type AdaptiveUnitRendererProps = {
 export function AdaptiveUnitRenderer(props: AdaptiveUnitRendererProps) {
   const step = props.journal.snapshot.manifest.steps[props.journal.snapshot.cursor];
   if (props.journal.snapshot.manifest.shadowOnly || step?.kind !== 'unit' || step.unitId !== props.unit.id || step.unitBinding !== props.unit.binding
-    || step.contentVersion !== props.unit.source.contentVersion || step.taskType !== props.unit.taskType
+    || step.contentVersion !== props.unit.source.contentVersion || step.sourceLessonId !== props.unit.source.lessonId || step.taskType !== props.unit.taskType
     || step.skill !== props.unit.skill || step.modality !== props.unit.modality
     || props.journal.snapshot.manifest.graphBinding !== props.unit.graphBinding) {
     return <section className="adaptive-unit-unavailable" role="status"><h1>Chưa mở được bước luyện này</h1>
@@ -27,7 +28,7 @@ export function AdaptiveUnitRenderer(props: AdaptiveUnitRendererProps) {
   return <UnitStep key={`${props.journal.snapshot.id}:${step.stepId}:${props.unit.binding}`} {...props} />;
 }
 
-function UnitStep({ unit, journal, busy, error, draft, draftStatus, onDraft, onSupport, onPractice, onAdvance, onExit, onRetryDraft, playSynthetic }: AdaptiveUnitRendererProps) {
+function UnitStep({ unit, journal, busy, error, draft, draftStatus, onDraft, onSupport, onPractice, onAdvance, onExit, onRetryDraft, onOpenSource, playSynthetic }: AdaptiveUnitRendererProps) {
   const { snapshot } = journal;
   const step = snapshot.manifest.steps[snapshot.cursor]!;
   const support = snapshot.support[step.stepId];
@@ -59,6 +60,8 @@ function UnitStep({ unit, journal, busy, error, draft, draftStatus, onDraft, onS
       <div className="adaptive-unit-reading"><p>{unit.payload.instructionVi}</p>
         <p className="adaptive-unit-note">Đây là lượt luyện có ngữ cảnh và mẫu. Hoàn tất không tự xác nhận thành thạo hoặc thông qua cả bài nguồn.</p>
         {!unit.humanReviewed && <p className="adaptive-unit-note">Học liệu có AI hỗ trợ biên soạn, chưa được giáo viên hoặc người bản ngữ thẩm định.</p>}
+        {onOpenSource && <details><summary>Học theo bài nguồn</summary><p>Nháp, câu trả lời và bước hiện tại được giữ khi mở bài. Quay lại Khảo Luyện để tiếp tục phiên đã lưu.</p>
+          <button type="button" disabled={busy} onClick={() => void act(onOpenSource)}>Lưu nháp và mở bài nguồn</button></details>}
         <section aria-label="Ngữ cảnh đầy đủ">{unit.payload.dialogue.map(triple)}</section>
         {unit.payload.explanationVi && unit.payload.explanationVi !== unit.payload.instructionVi && <p>{unit.payload.explanationVi}</p>}
         <div className="adaptive-unit-support" aria-label="Hỗ trợ trong lượt luyện">
@@ -67,7 +70,7 @@ function UnitStep({ unit, journal, busy, error, draft, draftStatus, onDraft, onS
           {playSynthetic && snapshot.manifest.context.audio && <button type="button" disabled={busy}
             onClick={() => void act(() => onSupport('syntheticTts'), () => playSynthetic(unit.payload.dialogue.map(row => row.hanzi).join(' ')))}>Nghe máy đọc · âm tổng hợp</button>}
         </div>
-        {typed && <><label className="adaptive-unit-answer">Lượt hỏi và trả lời của bạn<textarea value={receipt?.response ?? draft.response}
+        {typed && <><label className="adaptive-unit-answer">Lượt hỏi và trả lời của bạn<textarea aria-label="Lượt hỏi và trả lời của bạn" value={receipt?.response ?? draft.response}
           maxLength={4000} rows={4} readOnly={Boolean(receipt)} onChange={event => onDraft({ ...draft, response: event.target.value })} /></label>
           <label className="adaptive-unit-check"><input type="checkbox" disabled={Boolean(receipt)} checked={receipt?.ime ?? draft.ime}
             onChange={event => onDraft({ ...draft, ime: event.target.checked })} />Có dùng bộ gõ tiếng Trung (IME)</label>
