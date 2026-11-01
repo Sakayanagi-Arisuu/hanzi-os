@@ -511,7 +511,7 @@
     },
     {
       "file": "src/profile/LearningHistoryPanel.tsx",
-      "sha256": "029b485ba32eab7bf89fcf1ae2dad93350f34df312e4fb4ecee2734d71a38f02",
+      "sha256": "f73c782e8359361189e346e309d0701430994dc88f224f2d2fb6aa25c51cf0b9",
       "previousSha256": null
     },
     {
@@ -3877,6 +3877,19 @@
           "file": "src/sync/historyStateProjection.test.ts",
           "previousSha256": null,
           "sha256": "f470bbd3f2d24ddbf394ec290e86fe790d54ce0b88b783a024d31e2a4b204ce7"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 preserve same-owner cached history and page through API authentication transitions",
+      "notes": "AI self-review. Same-owner authentication transitions cancel stale requests and refresh via the latest loader while keeping valid page, receipts and cursors. Owner/reset lifecycle still clears cache and scope fences remain canonical. No-more frontier survives reconnect; load-more is hidden while API auth is unavailable. Native fixture before loses page6/remote rows, after passes idle/held reconciliation and frontier roundtrips. Source DBversion3/seven stores/receipts/pending/writer/scoring/content unchanged. Opaque legacy state is still cloned on the first IDB read; matching evidence and canonical output remain proportional to input. This is retained-payload reduction, not a hard initial RAM bound. Native synthetic retained JS heap is not peak/RSS/device/efficacy proof. Fullv38 belongs to older source; current targeted/typecheck/lint/build/browser gates are recorded separately, no false whole-check pass.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "029b485ba32eab7bf89fcf1ae2dad93350f34df312e4fb4ecee2734d71a38f02",
+          "sha256": "f73c782e8359361189e346e309d0701430994dc88f224f2d2fb6aa25c51cf0b9"
         }
       ]
     }

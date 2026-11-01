@@ -1,3 +1,11 @@
+## T03 · giữ trang khi xác thực API tạm đổi · 01/11/2026
+
+- **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.
+- **Người học thấy gì:** cùng owner/generation/reset, xác thực API tạm mất rồi trở lại không đẩy Nhật ký về trang đầu hoặc bỏ các lượt remote đã tải. Chưa xác thực thì ẩn tải thêm; đọc cache/lọc/trang hiện có vẫn dùng được. Owner/reset đổi vẫn xóa cache theo lifecycle cũ.
+- **Đã kiểm:** fixture compiled trước sửa tái hiện2502lượt/trang6→2500lượt/trang1 khi auth false. Auth-after-v2 qua idle và reconciliation đang giữ: giữ trang6/remote cache, loại kết quả request cũ, tải thêm đủ3remote rồi auth roundtrip không mở lại frontier đã hết;5000entries+5000pending/root giữ nguyên,0page errors. Reconciliation-after-v14 qua3reset/filter case; paging-v9 qua2viewport375×667/667×375. Targeted8file/87test,typecheck-v1/lint-v1/build-v1 exit0,239JS/192private markers vắng. Fullv38 thuộc source trước các delta sau đó; không ghi full-check mới. Lần tool build fixture bị kéo dài khi máy gián đoạn được kiểm log/process và tiếp tục đúng phiên, không chạy trùng.
+- **AI review / dữ liệu:** latest-loader ref tách lifecycle owner khỏi callback đổi auth; auth đổi cùng owner chỉ hủy request cũ và refresh, giữ receipts/page/cursors đã publish. Scope fence trong load/query vẫn kiểm generation/reset; stale request không commit. Không đổi schema3/bảy store/FSRS/scoring/IDs/outbox/writer/recovery. Binding428/0drift; HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213. Không sửa/stage .wrangler/docs/reports/output.
+- **Tiếp theo:** bật web4327 từ build cuối và kiểm cập nhật PWA trên D1 clone giữ sẵn; tiếp đúng T03 source/peak-memory. Initial legacy state/history và writer vẫn O(n); recovery lớn/account/native, liên thông evidence, thiết bị/cohort còn mở. Không chốt toàn kế hoạch hoặc hiệu quả học từ kiểm desktop.
+
 ## T03 · chỉ giữ state dùng cho lịch sử · 01/11/2026
 
 - **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.

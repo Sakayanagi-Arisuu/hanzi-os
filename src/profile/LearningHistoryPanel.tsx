@@ -144,13 +144,16 @@ export function LearningHistoryPanel() {
       }
     }
   }, [authenticated, sync.ownerKey, clearCache]);
+  const loadRef = useRef(load);
+  const previousConnection = useRef({ ownerKey: sync.ownerKey, authenticated });
+  useEffect(() => { loadRef.current = load; }, [load]);
   useEffect(() => {
     invalidateRequest(); clearCache();
-    void load();
-    const refresh = () => { void load(); };
+    void loadRef.current();
+    const refresh = () => { void loadRef.current(); };
     const reset = () => {
       invalidateRequest(); clearCache();
-      void load();
+      void loadRef.current();
     };
     window.addEventListener('hanzi-workspace-received', refresh); window.addEventListener(LEARNING_COMMAND_QUEUE_CHANGED_EVENT, refresh);
     window.addEventListener(WORKSPACE_CHANGED, refresh);
@@ -164,7 +167,17 @@ export function LearningHistoryPanel() {
       window.removeEventListener(WORKSPACE_CHANGED, refresh);
       window.removeEventListener('hanzi-learning-reset', reset);
     };
-  }, [load, clearCache, invalidateRequest]);
+  }, [sync.ownerKey, clearCache, invalidateRequest]);
+  useEffect(() => {
+    const previous = previousConnection.current;
+    previousConnection.current = { ownerKey: sync.ownerKey, authenticated };
+    if (previous.ownerKey !== sync.ownerKey || previous.authenticated === authenticated) return;
+    // Cached account identity can outlive an API session. Cancel its old
+    // request but keep the same owner's page/receipts while refreshing. Scope
+    // checks inside load still discard a changed generation or reset epoch.
+    invalidateRequest();
+    void loadRef.current();
+  }, [authenticated, sync.ownerKey, invalidateRequest]);
   useEffect(() => {
     const controller = new AbortController(); pageRequest.current?.abort(); pageRequest.current = controller;
     if (!view) return () => controller.abort();
@@ -207,7 +220,7 @@ export function LearningHistoryPanel() {
       <button className="secondary-button" type="button" disabled={busy || pageBusy || !page.hasPrevious} onClick={() => setPageQuery({ cursor: page.first, direction: 'previous', focus: true })}>Trang trước</button>
       <button className="secondary-button" type="button" disabled={busy || pageBusy || !page.hasNext} onClick={() => setPageQuery({ cursor: page.last, direction: 'next', focus: true })}>Trang sau</button>
     </nav>}
-    {!page.hasNext && more && <button className="secondary-button" type="button" disabled={busy || pageBusy} onClick={() => { focusAfterMore.current = true; void load('more'); }}>Xem thêm lịch sử</button>}
+    {!page.hasNext && more && authenticated && <button className="secondary-button" type="button" disabled={busy || pageBusy} onClick={() => { focusAfterMore.current = true; void load('more'); }}>Xem thêm lịch sử</button>}
     {ready && <p role="status" aria-live="polite">Đang hiện {displayed.length} lượt trong {filteredCount} lượt phù hợp đã tải. Trang {Math.floor(page.offset / 20) + 1}. Truy cập khu học khác với trả lời hoặc tự ôn.</p>}
   </section>;
 }
