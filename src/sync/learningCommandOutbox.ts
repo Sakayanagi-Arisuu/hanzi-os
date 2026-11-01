@@ -89,6 +89,7 @@ import {
 import { MAX_READER_FORM_ITEMS } from "../reader/protocolSupport";
 import { canonicalStringify, sha256Hex } from "./canonicalHash";
 import { assertOwnerRecoveryIdle } from './ownerRecoveryFence';
+import { isValidLearningResetEpoch } from '../learning/resetEpoch';
 import {
   ACTIVE_OWNER_GENERATION_KEY,
   allocateDeviceSequence,
@@ -3705,7 +3706,9 @@ export async function findReaderSessionByAlias(
 
 export async function listLearningCommandRecords(
   ownerGeneration: OwnerGeneration,
+  retainResetEpoch?: number,
 ): Promise<LearningCommandOutboxRecord[]> {
+  if (retainResetEpoch !== undefined && !isValidLearningResetEpoch(retainResetEpoch)) throw new Error('Invalid history epoch; retain command journal.');
   const database = await openSyncDatabase();
   const transaction = database.transaction(
     [SYNC_META_STORE, LEARNING_COMMAND_OUTBOX_STORE],
@@ -3714,6 +3717,28 @@ export async function listLearningCommandRecords(
   const done = transactionDone(transaction);
   try {
     await assertOwnerGeneration(transaction, ownerGeneration);
+    if (retainResetEpoch !== undefined) {
+      // Keep the exact global sort input even for malformed legacy sequences.
+      // Filtering before sort can change NaN ties or hide a BigInt error.
+      // Only payloads from the requested epoch survive each cursor callback.
+      const ordering = await new Promise<{ deviceSequence: number; record: LearningCommandOutboxRecord | null }[]>((resolve, reject) => {
+        const rows: { deviceSequence: number; record: LearningCommandOutboxRecord | null }[] = [];
+        const cursor = transaction.objectStore(LEARNING_COMMAND_OUTBOX_STORE).index(LEARNING_COMMAND_OWNER_INDEX)
+          .openCursor(IDBKeyRange.only(ownerGeneration.ownerKey));
+        cursor.onerror = () => reject(cursor.error);
+        cursor.onsuccess = () => {
+          try {
+            if (!cursor.result) { resolve(rows); return; }
+            const record = cursor.result.value as LearningCommandOutboxRecord;
+            rows.push({ deviceSequence: record.deviceSequence, record: record.resetEpoch === retainResetEpoch ? record : null });
+            cursor.result.continue();
+          } catch (error) { reject(error); }
+        };
+      });
+      await done;
+      return ordering.sort((left, right) => left.deviceSequence - right.deviceSequence)
+        .flatMap(row => row.record ? [row.record] : []);
+    }
     const records = await requestResult(
       transaction
         .objectStore(LEARNING_COMMAND_OUTBOX_STORE)

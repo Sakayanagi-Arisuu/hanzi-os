@@ -52,7 +52,9 @@ export class LocalHistoryReadBatch {
 
   commands(scope: ActiveOwnerLearningScope) {
     this.requireScope(scope);
-    return this.commandsRequest ??= listLearningCommandRecords(this.scope.ownerGeneration);
+    return this.commandsRequest ??= this.aggregate
+      ? listLearningCommandRecords(this.scope.ownerGeneration, this.scope.resetEpoch)
+      : listLearningCommandRecords(this.scope.ownerGeneration);
   }
 
   state(scope: ActiveOwnerLearningScope) {

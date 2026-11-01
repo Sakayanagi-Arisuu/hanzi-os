@@ -1,3 +1,11 @@
+## T03 · nhả payload outbox khác epoch · 01/11/2026
+
+- **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.
+- **Người học thấy gì:** shared history reader không giữ payload command của epoch khác trong suốt lượt tải; pending/receipt/journal gốc không bị xóa hoặc sửa. Queue/coordinator và default batch vẫn đọc đầy đủ như cũ.
+- **Đã kiểm:** targeted-v2 8file/97test gồm Lesson/Review/Reader/Assessment outbox; typecheck-v1/lint-v1/build-v1 exit0,239JS/192private markers vắng. Compiled reconciliation-after-v12 qua3ca, paging-v7 qua375×667 và667×375,0page errors,5000entries+5000pending/root giữ nguyên. Native4356-v1 giữ1record hiện tại thay257;256payload/25,600,000UTF16chars nguồn exact, put/add/delete bị chặn. Retained heap sau forcedGC54,773,076→3,531,624bytes; không peak/RSS/device hoặc efficacy pass. Test-v1 lỗi setup it.each và kỳ vọng operationId workspace, đã sửa fixture; v2 qua, log v1 giữ nguyên. Fullv38 là baseline trước delta3file này, không gọi là full-check của source mới.
+- **AI review / dữ liệu:** cursor theo owner-index, giữ metadata deviceSequence của mọi row để global stable sort trước khi loại payload; không đổi thứ tự NaN/Date/tie hoặc giấu lỗi BigInt. Giữ session/dependency map và validation của từng consumer. Metadata và payload epoch hiện tại vẫn O(n); sequence object legacy bất thường có thể giữ giá trị lớn. Schema3/bảy store/IDs/FSRS/scoring/writer/owner/reset/recovery không đổi. Binding426/0drift; HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213. Không sửa/stage .wrangler/docs/reports/output.
+- **Tiếp theo:** chốt commit/push rồi tiếp T03 state projection; initial local history/legacy/writer vẫn O(n). Recovery lớn/account/native, liên thông evidence, thiết bị và cohort vẫn còn mở. Web4327 dùng D1 clone giữ sẵn; dừng preview trước build để tránh khóa dist/client trên Windows.
+
 ## T03 · nhả bản nháp không dùng trong lượt đọc lịch sử · 01/11/2026
 
 - **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.

@@ -1026,7 +1026,7 @@
     },
     {
       "file": "src/sync/learningCommandOutbox.ts",
-      "sha256": "74e356edaf26e6834ae6b821cd6faabfb1c6f5c13b72ca3602bdd1f0a13a9384",
+      "sha256": "7e25ce62c23b0b45ff5bf0fb365b0314aa10ceea23306f985dca899686892fbb",
       "previousSha256": null
     },
     {
@@ -1041,7 +1041,7 @@
     },
     {
       "file": "src/sync/localHistoryReadBatch.ts",
-      "sha256": "e656cc5387570d997a00b1426332aaca1ffa5ecaa730599f43c146580cc65fed",
+      "sha256": "d5344f0e005ff481d1031919198a4de167bc95d1439f11f600de785e49d0b904",
       "previousSha256": null
     },
     {
@@ -1353,6 +1353,11 @@
       "file": "src/sync/pagedHistoryView.test.ts",
       "previousSha256": null,
       "sha256": "22858e552719ce03b994c2f9be329bdf4caf80d05693289874a5d5513b395d4b"
+    },
+    {
+      "file": "src/sync/historyCommandRetention.test.ts",
+      "previousSha256": null,
+      "sha256": "8ad6125120852ee66584ea3df9ef7fa9e3356d972ea8a34851e8d5a58714d841"
     }
   ],
   "completedTechnicalGates": [
@@ -3816,6 +3821,29 @@
           "file": "src/sync/localHistoryReadBatch.test.ts",
           "previousSha256": "054267b2a7078b14b27d499bfabf04a076d6a6d2b1d5b31dad9e45096823cbda",
           "sha256": "d75094a396395157ba2ec0ac7064b0c1f0f5f616fed03aa817d3175cf892289f"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 release other-epoch command payloads from shared history reads",
+      "notes": "AI self-review. Optional epoch retention uses owner-index cursor and retains compact sequence metadata from every row before global stable sort, preserving malformed NaN/BigInt behavior and session/dependency ordering. Default queue/coordinator calls remain full reads. Source DBversion3/seven stores/receipts/pending/writer/scoring/content unchanged. Current-epoch payloads and ordering metadata still scale with input; malformed object-valued sequence metadata may also retain large values. Native synthetic retained JS heap is not peak/RSS/device/efficacy proof. Fullv38 pre-build stages passed on prior source; current incremental gates recorded separately, no false whole-check pass.",
+      "changes": [
+        {
+          "file": "src/sync/learningCommandOutbox.ts",
+          "previousSha256": "74e356edaf26e6834ae6b821cd6faabfb1c6f5c13b72ca3602bdd1f0a13a9384",
+          "sha256": "7e25ce62c23b0b45ff5bf0fb365b0314aa10ceea23306f985dca899686892fbb"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": "e656cc5387570d997a00b1426332aaca1ffa5ecaa730599f43c146580cc65fed",
+          "sha256": "d5344f0e005ff481d1031919198a4de167bc95d1439f11f600de785e49d0b904"
+        },
+        {
+          "file": "src/sync/historyCommandRetention.test.ts",
+          "previousSha256": null,
+          "sha256": "8ad6125120852ee66584ea3df9ef7fa9e3356d972ea8a34851e8d5a58714d841"
         }
       ]
     }
