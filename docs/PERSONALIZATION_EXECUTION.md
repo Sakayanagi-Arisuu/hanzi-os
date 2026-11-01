@@ -1,3 +1,11 @@
+## T03 · chốt kiểm source cuối 7e67602 · 01/11/2026
+
+- **Module:** T03 — IN-REVIEW; AI self-review, chưa USER-ACCEPTED.
+- **Người học thấy gì:** Nhật ký20dòng/trang, Trang trước/Trang sau; giảm payload resume/outbox/state giữ dư; cùng owner khi xác thực API tạm đổi vẫn giữ trang, receipts và frontier. Web4327 đã cập nhật PWA trên D1 clone giữ sẵn; dữ liệu thật44lượt đi20→20→4→20, focus heading đúng,10phút/ngày·Giao tiếp còn. Native fast click từng lạc sang /review khi vị trí đang đổi; kiểm cuối dùng ảnh/hit-test ổn định + pointer/bàn phím, không coi đó là rapid-transition/device pass. Ảnh tmp/personalization-history-live-final-v1.png.
+- **Đã kiểm:** auth-delta8file/87test,typecheck/lint/build exit0 và7browser journeys (auth2,reset/filter3,paging2). State-delta11file/121test; outbox-delta8file/97test thuộc từng mốc trước, không cộng chồng. Final native100k-v5 build đúng source7e67602, baseline panel3242da3 so exact: retained JS heap forcedGC95,338,500→5,066,840bytes; sau5trang5,560,508bytes/20dòng mỗi trang;root/200000entries+200000pending giữ nguyên. Gap281.2→63.7ms là một quan sát desktop; elapsed7607/30399ms gồm proof và5trang, không navigation/peak/RSS/hard RAM cap. Fullv37 CHECK_EXIT0 trước các delta sau; fullv38 có3797test qua nhưng CHECK_EXIT1 do EBUSY preview, build retry exit0; không báo full-check mới của source cuối.
+- **Dữ liệu giữ được:** D1 gốc65/65immutable,0missing/changed,integrityOK/FK0. HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213. Binding428/0drift, schema3/bảy store/IDs/FSRS/completion/outbox/recovery/writer/scoring giữ. Không reset browser storage hoặc sửa/stage .wrangler/docs/reports/output.
+- **Tiếp theo:** đúng T03 source/peak-memory còn initial record clone, relevant evidence/output/metadata và writer O(n). Recovery lớn/account/native, liên thông evidence, thiết bị/cohort vẫn mở; không suy thành hoàn tất toàn kế hoạch, humanReviewed hoặc hiệu quả nhớ lại. Năm mốc chức năng c2adf75/ff1a3a2/2198768/f3056dc/7e67602 đã push; mốc tài liệu này chỉ tổng hợp kiểm cuối, không đổi runtime/test.
+
 ## T03 · giữ trang khi xác thực API tạm đổi · 01/11/2026
 
 - **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.
