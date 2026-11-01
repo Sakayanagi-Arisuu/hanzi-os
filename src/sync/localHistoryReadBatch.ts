@@ -3,6 +3,8 @@ import { listLearningCommandRecords } from './learningCommandOutbox';
 import { readWorkspaceCooperatively } from './workspaceSync';
 import { workspaceEntriesWithHistoryCooperatively, workspaceHistoryEventsCooperatively } from './workspaceHistory';
 import { readWorkspaceHistoryProjection } from './workspaceHistoryProjection';
+import { LESSON_HISTORY_ENTRY_PREFIX } from '../learning/lessonHistory';
+import { PAGE_CORRECTION_HISTORY_PREFIX } from './mistakeHistory';
 
 /** One history load only: never retain this batch across refreshes or owners. */
 export class LocalHistoryReadBatch {
@@ -24,7 +26,15 @@ export class LocalHistoryReadBatch {
   resumes(scope: ActiveOwnerLearningScope) {
     this.requireScope(scope);
     return this.resumesRequest ??= this.aggregate
-      ? this.workspaceHistory(scope).then(() => listLessonResumes(this.scope, 'workspace-sync:v1'))
+      ? this.workspaceHistory(scope).then(() => listLessonResumes(this.scope, 'workspace-sync:v1', record => {
+        if (typeof record?.entryKey !== 'string') throw new Error('Unreadable history source wrapper; retain original record.');
+        // These are the only resume families inspected by the three shared
+        // history adapters. Default/non-history callers still receive all rows.
+        return record.entryKey.startsWith(LESSON_HISTORY_ENTRY_PREFIX)
+          || record.entryKey.startsWith('lesson-page-history:v1:')
+          || record.entryKey.startsWith('lesson-reading:v1:')
+          || record.entryKey.startsWith(PAGE_CORRECTION_HISTORY_PREFIX);
+      }))
       : listLessonResumes(this.scope);
   }
 

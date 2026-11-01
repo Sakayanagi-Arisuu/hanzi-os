@@ -177,6 +177,8 @@ và descriptor suy từ nguồn; pending reference trỏ tới kết quả đã 
 nguồn không được ráp thành journal đầy đủ trong đường này. Descriptor lưu sẵn
 giữ ưu tiên, mọi nguồn/pending/page vẫn được kiểm; đọc legacy chỉ đọc, không tự
 migration. Các vòng xử lý legacy và descriptor nhường lượt rồi kiểm lại owner.
+Aggregate history chọn resume theo wrapper đã đọc, chỉ giữ bốn họ lesson-history, lesson-page-history, lesson-reading và page-correction-history. Bản nháp không liên quan được nhả sau từng record; default resume reader vẫn trả đầy đủ. Selector lỗi dừng read, không ghi/xóa nguồn. Các history phù hợp và state/outbox vẫn O(n).
+
 Hồ sơ dựng bản chiếu hiển thị riêng trong `hanzi-os-history-view-v1` (cache schema2),
 không thuộc DBversion3/bảy store nguồn hoặc recovery. Block chứa tối đa128event/
 1MiB, một event cache tối đa512KiB JSON; vượt giới hạn dừng và giữ nguồn gốc.

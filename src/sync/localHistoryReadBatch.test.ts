@@ -51,7 +51,7 @@ it('matches independent source projections while loading each shared store once 
   expect(snapshots).toHaveBeenCalledTimes(1); expect(commands).toHaveBeenCalledTimes(1); expect(state).toHaveBeenCalledTimes(1);
   expect(canonical).not.toHaveBeenCalled();
   expect(projection).toHaveBeenCalledTimes(1);
-  expect(snapshots).toHaveBeenCalledWith(scope, 'workspace-sync:v1');
+  expect(snapshots).toHaveBeenCalledWith(scope, 'workspace-sync:v1', expect.any(Function));
 });
 
 it('creates fresh reads on refresh so a later durable activity is visible', async () => {
@@ -184,4 +184,47 @@ it('continues to fence a prior batch when the actual active owner changes', asyn
   await database.transitionOwnerCheckpoint(scope.ownerGeneration, 'anonymous:other', 0,
     createInitialSyncDocument(INITIAL_LEARNING_STATE, '2026-10-24T01:00:00Z', 'owner-change'), INITIAL_LEARNING_STATE);
   await expect(readLocalLessonHistory(scope, batch)).rejects.toBeInstanceOf(database.StaleOwnerGenerationError);
+});
+
+it('releases unrelated resume payloads from the shared batch without changing canonical history or source data', async () => {
+  await save('retained-activity');
+  for (let i = 0; i < 24; i++) await database.writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: 0,
+    entryKey: `unrelated-draft:${i}`, value: { raw: '原'.repeat(12000), index: i } });
+  const before = await database.captureOwnerRecoverySnapshot(scope);
+  const independent = projectLessonHistory({ ownerKey: scope.ownerGeneration.ownerKey, resetEpoch: 0 }, [
+    ...await readLocalLessonHistory(scope), ...await readLocalReviewHistory(scope), ...await readLocalActivityHistory(scope),
+  ]);
+  expect(await new LocalHistoryReadBatch(scope, true).resumes(scope)).toEqual([]);
+  expect(await new LocalHistoryReadBatch(scope).resumes(scope)).toHaveLength(25);
+  expect(await readLocalLearningHistory(scope)).toEqual(independent);
+  expect((await database.captureOwnerRecoverySnapshot(scope)).stores).toEqual(before.stores);
+});
+
+it('retains all four consumer families in their original order, including unreadable values for fail-closed validation', async () => {
+  const entryKeys = ['lesson-history:v1:unknown', 'lesson-page-history:v1:unknown', 'lesson-reading:v1:unknown', 'page-correction-history:v1:unknown'];
+  for (const entryKey of [...entryKeys, 'unrelated-draft']) await database.writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration,
+    resetEpoch: 0, entryKey, value: { unknownSchema: 99 } });
+  const canonical = await database.listLessonResumes(scope);
+  expect(await new LocalHistoryReadBatch(scope, true).resumes(scope)).toEqual(canonical.filter(row => entryKeys.includes(row.entryKey)));
+  await expect(readLocalLearningHistory(scope)).rejects.toThrow('unreadable');
+  expect(await database.listLessonResumes(scope)).toEqual(canonical);
+});
+
+it('selects the actual wrapper label rather than hiding a history source under a different primary key', async () => {
+  await database.writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: 0, entryKey: 'unrelated-key', value: { unknownSchema: 99 } });
+  const original = (await database.listLessonResumes(scope))[0], forged = { ...original, entryKey: 'lesson-history:v1:forged' };
+  const db = await database.openSyncDatabase(), tx = db.transaction(database.LESSON_RESUME_STORE, 'readwrite');
+  tx.objectStore(database.LESSON_RESUME_STORE).put(forged);
+  await new Promise<void>((resolve, reject) => { tx.oncomplete = () => resolve(); tx.onerror = () => reject(tx.error); });
+  expect(await new LocalHistoryReadBatch(scope, true).resumes(scope)).toEqual([forged]);
+  await expect(readLocalLearningHistory(scope)).rejects.toThrow('unreadable');
+  expect(await database.listLessonResumes(scope)).toEqual([forged]);
+});
+
+it('rejects a failed retention selector and leaves every row available to a fresh read', async () => {
+  await database.writeLessonResume({ expectedOwnerGeneration: scope.ownerGeneration, resetEpoch: 0, entryKey: 'keep', value: { retained: true } });
+  const original = await database.listLessonResumes(scope), before = await database.captureOwnerRecoverySnapshot(scope);
+  await expect(database.listLessonResumes(scope, undefined, () => { throw Error('selection unavailable'); })).rejects.toThrow('selection unavailable');
+  expect(await database.listLessonResumes(scope)).toEqual(original);
+  expect((await database.captureOwnerRecoverySnapshot(scope)).stores).toEqual(before.stores);
 });

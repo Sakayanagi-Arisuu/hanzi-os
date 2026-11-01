@@ -903,7 +903,8 @@ export async function withLessonResumeTransaction<T>(scope: OwnerScopedCacheScop
 /** Read only the active owner's current reset epoch, including archived lesson
  * revisions. No other account's drafts enter the caller's analytics input.
  */
-export async function listLessonResumes(scope: ActiveOwnerLearningScope, excludeEntryKey?: string): Promise<OwnerScopedCacheRecord<unknown>[]> {
+export async function listLessonResumes(scope: ActiveOwnerLearningScope, excludeEntryKey?: string,
+  retainRecord?: (record: OwnerScopedCacheRecord<unknown>) => boolean): Promise<OwnerScopedCacheRecord<unknown>[]> {
   const cacheScope={expectedOwnerGeneration:scope.ownerGeneration,resetEpoch:scope.resetEpoch,entryKey:'lesson-reading-list'};
   assertOwnerScopedCacheScope(cacheScope);
   const database=await openSyncDatabase();
@@ -925,7 +926,8 @@ export async function listLessonResumes(scope: ActiveOwnerLearningScope, exclude
       records = await new Promise<OwnerScopedCacheRecord<unknown>[]>((resolve, reject) => {
         const rows: OwnerScopedCacheRecord<unknown>[] = [];
         let pending = 0, exhausted = false, count = 0;
-        const finish = () => { if (exhausted && pending === 0) resolve(rows); };
+        // Compact unretained slots after all reads, preserving cursor order.
+        const finish = () => { if (exhausted && pending === 0) resolve(retainRecord ? rows.filter(() => true) : rows); };
         const cursor = index.openKeyCursor(range);
         cursor.onerror = () => reject(cursor.error);
         cursor.onsuccess = () => {
@@ -941,7 +943,15 @@ export async function listLessonResumes(scope: ActiveOwnerLearningScope, exclude
             pending++;
             const read = store.get(current.primaryKey) as IDBRequest<OwnerScopedCacheRecord<unknown>>;
             read.onerror = () => reject(read.error);
-            read.onsuccess = () => { rows[position] = read.result; pending--; finish(); };
+            read.onsuccess = () => {
+              try {
+                // Select only after reading the wrapper: entryKey can differ
+                // from its primary key. Never retain unrelated large drafts
+                // across the remainder of a history load.
+                if (!retainRecord || retainRecord(read.result)) rows[position] = read.result;
+                pending--; finish();
+              } catch (error) { reject(error); }
+            };
           }
           current.continue();
         };

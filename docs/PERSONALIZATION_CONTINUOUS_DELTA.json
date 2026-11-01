@@ -1011,7 +1011,7 @@
     },
     {
       "file": "src/sync/indexedDb.ts",
-      "sha256": "8bd56a4eae28c1a3d459335fa462a858c11c512fd55923806fe59ee8d07ede17",
+      "sha256": "8d98c4bd866289ef0cdb3489c9d657a660a9ecfa5b47f035c99d274b0253364f",
       "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
     },
     {
@@ -1036,12 +1036,12 @@
     },
     {
       "file": "src/sync/localHistoryReadBatch.test.ts",
-      "sha256": "054267b2a7078b14b27d499bfabf04a076d6a6d2b1d5b31dad9e45096823cbda",
+      "sha256": "d75094a396395157ba2ec0ac7064b0c1f0f5f616fed03aa817d3175cf892289f",
       "previousSha256": null
     },
     {
       "file": "src/sync/localHistoryReadBatch.ts",
-      "sha256": "7fcef962515ae0e9d08d820f2359a02f175286200b53e58b5b6b7c4a5afd8c8c",
+      "sha256": "e656cc5387570d997a00b1426332aaca1ffa5ecaa730599f43c146580cc65fed",
       "previousSha256": null
     },
     {
@@ -3793,6 +3793,29 @@
           "file": "src/sync/historyViewStore.test.ts",
           "previousSha256": "fd507481784da7fefdb483570cc3e1df613ce7e30a4eaa44e432fcba30f77b68",
           "sha256": "01ffb2683a6c011a82ef54e7b719961d349674b4e9916b8b29767f768710abc5"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 release unrelated resume payloads during a shared history read",
+      "notes": "AI self-review. Optional synchronous retention predicate runs after reading each actual wrapper, never skips by forged primary-key label; default callers retain original output/order. Aggregate batch keeps all four consumer families; relevant unknown schemas still reach fail-closed consumers. No source writes/schema/scoring/content changes. Matching source arrays/state/outbox/legacy/writer remain proportional to input; native retained-heap evidence is not peak/RSS/device/efficacy completion.",
+      "changes": [
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "8bd56a4eae28c1a3d459335fa462a858c11c512fd55923806fe59ee8d07ede17",
+          "sha256": "8d98c4bd866289ef0cdb3489c9d657a660a9ecfa5b47f035c99d274b0253364f"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": "7fcef962515ae0e9d08d820f2359a02f175286200b53e58b5b6b7c4a5afd8c8c",
+          "sha256": "e656cc5387570d997a00b1426332aaca1ffa5ecaa730599f43c146580cc65fed"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.test.ts",
+          "previousSha256": "054267b2a7078b14b27d499bfabf04a076d6a6d2b1d5b31dad9e45096823cbda",
+          "sha256": "d75094a396395157ba2ec0ac7064b0c1f0f5f616fed03aa817d3175cf892289f"
         }
       ]
     }
