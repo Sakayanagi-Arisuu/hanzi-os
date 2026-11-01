@@ -5,13 +5,14 @@ import { workspaceEntriesWithHistoryCooperatively, workspaceHistoryEventsCoopera
 import { readWorkspaceHistoryProjection } from './workspaceHistoryProjection';
 import { LESSON_HISTORY_ENTRY_PREFIX } from '../learning/lessonHistory';
 import { PAGE_CORRECTION_HISTORY_PREFIX } from './mistakeHistory';
+import { projectHistoryState, type HistoryStateSnapshot } from './historyStateProjection';
 
 /** One history load only: never retain this batch across refreshes or owners. */
 export class LocalHistoryReadBatch {
   private readonly scope: ActiveOwnerLearningScope;
   private resumesRequest?: ReturnType<typeof listLessonResumes>;
   private commandsRequest?: ReturnType<typeof listLearningCommandRecords>;
-  private stateRequest?: ReturnType<typeof readOwnerLocalState>;
+  private stateRequest?: Promise<HistoryStateSnapshot | null>;
   private workspaceRequest?: ReturnType<typeof readWorkspaceCooperatively>;
   private workspaceHistoryRequest?: ReturnType<typeof readWorkspaceHistoryProjection>;
 
@@ -59,7 +60,13 @@ export class LocalHistoryReadBatch {
 
   state(scope: ActiveOwnerLearningScope) {
     this.requireScope(scope);
-    return this.stateRequest ??= readOwnerLocalState(this.scope.ownerGeneration.ownerKey);
+    return this.stateRequest ??= this.aggregate
+      ? readOwnerLocalState(this.scope.ownerGeneration.ownerKey).then(async state => {
+        const snapshot = await projectHistoryState(this.scope.ownerGeneration.ownerKey, state);
+        await this.assertCurrent(this.scope);
+        return snapshot;
+      })
+      : readOwnerLocalState(this.scope.ownerGeneration.ownerKey);
   }
 
   async assertCurrent(scope: ActiveOwnerLearningScope) {

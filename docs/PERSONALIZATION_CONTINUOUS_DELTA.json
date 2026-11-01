@@ -1041,7 +1041,7 @@
     },
     {
       "file": "src/sync/localHistoryReadBatch.ts",
-      "sha256": "d5344f0e005ff481d1031919198a4de167bc95d1439f11f600de785e49d0b904",
+      "sha256": "12e1a6452d0684c62c38f440abc7e4186f1893761246b4d6afe41e0bcadacde2",
       "previousSha256": null
     },
     {
@@ -1358,6 +1358,16 @@
       "file": "src/sync/historyCommandRetention.test.ts",
       "previousSha256": null,
       "sha256": "8ad6125120852ee66584ea3df9ef7fa9e3356d972ea8a34851e8d5a58714d841"
+    },
+    {
+      "file": "src/sync/historyStateProjection.ts",
+      "previousSha256": null,
+      "sha256": "26693353aa3233ad98e496a623db2da0f304472f80020c5f63db8d4f7815621e"
+    },
+    {
+      "file": "src/sync/historyStateProjection.test.ts",
+      "previousSha256": null,
+      "sha256": "f470bbd3f2d24ddbf394ec290e86fe790d54ce0b88b783a024d31e2a4b204ce7"
     }
   ],
   "completedTechnicalGates": [
@@ -3844,6 +3854,29 @@
           "file": "src/sync/historyCommandRetention.test.ts",
           "previousSha256": null,
           "sha256": "8ad6125120852ee66584ea3df9ef7fa9e3356d972ea8a34851e8d5a58714d841"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 retain only consumer state fields and relevant guest evidence during history reads",
+      "notes": "AI self-review. Shared guest history state retains schemaVersion and evidence consumed by review/activity only; preserves relevant duplicates and order, visits sparse slots so malformed evidence is not hidden, leaves unsupported state for canonical guards. Account history releases state it never consumes. Default state reader/batches remain complete. Owner/reset checked again after cooperative projection. Source DBversion3/seven stores/receipts/pending/writer/scoring/content unchanged. Opaque legacy state is still cloned on the first IDB read; matching evidence and canonical output remain proportional to input. This is retained-payload reduction, not a hard initial RAM bound. Native synthetic retained JS heap is not peak/RSS/device/efficacy proof. Fullv38 belongs to older source; current targeted/typecheck/lint/build/browser gates are recorded separately, no false whole-check pass.",
+      "changes": [
+        {
+          "file": "src/sync/historyStateProjection.ts",
+          "previousSha256": null,
+          "sha256": "26693353aa3233ad98e496a623db2da0f304472f80020c5f63db8d4f7815621e"
+        },
+        {
+          "file": "src/sync/localHistoryReadBatch.ts",
+          "previousSha256": "d5344f0e005ff481d1031919198a4de167bc95d1439f11f600de785e49d0b904",
+          "sha256": "12e1a6452d0684c62c38f440abc7e4186f1893761246b4d6afe41e0bcadacde2"
+        },
+        {
+          "file": "src/sync/historyStateProjection.test.ts",
+          "previousSha256": null,
+          "sha256": "f470bbd3f2d24ddbf394ec290e86fe790d54ce0b88b783a024d31e2a4b204ce7"
         }
       ]
     }

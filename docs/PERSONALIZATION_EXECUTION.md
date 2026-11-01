@@ -1,3 +1,11 @@
+## T03 · chỉ giữ state dùng cho lịch sử · 01/11/2026
+
+- **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.
+- **Người học thấy gì:** shared history reader nhả các phần state không được lịch sử dùng; guest chỉ giữ schemaVersion và evidence mà Review/Activity cần. Evidence lesson hoặc review khác fsrs-rating vốn không được hai consumer dùng không bị giữ thêm. Account nhả state không được account history dùng; reader/default batch và state gốc vẫn đầy đủ.
+- **Đã kiểm:** targeted-v2 11file/121test; typecheck-v1/lint-v1/build-v1 exit0,239JS/192private markers vắng. Compiled reconciliation-after-v13 qua3ca, paging-v8 qua375×667 và667×375,0page errors,5000entries+5000pending/root giữ nguyên. Native4357-v1:257→1evidence giữ lại;256payload cộng root/26,600,000UTF16base chars được so exact, put/add/delete bị chặn. Retained heap forcedGC56,582,960→3,296,852bytes, không peak/RSS/device hoặc efficacy pass. Fullv38 thuộc baseline trước hai delta outbox/state; không dùng thay gate source mới.
+- **AI review / dữ liệu:** audit chỉ2consumer batch.state; giữ nguyên thứ tự/duplicate evidence liên quan, version/array sai vẫn tới guard cũ, null/sparse item không bị filter giấu, source lạ vẫn bị từ chối. Nhường lượt theo batch rồi kiểm lại owner/generation/reset; thay owner giữa yield từ chối và giữ state owner cũ. Schema3/bảy store/IDs/FSRS/scoring/completion/outbox/recovery/writer giữ. Binding428/0drift; HSK0 4/4 rich0/4, HSK1–4 rich40/40/55/78=213/213. Không sửa/stage .wrangler/docs/reports/output.
+- **Giới hạn / tiếp theo:** state legacy vẫn phải clone nguyên record khi đọc đầu tiên; evidence phù hợp, canonical output, compact metadata và writer vẫn O(n). Tiếp đúng T03 phần source/peak-memory; recovery lớn/account/native, liên thông evidence, thiết bị và cohort còn mở. Không chốt toàn kế hoạch, humanReviewed hoặc hiệu quả nhớ lại từ các phép đo desktop này. Web4327 bật lại trên D1 clone giữ sẵn sau build; không deploy/APK.
+
 ## T03 · nhả payload outbox khác epoch · 01/11/2026
 
 - **Module:** T03 — IN-REVIEW, AI self-review; chưa USER-ACCEPTED.
