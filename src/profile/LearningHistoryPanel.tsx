@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { useLearning } from '../store/LearningContext';
 import { type HistoryModule, type LessonHistoryEventV1 } from '../learning/lessonHistory';
-import { reconcileProfileHistoryGroups } from './historyReconciliation';
-import { selectHistoryWindow } from './historyWindow';
-import { readLocalLearningHistory } from '../sync/reviewHistory';
+import { combineHistoryViews, localHistoryView, queryHistoryView, remoteHistoryView, type HistoryDisplayView } from './historyView';
+import { dropHistoryView, emptyHistoryViewPage, HistoryViewUnavailableError, type HistoryView, type HistoryViewQuery } from '../sync/historyViewStore';
 import { readAccountLessonHistoryPage } from '../sync/lessonHistory';
 import { currentWorkspaceScope, WORKSPACE_CHANGED } from '../sync/workspaceSync';
 import { LEARNING_COMMAND_QUEUE_CHANGED_EVENT } from '../sync/learningCommandOutbox';
@@ -16,19 +15,30 @@ type Source = 'lesson' | 'review' | 'activity';
 type Paging = Record<Source, HistoryPageState>;
 const emptyPaging = (): Paging => ({ lesson: emptyHistoryPage(), review: emptyHistoryPage(), activity: emptyHistoryPage() });
 const sources: Source[] = ['lesson', 'review', 'activity'];
+const dispose = (view: HistoryView | null) => { if (view) void dropHistoryView(view).catch(() => undefined); };
+type PageQuery = Pick<HistoryViewQuery, 'cursor' | 'direction' | 'inclusive'> & { focus: boolean };
+const firstPage = (): PageQuery => ({ cursor: null, direction: 'next', focus: false });
 
 export function LearningHistoryPanel() {
   const { sync } = useLearning();
-  const [events, setEvents] = useState<LessonHistoryEventV1[]>([]);
+  const [view, setView] = useState<HistoryDisplayView | null>(null);
+  const [page, setPage] = useState(emptyHistoryViewPage);
+  const [pageQuery, setPageQuery] = useState(firstPage);
+  const [pageBusy, setPageBusy] = useState(false);
+  const [pageError, setPageError] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [ready, setReady] = useState(false);
   const [module, setModule] = useState<HistoryModule | 'all'>('all');
   const [skill, setSkill] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(20);
   const [more, setMore] = useState(false);
   const pages = useRef(emptyPaging());
-  const remoteEvents = useRef<LessonHistoryEventV1[]>([]);
+  const localView = useRef<HistoryDisplayView | null>(null);
+  const remoteView = useRef<HistoryView | null>(null);
+  const pageRequest = useRef<AbortController | null>(null);
+  const pageRef = useRef(page);
+  const focusAfterMore = useRef(false);
+  const heading = useRef<HTMLHeadingElement>(null);
   const request = useRef<AbortController | null>(null);
   const lifecycle = useRef(0);
   const failedMode = useRef<HistoryLoadMode | null>(null);
@@ -37,8 +47,12 @@ export function LearningHistoryPanel() {
   const authenticated = sync.session?.authenticated === true;
   const clearCache = useCallback(() => {
     cacheScope.current = null;
-    pages.current = emptyPaging(); remoteEvents.current = []; failedMode.current = null;
-    setEvents([]); setError(''); setReady(false); setVisibleCount(20); setMore(false);
+    pages.current = emptyPaging(); failedMode.current = null;
+    pageRequest.current?.abort(); pageRequest.current = null;
+    dispose(localView.current?.local ?? null); dispose(remoteView.current); localView.current = null; remoteView.current = null;
+    setView(null); setPage(emptyHistoryViewPage()); pageRef.current = emptyHistoryViewPage();
+    setPageQuery(firstPage()); setPageBusy(false); setPageError(''); setError(''); setReady(false); setMore(false);
+    focusAfterMore.current = false;
   }, []);
   const invalidateRequest = useCallback(() => {
     ++lifecycle.current;
@@ -51,6 +65,7 @@ export function LearningHistoryPanel() {
     }
     const controller = new AbortController(); request.current = controller;
     const generation = lifecycle.current;
+    let sourceView: HistoryView | null = null, candidateRemote: HistoryView | null = null;
     setBusy(true); setError('');
     try {
       const scope = await currentWorkspaceScope(sync.ownerKey);
@@ -62,13 +77,32 @@ export function LearningHistoryPanel() {
         // A cursor from a previous owner generation/reset cannot be reused.
         mode = 'refresh';
       }
-      const local = await readLocalLearningHistory(scope);
+      sourceView = await localHistoryView(scope, controller.signal);
       if (generation !== lifecycle.current || controller.signal.aborted) return;
       const requestIsCurrent = () => generation === lifecycle.current && !controller.signal.aborted;
-      const initial = await reconcileProfileHistoryGroups(scope, [local, remoteEvents.current], requestIsCurrent);
-      if (initial === null || !requestIsCurrent()) return;
-      setEvents(initial);
-      setReady(true);
+      const publish = (next: HistoryDisplayView) => {
+        const currentPage = pageRef.current;
+        const anchor = mode === 'more' || currentPage.offset > 0 ? currentPage.first : null;
+        const query: PageQuery = anchor ? { cursor: anchor, direction: 'next', inclusive: true, focus: mode === 'more' && focusAfterMore.current } : firstPage();
+        focusAfterMore.current = false;
+        const prior = localView.current; localView.current = next;
+        pageRequest.current?.abort();
+        setView(next); setPageQuery(query); setReady(true);
+        if (prior?.local.id !== next.local.id) dispose(prior?.local ?? null);
+      };
+      if (mode !== 'more' || !localView.current) {
+        let initial;
+        try { initial = await combineHistoryViews(sourceView, remoteView.current, controller.signal); }
+        catch (error) {
+          if (!(error instanceof HistoryViewUnavailableError) || !remoteView.current) throw error;
+          // A lost disposable cache must restart server paging from its head;
+          // retaining an older cursor here would skip the discarded rows.
+          dispose(remoteView.current); remoteView.current = null; pages.current = emptyPaging(); mode = 'refresh';
+          initial = await combineHistoryViews(sourceView, null, controller.signal);
+        }
+        if (!requestIsCurrent()) return;
+        publish(initial);
+      }
       if (authenticated) {
         const selected = sources.filter(source => mode === 'refresh' || hasMoreHistory(pages.current[source]));
         const received = await Promise.all(selected.map(source => readAccountLessonHistoryPage(scope, {
@@ -76,24 +110,29 @@ export function LearningHistoryPanel() {
           send: (input, init) => fetch(input, { ...init, signal: controller.signal }),
         })));
         if (generation !== lifecycle.current || controller.signal.aborted) return;
-        const combined = await reconcileProfileHistoryGroups(scope, [remoteEvents.current, ...received.map(page => page.events)], requestIsCurrent);
-        if (combined === null || !requestIsCurrent()) return;
+        candidateRemote = await remoteHistoryView(scope, remoteView.current, received.map(page => page.events), controller.signal);
+        if (!requestIsCurrent()) return;
         const paging = { ...pages.current };
         selected.forEach((source, index) => { paging[source] = advanceHistoryPage(paging[source], received[index], mode); });
-        const reconciled = await reconcileProfileHistoryGroups(scope, [local, combined], requestIsCurrent);
-        if (reconciled === null || !requestIsCurrent()) return;
+        const candidate = await combineHistoryViews(sourceView, candidateRemote, controller.signal);
+        if (!requestIsCurrent()) return;
         // Commit cursor and events together only after the final async fence.
-        remoteEvents.current = combined; pages.current = paging;
-        setEvents(reconciled);
+        const priorRemote = remoteView.current; remoteView.current = candidateRemote; candidateRemote = null;
+        pages.current = paging;
+        publish(candidate);
+        dispose(priorRemote);
         setMore(sources.some(source => hasMoreHistory(paging[source])));
       }
       failedMode.current = null;
-    } catch {
+    } catch (cause) {
       if (generation === lifecycle.current && !controller.signal.aborted) {
+        if (cause instanceof HistoryViewUnavailableError) { clearCache(); mode = 'refresh'; }
         failedMode.current = mode;
         setError('Chưa đọc đủ lịch sử. Các lượt đã lưu vẫn được giữ; thử lại khi kết nối hoặc bộ nhớ sẵn sàng.');
       }
     } finally {
+      if (sourceView?.id !== localView.current?.local.id) dispose(sourceView);
+      dispose(candidateRemote);
       const ownedRequest = request.current === controller;
       if (ownedRequest) request.current = null;
       if (generation === lifecycle.current) {
@@ -119,22 +158,43 @@ export function LearningHistoryPanel() {
     window.addEventListener('hanzi-learning-reset', reset);
     return () => {
       invalidateRequest();
+      pageRequest.current?.abort();
+      dispose(localView.current?.local ?? null); dispose(remoteView.current); localView.current = null; remoteView.current = null;
       window.removeEventListener('hanzi-workspace-received', refresh); window.removeEventListener(LEARNING_COMMAND_QUEUE_CHANGED_EVENT, refresh); window.removeEventListener('focus', refresh);
       window.removeEventListener(WORKSPACE_CHANGED, refresh);
       window.removeEventListener('hanzi-learning-reset', reset);
     };
   }, [load, clearCache, invalidateRequest]);
-  const { count: filteredCount, displayed } = useMemo(() => selectHistoryWindow(events, module, skill, visibleCount), [events, module, skill, visibleCount]);
+  useEffect(() => {
+    const controller = new AbortController(); pageRequest.current?.abort(); pageRequest.current = controller;
+    if (!view) return () => controller.abort();
+    setPageBusy(true); setPageError('');
+    void (async () => {
+      try {
+        let result = await queryHistoryView(view, { module, skill, ...pageQuery }, controller.signal);
+        // A refreshed source may no longer have any rows after an old anchor.
+        if (!result.events.length && result.count && pageQuery.cursor) result = await queryHistoryView(view, { module, skill }, controller.signal);
+        if (controller.signal.aborted || localView.current !== view) return;
+        pageRef.current = result; setPage(result);
+        if (pageQuery.focus) heading.current?.focus({ preventScroll: false });
+      } catch {
+        if (!controller.signal.aborted && localView.current === view) setPageError('Chưa đọc được trang lịch sử. Các lượt gốc vẫn được giữ; hãy đọc lại lịch sử.');
+      } finally { if (pageRequest.current === controller) setPageBusy(false); }
+    })();
+    return () => controller.abort();
+  }, [view, module, skill, pageQuery]);
+  const ownView = view?.local.scope.ownerGeneration.ownerKey === sync.ownerKey;
+  const { count: filteredCount, events: displayed } = ownView ? page : emptyHistoryViewPage();
   const groups = new Map<string, LessonHistoryEventV1[]>();
   displayed.forEach(event => { const day = historyDay(event); const group = groups.get(day); if (group) group.push(event); else groups.set(day, [event]); });
   return <section className="learning-history" aria-labelledby="learning-history-heading">
-    <h2 id="learning-history-heading">Nhật ký tu luyện · Lịch sử học tập</h2>
+    <h2 id="learning-history-heading" ref={heading} tabIndex={-1}>Nhật ký tu luyện · Lịch sử học tập</h2>
     <p>Ghi lại lượt học, hỗ trợ và tự ôn. Nhật ký không tự cấp XP, mở khóa hay kết luận mức thành thạo. Một số nguồn đang được nối tiếp; đây chưa phải toàn bộ lịch sử cũ.</p>
-    <div className="history-filters"><label>Nguồn học<select aria-label="Nguồn học" value={module} onChange={event => { setModule(event.target.value as HistoryModule | 'all'); setVisibleCount(20); }}><option value="all">Tất cả nguồn</option>{Object.entries(HISTORY_MODULE_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
-      <label>Kỹ năng<select aria-label="Kỹ năng" value={skill} onChange={event => { setSkill(event.target.value); setVisibleCount(20); }}><option value="all">Tất cả kỹ năng</option>{Object.entries(HISTORY_SKILL_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}<option value="unknown">Chưa xác định kỹ năng</option></select></label></div>
-    {busy && <p role="status">Đang đọc lịch sử đã lưu…</p>}
-    {error && <div role="alert"><p>{error}</p><button type="button" className="secondary-button" disabled={busy} onClick={() => void load(failedMode.current ?? 'refresh')}>Đọc lại lịch sử</button></div>}
-    {ready && !error && !busy && !filteredCount && <p role="status">Chưa có hoạt động phù hợp trong phần lịch sử đã tải.</p>}
+    <div className="history-filters"><label>Nguồn học<select aria-label="Nguồn học" value={module} onChange={event => { setModule(event.target.value as HistoryModule | 'all'); setPage(emptyHistoryViewPage()); pageRef.current = emptyHistoryViewPage(); focusAfterMore.current = false; setPageQuery(firstPage()); }}><option value="all">Tất cả nguồn</option>{Object.entries(HISTORY_MODULE_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+      <label>Kỹ năng<select aria-label="Kỹ năng" value={skill} onChange={event => { setSkill(event.target.value); setPage(emptyHistoryViewPage()); pageRef.current = emptyHistoryViewPage(); focusAfterMore.current = false; setPageQuery(firstPage()); }}><option value="all">Tất cả kỹ năng</option>{Object.entries(HISTORY_SKILL_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}<option value="unknown">Chưa xác định kỹ năng</option></select></label></div>
+    {(busy || pageBusy) && <p role="status">Đang đọc lịch sử đã lưu…</p>}
+    {(error || pageError) && <div role="alert"><p>{error || pageError}</p><button type="button" className="secondary-button" disabled={busy} onClick={() => void load(failedMode.current ?? 'refresh')}>Đọc lại lịch sử</button></div>}
+    {ready && !error && !pageError && !busy && !pageBusy && !filteredCount && <p role="status">Chưa có hoạt động phù hợp trong phần lịch sử đã tải.</p>}
     {[...groups].map(([day, records]) => <section key={day} className="history-day"><h3>{day}</h3><ol>{records.map(event => {
       const source = historySourceLink(event);
       return <li key={event.eventId}><article><h4>{HISTORY_MODULE_LABELS[event.module]}</h4><p>{historyActivityLabel(event)}</p><p>{historyOutcomeLabel(event)}</p>
@@ -143,7 +203,11 @@ export function LearningHistoryPanel() {
           <p>{event.contentVersion === 'unknown' ? 'Chưa rõ phiên bản học liệu.' : 'Giữ liên kết với phiên bản học liệu của lượt này; bài hiện tại có thể đã đổi.'} Chưa đo thời lượng hoạt động.</p></details>
         <Link to={source.href}>{source.label}</Link></article></li>;
     })}</ol></section>)}
-    {(filteredCount > visibleCount || more) && <button className="secondary-button" type="button" disabled={busy} onClick={() => { if (filteredCount > visibleCount) setVisibleCount(value => value + 20); else { setVisibleCount(value => value + 20); void load('more'); } }}>Xem thêm lịch sử</button>}
-    {ready && <p role="status">Đang hiện {displayed.length} lượt trong {filteredCount} lượt phù hợp đã tải. Truy cập khu học khác với trả lời hoặc tự ôn.</p>}
+    {ready && (page.hasPrevious || page.hasNext) && <nav className="history-page-controls" aria-label="Các trang lịch sử">
+      <button className="secondary-button" type="button" disabled={busy || pageBusy || !page.hasPrevious} onClick={() => setPageQuery({ cursor: page.first, direction: 'previous', focus: true })}>Trang trước</button>
+      <button className="secondary-button" type="button" disabled={busy || pageBusy || !page.hasNext} onClick={() => setPageQuery({ cursor: page.last, direction: 'next', focus: true })}>Trang sau</button>
+    </nav>}
+    {!page.hasNext && more && <button className="secondary-button" type="button" disabled={busy || pageBusy} onClick={() => { focusAfterMore.current = true; void load('more'); }}>Xem thêm lịch sử</button>}
+    {ready && <p role="status" aria-live="polite">Đang hiện {displayed.length} lượt trong {filteredCount} lượt phù hợp đã tải. Trang {Math.floor(page.offset / 20) + 1}. Truy cập khu học khác với trả lời hoặc tự ôn.</p>}
   </section>;
 }

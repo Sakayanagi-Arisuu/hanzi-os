@@ -177,10 +177,25 @@ và descriptor suy từ nguồn; pending reference trỏ tới kết quả đã 
 nguồn không được ráp thành journal đầy đủ trong đường này. Descriptor lưu sẵn
 giữ ưu tiên, mọi nguồn/pending/page vẫn được kiểm; đọc legacy chỉ đọc, không tự
 migration. Các vòng xử lý legacy và descriptor nhường lượt rồi kiểm lại owner.
-Kết quả history đầy đủ, tập identity/descriptor và các nguồn state/outbox khác
-vẫn tăng theo số hoạt động; ghi/sync/recovery vẫn dùng full reader. Đây chưa là
-hard bound toàn bộ RAM hoặc paging kết quả cho UI. Projector nhận các nhóm theo
-thứ tự, không tạo thêm mảng ghép; Hồ sơ giữ cửa sổ hiển thị và đếm/lọc memoized.
+Hồ sơ dựng bản chiếu hiển thị riêng trong `hanzi-os-history-view-v1` (cache schema2),
+không thuộc DBversion3/bảy store nguồn hoặc recovery. Block chứa tối đa128event/
+1MiB, một event cache tối đa512KiB JSON; vượt giới hạn dừng và giữ nguồn gốc.
+Local chỉ giữ index ID; remote giữ thêm thứ tự canonical để cập nhật tối đa ba
+trang50event mà không nạp toàn bộ remote vào mảng. Query merge local/remote theo
+ID rồi dùng comparator/reducer canonical để đếm/lọc và chọn tối đa20lượt. Cursor
+được nhận sau khi kiểm xung đột toàn bộ phần đã tải và fence owner/generation/reset.
+Cache hỏng/mất khởi động lại remote từ head, không giữ cursor đã mất bản chiếu.
+Cache hết hạn sau24giờ được dọn khi dựng view mới; teardown dọn view mình sở hữu,
+deleteOwnerData dọn cả row/block mồ côi của đúng owner. Chỉ cache có thể tái tạo
+dùng durability relaxed; source transaction giữ nguyên. Cache không là input cho
+mastery, lịch ôn, sync hoặc phục hồi; metadata/binary không hiểu giữ ở source,
+không nhân đôi trong bản chiếu. Ghi/sync/recovery vẫn dùng full reader.
+
+Lần dựng local đầu vẫn materialize history/state/outbox và giữ hai buffer index
+Uint32 theo số lượt; consumer học tập khác vẫn dùng full history. Buffer block và
+20lượt UI đã giới hạn phần giữ lại, chưa là hard bound tổng RAM/peak/RSS hoặc
+nghiệm thu hiệu năng thiết bị. Projector nguồn vẫn giữ thứ tự nhóm, không tạo
+thêm mảng ghép toàn bộ; primary legacy và đường ghi lớn còn cần xử lý riêng.
 
 Recovery giữ DBversion3/bảy store và codec inner v1. Binary codec hỗ trợ Blob,
 ArrayBuffer và các view cố định, giữ backing bytes/offset/kiểu; không chuẩn hóa

@@ -251,7 +251,7 @@
     },
     {
       "file": "src/learning/lessonHistory.ts",
-      "sha256": "e66379b4861dd6ba15673cf9f8d09a707a3706374657722a80f15d5f9a5f2960",
+      "sha256": "65dfa4ce9bcaac9a243cead1122b15528f421336fa7c9c27ebb41a7f0d34cade",
       "previousSha256": "cf0feca6351c275962553b92d1fe7900d9f33ae208d25c6ae8519743230711a1"
     },
     {
@@ -511,7 +511,7 @@
     },
     {
       "file": "src/profile/LearningHistoryPanel.tsx",
-      "sha256": "801e18e2afd46b549f940974b6a2fc525e8462f5cb10635acaee70b9b482d4d3",
+      "sha256": "029b485ba32eab7bf89fcf1ae2dad93350f34df312e4fb4ecee2734d71a38f02",
       "previousSha256": null
     },
     {
@@ -616,7 +616,7 @@
     },
     {
       "file": "src/profile/learningHistory.css",
-      "sha256": "9c5ada8ad146c75e118bfc1ad62499ddcf02388f3a90c9678dbb5808e65b7ee4",
+      "sha256": "eb4ea230f969be6e5503c7d3b1cacecb80bd9669ebff7d48390ec6251acb6bd0",
       "previousSha256": null
     },
     {
@@ -1011,7 +1011,7 @@
     },
     {
       "file": "src/sync/indexedDb.ts",
-      "sha256": "4a7d2d8a701b99087c4f7cb21f3b167ac47526b3174c4f278c46d04a165b9ac8",
+      "sha256": "8bd56a4eae28c1a3d459335fa462a858c11c512fd55923806fe59ee8d07ede17",
       "previousSha256": "d8d2e78e5797f0fd1ffe337973cc7579e8759664b02890f99a9fa45ac0580888"
     },
     {
@@ -1318,6 +1318,41 @@
       "file": "src/sync/workspaceHistoryProjection.ts",
       "sha256": "8626d9c6a269383d251ae4e4bc90d6b291e71a63ba3a11bbaccf87f47b1fdbac",
       "previousSha256": null
+    },
+    {
+      "file": "src/profile/historyView.ts",
+      "previousSha256": null,
+      "sha256": "3c2650e9dae4c6d582904c70a3bcd15a920685cb6861f943ffc5d52982baf08c"
+    },
+    {
+      "file": "src/profile/historyView.test.ts",
+      "previousSha256": null,
+      "sha256": "8799818a2227120519abd9762efc15faa62ff990ae3eb4988a6cb828a1ed0072"
+    },
+    {
+      "file": "src/sync/historyViewEvent.ts",
+      "previousSha256": null,
+      "sha256": "cd01903ac882fc3de757c4f69efefa18c6bb0c5ceb6209d3caf4d3c507b6201c"
+    },
+    {
+      "file": "src/sync/historyViewStore.ts",
+      "previousSha256": null,
+      "sha256": "01c3600a7dc0aaa8bf0174473ef9132912369108b148254a4ed7f5f20e1431a0"
+    },
+    {
+      "file": "src/sync/historyViewStore.test.ts",
+      "previousSha256": null,
+      "sha256": "01ffb2683a6c011a82ef54e7b719961d349674b4e9916b8b29767f768710abc5"
+    },
+    {
+      "file": "src/sync/pagedHistoryView.ts",
+      "previousSha256": null,
+      "sha256": "abf6c70e2399ff1344136696102963d0222b9a2fc6450de74fb9ab9906a57e90"
+    },
+    {
+      "file": "src/sync/pagedHistoryView.test.ts",
+      "previousSha256": null,
+      "sha256": "22858e552719ce03b994c2f9be329bdf4caf80d05693289874a5d5513b395d4b"
     }
   ],
   "completedTechnicalGates": [
@@ -3666,6 +3701,100 @@
       "task": "T03 frozen fullv36 and compiled source projection evidence",
       "notes": "Fullv36 CHECK_EXIT0: 571file/3763test, typecheck/global lint/content/schema/restore43migration64table/build qua; 239JS/192private markers vắng. Provenance local/unattestable; advisory asset không là device/performance pass. Native compiled100k-v1 cũng giữ100000unique/mastery0,200000entries200000pending,423entry+391pendingpage;6601ms/gap96ms chỉ là một quan sát desktop. Source8files frozen throughout;418bindings0drift. Targetedv3:6files60tests. Native4353 compiled-v2 2400unique/mastery0,4800entries4800pending/416pages;57,600,000rawUTF16bytes;no writes during aggregate read,root unchanged. Forced-GC JS heap retained full70,552,788bytes/compact11,735,552/history13,387,160;16samples during page reads maxfull83,671,386/compact25,913,898/history30,439,066bytes. Sampled desktop JS heap only,not true peak/native RSS or device bound. UI4348 compiled-v4 responsive/notified-reset/silent-reset all pass with mock API/native IDB;5000entries5000pending unchanged. Generic and history legacy paths fence owner after cooperative yields. D1 original65/65immutable unchanged,0missing/changed,integrityOK/FK0;HSK0 4/4 rich0/4 and HSK1-4rich213/213 preserved. Full output/identities/descriptors,state/outbox,legacy primary and writer memory still grow with input. Recovery over-cap/account/native,FSRS/other receipts,physical devices and efficacy remain open;AI review is not human review or user acceptance.",
       "changes": []
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 disposable block history views and bounded display paging",
+      "notes": "AI self-review. Same canonical reducer/comparator; source DBversion3/seven stores unchanged. Display cache schema2,128events/1MiB blocks,512KiB event cap,20 UI rows; local omits unused order index. Remote overlays at most150 receipts via bounded old-view scans and rank rebasing; verify every conflict before cursor commit. Separate disposable cache,not learning/recovery authority; owner deletion clears owned cache/orphans and does not allocate an unused cache. Canonical initial local reads and Uint32 indices remain proportional to input; not hard peak/RSS/device or efficacy completion. Source/FSRS/scoring/content pins outside this explicit delta unchanged. Initial per-event-cache100k timeout retained as failure; block-cache native evidence/full gate recorded separately.",
+      "changes": [
+        {
+          "file": "src/learning/lessonHistory.ts",
+          "previousSha256": "e66379b4861dd6ba15673cf9f8d09a707a3706374657722a80f15d5f9a5f2960",
+          "sha256": "65dfa4ce9bcaac9a243cead1122b15528f421336fa7c9c27ebb41a7f0d34cade"
+        },
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "801e18e2afd46b549f940974b6a2fc525e8462f5cb10635acaee70b9b482d4d3",
+          "sha256": "57641df1ca459980608d9274499af3aba6d73b2f0ea7b764ecf06ed1ea99df89"
+        },
+        {
+          "file": "src/profile/learningHistory.css",
+          "previousSha256": "9c5ada8ad146c75e118bfc1ad62499ddcf02388f3a90c9678dbb5808e65b7ee4",
+          "sha256": "eb4ea230f969be6e5503c7d3b1cacecb80bd9669ebff7d48390ec6251acb6bd0"
+        },
+        {
+          "file": "src/profile/historyView.ts",
+          "previousSha256": null,
+          "sha256": "3c2650e9dae4c6d582904c70a3bcd15a920685cb6861f943ffc5d52982baf08c"
+        },
+        {
+          "file": "src/profile/historyView.test.ts",
+          "previousSha256": null,
+          "sha256": "8799818a2227120519abd9762efc15faa62ff990ae3eb4988a6cb828a1ed0072"
+        },
+        {
+          "file": "src/sync/indexedDb.ts",
+          "previousSha256": "4a7d2d8a701b99087c4f7cb21f3b167ac47526b3174c4f278c46d04a165b9ac8",
+          "sha256": "8bd56a4eae28c1a3d459335fa462a858c11c512fd55923806fe59ee8d07ede17"
+        },
+        {
+          "file": "src/sync/historyViewEvent.ts",
+          "previousSha256": null,
+          "sha256": "2ef56b36e791011b7d3a9bda708dde327ec8aca8c5aeb4cebb519a86a03291e8"
+        },
+        {
+          "file": "src/sync/historyViewStore.ts",
+          "previousSha256": null,
+          "sha256": "01c3600a7dc0aaa8bf0174473ef9132912369108b148254a4ed7f5f20e1431a0"
+        },
+        {
+          "file": "src/sync/historyViewStore.test.ts",
+          "previousSha256": null,
+          "sha256": "fd507481784da7fefdb483570cc3e1df613ce7e30a4eaa44e432fcba30f77b68"
+        },
+        {
+          "file": "src/sync/pagedHistoryView.ts",
+          "previousSha256": null,
+          "sha256": "abf6c70e2399ff1344136696102963d0222b9a2fc6450de74fb9ab9906a57e90"
+        },
+        {
+          "file": "src/sync/pagedHistoryView.test.ts",
+          "previousSha256": null,
+          "sha256": "22858e552719ce03b994c2f9be329bdf4caf80d05693289874a5d5513b395d4b"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 disposable block history views and bounded display paging",
+      "notes": "AI self-review. Same canonical reducer/comparator; source DBversion3/seven stores unchanged. Display cache schema2,128events/1MiB blocks,512KiB event cap,20 UI rows; local omits unused order index. Remote overlays at most150 receipts via bounded old-view scans and rank rebasing; verify every conflict before cursor commit. Separate disposable cache,not learning/recovery authority; owner deletion clears owned cache/orphans and does not allocate an unused cache. Canonical initial local reads and Uint32 indices remain proportional to input; not hard peak/RSS/device or efficacy completion. Source/FSRS/scoring/content pins outside this explicit delta unchanged. Initial per-event-cache100k timeout retained as failure; block-cache native evidence/full gate recorded separately.",
+      "changes": [
+        {
+          "file": "src/profile/LearningHistoryPanel.tsx",
+          "previousSha256": "57641df1ca459980608d9274499af3aba6d73b2f0ea7b764ecf06ed1ea99df89",
+          "sha256": "029b485ba32eab7bf89fcf1ae2dad93350f34df312e4fb4ecee2734d71a38f02"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "status": "IN-REVIEW",
+      "task": "T03 disposable block history views and bounded display paging",
+      "notes": "AI self-review. Same canonical reducer/comparator; source DBversion3/seven stores unchanged. Display cache schema2,128events/1MiB blocks,512KiB event cap,20 UI rows; local omits unused order index. Remote overlays at most150 receipts via bounded old-view scans and rank rebasing; verify every conflict before cursor commit. Separate disposable cache,not learning/recovery authority; owner deletion clears owned cache/orphans and does not allocate an unused cache. Canonical initial local reads and Uint32 indices remain proportional to input; not hard peak/RSS/device or efficacy completion. Source/FSRS/scoring/content pins outside this explicit delta unchanged. Initial per-event-cache100k timeout retained as failure; block-cache native evidence/full gate recorded separately.",
+      "changes": [
+        {
+          "file": "src/sync/historyViewEvent.ts",
+          "previousSha256": "2ef56b36e791011b7d3a9bda708dde327ec8aca8c5aeb4cebb519a86a03291e8",
+          "sha256": "cd01903ac882fc3de757c4f69efefa18c6bb0c5ceb6209d3caf4d3c507b6201c"
+        },
+        {
+          "file": "src/sync/historyViewStore.test.ts",
+          "previousSha256": "fd507481784da7fefdb483570cc3e1df613ce7e30a4eaa44e432fcba30f77b68",
+          "sha256": "01ffb2683a6c011a82ef54e7b719961d349674b4e9916b8b29767f768710abc5"
+        }
+      ]
     }
   ]
 }

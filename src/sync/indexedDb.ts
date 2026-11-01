@@ -9,6 +9,7 @@ import { documentActivityHistoryEntries, documentActivityHistoryEvent } from './
 import { avatarStorageKey } from '../profile/avatarContract';
 import { assertOwnerRecoveryIdle } from './ownerRecoveryFence';
 import { WORKSPACE_PAGE_PREFIX } from './workspaceStorageFormat';
+import { clearOwnerHistoryViews } from './historyViewStore';
 
 export class LessonHistoryStateChangedError extends Error {}
 
@@ -1579,6 +1580,9 @@ export async function reassignPendingOperations(
 }
 
 export async function deleteOwnerData(ownerKey: string) {
+  // Disposable display projections live outside the recovery/source stores.
+  // Remove this owner's copies before deleting their canonical local data.
+  await clearOwnerHistoryViews(ownerKey);
   const database = await openSyncDatabase();
   const transaction = database.transaction(
     [

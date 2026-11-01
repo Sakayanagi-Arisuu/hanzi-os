@@ -8,3 +8,5 @@
 .history-day h4 { margin-block: 0 8px; }
 .learning-history summary, .learning-history a, .learning-history button { min-height: 44px; display: flex; align-items: center; padding-block: 8px; }
 .learning-history :focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 3px; }
+.history-page-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 16px; }
+.history-page-controls button { min-width: 44px; }

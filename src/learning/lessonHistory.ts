@@ -210,10 +210,10 @@ export function isLessonHistoryEvent(value: unknown): value is LessonHistoryEven
 
 type HistoryProjectionScope = { ownerKey: string; resetEpoch: number };
 
-function addHistoryProjectionEvent(scope: HistoryProjectionScope, result: Map<string, LessonHistoryEventV1>, event: LessonHistoryEventV1) {
+/** Shared by the array projection and the disk-backed history view. */
+export function reconcileLessonHistoryEvent(scope: HistoryProjectionScope, event: LessonHistoryEventV1, previous?: LessonHistoryEventV1) {
     if (!isLessonHistoryEvent(event) || event.ownerKey !== scope.ownerKey || event.resetEpoch !== scope.resetEpoch)
       throw new Error("Lesson history version or scope is invalid; retain the source records.");
-    const previous = result.get(event.eventId);
     if (previous) {
       const identity = (entry: LessonHistoryEventV1) => canonicalStringify([
         entry.sourceType, entry.operationId, entry.sourceId, entry.contentVersion, entry.itemId, entry.activityVersion, entry.sourceType==='lesson-page'?null:entry.taskType,
@@ -231,12 +231,16 @@ function addHistoryProjectionEvent(scope: HistoryProjectionScope, result: Map<st
       if (previous.confirmationState === "confirmed"
         && (event.confirmationState !== "confirmed" || previous.receivedAt !== null)
         && !(event.sourceType === 'business-activity' && previous.outcome === 'unknown'
-          && event.authority === 'server-verified' && ['correct', 'incorrect'].includes(event.outcome))) return;
+          && event.authority === 'server-verified' && ['correct', 'incorrect'].includes(event.outcome))) return previous;
     }
-    result.set(event.eventId, previous&&event.sourceType==='lesson-page'?{...event,revisionId:event.revisionId??previous.revisionId}:event);
+    return previous&&event.sourceType==='lesson-page'?{...event,revisionId:event.revisionId??previous.revisionId}:event;
 }
 
-const compareHistoryEvents = (left: LessonHistoryEventV1, right: LessonHistoryEventV1) =>
+function addHistoryProjectionEvent(scope: HistoryProjectionScope, result: Map<string, LessonHistoryEventV1>, event: LessonHistoryEventV1) {
+  result.set(event.eventId, reconcileLessonHistoryEvent(scope, event, result.get(event.eventId)));
+}
+
+export const compareHistoryEvents = (left: Pick<LessonHistoryEventV1, 'occurredAt' | 'eventId'>, right: Pick<LessonHistoryEventV1, 'occurredAt' | 'eventId'>) =>
   (right.occurredAt ?? "").localeCompare(left.occurredAt ?? "") || right.eventId.localeCompare(left.eventId);
 function sortedHistoryProjection(result: Map<string, LessonHistoryEventV1>): LessonHistoryEventV1[] {
   return [...result.values()].sort(compareHistoryEvents);
