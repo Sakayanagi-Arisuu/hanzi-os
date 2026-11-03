@@ -19,6 +19,7 @@ song song trong `docs/`.
 
 | Tài liệu | Dùng khi nào |
 | --- | --- |
+| [`UI_OFFLINE_INCIDENT_20261103.md`](UI_OFFLINE_INCIDENT_20261103.md) | Sự cố PC/ngoại tuyến: quyết định khôi phục menu, nguồn thay đổi, sửa runtime và giới hạn kiểm chứng. IN-REVIEW. |
 | [`CLOUDFLARE_HOSTING.md`](CLOUDFLARE_HOSTING.md) | Hosting Workers/D1 độc lập máy cá nhân và cài PWA/APK trực tiếp, không cần CH Play. |
 | [`ANDROID_APP.md`](ANDROID_APP.md) | Mã đóng gói Android/TWA, toolchain, khóa ký, liên kết website và nghiệm thu APK cài trực tiếp. |
 | [`MOBILE_AUTH_SETUP.md`](MOBILE_AUTH_SETUP.md) | Google Android, GitHub và tài khoản HANZI hosted: cấu hình còn thiếu, gate lifecycle và kiểm trên thiết bị. |

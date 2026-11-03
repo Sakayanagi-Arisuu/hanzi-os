@@ -1,3 +1,4 @@
+import { withLearningReadDeadline } from "./learningReadDeadline";
 import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
   parseReviewQueue,
@@ -142,7 +143,7 @@ const serverErrorCode = async (response: Response) => {
  * owner-generation/reset fenced, so a response authorized before account
  * switch or reset cannot populate the next owner's cache.
  */
-export async function fetchReviewQueue(
+async function fetchReviewQueueUnlocked(
   input: FetchReviewQueueInput,
 ): Promise<FetchReviewQueueResult> {
   if (
@@ -258,6 +259,7 @@ export async function fetchReviewQueue(
     return retryable(response.status, "invalid-response");
   }
 
+  input.signal?.throwIfAborted();
   await writeLearningProjection({
     ...queueScope(
       input.expectedOwnerGeneration,
@@ -267,4 +269,10 @@ export async function fetchReviewQueue(
     updatedAt: new Date(requestStartedAt).toISOString(),
   });
   return { state: "updated", queue };
+}
+
+export function fetchReviewQueue(input: FetchReviewQueueInput): Promise<FetchReviewQueueResult> {
+  return withLearningReadDeadline(input.signal,
+    signal => fetchReviewQueueUnlocked({ ...input, signal }),
+    () => retryable(null, "network-unavailable"));
 }

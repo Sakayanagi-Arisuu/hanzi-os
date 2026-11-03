@@ -10,6 +10,9 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 
 const localBindingConfig = {
   main: "./worker/index.ts",
+  // Assets otherwise redirects offline.html before our internal fallback runs.
+  // Keep local built previews on the same install path as hosted releases.
+  assets: { binding: "ASSETS", run_worker_first: ["/offline.html"] },
   compatibility_flags: ["nodejs_compat"],
   d1_databases: [
     {
@@ -36,9 +39,13 @@ export default defineConfig(async () => {
     },
     server: {
       hmr: { overlay: false },
-      ...(isCodexSeatbeltSandbox
-        ? { watch: { useFsEvents: false, usePolling: true } }
-        : {}),
+      watch: {
+        // Native Windows watchers must not crawl accumulated test artifacts or D1.
+        // These are not app source; keeping them on disk must not stall startup.
+        ignored: ['**/tmp/**', '**/output/**', '**/docs/reports/**', '**/.wrangler/**',
+          '**/.oracle-test-results/**', '**/.reader-test-results/**', '**/mobile/android/**'],
+        ...(isCodexSeatbeltSandbox ? { useFsEvents: false, usePolling: true } : {}),
+      },
     },
     plugins: [
       vinext(),

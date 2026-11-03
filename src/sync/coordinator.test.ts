@@ -756,6 +756,23 @@ describe("coordinator durability and identity boundaries", () => {
     harness.coordinator.dispose();
   });
 
+  it("keeps an already verified guest usable when an online session refresh fails", async () => {
+    const fetcher = vi.fn(async () => Response.json({ authenticated: false, user: null, accountKey: null }));
+    vi.stubGlobal("fetch", fetcher);
+    const harness = createCoordinatorHarness(stateFixture());
+    await harness.coordinator.initialize();
+    expect(harness.statuses.at(-1)?.phase).toBe("local-only");
+    const before = structuredClone(harness.getState());
+    fetcher.mockImplementation(async () => { throw new TypeError("network unavailable while online"); });
+    await harness.coordinator.syncNow();
+    expect(harness.statuses.at(-1)).toMatchObject({ phase: "offline", session: { authenticated: false } });
+    expect(harness.getState()).toEqual(before);
+    fetcher.mockImplementation(async () => Response.json({ authenticated: false, user: null, accountKey: null }));
+    await harness.coordinator.syncNow();
+    expect(harness.statuses.at(-1)?.phase).toBe("local-only");
+    harness.coordinator.dispose();
+  });
+
   it("releases a cold offline bootstrap only for an explicitly persisted anonymous owner", async () => {
     const ownerKey = "anonymous:persisted-installation";
     storage.setItem(SYNC_INSTALLATION_STORAGE_KEY, "persisted-installation");
@@ -781,6 +798,22 @@ describe("coordinator durability and identity boundaries", () => {
       session: { authenticated: false },
     });
     expect(harness.getState().savedWords).toEqual(["ni"]);
+    harness.coordinator.dispose();
+  });
+
+  it("keeps a cold online guest identity-gated when the server cannot confirm its session", async () => {
+    const ownerKey = "anonymous:persisted-installation";
+    storage.setItem(SYNC_INSTALLATION_STORAGE_KEY, "persisted-installation");
+    storage.setItem(LEARNING_OWNER_STORAGE_KEY, ownerKey);
+    vi.stubGlobal("navigator", { onLine: true, locks: undefined });
+    vi.stubGlobal("fetch", vi.fn(async () => { throw new TypeError("network unavailable"); }));
+    const cached = stateFixture({ savedWords: ["ni"], xp: 20 });
+    await writeOwnerCheckpoint(ownerKey, 0,
+      createInitialSyncDocument(cached, NOW, "cold-online"), cached);
+    const harness = createCoordinatorHarness(stateFixture());
+    await harness.coordinator.initialize();
+    expect(harness.statuses.at(-1)).toMatchObject({ phase: "checking", session: null });
+    expect(await readOwnerLocalState(ownerKey)).toEqual(cached);
     harness.coordinator.dispose();
   });
 

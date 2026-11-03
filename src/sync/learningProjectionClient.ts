@@ -1,3 +1,4 @@
+import { withLearningReadDeadline } from "./learningReadDeadline";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
@@ -49,6 +50,7 @@ export type FetchNormalizedLearningProjectionInput = {
   expectedOwnerGeneration: OwnerGeneration;
   expectedResetEpoch: number;
   fetch?: typeof fetch;
+  signal?: AbortSignal;
   origin?: string;
   now?: () => Date;
 };
@@ -376,6 +378,7 @@ async function fetchNormalizedLearningProjectionUnlocked(
       `${endpoint.pathname}${endpoint.search}`,
       {
         method: "GET",
+        signal: input.signal,
         credentials: "same-origin",
         redirect: "error",
         cache: "no-store",
@@ -470,6 +473,7 @@ async function fetchNormalizedLearningProjectionUnlocked(
     return retryable(response.status, "invalid-response");
   }
 
+  input.signal?.throwIfAborted();
   const cacheWrite = await writeLearningProjectionBatchWithMonotonicCursor(
     {
       expectedOwnerGeneration: input.expectedOwnerGeneration,
@@ -509,12 +513,13 @@ export async function fetchNormalizedLearningProjection(
   const lockManager = typeof navigator === "undefined"
     ? null
     : navigator.locks;
-  if (!lockManager) return fetchNormalizedLearningProjectionUnlocked(input);
-  return lockManager.request(
-    NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
-    { mode: "exclusive" },
-    () => fetchNormalizedLearningProjectionUnlocked(input),
-  );
+  return withLearningReadDeadline(input.signal, async signal => {
+    const read = () => fetchNormalizedLearningProjectionUnlocked({ ...input, signal });
+    return lockManager
+      ? lockManager.request(NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
+        { mode: "exclusive", signal }, read)
+      : read();
+  }, () => retryable(null, "network-unavailable"));
 }
 
 const retryableV2 = (
@@ -571,6 +576,7 @@ async function fetchNormalizedLearningProjectionV2Unlocked(
       `${endpoint.pathname}${endpoint.search}`,
       {
         method: "GET",
+        signal: input.signal,
         credentials: "same-origin",
         redirect: "error",
         cache: "no-store",
@@ -671,6 +677,7 @@ async function fetchNormalizedLearningProjectionV2Unlocked(
   const updatedAt = new Date(requestStartedAt).toISOString();
   // Keep the strict V1 entry usable by old bundles, but never place a V2 body
   // under the legacy key. The shared lock serializes cross-version tabs.
+  input.signal?.throwIfAborted();
   const cacheWrite = await writeLearningProjectionBatchWithMonotonicCursor<
     NormalizedLearningProjectionV1 | NormalizedLearningProjectionV2
   >(
@@ -710,12 +717,13 @@ export async function fetchNormalizedLearningProjectionV2(
   const lockManager = typeof navigator === "undefined"
     ? null
     : navigator.locks;
-  if (!lockManager) return fetchNormalizedLearningProjectionV2Unlocked(input);
-  return lockManager.request(
-    NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
-    { mode: "exclusive" },
-    () => fetchNormalizedLearningProjectionV2Unlocked(input),
-  );
+  return withLearningReadDeadline(input.signal, async signal => {
+    const read = () => fetchNormalizedLearningProjectionV2Unlocked({ ...input, signal });
+    return lockManager
+      ? lockManager.request(NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
+        { mode: "exclusive", signal }, read)
+      : read();
+  }, () => retryableV2(null, "network-unavailable"));
 }
 
 const retryableV3 = (
@@ -775,6 +783,7 @@ async function fetchNormalizedLearningProjectionV3Unlocked(
       `${endpoint.pathname}${endpoint.search}`,
       {
         method: "GET",
+        signal: input.signal,
         credentials: "same-origin",
         redirect: "error",
         cache: "no-store",
@@ -876,6 +885,7 @@ async function fetchNormalizedLearningProjectionV3Unlocked(
   }
 
   const v2Projection = toNormalizedLearningProjectionV2(projection);
+  input.signal?.throwIfAborted();
   const cacheWrite = await writeLearningProjectionBatchWithMonotonicCursor<
     | NormalizedLearningProjectionV1
     | NormalizedLearningProjectionV2
@@ -920,12 +930,13 @@ export async function fetchNormalizedLearningProjectionV3(
   const lockManager = typeof navigator === "undefined"
     ? null
     : navigator.locks;
-  if (!lockManager) return fetchNormalizedLearningProjectionV3Unlocked(input);
-  return lockManager.request(
-    NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
-    { mode: "exclusive" },
-    () => fetchNormalizedLearningProjectionV3Unlocked(input),
-  );
+  return withLearningReadDeadline(input.signal, async signal => {
+    const read = () => fetchNormalizedLearningProjectionV3Unlocked({ ...input, signal });
+    return lockManager
+      ? lockManager.request(NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
+        { mode: "exclusive", signal }, read)
+      : read();
+  }, () => retryableV3(null, "network-unavailable"));
 }
 
 const retryableV4 = (
@@ -985,6 +996,7 @@ async function fetchNormalizedLearningProjectionV4Unlocked(
       `${endpoint.pathname}${endpoint.search}`,
       {
         method: "GET",
+        signal: input.signal,
         credentials: "same-origin",
         redirect: "error",
         cache: "no-store",
@@ -1087,6 +1099,7 @@ async function fetchNormalizedLearningProjectionV4Unlocked(
 
   const v3Projection = toNormalizedLearningProjectionV3(projection);
   const v2Projection = toNormalizedLearningProjectionV2(projection);
+  input.signal?.throwIfAborted();
   const cacheWrite = await writeLearningProjectionBatchWithMonotonicCursor<
     | NormalizedLearningProjectionV1
     | NormalizedLearningProjectionV2
@@ -1135,10 +1148,11 @@ export async function fetchNormalizedLearningProjectionV4(
   const lockManager = typeof navigator === "undefined"
     ? null
     : navigator.locks;
-  if (!lockManager) return fetchNormalizedLearningProjectionV4Unlocked(input);
-  return lockManager.request(
-    NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
-    { mode: "exclusive" },
-    () => fetchNormalizedLearningProjectionV4Unlocked(input),
-  );
+  return withLearningReadDeadline(input.signal, async signal => {
+    const read = () => fetchNormalizedLearningProjectionV4Unlocked({ ...input, signal });
+    return lockManager
+      ? lockManager.request(NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
+        { mode: "exclusive", signal }, read)
+      : read();
+  }, () => retryableV4(null, "network-unavailable"));
 }

@@ -108,6 +108,7 @@ describe("review queue client", () => {
       "/api/learning/reviews",
       {
         method: "GET",
+        signal: expect.any(AbortSignal),
         credentials: "same-origin",
         redirect: "error",
         cache: "no-store",

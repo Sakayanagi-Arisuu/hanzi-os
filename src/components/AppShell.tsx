@@ -56,6 +56,19 @@ import './learnerNavigation.css';
 
 const navigationIcons = { Gauge, Map, BrainCircuit, Swords, Mic2, PenTool, BookOpenText, Target, Search, BarChart3, Settings, Crown, LayoutGrid };
 
+const desktopNavItems = [
+  { to: "/", label: "Thức Tỉnh Điện", short: "Tâm", icon: Gauge },
+  { to: "/path", label: "Thiên Lộ", short: "Lộ", icon: Map },
+  { to: "/review", label: "Ký Ức Trận", short: "Ôn", icon: BrainCircuit },
+  { to: "/mistakes", label: "Nghịch Cảnh Lục", short: "Lỗi", icon: Swords },
+  { to: "/pronunciation", label: "Vạn Âm Điện", short: "Âm", icon: Mic2 },
+  { to: "/characters", label: "Thần Văn Lô", short: "Chữ", icon: PenTool },
+  { to: "/reader", label: "Vạn Quyển Các", short: "Đọc", icon: BookOpenText },
+  { to: "/exams", label: "Phòng Luyện Đề", short: "Thi", icon: Target },
+  { to: "/dictionary", label: "Tàng Tự Khố", short: "Từ", icon: Search },
+  { to: "/analytics", label: "Thiên Cơ Kính", short: "Số", icon: BarChart3 },
+];
+
 const ASSESSMENT_INVITE_SESSION_KEY = "hanzi-os-assessment-invite-v1";
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -288,14 +301,13 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
 
         <nav className="primary-nav" aria-label="Điều hướng chính">
-          {learnerPrimaryZones.map(zone => {
-            const Icon = navigationIcons[zone.icon];
-            const label = `${zone.label} · ${zone.lore}`;
-            const content = <><Icon size={19} aria-hidden="true" /><span className="learner-zone-copy"><strong>{zone.label}</strong><small>{zone.lore}</small></span><ChevronRight className="nav-chevron" size={15} aria-hidden="true" /></>;
-            return zone.to === null
-              ? <button key={zone.id} type="button" className={`learner-zone-trigger${mobileMenuOpen || activeZone === zone.id ? ' active' : ''}`} onClick={togglePracticeMenu} aria-label={label} title={label} aria-haspopup="dialog" aria-expanded={mobileMenuOpen} aria-controls="mobile-system-menu">{content}</button>
-              : <Link key={zone.id} to={zone.to} viewTransition className={activeZone === zone.id ? 'active' : ''} aria-current={activeZone === zone.id ? 'location' : undefined} aria-label={label} title={label}>{content}</Link>;
-          })}
+          {desktopNavItems.map(({ to, label, icon: Icon }) => (
+            <NavLink key={to} to={to} end={to === "/"} viewTransition aria-label={label} title={label}>
+              <Icon size={19} aria-hidden="true" />
+              <span>{label}</span>
+              <ChevronRight className="nav-chevron" size={15} aria-hidden="true" />
+            </NavLink>
+          ))}
         </nav>
 
         <div className="rail-footer">

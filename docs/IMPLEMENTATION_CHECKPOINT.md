@@ -1,3 +1,11 @@
+## Sự cố PC / ngoại tuyến · 03/11/2026
+
+- **Module:** phục hồi điều hướng và runtime chung — IN-REVIEW. Ưu tiên sự cố theo yêu cầu người dùng; tạm dừng T03.
+- **Người học thấy gì:** khôi phục 10 mục menu PC theo xác nhận, giữ mobile riêng; sửa tuyến cài offline local; thêm giới hạn chờ mạng/lock projection và review; guest đã xác minh không bị khóa toàn màn hình khi refresh phiên thất bại dù máy vẫn online.
+- **Đã kiểm:** targeted 6 file/64 test, typecheck/lint và build offline qua trước delta guest; regression guest fail trước sửa, sau sửa 3 file/69 test qua. Generated config giữ `/offline.html`; IAB xác nhận worker activated và nút cập nhật reload được. Full check exit0: 577 file/3833 test, content/DB/restore/build qua; typecheck sau delta guest exit0. Browser smoke đã mở khảo nghiệm, lộ trình 217 bài, Ôn/Lỗi/Nói/Viết/thư viện; chưa hoàn tất các phiên học/account/mobile. API catalog sau restart trả 200,31 bộ, quyền hợp lệ; lượt đầu 35 giây chưa đạt độ ổn định mong muốn.
+- **Dữ liệu giữ được:** không reset/migration/xóa D1 hoặc browser storage; backup SQLite integrity OK,43 migrations. HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213; IDs/FSRS/resume/outbox/owner-reset không đổi schema. Không sửa/stage docs/reports/output.
+- **Tiếp theo:** hoàn tất gate và kiểm browser responsive/account/offline trên runtime ổn định. Browser local hiện bị tắt trong Work settings nên phần kiểm trực quan còn mở; không tự bật setting hoặc coi là USER-ACCEPTED. Chi tiết: [UI_OFFLINE_INCIDENT_20261103.md](UI_OFFLINE_INCIDENT_20261103.md).
+
 ## T03 · chốt kiểm source cuối 7e67602 · 01/11/2026
 
 - **Module:** T03 — IN-REVIEW; AI self-review, chưa USER-ACCEPTED.

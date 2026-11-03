@@ -688,6 +688,7 @@ export function NormalizedLearningProjectionProvider({
               return;
             }
             const refreshed = await fetchNormalizedLearningProjectionV4({
+              signal: lifecycle.signal,
               expectedOwnerGeneration: requestedScope.ownerGeneration,
               expectedResetEpoch: requestedScope.resetEpoch,
             });
@@ -727,6 +728,7 @@ export function NormalizedLearningProjectionProvider({
         };
 
         const result = await fetchNormalizedLearningProjectionV4({
+          signal: lifecycle.signal,
           expectedOwnerGeneration: requestedScope.ownerGeneration,
           expectedResetEpoch: requestedScope.resetEpoch,
         });

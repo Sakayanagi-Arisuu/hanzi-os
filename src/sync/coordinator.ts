@@ -789,8 +789,10 @@ export class LearningSyncCoordinator {
     } catch {
       this.assertActive();
       if (await this.restoreOfflineSession()) return false;
+      // A transient refresh failure must not unmount an already verified guest.
+      // Cold starts and owner changes still need identity proof before rendering.
       if (
-        !navigator.onLine
+        (!navigator.onLine || (this.identityChecked && this.session?.authenticated === false))
         && this.ownerKey.startsWith("anonymous:")
         && this.anonymousOwnershipProven
       ) {
