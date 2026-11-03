@@ -18,16 +18,21 @@ const loadPinnedEditorialItems = async (
 ) => {
   const publications = await repository.releasedRuntimeRevisions(revisionIds);
   const items: PublishedStudioRuntimeItem[] = [];
-  for (const publication of publications) {
-    if (publication.itemType !== "exam_item") continue;
-    const source = await repository.getRevision(publication.revisionId);
-    if (
-      source.itemType !== "exam_item"
-      || (source.workflowState !== "published" && source.workflowState !== "archived")
-      || source.contentSha256 !== publication.contentSha256
-      || await studioSha256(canonicalStudioJson(source.content)) !== publication.contentSha256
-    ) throw new Error("Pinned assessment source failed its immutable digest fence.");
-    items.push({ ...publication, content: source.content });
+  const examPublications = publications.filter(publication => publication.itemType === "exam_item");
+  // Read and verify bounded batches; never expose partially verified results.
+  for (let offset = 0; offset < examPublications.length; offset += 100) {
+    const batch = examPublications.slice(offset, offset + 100);
+    const sources = await repository.getRevisions(batch.map(item => item.revisionId));
+    for (const [index, publication] of batch.entries()) {
+      const source = sources[index];
+      if (
+        source.itemType !== "exam_item"
+        || (source.workflowState !== "published" && source.workflowState !== "archived")
+        || source.contentSha256 !== publication.contentSha256
+        || await studioSha256(canonicalStudioJson(source.content)) !== publication.contentSha256
+      ) throw new Error("Pinned assessment source failed its immutable digest fence.");
+      items.push({ ...publication, content: source.content });
+    }
   }
   return items;
 };

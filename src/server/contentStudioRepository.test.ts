@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { studioStarterContent } from "../content/studioContent";
 import { loadStudioAssessmentBank } from './studioAssessmentRepository';
 import { selectAuthoritativeAssessmentForm, FOUNDATION_AUTHORITATIVE_ASSESSMENT_BLUEPRINT } from './authoritativeAssessmentItemBank';
@@ -112,6 +112,38 @@ const drainReleases = (database: SQLiteD1) => new ContentReleaseWorker(
 ).drain();
 
 describe("governed Content Studio revisions", () => {
+  it('bulk reads exact revisions in caller order and rejects missing or failed batches', async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    try {
+      const first = await createDraft(repository);
+      // Clone fixture rows to exercise more than one D1 bind-limited batch.
+      const row = database.sqlite.prepare('SELECT * FROM content_revisions WHERE id = ?').get(first.id)!;
+      const columns = Object.keys(row);
+      const insert = database.sqlite.prepare(`INSERT INTO content_revisions (${columns.join(',')}) VALUES (${columns.map(() => '?').join(',')})`);
+      const ids = [first.id];
+      for (let index = 1; index < 205; index++) {
+        const id = `bulk-${index}`;
+        insert.run(...columns.map(column => column === 'id' ? id : column === 'revision' ? index + 1 : row[column]) as Array<string | number | null>);
+        ids.push(id);
+      }
+      const prepare = vi.spyOn(database, 'prepare');
+      const ordered = [...ids].reverse();
+      ordered.push(ids[0]);
+      const revisions = await repository.getRevisions(ordered);
+      expect(revisions.map(item => item.id)).toEqual(ordered);
+      expect(revisions.every(item => item.contentSha256 === first.contentSha256)).toBe(true);
+      expect(prepare).toHaveBeenCalledTimes(3);
+      expect(await repository.getRevisions([])).toEqual([]);
+      await expect(repository.getRevisions([first.id, 'missing'])).rejects.toThrow('not found');
+      const failedStatement = new SQLiteStatement(database.sqlite.prepare('SELECT 1'), 'SELECT 1');
+      vi.spyOn(failedStatement, 'all').mockResolvedValue({ success: false });
+      prepare.mockReturnValue(failedStatement);
+      await expect(repository.getRevisions([first.id])).rejects.toThrow('Unable to read');
+      prepare.mockRestore();
+    } finally { database.sqlite.close(); }
+  });
   it('releases private diagnostic items, keeps old answers for open sessions and excludes retired versions from new forms', async()=>{
     const database=new SQLiteD1();addUsers(database);const repository=new ContentStudioRepository(database);
     const content={contentKind:'assessment-item',skill:'vocabulary',prompt:'你',instruction:'Chọn nghĩa',options:['bạn','tôi','họ','cô ấy'],answerIndex:0,explanationVi:'你 nghĩa là bạn.',provenance:'Fixture nguyên bản.',stimulusText:'',review:reviewedLesson().review};

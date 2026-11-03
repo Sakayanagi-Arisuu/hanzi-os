@@ -453,6 +453,25 @@ export class ContentStudioRepository {
     return parseRevision(row);
   }
 
+  async getRevisions(revisionIds: readonly string[]): Promise<StudioRevision[]> {
+    const uniqueIds = [...new Set(revisionIds)];
+    const revisions = new Map<string, StudioRevision>();
+    // Stay below D1's bind limit and avoid a network round trip per question.
+    for (let offset = 0; offset < uniqueIds.length; offset += 100) {
+      const chunk = uniqueIds.slice(offset, offset + 100);
+      const result = await this.database.prepare(
+        `${REVISION_SELECT} WHERE r.id IN (${chunk.map(() => "?").join(", ")})`,
+      ).bind(...chunk).all<RevisionRow>();
+      if (!result.success) throw new Error("Unable to read content revisions.");
+      for (const row of result.results ?? []) revisions.set(row.id, parseRevision(row));
+    }
+    return revisionIds.map(id => {
+      const revision = revisions.get(id);
+      if (!revision) throw new ContentStudioNotFoundError("Content revision was not found.");
+      return revision;
+    });
+  }
+
   async assignmentsFor(
     revisions: readonly StudioRevision[],
   ): Promise<StudioEditorialAssignment[]> {

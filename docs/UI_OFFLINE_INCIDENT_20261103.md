@@ -67,6 +67,26 @@ trước thay đổi, footer Hồ sơ/Premium và điều hướng mobile năm v
 - Kiểm trực quan tiếp bị chặn vì công cụ báo Local browser use disabled in
   Work settings. Không đổi setting hoặc thay công cụ để vượt giới hạn này.
 
+## Bổ sung: catalog vượt timeout khi server đang hoạt động
+
+- Catalog đọc 375 revision nguồn bằng từng truy vấn D1; warm request vẫn mất
+  14,3 giây, các lần khác 20–33 giây, vượt timeout client12giây. Đo tách gói
+  phát hành chỉ252ms; thử8request song song vẫn21,2giây nên không giữ cách đó.
+- Đổi đọc revision theo lô tối đa100 bind, giữ thứ tự đầu vào, kiểm thiếu nguồn
+  và query failure. Loader giữ nguyên itemType, published/archived, content SHA
+  và SHA tính lại; không cache bỏ kiểm chứng, không nới quyền hoặc timeout.
+- Sau sửa, dev1448/621/631ms; qua preview4174 1252/1026/996ms,31bộ,
+  accessAvailable=true,19bộ khóa. Không xuất answerIndex/correctAnswer/answerKey/
+  correctOptionId/explanationVi/sourceLessonId trong response đã kiểm.
+- Targeted3file/22test, gồm SQLite thật với205revision, thứ tự/duplicate,
+  missing/query failure, nguồn archived và digest/state/type sai bị từ chối.
+  Typecheck cuối exit0; lint4file nguồn/test exit0.
+  Đây là đo API local, không benchmark thiết bị hoặc pass phiên luyện đề.
+- Thay đổi chỉ ở server nên preview4174 đang dùng API dev mới qua proxy;
+  bundle UI vẫn là build1718a4d. Không cần đổi UI để áp dụng bản sửa đọc này.
+- Browser vẫn báo `Local browser use is disabled in Work settings` khi kiểm lại.
+  Không tìm đường vòng qua native/CLI. Mobile/account/offline end-to-end còn mở.
+
 ## Bảo toàn dữ liệu
 
 Không migration/reset/xóa D1 hoặc browser storage. Backup SQLite trước restart

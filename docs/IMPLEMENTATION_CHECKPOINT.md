@@ -1,3 +1,11 @@
+## Sự cố catalog luyện đề · 03/11/2026
+
+- **Module:** phục hồi runtime luyện đề — IN-REVIEW; chưa USER-ACCEPTED.
+- **Người học thấy gì:** đọc câu hỏi theo lô tối đa 100 để catalog không vượt timeout 12 giây chỉ vì hàng trăm lượt đọc D1 riêng lẻ. Không đổi menu, timeout client hoặc quyền truy cập.
+- **Đã kiểm:** API trước sửa 14–33 giây; sau sửa 3 lượt dev 1448/621/631 ms và 3 lượt qua preview4174 1252/1026/996 ms, HTTP200,31 bộ, accessAvailable=true;19 bộ khóa, không có các trường đáp án riêng trong response. Targeted3file/22test kiểm thứ tự, batch205 nguồn, missing/failure, digest/state/type và pinned archived. Browser tool vẫn báo disabled; không coi API là pass hành trình UI. Gate cuối được ghi tại tài liệu sự cố.
+- **Dữ liệu giữ được:** chỉ đổi đọc server; không migration/reset/storage. HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213; IDs/FSRS/resume/outbox/owner-reset giữ nguyên. Không sửa/stage docs/reports/output.
+- **Tiếp theo:** kiểm thao tác PC/mobile/account/offline trong module sự cố khi công cụ trình duyệt khả dụng; web local4174 đang bật, API dùng bản sửa mới. Chi tiết: [UI_OFFLINE_INCIDENT_20261103.md](UI_OFFLINE_INCIDENT_20261103.md).
+
 ## Sự cố PC / ngoại tuyến · 03/11/2026
 
 - **Module:** phục hồi điều hướng và runtime chung — IN-REVIEW. Ưu tiên sự cố theo yêu cầu người dùng; tạm dừng T03.
