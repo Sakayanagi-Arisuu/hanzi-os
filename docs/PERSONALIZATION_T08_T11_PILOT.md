@@ -1,5 +1,7 @@
 # T08–T11 · pilot cá nhân hóa · 21/10/2026
 
+> Cập nhật 03/11/2026: nhánh Khảo Luyện theo mục tiêu đã được gỡ theo yêu cầu người dùng sau audit. Các đoạn về pilot/composer/runner/API/replay dưới đây là bằng chứng của bản trước, không phải chức năng hoặc lệnh chạy hiện hành. Xem `IMPLEMENTATION_CHECKPOINT.md`; dữ liệu lịch sử và chốt đồng bộ cũ được giữ.
+
 **IN-REVIEW**, chưa USER-ACCEPTED. Kế thừa quyền chuyển task trong attachment;
 không mở release, human review, deployment hoặc quyền chấm điểm mới.
 

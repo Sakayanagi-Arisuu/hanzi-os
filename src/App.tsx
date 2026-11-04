@@ -62,7 +62,6 @@ const MockExamsPage = lazy(async () => {
   }
 });
 const PathPage = lazy(async () => ({ default: (await import("./screens/PathPage")).PathPage }));
-const AdaptivePracticePage = lazy(async () => ({ default: (await import("./screens/AdaptivePracticePage")).AdaptivePracticePage }));
 const ProfilePage = lazy(async () => ({ default: (await import("./screens/ProfilePage")).ProfilePage }));
 const PremiumPage = lazy(async () => ({ default: (await import("./screens/PremiumPage")).PremiumPage }));
 const PronunciationPage = lazy(async () => ({ default: (await import("./screens/PronunciationQuestPage")).PronunciationQuestPage }));
@@ -85,7 +84,7 @@ export default function App() {
         <PremiumRouteBoundary><Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/path" element={<PathPage />} />
-          <Route path="/path/practice" element={<AdaptivePracticePage />} />
+          <Route path="/path/practice" element={<Navigate to="/path" replace />} />
           <Route path="/lesson/:lessonId" element={<LessonPage />} />
           <Route path="/path/expansion" element={<MegaLexiconPage />} />
           <Route path="/path/expansion/:missionId" element={<MegaLexiconPage />} />

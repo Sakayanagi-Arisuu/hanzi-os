@@ -1,3 +1,4 @@
+// Legacy profile contract retained for backup, history and sync after retiring goal practice.
 export const LEARNING_TOPICS = ['daily-life', 'shopping', 'travel', 'work', 'hsk'] as const;
 export type LearningPreferenceClock = { counter: number; operationId: string; observedAt: string };
 export function validOptionalLearningPreferenceClock(value: unknown, preferences: unknown): value is LearningPreferenceClock | undefined {
@@ -40,23 +41,3 @@ export function isLearningPreferences(value: unknown): value is LearningPreferen
 }
 
 export const validOptionalLearningPreferences = (value: unknown) => value === undefined || value === null || isLearningPreferences(value);
-
-export type LearningSessionContext = {
-  minutes?: 5 | 10 | 20;
-  audio?: boolean;
-  microphone?: boolean;
-  online: boolean;
-};
-
-/** Session choices override declarations without rewriting the saved profile or requesting permissions. */
-export function resolveLearningContext(preferences: LearningPreferences | null | undefined, context: LearningSessionContext) {
-  const saved = preferences ?? DEFAULT_LEARNING_PREFERENCES;
-  if (!isLearningPreferences(saved)) throw new Error('Unsupported learning preferences; retain source.');
-  if (typeof context.online !== 'boolean' || context.minutes !== undefined && ![5, 10, 20].includes(context.minutes)
-    || context.audio !== undefined && typeof context.audio !== 'boolean'
-    || context.microphone !== undefined && typeof context.microphone !== 'boolean') throw new Error('Unsupported session context');
-  return { minutes: context.minutes ?? saved.sessionMinutes, online: context.online,
-    audio: context.audio ?? saved.audio === 'available',
-    microphone: context.microphone ?? saved.microphone === 'available',
-    allowInference: saved.allowInference, topics: [...saved.topics], source: 'self-reported' as const };
-}

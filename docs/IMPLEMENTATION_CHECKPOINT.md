@@ -1,3 +1,11 @@
+## Gỡ Khảo Luyện theo mục tiêu · 03/11/2026
+
+- **Module:** bỏ nhánh pilot `/path/practice` — IN-REVIEW. Người dùng cho phép gỡ nếu audit thấy dư thừa; chưa USER-ACCEPTED giao diện cuối.
+- **Người học thấy gì:** Thiên Lộ không còn thanh mời Khảo Luyện. URL cũ chuyển về `/path`. Gỡ màn hình/runner/composer/model/graph riêng, logic hai API adaptive-plan/adaptive-unit, CSS, CLI replay và test riêng; gỡ nhóm tùy chọn phiên trong Hồ sơ vì không còn consumer (45file xóa). Hai API cũ chỉ trả410 FEATURE_RETIRED để tab cũ không rơi vào fallback HTML/500. Pilot chỉ có giá/số lượng, exposure/tự đối chiếu, không evidence recall độc lập hoặc lợi ích đã đo để biện minh một luồng riêng.
+- **Đã kiểm (chốt04/11):** audit import sạch; typecheck/lint qua, compatibility3file/8test qua. Full check qua content/DB/restore, test3749pass/1timeout (outbox source scan); chạy riêng lại pass449ms. Vinext build/offline manifest/provenance hoàn tất; phiên công cụ ngắt trước mã thoát cuối, hai gate bundle chạy riêng exit0 (232JS/192private markers vắng; advisory1400,6KiB). Không ghi full-check exit0. IAB đã thấy Thiên Lộ217bài không còn entry, URL cũ chuyển/path; hai API thực trả410. Chưa có ảnh hoặc kiểm profile/mobile cuối.
+- **Dữ liệu giữ được:** không xóa bản ghi phiên/nháp/outbox đã lưu; giữ immutable-key/conflict/reset/owner guards của workspace và test regression tương ứng. Giữ lịch sử chung, schema preferences cũ cho backup/import/sync, nội dung nguồn/draft và provenance; không migration/reset. HSK0 4/4 rich0/4; HSK1–4 rich40/40/55/78=213/213. Source-binding snapshots cũ là bằng chứng trước khi gỡ, không được dùng như danh sách file runtime hiện hành.
+- **Tiếp theo:** người dùng kiểm Thiên Lộ và Hồ sơ trên cổng3000; giữ IN-REVIEW. Không tự mở module tiếp theo. Rollback mã bằng Git; không cần rollback dữ liệu vì không đổi schema hoặc storage.
+
 ## Sự cố catalog luyện đề · 03/11/2026
 
 - **Module:** phục hồi runtime luyện đề — IN-REVIEW; chưa USER-ACCEPTED.

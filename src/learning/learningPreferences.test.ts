@@ -1,21 +1,10 @@
 import { expect, it } from 'vitest';
-import { DEFAULT_LEARNING_PREFERENCES, isLearningPreferences, resolveLearningContext } from './learningPreferences';
+import { DEFAULT_LEARNING_PREFERENCES, isLearningPreferences } from './learningPreferences';
 import { INITIAL_LEARNING_STATE } from '../store/LearningStore';
 import { parsePersistedLearningState } from '../lib/learningStatePersistence';
 import { parseLearningStateImport } from '../lib/learningStateImport';
 import { createInitialSyncDocument, evolveSyncDocument, mergeSyncDocuments } from '../sync/document';
 import type { CloudSyncDocumentV1 } from '../sync/types';
-
-it('keeps cold start short and conservative, distinguishes declarations from per-session availability and opt-out', () => {
-  expect(resolveLearningContext(undefined, { online: false })).toMatchObject({ minutes: 10, audio: false,
-    microphone: false, online: false, allowInference: false, topics: [], source: 'self-reported' });
-  const saved = { ...DEFAULT_LEARNING_PREFERENCES, audio: 'available' as const, microphone: 'available' as const,
-    sessionMinutes: 20 as const, topics: ['shopping' as const], allowInference: true };
-  expect(resolveLearningContext(saved, { minutes: 5, audio: false, microphone: false, online: true }))
-    .toMatchObject({ minutes: 5, audio: false, microphone: false, topics: ['shopping'] });
-  expect(saved.sessionMinutes).toBe(20);
-  expect(isLearningPreferences(saved)).toBe(true);
-});
 
 it('rejects unknown schemas and malformed declarations rather than normalizing away raw data', () => {
   for (const patch of [{ version: 99 }, { source: 'inferred' }, { sessionMinutes: 30 }, { topics: ['unknown'] },

@@ -42,9 +42,9 @@ song song trong `docs/`.
 | [`PERSONALIZATION_T16_DICTIONARY_SOURCE.md`](PERSONALIZATION_T16_DICTIONARY_SOURCE.md) | Link mục từ giữ exact ID/stable alias; thiếu nguồn không mở nhầm mục khác, có đường phục hồi và kiểm mobile. IN-REVIEW. |
 | [`PERSONALIZATION_T02_MISTAKE_SUPPORT.md`](PERSONALIZATION_T02_MISTAKE_SUPPORT.md) | Gợi ý/TTS trong Nghịch Cảnh Lục commit trước mở; retry, lỗi lưu, assistance guard và guest history. IN-REVIEW. |
 | [`PERSONALIZATION_T14_LONG_TERM.md`](PERSONALIZATION_T14_LONG_TERM.md) | Nhịp quay lại và gợi ý tự nguyện, consent/authority và giới hạn diagnostic/skip. IN-REVIEW. |
-| [`PERSONALIZATION_T18_PROTOCOL.md`](PERSONALIZATION_T18_PROTOCOL.md) | Protocol và harness replay synthetic với frozen artifact/verifier; chưa cohort/recall hoặc claim hiệu quả. |
+| [`PERSONALIZATION_T18_PROTOCOL.md`](PERSONALIZATION_T18_PROTOCOL.md) | Protocol nghiên cứu; harness pilot đã gỡ03/11, bằng chứng cũ không là lệnh chạy hiện hành. |
 | [`PERSONALIZATION_T06_T07_PILOT.md`](PERSONALIZATION_T06_T07_PILOT.md) | Graph năng lực và sáu contextual practice units từ source thật, chưa measurement/release. |
-| [`PERSONALIZATION_T08_T11_PILOT.md`](PERSONALIZATION_T08_T11_PILOT.md) | Draft/model/shadow composer/journal/server planning, scale delta và giới hạn renderer/account/device. |
+| [`PERSONALIZATION_T08_T11_PILOT.md`](PERSONALIZATION_T08_T11_PILOT.md) | Bằng chứng pilot đã gỡ03/11; không còn entry/runner/API trong sản phẩm. |
 | [`PERSONALIZATION_T12_SPEECH_SOURCE.md`](PERSONALIZATION_T12_SPEECH_SOURCE.md) | Nói: explicit source không mở nhầm bài; recovery, no fallback session, owner/query lifecycle, invitation/mobile và dữ liệu giữ được. IN-REVIEW. |
 | [`PERSONALIZATION_T12_CONSUMERS.md`](PERSONALIZATION_T12_CONSUMERS.md) | Audit consumer adaptive hiện có, liên kết cố ý chưa mở và gaps history/source/FSRS; chưa nghiệm thu toàn T12. |
 | [`PERSONALIZATION_T17_PWA.md`](PERSONALIZATION_T17_PWA.md) | Sửa redirect tài nguyên cài PWA ở Worker/Assets, root activation và tải lại khi server dừng; giới hạn account/device còn mở. |

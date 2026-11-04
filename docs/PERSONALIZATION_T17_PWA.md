@@ -1,5 +1,7 @@
 ## 26/10 · kiểm full app sau lifecycle bình thường · IN-REVIEW
 
+> Cập nhật 03/11/2026: nhánh Khảo Luyện theo mục tiêu đã được gỡ theo yêu cầu người dùng sau audit. Các đoạn về pilot/composer/runner/API/replay dưới đây là bằng chứng của bản trước, không phải chức năng hoặc lệnh chạy hiện hành. Xem `IMPLEMENTATION_CHECKPOINT.md`; dữ liệu lịch sử và chốt đồng bộ cũ được giữ.
+
 Fullv31 CHECK_EXIT0:565file/3650test. Sau hai lần timeout với worker active cũ ởv30, đóng tab theo lifecycle bình thường, giữ nguyên browser storage; buildv31/server local sẵn sàng rồi mở lại. Bấm Cập nhật ứng dụng đã reload thành công, không còn lỗi cập nhật. Tài khoản/cookie, cả2avatar256px và10phút/Giao tiếp còn; history41/41. Proof tmp/personalization-t03-full-app-update-v31.png và full-app-v31.json. Không clear/unregister/cache purge, không ép reload bằng API. Không suy ra old-worker first-click/device/cloud pass. T17 commit6e2204e ở local; người dùng chọn giữ local trước, không push thêm.
 
 ## Cá nhân hóa v2 · cập nhật PWA không bị tải nền giữ lại · 26/10/2026

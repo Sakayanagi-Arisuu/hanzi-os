@@ -1,5 +1,7 @@
 # T18 · protocol đánh giá trước nghiên cứu · bản nháp 20/10/2026
 
+> Cập nhật 03/11/2026: nhánh Khảo Luyện theo mục tiêu đã được gỡ theo yêu cầu người dùng sau audit. Các đoạn về pilot/composer/runner/API/replay dưới đây là bằng chứng của bản trước, không phải chức năng hoặc lệnh chạy hiện hành. Xem `IMPLEMENTATION_CHECKPOINT.md`; dữ liệu lịch sử và chốt đồng bộ cũ được giữ.
+
 ## Delta kỹ thuật 23/10/2026 — IN-REVIEW
 
 `src/personalization/replayPilot.ts` có harness read-only, chỉ nhận scope

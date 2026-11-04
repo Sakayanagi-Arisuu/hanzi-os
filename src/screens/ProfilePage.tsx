@@ -76,7 +76,6 @@ import {
 import type { LearningGoal, Profile } from "../types";
 import { AvatarEditor } from '../profile/AvatarEditor';
 import { LearningHistoryPanel } from '../profile/LearningHistoryPanel';
-import { LearningPreferencesFields } from '../profile/LearningPreferencesFields';
 import { DeviceRecoveryControls } from '../profile/DeviceRecoveryControls';
 
 const goals: Array<{ id: LearningGoal; label: string; description: string; icon: typeof Target }> = [
@@ -510,7 +509,6 @@ export function ProfilePage() {
               ))}
             </div>
           </fieldset>
-          <LearningPreferencesFields value={draft.learningPreferences} onChange={learningPreferences => updateDraft({ learningPreferences })} />
           <details className="sys-advanced"><summary>Điểm khởi hành & hệ chữ</summary>
           <fieldset className="profile-fieldset inline-fieldset">
             <legend id="profile-starting-level-legend">Căn Cơ Tự Khai · không miễn bài tiên quyết</legend>
