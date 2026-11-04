@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { AvatarImage } from './AvatarImage';
 import { useAvatar } from './useAvatar';
 import { decodeAvatarFile, drawAvatarCrop, encodeAvatarCrop, type AvatarCrop } from './avatarRaster';
@@ -7,7 +7,7 @@ import { AccountAvatarClientError, saveAccountAvatar } from './accountAvatarClie
 import type { OwnerGeneration } from '../sync/indexedDb';
 import './avatar.css';
 
-export function AvatarEditor({ name }: { name: string }) {
+export function AvatarEditor({ name, subtitle, action }: { name: string; subtitle?: string; action?: ReactNode }) {
   const avatar = useAvatar();
   const [selection, setSelection] = useState<{ image: ImageBitmap; owner: OwnerGeneration; revision: number } | null>(null);
   const [crop, setCrop] = useState<AvatarCrop>({ zoom: 1, horizontal: 50, vertical: 50 });
@@ -19,6 +19,7 @@ export function AvatarEditor({ name }: { name: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const input = useRef<HTMLInputElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
   const ownerKey = avatar.owner?.ownerKey, generation = avatar.owner?.generation;
   useEffect(() => {
     sequence.current += 1; pendingSave.current = null;
@@ -39,7 +40,7 @@ export function AvatarEditor({ name }: { name: string }) {
   const cancel = () => {
     sequence.current += 1; pendingSave.current = null; setSelection(null); setBusy(false); dialog.current?.close();
     if (input.current) input.current.value = '';
-    input.current?.focus();
+    requestAnimationFrame(() => trigger.current?.focus());
   };
   const choose = async (file?: File) => {
     if (!file || !avatar.ready || !avatar.owner || !avatar.canUpload) return;
@@ -82,17 +83,22 @@ export function AvatarEditor({ name }: { name: string }) {
     finally { if (attempt === sequence.current) setBusy(false); }
   };
   return <section className="avatar-editor" aria-labelledby="avatar-heading">
-    <div className="avatar-summary"><span className="avatar-preview" aria-hidden="true"><AvatarImage name={name} url={avatar.url} /></span><div><h2 id="avatar-heading">Chân dung · ảnh đại diện</h2><p>{avatar.authenticated ? 'Ảnh được lưu riêng cho tài khoản. Ảnh guest trên thiết bị không tự gửi lên tài khoản.' : 'Ảnh guest chỉ lưu trên thiết bị này, chưa nằm trong bản sao tiến độ cũ; không dùng để suy đoán năng lực.'}</p></div></div>
-    <label className="field-label"><span>Chọn ảnh đại diện</span><input ref={input} type="file" accept="image/jpeg,image/png,image/webp" disabled={!avatar.ready || !avatar.canUpload || busy} aria-describedby="avatar-limits" onChange={event => void choose(event.currentTarget.files?.[0])} /></label>
-    {avatar.ready && !avatar.canUpload && <p>Chức năng xử lý ảnh tài khoản chưa sẵn sàng. Bạn vẫn có thể xem hoặc gỡ ảnh đã lưu.</p>}
-    <p id="avatar-limits">JPEG, PNG hoặc WebP tĩnh · tối đa 5 MiB, 16 megapixel. Ảnh lưu 256 × 256, bỏ metadata gốc.</p>
+    <div className="avatar-summary">
+      <span className="avatar-preview" aria-hidden="true"><AvatarImage name={name} url={avatar.url} /></span>
+      <div className="avatar-identity"><h2 id="avatar-heading">{name}</h2><p>{subtitle ?? (avatar.authenticated ? 'Tài khoản người học' : 'Hồ sơ trên thiết bị này')}</p>
+        <button ref={trigger} type="button" className="secondary-button avatar-change" disabled={!avatar.ready || !avatar.canUpload || busy} onClick={() => input.current?.click()}>{busy ? 'Đang xử lý ảnh…' : 'Đổi ảnh'}</button>
+      </div>
+      <div className="avatar-account-action">{action}</div>
+    </div>
+    <input ref={input} className="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp" disabled={!avatar.ready || !avatar.canUpload || busy} aria-label="Chọn ảnh đại diện" onChange={event => void choose(event.currentTarget.files?.[0])} />
+    {avatar.ready && !avatar.canUpload && <p role="status">Chức năng đổi ảnh tài khoản chưa sẵn sàng. Ảnh đã lưu vẫn được giữ.</p>}
     {avatar.error && <><p role="alert">{avatar.error}</p><button type="button" className="secondary-button" onClick={avatar.retry}>Đọc lại ảnh đã lưu</button></>}
     {message && !selection && <p role="status">{message}</p>}
     {avatar.record?.blob && !removePrompt && <button type="button" className="secondary-button" disabled={busy} onClick={() => { if (avatar.owner) setRemovePrompt({ owner: avatar.owner, revision: avatar.record?.revision ?? 0, operationId: crypto.randomUUID() }); }}>Gỡ ảnh đại diện</button>}
     {removePrompt && <div><p>Gỡ ảnh và dùng chữ cái đại diện?</p><button type="button" className="secondary-button" disabled={busy} onClick={() => setRemovePrompt(null)}>Giữ ảnh</button><button type="button" className="secondary-button" disabled={busy} onClick={() => void remove()}>Xác nhận gỡ ảnh</button></div>}
     <dialog ref={dialog} className="avatar-crop-dialog" aria-labelledby="avatar-crop-title" onCancel={event => { event.preventDefault(); if (!busy) cancel(); }} onClose={() => { if (selection) cancel(); }}>
-      <header><h2 id="avatar-crop-title">Cắt và xem trước ảnh</h2><button type="button" className="secondary-button" disabled={busy} onClick={cancel}>Hủy</button></header>
-      <div className="avatar-crop-body"><canvas ref={canvas} width={256} height={256} role="img" aria-label="Ảnh đại diện sau khi cắt" />
+      <header><h2 id="avatar-crop-title">Chỉnh ảnh đại diện</h2><button type="button" className="secondary-button" disabled={busy} onClick={cancel}>Hủy</button></header>
+      <div className="avatar-crop-body"><p>JPEG, PNG hoặc WebP · tối đa 5 MiB. Điều chỉnh khung ảnh trước khi lưu.</p><canvas ref={canvas} width={256} height={256} role="img" aria-label="Ảnh đại diện sau khi cắt" />
         {(['zoom', 'horizontal', 'vertical'] as const).map(key => <label key={key}><span>{key === 'zoom' ? 'Thu phóng' : key === 'horizontal' ? 'Vị trí ngang' : 'Vị trí dọc'}</span><input type="range" min={key === 'zoom' ? 1 : 0} max={key === 'zoom' ? 3 : 100} step={key === 'zoom' ? 0.05 : 1} value={crop[key]} disabled={busy} onChange={event => { pendingSave.current = null; setCrop(current => ({ ...current, [key]: Number(event.target.value) })); }} /></label>)}
         {message && <p role="alert">{message}</p>}
       </div><footer><button type="button" className="primary-button" disabled={busy || !selection} onClick={() => void save()}>{busy ? 'Đang lưu…' : 'Lưu ảnh đại diện'}</button></footer>

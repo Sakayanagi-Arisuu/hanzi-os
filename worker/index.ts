@@ -5,7 +5,7 @@ import {
 } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 import { emailActionRenderingRequest, securityHeadersForPath } from "../src/server/securityHeaders";
-import { androidAssetLinks, directHostingRequest, isAuthNavigationPreload, offlineFallbackAssetRequest } from '../src/server/directHosting';
+import { acceptsLocalBuildRequest, androidAssetLinks, directHostingRequest, isAuthNavigationPreload, offlineFallbackAssetRequest } from '../src/server/directHosting';
 import type { D1Database } from '../src/server/d1';
 import { AccountDeletionRepository } from '../src/server/accountDeletionRepository';
 import { FirebaseAuthAdmin, firebaseAuthAdminConfig } from '../src/server/firebaseAuthAdmin';
@@ -102,6 +102,8 @@ function withSecurityHeaders(response: Response, pathname: string): Response {
   });
 }
 
+declare const __HANZI_LOCAL_OFFLINE_PREVIEW__: boolean;
+
 const worker = {
   scheduled(_event: unknown, env: Env, ctx: ExecutionContext) {
     if (!env.DB) return;
@@ -116,6 +118,7 @@ const worker = {
     env: Env,
     ctx: ExecutionContext,
   ): Promise<Response> {
+    if (!acceptsLocalBuildRequest(request.url, typeof __HANZI_LOCAL_OFFLINE_PREVIEW__ !== 'undefined' && __HANZI_LOCAL_OFFLINE_PREVIEW__)) return new Response('Local preview only', { status: 403 });
     request = directHostingRequest(request, env.HANZI_HOSTING_PROVIDER);
     const url = new URL(request.url);
     // Older installed service workers preload even bypassed OAuth navigations.

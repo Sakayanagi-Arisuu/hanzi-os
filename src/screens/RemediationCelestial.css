@@ -129,3 +129,10 @@
 .content-page.rem-observatory.rem-celestial .rem-summary-heading h1 {white-space:nowrap;margin:4px 0}
 .content-page.rem-observatory.rem-celestial .rem-summary-heading>.rem-live-mark {position:absolute;right:16px;top:24px}
 @media(max-width:900px){.content-page.rem-observatory.rem-celestial .rem-summary-heading>.rem-live-mark{display:none}}
+
+.rem-dictionary-context { position:relative; padding:12px; display:flex; flex-wrap:wrap; gap:12px; }
+.rem-dictionary-context a { min-height:44px; display:flex; align-items:center; }
+.content-page.rem-observatory:has(.rem-dictionary-context) { display:flex; flex-direction:column; }
+.rem-observatory:has(.rem-dictionary-context) .rem-atlas { flex:1; height:auto; min-height:0; }
+.rem-dictionary-context { flex-shrink:0; gap:6px 12px; padding:6px 12px; font-size:13px; }
+.rem-dictionary-context p { margin:0; flex-basis:100%; }

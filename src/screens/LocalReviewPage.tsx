@@ -66,7 +66,9 @@ export function LocalReviewPage() {
   const vocabularyEvidenceCount = state.evidence.filter((item) =>
     item.masteryEligible && item.skill === "vocabulary"
   ).length;
+  const requestedWordId = new URLSearchParams(location.search).get('word');
   const defaultQueue = () => [...new Set([
+    ...(requestedWordId && dueWordIds.includes(requestedWordId) ? [requestedWordId] : []),
     ...reinforcementWordIds,
     ...dueWordIds,
   ])];

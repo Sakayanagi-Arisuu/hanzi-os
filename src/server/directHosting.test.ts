@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { androidAssetLinks, directHostingRequest, isAuthNavigationPreload, offlineFallbackAssetRequest } from './directHosting';
+import { acceptsLocalBuildRequest, androidAssetLinks, directHostingRequest, isAuthNavigationPreload, offlineFallbackAssetRequest } from './directHosting';
 
 it.each(['GET', 'HEAD'])('resolves the offline fallback internally for %s without an install-time redirect', async method => {
   const original = new Request('https://hanzi.example/offline.html?revision=1', {method, headers: {accept:'text/html'}});
@@ -65,4 +65,10 @@ it('publishes only configured valid Android signing fingerprints', () => {
   expect(androidAssetLinks('not a package', hash)).toBeNull();
   expect(androidAssetLinks('vn.hanzi.app', 'upload-key-placeholder')).toBeNull();
   expect(androidAssetLinks('vn.hanzi.app', `${hash},bad`)).toBeNull();
+});
+
+it('restricts a local preview worker to loopback hosts, independently of scheme or forwarded headers', () => {
+  for (const host of ['localhost:3000', '127.0.0.1:4310', '[::1]:3000']) expect(acceptsLocalBuildRequest(`http://${host}/api/content/runtime`, true)).toBe(true);
+  for (const host of ['example.com', 'localhost.example.com', '192.168.1.10']) expect(acceptsLocalBuildRequest(`https://${host}/api/content/runtime`, true)).toBe(false);
+  expect(acceptsLocalBuildRequest('https://example.com/', false)).toBe(true);
 });

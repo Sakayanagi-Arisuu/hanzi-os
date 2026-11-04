@@ -1,3 +1,7 @@
+/** Local study builds must never serve their preview policy on a public host. */
+export const acceptsLocalBuildRequest = (url: string, localPreview: boolean) =>
+  !localPreview || ['localhost', '127.0.0.1', '[::1]'].includes(new URL(url).hostname);
+
 export function offlineFallbackAssetRequest(request: Request): Request {
   const url = new URL(request.url);
   if (url.pathname !== '/offline.html' || !['GET', 'HEAD'].includes(request.method)) return request;

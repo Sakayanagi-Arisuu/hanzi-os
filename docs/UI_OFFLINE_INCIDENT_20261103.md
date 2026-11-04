@@ -89,6 +89,21 @@ trước thay đổi, footer Hồ sơ/Premium và điều hướng mobile năm v
 
 ## Bảo toàn dữ liệu
 
+### Cổng 3000 bị chạy lại bằng bản build
+
+Ảnh người dùng ngày03/11 cho thấy `content-unavailable` trên localhost3000.
+Kiểm tiến trình tại thời điểm đó: listener12720 thuộc Wrangler12412/15044,
+chạy `dev --config dist/server/wrangler.json --port 3000`; Vinext cũ không còn.
+Trang chủ trả200; không dùng markup trang chủ để suy ra chế độ runtime. Vì package production chưa được
+promote, HTTP200 của trang chủ/catalog không chứng minh projection account dùng
+được. Đã dừng đúng nhóm tiến trình này và chạy lại Vinext dev port3000, không
+migration/reset. Policy test5/5 qua; không đổi chốt production để sửa local.
+Listener mới là Vinext16136; `/api/dev/runtime-error` trả200 (endpoint chỉ mở
+khi NODE_ENV=development), xác nhận runtime đúng thay vì dựa vào HTTP200 chung.
+Trang chủ200 và catalog200/31bộ/accessAvailable=true (723ms) sau khởi động.
+Phiên account trong Cốc Cốc cần người dùng tải lại để kiểm; không đọc cookie
+hoặc thay đổi browser storage để lấy bằng chứng.
+
 Không migration/reset/xóa D1 hoặc browser storage. Backup SQLite trước restart
 nằm trong `tmp/incident-offline-20261102/`, integrity_check OK, 43 migrations.
 Không sửa/stage docs/reports, output hoặc artifact người dùng.

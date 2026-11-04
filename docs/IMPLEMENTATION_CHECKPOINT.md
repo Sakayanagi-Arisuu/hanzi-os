@@ -1,3 +1,26 @@
+## Khôi phục localhost:3000 · 04/11/2026
+
+- **Module:** runtime local — IN-REVIEW. Vinext dev/RSC trả500 Network connection lost, API dev cũng gián đoạn. Chuyển sang Wrangler chạy worker đã build trực tiếp tại localhost:3000; không còn Node proxy hoặc API dev phía sau. Đây là workaround runtime; chưa sửa nguyên nhân upstream RSC/workerd dev.
+- **Người học thấy gì:** URL cũ mở được trang Tài khoản & dữ liệu; thêm `npm run dev:stable` để chạy lại cùng chế độ (cần build sau khi sửa source). Config runtime sinh tự động, được gitignore; không copy secrets.
+- **Đã kiểm:** HTTP trang/API200; Playwright desktop qua toàn luồng mở tài khoản, chọn/cắt/lưu ảnh, reload giữ ảnh, mở/lọc lịch sử (1 test,1,3 phút). Các lượt thử với API dev trước đó timeout bootstrap, không tính pass. `node --check` launcher và git diff --check qua.
+- **Dữ liệu giữ được:** cùng localhost:3000 và persistence .wrangler/state, binding DB/id hiện có, .dev.vars cũ; không reset cookie/storage/D1 hoặc migration. HSK0 4/4 rich0/4; HSK1–4 rich213/213. Không sửa docs/reports/output.
+- **Tiếp theo:** người dùng tải lại URL cũ; giữ IN-REVIEW. Không chạy npm run dev đồng thời chiếm cổng3000. Không push/deploy.
+
+## Tài khoản & dữ liệu / Nhật ký tu luyện · 04/11/2026
+
+- **Module:** Tài khoản & dữ liệu, chuyển Nhật ký vào Thiên Cơ Kính — IN-REVIEW; người dùng duyệt mockup, chưa nghiệm thu bản triển khai.
+- **Người học thấy gì:** avatar nằm trong thẻ hồ sơ ở Tài khoản & dữ liệu, chọn ảnh bằng nút Đổi ảnh và hộp cắt/thu phóng; bốn nhóm Lưu trữ & đồng bộ, Bảo mật, Dữ liệu học tập, Sao lưu & khôi phục. Đặt lại/xóa vẫn thu gọn và có xác nhận. Bỏ avatar/nhật ký ở tổng quan Cấu hình; Thiên Cơ Kính giữ hero, thống kê và biểu đồ, thêm Xem lịch sử học tập trong Dấu chân hoạt động và khối nhật ký bên dưới. Giữ bộ lọc/phân trang và nguồn dữ liệu thật.
+- **Đã kiểm:** targeted 7 file/44 test qua; typecheck/lint qua. Full check qua content/DB/restore, 563 file/3756 test qua và 1 test outboxRuntimeBoundary timeout; chạy riêng lại test này qua 2,92 giây. Không ghi full-check exit0. Browser dev lượt đầu timeout trang vào; bản build cuối exit0, Playwright 2/2 qua desktop1366×768 và mobile375×812: chọn ảnh/cắt/thu phóng/lưu, reload giữ ảnh, tổng quan không còn avatar/nhật ký, mở và lọc lịch sử sau khi tải xong. Đã xem ảnh desktop/mobile. Chưa kiểm upload bằng tài khoản thật hoặc thiết bị thật. Log tmp/account-*.
+- **Dữ liệu giữ được:** không đổi schema, owner/reset, API lưu ảnh, crop encoding, đồng bộ, export/import, xác nhận xóa hoặc lịch sử; không reset .wrangler/browser storage. HSK0 4/4 rich0/4, HSK1–4 rich40/40/55/78=213/213. Không sửa/stage docs/reports/output.
+- **Tiếp theo:** dev3000 bật lại nhưng SSR vẫn Network connection lost, API trả200. Preview4173 guest đã kiểm; preview4175 dùng build và proxy API3000 để người dùng test. Hai origin giữ storage riêng, không chuyển/xóa tiến độ guest; tài khoản cần đăng nhập trên preview. Chờ xác nhận giao diện. Không commit/push/deploy.
+
+## Tàng Tự Khố · 04/11/2026
+
+- **Module:** Tàng Tự Khố — IN-REVIEW; giao diện và phạm vi đã được duyệt, bản triển khai chờ người dùng test.
+- **Người học thấy gì:** giữ AppShell/header/thanh điều hướng; danh sách gợi ý dưới ô tìm Hanzi/Pinyin/nghĩa Việt, điều khiển bàn phím và IME, hồ sơ mục từ bên phải trên desktop; bố cục một cột trên mobile. Có lịch sử tra gần đây, lọc từ/chữ, lưu mục từ, tự ôn mục đã chọn và quay lại đúng truy vấn. Liên kết bài học, phát âm, thư viện, lỗi cần xem lại và ôn tập; ôn FSRS chỉ ưu tiên thẻ hiện có đủ điều kiện, không tạo evidence từ tự ôn.
+- **Đã kiểm:** full check trước các delta cuối qua 564 file/3756 test và content/DB/restore/build; targeted cuối 6 file/25 test qua; typecheck và lint sau delta cuối exit0, git diff --check qua. Build cuối hoàn tất manifest/bundle boundary 232 JS,192 private markers vắng. Playwright bản build qua tìm kiếm/IME/bàn phím/lọc/quay lại, lịch sử reload/lưu/tự ôn, mobile 375×812 và 812×375; lượt desktop bị Chromium đóng trước mở context, chạy riêng lại 1366×643 qua. Ảnh trực quan desktop/mobile đã xem; chưa xác minh tài khoản thật và thiết bị thật. Log trong tmp/dictionary-*.
+- **Dữ liệu giữ được:** không migration/reset, không sửa nội dung/IDs/FSRS/completion/outbox; HSK0 4/4 rich0/4, HSK1–4 rich40/40/55/78=213/213. Lịch sử tra tối đa12 mục dùng store hiện có, fence owner/reset, xóa lịch sử chỉ xóa key riêng. Không sửa/stage docs/reports/output hoặc .wrangler.
+- **Tiếp theo:** người dùng test Tàng Tự Khố; giữ IN-REVIEW, không tự mở module khác. Preview build local4173 dùng guest; chưa coi API account trên preview không binding là đã kiểm.
 ## Gỡ Khảo Luyện theo mục tiêu · 03/11/2026
 
 - **Module:** bỏ nhánh pilot `/path/practice` — IN-REVIEW. Người dùng cho phép gỡ nếu audit thấy dư thừa; chưa USER-ACCEPTED giao diện cuối.

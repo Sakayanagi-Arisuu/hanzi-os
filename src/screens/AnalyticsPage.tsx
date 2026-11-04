@@ -1,3 +1,4 @@
+import { LearningHistoryPanel } from '../profile/LearningHistoryPanel';
 import { PracticeCoverageMeter } from "../components/PracticeCoverageMeter";
 import { usePracticeCoverage } from "../learning/usePracticeCoverage";
 import {
@@ -24,7 +25,7 @@ import {
   Zap,
 } from "lucide-react";
 import { RELEASED_LESSONS, RELEASED_VOCABULARY } from "../data/curriculum";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { accessDay } from "../learning/analyticsActivity";
 import { useLearnerOverview } from "../learning/useLearnerOverview";
 import { Link } from "react-router";
@@ -95,6 +96,8 @@ const signalLabel = (
 export function AnalyticsPage() {
   const practiceCoverage = usePracticeCoverage(true);
   const detailRef = useRef<HTMLDetailsElement>(null);
+  const historyRef = useRef<HTMLDetailsElement>(null);
+  const [historyOpen, setHistoryOpen] = useState(false);
   const { state, dueWordIds, level } = useLearning();
   const interactionXp = useInteractionXp();
   const normalized = useNormalizedLearningProjection();
@@ -272,6 +275,7 @@ export function AnalyticsPage() {
           <div className="oracle-week-summary"><span><Zap size={18} aria-hidden="true" /><strong>{authenticated && !activity ? "—" : weeklyAttempts.toLocaleString("vi-VN")} lượt</strong><small>Luyện tập trong tuần</small></span><span><Activity size={18} aria-hidden="true" /><strong>{authenticated && !activity ? "—" : activeDays}/7 ngày</strong><small>Có luyện tập</small></span></div>
           <p className="oracle-disclosure"><CheckCircle2 size={15} aria-hidden="true" /> Lượt luyện gồm cả lần thử lại và dùng gợi ý; không phải mức thành thạo.</p>
           {activity?.pagePractice&&activity.pagePractice.attempts>0&&<p className="oracle-disclosure">Thiên Lộ đã lưu {activity.pagePractice.unique} hoạt động khác nhau: {activity.pagePractice.correct} lượt đúng, {activity.pagePractice.incorrect} lượt cần sửa, {activity.pagePractice.selfReview} lượt tự đối chiếu. {authenticated?'Lịch ghi theo ngày đồng bộ':'Lịch ghi theo thời gian lưu trên thiết bị'}; chưa dùng các lượt này để tăng chỉ số kỹ năng.</p>}
+          <a className="oracle-detail-link" href="#oracle-history" onClick={() => { if (historyRef.current) historyRef.current.open = true; setHistoryOpen(true); }}>Xem lịch sử học tập <ArrowRight size={16} /></a>
         </section>
 
         <section className="oracle-section oracle-pillar-panel" aria-labelledby="oracle-pillar-title">
@@ -305,6 +309,11 @@ export function AnalyticsPage() {
         </section>
       </div>
 
+      <details className="oracle-history" id="oracle-history" ref={historyRef} onToggle={event => setHistoryOpen(event.currentTarget.open)}>
+        <summary>Nhật ký tu luyện · Lịch sử học tập</summary>
+        {historyOpen && <LearningHistoryPanel />}
+      </details>
+
       <section className="oracle-section oracle-gateway-section" aria-labelledby="oracle-gateway-title">
         <header className="oracle-section-heading">
           <div>
@@ -335,6 +344,8 @@ export function AnalyticsPage() {
           })}
         </div>
       </section>
+
+
 
 
           <details className="oracle-pillar-details" id="oracle-detail" ref={detailRef}>

@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { ReviewRatingConsole } from "../components/ReviewRatingConsole";
 import { ReviewMemoryArena } from "../components/ReviewMemoryArena";
 import { MemoryReviewComplete } from "../components/MemoryReviewComplete";
@@ -227,6 +227,8 @@ export function AuthenticatedReviewPage() {
 }
 
 function AuthenticatedReviewPageScope() {
+  const location = useLocation();
+  const requestedWordId = new URLSearchParams(location.search).get('word');
   const { state, actions, sync } = useLearning();
   const { checkpoint, recordReceipt } = useLearningJourney();
   const authority = useNormalizedLearningProjection();
@@ -463,8 +465,9 @@ function AuthenticatedReviewPageScope() {
     [relevantRecords],
   );
   const availableCards = useMemo(
-    () => queue?.cards.filter((card) => !handledKeys.has(offerKey(card))) ?? [],
-    [handledKeys, queue],
+    () => queue?.cards.filter((card) => !handledKeys.has(offerKey(card)))
+      .sort((a, b) => Number(b.wordId === requestedWordId) - Number(a.wordId === requestedWordId)) ?? [],
+    [handledKeys, queue, requestedWordId],
   );
   const acknowledgedRecords = useMemo(()=>relevantRecords.filter(
     (record) => record.status === "acknowledged",

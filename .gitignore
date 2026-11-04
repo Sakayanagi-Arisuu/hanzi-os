@@ -100,3 +100,6 @@ d1-backups/**
 !*.sqlite3.example
 !*.example.db
 !*.db.example
+
+# Generated config for the compiled local runtime
+/.wrangler-runtime.local.json

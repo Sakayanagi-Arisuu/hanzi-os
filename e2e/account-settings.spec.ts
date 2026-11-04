@@ -1,0 +1,41 @@
+import { test, expect, type Page } from '@playwright/test';
+async function enter(page: Page) {
+ await page.goto('/');
+ await page.locator('#landing-main').getByRole('button',{name:'Bắt đầu hành trình'}).click();
+ await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();
+ await page.getByRole('button',{name:'Tiếp tục',exact:true}).click();
+ await page.getByRole('button',{name:'Bắt đầu Khảo Nghiệm Căn Cơ'}).click();
+ await expect(page).toHaveURL(/assessment/);
+ await page.goto('/profile?view=account');
+ await expect(page.getByRole('button',{name:'Đổi ảnh',exact:true})).toBeVisible();
+ const invite = page.getByRole('button',{name:'Đóng lời mời Khảo Nghiệm Căn Cơ'});
+ if(await invite.isVisible()) await invite.click();
+ const stop = page.getByRole('button',{name:'Dừng phát âm'});
+ if(await stop.isVisible()) await stop.click();
+}
+for (const size of [{width:1366,height:768},{width:375,height:812}]) test(`account and history ${size.width}`,async({page},info)=>{
+ await page.setViewportSize(size); await enter(page);
+ await expect(page.locator('.account-section')).toHaveCount(4);
+ await expect(page.locator('.avatar-editor')).toHaveCount(1);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:info.outputPath('account.png')});
+ await page.getByLabel('Chọn ảnh đại diện',{exact:true}).setInputFiles(info.outputPath('account.png'));
+ await expect(page.getByRole('dialog')).toBeVisible();
+ await page.getByRole('slider',{name:'Thu phóng'}).fill('1.5');
+ await page.getByRole('button',{name:'Lưu ảnh đại diện',exact:true}).click();
+ await expect(page.getByRole('dialog')).not.toBeVisible();
+ await expect(page.locator('.avatar-preview img')).toBeVisible();
+ await page.reload();
+ await expect(page.locator('.avatar-preview img')).toBeVisible();
+ await page.goto('/profile');
+ await expect(page.locator('.avatar-editor')).toHaveCount(0);
+ await expect(page.getByText('Nhật ký tu luyện · Lịch sử học tập',{exact:true})).toHaveCount(0);
+ await page.goto('/analytics');
+ await page.getByRole('link',{name:'Xem lịch sử học tập'}).click();
+ await expect(page.getByRole('combobox',{name:'Nguồn học'})).toBeVisible();
+ await expect(page.getByRole('combobox',{name:'Kỹ năng'})).toBeVisible();
+ await expect(page.locator('.learning-history').getByRole('status').filter({hasText:'Đang hiện'})).toBeVisible();
+ await page.getByRole('combobox',{name:'Nguồn học'}).selectOption('profile');
+ await expect(page.locator('.learning-history').getByRole('status').filter({hasText:'Đang hiện'})).toBeVisible();
+ await page.screenshot({path:info.outputPath('history.png')});
+});

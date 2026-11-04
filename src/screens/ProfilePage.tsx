@@ -40,8 +40,8 @@ import { isNativeApp, saveNativeJson } from '../native/nativeRuntime';
 import { Link, useSearchParams } from "react-router";
 import { Crown } from "lucide-react";
 import "./SystemGuild.css";
+import "./AccountSettings.css";
 import {
-  authorizationLabel,
   hasPermission,
 } from "../auth/authorization";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
@@ -75,7 +75,6 @@ import {
 } from "../system/systemUiPreferences";
 import type { LearningGoal, Profile } from "../types";
 import { AvatarEditor } from '../profile/AvatarEditor';
-import { LearningHistoryPanel } from '../profile/LearningHistoryPanel';
 import { DeviceRecoveryControls } from '../profile/DeviceRecoveryControls';
 
 const goals: Array<{ id: LearningGoal; label: string; description: string; icon: typeof Target }> = [
@@ -118,7 +117,6 @@ const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
   const [previewView, setPreviewView] = useState("display");
-  const [historyOpen, setHistoryOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const requestedView = searchParams.get("view");
   const view = ["journey", "display", "audio", "account"].includes(requestedView ?? "") ? requestedView! : "overview";
@@ -389,8 +387,6 @@ export function ProfilePage() {
         </div>
         <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(displayedLevel).padStart(2, "0")}</strong><small>{interactionXp.pending ? "Đang hợp nhất EXP" : `${rank.title} · ${interactionXp.totalXp} XP tương tác`}</small></div>
       </header>
-      {(view === 'overview' || view === 'account') && <AvatarEditor name={state.profile.name} />}
-      {view === 'overview' && <details className="sys-advanced" onToggle={event => setHistoryOpen(event.currentTarget.open)}><summary>Nhật ký tu luyện · Lịch sử học tập</summary>{historyOpen && <LearningHistoryPanel />}</details>}
       {view === "overview" && <Link className="premium-profile-link" to="/profile/premium"><Crown size={24} aria-hidden="true" /><span><strong>Mở bài Thiên Lộ HSK4 với Premium</strong><small>Bài HSK0–HSK3 miễn phí · Xem gói và mua bằng Ví Hanzi</small></span><span className="premium-profile-action">Xem gói <ChevronRight size={20} aria-hidden="true" /></span></Link>}
       {view === 'overview' && <AccountDeletionRecovery resume={actions.resumeAccountDeletion} ready={sync.phase !== 'checking'} />}
       {view !== "overview" && <button className="sys-back" onClick={() => openView("overview")} type="button"><ArrowLeft size={18} /> Tổng quan</button>}
@@ -764,20 +760,29 @@ export function ProfilePage() {
         }
         {view === "account" &&
         <aside className="data-control-panel">
-          <header className="section-heading"><div><span>DURABLE DATA VAULT</span><h2>Kho dữ liệu</h2></div><Database size={21} /></header>
-          <div className={`cloud-account-card ${sync.session?.authenticated ? "authenticated" : "anonymous"}`}>
-            <Cloud size={23} />
+          <AvatarEditor name={sync.session?.authenticated ? sync.session.user.displayName : state.profile.name}
+            subtitle={sync.session?.authenticated ? sync.session.user.email : 'Hồ sơ trên thiết bị này'}
+            action={sync.session?.authenticated ? <button type="button" className="secondary-button" onClick={signOut}><LogOut size={16} /> Đăng xuất</button> : <a className="secondary-button" href="/signin"><LogIn size={16} /> Đăng nhập</a>} />
+          <section className="account-section account-sync" aria-labelledby="account-sync-title">
+            <h2 id="account-sync-title"><Cloud size={23} /> Lưu trữ & đồng bộ</h2>
+            <p className="account-sync-status" role="status">{syncLabel}{syncQueueLabel ? ` · ${syncQueueLabel}` : ''}</p>
+          <div className="data-status">
+            <ShieldCheck size={24} />
             <div>
-              <strong>{sync.session?.authenticated ? sync.session.user.displayName : "Chưa kết nối tài khoản"}</strong>
-              <p>{sync.session?.authenticated ? sync.session.user.email : "Tiến độ vẫn hoạt động ngoại tuyến trên thiết bị này."}</p>
-              <small>{authorization ? `${authorizationLabel(authorization)} · ` : ""}{syncLabel}{syncQueueLabel ? ` · ${syncQueueLabel}` : ""}</small>
+              <strong>{sync.session?.authenticated ? "Local-first và có bản sao cloud" : "Dữ liệu nằm trên trình duyệt này"}</strong>
+              <p>{sync.session?.authenticated ? "Tiến trình được lưu trên thiết bị trước; thay đổi khi mất mạng sẽ được gửi lại khi có kết nối." : "Bài học, XP và lịch FSRS được lưu cục bộ; đăng nhập để phục hồi trên thiết bị khác."}</p>
             </div>
-            {sync.session?.authenticated ? (
-              <button type="button" onClick={signOut}><LogOut size={16} /> Đăng xuất</button>
-            ) : (
-              <a href="/signin"><LogIn size={16} /> Đăng nhập</a>
-            )}
           </div>
+          {sync.session?.authenticated && (
+            <button className="secondary-button full-button" type="button" onClick={syncNow} disabled={sync.phase === "syncing"}>
+              <RefreshCw className={sync.phase === "syncing" ? "spin" : ""} size={17} /> {sync.phase === "syncing" ? "Đang đồng bộ..." : "Đồng bộ ngay"}
+            </button>
+          )}
+          </section>
+          <section className="account-section account-security" aria-labelledby="account-security-title">
+            <h2 id="account-security-title"><ShieldCheck size={23} /> Bảo mật tài khoản</h2>
+            <p>Quản lý bảo mật và các phiên đăng nhập.</p>
+            {!sync.session?.authenticated && <a className="secondary-button" href="/signin">Đăng nhập để quản lý tài khoản <ChevronRight size={16} /></a>}
           {sync.session?.authenticated && (
             <a className="secondary-button full-button admin-gateway-link" href="/account/security">
               <ShieldCheck size={17} /> Bảo mật tài khoản và phiên
@@ -793,26 +798,19 @@ export function ProfilePage() {
               <ShieldCheck size={17} /> Mở Cổng Quản Trị
             </a>
           )}
-          <div className="data-status">
-            <ShieldCheck size={24} />
-            <div>
-              <strong>{sync.session?.authenticated ? "Local-first và có bản sao cloud" : "Dữ liệu nằm trên trình duyệt này"}</strong>
-              <p>{sync.session?.authenticated ? "Tiến trình được lưu trên thiết bị trước; thay đổi khi mất mạng sẽ được gửi lại khi có kết nối." : "Bài học, XP và lịch FSRS được lưu cục bộ; đăng nhập để phục hồi trên thiết bị khác."}</p>
-            </div>
-          </div>
-          <OfflineReadiness ownerKey={sync.ownerKey} />
-          <NativeAppUpdate />
+          </section>
+          <section className="account-section account-learning" aria-labelledby="account-learning-title">
+            <h2 id="account-learning-title"><Database size={23} /> Dữ liệu học tập</h2>
           <dl className="data-counters">
-            <div><dt>Thử Luyện đã thông qua</dt><dd>{completedCount ?? "—"}</dd></div>
+            <div><dt>Bài hoàn thành</dt><dd>{completedCount ?? "—"}</dd></div>
             <div><dt>Từ đã lưu</dt><dd>{state.savedWords.filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
-            <div><dt>Thẻ FSRS</dt><dd>{Object.keys(state.fsrsCards).filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
-            <div><dt>Lượt truy hồi</dt><dd>{state.reviewCount}</dd></div>
+            <div><dt>Thẻ ôn tập</dt><dd>{Object.keys(state.fsrsCards).filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
+            <div><dt>Lượt ôn</dt><dd>{state.reviewCount}</dd></div>
           </dl>
-          {sync.session?.authenticated && (
-            <button className="secondary-button full-button" type="button" onClick={syncNow} disabled={sync.phase === "syncing"}>
-              <RefreshCw className={sync.phase === "syncing" ? "spin" : ""} size={17} /> {sync.phase === "syncing" ? "Đang đồng bộ..." : "Đồng bộ ngay"}
-            </button>
-          )}
+          <details><summary>Học ngoại tuyến & cập nhật</summary><OfflineReadiness ownerKey={sync.ownerKey} /><NativeAppUpdate /></details>
+          </section>
+          <section className="account-section account-backup" aria-labelledby="account-backup-title">
+            <h2 id="account-backup-title"><Download size={23} /> Sao lưu & khôi phục</h2>
           <p>Bản xuất hiện tại chỉ giữ tiến độ học, chưa chứa đầy đủ lịch sử, phiên dở, lượt chờ gửi và ảnh đại diện. Đừng xóa bộ nhớ trình duyệt hoặc gỡ ứng dụng để chuyển dữ liệu bằng bản này.</p>
           <button className="secondary-button full-button" type="button" onClick={exportProgress}><Download size={17} /> Xuất bản tiến độ hiện tại</button>
           <DeviceRecoveryControls ownerKey={sync.ownerKey} />
@@ -827,6 +825,7 @@ export function ProfilePage() {
             onChange={(event) => void importProgress(event.target.files?.[0])}
           />
           <button className="secondary-button full-button" type="button" onClick={() => importInputRef.current?.click()}><Upload size={17} /> Phục hồi từ bản sao JSON</button>
+          </section>
           <details className="danger-zone">
             <summary>Đặt lại hoặc xóa dữ liệu</summary>
             <p>{sync.session?.authenticated ? "Đặt lại tiến độ học trên tài khoản; lệnh vẫn an toàn khi ngoại tuyến và sẽ gửi khi có mạng." : "Đưa tiến độ học trên thiết bị này về lần khởi tạo đầu tiên."}</p>

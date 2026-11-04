@@ -27,7 +27,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import {
   selectRemediationSession,
   summarizeRemediationResults,
@@ -393,6 +393,9 @@ export function RemediationObservatory({
   onSupport,
   onRevisit,
 }: RemediationObservatoryProps) {
+  const location = useLocation();
+  const requestedWord = new URLSearchParams(location.search).get('word');
+  const scopedItems = requestedWord ? items.filter(item => item.referenceWordId === requestedWord) : items;
   const [phase, setPhase] = useState<ObservatoryPhase>("map");
   const [session, setSession] = useState<readonly RemediationObservatoryItem[]>([]);
   const [current, setCurrent] = useState(0);
@@ -423,7 +426,7 @@ export function RemediationObservatory({
   };
 
   const start = () => {
-    const selected = selectRemediationSession(items);
+    const selected = selectRemediationSession(scopedItems);
     if (selected.length === 0) return;
     setSession(selected);
     setResults([]);
@@ -511,7 +514,8 @@ export function RemediationObservatory({
   return (
     <div className="content-page rem-observatory rem-celestial" data-rem-phase={phase}>
       <AstralBackdrop />
-      {phase === "map" && <RemediationAtlas items={items} resolvedCount={resolvedCount} onStart={start} />}
+      {phase === "map" && <><RemediationAtlas items={scopedItems} resolvedCount={requestedWord ? scopedItems.filter(item => item.resolved).length : resolvedCount} onStart={start} />
+        {requestedWord && <div className="rem-dictionary-context"><p>{scopedItems.length ? 'Đang xem lỗi liên quan đến mục từ đã tra.' : 'Chưa có lỗi liên quan đến mục từ này trong dữ liệu hiện có.'}</p><Link to="/mistakes">Xem tất cả lỗi cần luyện</Link><Link to={`/dictionary?view=detail&word=${encodeURIComponent(requestedWord)}`}>Quay lại mục từ</Link></div>}</>}
       {phase === "attempt" && currentItem && (
         <AttemptView
           item={currentItem}

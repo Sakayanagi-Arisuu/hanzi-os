@@ -10,3 +10,19 @@
 .learning-history :focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 3px; }
 .history-page-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 16px; }
 .history-page-controls button { min-width: 44px; }
+.oracle-history { margin-block:20px; border:1px solid #6d7045; border-radius:9px; background:#0b2822; color:#edf3f1; scroll-margin-top:24px; }
+.oracle-history > summary { padding:18px 20px; min-height:56px; cursor:pointer; font-size:20px; font-weight:650; }
+.oracle-history .learning-history { padding:0 20px 20px; }
+.oracle-history .learning-history > h2 { font-size:18px; }
+.oracle-history .learning-history p { color:#b4c9bf; font-size:14px; }
+.oracle-history .history-filters select { background:#102f29; color:#edf3f1; border-color:#477163; }
+.oracle-history .history-day { border:1px solid #31554a; border-radius:8px; overflow:hidden; margin-top:20px; }
+.oracle-history .history-day h3 { padding:12px 16px; margin:0; background:#193f33; font-size:16px; color:#f1dca3; }
+.oracle-history .history-day ol { gap:0; margin:0; }
+.oracle-history .history-day article { display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:8px 16px; border:0; border-top:1px solid #31554a; border-radius:0; padding:16px; }
+.oracle-history .history-day article > :is(h4,p) { margin:0; align-self:center; }
+.oracle-history .history-day article details { grid-column:1/3; }
+.oracle-history .history-day article > a { color:#65edc7; }
+.oracle-history .history-page-controls { justify-content:flex-end; }
+.oracle-history :focus-visible { outline:2px solid #43f2d0; outline-offset:3px; }
+@media(max-width:760px) { .oracle-history .history-day article { grid-template-columns:1fr; } .oracle-history .history-day article details { grid-column:auto; } .oracle-history .learning-history { padding:0 12px 16px; } }

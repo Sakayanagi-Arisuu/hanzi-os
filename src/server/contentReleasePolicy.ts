@@ -53,10 +53,14 @@ export const personalStudyPolicy = (manifestSha256: string): ContentReleasePolic
   personalStudy: manifestSha256 === CURRENT_CONTENT_MANIFEST_SHA256,
 });
 
+declare const __HANZI_LOCAL_OFFLINE_PREVIEW__: boolean;
+export const localBuildContentPolicy = (nodeEnvironment: string | undefined, localPreview: boolean) =>
+  localPreview ? personalStudyPolicy(CURRENT_CONTENT_MANIFEST_SHA256) : contentReleasePolicyForEnvironment(nodeEnvironment);
+
 export const CURRENT_CONTENT_RELEASE_POLICY =
   typeof __HANZI_HOSTED_STUDY__ !== 'undefined' && __HANZI_HOSTED_STUDY__
     ? personalStudyPolicy(__HANZI_HOSTED_STUDY__.manifestSha256)
-    : contentReleasePolicyForEnvironment(process.env.NODE_ENV);
+    : localBuildContentPolicy(process.env.NODE_ENV, typeof __HANZI_LOCAL_OFFLINE_PREVIEW__ !== 'undefined' && __HANZI_LOCAL_OFFLINE_PREVIEW__);
 
 export const isPromotedContentReleasePolicy = (
   policy: ContentReleasePolicy,

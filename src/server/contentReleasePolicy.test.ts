@@ -5,6 +5,7 @@ import {
   isPromotedContentReleasePolicy,
   promotedCourseReleaseState,
   personalStudyPolicy,
+  localBuildContentPolicy,
   isLearningContentAvailable,
   learningCourseReleaseState,
   learningReviewSql,
@@ -80,4 +81,12 @@ describe("runtime content release policy", () => {
       promotionManifestSha256: "sha256:stale",
     })).toBe(false);
   });
+});
+
+it('opens local compiled study without changing the normal production policy', () => {
+  const local = localBuildContentPolicy('production', true);
+  expect(isLearningContentAvailable(local)).toBe(true);
+  expect(isPromotedContentReleasePolicy(local)).toBe(false);
+  expect(local.productionEligible).toBe(false);
+  expect(isLearningContentAvailable(localBuildContentPolicy('production', false))).toBe(false);
 });

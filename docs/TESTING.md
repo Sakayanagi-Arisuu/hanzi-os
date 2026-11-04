@@ -9,6 +9,15 @@ npm install
 npm run dev
 ```
 
+Nếu Vinext dev gặp `Network connection lost` ở RSC, dừng server dev rồi dùng runtime đã build tại **cùng origin**, giữ nguyên cookie, IndexedDB và D1 local:
+
+```powershell
+npm run build:offline-local
+npm run dev:stable
+```
+
+`dev:stable` chạy worker build bằng Wrangler tại cổng3000, dùng `.wrangler/state` và `.dev.vars` hiện có; tự áp migration còn thiếu, không reset dữ liệu. Cần build lại sau thay đổi source, không có hot reload. Không chạy đồng thời với `npm run dev`.
+
 Mở `http://localhost:3000`. `npm run dev` áp dụng migration D1 local rồi chạy
 Vinext. Nếu chỉ cần dựng lại schema D1:
 

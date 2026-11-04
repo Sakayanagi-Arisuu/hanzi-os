@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { DictionaryExperience } from "./DictionaryExperience";
 import { selectDictionaryEntry } from './dictionarySelection';
+import { dictionarySearchIndex, searchDictionary } from './dictionarySearch';
 import {
   getLessonExpansionPack,
   getLessonIdForMegaWord,
@@ -26,12 +27,6 @@ import { currentWorkspaceScope } from '../sync/workspaceSync';
 import { saveDictionaryActivity } from '../sync/dictionaryActivity';
 import { practiceObservationsConfirmed } from '../sync/practiceConfirmation';
 import "./DictionaryPage.css";
-
-const normalizeSearch = (value: string) => value
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .toLowerCase()
-  .trim();
 
 const megaToneNumbers = (word: MegaVocabularyItem) => [...word.pinyinNumbered.matchAll(/[1-5]/gu)]
   .map((match) => Number(match[0]) % 5);
@@ -76,6 +71,13 @@ export function DictionaryPage() {
   const [deepLookupWords, setDeepLookupWords] = useState<DictionaryWord[]>([]);
   const [deepLookupPending, setDeepLookupPending] = useState(false);
   const [loadError, setLoadError] = useState("");
+  const [deepLookupError, setDeepLookupError] = useState(false);
+  const [online, setOnline] = useState(() => typeof navigator === 'undefined' || navigator.onLine);
+  useEffect(() => {
+    const update = () => setOnline(navigator.onLine);
+    window.addEventListener('online', update); window.addEventListener('offline', update);
+    return () => { window.removeEventListener('online', update); window.removeEventListener('offline', update); };
+  }, []);
   const [query, setQuery] = useState(requestedQuery);
   const [lessonScope, setLessonScope] = useState(Boolean(requestedLessonId));
   const [savedOnly, setSavedOnly] = useState(false);
@@ -114,23 +116,24 @@ export function DictionaryPage() {
 
   useEffect(() => {
     let active = true;
+    setDeepLookupError(false);
     if (!/\p{Script=Han}/u.test(query.trim())) {
       setDeepLookupWords([]);
       setDeepLookupPending(false);
       return () => { active = false; };
     }
     setDeepLookupPending(true);
-    searchMegaVocabularyByHanzi(query)
+    const timer = window.setTimeout(() => { void searchMegaVocabularyByHanzi(query)
       .then((words) => {
         if (active) setDeepLookupWords(words.map(megaWordView));
       })
       .catch(() => {
-        if (active) setDeepLookupWords([]);
+        if (active) { setDeepLookupWords([]); setDeepLookupError(true); }
       })
       .finally(() => {
         if (active) setDeepLookupPending(false);
-      });
-    return () => { active = false; };
+      }); }, 150);
+    return () => { active = false; window.clearTimeout(timer); };
   }, [query]);
   useEffect(() => {
     setQuery(requestedQuery);
@@ -156,16 +159,14 @@ export function DictionaryPage() {
       .map((word) => word.id);
     return new Set([...requestedLesson.wordIds, ...packIds, ...studioIds]);
   }, [artifact, publishedVocabulary, requestedLesson]);
+  const searchIndex = useMemo(() => dictionarySearchIndex(allWords), [allWords]);
   const results = useMemo(() => {
-    const normalized = normalizeSearch(query);
-    return allWords.filter((word) => {
+    return searchDictionary(searchIndex, query).filter((word) => {
       if (lessonScope && lessonWordIds && !lessonWordIds.has(word.id)) return false;
       if (savedOnly && (!word.isCore || !state.savedWords.includes(word.id))) return false;
-      if (!normalized) return true;
-      const haystack = [word.simplified, word.traditional, word.pinyin, word.pinyinNumbered, word.meaning, ...word.tags].join(" ");
-      return normalizeSearch(haystack).includes(normalized);
+      return true;
     });
-  }, [allWords, lessonScope, lessonWordIds, query, savedOnly, state.savedWords]);
+  }, [searchIndex, lessonScope, lessonWordIds, query, savedOnly, state.savedWords]);
   const selected = selectDictionaryEntry({ words: allWords, results, detail: requested.get('view') === 'detail',
     requestedWordId: requested.get('word'), selectedId });
   const selectResult = async (wordId: string) => {
@@ -181,7 +182,7 @@ export function DictionaryPage() {
       await saveDictionaryActivity(scope, word, operationId, 'lookup', lessonWordIds?.has(wordId) ? requestedLessonId : null);
       lookupRetry.current = null;
       setSelectedId(wordId);
-      setActivityStatus(sync.session?.authenticated ? 'Đã giữ lượt tra cứu trên thiết bị; đang chờ đồng bộ.' : 'Đã lưu lượt tra cứu; không tính là trả lời đúng hay mức thành thạo.');
+      setActivityStatus('');
       if (!journeyChallenge || !requestedLessonId || !checkpoint || !lessonWordIds?.has(wordId)) return true;
       challengedWordIdsRef.current.add(wordId);
       challengeOperations.current.set(wordId, operationId);
@@ -227,5 +228,8 @@ export function DictionaryPage() {
       .slice(0, 8);
   }, [allWords, selected]);
 
-  return <DictionaryExperience words={allWords} results={results} selected={selected} related={relatedWords} lessonId={selectedPathLessonId} query={query} setQuery={setQuery} select={selectResult} setSavedOnly={setSavedOnly} status={activityStatus || (loadError ? "Kho cốt lõi vẫn dùng được; kho mở rộng chưa tải được." : publishedVocabularyState === "unavailable" ? "Mục từ mới tạm gián đoạn; kho hiện tại vẫn dùng được." : deepLookupPending ? "Đang tra mục từ…" : publishedVocabularyState === "loading" && showPublishedVocabularyLoading ? "Đang tải mục từ mới…" : "")} />;
+  return <DictionaryExperience words={allWords} results={results} selected={selected} related={relatedWords} lessonId={selectedPathLessonId} query={query} setQuery={setQuery} select={selectResult} setSavedOnly={setSavedOnly}
+    pending={!artifact && !loadError || deepLookupPending || publishedVocabularyState === 'loading'}
+    incomplete={!online || Boolean(loadError) || deepLookupError || publishedVocabularyState === 'unavailable'}
+    status={activityStatus || (!online ? 'Đang dùng kho từ đã tải trên thiết bị.' : loadError || deepLookupError ? "Kho đã tải vẫn dùng được; một phần kho mở rộng chưa tải được." : publishedVocabularyState === "unavailable" ? "Mục từ mới tạm gián đoạn; kho hiện tại vẫn dùng được." : deepLookupPending ? "Đang tra mục từ…" : publishedVocabularyState === "loading" && showPublishedVocabularyLoading ? "Đang tải mục từ mới…" : "")} />;
 }
