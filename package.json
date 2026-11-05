@@ -298,7 +298,7 @@
     "@capacitor/core": "8.5.3",
     "drizzle-orm": "^0.45.2",
     "lucide-react": "^0.468.0",
-    "next": "16.2.11",
+    "next": "16.4.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-router": "^8.3.0",
@@ -332,6 +332,6 @@
   },
   "overrides": {
     "postcss": "8.5.23",
-    "sharp": "0.35.3"
+    "sharp": "0.35.5"
   }
 }

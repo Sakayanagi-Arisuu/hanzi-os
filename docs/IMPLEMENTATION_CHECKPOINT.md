@@ -1,3 +1,11 @@
+## Hợp nhất main và hướng dẫn cài đặt · 05/11/2026
+
+- **Module:** tích hợp bản local / tài liệu repo — IN-REVIEW. Người dùng yêu cầu commit, hợp nhất và push main; nghiệm thu giao diện vẫn chờ người dùng.
+- **Người học thấy gì:** README tập trung chức năng và cài đặt độc lập thư mục; bản local build có launcher tự áp migration, giữ dữ liệu hiện có. Local preview chỉ nhận loopback; policy production vẫn đóng. Gộp Tàng Tự Khố, Tài khoản & dữ liệu và Nhật ký vào main.
+- **Đã kiểm:** worktree riêng không có .dev.vars hoặc D1 cũ: npm ci qua, build:offline-local/typecheck qua; launcher khởi tạo D1, đăng ký tài khoản và 6 API session/sync/projection/analytics/content/catalog trả200. Playwright tài khoản2/2, từ điển5/5 qua desktop/mobile; policy/direct-hosting/course-version20/20 qua. Nâng Next16.4.5 và sharp0.35.5 cùng transitive lockfile; lockfile policy qua, npm audit --omit=dev báo0. Full audit còn65 cảnh báo dev (47moderate/18high); không coi toàn dependency tree sạch. Full check ở mốc trước có1timeout đã retry qua; không ghi full-check mới exit0.
+- **Dữ liệu giữ được:** không sửa schema/nội dung/IDs/FSRS/completion/outbox/owner-reset hoặc dữ liệu người dùng. HSK0 4/4 rich0/4; HSK1–4 rich213/213. Không stage docs/reports, output, .wrangler hay các thư mục kết quả riêng.
+- **Tiếp theo:** push main theo yêu cầu, xác minh SHA remote và trạng thái CI; người dùng test giao diện. Không deploy/public hosting.
+
 ## Khôi phục localhost:3000 · 04/11/2026
 
 - **Module:** runtime local — IN-REVIEW. Vinext dev/RSC trả500 Network connection lost, API dev cũng gián đoạn. Chuyển sang Wrangler chạy worker đã build trực tiếp tại localhost:3000; không còn Node proxy hoặc API dev phía sau. Đây là workaround runtime; chưa sửa nguyên nhân upstream RSC/workerd dev.
