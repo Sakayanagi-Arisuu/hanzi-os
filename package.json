@@ -293,15 +293,15 @@
     "dev:stable": "node scripts/serve-built-local.mjs"
   },
   "dependencies": {
-    "@capacitor/android": "8.5.3",
+    "@capacitor/android": "8.6.0",
     "@capacitor/app": "8.1.2",
-    "@capacitor/core": "8.5.3",
-    "drizzle-orm": "^0.45.2",
+    "@capacitor/core": "8.6.0",
+    "drizzle-orm": "^0.45.4",
     "lucide-react": "^0.468.0",
     "next": "16.4.5",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-router": "^8.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router": "^8.5.1",
     "ts-fsrs": "^5.2.0"
   },
   "devDependencies": {
@@ -310,8 +310,8 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.61.1",
     "@types/node": "22.19.19",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "5.2.0",
     "@vitejs/plugin-rsc": "0.5.26",
     "drizzle-kit": "^0.31.10",
